@@ -1,0 +1,117 @@
+.Page {
+  overflow: scroll;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  padding-left: 70px;
+  box-sizing: border-box;
+}
+.Page__row {
+  margin-bottom: 40px;
+}
+.Page__description {
+  font-weight: 300;
+}
+.Page__title {
+  font-weight: 700;
+  font-size: 24px;
+}
+.Page__subtitle {
+  font-weight: 400;
+}
+.Page__space {
+  margin-bottom: 10px;
+}
+.Page__video {
+  width: 100%;
+}
+.Page__credits {
+  position: fixed;
+  bottom: 10px;
+}
+.Page__title,
+.Page__subtitle,
+.Page__description,
+.Page__row__company,
+.Page__row__period,
+.Page__row__title,
+.Page__row__desc {
+  margin-bottom: 10px;
+}
+
+.Page__row__company {
+  grid-area: company;
+  font-weight: 400;
+}
+.Page__row__period {
+  grid-area: period;
+  font-weight: 300;
+}
+.Page__row__title {
+  grid-area: title;
+  font-weight: 400;
+}
+.Page__row__desc {
+  grid-area: description;
+  font-weight: 300;
+}
+.Page__row__demo {
+  grid-area: demo;
+}
+.Page__row__demo__link,
+.Page__row__skill {
+  font-weight: 400;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: white;
+  margin: 2px 4px 2px 0;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: inline-block;
+}
+.Page__row__demo__link {
+  background: #424343;
+}
+.Page__row__skills {
+  grid-area: skill;
+}
+.Page__row__skill {
+  background: #626363;
+}
+
+@media (min-width:801px)  {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .Page__row {
+    display: grid;
+    grid-template: "company title"
+                   "period description"
+                   "skill skill"
+                   "demo demo" /
+                   30% 70%;
+
+  }
+}
+.Page__skills__skill {
+  display: grid;
+  grid-template: "skill" "star";
+  margin-bottom: 4px;
+}
+
+@media (min-width:350px) {
+  .Page__skills__skill {
+    grid-template: "skill star" / 40% 60%;
+  }
+}
+
+.Page__skills__skill__title {
+  grid-area: skill;
+  font-weight: 300;
+}
+.Page__skills__skill__stars {
+  grid-area: star;
+}
+.Page__skills__skill__star {
+  margin-right: 2px;
+}

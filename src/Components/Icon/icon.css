@@ -1,0 +1,56 @@
+.Icon__div {
+  border-radius: 50%;
+  background-color: white;
+  width: 45px;
+  height: 45px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid rgba(77,77,77, 0.2);
+  transition: box-shadow cubic-bezier(0.2, 0, 0.57, 1) 0.5s, transform cubic-bezier(0.2, 0, 0.57, 1) 0.5s, opacity cubic-bezier(0.2, 0, 0.57, 1) 0.3s;
+}
+.Icon__div:hover {
+  box-shadow: 0px 0px 10px 0px rgba(77, 77, 77, 0.5);
+  transform: scale(1.04);
+}
+
+.Icon__div--hide {
+  transform: scale(0.7) translate(50px, 50px);
+  opacity: 0;
+}
+
+.Icon__img {
+  width: 100%;
+  height: 100%;
+}
+
+.Icon__innerDiv {
+  margin-top: 8px;
+  font-size: 6px;
+  color: #555;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.Icon__innerDiv--active {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition-delay: 0.5s;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.Icon__innerDiv--active_1 {
+  transition-delay: 0.6s;
+}
+.Icon__innerDiv--active_2 {
+  transition-delay: 0.8s;
+}
+.Icon__innerDiv--active_3 {
+  transition-delay: 1.0s;
+}
+.Icon__innerDiv--active_4 {
+  transition-delay: 1.2s;
+}
+.Icon__div--active {
+  border-width: 3px;
+}
