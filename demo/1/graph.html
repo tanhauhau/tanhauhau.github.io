@@ -1,0 +1,473 @@
+<!doctype html>
+<html>
+<head>
+  <title>43.115.50.73</title>
+
+<!--   <script type="text/javascript" src="<?//php echo $filename; ?>"></script> -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <style type="text/css">
+  	body{
+		font-family: sans-serif;
+	}
+	.non-selectable{
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+    .graph {
+      width: 100%;
+      height: 100%;
+    }
+    #popup{
+    	position: fixed;
+    	bottom: 10px;
+    	right: 10px;
+    	border: 1px solid lightgray;
+    	border-radius: 4px;
+    	background-color: #fff;
+    	padding: 5px;
+		font-size: 12px;
+		min-width: 180px
+    }
+    .popup-table td:nth-child(1){
+    	padding-right: 10px;
+    }
+	.popup-link{
+		text-decoration: none;
+		padding: 3px;
+		display: block;
+		text-align: center;
+		font-size: 13px;
+	}
+	.popup-link:hover{
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	}
+	.popup-link.disabled,
+	.popup-link.disabled:hover {
+		color: rgba(0,0,0,0.3);
+		cursor: default;
+		pointer-events: none;
+	}
+    .graph.hovered .edges line:not(.hovered),
+    .graph.hovered.super-hovered .edges line.selected:not(.hovered),
+    .graph.hovered .nodes path:not(.hovered),
+    .graph.hovered.super-hovered .nodes path.selected:not(.hovered){
+    	opacity: 0.1;
+    }
+
+    .graph .edges line.type0{
+    	stroke: #f0f;
+    }
+    .graph .edges line.type1{
+    	stroke: #f00;
+    }
+    .graph .edges line.type2{
+    	stroke: #000;
+    }
+    .graph .edges line.type3{
+    	stroke: #00f;
+    }
+	.graph .edges line.type4,
+	.graph .edges line.type5,
+	.graph .edges line.type6{
+		stroke: #090;
+	}
+	.graph .edges line.type7{
+		stroke: #0ff;
+	}
+	.graph .nodes path{
+		cursor: pointer;
+		fill: #000;
+	}
+	.graph .nodes path.clicked{
+		fill: #ff0;
+		stroke: #000;
+	}
+	/*legend*/
+	#legendcontainer{
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+		background-color: #fff;
+		color: #fff;
+		cursor: default;
+	}
+	#legendcontainer td{
+		padding: 3px 6px;
+		border-radius: 5px;
+	}
+	#legendcontainer .type1{
+		background-color: #f00;
+	}
+	#legendcontainer .type2{
+		background-color: #000;
+	}
+	#legendcontainer .type3{
+		background-color: #00f;
+	}
+	#legendcontainer .type4{
+		/* 	fin or fin ack */
+		background-color: #090;
+	}
+	#legendcontainer .type0{
+		background-color: #f0f;
+	}
+	#legendcontainer .dst{
+		background-color: #FF8000;
+	}
+	#legendcontainer .src{
+		background-color: #B404AE;
+	}
+	#legendcontainer .length1{
+		background-color: #0000FF;
+	}
+	#legendcontainer .length2{
+		background-color: #8000FF;
+	}
+	#legendcontainer .length3{
+		background-color: #FF00FF;
+	}
+	#legendcontainer .length4{
+		background-color: #FF0080;
+	}
+	#legendcontainer table{
+		width:115px;
+	}
+	#legendcontainer table:nth-child(n+2){
+		position:absolute;
+		bottom:0px;
+	}
+	#legendcontainer table:nth-child(2){
+		left:115px;
+	}
+	#legendcontainer table:nth-child(3){
+		left:230px;
+	}
+	#legendcontainer table:hover tr:not(.selected) td:not(:hover),
+	#legendcontainer .selected tr:not(.selected) td{
+		opacity: 0.3;
+	}
+	#legendcontainer .selected tr:not(.selected) td:hover{
+		opacity: 1;
+	}
+	#legendcontainer table i{
+		display: none;
+	}
+	#getlistbtn{
+		position: fixed;
+		bottom: 140px;
+		margin: 4px;
+		border: 1px solid rgba(80,80,80,0.8);
+		padding: 3px;
+		display: block;
+		cursor: pointer;
+		border-radius: 5px;
+		background-color: #fff;
+	}
+	#getlistbtn:hover {
+		background-color: rgb(230,230,230);
+	}
+	#getlistbtn.hide{
+		opacity: 0;
+	}
+	#legendcontainer tr.selected td{
+		-moz-box-shadow: inset 2px 2px 8px rgba(0,0,0,0.6);
+		-webkit-box-shadow: inset 2px 2px 8px rgba(0,0,0,0.6);
+		box-shadow: inset 2px 2px 8px rgba(0,0,0,0.6);
+	}
+	#loadingcontainer.hide{
+		display: none;
+	}
+	#loadingcontainer{
+		position: fixed;
+		text-align: center;
+		top: 0px;
+		font-size: 36px;
+		color: #555;
+		width: 100%;
+	}
+	#iplist{
+		position:fixed;
+		top: 200px;
+	}
+	#iplist.hide{
+		opacity: 0;
+	}
+	#iptextarea{
+		resize: none;
+	}
+	#copycontainer{
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
+		margin: 2px;
+		margin-right: -30px;
+		box-sizing: border-box;
+	}
+	#copybutton{
+		width: 16px;
+		background-color: #eee;
+		padding: 4px;
+		border-radius: 5px;
+		border: 1px solid #333;
+		cursor:pointer;
+	}
+	#copyalert{
+		position: absolute;
+		color: #fff;
+		background-color: #000;
+		padding: 3px 5px;
+		border-radius: 5px;
+		font-size: 12px;
+		bottom: 4px;
+		left: 26px;
+		margin-left: 4px;
+	}
+	#copyalert.hide{
+		display:none;
+	}
+	#copybutton.zeroclipboard-is-hover{
+		background-color: #ddd;
+	}
+  </style>
+</head>
+
+<body>
+
+<div id="mynetwork" class="graph"></div>
+<!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="script.js"></script>
+
+<div id="popup">
+	<a href="" target="_blank" id="popup-conn" class="popup-link disabled">See Connection <i class="fa fa-external-link-square"></i></a>
+	<a href="" target="_blank" id="popup-netw" class="popup-link disabled">See Network Graph <i class="fa fa-external-link-square"></i></a>
+	<table class="popup-table">
+	<tr><td>IP</td><td id="popup-ip">-</td></tr>
+	<tr><td>#SYNC</td><td id="popup-sync">-</td></tr>
+	<tr><td>#SYNC-ACK</td><td id="popup-syncack">-</td></tr>
+	<tr><td>#Open</td><td id="popup-open">-</td></tr>
+	<tr><td>#FIN</td><td id="popup-fin">-</td></tr>
+	<tr><td>#FIN-ACK</td><td id="popup-finack">-</td></tr>
+	<tr><td>#Closing</td><td id="popup-closing">-</td></tr>
+	<tr><td>#Closed</td><td id="popup-closed">-</td></tr>
+	<tr><td>#Reset</td><td id="popup-reset">-</td></tr>
+	</table>
+</div>
+<div id="getlistbtn" class="hide non-selectable">Get List of Highlighted IP</div>
+<div id="iplist" class="hide">
+	<textarea id="iptextarea"></textarea>
+	<div id="copycontainer">
+		<div id="copybutton" data-clipboard-target="iptextarea">
+		<i class="fa fa-files-o"></i>
+		</div>
+		<div id="copyalert" class="hide non-selectable">Copied</div>
+	</div>
+</div>
+<div id="legendcontainer" class="non-selectable">
+<table>
+	<tr><td class="type1">Sync</i></td></tr>
+	<tr><td class="type2">Sync-Ack</i></td></tr>
+	<tr><td class="type3">Ack</i></td></tr>
+	<tr><td class="type4">Fin/Fin-Ack</i></td></tr>
+	<tr><td class="type0">Rst/Rst-Ack</i></td></tr>
+</table>
+<table>
+	<tr>
+		<td class="dst"><svg width="10px" height="10px">
+			<path d="M5,0L10,10 0,10Z" style="fill: #fff;"></path>
+		</svg> Destination</i></td>
+	</tr>
+	<tr>
+		<td class="src"><svg width="10px" height="10px">
+			<path d="M1,1L9,1 9,9 1,9Z" style="fill: #fff;"></path>
+		</svg> Source</i></td>
+	</tr>
+</table>
+<table>
+	<tr><td class="length4">Nearest</i></td></tr>
+	<tr><td class="length3">Near</i></td></tr>
+	<tr><td class="length2">Far</i></td></tr>
+	<tr><td class="length1">Furthest</i></td></tr>
+</table>
+</div>
+
+<style>
+	#loadingcontainer i.fa.fa-spinner{
+		animation:spin 5s linear 0s infinite;
+		-webkit-animation:spin 5s linear 0s infinite; /* Safari and Chrome */
+	}
+	@keyframes spin{
+		from {transform: rotate(0deg);}
+		to {transform: rotate(360deg);}
+	}
+	@-webkit-keyframes mymove{ /* Safari and Chrome */
+		from {transform: rotate(0deg);}
+		to {transform: rotate(360deg);}
+	}
+</style>
+<div id="loadingcontainer"><i class="fa fa-spinner"></i> Processing Data...</div>
+
+<!-- search ip -->
+<div id="searchcontainer">
+	<div class="input-group">
+		<input type="text" class="form-control" placeholder="Search IP"></input>
+		<span class="input-group-btn">
+		<button id="searchbtn" class="btn" type="button"><i class="fa fa-search"></i></button>
+		</span>
+	</div>
+	<div id="searchalert" class="hide non-selectable">IP: <span id="searchcontainerip"></span> Not Found!</div>
+</div>
+<style>
+	#searchcontainer{
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		width: 250px;
+	}
+	.input-group {
+		position: relative;
+		display: table;
+		border-collapse: separate;
+	}
+	.input-group .form-control:first-child{
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.input-group-btn:last-child>.btn{
+		margin-left: -1px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.input-group-btn, .input-group .form-control {
+		display: table-cell;
+	}
+	.input-group-btn {
+		position: relative;
+		font-size: 0;
+		white-space: nowrap;
+		width: 1%;
+		vertical-align: middle;
+	}
+	.input-group .form-control {
+		position: relative;
+		z-index: 2;
+		float: left;
+		width: 100%;
+		margin-bottom: 0;
+	}
+	.form-control {
+		display: block;
+		width: 100%;
+		height: 34px;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+		-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+	input.form-control:focus {
+		border-color: #66afe9;
+		outline: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	}
+	.input-group-btn>.btn {
+		position: relative;
+	}
+	.btn {
+		display: inline-block;
+		padding: 6px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-image: none;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		color: #333;
+		background-color: #fff;
+		border-color: #ccc;
+	}
+	.btn:hover{
+		background-color: #e6e6e6;
+		border-color: #adadad;
+	}
+	#searchcontainer button,
+	#searchcontainer input{
+		margin: 0;
+		box-sizing: border-box;
+	}
+	#searchcontainer #searchalert{
+		color: #a94442;
+		background-color: #f2dede;
+		border-color: #ebccd1;
+		padding: 5px;
+		margin-top: 3px;
+		border-radius: 3px;
+		cursor: default;
+		transition: display 0.8s;
+	}
+	#searchcontainer #searchalert.hide{
+		display: none;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("#searchcontainer input[type='text']").keydown(function(e){
+			if(e.which == 13){
+				search();
+			}
+		});
+		$("#searchbtn").click(search);
+
+		function search(){
+			var ip = $("#searchcontainer input[type='text']").val();
+			if(ip!=""){
+				ip = ip.replace(/\./g,"_")
+				var node = $("path." + ip);
+				if(node.length > 0){
+					//small hack, deselect previous selected node
+					d3.select(prevClicked).classed("clicked", false);
+					prevClicked = false;
+					//create click event
+					var evt = document.createEvent("MouseEvents");
+					evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+					node[0].dispatchEvent(evt);
+				}else{
+					$("#searchcontainer #searchalert").removeClass("hide");
+					$("#searchcontainerip").html(ip);
+					setTimeout(function(){
+						$("#searchcontainer #searchalert").addClass("hide");
+					}, 1000);
+				}
+			}
+			$("#searchcontainer input[type='text']").val("");
+		}
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "short_name": "Tan Li Hau",
+  "name": "Tan Li Hau",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#CA2E55",
+  "background_color": "#ffffff"
+}
