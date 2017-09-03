@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+    .graph{
+        height: 100%;
+    }
+	/*normal path*/
+	.foreground path, .time{
+		opacity: 1;
+	}
+	.foreground path {
+	  fill: none;
+	  stroke-width: 1.2px;
+	  shape-rendering: crispEdges;
+	}
+	.foreground path.thick{
+		stroke-width: 2.5px;
+	}
+	/*path when hovered*/
+	.foreground path.thick.hovered{
+		stroke-width: 2.8px;
+	}
+	.foreground path.hovered{
+		stroke-width: 2px;
+	}
+	.graph.hovered .foreground path:not(.hovered){
+		opacity: 0.005;
+	}
+	/* path type label */
+	.foreground path.type1{
+		stroke: #f00;
+	}
+	.foreground path.type2{
+		stroke: #000;
+	}
+	.foreground path.type3{
+		stroke: #00f;
+	}
+	.foreground path.type4{
+		/* 	fin or fin ack */
+		stroke: #090;
+	}
+	.foreground path.type0{
+		stroke: #f0f;
+	}
+	.foreground path.type5,
+	.foreground path.type6,
+	.foreground path.type7,
+	.foreground path.type8,
+	.foreground path.type9{
+		stroke-dasharray: 3,3;
+		stroke: black;
+	}
+
+	#legendcontainer{
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+		background-color: #fff;
+		color: #fff;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		cursor: default;
+	}
+	#legendcontainer td{
+		padding: 3px 6px;
+		border-radius: 5px;
+	}
+	#legendcontainer .type1{
+		background-color: #f00;
+	}
+	#legendcontainer .type2{
+		background-color: #000;
+	}
+	#legendcontainer .type3{
+		background-color: #00f;
+	}
+	#legendcontainer .type4{
+		/* 	fin or fin ack */
+		background-color: #090;
+	}
+	#legendcontainer .type0{
+		background-color: #f0f;
+	}
+	#legendcontainer:hover td:not(:hover){
+		opacity: 0.3;
+	}
+	/*axis*/
+	.axis{
+		stroke: rgba(0,0,0,0.4);
+		stroke-width: 1.5px;
+	}
+	body{
+		font-family: sans-serif;
+	}
+	.text{
+		font-size: 10px;
+	}
+	.title{
+		text-anchor: middle;
+		font-weight: bold;
+	}
+	.title text.hovered{
+		font-size: 12px;
+	}
+	.time text{
+		opacity: 0;
+	}
+	.time text.hovered{
+		opacity: 1;
+	}
+	.time, .title{
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		cursor:default;
+	}
+	/* info */
+	#info{
+		position: fixed;
+		opacity: 1;
+		transition: opacity 0.5s;
+		background-color: rgba(255,255,255,0.8);
+		padding: 5px;
+		border: 1px solid rgba(0,0,0,0.5);
+		border-radius: 4px;
+		font-size: 12px;
+	}
+	#info.hide{
+		opacity: 0;
+	}
+	#info table td:first-child{
+		padding-right: 5px;
+	}
+	/*graph*/
+/*
+	div.graph{
+		padding: 5px;
+		border: 1px solid rgba(0,0,0,0.8);
+		border-radius:3px;
+	}
+ */
+	#rstcontainer{
+		position: fixed;
+		top: 10px;
+		left: 10px;
+	}
+	#rstcontainer btn,
+	#rstcontainer btn:focus,
+	#rstcontainer btn:active{
+		/* not able to highlight text */
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+		background-image: none;
+		cursor: pointer;
+		display: inline-block;
+		padding: 6px 10px;
+		border-radius: 4px;
+		vertical-align: middle;
+		text-align: center;
+
+		color: #adadad;
+		border: 0px;
+		outline: 0px;
+		font-size: 14px;
+		transition: 0.5s;
+	}
+	#rstcontainer btn:hover{
+		color: #333;
+		text-decoration: none;
+	}
+	#rstcontainer btn:focus{
+		color: #adadad;
+	}
+	#rstcontainer.hide,
+	#loadingcontainer.hide{
+		display: none;
+	}
+	#loadingcontainer{
+		position: absolute;
+		text-align: center;
+		top: 0px;
+		font-size: 36px;
+		color: #555;
+		width: 100%;
+	}
+	#savingcontainer{
+		position: absolute;
+		top: 0px;
+		font-size: 16px;
+	}
+    </style>
+  </head>
+  <body>
+  <div class="graph"></div>
+  <div id="info" class="hide text">
+  	<table>
+		<tr><td>Source</td><td id="src-td"></td></tr>
+  		<tr><td>Destination</td><td id="dst-td"></td></tr>
+		<tr><td>SourcePort</td><td id="srcport-td"></td></tr>
+		<tr><td>DestinationPort</td><td id="dstport-td"></td></tr>
+		<tr><td>Size</td><td id="size-td"></td></tr>
+  	</table>
+  </div>
+  <div id="rstcontainer" class="hide"><btn>Reset</btn></div>
+  <div id="legendcontainer">
+  	<table>
+		<tr><td class="type1">Sync</td></tr>
+  		<tr><td class="type2">Sync-Ack</td></tr>
+		<tr><td class="type3">Ack</td></tr>
+		<tr><td class="type4">Fin/Fin-Ack</td></tr>
+		<tr><td class="type0">Rst/Rst-Ack</td></tr>
+  	</table>
+  </div>
+  <div id="loadingcontainer"><i class="fa fa-spinner"></i> Processing Data...</div>
+  <div id="savingcontainer"></div>
+  <script type="text/javascript"  src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<!--   <script src="fisheye.js"></script> -->
+  <script type="text/javascript">
+    $(function(){
+        $("body").height($(window).height());
+
+        var filename = "data.csv";
+      	var date = "03/31/2001";
+      	var domains = ['199.16.201.237','98.43.169.211'];
+      	var w = $(".graph").width();
+      	var h = 450;
+
+    	var timeformat = d3.time.format("%X.%L");
+
+    	//zoom
+    	var zoom = d3.behavior.zoom()
+    			.scaleExtent([0.01, 20])
+    			.on("zoom", zoomed);
+
+      	var svg = d3.select(".graph").append("svg:svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+    	.append("svg:g")
+    	.call(zoom);
+
+    	var container = svg.append("g");
+    	var background = container.append("rect")
+    						.attr("x",-w*50)
+    						.attr("y",-h*2)
+    						.attr("width",w*100)
+    						.attr("height",h*4)
+    						.attr("fill", "white")
+    						.attr("opacity",0);
+
+    	var foreground, time, sportline, dportline;
+
+    	function updateInfo(d){
+    		//info
+    		var info = $("#info");
+    		info.removeClass("hide");
+    		//move info to the right place
+    		info.css("left", (d3.event.pageX + 10) + "px");
+    		var winheight = $(window).height();
+    		var height = info.height();
+    		var top = $(document).scrollTop();
+    		var mouseY = d3.event.pageY;
+    		if (mouseY - top + height > winheight){
+    			info.css("top", (mouseY - top - height - 10) + "px");
+    		}else{
+    			info.css("top", (mouseY - top + 10) + "px");
+    		}
+    		//update info
+    		$("#src-td").html(d.SourceIP);
+    		$("#srcport-td").html(d.SourcePort);
+    		$("#dst-td").html(d.DestIP);
+    		$("#dstport-td").html(d.DestPort);
+    		$("#size-td").html(d.Size);
+    	}
+    	function getIndexFilter(index){
+    		return function(d){ return d.index == index; }
+    	}
+    	function selectPath(d){
+    		foreground.filter(getIndexFilter(d.index))
+    				  .classed("hovered",true);
+    		time.filter(getIndexFilter(d.index))
+    			.classed("hovered",true);
+    		sportline.filter(getIndexFilter(d.index))
+    			.classed("hovered",true);
+    		dportline.filter(getIndexFilter(d.index))
+    			.classed("hovered",true);
+    		$(".graph").addClass("hovered");
+    		updateInfo(d);
+    	}
+    	function deselectPath(){
+    		var info = $("#info");
+    		info.addClass("hide");
+    		info.css("top", "999px");
+    		info.css("left","999px");
+    		//hovered class
+    		foreground.classed("hovered",false);
+    		time.classed("hovered",false);
+    		sportline.classed("hovered",false);
+    		dportline.classed("hovered",false);
+    		$(".graph").removeClass("hovered");
+    	}
+    	function selectPort(port, src){
+    		var path;
+    		if(src){
+    			path = $(".foreground path.src.sport"+port+", .foreground path.dst.dport"+port);
+    		}else{
+    			path = $(".foreground path.src.dport"+port+", .foreground path.dst.sport"+port);
+    		}
+    		d3.selectAll(path).classed("hovered", true);
+    		$(".graph").addClass("hovered");
+    	}
+    	var data = d3.csv(filename, function(row) {
+    		var dformat = d3.time.format("%x %X.%L");
+
+    		var srcport = d3.set(), dstport = d3.set();
+    		row.forEach(function(e, i){
+    			e.time = dformat.parse(date + " " + e.time.substring(0,e.time.length-3)).getTime();
+    			e.index = i;
+    			e.SourcePort = +e.SourcePort;
+    			e.DestPort = +e.DestPort;
+
+    			if (e.SourceIP == domains[0]){
+    				e.dir = "src";
+    				srcport.add(e.SourcePort);
+    				dstport.add(e.DestPort);
+    			}else{
+    				e.dir = "dst";
+    				srcport.add(e.DestPort);
+    				dstport.add(e.SourcePort);
+    			}
+    		});
+
+    		var ypadding = 20;
+    		var ydelay = 80;
+    		var width = 200;
+    		var xScaleRange = [w/2-width/2, w/2+width/2];
+    		var xScale = d3.scale.ordinal().domain(domains).rangePoints(xScaleRange);
+     		var yScale = d3.scale.linear()
+     				.domain([d3.min(row, function(d) { return d.time; }),
+     						d3.max(row, function(d) { return d.time; }) + ydelay])
+     				.range([ypadding,h-ypadding]);
+
+    		var sportScale = d3.scale.ordinal()
+    						.domain(srcport.values())
+    						.rangePoints([w/2-width, w/2-width-srcport.size()*width/2]);
+    		var dportScale = d3.scale.ordinal()
+    						.domain(dstport.values())
+    						.rangePoints([w/2+width, w/2+width+dstport.size()*width/2]);
+    		//arrow marker
+    		container.append("svg:defs")
+    			.append("svg:marker")
+    			.attr("id", "arrow")
+    			.attr("viewBox", "0 0 10 10")
+    			.attr("refX", 9)
+    			.attr("refY", 5)
+    			.attr("markerWidth", 7.5)
+    			.attr("markerHeight", 7.5)
+    			.attr("orient", "auto")
+    			.attr("markerUnits", "userSpaceOnUse")
+    		  .append("svg:path")
+    			.attr("d", "M0 0 L 10 5 L 0 10 z")
+    			.attr("fill","context-stroke");
+
+    		//draw lines
+    		var line = d3.svg.line();
+
+    		foreground = container.append("svg:g")
+    							.attr("class", "foreground")
+    							.attr("marker-end", "url(#arrow)")
+    							.selectAll("path")
+    							.data(row)
+    							.enter().append("svg:path")
+    							.attr("d", function(d){
+    								return line([[xScale(d.SourceIP), yScale(d.time)],[xScale(d.DestIP), yScale(d.time+ydelay)]]);
+    							})
+    							.attr('class', function(d){
+    								return  "type" + d.Type + " " + d.dir
+    										+ " sport"+ d.SourcePort + " dport" + d.DestPort;
+    							})
+    							.classed('thick', function(d){
+    								return +d.Size > 0;
+    							})
+    							.on("mouseover", selectPath)
+    							.on("mouseout", deselectPath);
+    		var axis = container.append("svg:g")
+    					.attr("class", "axis")
+    					.selectAll("path")
+    					.data(xScaleRange)
+    					.enter()
+    					.append("svg:path")
+    					.attr("d",function(d){
+    						return line([[d, ypadding/2],[d, h]]);
+    					});
+    		var title = container.append("svg:g")
+    					.attr("class", "title text")
+    					.selectAll("text")
+    					.data(domains)
+    					.enter()
+    					.append("svg:text")
+    					.attr("x", function(d){ return xScale(d);})
+    					.attr("y", function(){ return ypadding/2 - 2;})
+    					.text(function(d){ return d;})
+    					.on("mouseover", function(d, i){
+    						d3.selectAll($("svg ." + ["src","dst"][i])).classed("hovered",true);
+    						$(".graph").addClass("hovered");
+    						d3.select(this).classed("hovered",true);
+    					})
+    					.on("mouseout", function(){
+    						deselectPath();
+    						d3.select(this).classed("hovered", false)
+    					});
+
+    		time = container.append("svg:g")
+    					.attr("class", "time text")
+    					.selectAll("text")
+    					.data(row)
+    					.enter()
+    					.append("svg:text")
+    					.attr("x", function(d){
+    						var x;
+    						if(d.dir == "src"){
+    							 x = sportScale(d.SourcePort);
+    						 }else{
+    						 	x = dportScale(d.SourcePort);
+    						 }
+    						return (x < w/2)? x - 2: x + 2;})
+    					.attr("y", function(d){ return yScale(d.time) - 1;})
+    					.text(function(d){
+    						return timeformat(new Date(d.time));
+    						})
+    					.attr("text-anchor", function(d){ return (xScale(d.SourceIP) < w/2)? "end": "start" })
+    // 					.attr("alignment-baseline", "middle")
+    					.attr("class", function(d){
+    						return d.dir;
+    					})
+    					.on("mouseover", selectPath)
+    					.on("mouseout", deselectPath);
+
+    		sportAxis = container.append("svg:g")
+    					.attr("class", "axis sport-axis")
+    					.selectAll("path")
+    					.data(srcport.values())
+    					.enter()
+    					.append("svg:path")
+    					.attr("d", function(d){
+    						 return line([[sportScale(d), ypadding/2],[sportScale(d), h]]);
+    					})
+    					.attr("class", function(d){
+    						return "sport" + d;
+    					});
+    		dportAxis = container.append("svg:g")
+    					.attr("class", "axis dport-axis")
+    					.selectAll("path")
+    					.data(dstport.values())
+    					.enter()
+    					.append("svg:path")
+    					.attr("d", function(d){
+    						 return line([[dportScale(d), ypadding/2],[dportScale(d), h]]);
+    					})
+    					.attr("class", function(d){
+    						return "dport" + d;
+    					});
+    		dportTitle = container.append("svg:g")
+    					.attr("class", "text title dport-title")
+    					.selectAll("text")
+    					.data(dstport.values())
+    					.enter()
+    					.append("svg:text")
+    					.text(function(d){ return "Port " + d.toString()})
+    					.attr("x", function(d){ return dportScale(d);})
+    					.attr("y", function(){ return ypadding/2 - 2;})
+    					.on("mouseover", function(d){
+    						selectPort(d, false);
+    					})
+    					.on("mouseout", deselectPath);
+
+    		sportTitle = container.append("svg:g")
+    					.attr("class", "text title sport-title")
+    					.selectAll("text")
+    					.data(srcport.values())
+    					.enter()
+    					.append("svg:text")
+    					.text(function(d){ return "Port " + d.toString()})
+    					.attr("x", function(d){ return sportScale(d);})
+    					.attr("y", function(){ return ypadding/2 - 2;})
+    					.on("mouseover", function(d){
+    						selectPort(d, true);
+    					})
+    					.on("mouseout", deselectPath);
+
+    		 sportline = container.append("svg:g")
+    		 			.attr("class", "sportline foreground")
+    		 			.selectAll("path")
+    		 			.data(row)
+    		 			.enter()
+    		 			.append("svg:path")
+    		 			.attr("d", function(d){
+    		 				if(d.dir == "src"){
+    		 					return line([[sportScale(d.SourcePort), yScale(d.time)],[xScale(d.SourceIP), yScale(d.time)]]);;
+    		 				}else{
+    		 					return line([[xScale(d.DestIP), yScale(d.time+ydelay)],[sportScale(d.DestPort), yScale(d.time+ydelay)]]);;
+    		 				}
+    		 			})
+    					.attr('class', function(d){
+    						return  "type" + d.Type + " " + d.dir
+    								+ " sport"+ d.SourcePort + " dport" + d.DestPort;
+    					})
+    					.classed('thick', function(d){ return +d.Size > 0; })
+    					.attr("marker-end", function(d){ return (d.dir == "dst")?"url(#arrow)":null})
+    					.on("mouseover", selectPath)
+    					.on("mouseout", deselectPath);
+
+    		 dportline = container.append("svg:g")
+    		 			.attr("class", "dportline foreground")
+    		 			.selectAll("path")
+    		 			.data(row)
+    		 			.enter()
+    		 			.append("svg:path")
+    		 			.attr("d", function(d){
+    		 				if(d.dir == "src"){
+    		 					return line([[xScale(d.DestIP), yScale(d.time+ydelay)],[dportScale(d.DestPort), yScale(d.time+ydelay)]]);;
+    		 				}else{
+    		 					return line([[dportScale(d.SourcePort), yScale(d.time)],[xScale(d.SourceIP), yScale(d.time)]]);;
+    		 				}
+    		 			})
+    					.attr('class', function(d){
+    						return  "type" + d.Type + " " + d.dir
+    								+ " sport"+ d.SourcePort + " dport" + d.DestPort;
+    					})
+    					.classed('thick', function(d){ return +d.Size > 0; })
+    					.attr("marker-end", function(d){ return (d.dir == "src")?"url(#arrow)":null})
+    					.on("mouseover", selectPath)
+    					.on("mouseout", deselectPath);
+
+    		$("#legendcontainer td").hover(function(e){
+    			d3.selectAll($(".graph .foreground path." + $(this).attr("class")))
+    				.classed("hovered", true);
+    			$(".graph").addClass("hovered", true);
+    		}, deselectPath);
+
+    		$("#loadingcontainer").addClass("hide");
+
+    	});
+    	function zoomed() {
+    		container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    		$("#rstcontainer").removeClass("hide");
+    	}
+    	$("#rstcontainer btn").click(function(){
+    		container.transition().duration(500).attr("transform", "translate(0,0)scale(1)");
+    		zoom.translate([0,0]).scale(1);
+    		$("#rstcontainer").addClass("hide")
+    	});
+    });
+  </script>
+
+  </body>
+</html>
