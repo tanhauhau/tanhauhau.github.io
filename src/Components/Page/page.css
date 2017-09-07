@@ -1,8 +1,5 @@
 .Page {
-  overflow: scroll;
   position: absolute;
-  height: 100%;
-  width: 100%;
   padding: 10px;
   padding-left: 70px;
   box-sizing: border-box;

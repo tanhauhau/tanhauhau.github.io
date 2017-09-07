@@ -1,6 +1,6 @@
 .MoveAround {
   transition: transform cubic-bezier(0.2, 0, 0.57, 1) 0.5s;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 5;
