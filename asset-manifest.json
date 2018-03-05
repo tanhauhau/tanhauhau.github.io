@@ -1,12 +1,4 @@
 {
-  "main.css": "static/css/main.5c08d3b7.css",
-  "main.css.map": "static/css/main.5c08d3b7.css.map",
-  "main.js": "static/js/main.a6ced7ea.js",
-  "main.js.map": "static/js/main.a6ced7ea.js.map",
-  "static/media/briefcase.svg": "static/media/briefcase.5f154d71.svg",
-  "static/media/laptop.svg": "static/media/laptop.45dff9c1.svg",
-  "static/media/mortarboard.svg": "static/media/mortarboard.d0852ff6.svg",
-  "static/media/phone-book.svg": "static/media/phone-book.8780b753.svg",
-  "static/media/profile.svg": "static/media/profile.76be5ab1.svg",
-  "static/media/tan_li_hau.jpg": "static/media/tan_li_hau.76c16a03.jpg"
+  "main.js": "static/js/main.009d9000.js",
+  "main.js.map": "static/js/main.009d9000.js.map"
 }
