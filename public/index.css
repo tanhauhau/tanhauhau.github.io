@@ -1,0 +1,61 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, dl, dt, dd, a, div {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.home-page {
+  background-color: #612E77;
+  color: #FAF0FD;
+}
+
+.content {
+  margin: auto;
+}
+
+.personal-info {
+  margin: 60px auto;
+  text-align: center;
+}
+
+.photo {
+  margin: 0 auto 20px;
+}
+
+.photo img {
+  width: 230px;
+  height: 230px;
+  border-radius: 100%;
+}
+
+.blurb {
+  margin: 1.5em 0 0.25em;
+  font-size: 2.5em;
+}
+
+.blurb-subtitle {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  font-weight: 300;
+}
+
+.personal-info .connections {
+  margin: 1.5em 0 0.25em;
+  font-size: 2.5em;
+}
+
+.personal-info .connections li {
+  display: inline;
+  margin-right: 40px;
+  list-style-type: none;
+}
+
+.personal-info .connections a {
+  color: #8B679B;
+}
+
+.personal-info .connections a:hover {
+  color: #FAF0FD;
+}
