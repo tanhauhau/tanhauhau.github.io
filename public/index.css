@@ -9,6 +9,8 @@ h1, h2, h3, h4, h5, h6, p, dl, dt, dd, a, div {
 .home-page {
   background-color: #612E77;
   color: #FAF0FD;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .content {
@@ -18,6 +20,7 @@ h1, h2, h3, h4, h5, h6, p, dl, dt, dd, a, div {
 .personal-info {
   margin: 60px auto;
   text-align: center;
+  max-width: 100%;
 }
 
 .photo {
@@ -58,4 +61,33 @@ h1, h2, h3, h4, h5, h6, p, dl, dt, dd, a, div {
 
 .personal-info .connections a:hover {
   color: #FAF0FD;
+}
+
+nav {
+  padding: 10px 20px;
+  background-color: #A68BB1;
+}
+
+.navbar {
+  display: block;
+  text-align: right;
+  list-style-type: none;
+  padding: 0;  
+}
+
+.navbar li {
+  display: inline;
+  margin: 0 5px;
+  padding: 12px 18px;
+  list-style-type: none;
+  border-radius: 8px;
+}
+
+.navbar li.selected, .navbar li:hover {
+  background-color: #8B679B;
+}
+
+.navbar li a {
+  color: #FAF0FD;
+  text-decoration: none;
 }
