@@ -15,5 +15,5 @@ workbox.precaching.precacheAndRoute([
   { url: '/main.min.js', revision: 'bd9a94f' },
   { url: '/index.min.css', revision: '9ac1bcd' },
   { url: '/assets/tan_li_hau.png', revision: '09c88d4' },
-  { url: '/index.html', revision: '5f38175' }
+  { url: '/index.html', revision: '6a9e5f0' }
 ]);
