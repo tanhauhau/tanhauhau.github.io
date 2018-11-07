@@ -12,7 +12,7 @@ function animateImage() {
 // load styles
 var links = [
   'https://fonts.googleapis.com/css?family=Roboto:300,400,700',
-  '/index.css'
+  '/index.min.css'
 ];
 links.forEach(function(linkUrl) {
   var link = document.createElement('link');
