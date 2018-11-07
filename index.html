@@ -21,13 +21,17 @@
 
   <title>Tan Li Hau</title>
 
+  <link rel="preload" href="/index.min.css" as="style">
+  <link rel="preload" href="/main.min.js" as="script">
+  <link rel="preload" href="/assets/tan_li_hau.png" as="image">
+
   <link rel="manifest" href="manifest.json">
   <link rel="shortcut icon" href="favicon.ico">
   <script type="application/ld+json">{"@context": "http://schema.org","@type": "Person","email": "mailto:lhtan93@gmail.com","image": "assets/tan_li_hau.jpg","jobTitle": "Software Engineer (Frontend)","name": "Tan Li Hau","alumniOf": "Nanyang Technological University","birthPlace": "Bukit Mertajam, Malaysia","birthDate": "1993.12.18","height": "178cm","gender": "male","memberOf": "Republican Party","nationality": "Malaysian","url": "https://www.lihautan.com","sameAs" : [ "https://linkedin.com/in/lihautan","https://stackoverflow.com/users/1513547/lihau-tan","http://github.com/tanhauhau","https://medium.com/@LihauTan"]}</script>
   <script type="application/ld+json">{"@context": "http://schema.org", "@type": "WebSite", "url": "https://http://lihautan.com/","name": "Tan Li Hau","author": {"@type": "Person","name": "Tan Li Hau"},"description": "Hi, I'm Li Hau! A passionate frontend developer who is enthusiastic about technology."}</script>
   <noscript>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css' />
-    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="/index.min.css" rel="stylesheet" type="text/css" />
   </noscript>
 </head>
 
@@ -35,9 +39,9 @@
   <div class="content">
     <div class="personal-info">
       <div class="photo">
-        <img id="hero" class="hidden" src="assets/tan_li_hau.png" alt="Tan Li Hau" />
+        <img id="hero" style="opacity:0" height="230" width="230" src="assets/tan_li_hau.png" alt="Tan Li Hau" />
         <noscript>
-          <img class="noscript" src="assets/tan_li_hau.png" alt="Tan Li Hau" />
+          <img class="noscript" src="/assets/tan_li_hau.png" alt="Tan Li Hau" />
         </noscript>
       </div>
       <h1 class="blurb">Hello, I'm Li Hau!</h1>
@@ -54,38 +58,7 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    (function () {
-      var img = new Image();
-      img.onload = done;
-      img.src = "assets/tan_li_hau.png";
-      if (img.complete) {
-        done();
-      }
-      function done() {
-        document.getElementById("hero").classList.remove('hidden')
-      }
-    })();
-    (function () {
-      // load styles
-      var links = ['https://fonts.googleapis.com/css?family=Roboto:300,400,700', '/index.css'];
-      links.forEach(function (linkUrl) {
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = linkUrl;
-        link.type = 'text/css';
-        document.head.append(link);
-      })
-    })();
-
-    // Check that service workers are registered
-    if ('serviceWorker' in navigator) {
-      // Use the window load event to keep the page load performant
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-  </script>
+  <script async defer src="/main.min.js" type="text/javascript"></script>
 </body>
 
 </html>
