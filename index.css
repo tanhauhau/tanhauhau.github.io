@@ -21,7 +21,13 @@ dt,
 dd,
 a,
 div {
-  font-family: "Roboto", sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+a {
+  color: #612e77;
+  text-decoration-style: dotted;
+  font-weight: 400;
 }
 
 .home-page {
@@ -51,6 +57,18 @@ div {
   font-size: 1.5em;
   margin-top: 1.5em;
   font-weight: 300;
+}
+
+.blurb-paragraph {
+  line-height: 1.5;
+  font-size: 1.4em;
+  max-width: 620px;
+  margin: 1em auto 0;
+  font-weight: 300;
+}
+
+.blurb-shopee {
+  color: #ff5722;
 }
 
 .personal-info .connections {
