@@ -57,13 +57,12 @@
   <script type="text/javascript">
     (function () {
       var img = new Image();
-      img.onload = function () {
-        console.log('!!!');
-        document.getElementById("hero").classList.remove('hidden')
-      };
+      img.onload = done;
       img.src = "assets/tan_li_hau.png";
       if (img.complete) {
-        console.log('???');
+        done();
+      }
+      function done() {
         document.getElementById("hero").classList.remove('hidden')
       }
     })();
@@ -78,6 +77,14 @@
         document.head.append(link);
       })
     })();
+
+    // Check that service workers are registered
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
   </script>
 </body>
 
