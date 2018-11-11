@@ -12,8 +12,8 @@ workbox.routing.registerRoute(
 
 // git hash
 workbox.precaching.precacheAndRoute([
-  { url: '/main.min.js', revision: 'bd9a94f' },
-  { url: '/index.min.css', revision: '9ac1bcd' },
+  { url: '/5a2a6e65.js', revision: '5a2a6e65' },
+  { url: '/e96eb65b.css', revision: 'e96eb65b' },
   { url: '/assets/tan_li_hau.png', revision: '09c88d4' },
-  { url: '/index.html', revision: '6a9e5f0' }
+  { url: '/index.html', revision: '944cbddb' }
 ]);
