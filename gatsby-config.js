@@ -1,11 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Tan Li Hau`,
+    author: `Tan Li Hau`,
+    description: `Tan Li Hau is a frontend engineer who is currently working in Shopee`,
+    siteUrl: `https://lihautan.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `lihautan`,
+      github: 'tanhauhau',
+      stackOverflow: `1513547/lihau-tan`,
+      linkedIn: `lihautan`,
     },
   },
   plugins: [
@@ -57,13 +60,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Tan Li Hau`,
+        short_name: `Tan Li Hau`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        background_color: `#faf0fd`,
+        theme_color: `#612e77`,
+        display: `fullscreen`,
+        icon: `content/assets/profile-pic.png`,
       },
     },
     `gatsby-plugin-offline`,
