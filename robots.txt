@@ -1,2 +1,2 @@
-User-Agent:*
-Sitemap: https://lihautan.com/sitemap.txt
+User-agent: *
+Disallow:

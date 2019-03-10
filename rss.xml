@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 10 Mar 2019 13:01:06 GMT</lastBuildDate><item><title><![CDATA[5 Steps to build NodeJS using Travis CI]]></title><description><![CDATA[1. What is Travis CI Travis CI  is a  Continuous Integration  service used to build and test software projects hosted at  GitHub . Or in…]]></description><link>https://lihautan.com/5-steps-to-build-nodejs-using-travis-ci/</link><guid isPermaLink="false">https://lihautan.com/5-steps-to-build-nodejs-using-travis-ci/</guid><pubDate>Wed, 13 Apr 2016 08:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. What is Travis CI&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://travis-ci.org&quot;&gt;Travis CI&lt;/a&gt;&lt;/strong&gt; is a &lt;strong&gt;Continuous Integration&lt;/strong&gt; service used to build and test software projects hosted at &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Or in simple terms, when you push a commit to the master branch of your project hosted at GitHub, Travis CI will run tests and build the latest commit of your master branch.&lt;/p&gt;
+&lt;p&gt;It’s that simple. You push a commit → Travis CI run tests and build. Automatically.&lt;/p&gt;
+&lt;h2&gt;2. How do I use Travis CI&lt;/h2&gt;
+&lt;p&gt;Go to &lt;a href=&quot;https://travis-ci.org&quot;&gt;Travis CI&lt;/a&gt;. Sign in using your GitHub account. You will be prompted to authorise Travis CI to your GitHub account. Approved that.&lt;/p&gt;
+&lt;p&gt;When you see something like this:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6e3cf01ef134813445a2764dbe24357c/61f10/travis.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 55.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABj0lEQVQoz42P3WrCMBTH+x4iIvix1i61tSI6BrvyHVRcBZ9NmF4ovsDEx9jFNhgbY4P1KzZJ07Tdseo+upv9COGf9vxycqQPwLY9z3MzfN8nGUHGITDKGAl3J6DGcRyMsZQmSSxEHMdpCjGhhMA/27bBgQCXUkIfXx7u3bv0DxLmPOD8cAAZM0Ypg4aMsX1PxkQsAroLOP5yoFMYhkII6cl9xZQEIUmTlAr2jN/COAoiQiIaJ3u+nSSGskhECaQM6dV7349FApBBeHSf4Z0e9kPOwYQKcYJz7rgODAJtj/LPGZgI3+jH/v1pkv4DKXe+3Wxms9l8Pr/JmP9msVisVqv1er1cLrfbbV4eDUeFQkGW5VqtVqlUYK9Wq5UTpVKpXC7Dl2KxaFlWXp5Op42G3Ov1Li66pmkipDWOqLBkWVFVtd/vI4TG43FenkwmIF9edjsds9XS223DMJoQYBmG1mwiTUPttlmv10ajYV62rGtNU66uet2uaRio1UK6fq7rsCNVlRWlrihnYMJog8HgE1ed6sXP8zTtAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;travis&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6e3cf01ef134813445a2764dbe24357c/623ee/travis.png&quot;
+        srcset=&quot;/static/6e3cf01ef134813445a2764dbe24357c/816c5/travis.png 148w,
+/static/6e3cf01ef134813445a2764dbe24357c/c766b/travis.png 295w,
+/static/6e3cf01ef134813445a2764dbe24357c/623ee/travis.png 590w,
+/static/6e3cf01ef134813445a2764dbe24357c/e5345/travis.png 885w,
+/static/6e3cf01ef134813445a2764dbe24357c/7a439/travis.png 1180w,
+/static/6e3cf01ef134813445a2764dbe24357c/84fe0/travis.png 1770w,
+/static/6e3cf01ef134813445a2764dbe24357c/61f10/travis.png 2400w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Voila. You have created a Travis CI account.&lt;/p&gt;
+&lt;p&gt;Next thing you are going to do is to click the &lt;code class=&quot;language-text&quot;&gt;(+)&lt;/code&gt; button beside the &lt;em&gt;“My Repositories”&lt;/em&gt; on the left.&lt;/p&gt;
+&lt;p&gt;You will then see a list of projects on your GitHub.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4bf79c589919e8f4fcacb7c8f4fda005/61f10/travis-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 55.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABIElEQVQoz5WSu07DQBBF/ecUCIREiZQW+AYKSrqIwkBj2RayoIUEbO/b++bGG4wTEIJbrGbGe+bujJzFUcMwKKXip5AyiLIQQpwJyYtUT++tH+vZdBuaLjlrCe8JJ84aZ/Xl+UWe56g/3N+dLRZciXRtA6M9E1xrneLk9fj2/EpWwRqm6MHp4e1yieLVzfXRybG3+gv2MRDJpRDzRzLJKCXGaGM1lXRQ0hrNFBMSNsOOsxCCC4Gxkz+C9WrtnDOgtcYU274heu8nj+3MqQQBQNp1XVmWINFUSol1IMa5t78s7ip9BlxVFQA+CuaI557/gOEJMn7Tz3Df93VdW2sxPJ6dFvFXuG3boijAJOfN/0JpWsdvcBIhpGma5Dxpb2DoA1uffdH1gXVKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;travis&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4bf79c589919e8f4fcacb7c8f4fda005/623ee/travis-2.png&quot;
+        srcset=&quot;/static/4bf79c589919e8f4fcacb7c8f4fda005/816c5/travis-2.png 148w,
+/static/4bf79c589919e8f4fcacb7c8f4fda005/c766b/travis-2.png 295w,
+/static/4bf79c589919e8f4fcacb7c8f4fda005/623ee/travis-2.png 590w,
+/static/4bf79c589919e8f4fcacb7c8f4fda005/e5345/travis-2.png 885w,
+/static/4bf79c589919e8f4fcacb7c8f4fda005/7a439/travis-2.png 1180w,
+/static/4bf79c589919e8f4fcacb7c8f4fda005/84fe0/travis-2.png 1770w,
+/static/4bf79c589919e8f4fcacb7c8f4fda005/61f10/travis-2.png 2400w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;If the list of repositories is empty, click “Sync account” to fetch all your repositories.&lt;/p&gt;
+&lt;p&gt;Turn on one of your project for Continuous Integration!&lt;/p&gt;
+&lt;p&gt;That’s all.&lt;/p&gt;
+&lt;h2&gt;3. How to build a Node.js project using Travis CI&lt;/h2&gt;
+&lt;p&gt;Create a file name &lt;code class=&quot;language-text&quot;&gt;.travis.yml&lt;/code&gt; at the root folder of your project.&lt;/p&gt;
+&lt;p&gt;Copy this into the file.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;travis.yml:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;language: node_js
+node_js:
+  - 4.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Commit and Push. That’s simple.&lt;/p&gt;
+&lt;p&gt;Or if you are lazy, run this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;curl https://gist.githubusercontent.com/tanhauhau/405e39884e80288615a7b51181fd5228/raw/9045c2e219547f0a228da630abff345d8add0c47/.travis.yml &amp;gt; .travis.yml&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The version of Node.js I am using is 4.2 at the time of writing this article. To be safe, you can run “node — version” on your command line to determine which version of Node.js you are running.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Make sure that you have all your dependencies persists to the package.json as Travis CI will install all the dependencies from it by calling npm install.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Another thing to take note is that if you wanna run your test script, make sure to include it in the &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ea1fc213261bc9adc9f16d577d1cf7a3/cffd4/package-json.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 44.66145833333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAABLklEQVQoz3WQ62rCQBCF8x657XVm9hpjjDGJim1BSqH91fd/lm5iQQSFj2XZ2TNz5mTKKrtDrhUEZbZAG6AWyloUFb9R1i/JXI/jd+wu3vVm+Az7a4AAAhSTgqmELNlrsR+ov/r24roPH0e7fbObk40TJQu2xzASV2qZ/6xFFg40/zRJ1r+n01CrFemi4HnO8pLlBSvKm3/2RFwLGY8URsOVtgP4GcNMYcZ4ojChnygekTqdXGCrU6MHMQULEaRVwkhFIFBykEwLruW6s+Ag6nX/SojyMb8s1ebfsP/ym4tpJl/VsigXh8uQauFp7BVbyCombQ8pYbfHeKY4k9lB8uwGcAf0I5oOwpGaMyXzfkI3pBQxlZKXzDQWG1BWK69qIe7IlfWe/v3f5f09zf8DUz9QL41BfhYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;packagejson&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ea1fc213261bc9adc9f16d577d1cf7a3/623ee/package-json.png&quot;
+        srcset=&quot;/static/ea1fc213261bc9adc9f16d577d1cf7a3/816c5/package-json.png 148w,
+/static/ea1fc213261bc9adc9f16d577d1cf7a3/c766b/package-json.png 295w,
+/static/ea1fc213261bc9adc9f16d577d1cf7a3/623ee/package-json.png 590w,
+/static/ea1fc213261bc9adc9f16d577d1cf7a3/cffd4/package-json.png 768w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h2&gt;4. How do I use bower and install bower dependencies&lt;/h2&gt;
+&lt;p&gt;If you are using bower, add a before_script for .travis.yml&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;language: node_js
+node_js:
+  - 4.2
+before_script:
+  - npm install -g bower
+  - bower install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Or likewise if you are lazy, copy and paste this to your command line.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;curl https://gist.githubusercontent.com/tanhauhau/71998bf221810186f046db94cda10c4e/raw/d1e8aee0981a96c20f94de6db386da048face423/.travis.yml &amp;gt; .travis.yml&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;One thing to take note for bower is that when there is dependency conflict, bower will ask you to choose which version of the dependency to be installed interactively. In the case for Travis CI, Travis CI will not know which version to install it for you where you will see an error like this:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a6db19b080c368076dded9856cdfc138/d6f10/bower.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 22.386483632523756%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAApUlEQVQI122PXQ6DIBCEPYmAgFLYxRQpuvh3AX3w/pcpaWLSJv0y2czDTna2Os/TAzz3XYbQez/PMxFt27YsS/GZKOccY3TOSSmbGyGEMaY6jgMAx5wfiN77kkwpres6TtNEVEYIYRiG/+FymTNmlDKy0VK2St36eK2kEHVdM8bEF5zzruuq67qcfdCY0ium0i8EsLYH8M6Vd9BZBFf22l+01oj4Bil2KiE8c67XAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;bower&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a6db19b080c368076dded9856cdfc138/623ee/bower.png&quot;
+        srcset=&quot;/static/a6db19b080c368076dded9856cdfc138/816c5/bower.png 148w,
+/static/a6db19b080c368076dded9856cdfc138/c766b/bower.png 295w,
+/static/a6db19b080c368076dded9856cdfc138/623ee/bower.png 590w,
+/static/a6db19b080c368076dded9856cdfc138/e5345/bower.png 885w,
+/static/a6db19b080c368076dded9856cdfc138/7a439/bower.png 1180w,
+/static/a6db19b080c368076dded9856cdfc138/84fe0/bower.png 1770w,
+/static/a6db19b080c368076dded9856cdfc138/d6f10/bower.png 1894w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Therefore, you will have to &lt;a href=&quot;https://jaketrent.com/post/bower-resolutions/&quot;&gt;persists the resolution to bower.json&lt;/a&gt; to avoid the build error.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;5. Include a Travis CI badge&lt;/h2&gt;
+&lt;p&gt;To summarise, you have set up your Travis CI, copied and pasted the &lt;code class=&quot;language-text&quot;&gt;.travis.yml&lt;/code&gt; to your project, commited and pushed your project to GitHub, and Travis CI had built and tested your project.&lt;/p&gt;
+&lt;p&gt;Now, it’s time to add a badge to your GitHub repository!&lt;/p&gt;
+&lt;p&gt;Simply clicked the badge in Travis CI and choose for Markdown.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7b58bf8025eb10e655b552d925bbdd74/7f37b/badge.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 48.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABTUlEQVQoz3VRS27CMBD1JbJhSRcgUFY5AIdAQpyABefgMKw4AMeoVKmq+pGqLiog8dhO4l+S9iUuASrxNHqKxzOeNy8sz/OyLIUQugOORVEgY7T5+Hp/oSffuJ87YESEzsPhoDocj0fOuVASzW+fr8/Z47/muq6rqgI3TcO8cwicjTHee7DznozFfV+NOnwEds5BFxh5ZtFQVejGXairz+gmVKhzWtd53ljbPxEKWGmMtO3QNn0HRmtJlCuFmVAXnmhlC46tCT5Jqf5CXUJIBQchwVob9uqXb5tTUt8nTkqTKgNzeYlMFG2SCI6ergBfoYLhz/Asg+FSSjDq4Dn+WXkGhmw2m9lsNp/PF4tF4OVyud/vGST5W9RnnwHcgtfrdRRFDx2m0+lwOIzjeLfbsTRN+S2yK0AhVl2tVoPBYDQajcfjJEkmkwle2W63v9wbEueK/QBpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;badge&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7b58bf8025eb10e655b552d925bbdd74/623ee/badge.png&quot;
+        srcset=&quot;/static/7b58bf8025eb10e655b552d925bbdd74/816c5/badge.png 148w,
+/static/7b58bf8025eb10e655b552d925bbdd74/c766b/badge.png 295w,
+/static/7b58bf8025eb10e655b552d925bbdd74/623ee/badge.png 590w,
+/static/7b58bf8025eb10e655b552d925bbdd74/e5345/badge.png 885w,
+/static/7b58bf8025eb10e655b552d925bbdd74/7a439/badge.png 1180w,
+/static/7b58bf8025eb10e655b552d925bbdd74/84fe0/badge.png 1770w,
+/static/7b58bf8025eb10e655b552d925bbdd74/7f37b/badge.png 1920w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Copy and paste the line into your README.md.&lt;/p&gt;
+&lt;p&gt;Commit and Push.&lt;/p&gt;
+&lt;p&gt;And now you have a Travis CI badge on your repo!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5b0b15e75e2202e4528806c42c473b35/513bc/badge-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 65.41200406917599%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAAA+klEQVQoz5WSyW6DMBCGef93aV+hpyj3HmgIQiEBgZFj43gHL+kkXOghMf0lS5Y93+xZjNEYo7U2K1lr5cR9dPe3yrz3P3leVdXxWJRl+bgUxeFQ7E5fdMZgAd5fwiGEruvatkUIvbF7CQ/D0DTNGo6L7glfGRyokFyvjDEpFedcCPGPyJTScRwJIfNTzrmtMDSsri/Vqa7PjXMenkKI4alkCyBynKY5Bh+8wxj3CEtthTQ3rrwPyZpjftafe/mxV7tvioceioDMYdhpGHJjwiJqe2Ipt8u+wAfUnoYhbSWlUUIKJvgN1muZ1UY4LH1aT3g7/LCLf7UR/gW3YfnzSWhGkQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;badge&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5b0b15e75e2202e4528806c42c473b35/623ee/badge-2.png&quot;
+        srcset=&quot;/static/5b0b15e75e2202e4528806c42c473b35/816c5/badge-2.png 148w,
+/static/5b0b15e75e2202e4528806c42c473b35/c766b/badge-2.png 295w,
+/static/5b0b15e75e2202e4528806c42c473b35/623ee/badge-2.png 590w,
+/static/5b0b15e75e2202e4528806c42c473b35/e5345/badge-2.png 885w,
+/static/5b0b15e75e2202e4528806c42c473b35/7a439/badge-2.png 1180w,
+/static/5b0b15e75e2202e4528806c42c473b35/84fe0/badge-2.png 1770w,
+/static/5b0b15e75e2202e4528806c42c473b35/513bc/badge-2.png 1966w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;</content:encoded></item></channel></rss>
