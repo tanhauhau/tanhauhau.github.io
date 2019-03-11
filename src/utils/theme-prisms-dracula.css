@@ -407,3 +407,13 @@ div.code-toolbar > .toolbar span:focus {
   text-decoration: none;
   background-color: var(--verde);
 }
+
+.gatsby-highlight-code-line {
+  background-color: #44475a;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1.25em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.5em solid #ff79c6;
+}
