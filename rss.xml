@@ -1,4 +1,170 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 11 Mar 2019 14:46:45 GMT</lastBuildDate><item><title><![CDATA[The `ascii_only` option in uglify-js]]></title><description><![CDATA[The background story I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the…]]></description><link>https://lihautan.com/uglify-ascii-only/</link><guid isPermaLink="false">https://lihautan.com/uglify-ascii-only/</guid><pubDate>Sat, 27 Oct 2018 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;The background story&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 11 Mar 2019 16:35:20 GMT</lastBuildDate><item><title><![CDATA[My eslint doesn’t work with for flow 0.85’s explicit type argument syntax]]></title><description><![CDATA[Today  Wei Gao  posed an interesting question: She was upgrading Flow to v0.85,  which requires her to explicitly type the argument of the…]]></description><link>https://lihautan.com/eslint-for-flow-explicit-type-argument-syntax/</link><guid isPermaLink="false">https://lihautan.com/eslint-for-flow-explicit-type-argument-syntax/</guid><pubDate>Thu, 17 Jan 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Today &lt;a href=&quot;https://dev.wgao19.cc/&quot;&gt;Wei Gao&lt;/a&gt; posed an interesting question:&lt;/p&gt;
+&lt;p&gt;She was upgrading Flow to v0.85, &lt;a href=&quot;https://medium.com/flow-type/asking-for-required-annotations-64d4f9c1edf8&quot;&gt;which requires her to explicitly type the argument of the function call&lt;/a&gt;. However, when she saved the file, our &lt;a href=&quot;https://github.com/prettier/prettier&quot;&gt;eslint-prettier&lt;/a&gt; automatically format the code into a weird syntax:&lt;/p&gt;
+&lt;p&gt;So, when she wrote:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;fooFunction&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Bar&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With &lt;a href=&quot;https://github.com/prettier/eslint-plugin-prettier&quot;&gt;eslint-plugin-prettier&lt;/a&gt;, eslint &lt;em&gt;“fixed”&lt;/em&gt; the code into:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;fooFunction &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; Bar &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It felt like eslint sees &lt;code class=&quot;language-text&quot;&gt;&amp;lt;&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&amp;gt;&lt;/code&gt; as the comparison operator, rather than &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Type&amp;gt;&lt;/code&gt; as a whole!&lt;/p&gt;
+&lt;p&gt;To confirm with my hypothesis, I opened up my favourite tool for inspecting &lt;a href=&quot;https://en.wikipedia.org/wiki/Abstract_syntax_tree&quot;&gt;AST&lt;/a&gt;: &lt;a href=&quot;https://astexplorer.net/&quot;&gt;astexplorer.net&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;You can paste your code into &lt;a href=&quot;https://astexplorer.net/&quot;&gt;astexplorer.net&lt;/a&gt; and see how different parser “sees” your code in terms of a AST (Abstract Syntax Tree).&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/17844d464c6fad0985e078b84dca8afd/940da/ast-explorer.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 57.182576459684896%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABDklEQVQoz42R62rDMAyF+/6v15alGc1NtmTZsnuFsEDSKQl0+ZGyHAthjD8fSd51P93j9hyG4fXWtGXnqrLSfLteo4gBIMSmrpsa8gyyr6qpadd1Xdu2I6xrUt/3CgPA8XAozmcJQeEkEueIckljpCi71wepZ11VUaVACN77EEJaviJr8NwCNM0py2ZYzRu0hlB59l5DpYcfYSL6znPPnBQPAR0Rs2Ka3bQJq/Bf2WWZRufo2ZEpvCMgkqny9E/ZAGVRXJLORdSsNECO46LhdXiWdqV/o7BGkkCEfhpY3DIwtJhnJ+WtMWQte0be4PyGj/s9KuYcWbBQIuHWsh/3u36ujJdiYIdVxs5GiUv4F+Itbmu8PVBFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;You can choose different a parser!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/17844d464c6fad0985e078b84dca8afd/623ee/ast-explorer.png&quot;
+        srcset=&quot;/static/17844d464c6fad0985e078b84dca8afd/816c5/ast-explorer.png 148w,
+/static/17844d464c6fad0985e078b84dca8afd/c766b/ast-explorer.png 295w,
+/static/17844d464c6fad0985e078b84dca8afd/623ee/ast-explorer.png 590w,
+/static/17844d464c6fad0985e078b84dca8afd/e5345/ast-explorer.png 885w,
+/static/17844d464c6fad0985e078b84dca8afd/940da/ast-explorer.png 1079w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;As you can see from the picture above, you can choose from different parsers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;acorn&lt;/strong&gt; — the parser used by webpack after the loaders, webpack uses acorn’s AST to find &lt;code class=&quot;language-text&quot;&gt;import&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;require()&lt;/code&gt; syntax to know generate the dependency tree of your project, as well as provide an entry for plugins like &lt;a href=&quot;https://webpack.js.org/plugins/define-plugin/&quot;&gt;DefinePlugin&lt;/a&gt; to transform the transpiled code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;babylon&lt;/strong&gt;— the &lt;a href=&quot;https://github.com/babel/babel/&quot;&gt;babel&lt;/a&gt; parser, now it’s called &lt;a href=&quot;https://babeljs.io/docs/en/babel-parser&quot;&gt;@babel/parser&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;flow&lt;/strong&gt;, &lt;strong&gt;typescript&lt;/strong&gt;, &lt;strong&gt;uglify-js&lt;/strong&gt;— the parsers that each of the library uses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;esprima&lt;/strong&gt; — the default eslint parser&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;babel-eslint&lt;/strong&gt; — a wrapper of babel parser for eslint, which is also the one we used, because we have a ton of babel plugins configured, so by using babel-eslint we don’t have to reconfigure the same plugins for eslint.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;So I copied our code into astexplorer, and selected the “flow” parser:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ab7413e038ae94283f26d86d612275bc/e5345/flow-ast.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 28.926553672316384%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAAA3ElEQVQY03WQ2U7DMBBF8/+/wi/wggqtKFuQkKBqmjrexsuM27RKwkNb4xqCBALP8X271hkXMZ4yse969J4QKY0FUZXN+u25am5f65eVcM4R+p9gEcfTd91YTpcUZ1JCI42Q4CwGaje0C4mQM1O0pNvWHo/vQz+gd19lJCPmwCeseVjzUqlS65RPCVCPSt6BvnemLLZU7ffscBjOZfdZ9ohBsSuxuAB+uaqvl/WUy7nIgJ4ZuHFmatTsb21vQQumFWgbCLeEZ+fNaEvf2vH0+8NSJn/0Jr2RF/H/8QF/4EmHPEuiHwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;flow ast&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ab7413e038ae94283f26d86d612275bc/623ee/flow-ast.png&quot;
+        srcset=&quot;/static/ab7413e038ae94283f26d86d612275bc/816c5/flow-ast.png 148w,
+/static/ab7413e038ae94283f26d86d612275bc/c766b/flow-ast.png 295w,
+/static/ab7413e038ae94283f26d86d612275bc/623ee/flow-ast.png 590w,
+/static/ab7413e038ae94283f26d86d612275bc/e5345/flow-ast.png 885w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;I can see the type annotation is being parsed as “TypeParameterInstantiation”, however when I changed the parser to “babel-eslint8”,&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d80586ce912511f29235c3518598301c/bfa8e/babel-eslint-8-ast.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 39.44387229660144%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAAA4UlEQVQY03WQ3W6DMAyFef9H2gOslXazq6lsDEISYju2oVJvgdXpj7Ru5ejISqLzRbarn7vWdZ2mSZhVREUhNH3vPppwaMOAJHJ9f3C1BQuB7+o2Dm5IPiX5R27DqmywqwFSRpjsfkmPN+zWRZWREcbxeFqW+fgLzgShaxqH3w4RpZjUKpFytlj5rprneVlX82Pbo7An/xLjK8Ab415ox1Sq0H7knXCwzObMBD0O74hfmRrOn3K3nZVrZbTMc9iEsQs+tEG7IDEpgE1XmqfLCJzZkn/hQjJzznpV2c1Tl4WdAeWrvB3eiGzDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;babel eslint 8 ast&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d80586ce912511f29235c3518598301c/623ee/babel-eslint-8-ast.png&quot;
+        srcset=&quot;/static/d80586ce912511f29235c3518598301c/816c5/babel-eslint-8-ast.png 148w,
+/static/d80586ce912511f29235c3518598301c/c766b/babel-eslint-8-ast.png 295w,
+/static/d80586ce912511f29235c3518598301c/623ee/babel-eslint-8-ast.png 590w,
+/static/d80586ce912511f29235c3518598301c/e5345/babel-eslint-8-ast.png 885w,
+/static/d80586ce912511f29235c3518598301c/bfa8e/babel-eslint-8-ast.png 971w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;I get a Binary Expression and a SequenceExpression!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Binary Expression&lt;/strong&gt; is a way to express logical expression and mathematical expression, eg: &lt;code class=&quot;language-text&quot;&gt;a + b&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;a &amp;amp;&amp;amp; b&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;a &amp;lt;= b&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sequence Expression&lt;/strong&gt; on the other hand is something you don’t see people write that often, you can look up how it works in &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator&quot;&gt;Comma operator (MDN)&lt;/a&gt;, basically you can write expressions as a expression by joining them with a comma operator (&lt;code class=&quot;language-text&quot;&gt;,&lt;/code&gt;), and the expression returns the value of the last expression, eg: result = &lt;code class=&quot;language-text&quot;&gt;(a++, b++, c -= 2, d.push(e), --f)&lt;/code&gt;, you increment &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;b&lt;/code&gt; , decrement &lt;code class=&quot;language-text&quot;&gt;c&lt;/code&gt; by 2, and pushed &lt;code class=&quot;language-text&quot;&gt;e&lt;/code&gt; into &lt;code class=&quot;language-text&quot;&gt;d&lt;/code&gt; and decrement &lt;code class=&quot;language-text&quot;&gt;f&lt;/code&gt; and set result to the new value of &lt;code class=&quot;language-text&quot;&gt;f&lt;/code&gt;. Wow, that’s a lot in one statement! It’s confusing to read, but you see this often in a minified code.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Now this explains why prettier will try to add space in between &lt;code class=&quot;language-text&quot;&gt;&amp;lt;&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&amp;gt;&lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;I saw that there’s a babel-eslint9, and I gave it a try, and…&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ab7413e038ae94283f26d86d612275bc/e5345/babel-eslint-9-ast.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 28.926553672316384%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAAA3ElEQVQY03WQ2U7DMBBF8/+/wi/wggqtKFuQkKBqmjrexsuM27RKwkNb4xqCBALP8X271hkXMZ4yse969J4QKY0FUZXN+u25am5f65eVcM4R+p9gEcfTd91YTpcUZ1JCI42Q4CwGaje0C4mQM1O0pNvWHo/vQz+gd19lJCPmwCeseVjzUqlS65RPCVCPSt6BvnemLLZU7ffscBjOZfdZ9ohBsSuxuAB+uaqvl/WUy7nIgJ4ZuHFmatTsb21vQQumFWgbCLeEZ+fNaEvf2vH0+8NSJn/0Jr2RF/H/8QF/4EmHPEuiHwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;babel eslint 9 ast&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ab7413e038ae94283f26d86d612275bc/623ee/babel-eslint-9-ast.png&quot;
+        srcset=&quot;/static/ab7413e038ae94283f26d86d612275bc/816c5/babel-eslint-9-ast.png 148w,
+/static/ab7413e038ae94283f26d86d612275bc/c766b/babel-eslint-9-ast.png 295w,
+/static/ab7413e038ae94283f26d86d612275bc/623ee/babel-eslint-9-ast.png 590w,
+/static/ab7413e038ae94283f26d86d612275bc/e5345/babel-eslint-9-ast.png 885w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;It seems like the bug was fixed on &lt;code class=&quot;language-text&quot;&gt;babel-eslint9&lt;/code&gt;, so I plowed through the release notes of babel-eslint, and I found this &lt;a href=&quot;https://github.com/babel/babel-eslint/pull/444&quot;&gt;merge commit&lt;/a&gt;. So it seems like upgrading babel-eslint to v9 will solve the issue! 🎉&lt;/p&gt;</content:encoded></item><item><title><![CDATA[The `ascii_only` option in uglify-js]]></title><description><![CDATA[The background story I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the…]]></description><link>https://lihautan.com/uglify-ascii-only/</link><guid isPermaLink="false">https://lihautan.com/uglify-ascii-only/</guid><pubDate>Sat, 27 Oct 2018 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;The background story&lt;/p&gt;
 &lt;p&gt;I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the 😍😀😎 are not rendered correctly!&lt;/p&gt;
 &lt;p&gt;
   &lt;a
