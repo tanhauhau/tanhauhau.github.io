@@ -1,4 +1,325 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 10 Mar 2019 15:39:33 GMT</lastBuildDate><item><title><![CDATA[Dynamically load reducers for code splitting in a React Redux application]]></title><description><![CDATA[This article assumes you have basic knowledge on React and Redux. If you like to learn more about React or Redux, you can go here to learn…]]></description><link>https://lihautan.com/dynamically-load-async-reducer-for-code-splitting-in-react/</link><guid isPermaLink="false">https://lihautan.com/dynamically-load-async-reducer-for-code-splitting-in-react/</guid><pubDate>Thu, 16 Nov 2017 08:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 11 Mar 2019 14:46:45 GMT</lastBuildDate><item><title><![CDATA[The `ascii_only` option in uglify-js]]></title><description><![CDATA[The background story I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the…]]></description><link>https://lihautan.com/uglify-ascii-only/</link><guid isPermaLink="false">https://lihautan.com/uglify-ascii-only/</guid><pubDate>Sat, 27 Oct 2018 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;The background story&lt;/p&gt;
+&lt;p&gt;I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the 😍😀😎 are not rendered correctly!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ff2b81e03b2f2d9068a97743adcb69c8/5e68e/problem.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 66.32911392405065%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAAAZElEQVQoz+2NwQqAIAyGff837FBIJJubmrm8ZuvQPfIWfbCf8Y+PGe89eppmN4zWLrA4h4hElFICgBgjM4cQmFh3ANTUq6aWpta65rwV0Smyi4g27RmmdXDJx80buevzL39fPgFFRwLqWPWYuwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;The 😍😍😀😀isn’t rendered correctly in chrome extension&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ff2b81e03b2f2d9068a97743adcb69c8/623ee/problem.png&quot;
+        srcset=&quot;/static/ff2b81e03b2f2d9068a97743adcb69c8/816c5/problem.png 148w,
+/static/ff2b81e03b2f2d9068a97743adcb69c8/c766b/problem.png 295w,
+/static/ff2b81e03b2f2d9068a97743adcb69c8/623ee/problem.png 590w,
+/static/ff2b81e03b2f2d9068a97743adcb69c8/e5345/problem.png 885w,
+/static/ff2b81e03b2f2d9068a97743adcb69c8/7a439/problem.png 1180w,
+/static/ff2b81e03b2f2d9068a97743adcb69c8/5e68e/problem.png 1580w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;And so I inspect the source code loaded into the chrome extension, it wasn’t loaded correctly as well!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1d6b5e9c1ff4877c011da49ac7779e01/daa55/problem-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 52.05158264947245%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYUlEQVQoz+3MuxJAMBSE4bz/CyqMwi0Rl8E5J8sEwQOg0Sh8xXb/qrZu8rTMCh3FidGm0rq3lrvOiYAZ507XiEh5753DSATAi8zDuBCtzJvDJrwCIYT9htpfUA/Hf/yp+AB7gVDwv+I1sAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;problem with the source too&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1d6b5e9c1ff4877c011da49ac7779e01/623ee/problem-2.png&quot;
+        srcset=&quot;/static/1d6b5e9c1ff4877c011da49ac7779e01/816c5/problem-2.png 148w,
+/static/1d6b5e9c1ff4877c011da49ac7779e01/c766b/problem-2.png 295w,
+/static/1d6b5e9c1ff4877c011da49ac7779e01/623ee/problem-2.png 590w,
+/static/1d6b5e9c1ff4877c011da49ac7779e01/e5345/problem-2.png 885w,
+/static/1d6b5e9c1ff4877c011da49ac7779e01/7a439/problem-2.png 1180w,
+/static/1d6b5e9c1ff4877c011da49ac7779e01/daa55/problem-2.png 1706w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;And so I think, probably the encoding issue was caused by the webpack compilation, but, my compiled code looks exactly fine!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2601fef3b9c18ade62977ec25a16beda/f6193/source.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 48.95688456189152%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAAA/UlEQVQoz+WLwU6EMBRF+QAZpQwOhcwApS1QYSptYQCFAAsTXbhxYVyZ+Amz8PstM8bErVuTk5dzb941nuaP95fP18fj0L8h0WMxxmIkcsJyInImp5vIiUpdjnE5RrcjXh4WjDDmCJecdoLfp1zRRMj9mNEay4bUd1h1advT/U0hc5SyACGWYT9ElhsAGBhX7vbC8XZJUdRDXvWim0U7R7TM64pViimlhiYTgjdVfqjaA39+KLkqnYDBiBnACy8daMHA9mOg8ZDlofUWAw/b/oIFY33B2X2ygtrJ9Y5qlrFpu6u1a9obzUq77Zpgc46n5pd/R7DwM4Z/4D+OvwBmxkQr7YPD0AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;The compiled code seems okay!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2601fef3b9c18ade62977ec25a16beda/623ee/source.png&quot;
+        srcset=&quot;/static/2601fef3b9c18ade62977ec25a16beda/816c5/source.png 148w,
+/static/2601fef3b9c18ade62977ec25a16beda/c766b/source.png 295w,
+/static/2601fef3b9c18ade62977ec25a16beda/623ee/source.png 590w,
+/static/2601fef3b9c18ade62977ec25a16beda/e5345/source.png 885w,
+/static/2601fef3b9c18ade62977ec25a16beda/7a439/source.png 1180w,
+/static/2601fef3b9c18ade62977ec25a16beda/f6193/source.png 1438w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;So, most likely is a decoding issue when the emoji code get loaded into chrome extension. So I manually changed the emoji in the compiled code to &lt;code class=&quot;language-text&quot;&gt;\ud83d\ude0d&lt;/code&gt; (unicode for 😍). Guess what? The emoji is showing correctly in the chrome extension!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c3d91cd8d55265438e63eb08b5570a4d/c2902/expectation.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 53.37423312883436%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAAAWklEQVQoz+2LOw6AIBBEuf/9tFESFcIi+6OxsAHhBiaWMsVLZibPxBgdnLPdpsWu+0HM3ntR7RTpr3NZNYTQKgAgYkqpjzkbIkJmFm28L62l1Ncx9UOG/A/5AYJKiv/XIO9rAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;😍!&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c3d91cd8d55265438e63eb08b5570a4d/623ee/expectation.png&quot;
+        srcset=&quot;/static/c3d91cd8d55265438e63eb08b5570a4d/816c5/expectation.png 148w,
+/static/c3d91cd8d55265438e63eb08b5570a4d/c766b/expectation.png 295w,
+/static/c3d91cd8d55265438e63eb08b5570a4d/623ee/expectation.png 590w,
+/static/c3d91cd8d55265438e63eb08b5570a4d/e5345/expectation.png 885w,
+/static/c3d91cd8d55265438e63eb08b5570a4d/7a439/expectation.png 1180w,
+/static/c3d91cd8d55265438e63eb08b5570a4d/c2902/expectation.png 1304w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;So I changed my source code to manually type in the unicode, and compiled it using webpack. To my surprise, the unicode was compiled back into the emoji (😍) it represents!&lt;/p&gt;
+&lt;p&gt;I googled around and I found &lt;a href=&quot;https://github.com/babel/babel/pull/4478&quot;&gt;this fix for babel-generator&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/89e01cd1223b85be658c2ea05cfbd0ab/5be9e/babel-issue.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 41.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABBklEQVQY031Ry07EMAzM/38IEgf+AQ7ADQkEFM50d1W1TdPEcd4p0+3CcmFHqWNHGo89Fe/P7cfrbtbaGGPZEjFZNkRmjcfEGO+9Y7xbZi6lLD8QT7fdy0NHRM45BpuDtsH5YDjOBApeXa11+YO61BxjzVmwNzhENoR4jAHtoYGSV6rLpWQAiqVuyCWzmpK14ubquu/HUc6DVFJpOc1rVFoT+5hdSLhQzppciH0/4Jz0axXBe/RNKSHWWlKM5+Hqed4ta5rmq223EhSBzPuw2x8mpeEQO7/8D6wjJ4X5t+YrGevtD90wTpb9ZTJk8F+geXIbH3y6u398az7XbaW6QIZ/cPS3/AZH589NEecGCQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;babel issue&quot;
+        title=&quot;&quot;
+        src=&quot;/static/89e01cd1223b85be658c2ea05cfbd0ab/623ee/babel-issue.png&quot;
+        srcset=&quot;/static/89e01cd1223b85be658c2ea05cfbd0ab/816c5/babel-issue.png 148w,
+/static/89e01cd1223b85be658c2ea05cfbd0ab/c766b/babel-issue.png 295w,
+/static/89e01cd1223b85be658c2ea05cfbd0ab/623ee/babel-issue.png 590w,
+/static/89e01cd1223b85be658c2ea05cfbd0ab/e5345/babel-issue.png 885w,
+/static/89e01cd1223b85be658c2ea05cfbd0ab/7a439/babel-issue.png 1180w,
+/static/89e01cd1223b85be658c2ea05cfbd0ab/5be9e/babel-issue.png 1600w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;I checked my babel version, and it had included this fix. So what went wrong?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;My colleague reminded me that during webpack compilation, there are 2 phases, the &lt;strong&gt;transpilation&lt;/strong&gt; (via babel) and the &lt;strong&gt;minification&lt;/strong&gt; (via uglify plugin).&lt;/p&gt;
+&lt;p&gt;So I disabled the optimisation in webpack config, and noticed that my compiled code contains the original unicode string (&lt;code class=&quot;language-text&quot;&gt;\ud83d\ude0d&lt;/code&gt;), instead of the emoji (😍) string. So the unicode string was converted to emoji string during minification!&lt;/p&gt;
+&lt;p&gt;So I went to my favourite &lt;a href=&quot;https://skalman.github.io/UglifyJS-online/&quot;&gt;Online JavaScript Minifier&lt;/a&gt; (by &lt;a href=&quot;https://github.com/skalman&quot;&gt;skalman&lt;/a&gt;) to try it out.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3c362481f7109a36963627eb1ab37cf3/560b9/uglify.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 21.19521912350598%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAkklEQVQI12OYvGb95NXr5u/aO3PT1nk7d8/YuGXmxq1ztu4EMtacPrvmxIk1R4+uO3Fi3cmTa48d23T27PbLl7ddugRBDG8+f//248evv3//////D4yArL//gPT/+28+3Hr69O+vn79+gwCQ/PPnz18kwPDl5x+INmTwD6z54ZsPj96+hXMxAcPnH79xaX5ASDMA2CDb/Ms6D0sAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;online javasript minifier&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3c362481f7109a36963627eb1ab37cf3/623ee/uglify.png&quot;
+        srcset=&quot;/static/3c362481f7109a36963627eb1ab37cf3/816c5/uglify.png 148w,
+/static/3c362481f7109a36963627eb1ab37cf3/c766b/uglify.png 295w,
+/static/3c362481f7109a36963627eb1ab37cf3/623ee/uglify.png 590w,
+/static/3c362481f7109a36963627eb1ab37cf3/e5345/uglify.png 885w,
+/static/3c362481f7109a36963627eb1ab37cf3/7a439/uglify.png 1180w,
+/static/3c362481f7109a36963627eb1ab37cf3/84fe0/uglify.png 1770w,
+/static/3c362481f7109a36963627eb1ab37cf3/560b9/uglify.png 2510w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;After some googling, I &lt;a href=&quot;https://github.com/mishoo/UglifyJS2/issues/490&quot;&gt;found this issue&lt;/a&gt; which described my scenario perfectly.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7080b1d2cff0afacdf72b3196c9d5a13/d40b5/babel-issue-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 42.30396902226525%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABKElEQVQY031Qu1LDMBD0/38IDRVDT0dBQQNDSWCw4jixLVnW86STzDrJwNBws9KcpF3t3TVS634c21b0/VGI/TCMXXcATqcTjoe+33fdV9sO4AhhrF3X9ejHm929cH0z7D7Fy5uc5GKM1ou1zhhwEM46F2L0wTvnich7z8wQR6YPI3wOjXl8Gm7vQAEPAVJKiSLFEC/Uf6J5eH59HxR85sXMeoOxnjJT4kg5UAqUkfhAPpLzHnXVWq/i46SVNlIqqeaMgB2XUtdSK3bQuFRc8Pk+hLAsBslVjIU3pZdJzTBXs56kQg7IWUulHUxTjgn/FrSdUv4tGytzPgvt1aEUEDfwtuOISgBUgclhNn/EeIcDrFD/pPQ4SrSXmLfOt+bzBSnDGWOlH/E3Ub3LvmAYyTcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;why uglifyjs always compress unicode characters to utf8&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7080b1d2cff0afacdf72b3196c9d5a13/623ee/babel-issue-2.png&quot;
+        srcset=&quot;/static/7080b1d2cff0afacdf72b3196c9d5a13/816c5/babel-issue-2.png 148w,
+/static/7080b1d2cff0afacdf72b3196c9d5a13/c766b/babel-issue-2.png 295w,
+/static/7080b1d2cff0afacdf72b3196c9d5a13/623ee/babel-issue-2.png 590w,
+/static/7080b1d2cff0afacdf72b3196c9d5a13/e5345/babel-issue-2.png 885w,
+/static/7080b1d2cff0afacdf72b3196c9d5a13/7a439/babel-issue-2.png 1180w,
+/static/7080b1d2cff0afacdf72b3196c9d5a13/84fe0/babel-issue-2.png 1770w,
+/static/7080b1d2cff0afacdf72b3196c9d5a13/d40b5/babel-issue-2.png 2066w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Turned out there is a &lt;code class=&quot;language-text&quot;&gt;ascii_only&lt;/code&gt; for &lt;a href=&quot;https://github.com/mishoo/UglifyJS2#output-options&quot;&gt;output options&lt;/a&gt;, and it is default to &lt;code class=&quot;language-text&quot;&gt;false&lt;/code&gt;. So I set &lt;code class=&quot;language-text&quot;&gt;ascii_only&lt;/code&gt; to &lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;, ran webpack, and checked my compiled code, it contained the unicode string (&lt;code class=&quot;language-text&quot;&gt;\ud83d\ude0d&lt;/code&gt;)! And even when I wrote emoji string (😍) in my source code, it got compiled to unicode as well.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; UglifyJsPlugin &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;uglifyjs-webpack-plugin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//...&lt;/span&gt;
+  optimization&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    minimizer&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UglifyJsPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      uglifyOptions&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        output&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;          &lt;span class=&quot;token comment&quot;&gt;// true for `ascii_only`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;          ascii_only&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/span&gt;      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;TIL: UglifyJs ascii_only option, use it when you want to escape Unicode characters.&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Why is there a &lt;code class=&quot;language-text&quot;&gt;ascii_only&lt;/code&gt; option?&lt;/p&gt;
+&lt;p&gt;My guess is that it takes less space for a unicode character (16–17bit) than the escaped ascii characters (6 * 8 bit — 12 * bit), that’s why using unicode character is the default option (&lt;code class=&quot;language-text&quot;&gt;ascii_only=false&lt;/code&gt;).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Dead-code elimination]]></title><description><![CDATA[Imagine you have the code below: after passing this code through  uglify-js , you will get the code below: uglify-js  will do dead code…]]></description><link>https://lihautan.com/dead-code-elimination/</link><guid isPermaLink="false">https://lihautan.com/dead-code-elimination/</guid><pubDate>Wed, 24 Oct 2018 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Imagine you have the code below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foobar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;after passing this code through &lt;a href=&quot;https://www.npmjs.com/package/uglify-js&quot;&gt;uglify-js&lt;/a&gt;, you will get the code below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;foobar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;uglify-js&lt;/strong&gt; will do dead code removal, ie: it will remove code that will not affect the program results. Since we defined &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;b&lt;/code&gt; in the function &lt;code class=&quot;language-text&quot;&gt;foo&lt;/code&gt; and we are not using &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;b&lt;/code&gt; within the &lt;code class=&quot;language-text&quot;&gt;foo&lt;/code&gt;, &lt;strong&gt;uglify-js&lt;/strong&gt; safely removes it from the uglified code.&lt;/p&gt;
+&lt;p&gt;However, if you can see from the uglified code, &lt;code class=&quot;language-text&quot;&gt;foobar()&lt;/code&gt; is preserved. This is because calling &lt;code class=&quot;language-text&quot;&gt;foobar&lt;/code&gt; may have side effects on the program, so &lt;strong&gt;uglify-js&lt;/strong&gt; preserves foobar(). But since we do not need the return value of &lt;code class=&quot;language-text&quot;&gt;foobar()&lt;/code&gt;, which is assigned to &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; got removed by uglify-js.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;What if we know that &lt;code class=&quot;language-text&quot;&gt;foobar()&lt;/code&gt; will not caused any side effects?&lt;/p&gt;
+&lt;p&gt;How do we tell &lt;strong&gt;uglify-js&lt;/strong&gt; that if we are not using the return value from &lt;code class=&quot;language-text&quot;&gt;foobar()&lt;/code&gt;, please remove it as well?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Turns out that &lt;strong&gt;uglify-js&lt;/strong&gt; will treat a function call as “pure” if there is a comment annotation &lt;code class=&quot;language-text&quot;&gt;/*@__PURE__*/&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;/*#__PURE__*/&lt;/code&gt; immediately precedes the call.&lt;/p&gt;
+&lt;p&gt;For example: &lt;code class=&quot;language-text&quot;&gt;/* @__PURE__ */ foobar()&lt;/code&gt; !&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// before uglify&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/*@__PURE__*/&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;foobar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// after uglify&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that now &lt;code class=&quot;language-text&quot;&gt;foobar()&lt;/code&gt; is being removed!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;So, how is this useful?&lt;/p&gt;
+&lt;p&gt;As a library author, you can write a babel plugin to mark your function to be pure, so that &lt;strong&gt;uglify-js&lt;/strong&gt; can drop the function call if the return value is not being used in the code. (There is a &lt;a href=&quot;https://babeljs.io/docs/en/next/babel-helper-annotate-as-pure.html&quot;&gt;util from babel&lt;/a&gt; to do just the job of marking function as pure 😎)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Took me hours to realise why docker build ignores my .dockerignore]]></title><description><![CDATA[From the  official docs  of docker for .dockerignore: Before the docker CLI sends the context to the docker daemon, it looks for a file…]]></description><link>https://lihautan.com/why-docker-ignores-my-file/</link><guid isPermaLink="false">https://lihautan.com/why-docker-ignores-my-file/</guid><pubDate>Sun, 26 Nov 2017 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;From the &lt;a href=&quot;https://docs.docker.com/engine/reference/builder/#dockerignore-file&quot;&gt;official docs&lt;/a&gt; of docker for .dockerignore:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Before the docker CLI sends the context to the docker daemon, it looks for a file named &lt;code class=&quot;language-text&quot;&gt;.dockerignore&lt;/code&gt; in the root directory of the context. If this file exists, the CLI modifies the context to exclude files and directories that match patterns in it. This helps to avoid unnecessarily sending large or sensitive files and directories to the daemon and potentially adding them to images using &lt;code class=&quot;language-text&quot;&gt;ADD&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;COPY&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Docker CLI will only look for &lt;code class=&quot;language-text&quot;&gt;.dockerignore&lt;/code&gt; file in the &lt;strong&gt;root directory of the context&lt;/strong&gt;, if you have a monorepo of multiple packages, make sure &lt;code class=&quot;language-text&quot;&gt;.dockerignore&lt;/code&gt; file is on the root directory of your context, it will ignore it if it is somewhere in the subfolder.&lt;/p&gt;
+&lt;p&gt;About pattern matching of the ignored file, &lt;code class=&quot;language-text&quot;&gt;*/temp&lt;/code&gt; will match &lt;code class=&quot;language-text&quot;&gt;a/temp&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;b/temp&lt;/code&gt; but not &lt;code class=&quot;language-text&quot;&gt;temp&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;a/b/temp&lt;/code&gt; from the root directory. To match 2 levels deep only, you need to write &lt;code class=&quot;language-text&quot;&gt;*/*/temp&lt;/code&gt; and for arbitrary levels, use &lt;code class=&quot;language-text&quot;&gt;**&lt;/code&gt; it will match any number of directory including zero, eg: &lt;code class=&quot;language-text&quot;&gt;**/temp&lt;/code&gt; matches &lt;code class=&quot;language-text&quot;&gt;temp&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;a/temp&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;a/b/temp&lt;/code&gt; !&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;To understand more why you &lt;strong&gt;should not ignore&lt;/strong&gt; &lt;code class=&quot;language-text&quot;&gt;.dockerignore&lt;/code&gt;, read &lt;a href=&quot;https://codefresh.io/docker-tutorial/not-ignore-dockerignore/&quot;&gt;this article&lt;/a&gt;. It gives a lot of insight why &lt;code class=&quot;language-text&quot;&gt;.dockerignore&lt;/code&gt; file is important.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Dynamically load reducers for code splitting in a React Redux application]]></title><description><![CDATA[This article assumes you have basic knowledge on React and Redux. If you like to learn more about React or Redux, you can go here to learn…]]></description><link>https://lihautan.com/dynamically-load-async-reducer-for-code-splitting-in-react/</link><guid isPermaLink="false">https://lihautan.com/dynamically-load-async-reducer-for-code-splitting-in-react/</guid><pubDate>Thu, 16 Nov 2017 08:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;This article assumes you have basic knowledge on React and Redux. If you like to learn more about React or Redux, you can go here to learn more.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
