@@ -47,6 +47,8 @@ class Layout extends React.Component {
           <a href="https://twitter.com/lihautan">twitter</a>
           {" • "}
           <a href="https://github.com/tanhauhau">github</a>
+          {" • "}
+          <a href="https://github.com/tanhauhau/tanhauhau.github.io/issues/new?assignees=&labels=grammar%2C+typo&template=fix-typos-and-grammars.md&title=%5BTYPO%5D">discuss</a>
         </footer>
         {/* <footer>
           © {new Date().getFullYear()}, Built with
