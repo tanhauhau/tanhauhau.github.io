@@ -1,0 +1,22 @@
+- npm
+# javascript
+- modulize code, requirejs
+- bundle code, webpack
+- dynamic loading
+# css
+- naming convention
+- sass, less
+- css modules
+# development best practice
+- babel
+- eslint
+- prettier
+# task runner
+- grunt, gulp
+# test
+- testers
+- test runners
+# type checkers
+- flow, typescript
+
+- How do you ensure a team of developers are using the same best practice
