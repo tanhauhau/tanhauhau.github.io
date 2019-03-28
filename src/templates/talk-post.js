@@ -27,29 +27,46 @@ class TalkPostTemplate extends React.Component {
           }}
         >
           <div>
-            📍
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={post.frontmatter.venueLink}
-            >
-              {post.frontmatter.venue}
-            </a>
+            <span role="img" aria-label="venue" style={{ marginRight: 4 }}>
+              📍
+            </span>
+            {post.frontmatter.venueLink ? (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={post.frontmatter.venueLink}
+              >
+                {post.frontmatter.venue}
+              </a>
+            ) : (
+              post.frontmatter.venue
+            )}
           </div>
+          {post.frontmatter.occasion && (
+            <div>
+              <span role="img" aria-label="group" style={{ marginRight: 4 }}>
+                👥
+              </span>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={post.frontmatter.occasionLink}
+              >
+                {post.frontmatter.occasion}
+              </a>
+            </div>
+          )}
           <div>
-            👥
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={post.frontmatter.occasionLink}
-            >
-              {post.frontmatter.occasion}
-            </a>
+            <span role="img" aria-label="date" style={{ marginRight: 4 }}>
+              🗓
+            </span>
+            {post.frontmatter.date}
           </div>
-          <div>🗓{post.frontmatter.date}</div>
           {post.frontmatter.slides && (
             <div>
-              📝
+              <span role="img" aria-label="slide" style={{ marginRight: 4 }}>
+                📝
+              </span>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -61,7 +78,9 @@ class TalkPostTemplate extends React.Component {
           )}
           {post.frontmatter.video && (
             <div>
-              📹
+              <span role="img" aria-label="video" style={{ marginRight: 4 }}>
+                📹
+              </span>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,6 +101,7 @@ class TalkPostTemplate extends React.Component {
               height="320"
               scrolling="no"
               frameborder="0"
+              title="slides"
               webkitallowfullscreen
               mozallowfullscreen
               allowfullscreen

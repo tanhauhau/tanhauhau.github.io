@@ -24,7 +24,9 @@ class TalkPage extends React.Component {
                 </Link>
               </h3>
               <div>
-                📍
+                <span role="img" aria-label="venue" style={{ marginRight: 4 }}>
+                  📍
+                </span>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -34,7 +36,9 @@ class TalkPage extends React.Component {
                 </a>
               </div>
               <div>
-                👥
+                <span role="img" aria-label="group" style={{ marginRight: 4 }}>
+                  👥
+                </span>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -43,9 +47,16 @@ class TalkPage extends React.Component {
                   {frontmatter.occasion}
                 </a>
               </div>
-              <div>🗓{frontmatter.date}</div>
               <div>
-                📝
+                <span role="img" aria-label="date" style={{ marginRight: 4 }}>
+                  🗓
+                </span>
+                {frontmatter.date}
+              </div>
+              <div>
+                <span role="img" aria-label="slide" style={{ marginRight: 4 }}>
+                  📝
+                </span>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -81,7 +92,12 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: { fields: { type: { eq: "talk" } } }) {
+    allMarkdownRemark(
+      filter: {
+        frontmatter: { wip: { ne: true } }
+        fields: { type: { eq: "talk" } }
+      }
+    ) {
       edges {
         node {
           fields {
