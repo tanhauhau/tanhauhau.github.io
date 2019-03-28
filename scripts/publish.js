@@ -19,6 +19,10 @@ const GIT_URL = 'https://github.com/tanhauhau/tanhauhau.github.io.git';
 
   exec('git checkout master');
 
+  // make sure branch is always up to date
+  exec('git fetch origin master');
+  exec('git reset --hard origin/master');
+
   exec('git rm -r .');
 
   const files = await fs.readdir(outputFolder);
