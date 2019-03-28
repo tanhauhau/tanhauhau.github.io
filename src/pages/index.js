@@ -32,7 +32,24 @@ class BlogIndex extends React.Component {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small>
+                {node.frontmatter.date}{' '}
+                {node.fields.type === 'talk' && (
+                  <span
+                    style={{
+                      backgroundColor: '#612e77',
+                      color: 'white',
+                      padding: '1px 6px',
+                      borderRadius: 4,
+                      cursor: 'default',
+                      fontSize: '0.8em',
+                      verticalAlign: 'bottom',
+                    }}
+                  >
+                    talk
+                  </span>
+                )}
+              </small>
               <p
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
@@ -61,6 +78,7 @@ export const pageQuery = graphql`
           excerpt
           fields {
             slug
+            type
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
