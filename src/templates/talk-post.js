@@ -47,30 +47,46 @@ class TalkPostTemplate extends React.Component {
             </a>
           </div>
           <div>🗓{post.frontmatter.date}</div>
-          <div>
-            📝
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={post.frontmatter.slides}
-            >
-              Slides
-            </a>
-          </div>
+          {post.frontmatter.slides && (
+            <div>
+              📝
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={post.frontmatter.slides}
+              >
+                Slides
+              </a>
+            </div>
+          )}
+          {post.frontmatter.video && (
+            <div>
+              📹
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={post.frontmatter.video}
+              >
+                Video
+              </a>
+            </div>
+          )}
         </p>
 
         <div>
           <blockquote>{post.frontmatter.description}</blockquote>
-          <iframe
-            src={post.frontmatter.slides + '/embed'}
-            width="100%"
-            height="320"
-            scrolling="no"
-            frameborder="0"
-            webkitallowfullscreen
-            mozallowfullscreen
-            allowfullscreen
-          />
+          {post.frontmatter.slides && (
+            <iframe
+              src={post.frontmatter.slides + '/embed'}
+              width="100%"
+              height="320"
+              scrolling="no"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen
+            />
+          )}
         </div>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -132,6 +148,7 @@ export const pageQuery = graphql`
         venueLink
         description
         slides
+        video
       }
     }
   }
