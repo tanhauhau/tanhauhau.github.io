@@ -28,7 +28,7 @@ We had to upgrade our babel to [babel v7](https://babeljs.io/docs/en/v7-migratio
 You can read about on how we came to realise the need of this upgrade [in my previous post](
 https://lihautan.com/eslint-for-flow-explicit-type-argument-syntax/).
 
-There was another interesting bug that we ran into regarding [@babel/plugin-transform-flow-strip-types](https://babeljs.io/docs/en/babel-plugin-transform-flow-strip-types), you can read more on how we uncover it in [my other blog post](/parsing-error-flow-type-parameter-instantiation/). <!-- TODO: -->
+There was another interesting bug that we ran into regarding [@babel/plugin-transform-flow-strip-types](https://babeljs.io/docs/en/babel-plugin-transform-flow-strip-types), you can read more on how we uncover it in [my other blog post](/parsing-error-flow-type-parameter-instantiation/).
 
 ## Prettier
 We had to upgrade prettier to [v1.16.0](https://prettier.io/blog/2019/01/20/1.16.0.html) and use `babel-flow` parser for `prettier` to resolve the ambiguity in syntax arise in parsing the newer Flow syntax. In simpler terms, to tell Prettier that
@@ -49,7 +49,7 @@ You can read more about it in [Prettier's blog post](https://prettier.io/blog/20
 
 ## VSCode
 
-Flow [Lazy Mode](https://github.com/facebook/flow/commit/3c0a2bbd118206a0a73a1a4d18375122c4ae1955#diff-7af8df070df39a5abb64109dcad2cc99) has been around since v0.68, but we hadn't enjoy the benefit of lazy mode through VSCode [until recently](https://github.com/flowtype/flow-for-vscode/commit/9c1440068f8faee95e487fc9f69b5f5ffed64bf1#diff-04c6e90faac2675aa89e2176d2eec7d8).
+Flow [Lazy Mode](https://github.com/facebook/flow/commit/3c0a2bbd118206a0a73a1a4d18375122c4ae1955) has been around since v0.68, but we hadn't enjoy the benefit of lazy mode through VSCode [until recently](https://github.com/flowtype/flow-for-vscode/commit/9c1440068f8faee95e487fc9f69b5f5ffed64bf1).
 
 Now we can specify `lazyMode` in our `.vscode/settings.json`:
 
@@ -72,3 +72,21 @@ According to the release note, Flow is now able to **provide type definitions wh
 Finally we managed to get Flow running in v0.97 🎉. We've been struggling with bad developer experience with v0.83 for the longest time, hopefully v0.97 do not let us down.
 
 Lastly, be sure to check out all the links sprinkled throughout this blog, they link to Github issues, commits, release notes, and who knows it might lead you to some unexpected adventures? 🤷‍
+
+But if you are lazy like me, here are the links, they served as my references when writing this blog post:
+- [Blog: Incremental Migration to TypeScript on a Flowtype codebase](https://medium.com/entria/incremental-migration-to-typescript-on-a-flowtype-codebase-515f6490d92d)
+- [Blog: Porting 30k lines of code from Flow to TypeScript](https://davidgomes.com/porting-30k-lines-of-code-from-flow-to-typescript)
+- [Issue: What is the official way to type connect ( from flow-typed/react-redux) after 0.85?](https://github.com/facebook/flow/issues/7493)
+- [Issue: [react-redux] libdef incompatible with flow v0.85 #2946](https://github.com/flow-typed/flow-typed/issues/2946)
+- [Tweet: It's so hard to make flow happily get past 0.85 with our codebase...](https://twitter.com/wgao19/status/1115969686758248448)
+- [Blog: Making Flow Happy after 0.85](https://dev.wgao19.cc/2019-04-17__making-flow-happy-after-0.85/)
+- [Blog: Asking for Required Annotations](https://medium.com/flow-type/asking-for-required-annotations-64d4f9c1edf8)
+- [Docs: Babel 7 Migration](https://babeljs.io/docs/en/v7-migration)
+- [Release Note: babel-eslint v9.0.0](https://github.com/babel/babel-eslint/releases/tag/v9.0.0)
+- [Docs: @babel/plugin-transform-flow-strip-types](https://babeljs.io/docs/en/babel-plugin-transform-flow-strip-types)
+- [Release Note: Prettier v1.16.0](https://prettier.io/blog/2019/01/20/1.16.0.html)
+- [Commit: Lazy mode message for flow status](https://github.com/facebook/flow/commit/3c0a2bbd118206a0a73a1a4d18375122c4ae1955)
+- [Commit: feat(lsp): add setting to support flow lazyMode.](https://github.com/flowtype/flow-for-vscode/commit/9c1440068f8faee95e487fc9f69b5f5ffed64bf1)
+- [Docs: Flow Lazy Mode](https://flow.org/en/docs/lang/lazy-modes/)
+- [Release Note: Flow v0.92.0](https://github.com/facebook/flow/releases/tag/v0.92.0)
+- [Blog: A more responsive Flow](https://medium.com/flow-type/a-more-responsive-flow-1a8cb01aec11)
