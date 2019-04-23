@@ -6,7 +6,7 @@ description: and how we solved them
 
 ## Background
 
-Despite seeing the JS community [slowly](https://medium.com/entria/incremental-migration-to-typescript-on-a-flowtype-codebase-515f6490d92d) [moving away](https://davidgomes.com/porting-30k-lines-of-code-from-flow-to-typescript/) from Flow to TypeScript, we are still very much stucked with [Flow](https://flow.org/). 😨
+Despite seeing the JS community [slowly](https://medium.com/entria/incremental-migration-to-typescript-on-a-flowtype-codebase-515f6490d92d) [moving away](https://davidgomes.com/porting-30k-lines-of-code-from-flow-to-typescript/) from Flow to TypeScript, [Shopee Web Frontend](https://careers.shopee.sg/jobs/?region_id=1&dept_id=109&name=web%20frontend&limit=20&offset=0) codebase is still very much stucked with [Flow](https://flow.org/). 😨
 
 After some silence, Flow [has come back and committed to be a more efficient, reliable and friendly tool.](https://medium.com/flow-type/what-the-flow-team-has-been-up-to-54239c62004f) Thus, we decided to give Flow a final chance. However, in order to enjoy the improvements that Flow has made in recent days, we have to upgrade Flow from 0.83 (since our last update) to v0.97 (latest to date), which meant that we need to upgrade past v0.85, [which meant hell](https://github.com/facebook/flow/issues/7493) to [codebase that uses react-redux extensively.](https://github.com/flow-typed/flow-typed/issues/2946).
 
