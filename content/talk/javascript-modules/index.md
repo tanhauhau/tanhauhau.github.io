@@ -1,5 +1,5 @@
 ---
-title: History of Web Development\: JavaScript Modules
+title: "History of Web Development: JavaScript Modules"
 venue: Shopee SG
 occasion: React Knowledgeable Week 25
 occasionLink: "https://github.com/Shopee/react-knowledgeable/issues/89"

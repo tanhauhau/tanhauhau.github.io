@@ -15,8 +15,7 @@ Lincoln.overrideThemeStyles = () => {
     a: {
       color: PRIMARY_COLOR,
       textDecoration: 'underline',
-      textDecorationStyle: 'dotted',
-      fontWeight: 400,
+      fontWeight: 600,
       textShadow: 'initial',
       backgroundImage: 'initial',
     },
