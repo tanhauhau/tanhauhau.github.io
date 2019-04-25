@@ -25,7 +25,7 @@ export default function() {
 }
 
 const DARK_MODE_COOKIE = 'DARK_MODE';
-const DARK_MODE_REGEX = new RegExp(`^\s*${DARK_MODE_COOKIE}=`);
+const DARK_MODE_REGEX = new RegExp(`^\\s*${DARK_MODE_COOKIE}=`);
 const getDarkModeFromCookie = () => {
   if (typeof document !== 'undefined') {
     const cookie = document.cookie
