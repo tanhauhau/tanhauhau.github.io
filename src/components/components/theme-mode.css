@@ -67,7 +67,7 @@ div#___gatsby::after {
   line-height: 30px;
   position: absolute;
   animation-duration: 500ms;
-  animation-timing-function: cubic-bezier(0.64, -0.61, 0.31, 1.67);
+  animation-timing-function: ease-in-out;
 }
 @keyframes sun {
   0% {
