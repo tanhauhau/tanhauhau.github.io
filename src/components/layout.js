@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import { rhythm } from '../utils/typography';
-import DarkModeSwitch from './components/DarkModeSwitch';
 
 class Layout extends React.Component {
   render() {
@@ -63,7 +62,6 @@ class Layout extends React.Component {
             discuss
           </a>
         </footer>
-        <DarkModeSwitch />
       </div>
     );
   }
