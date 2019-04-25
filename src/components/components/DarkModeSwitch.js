@@ -53,7 +53,7 @@ const useDarkMode = () => {
   // set cookie
   useEffect(() => {
     if (typeof document !== 'undefined') {
-      document.cookie = `${DARK_MODE_COOKIE}=${darkMode};`;
+      document.cookie = `${DARK_MODE_COOKIE}=${darkMode}; expires=Thu, Dec 31 2111 00:00:00 UTC`;
     }
   }, [darkMode]);
 
