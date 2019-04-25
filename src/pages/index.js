@@ -5,6 +5,7 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
+import { sanitizeEmoji } from '../utils/emoji';
 
 class BlogIndex extends React.Component {
   render() {
@@ -52,7 +53,9 @@ class BlogIndex extends React.Component {
               </small>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: sanitizeEmoji(
+                    node.frontmatter.description || node.excerpt
+                  ),
                 }}
               />
             </div>

@@ -1,16 +1,17 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography';
+import DarkModeSwitch from './components/DarkModeSwitch';
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const { location, title, children } = this.props;
+    const rootPath = `${__PATH_PREFIX__}/`;
+    let header;
 
     if (location.pathname === rootPath) {
-      header = null
+      header = null;
     } else {
       header = (
         <h3
@@ -30,8 +31,9 @@ class Layout extends React.Component {
             {title}
           </Link>
         </h3>
-      )
+      );
     }
+
     return (
       <div
         style={{
@@ -44,16 +46,27 @@ class Layout extends React.Component {
         <header>{header}</header>
         <main>{children}</main>
         <footer>
-          {"Built with 💻 and ❤️ • "}
+          {'Built with '}
+          <span role="img" className="emoji">
+            {'💻'}
+          </span>
+          {' and '}
+          <span role="img" className="emoji">
+            {'❤️'}
+          </span>
+          {' • '}
           <a href="https://twitter.com/lihautan">twitter</a>
-          {" • "}
+          {' • '}
           <a href="https://github.com/tanhauhau">github</a>
-          {" • "}
-          <a href="https://github.com/tanhauhau/tanhauhau.github.io/issues/new?assignees=&labels=grammar%2C+typo&template=fix-typos-and-grammars.md&title=%5BTYPO%5D">discuss</a>
+          {' • '}
+          <a href="https://github.com/tanhauhau/tanhauhau.github.io/issues/new?assignees=&labels=grammar%2C+typo&template=fix-typos-and-grammars.md&title=%5BTYPO%5D">
+            discuss
+          </a>
         </footer>
+        <DarkModeSwitch />
       </div>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;

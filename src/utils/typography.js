@@ -6,9 +6,6 @@ const PRIMARY_COLOR = '#612e77';
 
 Lincoln.overrideThemeStyles = () => {
   return {
-    body: {
-      backgroundColor: '#faf0fd',
-    },
     'a.gatsby-resp-image-link': {
       boxShadow: `none`,
     },

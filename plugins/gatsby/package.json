@@ -1,0 +1,7 @@
+{
+  "name": "remark-emoji",
+  "main": "./remark-emoji.js",
+  "peerDependencies": {
+    "gatsby": "^2.1.27"
+  }
+}

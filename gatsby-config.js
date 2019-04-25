@@ -52,6 +52,8 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          // wrap emoji with span.emoji
+          require.resolve('./plugins/gatsby/remark-emoji'),
         ],
       },
     },
@@ -85,4 +87,4 @@ module.exports = {
       },
     },
   ],
-}
+};
