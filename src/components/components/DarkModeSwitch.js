@@ -25,14 +25,14 @@ export default function() {
 }
 
 const DARK_MODE_COOKIE = 'DARK_MODE';
-const DARK_MODE_REGEX = new RegExp(`^${DARK_MODE_COOKIE}=`);
+const DARK_MODE_REGEX = new RegExp(`^\s*${DARK_MODE_COOKIE}=`);
 const getDarkModeFromCookie = () => {
   if (typeof document !== 'undefined') {
     const cookie = document.cookie
       .split(';')
-      .filter(str => str.trim().match(DARK_MODE_REGEX));
+      .filter(str => str.match(DARK_MODE_REGEX));
     if (cookie.length) {
-      return cookie[0].trim().replace(DARK_MODE_REGEX, '').trim() === 'true';
+      return cookie[0].replace(DARK_MODE_REGEX, '').trim() === 'true';
     }
   }
   return false;
