@@ -32,7 +32,7 @@ const getDarkModeFromCookie = () => {
       .split(';')
       .filter(str => str.trim().match(DARK_MODE_REGEX));
     if (cookie.length) {
-      return cookie[0].replace(DARK_MODE_REGEX, '').trim() === 'true';
+      return cookie[0].trim().replace(DARK_MODE_REGEX, '').trim() === 'true';
     }
   }
   return false;
