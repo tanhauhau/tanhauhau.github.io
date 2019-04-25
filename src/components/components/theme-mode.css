@@ -54,6 +54,7 @@ div#___gatsby::after {
   border-bottom-width: 2px;
   user-select: none;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 .mode--dark .dark-mode-checkbox {
   border-color: #9ed188;
@@ -64,14 +65,13 @@ div#___gatsby::after {
 .dark-mode-checkbox span {
   font-size: 30px;
   line-height: 30px;
-  margin-top: 2px;
   position: absolute;
   animation-duration: 500ms;
   animation-timing-function: cubic-bezier(0.64, -0.61, 0.31, 1.67);
 }
 @keyframes sun {
   0% {
-    transform: translateY(120%);
+    transform: translateY(150%);
   }
   100% {
     transform: translateY(0);
@@ -82,7 +82,7 @@ div#___gatsby::after {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-120%);
+    transform: translateY(-150%);
   }
 }
 @keyframes moon {
@@ -90,12 +90,12 @@ div#___gatsby::after {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-120%);
+    transform: translateY(-150%);
   }
 }
 @keyframes moon-dark {
   0% {
-    transform: translateY(120%);
+    transform: translateY(150%);
   }
   100% {
     transform: translateY(0);
@@ -108,11 +108,11 @@ div#___gatsby::after {
 }
 .dark-mode-checkbox .moon {
   animation-name: moon;
-  transform: translateY(-120%);
+  transform: translateY(-150%);
 }
 .mode--dark .dark-mode-checkbox .sun {
   animation-name: sun-dark;
-  transform: translateY(-120%);
+  transform: translateY(-150%);
 }
 .mode--dark .dark-mode-checkbox .moon {
   animation-name: moon-dark;
