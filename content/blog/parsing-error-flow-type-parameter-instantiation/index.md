@@ -1,6 +1,7 @@
 ---
 title: Parsing error when calling generic function with type arguments
 date: '2019-04-23T08:00:00Z'
+lastUpdated: '2019-04-27T08:00:00Z'
 description: 😱
 ---
 
@@ -10,7 +11,7 @@ Mentioned in the [previous post](/errors-encountered-upgrading-flow-0.85/), we h
 
 `foobar<Type>(x)` is now _call foobar with x, and type parameter `Type`_ rather than `(foobar < Type) > x)` _is the result of foobar smaller than Type, greater than x?_.
 
-> Everything is great, until a weird runtime error caught us offguard.
+> Everything is great, until a weird runtime error caught us off guard.
 
 ## ReferenceError: XType is not defined
 
@@ -198,15 +199,30 @@ You can see that the first expression is a `BinaryExpression` but the second exp
 
 Now step 3, make changes to babel code. So I decided to open an issue and started fixing the code. Surprisingly, someone else [had reported the issue a few months ago](https://github.com/babel/babel/issues/9240), and the issue was still opened.
 
-So [I explained what I had discovered](https://github.com/babel/babel/issues/9240#issuecomment-485370957), and tried to propose a solution. Well, after some struggle, I realised I am still a bit behind from being able to fix this code.
+So [I explained what I had discovered](https://github.com/babel/babel/issues/9240#issuecomment-485370957), and tried to [propose a solution](https://github.com/babel/babel/pull/9885). Well, after some struggle, I realised I am still a bit behind from being able to fix this code.
 
 So how?
 
+I submitted a [PR](https://github.com/babel/babel/pull/9885) with a big **WIP**, because I didn't know how to look ahead `n` tokens and determine the `flowPragma` flag before `babel` starts parsing the code. I explored around the `babel-parser` source code, uncover new concepts that I never knew before. It took me a day to contemplate and fiddle around, until something sparked me.
+
+I realised I do not have to follow exactly Flow's logic in order to achieve similar behaviour. That's when I submitted another [PR](https://github.com/babel/babel/pull/9891) and closed the previous one. _(You can check it out if you are curious about it)_.
+
+And finally, the fix has merged into [babel v7.4.4](https://github.com/babel/babel/releases/tag/v7.4.4)! 🎉🎉
+
+And I can't wait to try all the edge cases that I have fixed in babel repl:
+- [`'use strict'`; before `// @flow`](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=OQVwzgpgBGAuBOBLAxrYBuAUAem1AAgGYA2A9gO6aGmkA8AggHwAUARgJRbV1NudA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=false&presets=&prettier=false&targets=&version=7.4.4&externalPlugins=%40babel%2Fplugin-transform-flow-strip-types%407.4.4)
+- [comments before `//@flow`](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=PQKhAIAEFsHsBMCuAbApgZ3AM1rcJgAoYYKLZWAd0J1gB4BBAPgAoAjASgG4bdHXOXIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=false&presets=&prettier=false&targets=&version=7.4.4&externalPlugins=%40babel%2Fplugin-transform-flow-strip-types%407.4.4)
+- [first comment is `//@flow`, but in the middle of the file](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=GYexB4EED4AoCMCUBuAUAenQAgALADYgDuqoEMCKQA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=false&presets=&prettier=false&targets=&version=7.4.4&externalPlugins=%40babel%2Fplugin-transform-flow-strip-types%407.4.4)
+
 ## Closing Remark
 
-Well, I am sorry that I am going to stop here, because the issue is still opened, but I hoped you enjoy the detective journey along the way of hunting this bug.
+~~Well, I am sorry that I am going to stop here, because the issue is still opened, but I hoped you enjoy the detective journey along the way of hunting this bug.~~
 
-If you encountered similar issues, you can patch it first with the solution I mentioned earlier. And do follow the Github issue, I will do my best to fix this.
+~~If you encountered similar issues, you can patch it first with the solution I mentioned earlier. And do follow the Github issue, I will do my best to fix this.~~
+
+If you encountered similar issues, please [upgrade babel to v7.4.4](https://github.com/babel/babel/releases/tag/v7.4.4).
+
+> The best thing about open source is that the source code is open. As part of the JS community, we should not just reap the efforts of the community when we are building our next billion dollar idea, we should also contribute back so that the community as a whole can grow and improve together.
 
 As usual, here are the list of references for this article:
 
