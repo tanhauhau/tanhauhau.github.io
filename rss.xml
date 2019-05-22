@@ -1,6 +1,280 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Sat, 27 Apr 2019 04:56:56 GMT</lastBuildDate><item><title><![CDATA[wip]]></title><link>https://lihautan.com/wip/</link><guid isPermaLink="false">https://lihautan.com/wip/</guid><content:encoded></content:encoded></item><item><title><![CDATA[History of Web Development: JavaScript Modules]]></title><link>https://lihautan.com/javascript-modules/</link><guid isPermaLink="false">https://lihautan.com/javascript-modules/</guid><content:encoded>&lt;h1&gt;Motivation&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Wed, 22 May 2019 08:04:26 GMT</lastBuildDate><item><title><![CDATA[wip]]></title><link>https://lihautan.com/wip/</link><guid isPermaLink="false">https://lihautan.com/wip/</guid><content:encoded></content:encoded></item><item><title><![CDATA[History of Web Development: JavaScript Modules]]></title><link>https://lihautan.com/javascript-modules/</link><guid isPermaLink="false">https://lihautan.com/javascript-modules/</guid><content:encoded>&lt;h1&gt;Motivation&lt;/h1&gt;
 &lt;p&gt;A while ago, I posted an article about &lt;a href=&quot;https://lihautan.com/understand-the-frontend-tools/&quot;&gt;understanding frontend tools&lt;/a&gt; and I have been wanting to share about the history of web development, about the things I’ve 
-I’ve been wanting to share about the history of web development. I know it’s a big topic. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Parsing error when calling generic function with type arguments]]></title><link>https://lihautan.com/parsing-error-flow-type-parameter-instantiation/</link><guid isPermaLink="false">https://lihautan.com/parsing-error-flow-type-parameter-instantiation/</guid><pubDate>Tue, 23 Apr 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Background&lt;/h2&gt;
+I’ve been wanting to share about the history of web development. I know it’s a big topic. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Debugging Web Workers]]></title><link>https://lihautan.com/Debugging web workers/</link><guid isPermaLink="false">https://lihautan.com/Debugging web workers/</guid><pubDate>Wed, 22 May 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Worker&quot;&gt;Web Workers API&lt;/a&gt; allows you to start a separate worker thread and receives and execute tasks off the main thread.&lt;/p&gt;
+&lt;p&gt;Since worker runs in a separate worker thread, how would you debug, ie set breakpoint, console log, and inspect your worker script?&lt;/p&gt;
+&lt;p&gt;Here’s how you would do it for various major browsers:&lt;/p&gt;
+&lt;h2&gt;Chrome&lt;/h2&gt;
+&lt;p&gt;If you are debugging service worker or worker, you can head down to the console. There’s a dropdown menu, if you haven’t noticed previously, that says “JavaScript context”.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f447664867ab3d7a0b0a7382035f127a/a8f3e/chrome-console.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 46.03321033210332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAA80lEQVQoz62PbWuDMBSF8/9/3GBQ1i/FomunaWoSo+ZFTc6uug1bytigFx7wXDnn5LIwBtjGo1U92m6E7Rz6foD38QfnJoQQMU0JKQGDc+j2e/DDAVI3tB8xDMMC03WD6kPhVFxxzhXKs4YoFaQwqLmB4Br8osC5hDEWpnVU2kFmGU55gVoqKnRU7BfYMcshdq9o3ojdC8R7Aa0UmQ0arZdvzitUVQlNWsp6/feFphfOuqMSIQSYpVTYHklckOorIkE3YDtpvvNOf7PVMUawEMK63BoemLbG34bNd9+3Ljza/YGbQGxZl/jv3AY+YZjz9qmBnxTzwO+RZ5BKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;chrome console&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f447664867ab3d7a0b0a7382035f127a/623ee/chrome-console.png&quot;
+        srcset=&quot;/static/f447664867ab3d7a0b0a7382035f127a/816c5/chrome-console.png 148w,
+/static/f447664867ab3d7a0b0a7382035f127a/c766b/chrome-console.png 295w,
+/static/f447664867ab3d7a0b0a7382035f127a/623ee/chrome-console.png 590w,
+/static/f447664867ab3d7a0b0a7382035f127a/e5345/chrome-console.png 885w,
+/static/f447664867ab3d7a0b0a7382035f127a/a8f3e/chrome-console.png 1084w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f204eeef9843eaee0792b0e2d6594d20/481f7/chrome-console-context.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 36.31336405529954%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAA6klEQVQoz5WR3UoDMRCF8/4voaAIWvEd/KPYgrfihYIXLk3ibppkM022SY7Z1l0o1lIPHOZiho85M+zt/QNSLNAqjpUWxRxppYCgoZcKdd2Ac46qqtA0DaSU0FrDGLNjay2EEGBEDncvLc7vJU5ua5w+WJxNCRdPBE0JvWLa1kE5571OZY6F4PH4ajGZfuHm2eNqTricOVzPHZZu/QPYBR0S894jBofkze9uThvYXxvt8wbYOkK1ECAfSrw+YsY6biMMmx2jEajLUT/L0Z1ziDGOzf8AhxnWkkEomynVf7RG13Uj7Fjg0O/rN5CsIAKqtwJFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;chrome console context&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f204eeef9843eaee0792b0e2d6594d20/623ee/chrome-console-context.png&quot;
+        srcset=&quot;/static/f204eeef9843eaee0792b0e2d6594d20/816c5/chrome-console-context.png 148w,
+/static/f204eeef9843eaee0792b0e2d6594d20/c766b/chrome-console-context.png 295w,
+/static/f204eeef9843eaee0792b0e2d6594d20/623ee/chrome-console-context.png 590w,
+/static/f204eeef9843eaee0792b0e2d6594d20/e5345/chrome-console-context.png 885w,
+/static/f204eeef9843eaee0792b0e2d6594d20/481f7/chrome-console-context.png 1085w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;For worker context, you would see a cog logo beside the name.&lt;/p&gt;
+&lt;p&gt;After you choose the worker context, you can type &lt;code class=&quot;language-text&quot;&gt;self&lt;/code&gt; into the console, and you should see &lt;code class=&quot;language-text&quot;&gt;self&lt;/code&gt; is an instance of &lt;code class=&quot;language-text&quot;&gt;DedicatedWorkerGlobalScope&lt;/code&gt; instead of &lt;code class=&quot;language-text&quot;&gt;window&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4319a503f1339435f69b5d931dad2ed0/00215/chrome-worker-context.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 33.98148148148149%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAAcUlEQVQoz9WNSwrDMAxEdf/7FZOSI3jhRMaSP3hiLdxNSSDpqgMPRhIzom1dwO4Ffjvs3kM1o5aCMqi1IsaIEAJSSh9U9QvbMzNIcoaOoFhBayg2D6xQRNBsN7yF5pMrER6o934KXR3vMB/RNL/ovwoPM1Yp7/K+EeIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;chrome worker context&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4319a503f1339435f69b5d931dad2ed0/623ee/chrome-worker-context.png&quot;
+        srcset=&quot;/static/4319a503f1339435f69b5d931dad2ed0/816c5/chrome-worker-context.png 148w,
+/static/4319a503f1339435f69b5d931dad2ed0/c766b/chrome-worker-context.png 295w,
+/static/4319a503f1339435f69b5d931dad2ed0/623ee/chrome-worker-context.png 590w,
+/static/4319a503f1339435f69b5d931dad2ed0/e5345/chrome-worker-context.png 885w,
+/static/4319a503f1339435f69b5d931dad2ed0/00215/chrome-worker-context.png 1080w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;For shared worker, you would need to go to &lt;a href=&quot;chrome://inspect/#workers&quot;&gt;chrome://inspect/#workers&lt;/a&gt;. Select “Shared workers” on the left panel.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4a1f187999558929e12c82767ac653d6/fa22a/chrome-shared-worker.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 79.92565055762083%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAAAsElEQVQ4y+2Qyw6CMBRE+9cGNfCPsFBk6StRhKJACpd2LEWJLCQoLJnkZJImncxcFm4tXDcL3PzGa6KdpVnj5Dk4uA6Onq3dxt51jIf+CnGwRBTU3oU9ciDVkALOl8KQFzBS+F2sEBkqEqgqQprlhrIUIP1GL5eSOihZfoUlyR1CCCjV10cNhsUxB+dcN6Hmqw4eA5NStu36Ww68YTtqolD2rvo5d3TgVHPnwDnwTz0BKYHpaEc9MJUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;chrome shared worker&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4a1f187999558929e12c82767ac653d6/623ee/chrome-shared-worker.png&quot;
+        srcset=&quot;/static/4a1f187999558929e12c82767ac653d6/816c5/chrome-shared-worker.png 148w,
+/static/4a1f187999558929e12c82767ac653d6/c766b/chrome-shared-worker.png 295w,
+/static/4a1f187999558929e12c82767ac653d6/623ee/chrome-shared-worker.png 590w,
+/static/4a1f187999558929e12c82767ac653d6/e5345/chrome-shared-worker.png 885w,
+/static/4a1f187999558929e12c82767ac653d6/fa22a/chrome-shared-worker.png 1076w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;You would be able to see a list of shared workers if you have any running.&lt;/p&gt;
+&lt;p&gt;You can click “inspect”, which will open a new console for you to debug.&lt;/p&gt;
+&lt;h2&gt;Firefox&lt;/h2&gt;
+&lt;p&gt;For Firefox, you could go to &lt;a href=&quot;about:debugging#workers&quot;&gt;about:debugging#workers&lt;/a&gt;. You will be able to see a list of service workers, and shared workers registered to the browser.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e293f9be86a51d004ee22836d76b1ca3/0e893/firefox-shared-worker.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 79.45075757575758%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAACLUlEQVQ4y31U2ZKbQAzk//8k2WRT5RzPqeQ5la2tOPYasLnBGIO5hwG7I43tDeVjH7o0h9RILQ3aMOzBkLJX6DqJvKggRI++PxDojtCfIO9ZuUcnB2hxvEEUrVGWFV0MRCTguybSJEBbZ6iKBE2Voi5TZRXG6ypT+67doe9KaJ7nwbFtdKKjrwxka/jzCaznBzjTRxhP72D/+QiX1ubTezr/oLBSeKC7R7VOra9A+RvathTwkhZlQyUSoewahIvPhAli8wsifQJv9okCvgG7nzhkPwjXdp9+xz7/BU10PRrBpUqlYdu2sJczGC/P0Al5GlJJCdoqQS+oLJHdhRQ5NCklZcZkZ0IBy/YQx1sURa1Ep56hHw4k+v4u+J6bo3Udd/bYXdawaRrM5y/QFwZMw0SeF6iqGnXdKB/ldwE+K4qjnzYel3OGtu3AcVyyLpIkxXabKmKeglfSUQxbnpQ0za4Jm6bFYqHDMJewiZT3nB1/nUeLfW4R8x373ST0PB/xOkbgh4r0nLHrethskteZHRPOZnPle5OQA6MwQhCECMm6rq/WQXA8S5Ltfy1PsTrp7fnBG4SkyZEkVPuAnH3KmM/XlD1rPY7VdYMqC97OkAkYnGGo9oEqWdCr6i+awrqzVLc1JIJxhkzEe7ZrevsViS/UU73M0L/fFC6Ls2IEJ0Imj+MEWba7IjSMpfrgTcLVylJlW5aj1jyPFtkNkUnq7vl3d47hVzad/qUX5uAfNsy/iXO+rAwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;firefox shared worker&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e293f9be86a51d004ee22836d76b1ca3/623ee/firefox-shared-worker.png&quot;
+        srcset=&quot;/static/e293f9be86a51d004ee22836d76b1ca3/816c5/firefox-shared-worker.png 148w,
+/static/e293f9be86a51d004ee22836d76b1ca3/c766b/firefox-shared-worker.png 295w,
+/static/e293f9be86a51d004ee22836d76b1ca3/623ee/firefox-shared-worker.png 590w,
+/static/e293f9be86a51d004ee22836d76b1ca3/e5345/firefox-shared-worker.png 885w,
+/static/e293f9be86a51d004ee22836d76b1ca3/0e893/firefox-shared-worker.png 1056w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h2&gt;Safari&lt;/h2&gt;
+&lt;p&gt;For Safari, you could find the JavaScript context dropdown at the bottom right corner of your console.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/63faa5ab6b7af39c403de23312711343/aa568/safari-console-context.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 83.3955223880597%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAABXUlEQVQ4y+2Uy07DMBBF80cI6lfi2E7StM2jJU0qZVEkuuGDWCABX3sZO7QqIKEuuuzi6o7HnjOOlHH0vO8wjAOcc2jXLYZhipfLJbquw3a7Rd/36Mh3ux02mzXquoZJNdqmRlEUWK1WGMeRznaIjCVQ04JzjjzP0TQNGGPhYFVViOM4wP3ax836EYtyDq4yVG0fwBU18E3LskTEOQuwowQXwZVSEGKKvQspySmfFjBGQ5ga2vmbJsiyDFprUoLoR9FZfGrwO2az8AWcPQQxyvt1yFEcHUHX0g14A14beP7DX5K/6IbnY/kf6AQ8js0f8UlCCkglIeUk/j1qwWnuWZh9L9oTkl6bbA5LL44xBsbaybVBmnilcDZD7vIg62zYs9oiiRWMZDCKI1EzxPIeit8hsq6gIhvewCCC29SFogD2TnCvJElobeCoUZq1yJ8+sTp8oH15x+LwBrt/xRel8zehfF3FNgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;safari console context&quot;
+        title=&quot;&quot;
+        src=&quot;/static/63faa5ab6b7af39c403de23312711343/623ee/safari-console-context.png&quot;
+        srcset=&quot;/static/63faa5ab6b7af39c403de23312711343/816c5/safari-console-context.png 148w,
+/static/63faa5ab6b7af39c403de23312711343/c766b/safari-console-context.png 295w,
+/static/63faa5ab6b7af39c403de23312711343/623ee/safari-console-context.png 590w,
+/static/63faa5ab6b7af39c403de23312711343/e5345/safari-console-context.png 885w,
+/static/63faa5ab6b7af39c403de23312711343/aa568/safari-console-context.png 1072w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to write your own plugin for Gatsby]]></title><link>https://lihautan.com/write-your-own-plugin-system-gatsby/</link><guid isPermaLink="false">https://lihautan.com/write-your-own-plugin-system-gatsby/</guid><pubDate>Fri, 26 Apr 2019 08:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;You don’t have to know about Gatsby to read this article.&lt;/p&gt;
+&lt;p&gt;I will be discussing about plugin system in general.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&quot;https://www.youtube.com/watch?v=iUoon3GneRA&amp;#x26;feature=youtu.be&quot;&gt;Talk.CSS&lt;/a&gt; last week, Gao Wei showed the audience how she used &lt;a href=&quot;https://dev.wgao19.cc/2019-03-08__mix-blend-mode/&quot;&gt;mix-blend-mode&lt;/a&gt; to create a dark mode for &lt;a href=&quot;https://dev.wgao19.cc&quot;&gt;her blog site&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The idea is to create a div with white background, and cover it on top of everything, and apply &lt;code class=&quot;language-text&quot;&gt;mix-blend-mode: difference&lt;/code&gt; to the covering div.&lt;/p&gt;
+&lt;p&gt;Everything goes well, except, my emoji’s color get inversed!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/05b73a6ec18f058f85fcc1b95cca3461/b3c58/inverse-emoji.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 366px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 53.551912568306015%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABpUlEQVQoz21SaXOCQAxdQcXWA/HgEFTAA8Xaw1q10860M/0f/f//4jWJoOD0QybZ7Cb73kuU6ipULAX2ysx8uxAX85m/vM/ioqnOuI3wcYKH9xT+2sPidS5x/Bwi2PhY0jk9ruAlDjanNZylTUWFBjdNVR7ovQq0zO7cBqoDXWK+y73e185vLO1cbP2DsB20MCYki90M9nwgCIN0JAgnDwFmLxGixyn5GKOVAycJEH78QhsYJXQXKap9HXW7JqgMuw7DqaPhGLj37lAbVsEftvwmGq5B+TrlaqjYJhVXLihLujI1ORQFN8/G9Fgvjotv8nOJal4bP0dCJ34KRXCm7iUuptsx5ruY5Aiw3C8wF8ouyTCWdzwkHqZLvtRwSLp1p6boZy+GMCcdKQi3EwziHnqRJXdW2EWfYr7zSeMg9UXnVtAsIVa8Kg418uh3Nm7Kv/NgGBE3Y8/GaPh+tPJoxXhwEWl8bShybE4pdl8vOPy8yUQTopce1zJZps8Unz63WB8S7L93sjqqmS0/+86Nhvlu8UTzWO9dPecu+5dZTk/LJ11Ynz9aOgl0n+4gjwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;inverse colored emoji&quot;
+        title=&quot;&quot;
+        src=&quot;/static/05b73a6ec18f058f85fcc1b95cca3461/b3c58/inverse-emoji.png&quot;
+        srcset=&quot;/static/05b73a6ec18f058f85fcc1b95cca3461/d7200/inverse-emoji.png 148w,
+/static/05b73a6ec18f058f85fcc1b95cca3461/defb5/inverse-emoji.png 295w,
+/static/05b73a6ec18f058f85fcc1b95cca3461/b3c58/inverse-emoji.png 366w&quot;
+        sizes=&quot;(max-width: 366px) 100vw, 366px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Well, with this &lt;em&gt;X-Ray colored&lt;/em&gt; emoji, I guess there’s nothing to brag about anymore. &lt;span class=&quot;emoji&quot;&gt;😭&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;The Fix&lt;/h2&gt;
+&lt;p&gt;Well the fix is pretty simple, which is to wrapped the emojis around with &lt;code class=&quot;language-text&quot;&gt;span&lt;/code&gt; and add a &lt;code class=&quot;language-text&quot;&gt;z-index: 1&lt;/code&gt; to it.&lt;/p&gt;
+&lt;p&gt;But the actual problem is, where should I write this logic at?&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Context&lt;/h3&gt;
+&lt;p&gt;A little bit of context before we continue:&lt;/p&gt;
+&lt;p&gt;I am building my blog with Gatsby &lt;/p&gt;
+&lt;!-- TODO: finish the context --&gt;
+&lt;hr&gt;
+&lt;p&gt;What &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Parsing error when calling generic function with type arguments]]></title><link>https://lihautan.com/parsing-error-flow-type-parameter-instantiation/</link><guid isPermaLink="false">https://lihautan.com/parsing-error-flow-type-parameter-instantiation/</guid><pubDate>Tue, 23 Apr 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Background&lt;/h2&gt;
 &lt;p&gt;Mentioned in the &lt;a href=&quot;/errors-encountered-upgrading-flow-0.85/&quot;&gt;previous post&lt;/a&gt;, we have &lt;a href=&quot;https://babeljs.io/docs/en/v7-migration&quot;&gt;upgraded babel 7&lt;/a&gt; to support the new Flow syntax.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;foobar&amp;lt;Type&amp;gt;(x)&lt;/code&gt; is now &lt;em&gt;call foobar with x, and type parameter &lt;code class=&quot;language-text&quot;&gt;Type&lt;/code&gt;&lt;/em&gt; rather than &lt;code class=&quot;language-text&quot;&gt;(foobar &amp;lt; Type) &amp;gt; x)&lt;/code&gt; &lt;em&gt;is the result of foobar smaller than Type, greater than x?&lt;/em&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
