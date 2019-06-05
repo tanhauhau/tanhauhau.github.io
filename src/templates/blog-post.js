@@ -27,9 +27,11 @@ class BlogPostTemplate extends React.Component {
           }}
         >
           {post.frontmatter.date}
-          <span style={{ fontStyle: 'italic', marginLeft: rhythm(0.2) }}>
-            (Last updated: {post.frontmatter.lastUpdated})
-          </span>
+          {post.frontmatter.lastUpdated && (
+            <span style={{ fontStyle: 'italic', marginLeft: rhythm(0.2) }}>
+              (Last updated: {post.frontmatter.lastUpdated})
+            </span>
+          )}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
