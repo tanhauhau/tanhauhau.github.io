@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import BioImage from './BioImage';
 
 function Bio() {
   return (
@@ -28,18 +28,7 @@ function Bio() {
                 maxWidth: '100%',
               }}
             >
-              <Image
-                fixed={data.largeAvatar.childImageSharp.fixed}
-                alt={author}
-                style={{
-                  padding: 4,
-                  border: '4px dotted #8b679b',
-                  borderRadius: `50%`,
-                }}
-                imgStyle={{
-                  borderRadius: `50%`,
-                }}
-              />
+              <BioImage data={data} author={author} />
 
               <h1>Tan Li Hau</h1>
               <h2>
@@ -107,6 +96,13 @@ const bioQuery = graphql`
       }
     }
     largeAvatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
+      childImageSharp {
+        fixed(width: 230, height: 230) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    qrCode: file(absolutePath: { regex: "/vcard-qr-code.png/" }) {
       childImageSharp {
         fixed(width: 230, height: 230) {
           ...GatsbyImageSharpFixed
