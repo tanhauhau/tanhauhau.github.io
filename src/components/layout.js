@@ -54,6 +54,8 @@ class Layout extends React.Component {
             {'❤️'}
           </span>
           {' • '}
+          <Link to={`/notes`}>notes</Link>
+          {' • '}
           <a href="https://twitter.com/lihautan">twitter</a>
           {' • '}
           <a href="https://github.com/tanhauhau">github</a>

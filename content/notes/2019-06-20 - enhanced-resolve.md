@@ -1,6 +1,3 @@
-
----
-
 **`parsed-resolve` -> `described-resolve`**
 
 ##  DescriptionFilePlugin
@@ -10,5 +7,5 @@
   - `descriptionFileData`
   - `descriptionFileRoot`
   - `relativePath`
----
+
 

@@ -12,20 +12,13 @@ module.exports = {
     },
   },
   plugins: [
-    {
+    ...['blog', 'talk', 'notes'].map(type => ({
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/content/${type}`,
+        name: type,
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/talk`,
-        name: `talk`,
-      },
-    },
+    })),
     {
       resolve: `gatsby-source-filesystem`,
       options: {

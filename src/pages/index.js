@@ -76,7 +76,10 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { wip: { ne: true } } }
+      filter: {
+        frontmatter: { wip: { ne: true } }
+        fields: { type: { ne: "notes" } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
