@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{107:function(o,e,n){},108:function(o,e,n){},115:function(o,e,n){},152:function(o,e,n){},157:function(o,e,n){o.exports={container:"BioImage-module--container--1PFVh",image1:"BioImage-module--image1--14nWk",image2:"BioImage-module--image2--1Blhq",showImage:"BioImage-module--showImage--2hBbU"}}}]);
-//# sourceMappingURL=styles-e0cb59e7d7dfe0943c1b.js.map
