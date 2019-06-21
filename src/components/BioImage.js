@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'gatsby-image';
 import styles from './BioImage.module.css';
-console.log(styles);
 export default function BioImage({ data, author }) {
   const [startLongPress, setStartLongPress] = useState(false);
   const [showImage, setShowImage] = useState(true);
