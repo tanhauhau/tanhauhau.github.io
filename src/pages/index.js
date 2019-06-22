@@ -154,9 +154,9 @@ function Index({ data, location }) {
           }) => {
             return (
               <li key={title} className={styles.list}>
-                <Link style={{ boxShadow: `none` }} to={website}>
+                <a style={{ boxShadow: `none` }} href={website}>
                   {title}
-                </Link>{' '}
+                </a>{' '}
                 <small>{description}</small>
               </li>
             );

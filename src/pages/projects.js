@@ -31,9 +31,9 @@ function Projects({ data, location }) {
                   marginTop: rhythm(0.75),
                 }}
               >
-                <Link style={{ boxShadow: `none` }} to={website}>
+                <a style={{ boxShadow: `none` }} href={website}>
                   {title}
-                </Link>
+                </a>
               </h3>
               <p>{description}</p>
             </>
