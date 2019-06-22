@@ -1,0 +1,2 @@
+- graphql aliases https://graphql.org/learn/queries/#aliases
+  - allows you to rename the result field

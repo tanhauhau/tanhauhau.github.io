@@ -93,10 +93,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {
-        frontmatter: { wip: { ne: true } }
-        fields: { type: { eq: "talk" } }
-      }
+      filter: { fields: { type: { eq: "talk" }, wip: { ne: true } } }
     ) {
       edges {
         node {

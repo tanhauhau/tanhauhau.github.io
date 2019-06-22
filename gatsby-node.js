@@ -3,12 +3,11 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-
   return graphql(
     `
       {
         allMarkdownRemark(
-          filter: { frontmatter: { wip: { ne: true } } }
+          filter: { fields: { wip: { ne: true } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -45,12 +44,16 @@ exports.createPages = ({ graphql, actions }) => {
 
     // split into different lists
     const notes = [];
+    const portfolios = [];
     const others = [];
     posts.forEach(post => {
-      if (post.node.fields.type === 'notes') {
-        notes.push(post);
-      } else {
-        others.push(post);
+      switch (post.node.fields.type) {
+        case 'notes':
+          return notes.push(post);
+        case 'portfolios':
+          return portfolios.push(post);
+        default:
+          return others.push(post);
       }
     });
 
@@ -101,6 +104,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: postType,
     });
 
+    createNodeField({
+      name: 'wip',
+      node,
+      value: !!node.frontmatter.wip,
+    });
+
     if (postType === 'notes') {
       // create date and title out of filename
       const [_, date, noteTitle] = node.fileAbsolutePath.match(noteRegexp);
@@ -113,6 +122,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'noteTitle',
         node,
         value: noteTitle,
+      });
+    }
+
+    if (postType === 'portfolios') {
+      createNodeField({
+        name: 'website',
+        node,
+        value: node.frontmatter.website,
       });
     }
   }

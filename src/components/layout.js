@@ -44,7 +44,7 @@ class Layout extends React.Component {
       >
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
+        <footer style={{ marginTop: rhythm(2) }}>
           {'Built with '}
           <span role="img" className="emoji">
             {'💻'}

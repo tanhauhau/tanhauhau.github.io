@@ -14,7 +14,7 @@ function Bio() {
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author, social } = data.site.siteMetadata;
+        const { author } = data.site.siteMetadata;
         return (
           <div
             style={{
@@ -40,44 +40,6 @@ function Bio() {
                   Shopee
                 </a>
               </h2>
-              <h3
-                style={{
-                  lineHeight: 1.4,
-                }}
-              >
-                {'I '}
-                <a
-                  href={`https://github.com/${social.github}`}
-                  aria-label="Li Hau's Github Repository"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  contribute
-                </a>
-                {' to open source, blog and '}
-                <a
-                  href={`https://stackoverflow.com/users/${
-                    social.stackOverflow
-                  }`}
-                  aria-label="StackOverflow profile"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  answer questions
-                </a>
-                {
-                  ' about JavaScript. If you find me interesting, you can connect with me via '
-                }
-                <a
-                  href={`https://www.linkedin.com/in/${social.linkedIn}/`}
-                  aria-label="Linkedin"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  LinkedIn
-                </a>
-                .
-              </h3>
             </div>
           </div>
         );
@@ -112,11 +74,6 @@ const bioQuery = graphql`
     site {
       siteMetadata {
         author
-        social {
-          github
-          stackOverflow
-          linkedIn
-        }
       }
     }
   }
