@@ -58,7 +58,85 @@ module.exports = {
         trackingId: `UA-135921142-1`,
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [
+          {
+            filter: 'in: ["blog", "talk"]',
+            title: "Tan Li Hau's RSS Feed",
+            outputFile: 'rss.xml',
+            include: true,
+          },
+          {
+            filter: 'eq: "blog"',
+            title: "Tan Li Hau's Blog RSS Feed",
+            outputFile: 'blog-rss.xml',
+            include: false,
+          },
+          {
+            filter: 'eq: "talk"',
+            title: "Tan Li Hau's Talk RSS Feed",
+            outputFile: 'talk-rss.xml',
+            include: false,
+          },
+        ].map(feed => {
+          return {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                });
+              });
+            },
+            query: `{
+              site {
+                siteMetadata {
+                  title
+                  description
+                  siteUrl
+                  site_url: siteUrl
+                }
+              }
+              allMarkdownRemark(
+                filter: {
+                  fields: {
+                    type: {
+                      ${feed.filter}
+                    },
+                    wip: { ne: true }
+                  }
+                }
+                sort: { fields: [frontmatter___date], order: DESC }
+              ) {
+                edges {
+                  node { 
+                    fields { 
+                      slug
+                     }
+                    frontmatter {
+                      date
+                      title
+                    }
+                    html
+                    excerpt
+                  }
+                }
+              }
+            }`,
+            output: feed.outputFile,
+            title: feed.title,
+            match: feed.include
+              ? undefined
+              : 'DO_NOT_INCLUDE_RSS_FEED_INTO_HTML',
+          };
+        }),
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
