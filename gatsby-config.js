@@ -42,11 +42,15 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          // add filename in code snippets, do it before prismjs
+          require.resolve('./plugins/gatsby/remark-filename'),
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           // wrap emoji with span.emoji
           require.resolve('./plugins/gatsby/remark-emoji'),
+          // wrap img + caption with figure & figcaption
+          require.resolve('./plugins/gatsby/remark-caption'),
         ],
       },
     },

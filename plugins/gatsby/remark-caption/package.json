@@ -1,0 +1,7 @@
+{
+  "name": "remark-caption",
+  "main": "./index.js",
+  "peerDependencies": {
+    "gatsby": "^2.1.27"
+  }
+}

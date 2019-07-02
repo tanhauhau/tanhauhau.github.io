@@ -6,3 +6,44 @@
   margin-bottom: 0.4rem;
   margin-top: 0.4rem;
 }
+
+figcaption,
+:global(.gatsby-highlight) + :global(.caption) {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: lighter;
+  color: hsla(0, 0%, 0%, 0.65);
+  text-decoration: underline;
+  margin-bottom: 1em;
+}
+:global(.gatsby-highlight) + :global(.caption) {
+  margin-top: -0.5em;
+}
+/* code within caption */
+figcaption > code[class*='language-'],
+:global(.gatsby-highlight) + :global(.caption) > code[class*='language-'] {
+  padding: 2px 4px;
+  font-size: 0.8em;
+  background-color: hsla(0, 0%, 0%, 0.65);
+  color: #faf0fd;
+}
+
+/* filename */
+:global(.filename) {
+  font-size: 0.85em;
+  font-style: italic;
+  margin-bottom: 0;
+  padding: 8px 16px;
+  padding-bottom: 0;
+  background: rgba(40, 41, 54, 1);
+  color: #faf0fd;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  text-decoration: underline;
+}
+:global(.filename) + :global(.gatsby-highlight) pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0;
+  padding-top: 2px;
+}
