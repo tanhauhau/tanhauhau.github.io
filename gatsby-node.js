@@ -45,6 +45,8 @@ exports.createPages = ({ graphql, actions }) => {
     // split into different lists
     const notes = [];
     const portfolios = [];
+    const talks = [];
+    const blogs = [];
     const others = [];
     const wips = [];
     posts.forEach(post => {
@@ -57,12 +59,16 @@ exports.createPages = ({ graphql, actions }) => {
           return notes.push(post);
         case 'portfolios':
           return portfolios.push(post);
+        case 'talk':
+          return talks.push(post);
+        case 'blog':
+          return blogs.push(post);
         default:
           return others.push(post);
       }
     });
 
-    const lists = [notes, others];
+    const lists = [notes, talks, blogs, others];
     lists.forEach(list => {
       list.forEach((post, index) => {
         const component = componentMap[post.node.fields.type];

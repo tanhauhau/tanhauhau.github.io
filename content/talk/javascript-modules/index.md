@@ -5,9 +5,9 @@ venueLink: https://www.google.com/maps/place/Shopee+SG/@1.291278,103.7846628,15z
 occasion: React Knowledgeable Week 25
 occasionLink: 'https://github.com/Shopee/react-knowledgeable/issues/89'
 slides: https://slides.com/tanhauhau/js-module
+video: https://www.youtube.com/watch?v=iRSdPqIHOqg
 date: '2019-04-12'
 series: History of Web Development
-wip: true
 ---
 
 # Motivation
@@ -236,13 +236,113 @@ If you find the concept of script loading similar, that's because it is the exac
 
 ```js
 // script loading
-load("lib/jquery.min.js", callback);
+load('lib/jquery.min.js', callback);
 // dynamic import
-import("lib/jquery.min.js").then(callback);
+import('lib/jquery.min.js').then(callback);
 ```
 
-WIP
+CommonJS's `require` statement did not take into consideration of the asynchronicity of the browser land, therefore the JavaScript community came up with another module system, [AMD (Asynchronous Module Definition)](https://requirejs.org/docs/whyamd.html#amd).
 
+AMD uses an asynchronous `require` syntax, that takes a callback that would be called only after the dependency is available.
 
-```sh
-# 
+```js
+// filename: main.js
+require(['jquery', 'circle'], function($, circle) {
+  // we can use `$` and `circle` now!
+});
+```
+
+We have both module system in JavaScript, CommonJS and AMD, with both seemed valid and useful, yet troubling, because it meant to library owners to support both module system, by means such as a unified module definition via [UMDjs](https://github.com/umdjs/umd).
+
+So, [TC39](https://www.ecma-international.org/memento/tc39.htm), the standards body charged with defining the syntax and semantics of ECMAScript decided to introduce the [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in ES6 (ES2015).
+
+ES Modules introduced 2 new syntax, the `import` and `export`.
+
+```js
+// importing `circle` from './circle'
+import circle from './circle';
+
+// export the constant `PI`
+export const pi = 3.142;
+```
+
+Although at that point of time, most browser still does not support the syntax. So module bundler, like [webpack](https://webpack.js.org) came into picture. [webpack](https://webpack.js.org) transform the code with `import` and `export` syntax, by concatenating "import"ed modules, and link them together.
+
+Now, most [modern browsers have supported `<script type="module">`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#Applying_the_module_to_your_HTML), which means, the `import` and `export` syntax is supported by default without needing any build tools.
+
+Over the years, the JavaScript community have been trying to split JavaScript code into multiple files, and link them together with some module system, such as CommonJS and AMD. [TC39](https://www.ecma-international.org/memento/tc39.htm) introduced [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in ES6 (ES2015) to offer an official module syntax in JavaScript, and before browsers supporting the ES modules syntax, we have to rely on build tools such as [webpack](https://webpack.js.org). Finally, modern browsers are now supporting `<script type="module">`, which means we can now use `import` and `export` in our JavaScript application without any configurations.
+
+# Scopability
+
+> The "scope pollution" problem.
+
+There are 2 ways to look at the scope polution problem:
+
+- 2 modules are declaring into the same scope, which might have naming conflicts
+- variables declared within a module is now "public" and available to other modules, which wasn't intended
+
+In this aspect, there are 2 solutions in general for the problem, and I am going to bring out 2 different tools for each solution as an example.
+
+Firstly, scope naming conflicts can be solved via [namespace](https://en.wikipedia.org/wiki/Namespace). If you read the compiled code from [Google Closure Tools](https://developers.google.com/closure/), you will find that the built-in libraries from Google Closure Tools are namespaced:
+
+```js
+goog.provide('tutorial.notepad');
+goog.require('goog.dom');
+
+tutorial.notepad.makeNotes = function(data) {
+  //...
+  goog.dom.appendChild(this.parent, data);
+};
+```
+
+_Examples from "Building an Application with the Closure Library" tutorial_
+
+Compiled into:
+
+```js
+// goog.provide('tutorial.notepad');
+tutorial = tutorial || {};
+tutorial.notepad = tutorial.notepad || {};
+// goog.require('goog.dom');
+goog = goog || {};
+goog.dom = goog.dom || function() { ... };
+
+tutorial.notepad.makeNotes = function(data) {
+  //...
+  goog.dom.appendChild(this.parent, data);
+};
+```
+
+All the code will get concatenated, and declared on the same scope, yet because it is namespace-d, you will have less chance of having a conflict.
+
+The other solution for the scope problem, is to wrap each module with a function to create a scope for each module. If you look at AMD's way of writing, you would end up into something like the following:
+
+```js
+define('goog/dom', function() { ... });
+
+define('tutorial/notepad', ['goog/dom'], function (googDom) {
+  return {
+    makeNotes: function(data) {
+      //...
+      goog.dom.appendChild(this.parent, data);
+    },
+  },
+});
+```
+
+You have modules wrapped into their own scope, and hence the only way for 2 modules to interact is through the module systems' `import` and `export`.
+
+In terms of "scopeability", the solutions are namespace it or create a new function scope.
+
+In fact, these are the 2 different ways module bundlers bundled JavaScript modules into 1 JavaScript file. (which I will explained them further in my future talk).
+
+# Summary
+
+We've seen how module system was introduced into JavaScript, and how different tools, standards, or syntax come about in solving the **Installability**, **Scopability** and **Importability** problem.
+
+# Further Readings
+
+- [CommonJS effort sets javascript on path for world domination](https://arstechnica.com/information-technology/2009/12/commonjs-effort-sets-javascript-on-path-for-world-domination/)
+- [Writing Modular JavaScript With AMD, CommonJS & ES Harmony](https://addyosmani.com/writing-modular-js/)
+- [What server side JavaScript needs](https://www.blueskyonmars.com/2009/01/29/what-server-side-javascript-needs/)
+- [ES Modules: a cartoon deep dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)

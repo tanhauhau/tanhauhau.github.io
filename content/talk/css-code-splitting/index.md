@@ -191,9 +191,3 @@ In Shopee we does [Server Side Rendering](https://developers.google.com/web/upda
 We have our on in-house solution for it, which I am not allow to disclose any of it.
 
 But if you encounter similar issues, and are stucked somewhere, you can [find me on twitter](https://twitter.com/lihautan), I am more than willing to give out some personal pointers and advices on this matter. 
-
----
-
-That's it. Take you for your time reading this article.
-
-If it helps, we can always have a chat on [twitter](https://twitter.com/lihautan) or [LinkedIn](https://sg.linkedin.com/in/lihautan). Cheers.
