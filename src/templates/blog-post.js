@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import ArticleFooter from '../components/ArticleFooter';
 import { rhythm, scale } from '../utils/typography';
 
 class BlogPostTemplate extends React.Component {
@@ -34,6 +35,7 @@ class BlogPostTemplate extends React.Component {
           )}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <ArticleFooter url={this.props.location.href} />
         <hr
           style={{
             marginBottom: rhythm(1),
