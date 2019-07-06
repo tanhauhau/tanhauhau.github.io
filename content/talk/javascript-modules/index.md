@@ -7,6 +7,7 @@ occasionLink: 'https://github.com/Shopee/react-knowledgeable/issues/89'
 slides: https://slides.com/tanhauhau/js-module
 date: '2019-04-12'
 series: History of Web Development
+wip: true
 ---
 
 # Motivation
@@ -241,3 +242,7 @@ import("lib/jquery.min.js").then(callback);
 ```
 
 WIP
+
+
+```sh
+# 

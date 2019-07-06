@@ -7,7 +7,6 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
-          filter: { fields: { wip: { ne: true } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -19,6 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
                 type
                 noteDate
                 noteTitle
+                wip
               }
               frontmatter {
                 title
@@ -46,7 +46,12 @@ exports.createPages = ({ graphql, actions }) => {
     const notes = [];
     const portfolios = [];
     const others = [];
+    const wips = [];
     posts.forEach(post => {
+      if (post.node.fields.wip) {
+        return wips.push(post);
+      }
+
       switch (post.node.fields.type) {
         case 'notes':
           return notes.push(post);
@@ -74,6 +79,19 @@ exports.createPages = ({ graphql, actions }) => {
             next,
           },
         });
+      });
+    });
+
+    wips.forEach(post => {
+      const component = componentMap[post.node.fields.type];
+      createPage({
+        path: post.node.fields.slug,
+        component,
+        context: {
+          ...post.node.fields,
+          previous: null,
+          next: null,
+        },
       });
     });
 

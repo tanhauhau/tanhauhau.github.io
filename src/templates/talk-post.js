@@ -11,6 +11,7 @@ class TalkPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
+    const isWip = post.fields.wip
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -18,7 +19,7 @@ class TalkPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
+        <h1>{isWip ? 'WIP: ' : null}{post.frontmatter.title}</h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -161,6 +162,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        wip
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title

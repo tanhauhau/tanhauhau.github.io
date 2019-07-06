@@ -4,9 +4,14 @@ const rehype = require('rehype');
 const COMMENTS = {
   html: /^<!--\s+filename:\s+(\S+)\s+-->/,
   js: /^\/\/\s+filename:\s+(\S+)/,
+  jsx: /^\/\/\s+filename:\s+(\S+)/,
   text: /^filename:\s+(\S+)/,
   none: /^filename:\s+(\S+)/,
   md: /^<!--\s+filename:\s+(\S+)\s+-->/,
+  css: /^\/\*\s+filename:\s+(\S+)\s+\*\//,
+  yml: /^#\s+filename:\s+(\S+)/,
+  sh: /^#\s+filename:\s+(\S+)/,
+  json: /^NO_COMMNENTS/,
 };
 module.exports = function({ markdownAST }) {
   const operations = [];
