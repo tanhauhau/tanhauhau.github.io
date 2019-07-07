@@ -3,6 +3,22 @@
 <p>This article is <strong>NOT about how to build a Gatsby site</strong>, there a lot resources about that you can go for. But I am here to share some of my customisations that I’ve added to my Gatsby site, and hopefully you would share yours too.</p>
 <h2>The boilerplate</h2>
 <p>I used the exact same Gatsby starter pack as Dan’s <a href="https://overreacted.io">Overreacted</a>, because why not ¯_(ツ)_/¯. It looks sleek and simple and I like it.</p>
+<h2>The deployment</h2>
+<p>I use <a href="https://pages.github.com/">Github Pages</a> to host this blog.</p>
+<p>
+  <a class="gatsby-resp-image-link" href="/static/090513484ecbe0914b63f7312532afb7/9ab87/github-pages.png" style="display: block" target="_blank" rel="noopener">
+  
+  <figure class="gatsby-resp-image-wrapper" style="position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 80.21390374331551%; position: relative; bottom: 0; left: 0; background-image: url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACL0lEQVQ4y52UC2+bMBDH8/0/27Ru0qTu0ZCE15JAAGP8xOa/80GztqomrUG/3J0x53vBrqwqHI9H5HmOpyzDHAI+8lvStSzYTcpBjBZSGohewFuP4OcVt8q0NrMeWH+2X0pE9opdrSb8GHrshxaHW459c0J2q4gaT01JazUObYF8qFGI32QXTCnOOHUVTn3FdusHyEVjV8Yzvrmf+Kq/42F6xIN6xGd1xCdVMV8MOUf9DhX2G8n+hQJZqLATk0R+rqC9gZktbHCEJd2wTOvKa2iyk56kmh3jov/L4mm/x85og8v5ilvb4XppWHa3Ds21ZZIuhhFylBBipHpP6KYIoSPX7FVjIjXFe4+uH9B1PW2WsNbBWHtnefvU1lNsXb1DV4wRu5GcZNkB2eGI8/lCznsMQjCCuHUdH9ZJh0YGWB9Xl8tyl886O3TO41RUyInDqYCiEgSaxXmeXxMiQVGkh5c30b10GOjPz4FxNHPLB0b6mUCH0mArlGXFtG0L59wdYyxjqZaaIjfGcF0tk/ZYCiJAOQoqbDVMG/OiRFnVuDYN1+5GNbs0LcZx3JAYhoG7nGwpJ2aaCENNVQGanC7JYYyBb2it70lMil5Dqf47eY7QkGdN4a9p6XuB/1mzd5qS4BpKE3HIa+z3GfY0PindnuaypYFO85nsJNNa0wm0w8TDPUq5pa2YNM/8tUknzjO9NtSEhFKaI12lQWqa0uua1PRl0mki1nrFuI5RSnXZ5B9dD9g03Y3uAwAAAABJRU5ErkJggg==&#x27;); background-size: cover; display: block;">
+      <img class="gatsby-resp-image-image" style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;" alt="github pages settings" title="Github Pages Settings" src="/static/090513484ecbe0914b63f7312532afb7/623ee/github-pages.png" srcset="/static/090513484ecbe0914b63f7312532afb7/816c5/github-pages.png 148w, /static/090513484ecbe0914b63f7312532afb7/c766b/github-pages.png 295w, /static/090513484ecbe0914b63f7312532afb7/623ee/github-pages.png 590w, /static/090513484ecbe0914b63f7312532afb7/e5345/github-pages.png 885w, /static/090513484ecbe0914b63f7312532afb7/7a439/github-pages.png 1180w, /static/090513484ecbe0914b63f7312532afb7/9ab87/github-pages.png 1496w" sizes="(max-width: 590px) 100vw, 590px">
+    </span>
+  <figcaption>Github Pages Settings</figcaption></figure>
+  
+  </a>
+    </p>
+<p>According to the settings, I am required to use <code class="language-text">master</code> branch to serve the content, that’s why I am writing and developing in <code class="language-text">dev</code> branch instead.</p>
+<p>To deploy, I added a <a href="https://github.com/tanhauhau/tanhauhau.github.io/blob/dev/scripts/publish.js">publish.js</a> script. The script will clone the repo in a temporary folder, copy all the built files into the folder, make a commit and push it to the master branch.</p>
+<p>Lastly, I added the script to the <code class="language-text">pre-push</code> git hook, so that every time when I am pushing changes to the <code class="language-text">dev</code> branch, it will also build and “deploy” changes to the <code class="language-text">master</code> branch.</p>
 <h2>The light & dark mode</h2>
 <p><a href="https://twitter.com/wgao19">Wei</a> did a sharing on how mix blend mode works and how she <a href="https://dev.wgao19.cc/2019-05-04__sun-moon-blending-mode/">added night mode using mix-blend-mode</a> on her site.</p>
 <p>So I decided to add my own <a href="https://github.com/tanhauhau/tanhauhau.github.io/commit/291663d10cc7838d67392acb6a28a04a655603a6#diff-4e34e842430a5e2977417f28e477e14d">Dark Mode Switch</a> as well.</p>
