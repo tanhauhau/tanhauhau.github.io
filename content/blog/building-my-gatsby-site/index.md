@@ -15,6 +15,18 @@ This article is **NOT about how to build a Gatsby site**, there a lot resources 
 
 I used the exact same Gatsby starter pack as Dan's [Overreacted](https://overreacted.io), because why not ¯\_(ツ)_/¯. It looks sleek and simple and I like it.
 
+## The deployment
+
+I use [Github Pages](https://pages.github.com/) to host this blog.
+
+![github pages settings](./images/github-pages.png 'Github Pages Settings')
+
+According to the settings, I am required to use `master` branch to serve the content, that's why I am writing and developing in `dev` branch instead.
+
+To deploy, I added a [publish.js](https://github.com/tanhauhau/tanhauhau.github.io/blob/dev/scripts/publish.js) script. The script will clone the repo in a temporary folder, copy all the built files into the folder, make a commit and push it to the master branch.
+
+Lastly, I added the script to the `pre-push` git hook, so that every time when I am pushing changes to the `dev` branch, it will also build and "deploy" changes to the `master` branch.
+
 ## The light & dark mode
 
 [Wei](https://twitter.com/wgao19) did a sharing on how mix blend mode works and how she [added night mode using mix-blend-mode](https://dev.wgao19.cc/2019-05-04__sun-moon-blending-mode/) on her site.
