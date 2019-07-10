@@ -127,6 +127,30 @@ function resolveRequest(requester, requestedPath) {
 }
 ```
 
+## Resolving
+
+We know that "import"ing `./b.js` in the following examples will result in getting a different file, because when we specify `./`, we are "import"ing relative to the current file.
+
+```js
+// filename: <root>/a.js
+import './b.js'
+```
+
+```js
+// filename: <root>/foo/a.js
+import './b.js'
+```
+
+So, what are the rules of resolving a module? [Node.js Modules Resolving](http://nodejs.org/api/modules.html#modules_all_together) list out the detail step of the Node.js resolving algorithm:
+
+When you specify a relative path, `./b`, Node.js will first assume that `./b` is a file, and tries the following extension if it couldn't find the file:
+
+```
+b
+b.js
+b.json
+b.node
+```
 
 # Further Readings
 

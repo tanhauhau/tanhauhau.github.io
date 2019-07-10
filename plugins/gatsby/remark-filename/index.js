@@ -44,6 +44,9 @@ module.exports = function({ markdownAST }) {
 };
 
 function cleanupLang(lang) {
+  if (!lang) {
+    return lang;
+  }
   const index = lang.indexOf('{');
   if (index === -1) {
     return lang;
