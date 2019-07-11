@@ -17,6 +17,8 @@ module.exports = function({ markdownAST }) {
   const operations = [];
 
   visit(markdownAST, 'code', (node, index, parent) => {
+    if (!node.lang) return;
+
     const commentRegex = COMMENTS[cleanupLang(node.lang)];
     if (!commentRegex) {
       throw new Error('remark-filename: ' + node.lang + ' not supported');
@@ -44,9 +46,6 @@ module.exports = function({ markdownAST }) {
 };
 
 function cleanupLang(lang) {
-  if (!lang) {
-    return lang;
-  }
   const index = lang.indexOf('{');
   if (index === -1) {
     return lang;
