@@ -1,19 +1,10 @@
 ---
-title: Writing your own bundler
+title: Writing your own module bundler
 date: '2019-06-29T08:00:00Z'
-description: 'understand how module bundler works'
+tags: JavaScript,module bundler,dev tool,webpack
+series: writing your own module bundler
 wip: true
 ---
-
-# Overview
-
-![module bundlers](./images/module-bundlers.png 'Module Bundlers: (left to right) Rollup, FuseBox, webpack, parcel')
-
-<!-- Say you are writing a web application, and you -->
-
-<!-- TODO: -->
-
-...WIP
 
 # Writing it
 
@@ -126,6 +117,7 @@ function resolveRequest(requester, requestedPath) {
   //
 }
 ```
+
 _Resolving path to the actual file path_
 
 ---
@@ -173,7 +165,7 @@ Through the above illustration, we can see that resolving `import './b'` is not 
 To move things forward, we are going to handle resolving relative path for now:
 
 ```js
-const path = require('path')
+const path = require('path');
 // highlight-start
 // resolving
 function resolveRequest(requester, requestedPath) {
@@ -199,10 +191,11 @@ So, for each module, we find their dependency, parse them, and find each depende
 Let's take a look how the final bundled file would look like.
 
 So now we would like to:
+
 - Create the module map, wrapping each module in a "special" function
 - Create the "runtime", the glue that links each module together.
 
-For the module map, 
+For the module map,
 
 # Further Readings
 

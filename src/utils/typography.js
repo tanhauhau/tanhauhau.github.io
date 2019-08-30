@@ -1,6 +1,6 @@
 import Typography from 'typography';
 import Lincoln from 'typography-theme-lincoln';
-import './theme-prisms-dracula.css'
+import './theme-prisms-dracula.css';
 
 const PRIMARY_COLOR = '#612e77';
 
@@ -21,7 +21,16 @@ Lincoln.overrideThemeStyles = () => {
     },
     blockquote: {
       borderLeftColor: PRIMARY_COLOR,
-    }
+    },
+    li: {
+      marginBottom: 0,
+    },
+    'li > p': {
+      marginBottom: 0,
+    },
+    'li > ul': {
+      marginTop: 0,
+    },
   };
 };
 
