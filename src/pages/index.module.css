@@ -33,7 +33,7 @@ figcaption > code[class*='language-'],
   font-size: 0.85em;
   font-style: italic;
   margin-bottom: 0;
-  padding: 8px 16px;
+  padding: 8px var(--prism-padding);
   padding-bottom: 0;
   background: rgba(40, 41, 54, 1);
   color: #faf0fd;

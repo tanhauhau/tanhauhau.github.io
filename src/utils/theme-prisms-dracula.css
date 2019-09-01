@@ -18,6 +18,10 @@ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascr
 * @license MIT 2016-2018
 */
 
+:root {
+  --prism-padding: 20px; 
+}
+
 pre::-webkit-scrollbar {
   width: 14px;
 }
@@ -83,7 +87,7 @@ code[class*='language-'] ::selection {
 pre[class*='language-'] {
   background: rgba(40, 41, 54, 1) !important;
   border-radius: 0.5em;
-  padding: 1em;
+  padding: var(--prism-padding, 1em);
   margin: 0.5em 0;
   overflow: auto;
   height: auto;
@@ -419,4 +423,15 @@ div.code-toolbar > .toolbar span:focus {
 
 :not(pre) > code.language-text::selection {
   color: white;
+}
+
+.gatsby-highlight,
+p.filename {
+  margin-left: calc(-1 * var(--prism-padding));
+  margin-right: calc(-1 * var(--prism-padding));
+}
+
+.gatsby-highlight + blockquote,
+.gatsby-highlight + p:not(.filename) {
+  margin-top: 1.58em;
 }
