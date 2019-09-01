@@ -1,9 +1,9 @@
 ---
 title: What is module bundler and how does it work?
 date: '2019-08-30T08:00:00Z'
+lastUpdated: '2019-08-30T15:05:00Z'
 description: 'understand how module bundler works'
 tags: JavaScript,module bundler,dev tool,webpack
-canonical_url: https://lihautan.com/writing-your-own-bundler
 series: writing your own module bundler
 ---
 
@@ -119,7 +119,7 @@ const modules = {
     }
   },
   'square.js': function(exports, require) {
-    export.default = function area(side) {
+    exports.default = function area(side) {
       return side * side;
     }
   },
@@ -149,7 +149,7 @@ Thirdly, the application is start via `webpackStart`, which is **a function that
 // filename: webpack-bundle.js
 
 function webpackStart({ modules, entry }) {
-  const moduleRegistry = {};
+  const moduleCache = {};
   const require = moduleName => {
     // if in cache, return the cached version
     if (moduleCache[moduleName]) {
