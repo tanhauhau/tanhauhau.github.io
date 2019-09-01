@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Fri, 30 Aug 2019 00:42:58 GMT</lastBuildDate><item><title><![CDATA[What is module bundler and how does it work?]]></title><link>https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</link><guid isPermaLink="false">https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</guid><pubDate>Fri, 30 Aug 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What is a Module Bundler?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 01 Sep 2019 02:08:03 GMT</lastBuildDate><item><title><![CDATA[What is module bundler and how does it work?]]></title><link>https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</link><guid isPermaLink="false">https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</guid><pubDate>Fri, 30 Aug 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What is a Module Bundler?&lt;/h2&gt;
 &lt;p&gt;
   &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/ece4b04e88f84e6d61abc84e759c0916/426f8/module-bundlers.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
@@ -88,7 +88,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token string&quot;&gt;&apos;square.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;exports&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; require&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;area&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;side&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;area&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;side&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; side &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; side&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -110,7 +110,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;Thirdly, the application is start via &lt;code class=&quot;language-text&quot;&gt;webpackStart&lt;/code&gt;, which is &lt;strong&gt;a function that glues everything together&lt;/strong&gt;. The function itself, often called as the &lt;em&gt;“runtime”&lt;/em&gt;, is the most important piece of the bundle. It uses the “module map” and the entry module to start the application.&lt;/p&gt;
 &lt;p class=&quot;filename&quot;&gt;webpack-bundle.js&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;webpackStart&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; modules&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; entry &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; moduleRegistry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; moduleCache &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; moduleName &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token comment&quot;&gt;// if in cache, return the cached version&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;moduleCache&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;moduleName&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -232,7 +232,403 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://webpack.js.org&quot;&gt;Webpack&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://rollupjs.org/guide/en/&quot;&gt;Rollup&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Learn in Public]]></title><link>https://lihautan.com/learn-in-public/</link><guid isPermaLink="false">https://lihautan.com/learn-in-public/</guid><pubDate>Fri, 21 Jun 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Yesterday, &lt;a href=&quot;https://twitter.com/swyx&quot;&gt;@swyx&lt;/a&gt; made a talk in React Knowledgeable about Learning in Public, (you can watch the talk &lt;a href=&quot;https://www.youtube.com/watch?v=-f-rZepNKW0&quot;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Git Gudder]]></title><link>https://lihautan.com/git-gudder/</link><guid isPermaLink="false">https://lihautan.com/git-gudder/</guid><pubDate>Fri, 30 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This week in React Knowledgeable, I did a sharing on Git commands.&lt;/p&gt;
+&lt;p&gt;The title of the talk was called &lt;strong&gt;“Git Gudder”&lt;/strong&gt;, because almost a year ago I did a lightning sharing on “Git Gud”, &lt;em&gt;(Get Good)&lt;/em&gt;, this follow up sharing used the comparative of “Git Gud”, therefore, “Git Gudder”.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Will there be a “Git Guddest”? &lt;span class=&quot;emoji&quot;&gt;🤔&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Disclaimer&lt;/h2&gt;
+&lt;p&gt;I am by no means a Git master or anywhere near mastering Git. I do google or &lt;a href=&quot;https://git-scm.com&quot;&gt;refer to the docs&lt;/a&gt; whenever I am unsure of the commands. In this talk, I listed out all the common history manipulation commands Git provides. I hoped that, with it, we are aware of what is available in our toolbox. So, we can look for it whenever we need it.&lt;/p&gt;
+&lt;h2&gt;git merge&lt;/h2&gt;
+&lt;p&gt;There’s 2 kind of &lt;code class=&quot;language-text&quot;&gt;git merge&lt;/code&gt;, the &lt;strong&gt;fast-forward&lt;/strong&gt; and &lt;strong&gt;non fast-forward&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Fast-forward merge&lt;/h3&gt;
+&lt;p&gt;Merging &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; into &lt;code class=&quot;language-text&quot;&gt;branch A&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-merge-ff-2ffddefc1755e9f2d138e7a7fc2e8a72.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;Fast-forward merge&lt;/figcaption&gt;
+&lt;h3&gt;Non Fast-forward merge&lt;/h3&gt;
+&lt;p&gt;Merging &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; into &lt;code class=&quot;language-text&quot;&gt;branch A&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-merge-non-ff-23076f93d242f55be6b3ba80771e0944.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;Non fast-forward merge&lt;/figcaption&gt;
+&lt;p&gt;Non fast-forward merge will create an extra commit that merges 2 branches.&lt;/p&gt;
+&lt;h3&gt;git pull&lt;/h3&gt;
+&lt;p&gt;By default, &lt;code class=&quot;language-text&quot;&gt;git pull&lt;/code&gt; is &lt;code class=&quot;language-text&quot;&gt;git fetch origin branch&lt;/code&gt; + &lt;code class=&quot;language-text&quot;&gt;git merge origin/branch&lt;/code&gt;.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-pull-627761c5d6e949030d1b4f6fe298badb.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git pull&lt;/figcaption&gt;
+&lt;h2&gt;git reset&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git reset --hard&lt;/code&gt; allows you to change the reference of where your branch is pointing at.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git checkout branch-b&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;git reset --hard branch-a&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;git reset --hard #d&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-reset-457c518b61198e23eb3fbf338e007e6c.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git reset&lt;/figcaption&gt;
+&lt;h2&gt;git cherry-pick&lt;/h2&gt;
+&lt;p&gt;cherry-pick allows you to pick commits from some other branches, tags, or refs.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git checkout branch-b&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;git cherry-pick branch-a&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-cherry-pick-4c5bed7ae43e07591bb5bd5b15fabb6b.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git cherry-pick&lt;/figcaption&gt;
+&lt;h2&gt;git revert&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git revert&lt;/code&gt; creates a new commit that reverses the change of the commit that you are reverting.&lt;/p&gt;
+&lt;p&gt;For example, if you accidentally merged &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; into &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; branch, you can &lt;code class=&quot;language-text&quot;&gt;git checkout master&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;git revert #1&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-revert-1f64f7144d711cb7d2b5dd677b6b9fe8.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git revert&lt;/figcaption&gt;
+&lt;p&gt;If you know merge master into your &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; branch, you would noticed that all the changes in the branch is gone, because the merge is a fast-forward merge, that includes the revert commit made in the branch:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-revert-2-5063b47f73c62d28947cf6b640be5a8c.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;Merging `master` into `feat/a`&lt;/figcaption&gt;
+&lt;p&gt;If you want to recover the changes made in &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt;, you can &lt;code class=&quot;language-text&quot;&gt;revert&lt;/code&gt; the &lt;code class=&quot;language-text&quot;&gt;revert&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git revert ~#1&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-revert-3-2fce7892aeca1e1041ea0d1a247fc736.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git revert the revert&lt;/figcaption&gt;
+&lt;p&gt;Now, when you are ready to merge your &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; branch into &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;, you get the all the changes in &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt;, a commit that revert all that, and a commit that reverts the revert commit, which meant, you still have all the changes in &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-revert-4-a768b28b323f0953dccbb42281e4a60f.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;Merging changes back to master&lt;/figcaption&gt;
+&lt;h2&gt;git rebase&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt; allows you to “move” commits to a different “base”.&lt;/p&gt;
+&lt;p&gt;For example, you branched out &lt;code class=&quot;language-text&quot;&gt;branch-a&lt;/code&gt; from &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; a while ago, and &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; has made a few more commits. But if you merge your branch into master now, it would be a non fast-forward merge, creating an extra commit to the history. If you want a clean, one-line history, you can do a &lt;code class=&quot;language-text&quot;&gt;rebase&lt;/code&gt;, replaying commits that you have made in &lt;code class=&quot;language-text&quot;&gt;branch-a&lt;/code&gt; on top of the latest &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git checkout branch-a&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;git rebase master&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-rebase-cad1f99a283d7c4e64692cc68b908c8a.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git rebase&lt;/figcaption&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt; does not have to be on top of the branch that you branched out, you can rebase to anywhere:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git checkout branch-a&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;git rebase --onto branch-b master branch-a&lt;/code&gt;:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-rebase-2-7d467a95792d2d2f1e8a35e8f1c5c025.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git rebase&lt;/figcaption&gt;
+&lt;p&gt;There’s 3 reference point you should know when doing a git rebase:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;new base&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;upstream&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/612a413cc1db461a40f9966b9b98b5d9/29b39/git-rebase.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 77.51004016064257%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAAB3EeabCYMf//EABoQAAIDAQEAAAAAAAAAAAAAAAACAREyAxL/2gAIAQEAAQUC9QRooTS8lr//xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQMBAT8BjX//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAACAgMAAAAAAAAAAAAAAAAAIQECEBJB/9oACAEBAAY/AhRjhbVjg//EABwQAQACAgMBAAAAAAAAAAAAAAEAESExEEFhUf/aAAgBAQABPyH2iLZHhXxHsVottXioZU76Wf/aAAwDAQACAAMAAAAQ4/8A/8QAGREAAwADAAAAAAAAAAAAAAAAAAERITFR/9oACAEDAQE/EFWZoT4P/8QAFhEAAwAAAAAAAAAAAAAAAAAAECFB/9oACAECAQE/EFR//8QAHBABAAICAwEAAAAAAAAAAAAAAQARIUExUXFh/9oACAEBAAE/EGhrL6R7lUKilX7BsFKeo1TYFJ08SXTw7ww0MqQ4Wt8z/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase&quot; title src=&quot;/static/612a413cc1db461a40f9966b9b98b5d9/44e84/git-rebase.jpg&quot; srcset=&quot;/static/612a413cc1db461a40f9966b9b98b5d9/68355/git-rebase.jpg 148w,
+/static/612a413cc1db461a40f9966b9b98b5d9/ada22/git-rebase.jpg 295w,
+/static/612a413cc1db461a40f9966b9b98b5d9/44e84/git-rebase.jpg 590w,
+/static/612a413cc1db461a40f9966b9b98b5d9/29b39/git-rebase.jpg 747w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;figcaption&gt;git rebase&lt;/figcaption&gt;
+&lt;p&gt;Here are a few things you should know:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt; will replay the commits from &lt;code class=&quot;language-text&quot;&gt;&amp;lt;upstream&amp;gt;&lt;/code&gt; to &lt;code class=&quot;language-text&quot;&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; onto &lt;code class=&quot;language-text&quot;&gt;&amp;lt;new base&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you specify &lt;code class=&quot;language-text&quot;&gt;&amp;lt;upstream&amp;gt;&lt;/code&gt; as a branch name, &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt; will replay commits from the common ancestor of &lt;code class=&quot;language-text&quot;&gt;&amp;lt;upstream&amp;gt;&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; to &lt;code class=&quot;language-text&quot;&gt;&amp;lt;branch&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you do not specify &lt;code class=&quot;language-text&quot;&gt;&amp;lt;branch&amp;gt;&lt;/code&gt;, the default is the &lt;code class=&quot;language-text&quot;&gt;HEAD&lt;/code&gt;, current commit you are at now.&lt;/li&gt;
+&lt;li&gt;If you do not specify &lt;code class=&quot;language-text&quot;&gt;--onto &amp;lt;new base&amp;gt;&lt;/code&gt;, the new base will be default to &lt;code class=&quot;language-text&quot;&gt;&amp;lt;upsttream&amp;gt;&lt;/code&gt;, that’s why &lt;code class=&quot;language-text&quot;&gt;git rebase master&lt;/code&gt; is equivalent to &lt;code class=&quot;language-text&quot;&gt;git rebase --onto master master&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you do not specify &lt;code class=&quot;language-text&quot;&gt;&amp;lt;upstream&amp;gt;&lt;/code&gt;, it will be the upstream of the current branch. So &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt; is equivalent to &lt;code class=&quot;language-text&quot;&gt;git rebase &amp;lt;origin/current-branch&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;git rebase —interactive&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt; has an interactive mode, which allows you to specify instructions while replaying commits during a rebase.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/4c383/git-rebase-i-pick.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 24.475524475524477%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABGklEQVQY02Pw8PBgcHd3YwABDTFWBh0xBjiwlWNgMJSEsHV1GBjs7EAsPohAnT0LmG5wyGPYEvWfYUXIf4a1Yf8Z/v//zwjCILmZvkyMIKaRBANjsCYDkM3AcLuQASx34SyEH5/MBOYz3s9ngRocxbAo8AnDfP9rDIsDrzNQERgAMRPDwYMH1+7etXMiSCTRiCWyypbhuIEEg4azIoPy4kCG4w1ODPEgudoqhqhlyxiOuwew6IEcyLgrpo/hcOJqIJuNId/clmGW7zWga60ZLly48PXkiePnQRLJxiwtkz0Z/muLMjhZyzJYHUli+N/iwtADDqpahtbjxxn+O3qxeAG5XIzHk88wXMn6BGSLMGSaJDKcSPkPNDACAE3RV8AdeWGhAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase i pick&quot; title src=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/623ee/git-rebase-i-pick.png&quot; srcset=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/816c5/git-rebase-i-pick.png 148w,
+/static/5261cb46345352b7f09f5606e8bdcd74/c766b/git-rebase-i-pick.png 295w,
+/static/5261cb46345352b7f09f5606e8bdcd74/623ee/git-rebase-i-pick.png 590w,
+/static/5261cb46345352b7f09f5606e8bdcd74/4c383/git-rebase-i-pick.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;figcaption&gt;git rebase interactive&lt;/figcaption&gt;
+&lt;p&gt;When you run &lt;code class=&quot;language-text&quot;&gt;git rebase --interactive&lt;/code&gt;, git will prompt you with an editor to edit the instructions. In it, you will see a list of commits that will be replayed:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pick #2 commit msg 2
+pick #3 commit msg 3
+pick #4 commit msg 4
+pick #5 commit msg 5
+pick #6 commit msg 6
+
+# Rebase #1..#6 onto #1 (5 commands)
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;pick&lt;/h4&gt;
+&lt;p&gt;The default instruction. Will just use the commit while replaying:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/4c383/git-rebase-i-pick.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 24.475524475524477%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABGklEQVQY02Pw8PBgcHd3YwABDTFWBh0xBjiwlWNgMJSEsHV1GBjs7EAsPohAnT0LmG5wyGPYEvWfYUXIf4a1Yf8Z/v//zwjCILmZvkyMIKaRBANjsCYDkM3AcLuQASx34SyEH5/MBOYz3s9ngRocxbAo8AnDfP9rDIsDrzNQERgAMRPDwYMH1+7etXMiSCTRiCWyypbhuIEEg4azIoPy4kCG4w1ODPEgudoqhqhlyxiOuwew6IEcyLgrpo/hcOJqIJuNId/clmGW7zWga60ZLly48PXkiePnQRLJxiwtkz0Z/muLMjhZyzJYHUli+N/iwtADDqpahtbjxxn+O3qxeAG5XIzHk88wXMn6BGSLMGSaJDKcSPkPNDACAE3RV8AdeWGhAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase i pick&quot; title src=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/623ee/git-rebase-i-pick.png&quot; srcset=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/816c5/git-rebase-i-pick.png 148w,
+/static/5261cb46345352b7f09f5606e8bdcd74/c766b/git-rebase-i-pick.png 295w,
+/static/5261cb46345352b7f09f5606e8bdcd74/623ee/git-rebase-i-pick.png 590w,
+/static/5261cb46345352b7f09f5606e8bdcd74/4c383/git-rebase-i-pick.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pick #2 commit msg 2
+pick #3 commit msg 3
+pick #4 commit msg 4
+pick #5 commit msg 5
+pick #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;drop&lt;/h4&gt;
+&lt;p&gt;Drop will omit the commit:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/f2d3c945cb8d38029af4e0dccc49fb29/4c383/git-rebase-i-drop.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 24.475524475524477%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABGElEQVQY02Pw8PBgcHd3YwABDTFWBh0xBjgQ4WJgUFWFsHV1GRjs7EAsPohAnT0LmG5wyGPYEvWfYXnwf4Y1Yf8Z/v//zwjCILmZvkyMIKaDAgOYzwHUIiQE0X/qFANQjoEhPpkJLMd4P58FanAUw+LAJwyLAq8xLAm6zkBFYADETAwHDx5cu3vXzokgkUQjlsgqG4Zj1rIMeiAHcrIwCIiLMwgC2azV1QwRy5YxHHcPYAHJMTLuiuljOJy4GshmY8g3t2WY5XuNod7emuHChQtfT544fh4kkWzM0jLJg+G/qRSDN5AvxM7MIC8szCAPCri6Ooam48cZ/jt6sXgB+VyMx5PPMFzJ+gQKaoZMk0SGEyn/gd6PAADCSU2rKQzhQAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase i drop&quot; title src=&quot;/static/f2d3c945cb8d38029af4e0dccc49fb29/623ee/git-rebase-i-drop.png&quot; srcset=&quot;/static/f2d3c945cb8d38029af4e0dccc49fb29/816c5/git-rebase-i-drop.png 148w,
+/static/f2d3c945cb8d38029af4e0dccc49fb29/c766b/git-rebase-i-drop.png 295w,
+/static/f2d3c945cb8d38029af4e0dccc49fb29/623ee/git-rebase-i-drop.png 590w,
+/static/f2d3c945cb8d38029af4e0dccc49fb29/4c383/git-rebase-i-drop.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pick #2 commit msg 2
+drop #3 commit msg 3
+pick #4 commit msg 4
+pick #5 commit msg 5
+pick #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;squash &amp; fixup&lt;/h4&gt;
+&lt;p&gt;Squash &amp; Fixup will combine your commit with the previous commit, the only difference is that with &lt;code class=&quot;language-text&quot;&gt;squash&lt;/code&gt;, git will prompt you to edit the commit message of the combined commit, while &lt;code class=&quot;language-text&quot;&gt;fixup&lt;/code&gt; will drop the commit of the &lt;code class=&quot;language-text&quot;&gt;fixup&lt;/code&gt;ed commit.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/8c744d2dab925226b74ab90657fabb5d/4c383/git-rebase-i-squash.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 24.615384615384617%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABE0lEQVQY02Pw8PBgcHdzYwABBSFWBnVhBjjgY2dgkNVkh8jpcTDIGXEjJHvcWMB0q1Mbw7bo/wwrQv4zrA79z/D/PwSDwIpQZsb//5kYAjQYGEF8DqAWPiEmsNytb4KMIHUSkepgOYZKG4iBLU45DIsCHzPM97/CsDDgKgMVgQGYPHTo0MY9u3dNAbHjDFkS6uwZTgJdqAvkcnKxMggKSzILAdmseU08qbGLNI/zB6qrA/ncrDwsggzCnCA5FqBrgxnm+N1gKLPWYjh//vyXE8ePnQFJJBixdE72ZPjvrszgAuQLAb0sKyjGLAdk8xa08fZl79L/z+OhYgPki7BwMcsyCHKA5RgqbMoZjiT9Z8gxtQMA/5BHSr0HHasAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase i squash&quot; title src=&quot;/static/8c744d2dab925226b74ab90657fabb5d/623ee/git-rebase-i-squash.png&quot; srcset=&quot;/static/8c744d2dab925226b74ab90657fabb5d/816c5/git-rebase-i-squash.png 148w,
+/static/8c744d2dab925226b74ab90657fabb5d/c766b/git-rebase-i-squash.png 295w,
+/static/8c744d2dab925226b74ab90657fabb5d/623ee/git-rebase-i-squash.png 590w,
+/static/8c744d2dab925226b74ab90657fabb5d/4c383/git-rebase-i-squash.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pick   #2 commit msg 2
+squash #3 commit msg 3
+pick   #4 commit msg 4
+fixup  #5 commit msg 5
+pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;break&lt;/h4&gt;
+&lt;p&gt;Pause the rebase. You can do add more commits here if you want. When you are done, make sure that your workspace and stage is clean, run &lt;code class=&quot;language-text&quot;&gt;git rebase --continue&lt;/code&gt; to continue.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/40d61/git-rebase-i-break.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 401px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 26.43391521197007%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABEklEQVQY02NggAAeBhhgZGP+/x/Og4tzsjAwMyAAN4hoc2ZgRFLnDsSaDJWVlRX79+//NmnSpMVIGhi8VRnKiywZvodrMyxAEmassGFYNcOH4Vu8PkM+SECGj4EXSIXCLGEAGvYfBL58+fJfTEwsCyiky8DA7FZkwfB3cyTD/wnuDP952BgygeJqQM1FJ1IY/r8rZ/g/2ZPhO1DMhp2ZwRZIZ4PYQMzFMGHChJWfPn36v379+vNAAXlFUU4+BgY2vggdhuWTPBj+ZxgznAGKy/GyARUzMKj0uzNcPZjA8L/QgmEeyABpXgYBqOtNgDgCxGBWVVW1B9LCDKiARYybASQuhCYuKsvHYAekmZDEDGEuBAC1PEReuxohPAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase i break&quot; title src=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/40d61/git-rebase-i-break.png&quot; srcset=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/8e138/git-rebase-i-break.png 148w,
+/static/7bb02277437b3e68fa8405d4c7bd4f48/d6340/git-rebase-i-break.png 295w,
+/static/7bb02277437b3e68fa8405d4c7bd4f48/40d61/git-rebase-i-break.png 401w&quot; sizes=&quot;(max-width: 401px) 100vw, 401px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pick   #2 commit msg 2
+pick   #3 commit msg 3
+break
+pick   #4 commit msg 4
+pick   #5 commit msg 5
+pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;edit&lt;/h4&gt;
+&lt;p&gt;Pause the rebase at the commit that you are editing, before the commit has been commited. You can add, remove or ammend your files before continue the rebase process.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/40d61/git-rebase-i-edit.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 401px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 26.43391521197007%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABEklEQVQY02NggAAeBhhgZGP+/x/Og4tzsjAwMyAAN4hoc2ZgRFLnDsSaDJWVlRX79+//NmnSpMVIGhi8VRnKiywZvodrMyxAEmassGFYNcOH4Vu8PkM+SECGj4EXSIXCLGEAGvYfBL58+fJfTEwsCyiky8DA7FZkwfB3cyTD/wnuDP952BgygeJqQM1FJ1IY/r8rZ/g/2ZPhO1DMhp2ZwRZIZ4PYQMzFMGHChJWfPn36v379+vNAAXlFUU4+BgY2vggdhuWTPBj+ZxgznAGKy/GyARUzMKj0uzNcPZjA8L/QgmEeyABpXgYBqOtNgDgCxGBWVVW1B9LCDKiARYybASQuhCYuKsvHYAekmZDEDGEuBAC1PEReuxohPAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase i edit&quot; title src=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/40d61/git-rebase-i-edit.png&quot; srcset=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/8e138/git-rebase-i-edit.png 148w,
+/static/7bb02277437b3e68fa8405d4c7bd4f48/d6340/git-rebase-i-edit.png 295w,
+/static/7bb02277437b3e68fa8405d4c7bd4f48/40d61/git-rebase-i-edit.png 401w&quot; sizes=&quot;(max-width: 401px) 100vw, 401px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pick   #2 commit msg 2
+edit   #3 commit msg 3
+pick   #4 commit msg 4
+pick   #5 commit msg 5
+pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;git pull —rebase&lt;/h3&gt;
+&lt;p&gt;There’s a rebase mode for git pull, where it will be &lt;code class=&quot;language-text&quot;&gt;git fetch origin branch&lt;/code&gt; + &lt;code class=&quot;language-text&quot;&gt;git rebase origin/branch&lt;/code&gt;.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  &lt;img src=&quot;/git-pull-rebase-e42dbb60d58c4b796232d2661de3448a.gif&quot;&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;git pull --rebase&lt;/figcaption&gt;
+&lt;h3&gt;git rebase a shared branch&lt;/h3&gt;
+&lt;p&gt;Say &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt; are working on the &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; branch.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/3aac5a68800ae65b2658ce1533b01e32/4c383/git-rebase-w.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 34.26573426573427%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABXElEQVQoz2NgIBNEuwUygmg7A3PN/VNWvd3QOffbrgnLPpFrHoOvtxfYQGMjI7XFC+bdnTFtyvMFc2Y9YlBVVWVQUlQEKxLjYWIQ5UJokuNnYBDihLAFBRgYFBQQcjbuFkwgWt9MT71vUfe9him1L7rmtT1m+P//PyMIgyT7PFiAbAZGHTEGRls5BjD7ci4DWO7wAQg/IAjC73omxQyide2VDdL6/T5kTw36ktLj+5mBUuCVZM8aWuSqySPAHaNvp2bBcODAgbW7du6YBJKMN2SJqrJlOK4rxqBlI8egtiiQ4UStA0MiSK6qgiF62TKG4+7eDAZALkvWTob+/MMMa4Bsbg0LOfmSBdGn0noD/BiuXr368/y5M5dAilJNWdpn+jD8BxrobCfPYH0mjeF/uxtDP8jAliaG9gsXGP57+zN4A7nsJWcYztfcYvgKZIsbOKu4zrhU8T9namgTALcKccKJMwQZAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase w&quot; title src=&quot;/static/3aac5a68800ae65b2658ce1533b01e32/623ee/git-rebase-w.png&quot; srcset=&quot;/static/3aac5a68800ae65b2658ce1533b01e32/816c5/git-rebase-w.png 148w,
+/static/3aac5a68800ae65b2658ce1533b01e32/c766b/git-rebase-w.png 295w,
+/static/3aac5a68800ae65b2658ce1533b01e32/623ee/git-rebase-w.png 590w,
+/static/3aac5a68800ae65b2658ce1533b01e32/4c383/git-rebase-w.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; decided to rebase the &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; branch to squash and drop some commits:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/c3dfdaa9569e5d1f4a8faa103d6a883e/4c383/git-rebase-w-2.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 52.44755244755245%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAB/0lEQVQoz2NgIBOcu3OBGUTXtdXnL1639P/UBdPfz1o6+wPD+vXrmdauWc0IkkwyYWPMM2dgArELLBgYJnsyMGVbQwzoaGdg7O+HyDEAqfpdzqwgVnSJX1HZ9LR/RZOS3mZ3xL6D2zi3NZcRxm5yRHVNWzEDXG56P6qcf4FNRHy7587QSsfNETXOaxmam5stmhobdECSvpqs0oEaDM4gdoIBA1eOGYN7hCEDL4ifnsaglpXFYA0zyKeNwd6rkUURxBYU4ZfSMFOIB0vcunXr/8kTx28CmTzZ5ixLZngz/Aey3TJMGFKuZzP8z7JgKATyuefMZji9ew9YTk1QjsG84z3D/8wdTNuBfLasyYGrZl6u/K9to6TGMH/+/Ig5s2e5gcPDgFUvyZAhDcjUyDVjEG11YsjKMGeQAMmVFzAYN1Uy+EIdyBy7hCEhfCajKYgTkG+jHlntFsbFx8EMD4v//6/AwwnIkAW5GDmsUmsYXILrGWJA0twMsMiBgMhqd9OULv80dlY2FoazZ88ynT55AqwgTJeF6f8tsBpOJkYGdQEOoPdEGFSBfIm22QxnajaAvawBxIrcwkA5KU51IFs0d2rYqimnS/8bWKjLE53unIIY5Cz9GHRwSEvyKnKEEm2YRzgi2Zg5QNh7pq0C+2paRXv0rikrDq1onrFrQ++8bQAL6o+qWnXIygAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase w 2&quot; title src=&quot;/static/c3dfdaa9569e5d1f4a8faa103d6a883e/623ee/git-rebase-w-2.png&quot; srcset=&quot;/static/c3dfdaa9569e5d1f4a8faa103d6a883e/816c5/git-rebase-w-2.png 148w,
+/static/c3dfdaa9569e5d1f4a8faa103d6a883e/c766b/git-rebase-w-2.png 295w,
+/static/c3dfdaa9569e5d1f4a8faa103d6a883e/623ee/git-rebase-w-2.png 590w,
+/static/c3dfdaa9569e5d1f4a8faa103d6a883e/4c383/git-rebase-w-2.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;p&gt;While &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; had done that, that was just a part of the whole picture. Because the &lt;code class=&quot;language-text&quot;&gt;rebase&lt;/code&gt; on his local machine changed the git history on his local copy only.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/410aee6145131a96b9a5ee82b00a9ea8/4c383/git-rebase-w-3.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 52.44755244755245%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAB7ElEQVQoz2P4//8/EwgzAEGHGyvTjWwGEJsx35yB8f9kBqYSOwZGkNy1KwxAdWA5Bh4RBsaT/3PYQOyq1qqqDQfW/5+5fMb/2Stn/WegFLTNqJMrq6kKsLN2Se6e3uXKsG/fvtnbt22pB0mmmLDEVFgzrAMyxVOMGEwWBTJsSzVjsAbJ9fUylM6dy7AAyOTjFmCQKDjKsCxpFXMmSC6kxio4c0rgZrANZ8+efXn0yKH9QCZLljlLf7MjA8jZ7lmmDKG7Yhn+Z1swJAL5bLNnMWxct57hDZAtJyTPoFN5jeFb+lamhUA+U+bEwKntO7N+69moK4PM5AViTogHBEBhJATEMlAf8SH5jgmqFgZ40HwvhMKTlpJkgrGBsSDJxMigAmTyC4sxSIJsaprBMLdsOcMJkFKgQnEgLSwoySMBsjRjQlBL0+a0m4p6UhIMoaGhjMHBQWCD1EWZGUK0YGYyCLMyM4gJiTOIAtncdZMZJhcuYNgHZIP4wixsDKLC0nwgg5nTegIKypfEXgQFDcWxnN4WLGjhoWshKMoXGl7gpklQAwcXxMXANAjCQAFIukyb4s8Mov2LbCuyZgT9z5wW9D662e0TQQP5RaDRBaQFxCBsWVkhhmtb94PDvK2wPHdZ79R3c1q6H85u7roHAMq3h2Xi3/p3AAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase w 3&quot; title src=&quot;/static/410aee6145131a96b9a5ee82b00a9ea8/623ee/git-rebase-w-3.png&quot; srcset=&quot;/static/410aee6145131a96b9a5ee82b00a9ea8/816c5/git-rebase-w-3.png 148w,
+/static/410aee6145131a96b9a5ee82b00a9ea8/c766b/git-rebase-w-3.png 295w,
+/static/410aee6145131a96b9a5ee82b00a9ea8/623ee/git-rebase-w-3.png 590w,
+/static/410aee6145131a96b9a5ee82b00a9ea8/4c383/git-rebase-w-3.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;p&gt;To make the change on the remote server as well, &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; forced push his branch to the remote server. (&lt;strong&gt;Note:&lt;/strong&gt; You can push without &lt;code class=&quot;language-text&quot;&gt;--force&lt;/code&gt; if the origin branch cannot fast-forward merge your local branch)&lt;/p&gt;
+&lt;p&gt;While &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt; on the other hand, did not know about the &lt;code class=&quot;language-text&quot;&gt;rebase&lt;/code&gt;, so when &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt; pulled the code, it ended up with a messed up merged of a messed up git history:&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/9ca588acdd683e855832c9959819a7d6/ce787/git-rebase-w-4.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 44.64285714285714%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAB1UlEQVQoz2NggAJDFXFGBjSgwsnA4OyB4EtqMMDVSKjww9mzls88snDjwn+zVsz6zMDNzc3JzcrABJLgYWXghikS4kCwFRQQbF4JBi4GBmMwm1+UlwtER+bEiiooyIea21noMJw4ceLrxk2b24Hi0rUOzH991Bjyo3QZPFeGMvx3FGcwt3NnsFq5kuF/ajJDKFCNYulZht8Rcxjyge6VqVoR/z+60QPIZlA9FzTh63aXuhiGrVu3Zq9Zu84cKMhUYs2cay7NYOOmzKAyz58hJ0ubgdcriYFz9iSG2Op0BlGQmtwDDNlJ6xjUQS7LnRYS4RhrrA/yxCH/zqz5TgXaDFgABxDLwtgutgwqWZMZ+pwrGLQgcsEgcVZVM0np4vnRXa7x5l5QPRBw5/Zt5stXroIDeH4gC7OaMAMzCxODiKIogxQoyLzdGCxrFzPc96tjcAUFs6w+szQoiIFYrHBO5O3ISjdfkN7dbR1s+5xaGBnIBSWrIvUd4g2TkiZ4O4XWOPGAxHwLrXFrYGWF0F7uDIz//zMw+DQwMIpLSsNcwJLaGHSieFLs/8zW0C++yXYGIMGgTCcmklyV5hcDYzLPq+zfM7ei/8fC6knPy6Nz9ECCZdE5TADf63gTzHvX/QAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase w 4&quot; title src=&quot;/static/9ca588acdd683e855832c9959819a7d6/623ee/git-rebase-w-4.png&quot; srcset=&quot;/static/9ca588acdd683e855832c9959819a7d6/816c5/git-rebase-w-4.png 148w,
+/static/9ca588acdd683e855832c9959819a7d6/c766b/git-rebase-w-4.png 295w,
+/static/9ca588acdd683e855832c9959819a7d6/623ee/git-rebase-w-4.png 590w,
+/static/9ca588acdd683e855832c9959819a7d6/ce787/git-rebase-w-4.png 840w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;p&gt;In most cases, there would be a merge conflict, because &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt;’s branch would have made changes on the same file.&lt;/p&gt;
+&lt;p&gt;So, the correct way, if the rebase is necessary, is to notify &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt; about the rebase, so that &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt; can &lt;code class=&quot;language-text&quot;&gt;git reset --hard&lt;/code&gt; his branch to the remote branch.&lt;/p&gt;
+&lt;div style=&quot;background:white;text-align:center;padding-top:1.58rem;padding-bottom:1.58rem&quot;&gt;
+  
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/f365db5d458797a392c92938627e9bb6/e8e02/git-rebase-w-5.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 48.319327731092436%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABx0lEQVQoz2PYu2f3YQYGBs4ofZaCRgeG/3ZyDP5szAyqS4MYfnW5McwCyrElxDJEbdzI8D8rlyENyGeKX8LQV3qO4a+2N5MFkC9RtjjmYcmC6J0MILBv394FIDrOkCWyzp7hmo4YQww7M4PskiCG8z3uDLUgufQUBre1axmuFZYw+IP4iSsYikvOMFwxCmfSAHJ5K5fHbSlbFDuNAQeQALkKi7gAA27ACcTMYNb///8ZmIWUGDKNGBhBfKDreIEMAx42BgVBAQY1oJB4ahZDZs92hv9u5QzpQL4YvwSDGqcAozILG6MCkK9Xtzb5TeWy+F1gAxvq68G0vQoXg5sS3EZWYDhyyCqAbWbIK2GwLp3FcMi7kcEKxJdUZ+Bk52biEJUTBPska3LIsrSegHoGKgCmogkx6vqWasFmzjpeEfnuJnhVyytD6L7JDIzAkGHM3w8JFlEFHkaoEu7oLtfzydN8fiVO8voYWGP3Ca+BDj4Q2hlI2wYwMMgaQvgKUjIwJdyrumYcWt018/263tlPp1W1PSHLn7KS0jAm17yOyfvntE94Nb9z8oPuisb7ZBmoqKoI9/L6I+uvbDi68f+m45u/z143+ycABkZ93RDTsygAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;git rebase w 5&quot; title src=&quot;/static/f365db5d458797a392c92938627e9bb6/623ee/git-rebase-w-5.png&quot; srcset=&quot;/static/f365db5d458797a392c92938627e9bb6/816c5/git-rebase-w-5.png 148w,
+/static/f365db5d458797a392c92938627e9bb6/c766b/git-rebase-w-5.png 295w,
+/static/f365db5d458797a392c92938627e9bb6/623ee/git-rebase-w-5.png 590w,
+/static/f365db5d458797a392c92938627e9bb6/e8e02/git-rebase-w-5.png 714w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;/div&gt;
+&lt;p&gt;If unfortunately, at the same time, &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt; has made more commits to his local branch, he would have to &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt; the new changes onto the remote branch, or &lt;code class=&quot;language-text&quot;&gt;git cherry-pick&lt;/code&gt; the new changes after the &lt;code class=&quot;language-text&quot;&gt;git reset --hard&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In the companies that I have worked with, forbidden a &lt;code class=&quot;language-text&quot;&gt;rebase&lt;/code&gt; on a common branch, especially the &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; branch.&lt;/p&gt;
+&lt;h2&gt;git log&lt;/h2&gt;
+&lt;p&gt;The go-to command to look at your git history. There’s a few options that is worth mentioning, that allow us to search through the sea of commits:&lt;/p&gt;
+&lt;h3&gt;—since, —after, —until, —before&lt;/h3&gt;
+&lt;p&gt;You can filter out commits within a specific timeframe&lt;/p&gt;
+&lt;h3&gt;—grep&lt;/h3&gt;
+&lt;p&gt;You can filter out commits based on commit message&lt;/p&gt;
+&lt;h3&gt;—invert-grep&lt;/h3&gt;
+&lt;p&gt;You can filter out commits that does not match the &lt;code class=&quot;language-text&quot;&gt;--grep&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;—all-match&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--grep&lt;/code&gt; is a &lt;code class=&quot;language-text&quot;&gt;OR&lt;/code&gt; filter, &lt;code class=&quot;language-text&quot;&gt;--all-match&lt;/code&gt; make it a &lt;code class=&quot;language-text&quot;&gt;AND&lt;/code&gt; filter&lt;/p&gt;
+&lt;h3&gt;—min-parents, —max-parents, —merges, —no-merges&lt;/h3&gt;
+&lt;p&gt;You can specify commits with the number of parents. A simple merge commit has 2 parent, so &lt;code class=&quot;language-text&quot;&gt;--merge&lt;/code&gt; is equivalent to &lt;code class=&quot;language-text&quot;&gt;--min-parents=2&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;—first-parent&lt;/h3&gt;
+&lt;p&gt;You can follow only the first parent commit upon seeing a merge commit. This is especially useful when you have merged of branches in, &lt;code class=&quot;language-text&quot;&gt;--first-parent&lt;/code&gt; allow you to filter out only the merge commit and the commit you have made on the current branch.&lt;/p&gt;
+&lt;h2&gt;git reflog&lt;/h2&gt;
+&lt;p&gt;The reference log shows you all the &lt;code class=&quot;language-text&quot;&gt;HEAD&lt;/code&gt; position you have been to. This is especially useful when you have &lt;code class=&quot;language-text&quot;&gt;reset --hard&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;rebase&lt;/code&gt;, you can still find back the commit reference that you were at previously, so you can recover them.&lt;/p&gt;
+&lt;h2&gt;git bisect&lt;/h2&gt;
+&lt;p&gt;This is a useful command that I am looking forward to use it.&lt;/p&gt;
+&lt;p&gt;Often times when you noticed something has changed / break / less optimised, yet you do not know when this change was introduced into your repository. &lt;code class=&quot;language-text&quot;&gt;git bisect&lt;/code&gt; allows you to do binary search on the history, so that you can quickly pin down the commit where the change was introduced.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;$ git bisect start # starts the bisect session
+$ git bisect bad v2.5.1 # specify the commit you know is bad
+$ git bisect good v2.6.13 # specify the commit you knew were good&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once you’ve specified at least one &lt;code class=&quot;language-text&quot;&gt;bad&lt;/code&gt; and one &lt;code class=&quot;language-text&quot;&gt;good&lt;/code&gt; commit, &lt;code class=&quot;language-text&quot;&gt;git bisect&lt;/code&gt; will find and checkout to a commit in the middle of that range between &lt;code class=&quot;language-text&quot;&gt;bad&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;good&lt;/code&gt; and greets you with:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Bisecting: 675 revisions left to test after this (roughly 10 steps)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can know test / verify / profile your code, and specify whether the current commit is a &lt;code class=&quot;language-text&quot;&gt;good&lt;/code&gt; commit or a &lt;code class=&quot;language-text&quot;&gt;bad&lt;/code&gt; commit:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# if it is a good commit
+$ git bisect good
+
+# if it is a bad commit
+$ git bisect bad&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Continue doing it until eventually there’s no more commit to inspect. &lt;code class=&quot;language-text&quot;&gt;git bisect&lt;/code&gt; will print out the description of the first bad commit.&lt;/p&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;We’ve gone through the following git commands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git merge&lt;/li&gt;
+&lt;li&gt;git reset&lt;/li&gt;
+&lt;li&gt;git cherry-pick&lt;/li&gt;
+&lt;li&gt;git revert&lt;/li&gt;
+&lt;li&gt;git rebase&lt;/li&gt;
+&lt;li&gt;git log&lt;/li&gt;
+&lt;li&gt;git reflog&lt;/li&gt;
+&lt;li&gt;git bisect&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hopefully we are now &lt;code class=&quot;language-text&quot;&gt;git gudder&lt;/code&gt; than before!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Learn in Public]]></title><link>https://lihautan.com/learn-in-public/</link><guid isPermaLink="false">https://lihautan.com/learn-in-public/</guid><pubDate>Fri, 21 Jun 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Yesterday, &lt;a href=&quot;https://twitter.com/swyx&quot;&gt;@swyx&lt;/a&gt; made a talk in React Knowledgeable about Learning in Public, (you can watch the talk &lt;a href=&quot;https://www.youtube.com/watch?v=-f-rZepNKW0&quot;&gt;here&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;One thing that amazed me was that &lt;a href=&quot;https://github.com/sw-yx/sw-yx.github.io/tree/20f471fbeca350fb5f397aafb71ada9075b9fac0/_posts&quot;&gt;he keeps a daily note&lt;/a&gt; of his learning everyday.&lt;/p&gt;
 &lt;p&gt;It strucked me because, everyday I am kind of learning something new, but, after a while, I can’t remember what it is. Not sure is it because of age catching up, or just, there’s too many things happen going on in the Developer world and too little memory space left for it.&lt;/p&gt;
 &lt;p&gt;Often times, when we are digging through some difficult concepts / code / etc, it took a days / weeks to sink in the concept we are looking at, and by the time we realised, tiny details that paved us to the conclustion we had were kind of forgotten. And sometimes in the future, when we encounter the same problem again, it all seems like a total stranger.&lt;/p&gt;
