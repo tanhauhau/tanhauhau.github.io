@@ -71,3 +71,23 @@ However, if you look at the history right now, the commit `commit #1` and `commi
 It was as though both commit `commit #1` and `commit #2` were gone, and left with commits from `master` branch, because git did not rewrote them when rebasing `feat/a`. And actually the changes made in `commit #1` and `commit #2` were still available.
 
 > You can read more about this behaviour in [git's documentation](https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase)
+
+So, what she should have done if she wanted to actually rebased the local `feat/a` on top of `origin/feat/a`, especially after she made another commit, `commit #0`?
+
+Well, she should specify the `<upstream>` reference point:
+
+![reference points](./images/rebase-7.png)
+
+```
+$ git rebase --onto origin/feat/a master feat/a
+```
+
+And you would get:
+
+![result](./images/rebase-8.png)
+
+Here again, git is smart enough not to rewrite `commit #1` and `commit #2`.
+
+# Summary
+
+When using `git rebase`, always remember the 3 reference points of rebase, the `new base`, `upstream` and `branch`.
