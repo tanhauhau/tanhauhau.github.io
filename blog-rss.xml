@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 03 Sep 2019 17:47:12 GMT</lastBuildDate><item><title><![CDATA[Git commits went missing after a rebase]]></title><link>https://lihautan.com/commit-went-missing-after-rebase/</link><guid isPermaLink="false">https://lihautan.com/commit-went-missing-after-rebase/</guid><pubDate>Wed, 04 Sep 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last week, I &lt;a href=&quot;/git-gudder/&quot;&gt;shared about git commands&lt;/a&gt; at &lt;a href=&quot;https://github.com/Shopee/shopee-react-knowledgeable&quot;&gt;Shopee React Knowledgeable&lt;/a&gt;. At the end of the talk, one of my colleague approached me and asked me about git rebase. She somehow ended up with a messed up git history with &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;, and she couldn’t comprehend how she ended up there.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 03 Sep 2019 17:52:43 GMT</lastBuildDate><item><title><![CDATA[Git commits went missing after a rebase]]></title><link>https://lihautan.com/commit-went-missing-after-rebase/</link><guid isPermaLink="false">https://lihautan.com/commit-went-missing-after-rebase/</guid><pubDate>Wed, 04 Sep 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last week, I &lt;a href=&quot;/git-gudder/&quot;&gt;shared about git commands&lt;/a&gt; at &lt;a href=&quot;https://github.com/Shopee/shopee-react-knowledgeable&quot;&gt;Shopee React Knowledgeable&lt;/a&gt;. At the end of the talk, one of my colleague approached me and asked me about git rebase. She somehow ended up with a messed up git history with &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;, and she couldn’t comprehend how she ended up there.&lt;/p&gt;
 &lt;p&gt;I found that her scenario was interesting, and decided to write it out here.&lt;/p&gt;
 &lt;p&gt;This was what she told me:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -131,6 +131,40 @@ $ git rebase origin/feat/a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can read more about this behaviour in &lt;a href=&quot;https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase&quot;&gt;git’s documentation&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;So, what she should have done if she wanted to actually rebased the local &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; on top of &lt;code class=&quot;language-text&quot;&gt;origin/feat/a&lt;/code&gt;, especially after she made another commit, &lt;code class=&quot;language-text&quot;&gt;commit #0&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c17da8443526eb60e47444221fa85b6/fc9aa/rebase-6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 58.273381294964025%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAACiklEQVQoz2NgQAOWSrqMINpEXlMq2cbfqdAlyrLUPdbGU8fKEKZGiJufYe7c/2B1ISE9LsXFB7uLivY1FxTsrmFYsGAB44kTJ5gnTZwEVpxg7csMor11rY1mxVaXTIooyVuX2ZVd4BIVBRRm////P1jdnDn/2UB0Rsa6mStW/P8/ceLn/9Om/fqP4rrnZ2/C2QayaiKxFl56etIq7r769pbOSupyMDmYoSAQGtprmJi4KNXFpbAgN3d7CENvb6/G2rVrWzva2sVBCiLM3EzCTFyMYRqsVQzCFXk4pSJyDgimp61uB3pRASSemroyNylpKcjVDC4uRdr+/i39YA1Aw6qANv7PycmpBHJNZ8XXxPeFFScD2bpyQuKO2/Knpkfrmno4uJRUz5zx739wcDdInXJDw9X/ZWVHHwPZomlpq1ZNnfrjP9CVDgzp6enCkydP9lBTVRUBSsrbKGvL8APDHWSZpJAcm7aIAMhFnDb2OdwhIb3ednYZ/CC5oKBOG6CrDEBsD48KmeDgLk8gkxk5CJmAWCEzchlbXnCvdaxLPis40AM6DFN9m+SQFR45ggjDzs6njCgR0djYyLBw4UJmoK9BEsIFwd1dJ6f/+R/rVpII5Gtv63zyf1bJwWMgtbd3/GcJ8qoBG5CTs4UpLW01yBEMsbGzGfPzdzGLiiojDP5/FmJromeVWX/2psmh9llg2cKQ3t784K4gEPvEtF9MDKSAc7NQkhFTW8oKj3DHnIzcoM74vKAuS7DFj/4z6ClZEjbs/2eIYe6mkbCAlV7dcO3/kcnf/l+Y8///lPyde6BpkNHbIo54V4oLysKYfA0JCye0p66c35W+dml+cHcW2MAn/xnMNFxw6gcAQAHm/D0bxksAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;adding one more commit&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4c17da8443526eb60e47444221fa85b6/623ee/rebase-6.png&quot;
+        srcset=&quot;/static/4c17da8443526eb60e47444221fa85b6/816c5/rebase-6.png 148w,
+/static/4c17da8443526eb60e47444221fa85b6/c766b/rebase-6.png 295w,
+/static/4c17da8443526eb60e47444221fa85b6/623ee/rebase-6.png 590w,
+/static/4c17da8443526eb60e47444221fa85b6/fc9aa/rebase-6.png 695w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
 &lt;p&gt;Well, she should specify the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;upstream&amp;gt;&lt;/code&gt; reference point:&lt;/p&gt;
 &lt;p&gt;
   &lt;a

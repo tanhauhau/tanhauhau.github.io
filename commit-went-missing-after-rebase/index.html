@@ -131,6 +131,40 @@ $ git rebase origin/feat/a</code></pre></div>
 <p>You can read more about this behaviour in <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase">git’s documentation</a></p>
 </blockquote>
 <p>So, what she should have done if she wanted to actually rebased the local <code class="language-text">feat/a</code> on top of <code class="language-text">origin/feat/a</code>, especially after she made another commit, <code class="language-text">commit #0</code>?</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/4c17da8443526eb60e47444221fa85b6/fc9aa/rebase-6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 58.273381294964025%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAACiklEQVQoz2NgQAOWSrqMINpEXlMq2cbfqdAlyrLUPdbGU8fKEKZGiJufYe7c/2B1ISE9LsXFB7uLivY1FxTsrmFYsGAB44kTJ5gnTZwEVpxg7csMor11rY1mxVaXTIooyVuX2ZVd4BIVBRRm////P1jdnDn/2UB0Rsa6mStW/P8/ceLn/9Om/fqP4rrnZ2/C2QayaiKxFl56etIq7r769pbOSupyMDmYoSAQGtprmJi4KNXFpbAgN3d7CENvb6/G2rVrWzva2sVBCiLM3EzCTFyMYRqsVQzCFXk4pSJyDgimp61uB3pRASSemroyNylpKcjVDC4uRdr+/i39YA1Aw6qANv7PycmpBHJNZ8XXxPeFFScD2bpyQuKO2/Knpkfrmno4uJRUz5zx739wcDdInXJDw9X/ZWVHHwPZomlpq1ZNnfrjP9CVDgzp6enCkydP9lBTVRUBSsrbKGvL8APDHWSZpJAcm7aIAMhFnDb2OdwhIb3ednYZ/CC5oKBOG6CrDEBsD48KmeDgLk8gkxk5CJmAWCEzchlbXnCvdaxLPis40AM6DFN9m+SQFR45ggjDzs6njCgR0djYyLBw4UJmoK9BEsIFwd1dJ6f/+R/rVpII5Gtv63zyf1bJwWMgtbd3/GcJ8qoBG5CTs4UpLW01yBEMsbGzGfPzdzGLiiojDP5/FmJromeVWX/2psmh9llg2cKQ3t784K4gEPvEtF9MDKSAc7NQkhFTW8oKj3DHnIzcoM74vKAuS7DFj/4z6ClZEjbs/2eIYe6mkbCAlV7dcO3/kcnf/l+Y8///lPyde6BpkNHbIo54V4oLysKYfA0JCye0p66c35W+dml+cHcW2MAn/xnMNFxw6gcAQAHm/D0bxksAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="adding one more commit"
+        title=""
+        src="/static/4c17da8443526eb60e47444221fa85b6/623ee/rebase-6.png"
+        srcset="/static/4c17da8443526eb60e47444221fa85b6/816c5/rebase-6.png 148w,
+/static/4c17da8443526eb60e47444221fa85b6/c766b/rebase-6.png 295w,
+/static/4c17da8443526eb60e47444221fa85b6/623ee/rebase-6.png 590w,
+/static/4c17da8443526eb60e47444221fa85b6/fc9aa/rebase-6.png 695w"
+        sizes="(max-width: 590px) 100vw, 590px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
 <p>Well, she should specify the <code class="language-text">&lt;upstream&gt;</code> reference point:</p>
 <p>
   <a
