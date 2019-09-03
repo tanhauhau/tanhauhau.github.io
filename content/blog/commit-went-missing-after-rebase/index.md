@@ -74,6 +74,8 @@ It was as though both commit `commit #1` and `commit #2` were gone, and left wit
 
 So, what she should have done if she wanted to actually rebased the local `feat/a` on top of `origin/feat/a`, especially after she made another commit, `commit #0`?
 
+![adding one more commit](./images/rebase-6.png)
+
 Well, she should specify the `<upstream>` reference point:
 
 ![reference points](./images/rebase-7.png)
