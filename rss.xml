@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 03 Sep 2019 17:26:42 GMT</lastBuildDate><item><title><![CDATA[Git commits went missing after a rebase]]></title><link>https://lihautan.com/commit-went-missing-after-rebase/</link><guid isPermaLink="false">https://lihautan.com/commit-went-missing-after-rebase/</guid><pubDate>Wed, 04 Sep 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last week, I &lt;a href=&quot;/git-gudder/&quot;&gt;shared about git commands&lt;/a&gt; at &lt;a href=&quot;https://github.com/Shopee/shopee-react-knowledgeable&quot;&gt;Shopee React Knowledgeable&lt;/a&gt;. At the end of the talk, one of my colleague approached me and asked me about git rebase. She somehow ended up with a messed up git history with &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;, and she couldn’t comprehend how she ended up there.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 03 Sep 2019 17:47:12 GMT</lastBuildDate><item><title><![CDATA[Git commits went missing after a rebase]]></title><link>https://lihautan.com/commit-went-missing-after-rebase/</link><guid isPermaLink="false">https://lihautan.com/commit-went-missing-after-rebase/</guid><pubDate>Wed, 04 Sep 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last week, I &lt;a href=&quot;/git-gudder/&quot;&gt;shared about git commands&lt;/a&gt; at &lt;a href=&quot;https://github.com/Shopee/shopee-react-knowledgeable&quot;&gt;Shopee React Knowledgeable&lt;/a&gt;. At the end of the talk, one of my colleague approached me and asked me about git rebase. She somehow ended up with a messed up git history with &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;, and she couldn’t comprehend how she ended up there.&lt;/p&gt;
 &lt;p&gt;I found that her scenario was interesting, and decided to write it out here.&lt;/p&gt;
 &lt;p&gt;This was what she told me:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -129,7 +129,82 @@ $ git rebase origin/feat/a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;It was as though both commit &lt;code class=&quot;language-text&quot;&gt;commit #1&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;commit #2&lt;/code&gt; were gone, and left with commits from &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; branch, because git did not rewrote them when rebasing &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt;. And actually the changes made in &lt;code class=&quot;language-text&quot;&gt;commit #1&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;commit #2&lt;/code&gt; were still available.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You can read more about this behaviour in &lt;a href=&quot;https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase&quot;&gt;git’s documentation&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[What is module bundler and how does it work?]]></title><link>https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</link><guid isPermaLink="false">https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</guid><pubDate>Fri, 30 Aug 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What is a Module Bundler?&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So, what she should have done if she wanted to actually rebased the local &lt;code class=&quot;language-text&quot;&gt;feat/a&lt;/code&gt; on top of &lt;code class=&quot;language-text&quot;&gt;origin/feat/a&lt;/code&gt;, especially after she made another commit, &lt;code class=&quot;language-text&quot;&gt;commit #0&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;Well, she should specify the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;upstream&amp;gt;&lt;/code&gt; reference point:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c3b852c3e96d69241192dc4fef4ce3a7/00b72/rebase-7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 57.04225352112676%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA9hAAAPYQGoP6dpAAACoklEQVQoz2NgQAMZ9sFg2lvX2rDELdaxwDnSPsshxFFRREoYJG6prMcQEzOTEcT29KwyLC4+OLm4+EB3dvamiR4eFVIMFy5cYPz//z+zu4cHWNH/L//BdK5TeND6rJ60OXE16YuTGtPMVE3VQOJcDAyMdXWXWEHsiIjJKfPn///f1/fu/8SJn/5HRk41ZsAFXDXNxU0UtHQleQV9ooxdFLGp8fdtFI4In+SipeEcHxbU6WJtlcjHsGzZMs/jx49v8fTy0gCqEa72TvYOMXY2AbJZA/VsDSPsQ4KAbO7Cot1TsnM3tQLZTBlZawsLC/csA7I5Q8LbLVMz1+3XL1shBLZl06ZNJQ8fPPjv4uoaAuSazE1sSEyxDfYFsiVCHEI9TvhnlRsyMBhmZu07m5m8eRdIT0rC+nk1Nee/AJliFlZ1ib0FR/7PZlDxgLmcCYgFQbZxcHCLA2lmZG+VAw3+v3bVsrdbtz78uHbt1f9HDh//snzZfqAU2/+9u6P+Hdh/7eWCBc/+b1j/+N/mzZlwjVKi8gIgV00t2B00MWdrB0isLXa2SW/F6Z4LXdNy/i+Yk/5/+oz0n5MnF/yfNi0WJP+tr9/0/8KF+f/nzon/u2hxzv9JE80YnJycGAIDAxn/v/kPcilXT+b6AwsrTv4HspXzo2dWX+18+j+CQUcPPUK6W2YxMeADdXFzwbS7aaRAtEuRHFSY2Y+BIe7/vMkT/2/YsPvf0qXb/y9fvu//4sWLQTYCkxvj//Pnmf8fOsT8/8IF5v8HDjCiGGqj6w0XKA6b4LOw4sTd2RWnTl+ece7/i/nLFv5fs6r276rVnf8WLy75D1X3f+ZM7C5sSFgApiflbmcB0aURkyOXVJ/7D/T+j8l5Bz4C84gMup7/paUY5gAAdhIMYyW9p1QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;reference points&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c3b852c3e96d69241192dc4fef4ce3a7/623ee/rebase-7.png&quot;
+        srcset=&quot;/static/c3b852c3e96d69241192dc4fef4ce3a7/816c5/rebase-7.png 148w,
+/static/c3b852c3e96d69241192dc4fef4ce3a7/c766b/rebase-7.png 295w,
+/static/c3b852c3e96d69241192dc4fef4ce3a7/623ee/rebase-7.png 590w,
+/static/c3b852c3e96d69241192dc4fef4ce3a7/00b72/rebase-7.png 710w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git rebase --onto origin/feat/a master feat/a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And you would get:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f8300411e8f165f4ed2d7e721e99cfc2/78bcf/rebase-8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 60.902255639097746%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAAClUlEQVQoz2NgQANmCtpgWldaRTjWwsu5yCXKssQt1ibI0NEcKMwKkpPgE2bACaZOncq4e/duls6ODjA/3NSNGUTbqxmpT40qL50eXZG7Mq09u9k/IwkozA+SE2BiYNDT82U0MQljBPElJbUYzM2jGRUVzVENz4lLZYSxNSUVBKPNPYwtlHRc3bUt7YONHDXhvjAJYcTpwpaWFqVly5ZVdrS1i4D4/gb2uoEGDsYweQNZdT8NCXmwYdpabhYKCmZSILaamp2qhoazETgIJDS5tLTcLGVk9MUY1qxZU/0fCEpLSuqBckYTo0rj5sTVJoPYvOxc1msyulLqvJPDGJg4PPx869J0db2DQGZbWMRG+vk1RIMcLCKi5BQQ0JKioeHkyFBaWiq5cOHCaBtrG2mgpJKHjqWSnYKSPMhmJhYudld1fXULWQVxBgYWDhVlK12gMA9ITk7OSEFJyUILyGTk55fkUla2MpSQ0BBE8T4TE5MiiA52LFCz03ZhArEdTeOkPC1TxKFKGN3dyzRANM4wbGxsZFy/fj0z0NcgRWKpPnWlhyZ+/l8Q0lMICp7FVac/zys79hTIFoyPm9fa1/f2f1hYfwhIb1jYBBYQLSKiyODsnM+ooGCKMPj/h/9gOsq5wG5awZ5tab4NdmALExdNb0xc3AliB/g1OyYnL93v59cMCh4GT89qJgZ8AOhKVNcnLlK30HLztdX1ds2LmqZvaZ1sKS9vEurpWWWso+MJThX6+v74DbPR9WaCsnkWVZ1+dnDip/+7Op/+n1l/9X/fpM//e3te/Z869ef/yMipYSBF8fHzmfG6khER3uwTcrbOm116+MDckoM7G7I37SqrPLWrrOzIzoqKEwf8/JpswBEY3I3ibQCDuMHaazBpRwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;result&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f8300411e8f165f4ed2d7e721e99cfc2/623ee/rebase-8.png&quot;
+        srcset=&quot;/static/f8300411e8f165f4ed2d7e721e99cfc2/816c5/rebase-8.png 148w,
+/static/f8300411e8f165f4ed2d7e721e99cfc2/c766b/rebase-8.png 295w,
+/static/f8300411e8f165f4ed2d7e721e99cfc2/623ee/rebase-8.png 590w,
+/static/f8300411e8f165f4ed2d7e721e99cfc2/78bcf/rebase-8.png 665w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Here again, git is smart enough not to rewrite &lt;code class=&quot;language-text&quot;&gt;commit #1&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;commit #2&lt;/code&gt;.&lt;/p&gt;
+&lt;h1&gt;Summary&lt;/h1&gt;
+&lt;p&gt;When using &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;, always remember the 3 reference points of rebase, the &lt;code class=&quot;language-text&quot;&gt;new base&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;upstream&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;branch&lt;/code&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[What is module bundler and how does it work?]]></title><link>https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</link><guid isPermaLink="false">https://lihautan.com/what-is-module-bundler-and-how-does-it-work/</guid><pubDate>Fri, 30 Aug 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;What is a Module Bundler?&lt;/h2&gt;
 &lt;p&gt;
   &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/ece4b04e88f84e6d61abc84e759c0916/426f8/module-bundlers.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   

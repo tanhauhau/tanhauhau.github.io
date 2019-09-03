@@ -129,7 +129,82 @@ $ git rebase origin/feat/a</code></pre></div>
 <p>It was as though both commit <code class="language-text">commit #1</code> and <code class="language-text">commit #2</code> were gone, and left with commits from <code class="language-text">master</code> branch, because git did not rewrote them when rebasing <code class="language-text">feat/a</code>. And actually the changes made in <code class="language-text">commit #1</code> and <code class="language-text">commit #2</code> were still available.</p>
 <blockquote>
 <p>You can read more about this behaviour in <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase">git’s documentation</a></p>
-</blockquote></div><hr style="margin-bottom:1.58rem"/><p>Thank you for your time reading through this article.<br/>It means a lot to me.</p><p> If you like what you have just read,<br/><a href="https://twitter.com/intent/tweet?text=Insightful%20article%20from%20%40lihautan&amp;url=undefined">Tweet about it</a> so I will write more related articles;<br/>If you disagree or you have opinions about this article,<br/><a href="https://twitter.com/intent/tweet?text=I%20disgree%20with%20%40lihautan&#x27;s%20article&amp;url=undefined">Tweet about it too</a> so I can take your suggestions and improve on it.</p><hr style="margin-bottom:1.58rem"/><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/what-is-module-bundler-and-how-does-it-work/">← <!-- -->What is module bundler and how does it work?</a></li><li></li></ul></main><footer style="margin-top:3.16rem">Built with <span role="img" class="emoji">💻</span> and <span role="img" class="emoji">❤️</span> • <a href="/notes">notes</a> • <a href="https://twitter.com/lihautan">twitter</a> • <a href="https://github.com/tanhauhau">github</a> • <a href="https://github.com/tanhauhau/tanhauhau.github.io/issues/new?assignees=&amp;labels=grammar%2C+typo&amp;template=fix-typos-and-grammars.md&amp;title=%5BTYPO%5D">discuss</a></footer></div></div></div><script>
+</blockquote>
+<p>So, what she should have done if she wanted to actually rebased the local <code class="language-text">feat/a</code> on top of <code class="language-text">origin/feat/a</code>, especially after she made another commit, <code class="language-text">commit #0</code>?</p>
+<p>Well, she should specify the <code class="language-text">&lt;upstream&gt;</code> reference point:</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/c3b852c3e96d69241192dc4fef4ce3a7/00b72/rebase-7.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 57.04225352112676%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA9hAAAPYQGoP6dpAAACoklEQVQoz2NgQAMZ9sFg2lvX2rDELdaxwDnSPsshxFFRREoYJG6prMcQEzOTEcT29KwyLC4+OLm4+EB3dvamiR4eFVIMFy5cYPz//z+zu4cHWNH/L//BdK5TeND6rJ60OXE16YuTGtPMVE3VQOJcDAyMdXWXWEHsiIjJKfPn///f1/fu/8SJn/5HRk41ZsAFXDXNxU0UtHQleQV9ooxdFLGp8fdtFI4In+SipeEcHxbU6WJtlcjHsGzZMs/jx49v8fTy0gCqEa72TvYOMXY2AbJZA/VsDSPsQ4KAbO7Cot1TsnM3tQLZTBlZawsLC/csA7I5Q8LbLVMz1+3XL1shBLZl06ZNJQ8fPPjv4uoaAuSazE1sSEyxDfYFsiVCHEI9TvhnlRsyMBhmZu07m5m8eRdIT0rC+nk1Nee/AJliFlZ1ib0FR/7PZlDxgLmcCYgFQbZxcHCLA2lmZG+VAw3+v3bVsrdbtz78uHbt1f9HDh//snzZfqAU2/+9u6P+Hdh/7eWCBc/+b1j/+N/mzZlwjVKi8gIgV00t2B00MWdrB0isLXa2SW/F6Z4LXdNy/i+Yk/5/+oz0n5MnF/yfNi0WJP+tr9/0/8KF+f/nzon/u2hxzv9JE80YnJycGAIDAxn/v/kPcilXT+b6AwsrTv4HspXzo2dWX+18+j+CQUcPPUK6W2YxMeADdXFzwbS7aaRAtEuRHFSY2Y+BIe7/vMkT/2/YsPvf0qXb/y9fvu//4sWLQTYCkxvj//Pnmf8fOsT8/8IF5v8HDjCiGGqj6w0XKA6b4LOw4sTd2RWnTl+ece7/i/nLFv5fs6r276rVnf8WLy75D1X3f+ZM7C5sSFgApiflbmcB0aURkyOXVJ/7D/T+j8l5Bz4C84gMup7/paUY5gAAdhIMYyW9p1QAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="reference points"
+        title=""
+        src="/static/c3b852c3e96d69241192dc4fef4ce3a7/623ee/rebase-7.png"
+        srcset="/static/c3b852c3e96d69241192dc4fef4ce3a7/816c5/rebase-7.png 148w,
+/static/c3b852c3e96d69241192dc4fef4ce3a7/c766b/rebase-7.png 295w,
+/static/c3b852c3e96d69241192dc4fef4ce3a7/623ee/rebase-7.png 590w,
+/static/c3b852c3e96d69241192dc4fef4ce3a7/00b72/rebase-7.png 710w"
+        sizes="(max-width: 590px) 100vw, 590px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ git rebase --onto origin/feat/a master feat/a</code></pre></div>
+<p>And you would get:</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/f8300411e8f165f4ed2d7e721e99cfc2/78bcf/rebase-8.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 60.902255639097746%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAAClUlEQVQoz2NgQANmCtpgWldaRTjWwsu5yCXKssQt1ibI0NEcKMwKkpPgE2bACaZOncq4e/duls6ODjA/3NSNGUTbqxmpT40qL50eXZG7Mq09u9k/IwkozA+SE2BiYNDT82U0MQljBPElJbUYzM2jGRUVzVENz4lLZYSxNSUVBKPNPYwtlHRc3bUt7YONHDXhvjAJYcTpwpaWFqVly5ZVdrS1i4D4/gb2uoEGDsYweQNZdT8NCXmwYdpabhYKCmZSILaamp2qhoazETgIJDS5tLTcLGVk9MUY1qxZU/0fCEpLSuqBckYTo0rj5sTVJoPYvOxc1msyulLqvJPDGJg4PPx869J0db2DQGZbWMRG+vk1RIMcLCKi5BQQ0JKioeHkyFBaWiq5cOHCaBtrG2mgpJKHjqWSnYKSPMhmJhYudld1fXULWQVxBgYWDhVlK12gMA9ITk7OSEFJyUILyGTk55fkUla2MpSQ0BBE8T4TE5MiiA52LFCz03ZhArEdTeOkPC1TxKFKGN3dyzRANM4wbGxsZFy/fj0z0NcgRWKpPnWlhyZ+/l8Q0lMICp7FVac/zys79hTIFoyPm9fa1/f2f1hYfwhIb1jYBBYQLSKiyODsnM+ooGCKMPj/h/9gOsq5wG5awZ5tab4NdmALExdNb0xc3AliB/g1OyYnL93v59cMCh4GT89qJgZ8AOhKVNcnLlK30HLztdX1ds2LmqZvaZ1sKS9vEurpWWWso+MJThX6+v74DbPR9WaCsnkWVZ1+dnDip/+7Op/+n1l/9X/fpM//e3te/Z869ef/yMipYSBF8fHzmfG6khER3uwTcrbOm116+MDckoM7G7I37SqrPLWrrOzIzoqKEwf8/JpswBEY3I3ibQCDuMHaazBpRwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="result"
+        title=""
+        src="/static/f8300411e8f165f4ed2d7e721e99cfc2/623ee/rebase-8.png"
+        srcset="/static/f8300411e8f165f4ed2d7e721e99cfc2/816c5/rebase-8.png 148w,
+/static/f8300411e8f165f4ed2d7e721e99cfc2/c766b/rebase-8.png 295w,
+/static/f8300411e8f165f4ed2d7e721e99cfc2/623ee/rebase-8.png 590w,
+/static/f8300411e8f165f4ed2d7e721e99cfc2/78bcf/rebase-8.png 665w"
+        sizes="(max-width: 590px) 100vw, 590px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+<p>Here again, git is smart enough not to rewrite <code class="language-text">commit #1</code> and <code class="language-text">commit #2</code>.</p>
+<h1>Summary</h1>
+<p>When using <code class="language-text">git rebase</code>, always remember the 3 reference points of rebase, the <code class="language-text">new base</code>, <code class="language-text">upstream</code> and <code class="language-text">branch</code>.</p></div><hr style="margin-bottom:1.58rem"/><p>Thank you for your time reading through this article.<br/>It means a lot to me.</p><p> If you like what you have just read,<br/><a href="https://twitter.com/intent/tweet?text=Insightful%20article%20from%20%40lihautan&amp;url=undefined">Tweet about it</a> so I will write more related articles;<br/>If you disagree or you have opinions about this article,<br/><a href="https://twitter.com/intent/tweet?text=I%20disgree%20with%20%40lihautan&#x27;s%20article&amp;url=undefined">Tweet about it too</a> so I can take your suggestions and improve on it.</p><hr style="margin-bottom:1.58rem"/><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/what-is-module-bundler-and-how-does-it-work/">← <!-- -->What is module bundler and how does it work?</a></li><li></li></ul></main><footer style="margin-top:3.16rem">Built with <span role="img" class="emoji">💻</span> and <span role="img" class="emoji">❤️</span> • <a href="/notes">notes</a> • <a href="https://twitter.com/lihautan">twitter</a> • <a href="https://github.com/tanhauhau">github</a> • <a href="https://github.com/tanhauhau/tanhauhau.github.io/issues/new?assignees=&amp;labels=grammar%2C+typo&amp;template=fix-typos-and-grammars.md&amp;title=%5BTYPO%5D">discuss</a></footer></div></div></div><script>
   
   
   if(true) {
