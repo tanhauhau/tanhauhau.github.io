@@ -375,3 +375,7 @@ We've gone through the following git commands:
 - git bisect
 
 Hopefully we are now `git gudder` than before!
+
+---
+
+Related topic: [Git commits went missing after a rebase](/commit-went-missing-after-rebase/)
