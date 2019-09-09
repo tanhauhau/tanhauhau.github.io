@@ -2,6 +2,7 @@ nonogram solver
 (https://lihautan.com/nonogram/)
 
 - [x] solving nonograms with exhaustive search + pruning
+  - animating the exhaustive searching
 - [ ] image recognition to solve nonogram
   - box detection
     - https://medium.com/coinmonks/a-box-detection-algorithm-for-any-image-containing-boxes-756c15d7ed26
