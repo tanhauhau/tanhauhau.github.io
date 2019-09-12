@@ -1,9 +1,8 @@
 ---
 title: Step-by-step guide for writing a custom babel transformation
-date: '2019-09-07T08:00:00Z'
+date: '2019-09-12T08:00:00Z'
 tags: JavaScript,babel,ast,transform
 description: Writing your first babel plugin
-wip: true
 ---
 
 Today, I will share a step-by-step guide for writing a custom [babel](https://babeljs.io/docs/en/babel-core) transformation. You can use this technique to write your own automated code modifications, refactoring and code generation.
@@ -26,13 +25,13 @@ I am not sure I can explain this better than the amazing articles out there on t
 
 To summarize, AST is a tree representation of your code. In the case of JavaScript, the JavaScript AST follows the [estree specification](https://github.com/estree/estree).
 
-AST represents your code, the structure and the meaning of your code. So it allows the compiler to generate machine code out of it, interpreter to executes it, or tools like [babel](https://babeljs.io) or [prettier](https://prettier.io) to transform and format it.
+AST represents your code, the structure and the meaning of your code. So it allows the compiler like [babel](https://babeljs.io) to understand the code and make specific meaningful transformation to it.
 
-So now you know what is AST, we will write code to transform your code with `babel` by using AST.
+So now you know what is AST, let's write a custom babel transformation to modify your code using AST.
 
 ## How to use babel to transform code
 
-The following is the general template of doing it:
+The following is the general template of using babel to do code transformation:
 
 ```js
 import { parse } from '@babel/parser';
@@ -61,13 +60,13 @@ console.log(output.code); // 'const x = 1;'
 
 > You would need to install [@babel/core](https://www.npmjs.com/package/@babel/core) to run this. `@babel/parser`, `@babel/traverse`, `@babel/generator` are all dependencies of `@babel/core`, so installing `@babel/core` would suffice.
 
-So the general idea of it is to parse your code to AST, do the transformation on AST, and then generate code from the transformed AST.
+So the general idea is to parse your code to AST, transform the AST, and then generate code from the transformed AST.
 
 ```
 code -> AST -> transformed AST -> transformed code
 ```
 
-Now you know a general idea, we can use another API from `babel` to do all the above:
+However, we can use another API from `babel` to do all the above:
 
 ```js
 import babel from '@babel/core';
@@ -95,17 +94,19 @@ const output = babel.transformSync(code, {
 console.log(output.code); // 'const x = 1;'
 ```
 
-In some way, you have written your first [babel plugin](https://babeljs.io/docs/en/plugins), how cool is that?!
+Now, you have written your first [babel tranform plugin](https://babeljs.io/docs/en/plugins) that replace all variable named `n` to `x`, how cool is that?!
 
-Although I've shown you the code of transforming the ast, how do you write transformation code yourself?
+> Extract out the function `myCustomPlugin` to a new file and export it. [Package and publish your file as a npm package](https://medium.com/@bretcameron/how-to-publish-your-first-npm-package-b224296fc57b) and you can proudly say you have published a babel plugin! 🎉🎉
+
+At this point, you must have thought: _"Yes I've just written a babel plugin, but I have no idea how it works..."_, so fret not, let's dive in on how you can write the babel transformation plugin yourself!
 
 So, here is the step-by-step guide to do it:
 
 ### 1. Have in mind what you want to transform from and transform into
 
-In this example, I want to prank my colleague by:
+In this example, I want to prank my colleague by creating a babel plugin that will:
 
-- reversing all variables and function names
+- reverse all the variables' and functions' names
 - split out string into individual characters
 
 ```js
@@ -130,11 +131,11 @@ Well, we have to keep the `console.log`, so that even the code is hardly readabl
 
 ### 2. Know what to target on the AST
 
-Head down to a [babel AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIGdyZWV0KG5hbWUpIHtcbiAgcmV0dXJuICdIZWxsbyAnICsgbmFtZTtcbn1cblxuY29uc29sZS5sb2coZ3JlZXQoJ3RhbmhhdWhhdScpKTsgLy8gSGVsbG8gdGFuaGF1aGF1In0=), click on different parts of the code, to see where it is represented on the AST:
+Head down to a [babel AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIGdyZWV0KG5hbWUpIHtcbiAgcmV0dXJuICdIZWxsbyAnICsgbmFtZTtcbn1cblxuY29uc29sZS5sb2coZ3JlZXQoJ3RhbmhhdWhhdScpKTsgLy8gSGVsbG8gdGFuaGF1aGF1In0=), click on different parts of the code and see where / how it is represented on the AST:
 
 ![targeting](./images/targeting.png 'Selecting the code on the left and see the corresponding part of the AST light up on the right')
 
-If this is your first time seeing the AST, play around with it for a little while, to get the sense of how is it look like, and get to know the names of the node on the AST with respect to your code.
+If this is your first time seeing the AST, play around with it for a little while and get the sense of how is it look like, and get to know the names of the node on the AST with respect to your code.
 
 So, now we know that we need to target:
 
@@ -173,7 +174,7 @@ The transformation uses [the visitor pattern](https://en.wikipedia.org/wiki/Visi
 
 During the traversal phase, babel will do a [depth-first search traversal](https://en.wikipedia.org/wiki/Depth-first_search) and visit each node in the AST. You can specify a callback method in the visitor, such that while visiting the node, babel will call the callback method with the node it is currently visiting.
 
-In the visitor object, you can specify the name of the node you want to modify:
+In the visitor object, you can specify the name of the node you want to be `callback`ed:
 
 ```js
 function myCustomPlugin() {
@@ -285,13 +286,13 @@ You can do that, except that it will not reverse the variable name if it is name
 const log = 1;
 ```
 
-> So, how do I know the method `isMemberExpression` and `isIdentifier`? Well, yes they are a bit hard to find on babel's doc, but you can find the exhaustive list over [here](https://github.com/babel/babel/blob/master/packages/babel-types/src/validators/generated/index.js).
+> So, how do I know the method `isMemberExpression` and `isIdentifier`? Well, all the node types specified in the [@babel/types](https://babeljs.io/docs/en/babel-types) have the `isXxxx` validator function counterpart, eg: `anyTypeAnnotation` function will have a `isAnyTypeAnnotation` validator. If you want to know the exhaustive list of the validator functions, you can head over [to the actual source code](https://github.com/babel/babel/blob/master/packages/babel-types/src/validators/generated/index.js).
 
 #### Transforming strings
 
 The next step is to generate a nested `BinaryExpression` out of `StringLiteral`.
 
-To create an AST node, you can use the utility function from [`@babel/types`](https://babeljs.io/docs/en/babel-types). `@babel/types` is also available from `babel.types` from `@babel/core`.
+To create an AST node, you can use the utility function from [`@babel/types`](https://babeljs.io/docs/en/babel-types). `@babel/types` is also available via `babel.types` from `@babel/core`.
 
 ```js
 StringLiteral(path) {
@@ -317,7 +318,7 @@ Why 🤷‍ ?
 
 Well, that's because for each `StringLiteral` we created more `StringLiteral`, and in each of those `StringLiteral`, we are "creating" more `StringLiteral`. Although we will replace a `StringLiteral` with another `StringLiteral`, babel will treat it as a new node and will visit the newly created `StringLiteral`, thus the infinite recursive and stack overflow.
 
-So, how do we tell babel that once we replaced the `StringLiteral` with the `newNode`, that's it, don't have to go down and visit the newly created node anymore?
+So, how do we tell babel that once we replaced the `StringLiteral` with the `newNode`, babel can stop and don't have to go down and visit the newly created node anymore?
 
 We can use `path.skip()` to skip traversing the children of the current path:
 
@@ -334,6 +335,8 @@ StringLiteral(path) {
   path.skip();
 }
 ```
+
+...And yes it works now with now stack overflow!
 
 ## Summary
 
@@ -387,6 +390,7 @@ console.log(output.code);
 ```
 
 A summary of the steps on how we get here:
+
 1. Have in mind what you want to transform from and transform into
 2. Know what to target on the AST
 3. Know how the transformed AST looks like
@@ -394,12 +398,12 @@ A summary of the steps on how we get here:
 
 ## Further resources
 
-If you are interested to learn more, where can you get more code examples of writing a babel transformation?
+If you are interested to learn more, [babel's Github repo](https://github.com/babel/babel/tree/master/packages) is always the best place to find out more code examples of writing a babel transformation.
 
-You can always go to [https://github.com/babel/babel](https://github.com/babel/babel/tree/master/packages), and look for `babel-plugin-transform-*` or `babel-plugin-proposal-*` folders, they are all babel transform plugin, where you can find code on how babel [transform the nullish coalescing operator](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-nullish-coalescing-operator), [optional chaining](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-optional-chaining) and many more.
+Head down to [https://github.com/babel/babel](https://github.com/babel/babel/tree/master/packages), and look for `babel-plugin-transform-*` or `babel-plugin-proposal-*` folders, they are all babel transformation plugin, where you can find code on how babel [transform the nullish coalescing operator](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-nullish-coalescing-operator), [optional chaining](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-optional-chaining) and many more.
 
 ## Reference
+
 - [Babel docs](https://babeljs.io/docs/en/) & [Github repo](https://github.com/babel/babel)
 - [Babel Handbook](https://github.com/jamiebuilds/babel-handbook) by [Jamie Kyle](https://jamie.build/)
-- [Leveling Up One’s Parsing Game With ASTs](https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff) by [Vaidehi Joshi
-  ](https://twitter.com/vaidehijoshi)
+- [Leveling Up One’s Parsing Game With ASTs](https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff) by [Vaidehi Joshi](https://twitter.com/vaidehijoshi)
