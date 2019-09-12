@@ -586,7 +586,7 @@ Of course, the module bundler we have is nowhere near webpack. Webpack supports 
 
 # Optimisation
 
-Before 
+Before we pat ourself on the back and call it a day, there is a bug that we need to fix.
 
 ## Circular dependency
 
