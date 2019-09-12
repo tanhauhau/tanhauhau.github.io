@@ -1,20 +1,20 @@
 ---
-title: Step by step guide for writing a babel transformation
+title: Step-by-step guide for writing a custom babel transformation
 date: '2019-09-07T08:00:00Z'
 tags: JavaScript,babel,ast,transform
 description: Writing your first babel plugin
 wip: true
 ---
 
-Today, I am going to share a step by step guide to do a code transformation with [`babel`](https://babeljs.io/docs/en/babel-core).
+Today, I will share a step-by-step guide for writing a custom [babel](https://babeljs.io/docs/en/babel-core) transformation. You can use this technique to write your own automated code modifications, refactoring and code generation.
 
-I'll be going through:
+## What is babel?
 
-- What is **Abstract Syntax Tree (AST)** ?
-- How to write a code to transform your code with `babel`
-- Where to learn more beyond this article
+[Babel](https://babeljs.io/docs/en/) is a JavaScript compiler that is mainly used to convert ECMAScript 2015+ code into backward compatible version of JavaScript in current and older browsers or environments. Babel uses a [plugin system](https://babeljs.io/docs/en/plugins) to do code transformation, so anyone can write their own transformation plugin for babel.
 
-## What is Abstract Syntax Tree (AST) ?
+Before you get started writing a transformation plugin for babel, you would need to know what is an [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
+
+### What is Abstract Syntax Tree (AST)?
 
 I am not sure I can explain this better than the amazing articles out there on the web:
 
@@ -24,11 +24,11 @@ I am not sure I can explain this better than the amazing articles out there on t
 - [What is an Abstract Syntax Tree
   ](https://blog.bitsrc.io/what-is-an-abstract-syntax-tree-7502b71bde27) by [Chidume Nnamdi](https://twitter.com/ngArchangel)
 
-To summarize, AST is a tree representation of your code. In the case for JavaScript, the JavaScript AST follows the [estree specification](https://github.com/estree/estree).
+To summarize, AST is a tree representation of your code. In the case of JavaScript, the JavaScript AST follows the [estree specification](https://github.com/estree/estree).
 
-AST represents your code, the structure and the meaning of your code. So it allows compiler to generate machine code out of it, interpreter to executes it, or tools like [babel](https://babeljs.io) or [prettier](https://prettier.io) to transform and format it.
+AST represents your code, the structure and the meaning of your code. So it allows the compiler to generate machine code out of it, interpreter to executes it, or tools like [babel](https://babeljs.io) or [prettier](https://prettier.io) to transform and format it.
 
-So now you know what is AST, we are going to write code to transform your code with `babel` by using AST.
+So now you know what is AST, we will write code to transform your code with `babel` by using AST.
 
 ## How to use babel to transform code
 
@@ -59,15 +59,15 @@ const output = generate(ast, code);
 console.log(output.code); // 'const x = 1;'
 ```
 
-> You would need to install [@babel/core](https://www.npmjs.com/package/@babel/core) to run this. `@babel/parser`, `@babel/traverse`, `@babel/generator` are all dependencies of `@babel/core`, so installing `@babel/core` would be suffice.
+> You would need to install [@babel/core](https://www.npmjs.com/package/@babel/core) to run this. `@babel/parser`, `@babel/traverse`, `@babel/generator` are all dependencies of `@babel/core`, so installing `@babel/core` would suffice.
 
-So the general idea of it is to parse your code to AST, do transformation on AST, then generate code from the transformed AST.
+So the general idea of it is to parse your code to AST, do the transformation on AST, and then generate code from the transformed AST.
 
 ```
 code -> AST -> transformed AST -> transformed code
 ```
 
-Now you know the general idea, we can actually use another API from `babel` to do all the above:
+Now you know a general idea, we can use another API from `babel` to do all the above:
 
 ```js
 import babel from '@babel/core';
@@ -97,9 +97,9 @@ console.log(output.code); // 'const x = 1;'
 
 In some way, you have written your first [babel plugin](https://babeljs.io/docs/en/plugins), how cool is that?!
 
-Although I've shown you the code of transforming the ast, but how do you write transformation code yourself?
+Although I've shown you the code of transforming the ast, how do you write transformation code yourself?
 
-So, here is the step by step guide to do it:
+So, here is the step-by-step guide to do it:
 
 ### 1. Have in mind what you want to transform from and transform into
 
@@ -132,7 +132,7 @@ Well, we have to keep the `console.log`, so that even the code is hardly readabl
 
 Head down to a [babel AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIGdyZWV0KG5hbWUpIHtcbiAgcmV0dXJuICdIZWxsbyAnICsgbmFtZTtcbn1cblxuY29uc29sZS5sb2coZ3JlZXQoJ3RhbmhhdWhhdScpKTsgLy8gSGVsbG8gdGFuaGF1aGF1In0=), click on different parts of the code, to see where it is represented on the AST:
 
-![targeting](./images/targeting.png 'Selecting the code on the left, and see the corresponding part of the AST light up on the right')
+![targeting](./images/targeting.png 'Selecting the code on the left and see the corresponding part of the AST light up on the right')
 
 If this is your first time seeing the AST, play around with it for a little while, to get the sense of how is it look like, and get to know the names of the node on the AST with respect to your code.
 
@@ -141,19 +141,19 @@ So, now we know that we need to target:
 - **Identifier** for variable and function names
 - **StringLiteral** for the string.
 
-### 3. Know how the transformed AST look like
+### 3. Know how the transformed AST looks like
 
-Head down to the [babel AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIHRlZXJnKGVtYW4pIHtcbiAgcmV0dXJuIFwiSFwiICsgXCJlXCIgKyBcImxcIiArIFwibFwiICsgXCJvXCIgKyBcIiBcIiArIG5hbWU7XG59XG5cbmNvbnNvbGUubG9nKHRlZXJnKFwidFwiICsgXCJhXCIgKyBcIm5cIiArIFwiaFwiICsgXCJhXCIgKyBcInVcIiArIFwiaFwiICsgXCJhXCIgKyBcInVcIikpOyAvLyBIZWxsbyB0YW5oYXVoYXVcbiJ9) again, but this time round with the output code you want to generate.
+Head down to the [babel AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIHRlZXJnKGVtYW4pIHtcbiAgcmV0dXJuIFwiSFwiICsgXCJlXCIgKyBcImxcIiArIFwibFwiICsgXCJvXCIgKyBcIiBcIiArIG5hbWU7XG59XG5cbmNvbnNvbGUubG9nKHRlZXJnKFwidFwiICsgXCJhXCIgKyBcIm5cIiArIFwiaFwiICsgXCJhXCIgKyBcInVcIiArIFwiaFwiICsgXCJhXCIgKyBcInVcIikpOyAvLyBIZWxsbyB0YW5oYXVoYXVcbiJ9) again, but this time around with the output code you want to generate.
 
 ![output](./images/output.png 'You can see that what used to be a `StringLiteral` is now a nested `BinaryExpression`')
 
-Play around, and think how you can transform from the previous AST to the current AST.
+Play around and think how you can transform from the previous AST to the current AST.
 
 For example, you can see that `'H' + 'e' + 'l' + 'l' + 'o' + ' ' + name` is formed by nested `BinaryExpression` with `StringLiteral`.
 
 ### 4. Write code
 
-Now take a look at our code again:
+Now look at our code again:
 
 ```js
 function myCustomPlugin() {
@@ -171,9 +171,9 @@ function myCustomPlugin() {
 
 The transformation uses [the visitor pattern](https://en.wikipedia.org/wiki/Visitor_pattern).
 
-During the traversal phase, babel will do a [depth-first search traversal](https://en.wikipedia.org/wiki/Depth-first_search) and visit each and every node in the AST. You can specify a callback method in the visitor, such that while visiting the node, babel will call the callback method with the node it is currently visiting.
+During the traversal phase, babel will do a [depth-first search traversal](https://en.wikipedia.org/wiki/Depth-first_search) and visit each node in the AST. You can specify a callback method in the visitor, such that while visiting the node, babel will call the callback method with the node it is currently visiting.
 
-In the visitor object, you can specify the name of the node that you want to be notified:
+In the visitor object, you can specify the name of the node you want to modify:
 
 ```js
 function myCustomPlugin() {
@@ -217,7 +217,7 @@ So let's continue writing our babel plugin.
 
 #### Transforming variable name
 
-As we can see from the [AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIGdyZWV0KG5hbWUpIHtcbiAgcmV0dXJuICdIZWxsbyAnICsgbmFtZTtcbn1cblxuY29uc29sZS5sb2coZ3JlZXQoJ3RhbmhhdWhhdScpKTsgLy8gSGVsbG8gdGFuaGF1aGF1In0=), the name of the `Identifier` is stored in the property called `name`, so what we are going to do is to reverse the `name`.
+As we can see from the [AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIGdyZWV0KG5hbWUpIHtcbiAgcmV0dXJuICdIZWxsbyAnICsgbmFtZTtcbn1cblxuY29uc29sZS5sb2coZ3JlZXQoJ3RhbmhhdWhhdScpKTsgLy8gSGVsbG8gdGFuaGF1aGF1In0=), the name of the `Identifier` is stored in the property called `name`, so what we will do is to reverse the `name`.
 
 ```js
 Identifier(path) {
@@ -267,7 +267,7 @@ Identifier(path) {
 }
 ```
 
-and yes, now you get it right!
+And yes, now you get it right!
 
 ```js
 function teerg(eman) {
@@ -279,7 +279,7 @@ console.log(teerg('tanhauhau')); // Hello tanhauhau
 
 So, why do we have to check whether the `Identifier`'s parent is not a `console.log` `MemberExpression`? Why don't we just compare whether the current `Identifier.name === 'console' || Identifier.name === 'log'`?
 
-You can do that, except that it will not reverse the variable name, if it is named `console` or `log`:
+You can do that, except that it will not reverse the variable name if it is named `console` or `log`:
 
 ```js
 const log = 1;
@@ -291,7 +291,7 @@ const log = 1;
 
 The next step is to generate a nested `BinaryExpression` out of `StringLiteral`.
 
-To create a AST node, you can use the utility function from [`@babel/types`](https://babeljs.io/docs/en/babel-types). `@babel/types` is also available from `babel.types` from `@babel/core`.
+To create an AST node, you can use the utility function from [`@babel/types`](https://babeljs.io/docs/en/babel-types). `@babel/types` is also available from `babel.types` from `@babel/core`.
 
 ```js
 StringLiteral(path) {
@@ -307,7 +307,7 @@ StringLiteral(path) {
 
 So, we split the content of the `StringLiteral`, which is in `path.node.value`, make each character a `StringLiteral`, and combine them with `BinaryExpression`. Finally, we replace the `StringLiteral` with the newly created node.
 
-...and that's it! Except, we ran into Stack Overflow:
+...And that's it! Except, we ran into Stack Overflow 😅:
 
 ```
 RangeError: Maximum call stack size exceeded
@@ -315,7 +315,7 @@ RangeError: Maximum call stack size exceeded
 
 Why 🤷‍ ?
 
-Well, that's because for each `StringLiteral` we created more `StringLiteral`, and in each of those `StringLiteral`, we are "creating" more `StringLiteral`. Although we are going to replace a `StringLiteral` with another `StringLiteral`, babel will treat it as a new node, and will visit the newly created `StringLiteral`, thus the infinte recursive and stack overflow.
+Well, that's because for each `StringLiteral` we created more `StringLiteral`, and in each of those `StringLiteral`, we are "creating" more `StringLiteral`. Although we will replace a `StringLiteral` with another `StringLiteral`, babel will treat it as a new node and will visit the newly created `StringLiteral`, thus the infinite recursive and stack overflow.
 
 So, how do we tell babel that once we replaced the `StringLiteral` with the `newNode`, that's it, don't have to go down and visit the newly created node anymore?
 
@@ -389,7 +389,7 @@ console.log(output.code);
 A summary of the steps on how we get here:
 1. Have in mind what you want to transform from and transform into
 2. Know what to target on the AST
-3. Know how the transformed AST look like
+3. Know how the transformed AST looks like
 4. Write code
 
 ## Further resources
