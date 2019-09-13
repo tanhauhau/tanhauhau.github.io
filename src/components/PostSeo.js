@@ -44,7 +44,7 @@ function SEO({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || profilePicture;
+  const metaImage = `${site.siteMetadata.siteUrl}${twitterImage || image || profilePicture}`;
   const metaKeywords = post.tags ? post.tags.split(',') : [];
 
   return (
@@ -102,7 +102,7 @@ function SEO({
           },
           {
             name: `twitter:image`,
-            content: twitterImage || image,
+            content: metaImage,
           },
         ]
           .concat(
