@@ -1,9 +1,9 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  return graphql(
+  const result = await graphql(
     `
       {
         allMarkdownRemark(
@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
         ) {
           edges {
             node {
-              fileAbsolutePath
+              id
               fields {
                 slug
                 type
@@ -28,81 +28,111 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors;
+  );
+  if (result.errors) {
+    throw result.errors;
+  }
+
+  // Create blog posts pages.
+  const posts = result.data.allMarkdownRemark.edges;
+
+  const componentMap = {
+    blog: path.resolve(`./src/templates/blog-post.js`),
+    talk: path.resolve(`./src/templates/talk-post.js`),
+    notes: path.resolve(`./src/templates/note-post.js`),
+  };
+
+  // split into different lists
+  const notes = [];
+  const portfolios = [];
+  const talks = [];
+  const blogs = [];
+  const others = [];
+  const wips = [];
+  posts.forEach(post => {
+    if (post.node.fields.wip) {
+      return wips.push(post);
     }
 
-    // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges;
+    switch (post.node.fields.type) {
+      case 'notes':
+        return notes.push(post);
+      case 'portfolios':
+        return portfolios.push(post);
+      case 'talk':
+        return talks.push(post);
+      case 'blog':
+        return blogs.push(post);
+      default:
+        return others.push(post);
+    }
+  });
 
-    const componentMap = {
-      blog: path.resolve(`./src/templates/blog-post.js`),
-      talk: path.resolve(`./src/templates/talk-post.js`),
-      notes: path.resolve(`./src/templates/note-post.js`),
-    };
-
-    // split into different lists
-    const notes = [];
-    const portfolios = [];
-    const talks = [];
-    const blogs = [];
-    const others = [];
-    const wips = [];
-    posts.forEach(post => {
-      if (post.node.fields.wip) {
-        return wips.push(post);
-      }
-
-      switch (post.node.fields.type) {
-        case 'notes':
-          return notes.push(post);
-        case 'portfolios':
-          return portfolios.push(post);
-        case 'talk':
-          return talks.push(post);
-        case 'blog':
-          return blogs.push(post);
-        default:
-          return others.push(post);
-      }
-    });
-
-    const lists = [notes, talks, blogs, others];
-    lists.forEach(list => {
-      list.forEach((post, index) => {
-        const component = componentMap[post.node.fields.type];
-        const previous =
-          index === list.length - 1 ? null : list[index + 1].node;
-        const next = index === 0 ? null : list[index - 1].node;
-
-        createPage({
-          path: post.node.fields.slug,
-          component,
-          context: {
-            ...post.node.fields,
-            previous,
-            next,
-          },
-        });
-      });
-    });
-
-    wips.forEach(post => {
+  const lists = [notes, talks, blogs, others];
+  for (list of lists) {
+    for (const [index, post] of list.entries()) {
       const component = componentMap[post.node.fields.type];
+      const previous = index === list.length - 1 ? null : list[index + 1].node;
+      const next = index === 0 ? null : list[index - 1].node;
+
       createPage({
         path: post.node.fields.slug,
         component,
         context: {
           ...post.node.fields,
-          previous: null,
-          next: null,
+          heroImageUrl: await getHeroImage(post.node.id),
+          previous,
+          next,
         },
       });
-    });
+    }
+  }
 
-    return null;
-  });
+  for (const post of wips) {
+    const component = componentMap[post.node.fields.type];
+    createPage({
+      path: post.node.fields.slug,
+      component,
+      context: {
+        ...post.node.fields,
+        heroImageUrl: await getHeroImage(post.node.id),
+        previous: null,
+        next: null,
+      },
+    });
+  }
+
+  return null;
+
+  async function getHeroImage(postId) {
+    const fileQuery = await graphql(
+      `
+        {
+          markdownRemark(id: {eq: "${postId}"}) {
+            parent {
+              ... on File {
+                relativeDirectory
+              }
+            }
+          }
+        }
+      `
+    );
+    const folderPath = fileQuery.data.markdownRemark.parent.relativeDirectory;
+    const heroImgPath = folderPath + '/hero.jpg';
+    const imgQuery = await graphql(
+      `{
+        file(relativePath: {eq: "${heroImgPath}"}) {
+          publicURL
+        }
+      }`
+    );
+    const img = imgQuery.data.file;
+    if (!img) {
+      return null;
+    }
+    return img.publicURL;
+  }
 };
 
 const regexp = new RegExp(`^${__dirname}/content/([^/]+)/`);
@@ -136,17 +166,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (postType === 'notes') {
       // create date and title out of filename
-      const [_, date, noteTitle] = node.fileAbsolutePath.match(noteRegexp);
-      createNodeField({
-        name: 'noteDate',
-        node,
-        value: date,
-      });
-      createNodeField({
-        name: 'noteTitle',
-        node,
-        value: noteTitle,
-      });
+      const noteRegexpMatch = node.fileAbsolutePath.match(noteRegexp);
+      if (noteRegexpMatch) {
+        const [_, date, noteTitle] = noteRegexpMatch;
+        createNodeField({
+          name: 'noteDate',
+          node,
+          value: date,
+        });
+        createNodeField({
+          name: 'noteTitle',
+          node,
+          value: noteTitle,
+        });
+      }
     }
 
     if (postType === 'portfolios') {

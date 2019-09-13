@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import SEO from '../components/PostSeo';
 import ArticleFooter from '../components/ArticleFooter';
 import { rhythm, scale } from '../utils/typography';
 
@@ -10,16 +10,22 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
-    const { previous, next } = this.props.pageContext;
-    const isWip = post.fields.wip
+    const { previous, next, heroImageUrl } = this.props.pageContext;
+    const isWip = post.fields.wip;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          image={heroImageUrl}
+          url={post.fields.slug}
+          post={post.frontmatter}
         />
-        <h1>{isWip ? 'WIP: ' : null}{post.frontmatter.title}</h1>
+        <h1>
+          {isWip ? 'WIP: ' : null}
+          {post.frontmatter.title}
+        </h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -87,6 +93,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       fields {
+        slug
         wip
       }
       frontmatter {
