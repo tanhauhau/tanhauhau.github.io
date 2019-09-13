@@ -12,10 +12,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 function SEO({
   siteLanguage = 'en',
   meta = [],
-  keywords = [],
   title,
   description,
   image,
+  twitterImage,
   url,
   post,
 }) {
@@ -45,6 +45,7 @@ function SEO({
 
   const metaDescription = description || site.siteMetadata.description;
   const metaImage = image || profilePicture;
+  const metaKeywords = post.tags ? post.tags.split(',') : [];
 
   return (
     <>
@@ -85,7 +86,7 @@ function SEO({
           },
           {
             name: `twitter:card`,
-            content: `summary`,
+            content: twitterImage ? 'summary_large_image' : `summary`,
           },
           {
             name: `twitter:creator`,
@@ -99,12 +100,16 @@ function SEO({
             name: `twitter:description`,
             content: metaDescription,
           },
+          {
+            name: `twitter:image`,
+            content: twitterImage || image,
+          },
         ]
           .concat(
-            keywords.length > 0
+            metaKeywords.length > 0
               ? {
                   name: `keywords`,
-                  content: keywords.join(`, `),
+                  content: metaKeywords.join(`, `),
                 }
               : []
           )

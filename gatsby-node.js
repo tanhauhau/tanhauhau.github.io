@@ -80,7 +80,8 @@ exports.createPages = async ({ graphql, actions }) => {
         component,
         context: {
           ...post.node.fields,
-          heroImageUrl: await getHeroImage(post.node.id),
+          heroImageUrl: await getHeroImage(post.node.id, 'hero.jpg'),
+          heroTwitterImageUrl: await getHeroImage(post.node.id, 'hero-twitter.jpg'),
           previous,
           next,
         },
@@ -95,7 +96,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component,
       context: {
         ...post.node.fields,
-        heroImageUrl: await getHeroImage(post.node.id),
+        heroImageUrl: await getHeroImage(post.node.id, 'hero.jpg'),
+        heroTwitterImageUrl: await getHeroImage(post.node.id, 'hero-twitter.jpg'),
         previous: null,
         next: null,
       },
@@ -104,7 +106,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   return null;
 
-  async function getHeroImage(postId) {
+  async function getHeroImage(postId, filename) {
     const fileQuery = await graphql(
       `
         {
@@ -119,7 +121,7 @@ exports.createPages = async ({ graphql, actions }) => {
       `
     );
     const folderPath = fileQuery.data.markdownRemark.parent.relativeDirectory;
-    const heroImgPath = folderPath + '/hero.jpg';
+    const heroImgPath = folderPath + '/' + filename;
     const imgQuery = await graphql(
       `{
         file(relativePath: {eq: "${heroImgPath}"}) {

@@ -10,7 +10,12 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
-    const { previous, next, heroImageUrl } = this.props.pageContext;
+    const {
+      previous,
+      next,
+      heroImageUrl,
+      heroTwitterImageUrl,
+    } = this.props.pageContext;
     const isWip = post.fields.wip;
 
     return (
@@ -19,6 +24,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
           image={heroImageUrl}
+          twitterImage={heroTwitterImageUrl}
           url={post.fields.slug}
           post={post.frontmatter}
         />
@@ -101,6 +107,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         lastUpdated(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }
