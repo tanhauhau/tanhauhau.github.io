@@ -1,6 +1,7 @@
 ---
 title: Codemod with babel
 date: '2019-03-13T08:00:00Z'
+lastUpdated: '2019-09-13T08:00:00Z'
 description: 'A template which I used'
 ---
 
@@ -40,4 +41,8 @@ const { writeFile } = promisify(require('fs').writeFile);
 })();
 ```
 
-[WIP] I am going to explain how it works and how to use it.
+[Updated on 2019-09-13]
+
+I have written a [step-by-step guide](/step-by-step-guide-for-writing-a-babel-transformation) on how to write a babel transformation plugin.
+
+The only difference in this template than the guide is that there's this `manipulateOptions` where you can add additional parser options to enable ES2015+ syntax.
