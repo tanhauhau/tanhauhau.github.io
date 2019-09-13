@@ -64,6 +64,10 @@ function SEO({
             content: metaImage,
           },
           {
+            name: 'og:image',
+            content: metaImage,
+          },
+          {
             property: `og:title`,
             content: title,
           },
