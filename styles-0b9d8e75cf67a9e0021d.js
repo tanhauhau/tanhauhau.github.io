@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{142:function(o,e,n){},143:function(o,e,n){},152:function(o,e,n){},180:function(o,e,n){},186:function(o,e,n){o.exports={container:"BioImage-module--container--1PFVh",image1:"BioImage-module--image1--14nWk",image2:"BioImage-module--image2--1Blhq",showImage:"BioImage-module--showImage--2hBbU"}},187:function(o,e,n){o.exports={list:"index-module--list--3C1Zu",p:"index-module--p--4EDuH"}}}]);
-//# sourceMappingURL=styles-0b9d8e75cf67a9e0021d.js.map
