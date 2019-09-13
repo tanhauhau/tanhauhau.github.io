@@ -64,7 +64,7 @@ function SEO({
             content: metaImage,
           },
           {
-            name: 'og:image',
+            property: 'og:image',
             content: metaImage,
           },
           {
