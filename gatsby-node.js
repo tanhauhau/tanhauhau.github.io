@@ -7,7 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { fields: [frontmatter___date, fields___noteDate], order: DESC }
           limit: 1000
         ) {
           edges {
@@ -81,7 +81,10 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           ...post.node.fields,
           heroImageUrl: await getHeroImage(post.node.id, 'hero.jpg'),
-          heroTwitterImageUrl: await getHeroImage(post.node.id, 'hero-twitter.jpg'),
+          heroTwitterImageUrl: await getHeroImage(
+            post.node.id,
+            'hero-twitter.jpg'
+          ),
           previous,
           next,
         },
@@ -97,7 +100,10 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         ...post.node.fields,
         heroImageUrl: await getHeroImage(post.node.id, 'hero.jpg'),
-        heroTwitterImageUrl: await getHeroImage(post.node.id, 'hero-twitter.jpg'),
+        heroTwitterImageUrl: await getHeroImage(
+          post.node.id,
+          'hero-twitter.jpg'
+        ),
         previous: null,
         next: null,
       },
@@ -151,7 +157,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: slugPrefix + createFilePath({ node, getNode }),
+      value:
+        slugPrefix + createFilePath({ node, getNode }).replace(/[\s-"]+/g, '-'),
     });
 
     createNodeField({
