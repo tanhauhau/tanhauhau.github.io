@@ -1,7 +1,7 @@
 ---
 title: Solving Nonogram with Code
 date: '2019-09-14T08:00:00Z'
-description: '...said me to my colleague, "Maybe if I can come up with a program to solve this, I would stop playing it anymore"'
+description: '...said me to my colleague, "If I could come up with a program to solve this, I would stop playing it"'
 tag: JavaScript,nonogram,algorithm
 ---
 
@@ -9,7 +9,7 @@ tag: JavaScript,nonogram,algorithm
 
 Last week I was playing [nonogram](https://play.google.com/store/apps/details?id=com.easybrain.nonogram) during lunchtime.
 
-_"I am addicted to this game right now,"_ said me to my colleague, _"Maybe if I can come up with a program to solve this, I would stop playing it anymore"_ And then we went into a discussion of algorithms, machine learnings, computer visions...
+_"I am addicted to this game right now,"_ said me to my colleague, _"If I could come up with a program to solve this, I would stop playing it"_ And then we went into a discussion of algorithms, machine learnings, computer visions...
 
 I can't remember how our topic went from one to another. But one thing stuck to my head, **_I need to write software to solve my nonogram!_**
 
