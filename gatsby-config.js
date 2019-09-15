@@ -51,6 +51,8 @@ module.exports = {
           require.resolve('./plugins/gatsby/remark-emoji'),
           // wrap img + caption with figure & figcaption
           require.resolve('./plugins/gatsby/remark-caption'),
+          // add ids and links to header
+          `gatsby-remark-autolink-headers`,
         ],
       },
     },

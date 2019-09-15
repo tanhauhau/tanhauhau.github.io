@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/PostSeo';
 import ArticleFooter from '../components/ArticleFooter';
 import { rhythm, scale } from '../utils/typography';
+import ScrollIndicator from '../components/components/ScrollIndicator';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
+        <ScrollIndicator />
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
