@@ -3,7 +3,8 @@ img {
   z-index: 1;
 }
 span.emoji,
-.gatsby-highlight {
+.gatsby-highlight,
+p.filename {
   z-index: 1;
   position: relative;
 }

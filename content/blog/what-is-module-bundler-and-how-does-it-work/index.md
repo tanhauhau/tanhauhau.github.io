@@ -4,7 +4,7 @@ date: '2019-08-30T08:00:00Z'
 lastUpdated: '2019-08-30T15:05:00Z'
 description: 'understand how module bundler works'
 tags: JavaScript,module bundler,dev tool,webpack
-series: writing your own module bundler
+series: writing a module bundler
 ---
 
 ## What is a Module Bundler?
