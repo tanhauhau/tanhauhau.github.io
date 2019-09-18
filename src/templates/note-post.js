@@ -14,7 +14,6 @@ class NotePostTemplate extends React.Component {
         fields: { noteDate, noteTitle },
       },
     } = this.props.data;
-    console.log(html);
     const { previous, next } = this.props.pageContext;
     return (
       <Layout location={this.props.location} title="Li Hau's Notes">
