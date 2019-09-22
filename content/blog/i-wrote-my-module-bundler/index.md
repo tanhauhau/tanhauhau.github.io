@@ -3,7 +3,7 @@ title: I wrote my module bundler
 date: '2019-09-18T08:00:00Z'
 tags: JavaScript,module bundler,dev tool,webpack
 description: "In my previous article, I explained how module bundler works. In this article, I am going to show you how I wrote my module bundler..."
-series: writing a module bundler
+series: Write a module bundler
 ---
 
 In my [previous article](/what-is-module-bundler-and-how-does-it-work/), I explained how module bundler works. I used [webpack](https://webpack.js.org) and [rollup](https://rollupjs.org) as example, how each of them gave us a different perspective on how we can bundle our JavaScript application.

@@ -3,6 +3,7 @@ title: Step-by-step guide for writing a custom babel transformation
 date: '2019-09-12T08:00:00Z'
 tags: JavaScript,babel,ast,transform
 description: Writing your first babel plugin
+series: Intermediate Babel
 ---
 
 Today, I will share a step-by-step guide for writing a custom [babel](https://babeljs.io/docs/en/babel-core) transformation. You can use this technique to write your own automated code modifications, refactoring and code generation.
