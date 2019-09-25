@@ -24,6 +24,7 @@
 <url> <loc>https://lihautan.com/git-gudder/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/javascript-modules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/css-code-splitting/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lihautan.com/creating-custom-javascript-syntax-with-babel/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/i-wrote-my-module-bundler/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/solving-nonogram-with-code/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/step-by-step-guide-for-writing-a-babel-transformation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -45,6 +46,8 @@
 <url> <loc>https://lihautan.com/random-stuff-i-learned-from-browser-console/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/5-steps-to-build-nodejs-using-travis-ci/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/synchronous-and-asyncrhonous-why-async-await/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lihautan.com/tracking-git-commits/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lihautan.com/read-the-source-code-of-your-node-modules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/micro-frontends-poc/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/micro-frontends/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/building-my-gatsby-site/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
