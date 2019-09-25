@@ -1,9 +1,9 @@
 ---
 title: Creating custom JavaScript syntax with Babel
-description: Fork the babel parser and create your custom JavaScript syntax is not as hard as you think.
+date: '2019-09-25T08:00:00Z'
+description: Forking babel parser and creating your custom JavaScript syntax isn't as hard as you think.
 tags: JavaScript,babel,ast,transform
 series: Intermediate Babel
-wip: true
 ---
 
 Following my previous post on [writing a custom babel transformation](/step-by-step-guide-for-writing-a-babel-transformation), today I am going to show you how you can create a custom JavaScript syntax with Babel.
@@ -605,7 +605,7 @@ Along the way, we had a crash course on how a parser works, which I will provide
 
 The steps we've gone through above is similar to part of the [TC39 proposal](https://github.com/tc39/proposals) [process](https://tc39.es/process-document/) when defining a new JavaScript specification. When proposing a new specification, the champion of the proposal usually write polyfills or forked out babel to write proof-of-concept demos. As you've seen, forking a parser or writing polyfills is not the hardest part of the process, but to define the problem space, plan and think through the use cases and edge cases, and gather opinions and suggestions from the community. To this end, I am grateful to the proposal champion, for their effort in pushing the JavaScript language forward.
 
-Finally, if you want to see the code we've done so far in a full picture, you can [check it out from Github](https://github.com/tanhauhau/babel/compare/old-master...curry-function).
+Finally, if you want to see the code we've done so far in a full picture, you can [check it out from Github](https://github.com/tanhauhau/babel/compare/3a7b6e1c2...b793efad1).
 
 ---
 
