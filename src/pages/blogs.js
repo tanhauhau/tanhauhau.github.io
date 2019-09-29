@@ -11,7 +11,7 @@ function BlogIndex({ data, location }) {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} hideScrollIndicator>
       <SEO
         title="Li Hau's Blog"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}

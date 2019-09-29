@@ -11,7 +11,11 @@ class TalkPage extends React.Component {
     const talks = data.allMarkdownRemark.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        hideScrollIndicator
+      >
         <SEO title="Talks" />
         <h1>Talks</h1>
         {talks.map(talk => {

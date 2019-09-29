@@ -13,3 +13,5 @@ https://kentcdodds.com/blog/spelunking-in-node-modules
 i do this and that because somehow my lib1 behaves this way 
 
 3. Be a better developer
+
+4. Code never lies, documentation might

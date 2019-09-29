@@ -9,7 +9,11 @@ function NoteIndex({ data, location }) {
   const notes = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title="Back to Home Page">
+    <Layout
+      location={location}
+      title={data.site.siteMetadata.title}
+      hideScrollIndicator
+    >
       <SEO
         title="Li Hau's Notes"
         keywords={[`blog`, `gatsby`, `javascript`, `react`, 'notes']}
@@ -38,6 +42,11 @@ export default NoteIndex;
 
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       filter: { fields: { type: { eq: "notes" }, wip: { ne: true } } }
       sort: { fields: [fields___noteDate], order: DESC }

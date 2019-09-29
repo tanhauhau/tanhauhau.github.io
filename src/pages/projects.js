@@ -9,7 +9,11 @@ function Projects({ data, location }) {
   const projects = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title="Back to Home Page">
+    <Layout
+      location={location}
+      title={data.site.siteMetadata.title}
+      hideScrollIndicator
+    >
       <SEO
         title="Li Hau's Projects"
         keywords={[`blog`, `gatsby`, `javascript`, `react`, 'projects']}
@@ -49,6 +53,11 @@ export default Projects;
 
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       filter: { fields: { type: { eq: "portfolios" }, wip: { ne: true } } }
       sort: { fields: [frontmatter___title], order: ASC }

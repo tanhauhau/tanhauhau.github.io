@@ -5,7 +5,7 @@ description: 'A work in progress'
 wip: true
 ---
 
-After reading Dan's [Overreacted](https://overreacted.io) & Wei's [A Work in Progress](https://dev.wgao19.cc/) a while ago, I decided to have my [own blog](https://lihautan.com/blogs) as well! _(In case you still don't know, it's the very one you are reading right now!)_
+After reading Dan's [Overreacted](https://overreacted.io) & Wei's [A Work in Progress](https://dev.wgao19.cc/) a while ago, I decided to have my [own blog](https://lihautan.com/blogs/) as well! _(In case you still don't know, it's the very one you are reading right now!)_
 
 I took it as an opportunity to learn [Gatsby](https://www.gatsbyjs.org/), I've heard about it for a while, so I guess it's to know how it works.
 
@@ -88,7 +88,7 @@ I had to include `package.json` into the plugin folder, or else it will yell at 
 
 ## The Restructure
 
-A while ago, I decided to add more categories to my blog, ie, [my blogs](https://lihautan.com/blogs), [my talks](https://lihautan.com/talks/) and [my notes](https://lihautan.com/notes). So I created different folders for them and [rewrote the GraphQL query](https://github.com/tanhauhau/tanhauhau.github.io/commit/50c82259749f7608d1c81062eac1f357b9437485)
+A while ago, I decided to add more categories to my blog, ie, [my blogs](https://lihautan.com/blogs/), [my talks](https://lihautan.com/talks/) and [my notes](https://lihautan.com/notes). So I created different folders for them and [rewrote the GraphQL query](https://github.com/tanhauhau/tanhauhau.github.io/commit/50c82259749f7608d1c81062eac1f357b9437485)
 
 The Graphql Editor in `http://localhost:8000/___graphql` is really helpful for me to understand how Gatsby and Gatsby plugins are creating all the objects.
 

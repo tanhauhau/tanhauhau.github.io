@@ -93,7 +93,7 @@ function Index({ data, location }) {
       </ul>
 
       <h3>
-        Articles{' '}
+        Recent Articles{' '}
         <span role="img" className="emoji">
           {'📚'}
         </span>
@@ -102,19 +102,17 @@ function Index({ data, location }) {
       <ul style={{ marginBottom: rhythm(0.25) }}>
         {blogs.map(({ node: { frontmatter: { title }, fields: { slug } } }) => {
           return (
-            <div key={slug}>
-              <li className={styles.list}>
-                <Link style={{ boxShadow: `none` }} to={slug}>
-                  {title}
-                </Link>
-              </li>
-            </div>
+            <li className={styles.list} key={slug}>
+              <Link to={slug}>{title}</Link>
+            </li>
           );
         })}
+        <li className={styles.list}>
+          <Link style={{ textDecoration: 'none' }} to="/blogs/">
+            ... Read more
+          </Link>
+        </li>
       </ul>
-      <p className={styles.p}>
-        You can find the full list of articles <Link to="/blogs">here</Link>.
-      </p>
 
       <h3>
         Open Source{' '}
@@ -154,17 +152,14 @@ function Index({ data, location }) {
           }) => {
             return (
               <li key={title} className={styles.list}>
-                <a style={{ boxShadow: `none` }} href={website}>
-                  {title}
-                </a>{' '}
-                <small>{description}</small>
+                <a href={website}>{title}</a> <small>{description}</small>
               </li>
             );
           }
         )}
       </ul>
       <h3>
-        Talks{' '}
+        Recent Talks{' '}
         <span role="img" className="emoji">
           {'🎤'}
         </span>
@@ -185,10 +180,7 @@ function Index({ data, location }) {
                     marginTop: 0,
                   }}
                 >
-                  {date} - {occasion} -{' '}
-                  <Link style={{ boxShadow: `none` }} to={slug}>
-                    {title}
-                  </Link>
+                  {date} - {occasion} - <Link to={slug}>{title}</Link>
                 </li>
               </div>
             );
@@ -227,7 +219,7 @@ export const pageQuery = graphql`
     blogs: allMarkdownRemark(
       filter: { fields: { type: { eq: "blog" }, wip: { ne: true } } }
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 5
+      limit: 3
     ) {
       edges {
         node {

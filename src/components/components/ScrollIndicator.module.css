@@ -1,10 +1,10 @@
 .container {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 6px;
-  z-index: 10;
+  height: 3px;
+  /* center itself at the navbar border-bottom */
+  transform: translateY(-50%);
 }
 
 .indicator {
