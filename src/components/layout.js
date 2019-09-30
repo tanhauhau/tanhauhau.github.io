@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import Header from './Header';
 import { rhythm } from '../utils/typography';
 
@@ -9,7 +8,6 @@ class Layout extends React.Component {
       location,
       title,
       children,
-      hideScroll,
       hideScrollIndicator,
     } = this.props;
     const rootPath = `${__PATH_PREFIX__}/`;
@@ -39,16 +37,6 @@ class Layout extends React.Component {
             <span role="img" className="emoji">
               {'❤️'}
             </span>
-            {/* {' • '}
-            <Link to={`/notes`}>notes</Link>
-            {' • '}
-            <a href="https://twitter.com/lihautan">twitter</a>
-            {' • '}
-            <a href="https://github.com/tanhauhau">github</a>
-            {' • '}
-            <a href="https://github.com/tanhauhau/tanhauhau.github.io/issues/new?assignees=&labels=grammar%2C+typo&template=fix-typos-and-grammars.md&title=%5BTYPO%5D">
-              discuss
-            </a> */}
           </footer>
         </div>
       </>
