@@ -4,3 +4,6 @@ Puppeteer https://github.com/GoogleChrome/puppeteer
   ```js
   puppeteer.laucnh({ args: ['--remote-debugging-port=12345'] })
   ```
+  
+Chrome flags: 
+  - https://peter.sh/experiments/chromium-command-line-switches/
