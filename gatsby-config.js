@@ -52,7 +52,12 @@ module.exports = {
           // wrap img + caption with figure & figcaption
           require.resolve('./plugins/gatsby/remark-caption'),
           // add ids and links to header
-          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              offsetY: 70,
+            },
+          },
         ],
       },
     },

@@ -1,3 +1,8 @@
+/* smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* beyond modes */
 img {
   z-index: 1;
