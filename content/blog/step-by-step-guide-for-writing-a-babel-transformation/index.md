@@ -95,7 +95,7 @@ const output = babel.transformSync(code, {
 console.log(output.code); // 'const x = 1;'
 ```
 
-Now, you have written your first [babel tranform plugin](https://babeljs.io/docs/en/plugins) that replace all variable named `n` to `x`, how cool is that?!
+Now, you have written your first [babel transform plugin](https://babeljs.io/docs/en/plugins) that replace all variable named `n` to `x`, how cool is that?!
 
 > Extract out the function `myCustomPlugin` to a new file and export it. [Package and publish your file as a npm package](https://medium.com/@bretcameron/how-to-publish-your-first-npm-package-b224296fc57b) and you can proudly say you have published a babel plugin! 🎉🎉
 
@@ -122,7 +122,7 @@ into
 
 ```js
 function teerg(eman) {
-  return 'H' + 'e' + 'l' + 'l' + 'o' + ' ' + name;
+  return 'H' + 'e' + 'l' + 'l' + 'o' + ' ' + eman;
 }
 
 console.log(teerg('t' + 'a' + 'n' + 'h' + 'a' + 'u' + 'h' + 'a' + 'u')); // Hello tanhauhau
@@ -145,13 +145,13 @@ So, now we know that we need to target:
 
 ### 3. Know how the transformed AST looks like
 
-Head down to the [babel AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIHRlZXJnKGVtYW4pIHtcbiAgcmV0dXJuIFwiSFwiICsgXCJlXCIgKyBcImxcIiArIFwibFwiICsgXCJvXCIgKyBcIiBcIiArIG5hbWU7XG59XG5cbmNvbnNvbGUubG9nKHRlZXJnKFwidFwiICsgXCJhXCIgKyBcIm5cIiArIFwiaFwiICsgXCJhXCIgKyBcInVcIiArIFwiaFwiICsgXCJhXCIgKyBcInVcIikpOyAvLyBIZWxsbyB0YW5oYXVoYXVcbiJ9) again, but this time around with the output code you want to generate.
+Head down to the [babel AST explorer](https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlLCJoaWRlQ29tbWVudHMiOnRydWV9LCJjb2RlIjoiZnVuY3Rpb24gdGVlcmcoZW1hbikge1xuICByZXR1cm4gXCJIXCIgKyBcImVcIiArIFwibFwiICsgXCJsXCIgKyBcIm9cIiArIFwiIFwiICsgZW1hbjtcbn1cblxuY29uc29sZS5sb2codGVlcmcoXCJ0XCIgKyBcImFcIiArIFwiblwiICsgXCJoXCIgKyBcImFcIiArIFwidVwiICsgXCJoXCIgKyBcImFcIiArIFwidVwiKSk7IC8vIEhlbGxvIHRhbmhhdWhhdVxuIn0=) again, but this time around with the output code you want to generate.
 
 ![output](./images/output.png 'You can see that what used to be a `StringLiteral` is now a nested `BinaryExpression`')
 
 Play around and think how you can transform from the previous AST to the current AST.
 
-For example, you can see that `'H' + 'e' + 'l' + 'l' + 'o' + ' ' + name` is formed by nested `BinaryExpression` with `StringLiteral`.
+For example, you can see that `'H' + 'e' + 'l' + 'l' + 'o' + ' ' + eman` is formed by nested `BinaryExpression` with `StringLiteral`.
 
 ### 4. Write code
 
@@ -234,7 +234,7 @@ Run it and you will see:
 
 ```js
 function teerg(eman) {
-  return 'Hello ' + name;
+  return 'Hello ' + eman;
 }
 
 elosnoc.gol(teerg('tanhauhau')); // Hello tanhauhau
@@ -273,7 +273,7 @@ And yes, now you get it right!
 
 ```js
 function teerg(eman) {
-  return 'Hello ' + name;
+  return 'Hello ' + eman;
 }
 
 console.log(teerg('tanhauhau')); // Hello tanhauhau
