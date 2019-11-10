@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs-extra');
 const chalk = require('chalk');
-const GIT_URL = 'https://github.com/tanhauhau/tanhauhau.github.io.git';
+const GIT_URL = 'git@github.com:tanhauhau/tanhauhau.github.io.git';
 
 (async function() {
   const cacheFolder = path.join(require('os').homedir(), '.cache/tanlihau');
