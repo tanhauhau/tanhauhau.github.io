@@ -94,26 +94,22 @@ class TalkPostTemplate extends React.Component {
           )}
         </p>
 
-        {/* <div> */}
-          <blockquote>{post.frontmatter.description}</blockquote>
-          {/* {post.frontmatter.slides && (
-            <iframe
-              src={post.frontmatter.slides + '/embed'}
-              width="100%"
-              height="320"
-              scrolling="no"
-              frameborder="0"
-              title="slides"
-              webkitallowfullscreen
-              mozallowfullscreen
-              allowfullscreen
-            />
-          )}
-        </div> */}
+        <blockquote>{post.frontmatter.description}</blockquote>
+        {/* {post.frontmatter.slides && (
+          <iframe
+            src={post.frontmatter.slides + '/embed'}
+            width="100%"
+            height="320"
+            scrolling="no"
+            frameborder="0"
+            title="slides"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen
+          />
+        )} */}
 
-        <div />
-
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div key="content" dangerouslySetInnerHTML={{ __html: post.html }} />
         <ArticleFooter url={this.props.location.href} />
         <hr
           style={{
