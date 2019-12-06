@@ -27,10 +27,9 @@ class TalkPostTemplate extends React.Component {
           style={{
             ...scale(-1 / 5),
             display: `block`,
-            marginTop: rhythm(-0.5),
           }}
         >
-          <div>
+          <p style={{margin:0}}>
             <span role="img" aria-label="venue" style={{ marginRight: 4 }}>
               📍
             </span>
@@ -45,8 +44,8 @@ class TalkPostTemplate extends React.Component {
             ) : (
               post.frontmatter.venue
             )}
-          </div>
-          <div>
+          </p>
+          <p style={{margin:0}}>
             {post.frontmatter.occasion ? (
               <>
                 <span role="img" aria-label="group" style={{ marginRight: 4 }}>
@@ -61,14 +60,14 @@ class TalkPostTemplate extends React.Component {
                 </a>
               </>
             ) : null}
-          </div>
-          <div>
+          </p>
+          <p style={{margin:0}}>
             <span role="img" aria-label="date" style={{ marginRight: 4 }}>
               🗓
             </span>
             {post.frontmatter.date}
-          </div>
-          <div>
+          </p>
+          <p style={{margin:0}}>
             {post.frontmatter.slides ? (
               <>
                 <span role="img" aria-label="slide" style={{ marginRight: 4 }}>
@@ -83,8 +82,8 @@ class TalkPostTemplate extends React.Component {
                 </a>
               </>
             ) : null}
-          </div>
-          <div>
+          </p>
+          <p style={{margin:0}}>
             {post.frontmatter.video ? (
               <>
                 <span role="img" aria-label="video" style={{ marginRight: 4 }}>
@@ -99,7 +98,7 @@ class TalkPostTemplate extends React.Component {
                 </a>
               </>
             ) : null}
-          </div>
+          </p>
           <blockquote style={{marginTop: rhythm(1)}}>{post.frontmatter.description}</blockquote>
         </p>
         {/* {post.frontmatter.slides && (
