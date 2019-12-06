@@ -101,7 +101,7 @@ class TalkPostTemplate extends React.Component {
           </p>
           <blockquote style={{marginTop: rhythm(1)}}>{post.frontmatter.description}</blockquote>
         </p>
-        {/* {post.frontmatter.slides && (
+        {post.frontmatter.slides && (
           <iframe
             src={post.frontmatter.slides + '/embed'}
             width="100%"
@@ -113,7 +113,7 @@ class TalkPostTemplate extends React.Component {
             mozallowfullscreen
             allowfullscreen
           />
-        )} */}
+        )}
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <ArticleFooter url={this.props.location.href} />
