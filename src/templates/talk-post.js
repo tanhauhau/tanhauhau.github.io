@@ -27,7 +27,6 @@ class TalkPostTemplate extends React.Component {
           style={{
             ...scale(-1 / 5),
             display: `block`,
-            marginBottom: rhythm(1),
             marginTop: rhythm(-0.5),
           }}
         >
@@ -101,9 +100,8 @@ class TalkPostTemplate extends React.Component {
               </>
             ) : null}
           </div>
+          <blockquote style={{marginTop: rhythm(1)}}>{post.frontmatter.description}</blockquote>
         </p>
-
-        <blockquote>{post.frontmatter.description}</blockquote>
         {/* {post.frontmatter.slides && (
           <iframe
             src={post.frontmatter.slides + '/embed'}
