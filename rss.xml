@@ -1,4 +1,431 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Sat, 30 Nov 2019 07:53:56 GMT</lastBuildDate><item><title><![CDATA[I wrote a 12-line Rollup plugin]]></title><link>https://lihautan.com/12-line-rollup-plugin/</link><guid isPermaLink="false">https://lihautan.com/12-line-rollup-plugin/</guid><pubDate>Sat, 30 Nov 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;background&quot;&gt;&lt;a href=&quot;#background&quot; aria-label=&quot;background permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Background&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>RSS for Node</generator><lastBuildDate>Fri, 06 Dec 2019 15:24:24 GMT</lastBuildDate><item><title><![CDATA[Short Stories working on Svelte]]></title><link>https://lihautan.com/short-stories-working-on-svelte/</link><guid isPermaLink="false">https://lihautan.com/short-stories-working-on-svelte/</guid><pubDate>Fri, 06 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;It’s Friday evening, so I’ve decided to go light and easy, and share with y’all 2 interesting anecdote while I was working on Svelte.&lt;/p&gt;
+&lt;h2 id=&quot;first-story&quot;&gt;&lt;a href=&quot;#first-story&quot; aria-label=&quot;first story permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;First Story&lt;/h2&gt;
+&lt;p&gt;The first story started with &lt;a href=&quot;https://hacktoberfest.digitalocean.com/&quot;&gt;Hacktoberfest&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bf4fc1509893246019ea4e6f2c07f7e5/5290c/hacktoberfest.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 35.100286532951294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAAB2klEQVQozz2RS28SYRiFWWs0SovlMjMfjEBnuIy2pFBpKoYOMCAzQIVaCA20pg3aNl42xkRd6KK6abwujDUmtT/AhQt3mvgH/EePAxoXT87unPe8x6OLBknRRHfRFIdZ4RBT6kSFjRqxEaKGIiykcJWAKBFUKwRcZiZY+FzOR8p4XXwXK3jSokU65GCE6iSVBrqr45C4VEP1m8S1NtFkh7CoIusdplw9q5Q4LUxOqUXOxYuEtQqSVmbaDfEYQZt8dhdr+zOZ1AZGtMOy84xC9z2L5iPM4QmVna9cWTuks3FEfbnNINticKnHXnqTg+Q+T3K3iM2vMBUZXxisk7s8ovH8N+XeJ5zdb1j9Y1bv/qK89gVn6yeV9RNG1z/yXXvDkf6UH7EP3E/s8y76gpfKAfFIizMRkwvjygnZJhPrU6q/pWQdUrRes5h/SDb7ALN4m26zTat5lTvaiEpgk2vSFn3pMSuhIUtSn0y4i1ctTcx848rjvxlyk5TskJJsEu7vEqEaeqBKWnXD8uvMLXRQkz2CiZvIszcIyAX8c0O8uR28ojAZZlot/zWMKTZj4v9IKE0MZdUNaaGHO0iZe8jGCHlhDzG/jZweEPMXCdqvmOkd4w8uuetW/xv+AWGp87xdE97tAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;hacktoberfest&quot;
+        title=&quot;&quot;
+        src=&quot;/static/bf4fc1509893246019ea4e6f2c07f7e5/623ee/hacktoberfest.png&quot;
+        srcset=&quot;/static/bf4fc1509893246019ea4e6f2c07f7e5/816c5/hacktoberfest.png 148w,
+/static/bf4fc1509893246019ea4e6f2c07f7e5/c766b/hacktoberfest.png 295w,
+/static/bf4fc1509893246019ea4e6f2c07f7e5/623ee/hacktoberfest.png 590w,
+/static/bf4fc1509893246019ea4e6f2c07f7e5/e5345/hacktoberfest.png 885w,
+/static/bf4fc1509893246019ea4e6f2c07f7e5/7a439/hacktoberfest.png 1180w,
+/static/bf4fc1509893246019ea4e6f2c07f7e5/5290c/hacktoberfest.png 1396w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Anyone knows about Hacktoberfest? Anyone finished Hacktoberfest?&lt;/p&gt;
+&lt;p&gt;So for to benefit of those who don’t know about Hacktoberfest, Hacktoberfest is an annual event organised by &lt;a href=&quot;https://www.digitalocean.com/&quot;&gt;DigitalOcean&lt;/a&gt;, and this year they partnered with &lt;a href=&quot;http://dev.to/&quot;&gt;dev.to&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So during the month of October, if you managed to make 4 PRs to any public &lt;a href=&quot;http://github.com/&quot;&gt;Github&lt;/a&gt; repository, you will get a free T-shirts and swags.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/a9061/hacktober-swags.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;figure class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 100.0834028356964%; position: relative; bottom: 0; left: 0; background-image: url(&amp;#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMCBAH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB5rezWbBnowTUwz//xAAcEAACAgIDAAAAAAAAAAAAAAAAAgEREiEDEyL/2gAIAQEAAQUCijEnRjRMeNne7LyNa5H/xAAVEQEBAAAAAAAAAAAAAAAAAAABIP/aAAgBAwEBPwEj/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8BpD//xAAeEAACAQMFAAAAAAAAAAAAAAAAARACERIhMWGRof/aAAgBAQAGPwLmU8GjLw26NbFMf//EABwQAQADAAIDAAAAAAAAAAAAAAEAESExQWFx0f/aAAgBAQABPyEoILCdSiq48Jq1vJ3OLi5ZT+1yoMPUUzVVBeJ//9oADAMBAAIAAwAAABATEAL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EImswTxkR//EABgRAQADAQAAAAAAAAAAAAAAAAEAEBEx/9oACAECAQE/EAJNmB5X/8QAHRABAQACAwADAAAAAAAAAAAAAREAITFBcWGRwf/aAAgBAQABPxBYEdtOIoxFqTcwgTWc5z0tahfP3JKREybZ5juqeqA+8StuTUde4WdKYfGRhINBOM//2Q==&amp;#x27;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;hacktoberfest swags&quot; title=&quot;Hacktoberfest T-shirt and swags&quot; src=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/44e84/hacktober-swags.jpg&quot; srcset=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/68355/hacktober-swags.jpg 148w, /static/c9699300d1784b15af3b132d3fa3dcf3/ada22/hacktober-swags.jpg 295w, /static/c9699300d1784b15af3b132d3fa3dcf3/44e84/hacktober-swags.jpg 590w, /static/c9699300d1784b15af3b132d3fa3dcf3/274de/hacktober-swags.jpg 885w, /static/c9699300d1784b15af3b132d3fa3dcf3/060c5/hacktober-swags.jpg 1180w, /static/c9699300d1784b15af3b132d3fa3dcf3/a9061/hacktober-swags.jpg 1199w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;figcaption&gt;Hacktoberfest T-shirt and swags&lt;/figcaption&gt;&lt;/figure&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;So this year Hacktoberfest, I was working on this frontend framework called &lt;a href=&quot;https://svelte.dev/&quot;&gt;Svelte&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you never heard about Svelte, I recommend you to watch Rich Harris talk on &lt;a href=&quot;https://www.youtube.com/watch?v=AdNJ3fydeao&quot;&gt;“Rethinking Reactivity”&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So what so special about this new frontend framework?&lt;/p&gt;
+&lt;p&gt;Well, firstly, a svelte component is a single file component, just like Vue. You have your script, styles and HTML elements all in one place:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; greeting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello world!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;{greeting}&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Secondly, Svelte is a compiler. It compiles the single file component into simple JavaScript statements like these:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; greeting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello world!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createTextNode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;greeting&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+div&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It is the simplest way of creating DOM nodes, not much overhead code, no work loop like React, nothing.&lt;/p&gt;
+&lt;p&gt;The benefit of doing this is that the bundle size can be very small, and it can run without much runtime overheads.&lt;/p&gt;
+&lt;p&gt;However, if you look at a slightly more complex component like the one below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; greeting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello world!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Header&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Lorem ipsum&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;{greeting}&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;it gets compiled into more code:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; greeting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello world&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+div2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;textContent &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Header&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div3 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div4 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+div4&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;textContent &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Lorem ipsum&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div5 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; text &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createTextNode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;greeting&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div1&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+div1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+div3&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div4&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+div4&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div5&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+div1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div3&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Which is natural right?&lt;/p&gt;
+&lt;p&gt;But, when I was fiddling the &lt;a href=&quot;http://svelte.dev/repl&quot;&gt;Svelte REPL&lt;/a&gt;, I was looking at the code, thinking to myself, in this component, greeting has never changed, so there’s no need for any reactivity, so why should we still build element one by one, why not just use &lt;code class=&quot;language-text&quot;&gt;innerHTML&lt;/code&gt;?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; greeting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello world&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+ &amp;lt;div&gt;
+   &amp;lt;div&gt;Header&amp;lt;/div&gt;
+   &amp;lt;div&gt;
+     &amp;lt;div&gt;Lorem ipsum&amp;lt;/div&gt;
+     &amp;lt;div&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;greeting&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&amp;lt;/div&gt;
+   &amp;lt;/div&gt;
+ &amp;lt;/div&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So, that was what I did, and I &lt;a href=&quot;https://github.com/sveltejs/svelte/pull/3808&quot;&gt;submitted an PR&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I was ecstatic when it got merged, and &lt;a href=&quot;https://github.com/sveltejs/svelte/pull/3808#issuecomment-546704569&quot;&gt;Rich commented “Damn, this is nice!”&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But little did I know a few days later, someone commented on the PR &lt;a href=&quot;https://github.com/sveltejs/svelte/pull/3808#issuecomment-546723297&quot;&gt;about opening up to XSS risk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;XSS (Cross-Site Scripting)? What?!&lt;/p&gt;
+&lt;p&gt;So imagine instead of a friendly greeting, someone with a malicious intent changed it to something else:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; greeting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&amp;lt;div onclick=&quot;alert(&amp;amp;quot;oh no&amp;amp;quot;);&quot;&gt;click me&amp;lt;/div&gt;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+ &amp;lt;div&gt;
+   &amp;lt;div&gt;Header&amp;lt;/div&gt;
+   &amp;lt;div&gt;
+     &amp;lt;div&gt;Lorem ipsum&amp;lt;/div&gt;
+     &amp;lt;div&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;greeting&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&amp;lt;/div&gt;
+   &amp;lt;/div&gt;
+ &amp;lt;/div&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then you would have a malicious click me button on the screen! &lt;span class=&quot;emoji&quot;&gt;😱&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So I googled, and I found this &lt;a href=&quot;https://github.com/OWASP/CheatSheetSeries&quot;&gt;Open Web Application Security Project (OWASP)&lt;/a&gt;, which they have a long list of &lt;a href=&quot;https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets&quot;&gt;cheatsheets about and how to prevent web vulnerability&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/63a822277374f88594938dae122a98ca/5be9e/owasp.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 77.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAACjUlEQVQoz3WS6U4TURTHeQmjTyKvY6IvYIyf+GJCDBEVglGjIIUI2tqKLZYC3WxBA5SlQLHTlU6npQu0M52ZO/vdnEGwbpwPJ3f73f+5/3sG6J9hmgbfaVKsI1PBSDeaHNElSiyKLUrwX4cH+kNnD0tCe+vbF0o0ewFaChSaFKkUAQoB1HsYo79hbGgEqhQqFCs66CBD7LSqPs98IXdINQFW8jZp6b1MeksDXUpMennFAKFUa9Ux33TUNME0RGyB+/fuDt4cfPnmFd3f7g4NSRPjUjJKKLarI0ijlkyRfqFsaAqBAJ/V5adPQDxsasLs9OTD4QfJtSg1JWF8jB8ZMdhChc0/Ghne292kFCFLvYChZVlEtw52zOUlKRHF0hnERiG7b2m87SBqcwbfIsR48WzsxrXrd27fshEEzQuY2Ds6wIbYnZ6SXFMY2Y/XCDagCRTx1OZVuWMoPDTEUMAXWPBQpPUNI45paCe1vvTJHVvw7O9uZDM7e9tf45FQNBJKxleDAW9qI5mMr6wnwuXC4bkc6Svb2b/gLZULk6+fr4YCa4lYJBx5PDrqcrkmxsc++72JWOjtzGR4OeDzzDla+BLG2Pn9WDTy0fsuGFz0eL1z790ffL5gMHiQyaxEIv7FwMysy+2eX132H+ylfun1m8S0rE6zhXo9pX7SK5VArYZVleg66nbl42NQqSCex9CE51b902GOiQi02x2OEzlOajR0WT6t1eRGA5ycSPag1aLn1V4BU1rluKNs9ohhCuUyLwjFUuk7w2Tz+WOWVRT1Zxv/HwayLEuSk0RRAUAURWCHLIs9J+ypqqpXKrMsWywWc7kcwzBcpbKdSqXT6Xq9vrG5ybHsUSZTrVZ/P/8D93UklgnW+RIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;OWASP&quot;
+        title=&quot;&quot;
+        src=&quot;/static/63a822277374f88594938dae122a98ca/623ee/owasp.png&quot;
+        srcset=&quot;/static/63a822277374f88594938dae122a98ca/816c5/owasp.png 148w,
+/static/63a822277374f88594938dae122a98ca/c766b/owasp.png 295w,
+/static/63a822277374f88594938dae122a98ca/623ee/owasp.png 590w,
+/static/63a822277374f88594938dae122a98ca/e5345/owasp.png 885w,
+/static/63a822277374f88594938dae122a98ca/7a439/owasp.png 1180w,
+/static/63a822277374f88594938dae122a98ca/5be9e/owasp.png 1600w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;I read up on them and got to learn more about methods to prevent XSS, and so I &lt;a href=&quot;https://github.com/sveltejs/svelte/pull/3816&quot;&gt;made another PR&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And it got fixed! Finally!&lt;/p&gt;
+&lt;p&gt;Or is it? &lt;span class=&quot;emoji&quot;&gt;🤔&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Well in my new PR, I did not revert all the changes I made previously, I still attempt to have some optimisation with static content. So instead of using &lt;code class=&quot;language-text&quot;&gt;innerHTML&lt;/code&gt;, I used &lt;code class=&quot;language-text&quot;&gt;textContent&lt;/code&gt;, which is safe for XSS attacks.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// instead of this,&lt;/span&gt;
+$&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&amp;amp;amp;&amp;amp;gt;&apos;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// it is now this:&lt;/span&gt;
+$&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;textContent &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&amp;amp;amp;&amp;amp;gt;&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So, although they looked similar, but when it got executed, they are different:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- with innerHTML --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&amp;amp;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- with textContent --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token entity&quot; title=&quot;&amp;amp;&quot;&gt;&amp;amp;amp;&lt;/span&gt;&lt;span class=&quot;token entity&quot; title=&quot;&amp;gt;&quot;&gt;&amp;amp;gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;textContent&lt;/code&gt; will not unescape the string content.&lt;/p&gt;
+&lt;p&gt;Someone found it and raised an issue, so I &lt;a href=&quot;https://github.com/sveltejs/svelte/pull/3916&quot;&gt;made another PR&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, that’s my first story, of how I innocently trying to optimise the bundle, ending up creating a XSS risk, and how I made multiple PRs to fixed them.&lt;/p&gt;
+&lt;p&gt;Before I moved on to the 2nd story, I have a few takeaways I would like to share:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;As a React developer, I have been so used to have React taking care of the XSS vulnerability for me. As long as i dont use &lt;code class=&quot;language-text&quot;&gt;dangeourslySetInnerHtml&lt;/code&gt;, I’m all good. Therefore, it has never occur to me that it is still a potential threat.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I find it interesting to work on technologies/stack that we don’t use it at work during free time. Having to work on 1 tech stack full time during the day, I felt like I’ve been trapped inside my own bubble, with no idea what is happening outside. So while working on Svelte, I learned a lot of things that I could never got it from work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;second-story&quot;&gt;&lt;a href=&quot;#second-story&quot; aria-label=&quot;second story permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Second Story&lt;/h2&gt;
+&lt;p&gt;The second story, is about connecting the dots.&lt;/p&gt;
+&lt;p&gt;In Svelte, CSS is scoped in the component that you are writing. In this example:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 5px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;the &lt;code class=&quot;language-text&quot;&gt;padding: 5px&lt;/code&gt; will only apply to the all the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt;s written in this component file. Any &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt; inside &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component /&amp;gt;&lt;/code&gt; will not be affected.&lt;/p&gt;
+&lt;p&gt;This is great, but it has its shortcoming too.&lt;/p&gt;
+&lt;p&gt;The problem with this is that, there’s no idiomatic way to override styles in the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component /&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To achieve scoped CSS, when Svelte compiles the style tags, it converts all the CSS selectors into a hashed version, and replacted it on the element. And there’s no way you can access the hashed CSS selector, let alone passing it into &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component /&amp;gt;&lt;/code&gt; as class name.&lt;/p&gt;
+&lt;p&gt;To override the styles inside &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component /&amp;gt;&lt;/code&gt;, a common solution would be to use the &lt;code class=&quot;language-text&quot;&gt;:global&lt;/code&gt; selector:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;:global(div)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 5px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Which basically forego the benefit of scoped css, and applied it to all inner divs in this component.&lt;/p&gt;
+&lt;p&gt;One thing I wanted to point out is that, the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component /&amp;gt;&lt;/code&gt; should have control on what styles can be modified and what cannot be changed.&lt;/p&gt;
+&lt;p&gt;In React, when we passing in a &lt;code class=&quot;language-text&quot;&gt;className&lt;/code&gt;, we kind of have to understand the DOM structure of the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component /&amp;gt;&lt;/code&gt;, which should be well encapsulated and private to the user.&lt;/p&gt;
+&lt;p&gt;And secondly, any styles you pass in through the &lt;code class=&quot;language-text&quot;&gt;className&lt;/code&gt;, could potentially break things unwantedly. The &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Component /&amp;gt;&lt;/code&gt; has no control of what could be changed by the user.&lt;/p&gt;
+&lt;h3 id=&quot;css-custom-properties-aka-css-variables&quot;&gt;&lt;a href=&quot;#css-custom-properties-aka-css-variables&quot; aria-label=&quot;css custom properties aka css variables permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CSS Custom Properties aka CSS Variables&lt;/h3&gt;
+&lt;p&gt;So a better solution that has been proposed, is to use CSS Variables:&lt;/p&gt;
+&lt;p class=&quot;filename&quot;&gt;Component.svelte&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.header&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--header-padding, 5px&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;header&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Lorem ipsum&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Lorem ipsum&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can expose the CSS custom properties you allow to modify, without having to leak out the DOM structure of your component.&lt;/p&gt;
+&lt;p&gt;You can expose the CSS custom properties as meaningful css variable names, and when you are using it, you can have a fallback if the CSS custom property is not presentavailable, you can have a fallback.&lt;/p&gt;
+&lt;p&gt;So the user of the &lt;code class=&quot;language-text&quot;&gt;Component&lt;/code&gt; can set the custom properties like this:&lt;/p&gt;
+&lt;p class=&quot;filename&quot;&gt;index.svelte&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;--header-padding: 5px;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So there is a &lt;a href=&quot;https://github.com/sveltejs/rfcs/blob/52e20b91ef5b301bd4b3f2a9461b929ac05aca0c/text/0000-style-properties.md&quot;&gt;RFC proposed&lt;/a&gt; along with a sugar syntax to have custom attributes for Svelte components:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Slider&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;&lt;span class=&quot;token namespace&quot;&gt;bind:&lt;/span&gt;value&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{0}&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{100}&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;--rail-color&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;black&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;--track-color&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;red&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- desugars into --&gt;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓ --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token style-attr language-css&quot;&gt;&lt;span class=&quot;token attr-name&quot;&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&quot;&lt;/span&gt;
+&lt;span class=&quot;token attr-value&quot;&gt;  &lt;span class=&quot;token property&quot;&gt;--rail-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; black&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token attr-value&quot;&gt;  &lt;span class=&quot;token property&quot;&gt;--track-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; red&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Slider&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;&lt;span class=&quot;token namespace&quot;&gt;bind:&lt;/span&gt;value&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{0}&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{100}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But the very problem of this is to have another &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element that wasn’t there in the first place, which could break the layout.&lt;/p&gt;
+&lt;p&gt;So Rich was asking in the &lt;a href=&quot;https://svelte.dev/chat&quot;&gt;Svelte Discord chat&lt;/a&gt; whether is there anyway to have the divs disappear in terms of layout:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b0751db051b0a36011e1fdf61feb3d61/70261/discord-chat1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 23.117338003502624%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA10lEQVQY022Q23LCMAxE/U0dWnKzk5ALLZeGOOCQQuG5//8BW62G5qHDwxmtbEteyUSxwzIuYPP2QaN5lJQK9evS4S3Kn/L/zvzc7kilyXC6IJxv6PoRZbVRqmYHV6xhXYPU1jOZq5FklUaaSKxo6UFtum5CbFtsdx69n7DvAg7+rLD55yHgGK4a+SF1P0yzgdP4DX/80ny7H2BeFqmMVsyPCJuN013PvMAYpHCQwrxcK5yA7vPyXfQHVvVGHDcw3BHhKLT8Nw61K1p9RLjbJFvpzp6xeMRfWnu09xc1W8UAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;discord chat 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/b0751db051b0a36011e1fdf61feb3d61/623ee/discord-chat1.png&quot;
+        srcset=&quot;/static/b0751db051b0a36011e1fdf61feb3d61/816c5/discord-chat1.png 148w,
+/static/b0751db051b0a36011e1fdf61feb3d61/c766b/discord-chat1.png 295w,
+/static/b0751db051b0a36011e1fdf61feb3d61/623ee/discord-chat1.png 590w,
+/static/b0751db051b0a36011e1fdf61feb3d61/e5345/discord-chat1.png 885w,
+/static/b0751db051b0a36011e1fdf61feb3d61/70261/discord-chat1.png 1142w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;That brings me to another dot of my story… which was more than 1 year ago in Shopee, long before RK, where we had weekly sharings in a small meeting room.&lt;/p&gt;
+&lt;p&gt;It was when &lt;a href=&quot;https://twitter.com/wgao19&quot;&gt;Gao Wei&lt;/a&gt; did her sharing.&lt;/p&gt;
+&lt;p&gt;So this is a normal Jira board:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/74072/scrum_active.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;figure class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 60.395150426582845%; position: relative; bottom: 0; left: 0; background-image: url(&amp;#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB10lEQVQoz21Sa3PbIBDU//9nnX5pp00niR3bcay3hGXB8ZBA2wPFjqc1mh3QgfZ2V2THqkMvBjTdAOtmhAWY/YIQF4/GsiTEB7g/wxWuZ00r4JyDsY4JPeY5wPB8PRCJV464Doki4JPrs75ipc2qRqAbNJqzRS9DgqAFRalxHiQkKUzTzI18Uh+IoM8Cymi4aUp7E+85Z6DEO7L2rLB7e8J2+wfP5YJNteC1CnjNgW1Z4K36BaWJP+Y4kPKAHHv8PH7DWUZ3HtpYdmgxWYmsExfktcDhVKO/aGgbQBNg6hZd36IUeTqcbLFlxYSNkjg1e4xqhNaWewSE2UK2G2TE7IeiwPux5G7TLWA4i1NXYN8+saXpK0PeuugRL+UPzlqljGM9BM+N1UpYdT1qznKUBEUa3BDmcgQpDWNYlTKQvB4ZcT0qhaLLU77eh9TMeY+a1SbCfV5gd8hB2vABnzpqrUEUSdYmilZSIsfZDfh9+o4LDelWrD9mTg5Xwo8Cm91HujrXIVlFJLkikl3nmJtl5UQ2vd8jEdZC8BUZ09WIFqLCqI7uCO9BOhLRrck9MhntsL2ZJX8Fv/CmSlb/VbDaNg/rSWHPypyfbtldEUdUG1X/B+8f1xl/AYilohHqbK6sAAAAAElFTkSuQmCC&amp;#x27;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Jira board&quot; title=&quot;Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html&quot; &amp;#x22;=&quot;&quot; src=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/623ee/scrum_active.png&quot; srcset=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/816c5/scrum_active.png 148w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/c766b/scrum_active.png 295w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/623ee/scrum_active.png 590w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/e5345/scrum_active.png 885w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/7a439/scrum_active.png 1180w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/84fe0/scrum_active.png 1770w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/74072/scrum_active.png 2227w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;/span&gt;
+  &lt;figcaption&gt;Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html&quot;&lt;/figcaption&gt;&lt;/figure&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;But it is not cool enough for cool kids for Wei, so she tried to customise it with CSS.&lt;/p&gt;
+&lt;p&gt;One of the issue with the Jira board is that the columns are fixed width, it doesn’t stretch/resize when the ticket title is long.&lt;/p&gt;
+&lt;p&gt;But it is not an easy feat to resize the width with CSS, where she explained how the complexity of the DOM structure aggravate the problem.&lt;/p&gt;
+&lt;p&gt;In the Jira board, the header and the swimlane sections are made up of different &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; container.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/572ea580417db44cb12c9a53cd0dd40c/f245b/jira-layout-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 59.394703656998736%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAAB+klEQVQoz21Ta4+jMAzk//+50+2H7W53CyxQnoWQFwkEmHNC79TqGsmycOKxPWOivLnhdhvQdAyTmbFuOxa3YV037Lu3Hdv24Mm83/btKf73LirLBlXVoOsZgfZgI0fd9pBKgjEGziXGcYSQx7dQCgMboaQGp7dSHvdSqvA2SrMS50uKr5R81iMpOS5XhtNnizj5QV5laNo2gHkgXpUokxh5XaCqK/T9gJYa6ZorquxEHTYD4vgDSfKJ7xa4dIfFNVnTIOneYec5UBAOUcLVgFP5C3LiNOqOeXFwy0w2IbpWLYpmRFZRB1xT8grjdtjuBjZQ5bGDsfbgaV0hKLmVAu1Q0fgSejJw6w5nJeSQIWJcICkKxGlBohhq4U6yVci7Al/1G+xiQ4eOAFdKHhTDufoNZQScO+LOOQLXiHriJcmvSDOqSEQbY/1UsKKAVtSx2aG0IZGmYFpbDILhUn9AaOHrh7OQ2j11G3lVr0R60w0ERjy4NXToV+gA0pB6+geqCJDJET/thQBl4G+el+CtnRF55b7THO/nNCT543dL0XqoB6AAdvfTNFNx93R3mPYdEsFsCAHP07GsCHvlE17ZRLT8H7dBoKilv6RjfVByvZPrvZ4mcKGCjbSwj17I13EupBeFB3UMKexBgqdRLRXQWtN4fuxnf8TNy/gff/6ZE/HuAJcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;jira layout 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/572ea580417db44cb12c9a53cd0dd40c/623ee/jira-layout-1.png&quot;
+        srcset=&quot;/static/572ea580417db44cb12c9a53cd0dd40c/816c5/jira-layout-1.png 148w,
+/static/572ea580417db44cb12c9a53cd0dd40c/c766b/jira-layout-1.png 295w,
+/static/572ea580417db44cb12c9a53cd0dd40c/623ee/jira-layout-1.png 590w,
+/static/572ea580417db44cb12c9a53cd0dd40c/e5345/jira-layout-1.png 885w,
+/static/572ea580417db44cb12c9a53cd0dd40c/7a439/jira-layout-1.png 1180w,
+/static/572ea580417db44cb12c9a53cd0dd40c/f245b/jira-layout-1.png 1586w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;And after a few nested &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;s, you get &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; for each column:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7d5c7e7644055faae07329a8bfb577c8/5887d/jira-layout-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 59.442332065906214%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACTElEQVQoz32S2Y7bMAxF/f+fVBRogT60QGeazJKZbM7qOPEmL7It76e00wH60logaInk1eWlrNMtQCUKXymqtqFnoB16xsV/bPjHmeWcfXZzH2edcHpXXLcpR/HhUXNdJgT7HM9OxWtu2wR/l0850bHA22ZT3m2Tipe8ncay7QvzLweevzs8/Qh5e0x5fYh5/Bow+3RiPTtizzycRYzzluD+vLL+vGM5O7N5cDkvFPavgNOLy/rbC9bZidi8vnNy1tgh7EZTYDuwmHvs1YKmEymGgenrB2Gc8O7O0HXCeNp2Hd3QYJS5t7wXyo6fEqclVd1hugHjRlxXiiiLqKqarhdV+47UtJy2OYHyyXJNURiatqdrC9TuhKWijPXyzO54piwrGIZpIG1WsHpyWN3mcklF1/UTk7YZcEXT1WVOVia0Ata2wrBvSf0SK/Bjlq8XDo5LpguMqaY2SuUQ7QsBG8iFhc5LdCGWVbjSkX19Jy0SPpRopep6rbCiSKZ68AlVjJHWxtt6eTZ52hBsKgEpJrA8NwIsXgugTPfo7ciKjLppqetGdG7JwwYr9EXgZ4fl9jDpMciV48qSnHAvAOUfdiOoxDPROdrXmLK973U5mS5L1MWMDDMuMmldFqLDnd34pbEIvzEUlZiAjsCFMRPTEXD0436MTSZ5qS8te7cIZ6swuqYpO+q8ozEdWWjwNgVxlKP8nDiUKQby78kDXsl5cN9P52NcCYFDIQzjlFSKdCQ3SPDD53FFKkValSRSqOWNjT6b4vf8v8+nOsH5DQSpj+SZgIgYAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;jira layout 2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/7d5c7e7644055faae07329a8bfb577c8/623ee/jira-layout-2.png&quot;
+        srcset=&quot;/static/7d5c7e7644055faae07329a8bfb577c8/816c5/jira-layout-2.png 148w,
+/static/7d5c7e7644055faae07329a8bfb577c8/c766b/jira-layout-2.png 295w,
+/static/7d5c7e7644055faae07329a8bfb577c8/623ee/jira-layout-2.png 590w,
+/static/7d5c7e7644055faae07329a8bfb577c8/e5345/jira-layout-2.png 885w,
+/static/7d5c7e7644055faae07329a8bfb577c8/7a439/jira-layout-2.png 1180w,
+/static/7d5c7e7644055faae07329a8bfb577c8/5887d/jira-layout-2.png 1578w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;So, in the end, it looks something like this in the DOM tree structure:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;header-group&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ul&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;headers&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Header 1&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Header 2&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Header 3&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;swimlane&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;swimlane header&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ul&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;columns&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Content 1&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Content 2&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Content 3&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So how are you going to automatically resize both &lt;code class=&quot;language-text&quot;&gt;Content 1&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;Header 1&lt;/code&gt; based on their content, and maintain the same width for both of them?&lt;/p&gt;
+&lt;p&gt;You can do it with &lt;a href=&quot;https://css-tricks.com/complete-guide-table-element/&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;display: table-column&lt;/code&gt;&lt;/a&gt;, but there’s too many intermediate DOM elements between the cells and the whole container.&lt;/p&gt;
+&lt;p&gt;What she needs is a magical CSS values to make the intermediate DOM elements disappear in terms of layout.&lt;/p&gt;
+&lt;p&gt;And she revealed her magic secret:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; contents
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the same example, say if you apply a &lt;code class=&quot;language-text&quot;&gt;display: flex&lt;/code&gt; to the &lt;code class=&quot;language-text&quot;&gt;.header-group&lt;/code&gt;, the &lt;code class=&quot;language-text&quot;&gt;.header-group&lt;/code&gt; only got 1 flex item right? If you put &lt;code class=&quot;language-text&quot;&gt;display: contents&lt;/code&gt; to the &lt;code class=&quot;language-text&quot;&gt;.headers&lt;/code&gt;, it will disappear in terms of layout, and now, to &lt;code class=&quot;language-text&quot;&gt;.header-group&lt;/code&gt;, it has 3 flex items, the 3 header &lt;code class=&quot;language-text&quot;&gt;li&lt;/code&gt;s.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;display: contents&lt;/code&gt; was so magical, that somehow it etched into me since.&lt;/p&gt;
+&lt;p&gt;So I proposed it to Rich in the chat, and now it is part of the proposed solution in the &lt;a href=&quot;https://github.com/sveltejs/rfcs/blob/52e20b91ef5b301bd4b3f2a9461b929ac05aca0c/text/0000-style-properties.md&quot;&gt;RFC&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So I would like to end my stories with one of my favourite quote, from Steve Jobs,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You can’t connect the dots looking forward, you can only connect them looking backwards.&lt;/p&gt;
+&lt;p&gt;So you have to trust that the dots will somehow connect in your future.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So I would like to end the sharing with 2 shoutouts:&lt;/p&gt;
+&lt;h3 id=&quot;please-do-sharing-more-often&quot;&gt;&lt;a href=&quot;#please-do-sharing-more-often&quot; aria-label=&quot;please do sharing more often permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;Please do sharing more often.&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;What you have learned or tried, ever small or simple, it maybe useful for someone in the audience in ways you can never imagine.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;You can’t connect the dots looking forward.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;please-do-participate-in-rk-more-often&quot;&gt;&lt;a href=&quot;#please-do-participate-in-rk-more-often&quot; aria-label=&quot;please do participate in rk more often permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;Please do participate in RK more often&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Our weekly internal RK is not mandatory. But still, make an effort to join us every week. You never know what you’ve just learned may be useful to you some day in the future.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;You got to trust the dots will somehow connect in your future&lt;/em&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[I wrote a 12-line Rollup plugin]]></title><link>https://lihautan.com/12-line-rollup-plugin/</link><guid isPermaLink="false">https://lihautan.com/12-line-rollup-plugin/</guid><pubDate>Sat, 30 Nov 2019 08:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;background&quot;&gt;&lt;a href=&quot;#background&quot; aria-label=&quot;background permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Background&lt;/h2&gt;
 &lt;p&gt;I was building a web application using &lt;a href=&quot;http://svelte.dev/&quot;&gt;Svelte&lt;/a&gt; and &lt;a href=&quot;https://rollupjs.org/guide/en/&quot;&gt;Rollup&lt;/a&gt; this morning. I needed to use a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers&quot;&gt;web worker&lt;/a&gt;, which the worker script has to be in another file:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; worker &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Worker&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/build/worker.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;So naturally, I was thinking of having 2 entries for my rollup application: &lt;em&gt;the main app&lt;/em&gt; and &lt;em&gt;the worker&lt;/em&gt;.&lt;/p&gt;
