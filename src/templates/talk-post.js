@@ -111,6 +111,8 @@ class TalkPostTemplate extends React.Component {
           )}
         </div>
 
+        <div />
+
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <ArticleFooter url={this.props.location.href} />
         <hr
