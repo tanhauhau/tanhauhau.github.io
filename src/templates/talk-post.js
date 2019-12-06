@@ -11,7 +11,7 @@ class TalkPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
-    const isWip = post.fields.wip
+    const isWip = post.fields.wip;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -19,7 +19,10 @@ class TalkPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{isWip ? 'WIP: ' : null}{post.frontmatter.title}</h1>
+        <h1>
+          {isWip ? 'WIP: ' : null}
+          {post.frontmatter.title}
+        </h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -44,54 +47,60 @@ class TalkPostTemplate extends React.Component {
               post.frontmatter.venue
             )}
           </div>
-          {post.frontmatter.occasion && (
-            <div>
-              <span role="img" aria-label="group" style={{ marginRight: 4 }}>
-                👥
-              </span>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={post.frontmatter.occasionLink}
-              >
-                {post.frontmatter.occasion}
-              </a>
-            </div>
-          )}
+          <div>
+            {post.frontmatter.occasion ? (
+              <>
+                <span role="img" aria-label="group" style={{ marginRight: 4 }}>
+                  👥
+                </span>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={post.frontmatter.occasionLink}
+                >
+                  {post.frontmatter.occasion}
+                </a>
+              </>
+            ) : null}
+          </div>
           <div>
             <span role="img" aria-label="date" style={{ marginRight: 4 }}>
               🗓
             </span>
             {post.frontmatter.date}
           </div>
-          {post.frontmatter.slides && (
-            <div>
-              <span role="img" aria-label="slide" style={{ marginRight: 4 }}>
-                📝
-              </span>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={post.frontmatter.slides}
-              >
-                Slides
-              </a>
-            </div>
-          )}
-          {post.frontmatter.video && (
-            <div>
-              <span role="img" aria-label="video" style={{ marginRight: 4 }}>
-                📹
-              </span>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={post.frontmatter.video}
-              >
-                Video
-              </a>
-            </div>
-          )}
+          <div>
+            {post.frontmatter.slides ? (
+              <>
+                <span role="img" aria-label="slide" style={{ marginRight: 4 }}>
+                  📝
+                </span>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={post.frontmatter.slides}
+                >
+                  Slides
+                </a>
+              </>
+            ) : null}
+          </div>
+          <div>
+            {post.frontmatter.video ? (
+              <>
+                <span role="img" aria-label="video" style={{ marginRight: 4 }}>
+                  📹
+                </span>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={post.frontmatter.video}
+                >
+                  Video
+                </a>
+              </>
+            ) : null}
+          </div>
         </p>
 
         <blockquote>{post.frontmatter.description}</blockquote>
@@ -109,7 +118,7 @@ class TalkPostTemplate extends React.Component {
           />
         )} */}
 
-        <div key="content" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <ArticleFooter url={this.props.location.href} />
         <hr
           style={{

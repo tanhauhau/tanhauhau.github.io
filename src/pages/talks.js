@@ -57,18 +57,24 @@ class TalkPage extends React.Component {
                 </span>
                 {frontmatter.date}
               </div>
-              <div>
-                <span role="img" aria-label="slide" style={{ marginRight: 4 }}>
-                  📝
-                </span>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={frontmatter.slides}
-                >
-                  Slides
-                </a>
-              </div>
+              {frontmatter.slides ? (
+                <div>
+                  <span
+                    role="img"
+                    aria-label="slide"
+                    style={{ marginRight: 4 }}
+                  >
+                    📝
+                  </span>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={frontmatter.slides}
+                  >
+                    Slides
+                  </a>
+                </div>
+              ) : null}
               <div
                 style={{
                   fontStyle: 'italic',
