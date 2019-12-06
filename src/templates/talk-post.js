@@ -94,9 +94,9 @@ class TalkPostTemplate extends React.Component {
           )}
         </p>
 
-        <div>
+        {/* <div> */}
           <blockquote>{post.frontmatter.description}</blockquote>
-          {post.frontmatter.slides && (
+          {/* {post.frontmatter.slides && (
             <iframe
               src={post.frontmatter.slides + '/embed'}
               width="100%"
@@ -109,7 +109,7 @@ class TalkPostTemplate extends React.Component {
               allowfullscreen
             />
           )}
-        </div>
+        </div> */}
 
         <div />
 
