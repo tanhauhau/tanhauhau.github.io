@@ -10,14 +10,22 @@ class TalkPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
-    const { previous, next } = this.props.pageContext;
+    const {
+      previous,
+      next,
+      heroImageUrl,
+      heroTwitterImageUrl,
+    } = this.props.pageContext;
     const isWip = post.fields.wip;
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          image={heroImageUrl}
+          twitterImage={heroTwitterImageUrl}
+          url={post.fields.slug}
+          post={post.frontmatter}
         />
         <h1>
           {isWip ? 'WIP: ' : null}
@@ -29,7 +37,7 @@ class TalkPostTemplate extends React.Component {
             display: `block`,
           }}
         >
-          <p style={{margin:0}}>
+          <p style={{ margin: 0 }}>
             <span role="img" aria-label="venue" style={{ marginRight: 4 }}>
               📍
             </span>
@@ -45,7 +53,7 @@ class TalkPostTemplate extends React.Component {
               post.frontmatter.venue
             )}
           </p>
-          <p style={{margin:0}}>
+          <p style={{ margin: 0 }}>
             {post.frontmatter.occasion ? (
               <>
                 <span role="img" aria-label="group" style={{ marginRight: 4 }}>
@@ -61,13 +69,13 @@ class TalkPostTemplate extends React.Component {
               </>
             ) : null}
           </p>
-          <p style={{margin:0}}>
+          <p style={{ margin: 0 }}>
             <span role="img" aria-label="date" style={{ marginRight: 4 }}>
               🗓
             </span>
             {post.frontmatter.date}
           </p>
-          <p style={{margin:0}}>
+          <p style={{ margin: 0 }}>
             {post.frontmatter.slides ? (
               <>
                 <span role="img" aria-label="slide" style={{ marginRight: 4 }}>
@@ -83,7 +91,7 @@ class TalkPostTemplate extends React.Component {
               </>
             ) : null}
           </p>
-          <p style={{margin:0}}>
+          <p style={{ margin: 0 }}>
             {post.frontmatter.video ? (
               <>
                 <span role="img" aria-label="video" style={{ marginRight: 4 }}>
@@ -99,7 +107,9 @@ class TalkPostTemplate extends React.Component {
               </>
             ) : null}
           </p>
-          <blockquote style={{marginTop: rhythm(1)}}>{post.frontmatter.description}</blockquote>
+          <blockquote style={{ marginTop: rhythm(1) }}>
+            {post.frontmatter.description}
+          </blockquote>
         </p>
         {post.frontmatter.slides && (
           <iframe
@@ -167,6 +177,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       fields {
+        slug
         wip
       }
       frontmatter {
