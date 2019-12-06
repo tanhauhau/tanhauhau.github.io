@@ -103,6 +103,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
+      sort: {order: DESC, fields: [frontmatter___date]}
       filter: { fields: { type: { eq: "talk" }, wip: { ne: true } } }
     ) {
       edges {
