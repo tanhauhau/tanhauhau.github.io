@@ -30,6 +30,7 @@
 <url> <loc>https://lihautan.com/git-gudder/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/javascript-modules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/css-code-splitting/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lihautan.com/pause-and-resume-a-javascript-function/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/12-line-rollup-plugin/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/manipulating-ast-with-javascript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/i-wrote-my-module-bundler-ii-for-the-web/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
