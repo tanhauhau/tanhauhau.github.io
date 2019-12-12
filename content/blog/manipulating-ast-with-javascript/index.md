@@ -1,7 +1,7 @@
 ---
 title: Manipulating AST with JavaScript
-date: "2019-11-22T08:00:00Z"
-description: "Manipulating AST is not that hard anyway"
+date: '2019-11-22T08:00:00Z'
+description: 'Manipulating AST is not that hard anyway'
 tags: JavaScript,ast,transform,depth-first-search,dfs
 series: AST
 ---
@@ -11,7 +11,7 @@ Previously, I've talked about [how to write a babel transformation](/step-by-ste
 Armed with the knowledge and experience of playing the JavaScript AST with Babel, let's take a look at how we can generalize this knowledge into other languages as well.
 
 > When I refer to "other languages", I am actually referring to popular frontend languages, for example: [JavaScript](https://www.ecma-international.org/publications/standards/Ecma-262.htm), [TypeScript](http://typescriptlang.org/), [Sass](https://sass-lang.com/), [CSS](https://www.w3.org/Style/CSS/), [HTML](https://www.w3.org/html/), [markdown](https://en.wikipedia.org/wiki/Markdown)...
-> 
+>
 > Of course, it does not limit to just frontend languages. It's just that it's easier to find a parser for these languages written in JavaScript than other languages, say C++ or Java.
 
 ## The parsers
@@ -132,11 +132,11 @@ function visit(ast) {
   // TODO: do something with this node
 
   const keys = Object.keys(ast);
-  for(let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i++) {
     const child = ast[key];
     // could be an array of nodes or just a node
     if (Array.isArray(child)) {
-      for(let j = 0; j < child.length; j++) {
+      for (let j = 0; j < child.length; j++) {
         visit(child[j]);
       }
     } else if (isNode(child)) {
@@ -164,10 +164,10 @@ function visit(ast, callback) {
   callback(ast);
 
   const keys = Object.keys(ast);
-  for(let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i++) {
     const child = ast[key];
     if (Array.isArray(child)) {
-      for(let j = 0; j < child.length; j++) {
+      for (let j = 0; j < child.length; j++) {
         // highlight-next-line
         visit(child[j], callback);
       }
@@ -189,8 +189,12 @@ function isNode(node) {
 The `visit` function is now generic enough that you can use it for any AST:
 
 ```js
-visit(htmlAst, (htmlAstNode) => { /*...*/ });
-visit(cssAst, (cssAstNode) => { /*...*/ });
+visit(htmlAst, htmlAstNode => {
+  /*...*/
+});
+visit(cssAst, cssAstNode => {
+  /*...*/
+});
 ```
 
 Naturally, you would think that having the information of the parent node, and the key / index of the current node would be useful to have in the callback function:
@@ -203,10 +207,10 @@ function visit(ast, callback) {
     callback(node, parent, key, index);
 
     const keys = Object.keys(node);
-    for(let i = 0; i < keys.length; i++) {
+    for (let i = 0; i < keys.length; i++) {
       const child = node[key];
       if (Array.isArray(child)) {
-        for(let j = 0; j < child.length; j++) {
+        for (let j = 0; j < child.length; j++) {
           // highlight-next-line
           _visit(child[j], node, key, j);
         }
@@ -264,6 +268,7 @@ Now we can traverse the AST, and find the node that we are interested in, so the
 ## Manipulating AST
 
 Manipulating the AST can be categorized into 3 different operations:
+
 - Adding a node
 - Replacing a node
 - Removing a node
@@ -350,7 +355,7 @@ function visit(ast, callbackMap) {
   function _visit(node, parent, key, index) {
     // ...
     if (Array.isArray(child)) {
-      for(let j = 0; j < child.length; j++) {
+      for (let j = 0; j < child.length; j++) {
         _visit(child[j], node, key, j);
         // highlight-start
         if (hasRemoved()) {
@@ -387,7 +392,7 @@ function hasRemoved() {
 // highlight-end
 
 // function _visit(...) { ...
-for(let j = 0; j < child.length; j++) {
+for (let j = 0; j < child.length; j++) {
   _visit(child[j], node, key, j);
   // highlight-next-line
   if (hasRemoved()) {
@@ -407,17 +412,16 @@ But sometimes, instead of having to import the `remove` util from the tree trave
 ```js
 function visit(ast, callbackMap) {
   function _visit(node, parent, key, index) {
-
     // highlight-start
     let _hasRemoved = false;
     const _this = {
-      // don't need to take in `node` and `parent`, 
+      // don't need to take in `node` and `parent`,
       // because it know exactly what they are
       remove() {
         _hasRemoved = true;
         // proceed to remove current node
-      }
-    }
+      },
+    };
     // highlight-end
 
     // ...
@@ -440,6 +444,7 @@ Now you learned the 3 basic operations of manipulating the AST, you maybe wonder
 Well, in my [step-by-step guide](/step-by-step-guide-for-writing-a-babel-transformation), I've explained that, you can use AST explorer like [http://astexplorer.net/](http://astexplorer.net/) or [Babel AST Explorer](https://lihautan.com/babel-ast-explorer) to help you.
 
 You need to:
+
 - **Know how the part of the code you want to change look like in the AST**, so you can target the specific type of the node, and
 - **Know how does the final output you wish to see look like in the AST**, so you know what nodes to create, update or remove.
 
@@ -453,23 +458,29 @@ For example, if you want to target a `<figure>` with a class `foo` that contains
 
 ```html
 <figure>
-  <img class="foo">
+  <img class="foo" />
   <figcaption>lorem ipsum</figcaption>
 </figure>
 ```
 
 You need to check:
+
 ```js
 function visit(node) {
   if (
     /* 1. is node <figure> */
-    node.type === 'tag' && node.name === 'figure' &&
+    node.type === 'tag' &&
+    node.name === 'figure' &&
     /* 2. is node contain class `foo` */
     node.attribs.class === 'foo' &&
     /* 3. is node children contain <img> */
-    node.children.find(child => child.type === 'tag' && child.name === 'img') !== undefined &&
+    node.children.find(
+      child => child.type === 'tag' && child.name === 'img'
+    ) !== undefined &&
     /* 4. is node children contain <figcaption> */
-    node.children.find(child => child.type === 'tag' && child.name === 'figcaption') !== undefined
+    node.children.find(
+      child => child.type === 'tag' && child.name === 'figcaption'
+    ) !== undefined
   ) {
     // do something
   }
@@ -477,6 +488,7 @@ function visit(node) {
 ```
 
 To make it less verbose, we can refactor each check into reusable functions:
+
 ```js
 function isTag(node, name) {
   return node.type === 'tag' && node.name === name;
@@ -526,16 +538,16 @@ It may become unwieldy when creating large, complex AST nodes, so sometimes libr
 const newNode = t.identifier('foo');
 
 const newNode2 = t.functionDeclaration(
-  'bar', 
+  'bar',
   [t.identifier('foo')],
   [
     t.expressionStatement(
       t.callExpression(
-        t.memberExpression(t.identifier("console"), t.identifier("log"), false), 
-        [t.identifier("foo")]
+        t.memberExpression(t.identifier('console'), t.identifier('log'), false),
+        [t.identifier('foo')]
       )
     ),
-    t.returnStatement(t.identifier('foo'))
+    t.returnStatement(t.identifier('foo')),
   ]
 );
 ```
@@ -552,11 +564,14 @@ const newNode2 = babelParser.parse(`
   }
 `).program.body[0];
 
-const newNode3 = cssTree.parse(`
+const newNode3 = cssTree.parse(
+  `
   .foo {
     color: red;
   }
-`, { context: 'rule' })
+`,
+  { context: 'rule' }
+);
 ```
 
 For Babel, there's an amazing util called [@babel/template](https://babeljs.io/docs/en/babel-template), where you can use [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) to create AST node:
@@ -573,12 +588,13 @@ const newNode5 = template.statement`
     alert("${'hello world'}")
     return foo;
   }
-`
+`;
 ```
 
 ## Summary
 
 We've gone through:
+
 - How to traverse an AST, using depth-first search algorithm,
 - The 3 basic AST manipulations, addition, replacement, and removal,
 - How to target a node in AST, and
@@ -588,15 +604,9 @@ We've gone through:
 
 [Dinesh (@flexdinesh)](https://twitter.com/flexdinesh) [tweeted](https://twitter.com/flexdinesh/status/1196680010343432192) his pocket collection of AST resources:
 
-- [Code Transformation and Linting with ASTs
-](https://frontendmasters.com/courses/linting-asts/)
-- [Write your own code transform for fun and profit
-](https://kentcdodds.com/blog/write-your-own-code-transform/)
-- [Understanding ASTs by Building Your Own Babel Plugin
-](https://www.sitepoint.com/understanding-asts-building-babel-plugin/)
-- [Writing your first Babel Plugin
-](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#toc-writing-your-first-babel-plugin)
-- [This is how I build Babel plug-ins
-](https://medium.com/the-guild/this-is-how-i-build-babel-plug-ins-b0a13dcd0352)
-- [Writing My First Babel Plugin
-](https://varunzxzx.github.io/blog/writing-babel-plugin)
+- [Code Transformation and Linting with ASTs](https://frontendmasters.com/courses/linting-asts/)
+- [Write your own code transform for fun and profit](https://kentcdodds.com/blog/write-your-own-code-transform/)
+- [Understanding ASTs by Building Your Own Babel Plugin](https://www.sitepoint.com/understanding-asts-building-babel-plugin/)
+- [Writing your first Babel Plugin](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#toc-writing-your-first-babel-plugin)
+- [This is how I build Babel plug-ins](https://medium.com/the-guild/this-is-how-i-build-babel-plug-ins-b0a13dcd0352)
+- [Writing My First Babel Plugin](https://varunzxzx.github.io/blog/writing-babel-plugin)
