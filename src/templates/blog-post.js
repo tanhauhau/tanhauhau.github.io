@@ -13,8 +13,15 @@ function BlogPostTemplate(props) {
   React.useEffect(() => {
     const scripts = blogRef.current.querySelectorAll('script');
     scripts.forEach(script => {
-      /* eslint-disable no-eval */
-      window.eval(script.innerHTML);
+      if (script.innerHTML) {
+        /* eslint-disable no-eval */
+        window.eval(script.innerHTML);
+      } else if (script.src) {
+        const s = document.createElement('script');
+        s.async = script.async;
+        s.src = script.src;
+        document.head.appendChild(s);
+      }
     });
   }, []);
 
