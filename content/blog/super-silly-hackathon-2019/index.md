@@ -1,6 +1,7 @@
 ---
 title: Super Silly Hackathon 2019
 date: '2019-12-14T08:00:00Z'
+lastUpdated: '2019-12-15T15:19:00Z'
 description: A quick walkthrough on how I created my pet in the browser for the Super Silly Hackathon 2019.
 tags: JavaScript,blog,hackathon
 series: Hackathon Projects
@@ -501,6 +502,42 @@ In order to developed faster, I created a simple HTML, and test it locally.
   </body>
 </html>
 ```
+
+#### PostCSS script
+
+Remember I mentioned that, for resource to be accessible from the Chrome Extension, I would have to prepend the url with `chrome-extension://__MSG_@@extension_id__/`?
+
+But that does not work if I developed in standalone HTML, because I can't access the assets from `chrome-extension://` protocol in my localhost.
+
+I would have to write `/images/rest.png`, and replaced it to `chrome-extension://__MSG_@@extension_id__/images/rest.png` when I test it on my extension.
+
+So, I wrote a simple script with [PostCSS](https://postcss.org/) to automatically do it:
+
+```js
+const fs = require('fs');
+const path = require('path');
+const postcss = require('postcss');
+
+const input = path.join(__dirname, '../content.css');
+const output = path.join(__dirname, '../content-ext.css');
+
+// watch when file change
+fs.watchFile(input, () => {
+  const css = fs.readFileSync(input, 'utf-8');
+  // NOTE: `from: undefined` to stop PostCSS complain about sourcemap
+  postcss([replaceUrl]).process(css, { from: undefined }).then((result) => {
+    fs.writeFileSync(output, result.css, 'utf-8');
+  });
+});
+
+function replaceUrl(root) {
+  root.walkDecls('background-image', decl => {
+    decl.value = decl.value.replace(/url\('(.*)'\)/, "url('chrome-extension://__MSG_@@extension_id__$1')");
+  });
+}
+```
+
+I used `content.css` for my local development, and automatically built `content-ext.css` for the extension with all the URL replaced.
 
 ## Demo
 
