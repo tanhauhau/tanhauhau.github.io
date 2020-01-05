@@ -53,11 +53,18 @@ function Index({ data, location }) {
         <li className={styles.list}>
           I contribute to open source projects, such as{' '}
           <a
+            href="https://github.com/sveltejs/svelte"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Svelte
+          </a>{' and '}
+          <a
             href="https://github.com/babel/babel"
             target="_blank"
             rel="noopener noreferrer"
           >
-            babel
+            Babel
           </a>
         </li>
         <li className={styles.list}>
