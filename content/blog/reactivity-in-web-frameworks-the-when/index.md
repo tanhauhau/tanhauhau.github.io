@@ -452,6 +452,8 @@ Inspired by [AngularJS’s \$timeout](https://github.com/angular/angular.js/blob
 
 Your framework user can now be free to change the application state the way he wants, as long as the changes are done within your custom handlers. Because at the end of the handler, you will call `scheduleUpdate()`.
 
+Similarly, this may trip new developers into the framework too! Try search ["AngularJS $timeout vs window.setTimeout"](https://www.google.com/search?q=angularjs%20$timeout%20vs%20window.setTimeout)
+
 You may think, what if there are no state changes in the handler function, wouldn’t calling an extra `scheduleUpdate()` be inefficient? Well so far, we haven’t discussed what’s happening in `scheduleUpdate()`, we can check **what has changed** (which will be covered in the next section)**,** and if there’s nothing change, we can skip the subsequent steps.
 
 If you look at the strategies that we have tried so far, you may have noticed a common struggle:
