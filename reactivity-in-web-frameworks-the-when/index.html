@@ -383,6 +383,7 @@ custom timeouts, api handlers, …:</p>
 <span class="token punctuation">}</span></code></pre></div>
 <p>Inspired by <a href="https://github.com/angular/angular.js/blob/master/src/ng/timeout.js#L13">AngularJS’s $timeout</a></p>
 <p>Your framework user can now be free to change the application state the way he wants, as long as the changes are done within your custom handlers. Because at the end of the handler, you will call <code class="language-text">scheduleUpdate()</code>.</p>
+<p>Similarly, this may trip new developers into the framework too! Try search <a href="https://www.google.com/search?q=angularjs%20$timeout%20vs%20window.setTimeout">“AngularJS $timeout vs window.setTimeout”</a></p>
 <p>You may think, what if there are no state changes in the handler function, wouldn’t calling an extra <code class="language-text">scheduleUpdate()</code> be inefficient? Well so far, we haven’t discussed what’s happening in <code class="language-text">scheduleUpdate()</code>, we can check <strong>what has changed</strong> (which will be covered in the next section)<strong>,</strong> and if there’s nothing change, we can skip the subsequent steps.</p>
 <p>If you look at the strategies that we have tried so far, you may have noticed a common struggle:</p>
 <ul>
