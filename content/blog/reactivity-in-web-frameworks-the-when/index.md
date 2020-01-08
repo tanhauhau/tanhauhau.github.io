@@ -563,4 +563,4 @@ That is, if we know **the WHAT**.
 
 ---
 
-_I’d like to thank [Rich Harris](https://twitter.com/Rich_Harris) for pointing out some inaccuracies in the previous version of this article and providing valuable feedbacks. All the remaining errors are mine.._
+_I’d like to thank [Rich Harris](https://twitter.com/Rich\_Harris) for pointing out some inaccuracies in the previous version of this article and providing valuable feedbacks. All the remaining errors are mine.._
