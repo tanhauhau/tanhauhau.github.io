@@ -1,6 +1,7 @@
 ---
 title: 'Reactivity in Web Frameworks (Part 1)'
 date: '2020-01-05T08:00:00Z'
+lastUpdated: '2020-01-08T08:00:00Z'
 description: 'Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?'
 ---
 
@@ -155,8 +156,10 @@ Object on the other hand, is passed by reference. So any changes to the same obj
 ```js
 let data = { foo: 1 };
 render(data);
-// mutate data
-data.foo = 2;
+// mutate data some time later
+setTimeout(() => {
+  data.foo = 2;
+}, 1000);
 
 function render(data) {
   // data is referenced to the same object
@@ -557,3 +560,7 @@ Knowing when an application state has changed, allow frameworks to know when to 
 Are we going to remove and recreate every DOM element in the view? Do we know that which part of the view is going to change based on what has changed in the application state?
 
 That is, if we know **the WHAT**.
+
+---
+
+_I’d like to thank [Rich Harris](https://twitter.com/Rich_Harris) for pointing out some inaccuracies in the previous version of this article and providing valuable feedbacks. All the remaining errors are mine.._
