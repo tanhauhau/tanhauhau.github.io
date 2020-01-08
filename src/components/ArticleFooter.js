@@ -15,15 +15,21 @@ export default function ArticleFooter({ url }) {
         It means a lot to me.
       </p>
       <p>
-        {' If you like what you have just read,'}
-        <br />
-        <a href={getGoodTweetLink(url)}>Tweet about it</a>
-        {' so I will write more related articles;'}
-        <br />
-        {'If you disagree or you have opinions about this article,'}
-        <br />
-        <a href={getBadTweetLink(url)}>Tweet about it too</a>
-        {' so I can take your suggestions and improve on it.'}
+        {' I would appreciate if you '}
+        <a href={getGoodTweetLink(url)}>tweet about it</a>
+        {' or buy me a coffee.'}
+        <a href="https://www.buymeacoffee.com/lihautan" target="_blank">
+          <img
+            src="https://cdn.buymeacoffee.com/buttons/arial-black.png"
+            alt="Buy Me A Coffee"
+            style={{
+              height: 51,
+              width: 217,
+              display: 'block',
+              margin: '16px auto',
+            }}
+          />
+        </a>
       </p>
     </>
   );
@@ -35,8 +41,8 @@ function getGoodTweetLink(url) {
   )}&url=${url}`;
 }
 
-function getBadTweetLink(url) {
-  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-    "I disgree with @lihautan's article"
-  )}&url=${url}`;
-}
+// function getBadTweetLink(url) {
+//   return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+//     "I disgree with @lihautan's article"
+//   )}&url=${url}`;
+// }
