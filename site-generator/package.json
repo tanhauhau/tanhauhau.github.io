@@ -1,0 +1,16 @@
+{
+  "name": "site-generator",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tan Li Hau <lhtan93@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prismjs": "^1.18.0",
+    "remark": "^11.0.2",
+    "remark-html": "^10.0.0",
+    "retext": "^7.0.1",
+    "retext-smartypants": "^3.0.3",
+    "tiny-glob": "^0.2.6"
+  }
+}
