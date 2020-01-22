@@ -496,6 +496,8 @@ With all the suggestions in mind, check out the updated CodeSandbox with
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 ></iframe>
 
+Also, read the ["Compiler Errors for Humans"](https://elm-lang.org/news/compiler-errors-for-humans) by [Evan Czaplicki](https://twitter.com/czaplic) for how Elm improves the UX problems of the Elm compiler.
+
 ## Summary
 
 To implement a parser, you need to start with the grammar.
@@ -511,3 +513,8 @@ Now you know how a simple parser is implemented, it's time to set eyes on a more
 - [Svelte parser](https://github.com/sveltejs/svelte/tree/master/src/compiler/parse)
 
 Lastly, do follow [@cassidoo](https://twitter.com/cassidoo), her weekly newsletter is awesome!
+
+<!-- 
+Further Reading
+- Compiler Errors for Humans https://elm-lang.org/news/compiler-errors-for-humans- 
+ -->
