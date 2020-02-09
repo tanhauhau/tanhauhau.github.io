@@ -6,6 +6,7 @@ occasion: Chrome Developer Summit Extended (Cancelled)
 occasionLink: 'https://www.meetup.com/en-AU/gdg-singapore/events/267717354/'
 video: ''
 date: '2020-02-08'
+description: 'In this talk, I will be exploring how you can develop your Chrome extension, and how you can use it to improve your development workflow'
 ---
 
 I prepared this talk for Chrome Dev Summit Extended 2020 in Singapore. Unfortunately, due to the Coronavirus Outbreak, and having the Ministry of Health raising the alert to DORSCON Orange, the event was cancelled.
