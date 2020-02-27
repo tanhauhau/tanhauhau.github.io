@@ -1,6 +1,7 @@
 ---
 title: Webpack Additional Compilation Pass
 date: '2020-02-20T08:00:00Z'
+lastUpdated: '2020-02-27T08:00:00Z'
 ---
 
 Recently, I was working on a server-side rendering application, and encounter a scenario that I think it requires "double compilation" with webpack.
@@ -99,6 +100,45 @@ dist
 ```
 
 One can safely argue that, the approach above works and let's move on the next task. But, curiosity drives me to seek deeper for a more "elegant" solution, where one don't need `require('webpack-manifest.json')` in runtime, but that information is compiled into the code.
+
+### [Updated Feb 27, 2020]
+
+Thanks to [@wSokra](https://twitter.com/wSokra)'s [suggestion](https://twitter.com/wSokra/status/1230448421351444482), instead of using `__non_webpack_require__()`, you can use a normal import and declaring the manifest file as an external:
+
+```js
+// ...
+import webpackManifest from 'webpack-manifest';
+const cssFiles = filterCssFiles(webpackManifest);
+// ...
+```
+
+```js
+// filename: webpack.config.js
+module.exports = {
+  externals: {
+    'webpack-manifest': "commonjs2 ./webpack-manifest.json"
+  }
+}
+```
+
+What this output is something similar to the following:
+
+```js
+// filename: bundle.js
+const webpackManifest = require('./webpack-manifest.json');
+const cssFiles = filterCssFiles(webpackManifest);
+// ...
+```
+
+The reason we are using the relative path `./webpack-manifest.json` is that we are assuming the output folder looks like this:
+
+```
+dist
+├── bundle.js  // <-- the main output bundle
+└── webpack-manifest.json // <-- relative to bundle.js
+```
+
+You can read more about webpack externals from [the webpack documentation](https://webpack.js.org/configuration/externals/).
 
 ## The 2nd approach
 
@@ -216,6 +256,12 @@ Apparently that works, but I wonder whether is it a good practice to modifying t
 
 And, if you noticed, I need to append the `const CSS_FILES = [...]` to every file, that's because I have no idea in which file `CSS_FILES` is referenced. And because I declared it using `const`, it only exists within the file's scope, so I have to redeclare it all the other files.
 
+### [Updated Feb 27, 2020]
+
+According to [@evilebottnawi](https://twitter.com/evilebottnawi) that this is not appropriate
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A lot of plugin uses `compiler.hooks.emit` for emitting new assets, it is invalid. Ideally plugins should use `compilation.hooks.additionalAssets` for adding new assets.</p>&mdash; evilebottnawi (@evilebottnawi) <a href="https://twitter.com/evilebottnawi/status/1230417598677954560?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## The 3rd approach
 
 I was still not convinced that this is the best I could do, so I continued looking around webpack's doc. I found a particular compilation hooks, [`needAdditionalPass`](https://webpack.js.org/api/compilation-hooks/#needadditionalpass), which seems useful. It says, _"Called to determine if an asset needs to be processed further after being emitted."_.
@@ -305,3 +351,9 @@ app.get('/', (req, res) => {
 The compile output for the 3rd approach seemed to be better (more precise?) than the other, yet I am not entirely sure using a `needAdditionalPass` is the right way of going about it.
 
 So, [let me know](https://twitter.com/lihautan) if you have any thoughts or suggestions, yea?
+
+### [Updated Feb 27, 2020]
+
+You can read [the discussions that's happening on Twitter](https://twitter.com/lihautan/status/1230301241533583360):
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Need some suggestions and inputs from <a href="https://twitter.com/webpack?ref_src=twsrc%5Etfw">@webpack</a> masters, I&#39;ve written the problem and approaches that I&#39;ve taken over here: <a href="https://t.co/gLsPG9Joeq">https://t.co/gLsPG9Joeq</a>, still I&#39;m not sure I am doing it right 🙈<a href="https://twitter.com/wSokra?ref_src=twsrc%5Etfw">@wSokra</a> <a href="https://twitter.com/evilebottnawi?ref_src=twsrc%5Etfw">@evilebottnawi</a></p>&mdash; Tan Li Hau (@lihautan) <a href="https://twitter.com/lihautan/status/1230301241533583360?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
