@@ -68,6 +68,7 @@
 <url> <loc>https://lihautan.com/synchronous-and-asyncrhonous-why-async-await/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/read-the-source-code-of-your-node-modules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/how-to-be-knowledgeable/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lihautan.com/hydrating-text-content/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/deep-dive-into-svelte/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/micro-frontends-poc/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/micro-frontends/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
