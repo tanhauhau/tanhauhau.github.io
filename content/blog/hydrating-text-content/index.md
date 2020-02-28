@@ -35,7 +35,7 @@ function App() {
 
 Although React warned about the mismatch in the console, the hydrated app still worked fine.
 
-So I can actually ignore it. 🙈
+So I can ignore it. 🙈
 
 Still, my curiosity made me dig deeper, to find out the reason behind it.
 
@@ -119,9 +119,9 @@ Noticed the `div` has 2 children? That's why it rendered 2 text nodes!
 
 So, when React tries to hydrate the `div` from SSR, it starts with comparing all the props from the React element and the attributes from the DOM. Then, it compares the element's children.
 
-Based on the React element, React expects 2 text nodes, but the DOM only have 1. So it tries to mactch with the 1st text node, and create the 2nd one.
+Based on the React element, React expects 2 text nodes, but the DOM only has 1. So it tries to match with the 1st text node, and create the 2nd one.
 
-It is when the matching happens, where React realises that it is expecting the text node to contain `"Count: "`, but the server content is `"Count: 0"`, thus the error message:
+It is when the matching happens, where React realizes that it is expecting the text node to contain `"Count: "`, but the server content is `"Count: 0"`, thus the error message:
 
 ```
 Text content did not match. Server: "Count: 0" Client: "Count: "
@@ -137,7 +137,7 @@ Turns out that, it was my bug 🤮🤮.
 
 I used [`ReactDOMServer.renderToStaticMarkup`](https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup) instead of [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring).
 
-The docs says clearly,
+The doc says clearly,
 
 > If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use `renderToString` on the server and `ReactDOM.hydrate()` on the client.
 
@@ -173,7 +173,7 @@ Besides, it adds a comment in between `"Count: "` and `"0"`, so the initial DOM 
 
 A [comment node](https://developer.mozilla.org/en-US/docs/Web/API/Comment) sits in between 2 text nodes, nicely separate the boundary of the 2 text nodes.
 
-As you could expect, this time round, there's no more hydration error.
+As you could expect, this time around, there's no more hydration error.
 
 The initial DOM provided 2 text nodes as React would expect, and [React would skip comment nodes and only hydrate element nodes and text nodes](https://github.com/facebook/react/blob/1a6d8179b6dd427fdf7ee50d5ac45ae5a40979eb/packages/react-dom/src/client/ReactDOMHostConfig.js#L703-L709).
 
@@ -181,9 +181,9 @@ The initial DOM provided 2 text nodes as React would expect, and [React would sk
 
 So, the next obvious place to apply what I've learned is [Svelte](http://github.com/sveltejs/svelte).
 
-I found out there are 2 places that Svelte can use this technique for a better hydration.
+I found out there are 2 places that Svelte can use this technique for better hydration.
 
-The first is obviously hydrating text node. I found out that Svelte hydrates neighboring text nodes the same way as I described as "a bug", modifying the 1st text node and creating the 2nd text node. It gets "worse" when you have more neighboring text nodes:
+The first is the hydrating text node. I found out that Svelte hydrates neighboring text nodes the same way as I described as "a bug", modifying the 1st text node and creating the 2nd text node. It gets "worse" when you have more neighboring text nodes:
 
 ```html
 <div>{a} + {b} = {a + b}</div>
@@ -192,7 +192,7 @@ _5 neighboring text nodes_
 
 The second place I found the technique is useful, is hydrating [HTML tags (`{@html string}`)](https://svelte.dev/tutorial/html-tags).
 
-HTML tags allow you to render arbitrary HTML into the DOM, just like React's [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).
+HTML tags allows you to render arbitrary HTML into the DOM, just like React's [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).
 
 ```html
 <script>
@@ -243,7 +243,7 @@ The rendered HTML may look something like this:
 </div>
 ```
 
-Now, can you tell me which elements are belong to `<Header />`, `{@html string}` and `<Footer />`?
+Now, can you tell me which elements belong to `<Header />`, `{@html string}` and `<Footer />`?
 
 Let's walk through it step by step.
 
@@ -308,7 +308,7 @@ function claimHtmlTag(nodes) {
 
 React has [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) right? Does it have the same issue?
 
-Apparently not. `dangerouslySetInnerHTML` is always used inside a HTML element, so the parent element is the boundary of the inner html content.
+Apparently not. `dangerouslySetInnerHTML` is always used inside an HTML element, so the parent element is the boundary of the inner HTML content.
 
 ```js
 function MyComponent() {
@@ -338,7 +338,7 @@ This is helpful when you are hydrating a [`<Suspense>` component](https://reactj
 
 Partial hydration allows React to not hydrate those `<Suspense />` component until the code or data is ready.
 
-So, how does React knows the boundary of `<Suspense />` from the server-rendered html which it could safely skip, before hydrate them when it's ready?
+So, how does React knows the boundary of `<Suspense />` from the server-rendered HTML which it could safely skip, before hydrating them when it's ready?
 
 It's [the marker comment](https://github.com/facebook/react/blob/1a6d8179b6dd427fdf7ee50d5ac45ae5a40979eb/packages/react-dom/src/client/ReactDOMHostConfig.js#L131-L134) to the rescue again!
 
@@ -351,3 +351,5 @@ It's [the marker comment](https://github.com/facebook/react/blob/1a6d8179b6dd427
   - [Remove most comments from HTML generation output](https://github.com/facebook/react/commit/e955008b9bbee93fcaf423d4afaf4d22023e2c3f)
   - [Warn When The HTML Mismatches in DEV](https://github.com/facebook/react/pull/10026/files)
   - [Partial Hydration PR](https://github.com/facebook/react/pull/14717)
+- Some related Svelte PRs
+  - [Use SSR rendered as initial html for runtime hydration test](https://github.com/sveltejs/svelte/pull/4444)
