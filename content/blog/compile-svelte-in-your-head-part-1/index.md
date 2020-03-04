@@ -194,7 +194,7 @@ You can break down the output code into 2 sections:
 
 ### create_fragment
 
-Svelte components are the building blocks of a Svelte application. Each Svelte componnet focus on building their piece or fragment of the final DOM.
+Svelte components are the building blocks of a Svelte application. Each Svelte component focus on building their piece or fragment of the final DOM.
 
 The `create_fragment` function gives the Svelte component an instruction manual on how to build the DOM fragment.
 
