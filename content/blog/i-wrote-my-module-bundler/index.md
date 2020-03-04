@@ -753,3 +753,4 @@ Till then. Cheers. 😎
 - [Ronen Amiel, Build Your Own Webpack - You Gotta Love Frontend 2018](https://www.youtube.com/watch?v=Gc9-7PBqOC8)
 - [Luciano Mammino, Unbundling the JavaScript module bundler - DublinJS July 2018](https://slides.com/lucianomammino/unbundling-the-javascript-module-bundler-dublinjs)
 - [Adam Kelly, Let’s learn how module bundlers work and then write one ourselves](https://www.freecodecamp.org/news/lets-learn-how-module-bundlers-work-and-then-write-one-ourselves-b2e3fe6c88ae/)
+- [Webpack founder Tobias Koppers demos bundling live by hand](https://www.youtube.com/watch?v=UNMkLHzofQI)
