@@ -21,7 +21,7 @@ Lets refresh ourselves with how we write web app without any framework:
 
 ```js
 // create a h1 element
-const h1 = document.createElment('h1');
+const h1 = document.createElement('h1');
 h1.textContent = 'Hello World';
 // ...and add it to the body
 document.body.appendChild(h1);
@@ -44,7 +44,7 @@ document.body.removeChild(h1);
 ### Adding style to an element
 
 ```js
-const h1 = document.createElment('h1');
+const h1 = document.createElement('h1');
 h1.textContent = 'Hello World';
 // highlight-start
 // add class name to the h1 element
@@ -194,7 +194,7 @@ You can break down the output code into 2 sections:
 
 ### create_fragment
 
-Svelte components are the building blocks of a Svelte application. Each Svelte componnet focus on building their piece or fragment of the final DOM.
+Svelte components are the building blocks of a Svelte application. Each Svelte component focuses on building its piece or fragment of the final DOM.
 
 The `create_fragment` function gives the Svelte component an instruction manual on how to build the DOM fragment.
 
