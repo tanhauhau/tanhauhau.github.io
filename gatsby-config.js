@@ -1,3 +1,9 @@
+// hack for prism js
+const PrismJs = require('prismjs');
+global.Prism = PrismJs;
+require('prism-svelte');
+
+
 module.exports = {
   siteMetadata: {
     title: `Tan Li Hau`,

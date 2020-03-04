@@ -242,6 +242,14 @@ pre[class*='language-'] {
   font-style: italic;
 }
 
+.token.inserted {
+  color: #1fd44b;
+}
+
+.token.deleted {
+  color: #ff0013;
+}
+
 .token {
   color: #ff79c6;
 }

@@ -12,6 +12,8 @@ const COMMENTS = {
   yml: /^#\s+filename:\s+(\S+)/,
   sh: /^#\s+filename:\s+(\S+)/,
   json: /^NO_COMMNENTS/,
+  diff: /^NO_COMMNENTS/,
+  svelte: /^<!--\s+filename:\s+(\S+)\s+-->/,
 };
 module.exports = function({ markdownAST }) {
   const operations = [];
