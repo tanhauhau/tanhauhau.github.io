@@ -207,7 +207,7 @@ document.documentElement.appendChild(script);
 
 Still, you can't declare a variable from a web application into the content script scope.
 
-I stumbleed upon an idea where your web application can "declare a variable" through the dom by creating a special DOM element for content script consumption only:
+I stumbled upon an idea where your web application can "declare a variable" through the dom by creating a special DOM element for content script consumption only:
 
 ```html
 <!-- http://any.page -->
