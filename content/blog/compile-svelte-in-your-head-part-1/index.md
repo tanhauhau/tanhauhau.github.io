@@ -206,7 +206,7 @@ Short for **create**.
 
 Contains instructions to create all the elements in the fragment.
 
-In this example, it contains instruction to create the `h1` element
+In this example, it contains instructions to create the `h1` element
 
 ```js
 h1 = element('h1');
@@ -219,7 +219,7 @@ Short for **mount**.
 
 Contains instructions to mount the elements into the target.
 
-In this example, it contains instruction to insert the `h1` element into the `target`.
+In this example, it contains instructions to insert the `h1` element into the `target`.
 
 ```js
 insert(target, h1, anchor);
@@ -251,9 +251,9 @@ function detach(node) {
 
 ### export default class App extends SvelteComponent
 
-Each component is a class, which you can import and instantiate it through [this API](https://svelte.dev/docs#Client-side_component_API).
+Each component is a class, which you can import and instantiate through [this API](https://svelte.dev/docs#Client-side_component_API).
 
-And in the constructor, we initialize the component with information that made up the component such as `create_fragment`. Svelte will only pass information that it is needed and removing them whenever it is not necessary.
+And in the constructor, we initialize the component with information that made up the component such as `create_fragment`. Svelte will only pass information that it is needed and remove them whenever it is not necessary.
 
 Try removing the `<h1>` tag and see what happens to the output:
 
@@ -274,15 +274,15 @@ class App extends SvelteComponent {
 
 Svelte will pass in `null` instead of `create_fragment`!
 
-The `init` function is where Svelte set ups most of the internals, such as:
+The `init` function is where Svelte sets up most of the internals, such as:
 
-- component props, `ctx` (will explained what is `ctx` later) and context
+- component props, `ctx` (will explain what `ctx` is later) and context
 - component lifecycle events
 - component update mechanism
 
 and at the very end, Svelte calls the `create_fragment` to create and mount elements into the DOM.
 
-If you noticed, all the internals state and methods are attached to `this.$$`.
+If you noticed, all the internal state and methods are attached to `this.$$`.
 
 So if you ever access the `$$` property of the component, you are tapping into the internals. You've been warned! 🙈🚨
 
@@ -314,7 +314,7 @@ function create_fragment(ctx) {
   };
 }
 // highlight-next-line
-const name = 'World';
+let name = 'World';
 
 class App extends SvelteComponent {
   // ...
@@ -324,7 +324,7 @@ class App extends SvelteComponent {
 Some observations:
 
 - What you've written in the `<script>` tag is moved into the top level of the code
-- `h1` element's text content is now a template literals
+- `h1` element's text content is now a template literal
 
 There's a lot of amazing things happening under the hood right now, but let's hold our horses for a while, because it's best explained when comparing with the next code change.
 
@@ -402,7 +402,7 @@ Some observations:
 
 So, why the change?
 
-The Svelte compiler tracks all the variable in declared in the `<script>` tag.
+The Svelte compiler tracks all the variables declared in the `<script>` tag.
 
 It tracks whether the variable:
 
@@ -412,7 +412,7 @@ It tracks whether the variable:
 - is writable? eg: `const i = 1;` vs `let i = 1;`
 - ... and many more
 
-When the Svelte compiler realise that the variable `name` can be reassigned, (due to `name = 'Svelte';` in `update`), it breaks down the text content of the `h1` into parts, so that it can dynamically update part of the text.
+When the Svelte compiler realises that the variable `name` can be reassigned, (due to `name = 'Svelte';` in `update`), it breaks down the text content of the `h1` into parts, so that it can dynamically update part of the text.
 
 Indeed, you can see that there's a new method, `p`, to update the text node.
 
@@ -420,7 +420,7 @@ Indeed, you can see that there's a new method, `p`, to update the text node.
 
 Short for **u_p_date**.
 
-**p(ctx, dirty)** contains instruction to update the elements based on what has changed in the state (`dirty`) and the state (`ctx`) of the component.
+**p(ctx, dirty)** contains instructions to update the elements based on what has changed in the state (`dirty`) and the state (`ctx`) of the component.
 
 ### instance variable
 
@@ -487,7 +487,7 @@ The reason that ctx is an array instead of a map or an object is because of an o
 
 The secret behind the system of reactivity in Svelte is the `$$invalidate` function.
 
-For every variable that has
+Every variable that has been
 
 - reassigned or mutated
 - referenced in the template
@@ -525,7 +525,7 @@ const $$invalidate = (variable, newValue) => {
   scheduleUpdate(component);
 };
 
-// get called when update scheduled
+// gets called when update is scheduled
 function flushUpdate() {
   // update the fragment
   fragment.p(ctx, dirty);
@@ -606,7 +606,7 @@ Svelte tries generate as compact JavaScript output as possible, not returning an
 
 Whenever you add [an event listener](https://svelte.dev/tutorial/dom-events) in Svelte, Svelte will inject code to add an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) and remove it when the DOM fragment is removed from the DOM.
 
-Try add more event listeners,
+Try adding more event listeners,
 
 ```svelte
 <h1
@@ -618,7 +618,7 @@ Try add more event listeners,
 ```
 [Svelte REPL](https://svelte.dev/repl/efde6f2aaf624e708767f1bd3e94e479?version=3.19.1)
 
-add observe the compiled output:
+and observe the compiled output:
 
 ```js
 // ...
@@ -649,13 +649,13 @@ dispose3();
 
 Minification can compact the variable name, but you can't remove the brackets.
 
-Again, this is another great example of where Svelte tries to generate a compact JavaScript output. Svelte does not create the `dispose` array when there's only 1 event listener.
+Again, this is another great example of where Svelte tries to generate compact JavaScript output. Svelte does not create the `dispose` array when there's only 1 event listener.
 
 ## Summary
 
 The Svelte syntax is a superset of HTML.
 
-When you write a Svelte component, the Svelte compiler analyses your code and generates an optimised JavaScript code output.
+When you write a Svelte component, the Svelte compiler analyses your code and generates optimised JavaScript code output.
 
 The output can be divided into 3 segments:
 
