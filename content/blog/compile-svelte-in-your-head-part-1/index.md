@@ -689,3 +689,5 @@ We've covered the basic structure of the Svelte's compiled output, and this is j
 If you wish to know more, [follow me on Twitter](https://twitter.com/lihautan).
 
 I'll post it on Twitter when the next part is ready, where I'll be covering [logic blocks](https://svelte.dev/tutorial/if-blocks), [slots](https://svelte.dev/tutorial/slots), [context](https://svelte.dev/tutorial/context-api), and many others.
+
+**➡ ➡  Continue reading on [Part 2](/compile-svelte-in-your-head-part-2/).**
