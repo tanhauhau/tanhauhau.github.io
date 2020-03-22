@@ -7,7 +7,9 @@ tags: a,b,c
 wip: true
 ---
 
-# What is Svelte?
+# [DRAFT] What is Svelte?
+
+-- this is a work in progress draft, you can read [Compile Svelte in your Head](/compile-svelte-in-your-head-part-1) which is a more friendly version --
 
 [Svelte](http://svelte.dev/) is a compiler for web applications. Svelte provides a framework for you to write your web apps declaratively, and it will compile them into efficient JavaScript.
 
@@ -23,7 +25,12 @@ If you are:
 
   Please follow along [Svelte's interactive tutorial](https://svelte.dev/tutorial/basics), I find it very helpful and it get me started in no time!
 
-Because, I will be going deep, guiding you through the source code sometimes, explaining how Svelte works.
+Because, I will be going deep level by level, guiding you through the source code sometimes, explaining how Svelte works.
+
+- look at code written in vanilla vs using framework
+  - compile time vs build time spectrum, svelte and react opposite side of the spectrum
+- a picture of how a svelte component works
+  - 
 
 
 ## Writing vanilla JavaScript
@@ -186,6 +193,46 @@ function instance($$self, $$props, $$invalidate) {
 You see Svelte's generated code is much like the one we've written in plain JavaScript just now. It generates the `.textContent` directly, because during compilation, Svelte knows exactly what you are trying to do. Therefore it can try to handle all the different scenarios, where React tries to handle in runtime, in build time.
 
 Now you know the fundamental differences between Svelte and React, let's take a look how a Svelte component works.
+
+## Conceptually, how does compiled Svelte component work?
+
+In this section, we are going to write Svelte component incrementally, and see how each changes ended up in the compiled Svelte component.
+
+Let's start with a simple button and a text:
+
+```html
+<button>Click Me</button>
+<p>Hello Svelte</p>
+```
+
+When Svelte sees this, these HTML elements will translate into JavaScript statement to create the elements:
+
+```js
+const button = element('button');
+button.textContent = 'Click Me';
+const p = element('p');
+p.textContent = 'Hello Svelte';
+
+// element('p') is short for `document.createElement('p');
+```
+
+If you inspect the Svelte compiled output, you would notice that these instruction lies in a function call `create_fragment`. `create_fragment` is the function where Svelte keeps the DOM instructions for the component.
+
+Next, lets add some event listener to the button:
+
+```html
+<script>
+  function onClick() {
+    console.log('Greetings!');
+  }
+</script>
+<button on:click={onClick}>Click Me</button>
+<p>Hello Svelte</p>
+```
+
+
+
+<!--  -->
 
 ## How the compiled Svelte component works
 

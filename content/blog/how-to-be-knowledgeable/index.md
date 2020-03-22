@@ -1,6 +1,7 @@
 ---
 title: How to be a knowledgeable developer
 description: Thoughts from Shopee React Knowledgeable Panel Discussion
+wip: true
 ---
 
 Last week, we had a panel discussion to celebrate our one-year anniversary of Shopee React Knowledgeable.
