@@ -65,7 +65,7 @@ pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
   text-shadow: none;
-  background-color: #5a5f80;
+  background-color: #cacaca; 
 }
 
 pre[class*='language-']::selection,
@@ -73,7 +73,7 @@ pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
   text-shadow: none;
-  background-color: #5a5f80;
+  background-color: #cacaca
 }
 
 @media print {
@@ -100,8 +100,7 @@ pre[class*='language-'] {
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {
-  padding: 4px 7px;
-  border-radius: 0.3em;
+  padding: 4px 8px;
   white-space: normal;
 }
 
@@ -425,11 +424,15 @@ div.code-toolbar > .toolbar span:focus {
 }
 
 :not(pre) > code.language-text {
-  background-color: rgba(40, 41, 54, 0.2);
-  color: hsla(0, 0%, 0%, 0.73);
+  background-color: rgba(227, 154, 249, 0.4);
+  color: #612e77;
+  border-radius: 30px 5px 30px 5px;
+  border-bottom: 1px solid #612e77;
+  box-shadow: inset 3px 3px 3px 0px rgba(249, 215, 245, 0.7);
 }
 
 :not(pre) > code.language-text::selection {
+  background-color: #cc23ff;
   color: white;
 }
 
@@ -443,3 +446,16 @@ p.filename {
 .gatsby-highlight + p:not(.filename) {
   margin-top: 1.58em;
 }
+
+/* strong {
+  position: relative;
+}
+strong::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  bottom: 2px;
+  left: 0;
+  border-top: 1px dashed black;
+} */

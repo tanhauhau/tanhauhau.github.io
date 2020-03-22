@@ -2,3 +2,13 @@ body,
 div#___gatsby {
   background: #faf0fd;
 }
+:root {
+  --bg: #fff;
+  --bg-secondary: #f9fafb;
+  --textLink: #8c1fad;
+  --textNormal: #444;
+  --textTitle: #222;
+  --hr: hsla(0,0%,0%,0.2);
+  --inlineCode-bg: #8c1fad33;
+  --inlineCode-text: #000000ba;
+}

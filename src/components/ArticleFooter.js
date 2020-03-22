@@ -16,8 +16,8 @@ export default function ArticleFooter({ url }) {
       </p>
       <p>
         {' I would appreciate if you '}
-        <a href={getGoodTweetLink(url)}>tweet about it</a>
-        {' or buy me a coffee.'}
+        <a href={getGoodTweetLink(url)}>tweet about it.</a>
+        {/* {' or buy me a coffee.'}
         <a href="https://www.buymeacoffee.com/lihautan" target="_blank">
           <img
             src="https://cdn.buymeacoffee.com/buttons/arial-black.png"
@@ -29,7 +29,7 @@ export default function ArticleFooter({ url }) {
               margin: '16px auto',
             }}
           />
-        </a>
+        </a> */}
       </p>
     </>
   );
