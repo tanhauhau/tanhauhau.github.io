@@ -12,3 +12,59 @@ div#___gatsby {
   --inlineCode-bg: #8c1fad33;
   --inlineCode-text: #000000ba;
 }
+
+#carbonads {
+  box-sizing: content-box;
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  padding: 1em;
+  width: 130px;
+  background: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+@media (max-width: 1080px) {
+  #carbonads {
+    display: none;
+  }
+}
+
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin: 0 auto 8px;
+  line-height: 1;
+}
+
+.carbon-text {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.carbon-poweredby {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  line-height: 1;
+}

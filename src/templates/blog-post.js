@@ -25,6 +25,22 @@ function BlogPostTemplate(props) {
     });
   }, []);
 
+  React.useEffect(() => {
+    if (window.innerWidth > (1080)) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.type = "text/javascript";
+      script.src = "//cdn.carbonads.com/carbon.js?serve=CE7ITK3E&placement=lihautancom";
+      script.id = "_carbonads_js";
+      document.body.appendChild(script);
+      console.log('script', script);
+    }
+    return () => {
+      const ad = document.getElementById('carbonads');
+      ad.parentNode.removeChild(ad);
+    }
+  }, []);
+
   const post = props.data.markdownRemark;
   const siteTitle = props.data.site.siteMetadata.title;
   const {
