@@ -145,13 +145,13 @@ function SEO({
           description: metaDescription,
           headline: title,
           inLanguage: siteLanguage,
-          url: `${site.siteMetadata.siteUrl}/${url}`,
+          url: `${site.siteMetadata.siteUrl}${url}`,
           name: title,
           image: {
             '@type': 'ImageObject',
             url: metaImage,
           },
-          mainEntityOfPage: `${site.siteMetadata.siteUrl}/${url}`,
+          mainEntityOfPage: `${site.siteMetadata.siteUrl}${url}`,
         })}
       </script>
       <script type="application/ld+json">
@@ -172,7 +172,7 @@ function SEO({
             {
               '@type': 'ListItem',
               item: {
-                '@id': `${site.siteMetadata.siteUrl}/${url}`,
+                '@id': `${site.siteMetadata.siteUrl}${url}`,
                 name: title,
               },
               position: 2,
@@ -180,6 +180,8 @@ function SEO({
           ],
         })}
       </script>
+      <meta itemprop="url" content={`${site.siteMetadata.siteUrl}${url}`} />
+      <meta itemprop="image" content={metaImage} />
     </>
   );
 }

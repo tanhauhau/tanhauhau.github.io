@@ -8,7 +8,7 @@ import { rhythm, scale } from '../utils/typography';
 
 function BlogPostTemplate(props) {
   // TODO: NOTE: this is making XSS possible.
-  // go figure out MDX so we dont need to manually execute scripts in the .md 
+  // go figure out MDX so we dont need to manually execute scripts in the .md
   const blogRef = React.useRef();
   React.useEffect(() => {
     const scripts = blogRef.current.querySelectorAll('script');
@@ -26,19 +26,20 @@ function BlogPostTemplate(props) {
   }, []);
 
   React.useEffect(() => {
-    if (window.innerWidth > (1080)) {
+    if (window.innerWidth > 1080) {
       const script = document.createElement('script');
       script.async = true;
-      script.type = "text/javascript";
-      script.src = "//cdn.carbonads.com/carbon.js?serve=CE7ITK3E&placement=lihautancom";
-      script.id = "_carbonads_js";
+      script.type = 'text/javascript';
+      script.src =
+        '//cdn.carbonads.com/carbon.js?serve=CE7ITK3E&placement=lihautancom';
+      script.id = '_carbonads_js';
       document.body.appendChild(script);
       console.log('script', script);
     }
     return () => {
       const ad = document.getElementById('carbonads');
       ad.parentNode.removeChild(ad);
-    }
+    };
   }, []);
 
   const post = props.data.markdownRemark;
@@ -53,34 +54,56 @@ function BlogPostTemplate(props) {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-        image={heroImageUrl}
-        twitterImage={heroTwitterImageUrl}
-        url={post.fields.slug}
-        post={post.frontmatter}
-      />
-      <h1>
-        {isWip ? 'WIP: ' : null}
-        {post.frontmatter.title}
-      </h1>
-      <p
-        style={{
-          ...scale(-1 / 5),
-          display: `block`,
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-0.5),
-        }}
+      <article
+        itemscope
+        itemtype="http://schema.org/Article"
+        itemprop="mainEntity"
       >
-        {post.frontmatter.date}
-        {post.frontmatter.lastUpdated && (
-          <span style={{ fontStyle: 'italic', marginLeft: rhythm(0.2) }}>
-            (Last updated: {post.frontmatter.lastUpdated})
-          </span>
-        )}
-      </p>
-      <div ref={blogRef} dangerouslySetInnerHTML={{ __html: post.html }} />
+        <SEO
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt}
+          image={heroImageUrl}
+          twitterImage={heroTwitterImageUrl}
+          url={post.fields.slug}
+          post={post.frontmatter}
+        />
+        <h1 itemprop="name headline">
+          {isWip ? 'WIP: ' : null}
+          {post.frontmatter.title}
+        </h1>
+        <p
+          style={{
+            ...scale(-1 / 5),
+            display: `block`,
+            marginBottom: rhythm(1),
+            marginTop: rhythm(-0.5),
+          }}
+        >
+          <time
+            itemprop="datePublished"
+            dateTime={post.frontmatter.dateTimestamp}
+          >
+            {post.frontmatter.date}
+          </time>
+          {post.frontmatter.lastUpdated && (
+            <span style={{ fontStyle: 'italic', marginLeft: rhythm(0.2) }}>
+              (Last updated:{' '}
+              <time
+                itemprop="dateUpdated"
+                dateTime={post.frontmatter.lastUpdatedTimestamp}
+              >
+                {post.frontmatter.lastUpdated}
+              </time>
+              )
+            </span>
+          )}
+        </p>
+        <div
+          itemprop="articleBody"
+          ref={blogRef}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </article>
       <ArticleFooter url={props.location.href} />
       <hr
         style={{
@@ -136,7 +159,9 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        dateTimestamp: date(formatString: "YYYY-MM-DDThh:mm:ssz")
         date(formatString: "MMMM DD, YYYY")
+        lastUpdatedTimestamp: lastUpdated(formatString: "YYYY-MM-DDThh:mm:ssz")
         lastUpdated(formatString: "MMMM DD, YYYY")
         description
         tags

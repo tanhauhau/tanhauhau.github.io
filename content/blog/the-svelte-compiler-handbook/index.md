@@ -1,7 +1,8 @@
 ---
 title: The Svelte Compiler Handbook
-date: '2020-04-22T08:00:00Z'
+date: '2020-04-05T08:00:00Z'
 tag: Svelte,JavaScript,compiler
+description: The Svelte compilation process can be broken down into 4-steps, 1) parsing source code into AST, 2) tracking references and dependencies, 3) creating code blocks and fragments, and 4) generate code.
 ---
 
 ## Who is this for?
