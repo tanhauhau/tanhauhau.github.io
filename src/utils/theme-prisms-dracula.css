@@ -424,11 +424,10 @@ div.code-toolbar > .toolbar span:focus {
 }
 
 :not(pre) > code.language-text {
-  background-color: rgba(227, 154, 249, 0.4);
+  background-color: rgba(227, 154, 249, 0.2);
   color: #612e77;
-  border-radius: 30px 5px 30px 5px;
-  border-bottom: 1px solid #612e77;
-  box-shadow: inset 3px 3px 3px 0px rgba(249, 215, 245, 0.7);
+  border-radius: 10px;
+  font-size: 0.8em;
 }
 
 :not(pre) > code.language-text::selection {
