@@ -1,4 +1,292 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau's RSS Feed]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Mar 2020 04:44:46 GMT</lastBuildDate><item><title><![CDATA[Compile Svelte in your head (Part 2)]]></title><link>https://lihautan.com/compile-svelte-in-your-head-part-2/</link><guid isPermaLink="false">https://lihautan.com/compile-svelte-in-your-head-part-2/</guid><pubDate>Sun, 22 Mar 2020 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/compile-svelte-in-your-head-part-1/&quot;&gt;Previously&lt;/a&gt;, when I mentioned the &lt;code class=&quot;language-text&quot;&gt;$$invalidate&lt;/code&gt; function, I explained that the &lt;code class=&quot;language-text&quot;&gt;$$invalidate&lt;/code&gt; function works conceptually like the following:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau's RSS Feed]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 05 Apr 2020 04:37:08 GMT</lastBuildDate><item><title><![CDATA[The Svelte Compiler Handbook]]></title><description><![CDATA[The Svelte compilation process can be broken down into 4-steps, 1) parsing source code into AST, 2) tracking references and dependencies, 3) creating code blocks and fragments, and 4) generate code.]]></description><link>https://lihautan.com/the-svelte-compiler-handbook/</link><guid isPermaLink="false">https://lihautan.com/the-svelte-compiler-handbook/</guid><pubDate>Sun, 05 Apr 2020 08:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;who-is-this-for&quot;&gt;&lt;a href=&quot;#who-is-this-for&quot; aria-label=&quot;who is this for permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Who is this for?&lt;/h2&gt;
+&lt;p&gt;Anyone who &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;is interested in the Svelte compilation process&lt;/li&gt;
+&lt;li&gt;wants to get started in reading Svelte source code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;overview&quot;&gt;&lt;a href=&quot;#overview&quot; aria-label=&quot;overview permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8ab733c6a095f91034a7e221221fcdb4/4f8eb/overview.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 17.511708409692524%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsSAAALEgHS3X78AAAAkElEQVQY0zWQCw6AIAxDuf9NEQwBRFE+M2/JlhBp7doGN+eUtZbUWqWUIntvxZzeu3jv5Xkexd/3CfrruiSEoHfOGEPe91XOYWRmECklXcg5y3Ecanaep2J4tPd9S2tNAwiFA6shyYgBLCBiMIIjiBY0t0EXY9TWNmgo4BBiQmVIxpZZIsw4ew60BPK1f/ZEP2waN1AJz79YAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Overview&quot;
+        title=&quot;Overview&quot;
+        src=&quot;/static/8ab733c6a095f91034a7e221221fcdb4/799d3/overview.png&quot;
+        srcset=&quot;/static/8ab733c6a095f91034a7e221221fcdb4/00d96/overview.png 148w,
+/static/8ab733c6a095f91034a7e221221fcdb4/0b23c/overview.png 295w,
+/static/8ab733c6a095f91034a7e221221fcdb4/799d3/overview.png 590w,
+/static/8ab733c6a095f91034a7e221221fcdb4/2a3d6/overview.png 885w,
+/static/8ab733c6a095f91034a7e221221fcdb4/ae92f/overview.png 1180w,
+/static/8ab733c6a095f91034a7e221221fcdb4/4f8eb/overview.png 4911w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The Svelte compilation process can be broken down into 4-steps&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Parsing source code into Abstract Syntax Tree (AST)&lt;/li&gt;
+&lt;li&gt;Tracking references and dependencies&lt;/li&gt;
+&lt;li&gt;Creating code blocks and fragments&lt;/li&gt;
+&lt;li&gt;Generate code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Which sums out by the following pseudocode:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; source &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readFileSync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;App.svelte&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// parse source code into AST&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; ast &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;source&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// tracking references and dependencies&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; component &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ast&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// creating code blocks and fragments&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; renderer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+  options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;generate &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;ssr&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;SSRRenderer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;DomRenderer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Generate code&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; js&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; css &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;writeFileSync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;App.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; js&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;writeFileSync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;App.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; css&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;1-parsing-source-code-into-ast&quot;&gt;&lt;a href=&quot;#1-parsing-source-code-into-ast&quot; aria-label=&quot;1 parsing source code into ast permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Parsing source code into AST&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6f446bed0985ebf8426f93d997165343/7ef2e/step-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.064669843430906%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABIElEQVQoz3WS26qDQAxF5/8/Tp/EPqiI1LtWW6mtWpuyAimewgmEuSU7azLjxnGUNE2laRp5vV6yrqu832/BGH8dI64sS7ndbn/iMHc+n6UoCkEYMYLu9/s38GiWOE2TJEkibduq+BHAQXc6nbQiQnmeq/hRYN93TRyGQeO6rpOqqqTve8myTOdG64IgEM/zvlSMVL5cLioOCSNrxOq6VmFimCMYRZGeKyG9swrLsigJ83me5Xq9qgj7GElG8ng8VJgYc27mqI4oG9u2qdOjX6O/XBVRMyjJZY8RLReGofi+r/iQ8kjHR8EpArElQsYayufzqfHmemWIDJuqR0LI4jjWnwABBemr7VHsaM5e8b8/xxlkVOfKCALBC9NfE7ScDz7fssRty0z7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Step 1&quot;
+        title=&quot;Step 1&quot;
+        src=&quot;/static/6f446bed0985ebf8426f93d997165343/799d3/step-1.png&quot;
+        srcset=&quot;/static/6f446bed0985ebf8426f93d997165343/00d96/step-1.png 148w,
+/static/6f446bed0985ebf8426f93d997165343/0b23c/step-1.png 295w,
+/static/6f446bed0985ebf8426f93d997165343/799d3/step-1.png 590w,
+/static/6f446bed0985ebf8426f93d997165343/2a3d6/step-1.png 885w,
+/static/6f446bed0985ebf8426f93d997165343/ae92f/step-1.png 1180w,
+/static/6f446bed0985ebf8426f93d997165343/7ef2e/step-1.png 1469w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// parse source code into AST&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; ast &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;source&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The Svelte syntax is a superset of HTML. Svelte implements its own parser for the Svelte syntax, which handles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTML syntax &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Curly brackets &lt;code class=&quot;language-text&quot;&gt;{ data }&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Logic blocks &lt;code class=&quot;language-text&quot;&gt;{#each list as item}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Svelte parser handles specially for &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;
+&lt;p&gt;When the parser encounters a &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag, it uses &lt;a href=&quot;https://www.npmjs.com/package/acorn&quot;&gt;acorn&lt;/a&gt; to parse the content within the tag. When the parser sees a &lt;code class=&quot;language-text&quot;&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tag, it uses &lt;a href=&quot;https://www.npmjs.com/package/css-tree&quot;&gt;css-tree&lt;/a&gt; to parse the CSS content.&lt;/p&gt;
+&lt;p&gt;Besides, the Svelte parser differentiates instance script, &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt;, and module script, &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script context=&amp;quot;module&amp;quot;&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The Svelte AST look like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  html&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Fragment&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; children&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  css&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  instance&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; context&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;default&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; content&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  module&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; context&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;context&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; content&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can try out the Svelte parser in &lt;a href=&quot;https://astexplorer.net/#/gist/828907dd1600c208a4e315962c635b4a/e1c895d49e8899a3be849a137fc557ba66eb2423&quot;&gt;ASTExplorer&lt;/a&gt;. You can find the Svelte parser under &lt;strong&gt;HTML &gt; Svelte&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;where-can-i-find-the-parser-in-the-source-code&quot;&gt;&lt;a href=&quot;#where-can-i-find-the-parser-in-the-source-code&quot; aria-label=&quot;where can i find the parser in the source code permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Where can I find the parser in the source code?&lt;/h3&gt;
+&lt;p&gt;The parsing &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/index.ts#L79&quot;&gt;starts here&lt;/a&gt;, which the parser is implemented in &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/parse/index.ts&quot;&gt;src/compiler/parse/index.ts&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;where-can-i-learn-about-parsing-in-javascript&quot;&gt;&lt;a href=&quot;#where-can-i-learn-about-parsing-in-javascript&quot; aria-label=&quot;where can i learn about parsing in javascript permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Where can I learn about parsing in JavaScript?&lt;/h3&gt;
+&lt;p&gt;My previous article, &lt;a href=&quot;/json-parser-with-javascript&quot;&gt;“JSON Parser with JavaScript”&lt;/a&gt; introduces the terminology and guides you step-by-step on writing a parser for JSON in JavaScript.&lt;/p&gt;
+&lt;p&gt;If this is the your first time learning about parser, I highly recommend you to read that.&lt;/p&gt;
+&lt;h2 id=&quot;2-tracking-references-and-dependencies&quot;&gt;&lt;a href=&quot;#2-tracking-references-and-dependencies&quot; aria-label=&quot;2 tracking references and dependencies permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Tracking references and dependencies&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b72ac678bfbb893f0087ea4bafa5f264/b89e5/step-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.21894943544428%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAA7klEQVQoz3WRVwrEMAxEff/j5T8QSO+9kKblafFiDDsgZCNrZiSb932FAOd5yjiOYmFrfoD7viVJEimKQlwY28iDruskTVNZlkWO4/g1+9j3XeZ5lrIs9T1nep7n+RKu66pqdV1Lnue/uK5LHfd9r7WqqvSeZZk64wxp27aaMaCE27apO1wOwyBN0+h9miZVJtMMKc5pRsSCVYVhqMRKSBPqWKYBQoq4RMQFrhkTh9ToARhhdIMagXocx0qMov8xdjV2XFYURZGKurs2sBIQ4gp3uLRkbsYdNYhZCdl+ng0jf+CTuS4gC4JAx/Sn+ADq3mvbvi3e8gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Step 2&quot;
+        title=&quot;Step 2&quot;
+        src=&quot;/static/b72ac678bfbb893f0087ea4bafa5f264/799d3/step-2.png&quot;
+        srcset=&quot;/static/b72ac678bfbb893f0087ea4bafa5f264/00d96/step-2.png 148w,
+/static/b72ac678bfbb893f0087ea4bafa5f264/0b23c/step-2.png 295w,
+/static/b72ac678bfbb893f0087ea4bafa5f264/799d3/step-2.png 590w,
+/static/b72ac678bfbb893f0087ea4bafa5f264/2a3d6/step-2.png 885w,
+/static/b72ac678bfbb893f0087ea4bafa5f264/ae92f/step-2.png 1180w,
+/static/b72ac678bfbb893f0087ea4bafa5f264/b89e5/step-2.png 2037w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// tracking references and dependencies&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; component &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ast&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this step, Svelte traverses through the AST to track all the variable declared and referenced and their depedencies.&lt;/p&gt;
+&lt;h3 id=&quot;a-svelte-creates-a-code-classlanguage-textcomponentcode-instance&quot;&gt;&lt;a href=&quot;#a-svelte-creates-a-code-classlanguage-textcomponentcode-instance&quot; aria-label=&quot;a svelte creates a code classlanguage textcomponentcode instance permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;a. Svelte creates a &lt;code class=&quot;language-text&quot;&gt;Component&lt;/code&gt; instance.&lt;/h3&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Component&lt;/code&gt; class stores information of the Svelte component, which includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTML fragment, &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L52&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;fragment&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;instance script and module script AST and their lexical scopes, &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L54&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;instance_scope&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L53&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;module_scope&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;instance variables, &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L62&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;vars&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;reactive variables, &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L71&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;reactive_declarations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;slots, &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L94&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;slots&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L351&quot;&gt;used variable names&lt;/a&gt; to prevent naming conflict when creating temporary variables&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L43&quot;&gt;warnings&lt;/a&gt; and &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L396&quot;&gt;errors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L51&quot;&gt;compile options&lt;/a&gt; and &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts#L44&quot;&gt;ignored warnings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;b-traverse-the-instance-script-and-module-script-ast&quot;&gt;&lt;a href=&quot;#b-traverse-the-instance-script-and-module-script-ast&quot; aria-label=&quot;b traverse the instance script and module script ast permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;b. Traverse the instance script and module script AST&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Component&lt;/code&gt; traverses the instance script and module script AST to &lt;strong&gt;find out all the variables declared, referenced, and updated&lt;/strong&gt; within the instance script and module script.&lt;/p&gt;
+&lt;p&gt;Svelte identifies all the variables available before traversing the template. When encountering the variable during template traversal, Svelte will mark the variable as &lt;code class=&quot;language-text&quot;&gt;referenced&lt;/code&gt; from template.&lt;/p&gt;
+&lt;h3 id=&quot;c-traverse-the-template&quot;&gt;&lt;a href=&quot;#c-traverse-the-template&quot; aria-label=&quot;c traverse the template permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;c. Traverse the template&lt;/h3&gt;
+&lt;p&gt;Svelte traverses through the template AST and creates a &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/Fragment.ts&quot;&gt;Fragment&lt;/a&gt; tree out of the template AST.&lt;/p&gt;
+&lt;p&gt;Each fragment node contains information such as:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- expression and dependencies&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Logic blocks, &lt;code class=&quot;language-text&quot;&gt;{#if}&lt;/code&gt;, and mustache tags, &lt;code class=&quot;language-text&quot;&gt;{ data }&lt;/code&gt;, contain expression and the dependencies of the expression.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- scope&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;{#each}&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;{#await}&lt;/code&gt; logic block and &lt;code class=&quot;language-text&quot;&gt;let:&lt;/code&gt; binding create new variables for the children template.&lt;/p&gt;
+&lt;p&gt;Svelte creates a different Fragment node for each type of node in the AST, as different kind of Fragment node handles things differently:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/Element.ts&quot;&gt;Element node&lt;/a&gt; validates the &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/Element.ts#L280&quot;&gt;attribute&lt;/a&gt;, &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/Element.ts#L461&quot;&gt;bindings&lt;/a&gt;, &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/Element.ts#L647&quot;&gt;content&lt;/a&gt; and &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/Element.ts#L658&quot;&gt;event handlers&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/Slot.ts&quot;&gt;Slot node&lt;/a&gt; registers the slot name to the &lt;code class=&quot;language-text&quot;&gt;Component&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/nodes/EachBlock.ts&quot;&gt;EachBlock node&lt;/a&gt; creates a new scope and tracks the &lt;code class=&quot;language-text&quot;&gt;key&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;index&lt;/code&gt; and the name of the list to be iterated.&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;d-traverse-the-instance-script-ast&quot;&gt;&lt;a href=&quot;#d-traverse-the-instance-script-ast&quot; aria-label=&quot;d traverse the instance script ast permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;d. Traverse the instance script AST&lt;/h3&gt;
+&lt;p&gt;After traversing through the template, Svelte now knows whether a variable is ever being updated or referenced in the component.&lt;/p&gt;
+&lt;p&gt;With this information, Svelte tries make preparations for optimising the output, for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;determine which variables or functions can be safely hoisted out of the &lt;code class=&quot;language-text&quot;&gt;instance&lt;/code&gt; function.&lt;/li&gt;
+&lt;li&gt;determine reactive declarations that does not need to be reactive&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;e-update-css-selectors-to-make-style-declarations-component-scope&quot;&gt;&lt;a href=&quot;#e-update-css-selectors-to-make-style-declarations-component-scope&quot; aria-label=&quot;e update css selectors to make style declarations component scope permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;e. Update CSS selectors to make style declarations component scope&lt;/h3&gt;
+&lt;p&gt;Svelte updates the CSS selectors, by adding &lt;code class=&quot;language-text&quot;&gt;.svelte-xxx&lt;/code&gt; class to the selectors when necessary.&lt;/p&gt;
+&lt;p&gt;At the end of this step, Svelte has enough information to generate the compiled code, which brings us to the next step.&lt;/p&gt;
+&lt;h3 id=&quot;where-can-i-find-this-in-the-source-code&quot;&gt;&lt;a href=&quot;#where-can-i-find-this-in-the-source-code&quot; aria-label=&quot;where can i find this in the source code permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Where can I find this in the source code?&lt;/h3&gt;
+&lt;p&gt;You can start reading &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/index.ts#L83-L90&quot;&gt;from here&lt;/a&gt;, which the &lt;code class=&quot;language-text&quot;&gt;Component&lt;/code&gt; is implemented in &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/Component.ts&quot;&gt;src/compiler/compile/Component.ts&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;where-can-i-learn-about-traversing-in-javascript&quot;&gt;&lt;a href=&quot;#where-can-i-learn-about-traversing-in-javascript&quot; aria-label=&quot;where can i learn about traversing in javascript permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Where can I learn about traversing in JavaScript?&lt;/h3&gt;
+&lt;p&gt;Bear with my shameless plug, my previous article, &lt;a href=&quot;/manipulating-ast-with-javascript#traversing-an-ast&quot;&gt;“Manipulating AST with JavaScript”&lt;/a&gt; covers relevant knowledge you need to know about traversing AST in JavaScript.&lt;/p&gt;
+&lt;h2 id=&quot;3-creating-code-blocks-and-fragments&quot;&gt;&lt;a href=&quot;#3-creating-code-blocks-and-fragments&quot; aria-label=&quot;3 creating code blocks and fragments permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Creating code blocks and fragments&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f3876e59140a31ded960358a9c5dfab8/363f6/step-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.49042938437661%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABAklEQVQoz32RB46DQAwA+f8XiegtCSW00PFpHC2KUDhLZheXcVlr33dBka7rxHVdKYpCjBj/lVZVJXmeS9M0Gm/x2bZNpmlS4/1+l+fzqfBhGI5ivwRflmXaBHkH8PV6ie/7UpalwugQxQ6UYO74wjDU/7ZtJQgCeTwesiyL5idJ8gHSjeM4Ms+zAsZx1ASC3u+39H2v3ZsJiKc7fMAQ8lAF1nWtQEBGCPQ8Tzv4T4Azjcm1WCoGxmUfaZpq0HlXZzUSx7HYtq3rUCAdAGN+YEAp8g06Q80/OeTyqEwYRdFnZJxUwIDzCnA+Kcx+uXMymQLXddUHuN1uxy5+jfe9giv5A9Thukc6vcH7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Step 3&quot;
+        title=&quot;Step 3&quot;
+        src=&quot;/static/f3876e59140a31ded960358a9c5dfab8/799d3/step-3.png&quot;
+        srcset=&quot;/static/f3876e59140a31ded960358a9c5dfab8/00d96/step-3.png 148w,
+/static/f3876e59140a31ded960358a9c5dfab8/0b23c/step-3.png 295w,
+/static/f3876e59140a31ded960358a9c5dfab8/799d3/step-3.png 590w,
+/static/f3876e59140a31ded960358a9c5dfab8/2a3d6/step-3.png 885w,
+/static/f3876e59140a31ded960358a9c5dfab8/ae92f/step-3.png 1180w,
+/static/f3876e59140a31ded960358a9c5dfab8/363f6/step-3.png 1933w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// creating code blocks and fragments&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; renderer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+  options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;generate &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;ssr&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;SSRRenderer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;DomRenderer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this step, Svelte creates a &lt;code class=&quot;language-text&quot;&gt;Renderer&lt;/code&gt; instance which keeps track necessary information required to generate the compiled output. Depending on the whether to output DOM or SSR code &lt;em&gt;(&lt;a href=&quot;https://svelte.dev/docs#svelte_compile&quot;&gt;see &lt;code class=&quot;language-text&quot;&gt;generate&lt;/code&gt; in compile options&lt;/a&gt;)&lt;/em&gt;, Svelte instantiates different &lt;code class=&quot;language-text&quot;&gt;Renderer&lt;/code&gt; respectively.&lt;/p&gt;
+&lt;h3 id=&quot;dom-renderer&quot;&gt;&lt;a href=&quot;#dom-renderer&quot; aria-label=&quot;dom renderer permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DOM Renderer&lt;/h3&gt;
+&lt;p&gt;DOM Renderer keeps track of &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_dom/Renderer.ts#L31&quot;&gt;a list of blocks&lt;/a&gt; and &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_dom/Renderer.ts#L28&quot;&gt;context&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_dom/Block.ts&quot;&gt;Block&lt;/a&gt; contains code fragments for generate the &lt;a href=&quot;/compile-svelte-in-your-head-part-1/#create_fragment&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;create_fragment&lt;/code&gt;&lt;/a&gt; function.&lt;/p&gt;
+&lt;p&gt;Context tracks a list of &lt;a href=&quot;/compile-svelte-in-your-head-part-2/#ctx&quot;&gt;instance variables&lt;/a&gt; which will be presented in the &lt;code class=&quot;language-text&quot;&gt;$$.ctx&lt;/code&gt; in the compiled output.&lt;/p&gt;
+&lt;p&gt;In the renderer, Svelte creates a &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_dom/wrappers/Fragment.ts&quot;&gt;render tree&lt;/a&gt; out of the Fragment tree.&lt;/p&gt;
+&lt;p&gt;Each node in the render tree implements the &lt;code class=&quot;language-text&quot;&gt;render&lt;/code&gt; function which generate codes that create and update the DOM for the node.&lt;/p&gt;
+&lt;h3 id=&quot;ssr-renderer&quot;&gt;&lt;a href=&quot;#ssr-renderer&quot; aria-label=&quot;ssr renderer permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SSR Renderer&lt;/h3&gt;
+&lt;p&gt;SSR Renderer provide helpers to generate &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals&quot;&gt;template literals&lt;/a&gt; in the compiled output, such as &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_ssr/Renderer.ts#L63&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;add_string(str)&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_ssr/Renderer.ts#L67&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;add_expression(node)&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;where-can-i-find-the-code-classlanguage-textrenderercode-in-the-source-code&quot;&gt;&lt;a href=&quot;#where-can-i-find-the-code-classlanguage-textrenderercode-in-the-source-code&quot; aria-label=&quot;where can i find the code classlanguage textrenderercode in the source code permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Where can I find the &lt;code class=&quot;language-text&quot;&gt;Renderer&lt;/code&gt; in the source code?&lt;/h3&gt;
+&lt;p&gt;The DOM Renderer is implemented in &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_dom/Renderer.ts&quot;&gt;src/compiler/compile/render_dom/Renderer.ts&lt;/a&gt;, and you can check out the SSR Renderer code in &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_ssr/Renderer.ts&quot;&gt;src/compiler/compile/render_ssr/Renderer.ts&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;4-generate-code&quot;&gt;&lt;a href=&quot;#4-generate-code&quot; aria-label=&quot;4 generate code permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. Generate code&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/adc36d2564cf00a8bb1e20058c100e29/6607e/step-4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.889952153110045%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABEElEQVQoz5WSi46CQAxF5/8/UBKQR0BQAoggIPLq7mkyxhDNZpsUZvq43Nti5Nfu97skSSLn81nP2LZt8s1sLk1TuVwuen8+nzKOoxgSTdPI6XRSUM7vjd8cy/NcjsejuK4rYRhKlmViePi+L/M8S13XmiSGPR4PadtWWfd9r2yqqlIlwzAoo6IoFIxeag3Ft9tN1nVV2gRphgUx7u8OAPUYwNfr9eV8zOzl7WcF6LIs6pxxWwfjsixVwYshCb7oOI4EQSBd1/1rKVEUaT9gjMHYLSOFISP3r4VYQICYued5SoSZ61IYKpIoOBwOEsexSvvE1N5521lam6ZJDKhQpYBNw5DYHuATIL8YIDiEwPkBItG5fqCqCnkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Step 4&quot;
+        title=&quot;Step 4&quot;
+        src=&quot;/static/adc36d2564cf00a8bb1e20058c100e29/799d3/step-4.png&quot;
+        srcset=&quot;/static/adc36d2564cf00a8bb1e20058c100e29/00d96/step-4.png 148w,
+/static/adc36d2564cf00a8bb1e20058c100e29/0b23c/step-4.png 295w,
+/static/adc36d2564cf00a8bb1e20058c100e29/799d3/step-4.png 590w,
+/static/adc36d2564cf00a8bb1e20058c100e29/2a3d6/step-4.png 885w,
+/static/adc36d2564cf00a8bb1e20058c100e29/ae92f/step-4.png 1180w,
+/static/adc36d2564cf00a8bb1e20058c100e29/6607e/step-4.png 1672w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Generate code&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; js&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; css &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; renderer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Different renderer renders differently.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The DOM Renderer&lt;/strong&gt; traverses through the render tree and calls the &lt;code class=&quot;language-text&quot;&gt;render&lt;/code&gt; function of each node along the way. The &lt;code class=&quot;language-text&quot;&gt;Block&lt;/code&gt; instance is passed into the &lt;code class=&quot;language-text&quot;&gt;render&lt;/code&gt; function, so that each node inserts the code into the appropriate &lt;code class=&quot;language-text&quot;&gt;create_fragment&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The SSR Renderer&lt;/strong&gt;, on the other hand, relies on different &lt;a href=&quot;https://github.com/sveltejs/svelte/blob/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/compiler/compile/render_ssr/Renderer.ts#L23-L40&quot;&gt;node handlers&lt;/a&gt; to insert strings or expressions into the final template literal.&lt;/p&gt;
+&lt;p&gt;The render function returns &lt;code class=&quot;language-text&quot;&gt;js&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt; which will be consumed by the bundler, via &lt;a href=&quot;https://github.com/sveltejs/rollup-plugin-svelte&quot;&gt;rollup-plugin-svelte&lt;/a&gt; for rollup and &lt;a href=&quot;https://github.com/sveltejs/svelte-loader&quot;&gt;svelte-loader&lt;/a&gt; for webpack respectively.&lt;/p&gt;
+&lt;h2 id=&quot;svelte-runtime&quot;&gt;&lt;a href=&quot;#svelte-runtime&quot; aria-label=&quot;svelte runtime permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Svelte runtime&lt;/h2&gt;
+&lt;p&gt;To remove duplicate code in the compiled output, Svelte provide util function which can be found in the &lt;a href=&quot;https://github.com/sveltejs/svelte/tree/aa3dcc06d6b0fcb079ccd993fa6e3455242a2a96/src/runtime/internal&quot;&gt;src/runtime/internal&lt;/a&gt;, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;dom related utils, eg: &lt;code class=&quot;language-text&quot;&gt;append&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;insert&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;detach&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;scheduling utils, eg: &lt;code class=&quot;language-text&quot;&gt;schedule_update&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;flush&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;lifecycle utils, eg: &lt;code class=&quot;language-text&quot;&gt;onMount&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;beforeUpdate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;animation utils, eg: &lt;code class=&quot;language-text&quot;&gt;create_animation&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Compile Svelte in your head (Part 2)]]></title><link>https://lihautan.com/compile-svelte-in-your-head-part-2/</link><guid isPermaLink="false">https://lihautan.com/compile-svelte-in-your-head-part-2/</guid><pubDate>Sun, 22 Mar 2020 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/compile-svelte-in-your-head-part-1/&quot;&gt;Previously&lt;/a&gt;, when I mentioned the &lt;code class=&quot;language-text&quot;&gt;$$invalidate&lt;/code&gt; function, I explained that the &lt;code class=&quot;language-text&quot;&gt;$$invalidate&lt;/code&gt; function works conceptually like the following:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// conceptually...&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; ctx &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;/*...*/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; fragment &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;create_fragment&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ctx&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;

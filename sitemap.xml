@@ -31,6 +31,7 @@
 <url> <loc>https://lihautan.com/git-gudder/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/javascript-modules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/css-code-splitting/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lihautan.com/the-svelte-compiler-handbook/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/compile-svelte-in-your-head-part-2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/compile-svelte-in-your-head-part-1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/hydrating-text-content/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
