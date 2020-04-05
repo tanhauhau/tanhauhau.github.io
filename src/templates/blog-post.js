@@ -37,8 +37,12 @@ function BlogPostTemplate(props) {
       console.log('script', script);
     }
     return () => {
-      const ad = document.getElementById('carbonads');
-      ad.parentNode.removeChild(ad);
+      try {
+        const ad = document.getElementById('carbonads');
+        ad.parentNode.removeChild(ad);
+      } catch (error) {
+        // ignore them
+      }
     };
   }, []);
 
