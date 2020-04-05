@@ -9,6 +9,7 @@ import ArticleFooter from '../components/ArticleFooter';
 function TalkPostTemplate(props) {
   const post = props.data.markdownRemark;
   const siteTitle = props.data.site.siteMetadata.title;
+  const url = props.data.site.siteMetadata.siteUrl + post.fields.slug;
   const {
     previous,
     next,
@@ -125,7 +126,7 @@ function TalkPostTemplate(props) {
       )}
 
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <ArticleFooter url={props.location.href} />
+      <ArticleFooter url={url} />
       <hr
         style={{
           marginBottom: rhythm(1),
@@ -168,6 +169,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
