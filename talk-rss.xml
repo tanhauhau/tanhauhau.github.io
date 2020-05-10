@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau's Talk RSS Feed]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 05 Apr 2020 08:36:16 GMT</lastBuildDate><item><title><![CDATA[Personalised Development Workspace With Chrome Extension]]></title><description><![CDATA[In this talk, I will be exploring how you can develop your Chrome extension, and how you can use it to improve your development workflow]]></description><link>https://lihautan.com/personalised-development-workspace-with-chrome-extension/</link><guid isPermaLink="false">https://lihautan.com/personalised-development-workspace-with-chrome-extension/</guid><pubDate>Sat, 08 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I prepared this talk for Chrome Dev Summit Extended 2020 in Singapore. Unfortunately, due to the Coronavirus Outbreak, and having the Ministry of Health raising the alert to DORSCON Orange, the event was cancelled.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tan Li Hau's Talk RSS Feed]]></title><description><![CDATA[Tan Li Hau is a frontend engineer who is currently working in Shopee]]></description><link>https://lihautan.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 May 2020 11:19:02 GMT</lastBuildDate><item><title><![CDATA[Personalised Development Workspace With Chrome Extension]]></title><description><![CDATA[In this talk, I will be exploring how you can develop your Chrome extension, and how you can use it to improve your development workflow]]></description><link>https://lihautan.com/personalised-development-workspace-with-chrome-extension/</link><guid isPermaLink="false">https://lihautan.com/personalised-development-workspace-with-chrome-extension/</guid><pubDate>Sat, 08 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I prepared this talk for Chrome Dev Summit Extended 2020 in Singapore. Unfortunately, due to the Coronavirus Outbreak, and having the Ministry of Health raising the alert to DORSCON Orange, the event was cancelled.&lt;/p&gt;
 &lt;p&gt;Still, I feel this talk deserves to be “heard” by everyone interested, so I decided to write the talk out into writing.&lt;/p&gt;
 &lt;h2 id=&quot;abstract&quot;&gt;&lt;a href=&quot;#abstract&quot; aria-label=&quot;abstract permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;Chrome extension allows us to add features to our browser, personalize our development experience. One good example is React DevTools, which allows React Developers to inspect and debug virtual DOM through the Chrome DevTools.&lt;/p&gt;
@@ -44,6 +44,7 @@
 /static/89b0c41663874eae271f5c48f9791e43/ae92f/ui-elements.png 1180w,
 /static/89b0c41663874eae271f5c48f9791e43/2b56a/ui-elements.png 2558w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -159,6 +160,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browserActio
 /static/bec64079518a507e3510adabe994f0c4/2a3d6/communication.png 885w,
 /static/bec64079518a507e3510adabe994f0c4/ae92f/communication.png 1180w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -392,6 +394,7 @@ document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentEl
 /static/bf4fc1509893246019ea4e6f2c07f7e5/ae92f/hacktoberfest.png 1180w,
 /static/bf4fc1509893246019ea4e6f2c07f7e5/0b54c/hacktoberfest.png 1396w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -402,7 +405,7 @@ document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;documentEl
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/3a96a/hacktober-swags.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 100.0834028356964%; position: relative; bottom: 0; left: 0; background-image: url(&amp;#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMCBAH/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAAB5reztmwp6MAUwj//xAAcEAABBQADAAAAAAAAAAAAAAAAAQIREiEDEyL/2gAIAQEAAQUCSCuLhWBU8ad73N5HS2x//8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQMBAT8BI//EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAECAQE/AWP/xAAeEAACAQMFAAAAAAAAAAAAAAAAARACERIhMWGRof/aAAgBAQAGPwLmU8GjLw26NbFMf//EABwQAAMBAAIDAAAAAAAAAAAAAAABESExQWFx0f/aAAgBAQABPyFWSCpl0Q0o+E013DucbxuWR/tSQsPQ1ZyQrwf/2gAMAwEAAgADAAAAEBMQAv/EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QiazBamRH/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAREP/aAAgBAgEBPxACWwGnP//EAB0QAQEAAgMAAwAAAAAAAAAAAAERACExQXFhkcH/2gAIAQEAAT8QWBHbTiIMRak3MIE1nOc9LWoXz9ySkRMm2eY7qnqgPvErbk1HXuBnSmHxMJhINBOM/9k=&amp;#x27;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;hacktoberfest swags&quot; title=&quot;Hacktoberfest T-shirt and swags&quot; src=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/88218/hacktober-swags.jpg&quot; srcset=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/7237a/hacktober-swags.jpg 148w, /static/c9699300d1784b15af3b132d3fa3dcf3/0cfdf/hacktober-swags.jpg 295w, /static/c9699300d1784b15af3b132d3fa3dcf3/88218/hacktober-swags.jpg 590w, /static/c9699300d1784b15af3b132d3fa3dcf3/77d57/hacktober-swags.jpg 885w, /static/c9699300d1784b15af3b132d3fa3dcf3/5a917/hacktober-swags.jpg 1180w, /static/c9699300d1784b15af3b132d3fa3dcf3/3a96a/hacktober-swags.jpg 1199w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;hacktoberfest swags&quot; title=&quot;Hacktoberfest T-shirt and swags&quot; src=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/88218/hacktober-swags.jpg&quot; srcset=&quot;/static/c9699300d1784b15af3b132d3fa3dcf3/7237a/hacktober-swags.jpg 148w, /static/c9699300d1784b15af3b132d3fa3dcf3/0cfdf/hacktober-swags.jpg 295w, /static/c9699300d1784b15af3b132d3fa3dcf3/88218/hacktober-swags.jpg 590w, /static/c9699300d1784b15af3b132d3fa3dcf3/77d57/hacktober-swags.jpg 885w, /static/c9699300d1784b15af3b132d3fa3dcf3/5a917/hacktober-swags.jpg 1180w, /static/c9699300d1784b15af3b132d3fa3dcf3/3a96a/hacktober-swags.jpg 1199w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;figcaption&gt;Hacktoberfest T-shirt and swags&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;So this year Hacktoberfest, I was working on this frontend framework called &lt;a href=&quot;https://svelte.dev/&quot;&gt;Svelte&lt;/a&gt;.&lt;/p&gt;
@@ -512,6 +515,7 @@ target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &l
 /static/63a822277374f88594938dae122a98ca/ae92f/owasp.png 1180w,
 /static/63a822277374f88594938dae122a98ca/75d76/owasp.png 1600w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -633,6 +637,7 @@ $&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;textContent &lt;span 
 /static/b0751db051b0a36011e1fdf61feb3d61/2a3d6/discord-chat1.png 885w,
 /static/b0751db051b0a36011e1fdf61feb3d61/1bcd6/discord-chat1.png 1142w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -643,7 +648,7 @@ $&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;textContent &lt;span 
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/7917a/scrum_active.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 60.395150426582845%; position: relative; bottom: 0; left: 0; background-image: url(&amp;#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB10lEQVQoz21Sa3PbIBDU//9nnX5pp00niR3bcay3hGXB8ZBA2wPFjqc1mh3QgfZ2V2THqkMvBjTdAOtmhAWY/YIQF4/GsiTEB7g/wxWuZ00r4JyDsY4JPeY5wPB8PRCJV464Doki4JPrs75ipc2qRqAbNJqzRS9DgqAFRalxHiQkKUzTzI18Uh+IoM8Cymi4aUp7E+85Z6DEO7L2rLB7e8J2+wfP5YJNteC1CnjNgW1Z4K36BaWJP+Y4kPKAHHv8PH7DWUZ3HtpYdmgxWYmsExfktcDhVKO/aGgbQBNg6hZd36IUeTqcbLFlxYSNkjg1e4xqhNaWewSE2UK2G2TE7IeiwPux5G7TLWA4i1NXYN8+saXpK0PeuugRL+UPzlqljGM9BM+N1UpYdT1qznKUBEUa3BDmcgQpDWNYlTKQvB4ZcT0qhaLLU77eh9TMeY+a1SbCfV5gd8hB2vABnzpqrUEUSdYmilZSIsfZDfh9+o4LDelWrD9mTg5Xwo8Cm91HujrXIVlFJLkikl3nmJtl5UQ2vd8jEdZC8BUZ09WIFqLCqI7uCO9BOhLRrck9MhntsL2ZJX8Fv/CmSlb/VbDaNg/rSWHPypyfbtldEUdUG1X/B+8f1xl/AYilohHqbK6sAAAAAElFTkSuQmCC&amp;#x27;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Jira board&quot; title=&quot;Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html&amp;#x22;&quot; src=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/799d3/scrum_active.png&quot; srcset=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/00d96/scrum_active.png 148w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/0b23c/scrum_active.png 295w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/799d3/scrum_active.png 590w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/2a3d6/scrum_active.png 885w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/ae92f/scrum_active.png 1180w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/7917a/scrum_active.png 2227w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Jira board&quot; title=&quot;Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html&amp;#x22;&quot; src=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/799d3/scrum_active.png&quot; srcset=&quot;/static/e931a7e91bdb18b31ffaf3bbdad1465d/00d96/scrum_active.png 148w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/0b23c/scrum_active.png 295w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/799d3/scrum_active.png 590w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/2a3d6/scrum_active.png 885w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/ae92f/scrum_active.png 1180w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/7917a/scrum_active.png 2227w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;figcaption&gt;Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html&quot;&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;But it is not cool enough for cool kids for Wei, so she tried to customise it with CSS.&lt;/p&gt;
@@ -677,6 +682,7 @@ $&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;textContent &lt;span 
 /static/572ea580417db44cb12c9a53cd0dd40c/ae92f/jira-layout-1.png 1180w,
 /static/572ea580417db44cb12c9a53cd0dd40c/ca8c1/jira-layout-1.png 1586w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -709,6 +715,7 @@ $&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;textContent &lt;span 
 /static/7d5c7e7644055faae07329a8bfb577c8/ae92f/jira-layout-2.png 1180w,
 /static/7d5c7e7644055faae07329a8bfb577c8/98e8b/jira-layout-2.png 1578w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -842,7 +849,7 @@ $&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;textContent &lt;span 
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase&quot; title=&quot;git rebase&quot; src=&quot;/static/612a413cc1db461a40f9966b9b98b5d9/88218/git-rebase.jpg&quot; srcset=&quot;/static/612a413cc1db461a40f9966b9b98b5d9/7237a/git-rebase.jpg 148w,
 /static/612a413cc1db461a40f9966b9b98b5d9/0cfdf/git-rebase.jpg 295w,
 /static/612a413cc1db461a40f9966b9b98b5d9/88218/git-rebase.jpg 590w,
-/static/612a413cc1db461a40f9966b9b98b5d9/5c4a5/git-rebase.jpg 747w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/612a413cc1db461a40f9966b9b98b5d9/5c4a5/git-rebase.jpg 747w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -864,7 +871,7 @@ $&lt;span class=&quot;token number&quot;&gt;0.&lt;/span&gt;textContent &lt;span 
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase i pick&quot; title=&quot;git rebase i pick&quot; src=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/799d3/git-rebase-i-pick.png&quot; srcset=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/00d96/git-rebase-i-pick.png 148w,
 /static/5261cb46345352b7f09f5606e8bdcd74/0b23c/git-rebase-i-pick.png 295w,
 /static/5261cb46345352b7f09f5606e8bdcd74/799d3/git-rebase-i-pick.png 590w,
-/static/5261cb46345352b7f09f5606e8bdcd74/c79eb/git-rebase-i-pick.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/5261cb46345352b7f09f5606e8bdcd74/c79eb/git-rebase-i-pick.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -892,7 +899,7 @@ pick #6 commit msg 6
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase i pick&quot; title=&quot;git rebase i pick&quot; src=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/799d3/git-rebase-i-pick.png&quot; srcset=&quot;/static/5261cb46345352b7f09f5606e8bdcd74/00d96/git-rebase-i-pick.png 148w,
 /static/5261cb46345352b7f09f5606e8bdcd74/0b23c/git-rebase-i-pick.png 295w,
 /static/5261cb46345352b7f09f5606e8bdcd74/799d3/git-rebase-i-pick.png 590w,
-/static/5261cb46345352b7f09f5606e8bdcd74/c79eb/git-rebase-i-pick.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/5261cb46345352b7f09f5606e8bdcd74/c79eb/git-rebase-i-pick.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -910,7 +917,7 @@ pick #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase i drop&quot; title=&quot;git rebase i drop&quot; src=&quot;/static/f2d3c945cb8d38029af4e0dccc49fb29/799d3/git-rebase-i-drop.png&quot; srcset=&quot;/static/f2d3c945cb8d38029af4e0dccc49fb29/00d96/git-rebase-i-drop.png 148w,
 /static/f2d3c945cb8d38029af4e0dccc49fb29/0b23c/git-rebase-i-drop.png 295w,
 /static/f2d3c945cb8d38029af4e0dccc49fb29/799d3/git-rebase-i-drop.png 590w,
-/static/f2d3c945cb8d38029af4e0dccc49fb29/c79eb/git-rebase-i-drop.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/f2d3c945cb8d38029af4e0dccc49fb29/c79eb/git-rebase-i-drop.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -928,7 +935,7 @@ pick #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase i squash&quot; title=&quot;git rebase i squash&quot; src=&quot;/static/8c744d2dab925226b74ab90657fabb5d/799d3/git-rebase-i-squash.png&quot; srcset=&quot;/static/8c744d2dab925226b74ab90657fabb5d/00d96/git-rebase-i-squash.png 148w,
 /static/8c744d2dab925226b74ab90657fabb5d/0b23c/git-rebase-i-squash.png 295w,
 /static/8c744d2dab925226b74ab90657fabb5d/799d3/git-rebase-i-squash.png 590w,
-/static/8c744d2dab925226b74ab90657fabb5d/c79eb/git-rebase-i-squash.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/8c744d2dab925226b74ab90657fabb5d/c79eb/git-rebase-i-squash.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -945,7 +952,7 @@ pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 26.43391521197007%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABEklEQVQY02NggAAeBhhgZGP+/x/Og4tzsjAwMyAAN4hoc2ZgRFLnDsSaDJWVlRX79+//NmnSpMVIGhi8VRnKiywZvodrMyxAEmassGFYNcOH4Vu8PkM+SECGj4EXSIXCLGEAGvYfBL58+fJfTEwsCyiky8DA7FZkwfB3cyTD/wnuDP952BgygeJqQM1FJ1IY/r8rZ/g/2ZPhO1DMhp2ZwRZIZ4PYQMzFMGHChJWfPn36v379+vNAAXlFUU4+BgY2vggdhuWTPBj+ZxgznAGKy/GyARUzMKj0uzNcPZjA8L/QgmEeyABpXgYBqOtNgDgCxGBWVVW1B9LCDKiARYybASQuhCYuKsvHYAekmZDEDGEuBAC1PEReuxohPAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase i break&quot; title=&quot;git rebase i break&quot; src=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/29ab6/git-rebase-i-break.png&quot; srcset=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/00d96/git-rebase-i-break.png 148w,
 /static/7bb02277437b3e68fa8405d4c7bd4f48/0b23c/git-rebase-i-break.png 295w,
-/static/7bb02277437b3e68fa8405d4c7bd4f48/29ab6/git-rebase-i-break.png 401w&quot; sizes=&quot;(max-width: 401px) 100vw, 401px&quot; loading=&quot;lazy&quot;&gt;
+/static/7bb02277437b3e68fa8405d4c7bd4f48/29ab6/git-rebase-i-break.png 401w&quot; sizes=&quot;(max-width: 401px) 100vw, 401px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -963,7 +970,7 @@ pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 26.43391521197007%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAABEklEQVQY02NggAAeBhhgZGP+/x/Og4tzsjAwMyAAN4hoc2ZgRFLnDsSaDJWVlRX79+//NmnSpMVIGhi8VRnKiywZvodrMyxAEmassGFYNcOH4Vu8PkM+SECGj4EXSIXCLGEAGvYfBL58+fJfTEwsCyiky8DA7FZkwfB3cyTD/wnuDP952BgygeJqQM1FJ1IY/r8rZ/g/2ZPhO1DMhp2ZwRZIZ4PYQMzFMGHChJWfPn36v379+vNAAXlFUU4+BgY2vggdhuWTPBj+ZxgznAGKy/GyARUzMKj0uzNcPZjA8L/QgmEeyABpXgYBqOtNgDgCxGBWVVW1B9LCDKiARYybASQuhCYuKsvHYAekmZDEDGEuBAC1PEReuxohPAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase i edit&quot; title=&quot;git rebase i edit&quot; src=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/29ab6/git-rebase-i-edit.png&quot; srcset=&quot;/static/7bb02277437b3e68fa8405d4c7bd4f48/00d96/git-rebase-i-edit.png 148w,
 /static/7bb02277437b3e68fa8405d4c7bd4f48/0b23c/git-rebase-i-edit.png 295w,
-/static/7bb02277437b3e68fa8405d4c7bd4f48/29ab6/git-rebase-i-edit.png 401w&quot; sizes=&quot;(max-width: 401px) 100vw, 401px&quot; loading=&quot;lazy&quot;&gt;
+/static/7bb02277437b3e68fa8405d4c7bd4f48/29ab6/git-rebase-i-edit.png 401w&quot; sizes=&quot;(max-width: 401px) 100vw, 401px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -987,7 +994,7 @@ pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase w&quot; title=&quot;git rebase w&quot; src=&quot;/static/3aac5a68800ae65b2658ce1533b01e32/799d3/git-rebase-w.png&quot; srcset=&quot;/static/3aac5a68800ae65b2658ce1533b01e32/00d96/git-rebase-w.png 148w,
 /static/3aac5a68800ae65b2658ce1533b01e32/0b23c/git-rebase-w.png 295w,
 /static/3aac5a68800ae65b2658ce1533b01e32/799d3/git-rebase-w.png 590w,
-/static/3aac5a68800ae65b2658ce1533b01e32/c79eb/git-rebase-w.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/3aac5a68800ae65b2658ce1533b01e32/c79eb/git-rebase-w.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -999,7 +1006,7 @@ pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase w 2&quot; title=&quot;git rebase w 2&quot; src=&quot;/static/c3dfdaa9569e5d1f4a8faa103d6a883e/799d3/git-rebase-w-2.png&quot; srcset=&quot;/static/c3dfdaa9569e5d1f4a8faa103d6a883e/00d96/git-rebase-w-2.png 148w,
 /static/c3dfdaa9569e5d1f4a8faa103d6a883e/0b23c/git-rebase-w-2.png 295w,
 /static/c3dfdaa9569e5d1f4a8faa103d6a883e/799d3/git-rebase-w-2.png 590w,
-/static/c3dfdaa9569e5d1f4a8faa103d6a883e/c79eb/git-rebase-w-2.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/c3dfdaa9569e5d1f4a8faa103d6a883e/c79eb/git-rebase-w-2.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -1011,7 +1018,7 @@ pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase w 3&quot; title=&quot;git rebase w 3&quot; src=&quot;/static/410aee6145131a96b9a5ee82b00a9ea8/799d3/git-rebase-w-3.png&quot; srcset=&quot;/static/410aee6145131a96b9a5ee82b00a9ea8/00d96/git-rebase-w-3.png 148w,
 /static/410aee6145131a96b9a5ee82b00a9ea8/0b23c/git-rebase-w-3.png 295w,
 /static/410aee6145131a96b9a5ee82b00a9ea8/799d3/git-rebase-w-3.png 590w,
-/static/410aee6145131a96b9a5ee82b00a9ea8/c79eb/git-rebase-w-3.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/410aee6145131a96b9a5ee82b00a9ea8/c79eb/git-rebase-w-3.png 715w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -1024,7 +1031,7 @@ pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase w 4&quot; title=&quot;git rebase w 4&quot; src=&quot;/static/9ca588acdd683e855832c9959819a7d6/799d3/git-rebase-w-4.png&quot; srcset=&quot;/static/9ca588acdd683e855832c9959819a7d6/00d96/git-rebase-w-4.png 148w,
 /static/9ca588acdd683e855832c9959819a7d6/0b23c/git-rebase-w-4.png 295w,
 /static/9ca588acdd683e855832c9959819a7d6/799d3/git-rebase-w-4.png 590w,
-/static/9ca588acdd683e855832c9959819a7d6/641d0/git-rebase-w-4.png 840w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/9ca588acdd683e855832c9959819a7d6/641d0/git-rebase-w-4.png 840w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -1037,7 +1044,7 @@ pick   #6 commit msg 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;git rebase w 5&quot; title=&quot;git rebase w 5&quot; src=&quot;/static/f365db5d458797a392c92938627e9bb6/799d3/git-rebase-w-5.png&quot; srcset=&quot;/static/f365db5d458797a392c92938627e9bb6/00d96/git-rebase-w-5.png 148w,
 /static/f365db5d458797a392c92938627e9bb6/0b23c/git-rebase-w-5.png 295w,
 /static/f365db5d458797a392c92938627e9bb6/799d3/git-rebase-w-5.png 590w,
-/static/f365db5d458797a392c92938627e9bb6/3298e/git-rebase-w-5.png 714w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+/static/f365db5d458797a392c92938627e9bb6/3298e/git-rebase-w-5.png 714w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;/div&gt;
@@ -1113,7 +1120,7 @@ $ git bisect bad&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/c4929b81633a5a8b085650e8cf509a93/7b709/jquery.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 25.160771704180064%; position: relative; bottom: 0; left: 0; background-image: url(&amp;#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAABY0lEQVQY0yXMy04TYRiH8YkxlZ0I0TsAeppvZjrfnJhxrK0UmPRMW5qWUjwsCAlRChsS4xJq0taCoAmJF+XCxLjwVh4munjy5pd/8iqLg2ueHnxlaW/GctyTwfyfl/eveDa84nF/zqPdGYn2hAfNMQu7Ux62p//dGKPULlDql3FjEp0JStp+gbA8qu0encFrnLBIUpOUKk2OPpzh5TdYEZL1whbN3pBVY51mlGd2XOb6fJ/bT++4+fiGb+d9ypshimqYqOkUZ6cjPo8vCQOfVHKNXrfL6egEx5KxV+m0dhi9Pyaj6py0XH5+qfPre58/P97y+27I37suhzUXJaNLTMsmv12hWK7hBCG6bvByM6IQVTFtByEEfr5IWIrQc5LAs+lUN2hEBUqhTdGXvAoklqmjZI34YS6H43rYjotl2xiGget5+MFzpGWhaVq8u3i+jyklqtBQNSO+OpmsIJ1V40RswT3bo7ngbq71cQAAAABJRU5ErkJggg==&amp;#x27;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;jquery page&quot; title=&quot;Downloading jQuery from jQuery.com&quot; src=&quot;/static/c4929b81633a5a8b085650e8cf509a93/799d3/jquery.png&quot; srcset=&quot;/static/c4929b81633a5a8b085650e8cf509a93/00d96/jquery.png 148w, /static/c4929b81633a5a8b085650e8cf509a93/0b23c/jquery.png 295w, /static/c4929b81633a5a8b085650e8cf509a93/799d3/jquery.png 590w, /static/c4929b81633a5a8b085650e8cf509a93/2a3d6/jquery.png 885w, /static/c4929b81633a5a8b085650e8cf509a93/ae92f/jquery.png 1180w, /static/c4929b81633a5a8b085650e8cf509a93/7b709/jquery.png 2488w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;jquery page&quot; title=&quot;Downloading jQuery from jQuery.com&quot; src=&quot;/static/c4929b81633a5a8b085650e8cf509a93/799d3/jquery.png&quot; srcset=&quot;/static/c4929b81633a5a8b085650e8cf509a93/00d96/jquery.png 148w, /static/c4929b81633a5a8b085650e8cf509a93/0b23c/jquery.png 295w, /static/c4929b81633a5a8b085650e8cf509a93/799d3/jquery.png 590w, /static/c4929b81633a5a8b085650e8cf509a93/2a3d6/jquery.png 885w, /static/c4929b81633a5a8b085650e8cf509a93/ae92f/jquery.png 1180w, /static/c4929b81633a5a8b085650e8cf509a93/7b709/jquery.png 2488w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;figcaption&gt;Downloading jQuery from jQuery.com&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;filename&quot;&gt;index.html&lt;/p&gt;
@@ -1183,14 +1190,14 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/ae1cba58504fe03b9378bb6889ea1f96/4c1a3/jquery-version.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 56.360078277886494%; position: relative; bottom: 0; left: 0; background-image: url(&amp;#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABvUlEQVQoz5WRO2/UQBSF3UAdiJBANPwtCiCAFPFrQGQR0AMFRXqeQQgpNDQoQAHZ7Pi1sZ1d2+N5+DH2Hu7MakEgAuFKx3dm5Pv5nLG3dvUuLt26j3M37uHC5kNc3HyA9esjrF3bwvrGCGc3bN/C+Zsjtz91+Q5OH6MzV27D2373EU9e7OLRs108fv4eT3c+4PWejzefQ1KEHepWb7+E7uzlXoBXv+tT4M7tnNdpgdifII0DROyAeohOS5hGA5oDrQQasTyrFfrmp0wtqWtYBkwLW14/DGjaFkIqDAtiNK2ToY1WGuV8Bl6WaE2Ptuvo3ZXaX9ZtZ2BZnqXmeQ7m+1BVhanPME8TNEoiz1Kw8T5CNoEsCww08LdaLBZLoJISlRBQ8wwl+woe+6iSGKU/hkwiVDFDERygJ4erwT/JRbaPWmtwcqeLOcpgjOowgpylSzCtOd1vNQ0wGPMDeFwtHSpFDqUDFv4+DYeQRwl4OCFg6MBW/UmBmhzayHWZg0cMIp26+BYsskOKHzn9p0MBnc9QsG/gFE9kCcqVQ/qIVW+6kwGbpiaoRl1x9zPs/SmKb93JWQZB8a2G/t8OvwO6ciSaaf1oZwAAAABJRU5ErkJggg==&amp;#x27;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;jQuery past releases page&quot; title=&quot;Visit &amp;#x22;Past Releases&amp;#x22; to download an older version of jQuery&quot; src=&quot;/static/ae1cba58504fe03b9378bb6889ea1f96/799d3/jquery-version.png&quot; srcset=&quot;/static/ae1cba58504fe03b9378bb6889ea1f96/00d96/jquery-version.png 148w, /static/ae1cba58504fe03b9378bb6889ea1f96/0b23c/jquery-version.png 295w, /static/ae1cba58504fe03b9378bb6889ea1f96/799d3/jquery-version.png 590w, /static/ae1cba58504fe03b9378bb6889ea1f96/2a3d6/jquery-version.png 885w, /static/ae1cba58504fe03b9378bb6889ea1f96/4c1a3/jquery-version.png 1022w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;jQuery past releases page&quot; title=&quot;Visit &amp;#x22;Past Releases&amp;#x22; to download an older version of jQuery&quot; src=&quot;/static/ae1cba58504fe03b9378bb6889ea1f96/799d3/jquery-version.png&quot; srcset=&quot;/static/ae1cba58504fe03b9378bb6889ea1f96/00d96/jquery-version.png 148w, /static/ae1cba58504fe03b9378bb6889ea1f96/0b23c/jquery-version.png 295w, /static/ae1cba58504fe03b9378bb6889ea1f96/799d3/jquery-version.png 590w, /static/ae1cba58504fe03b9378bb6889ea1f96/2a3d6/jquery-version.png 885w, /static/ae1cba58504fe03b9378bb6889ea1f96/4c1a3/jquery-version.png 1022w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;figcaption&gt;Visit &quot;Past Releases&quot; to download an older version of jQuery&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;A “faster” alternative to this, is to get jQuery served from a CDN provider. &lt;a href=&quot;https://cdnjs.com/&quot;&gt;cdnjs.com&lt;/a&gt; is a site that catalogues the CDN url for different libraries. The CDN will serve the script faster to the user, because of their delivery network, as well as if multiple sites are using the same CDN url, the file will be cached by browser. And it is faster to “install”, as &lt;a href=&quot;https://cdnjs.com/&quot;&gt;cdnjs.com&lt;/a&gt; provides a one-click to “Copy as script tag”, all you only need to do is to paste it in to your &lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt; file.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/6f0e571a8df2f80dc6329502937f11cf/f0f69/cdnjs.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 39.1869918699187%; position: relative; bottom: 0; left: 0; background-image: url(&amp;#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABV0lEQVQoz31Ry07DMBDM//8DR46cQAIkJLghIS5cWrVNm6bpI2keTmwnaWLHg9e0hfbAyqNZWdmZWcerdhGklKAyxmAwwNBI6CqHrjm0rBwGXsA0An2RQh9aoOP2MBxYho6lMFo7DS8Ml9hEKxzaFv+VObJkHF9PbxgvBJI0xWa3g2zacyBPZAnC6RiT8Qi+P8NyGWA+97EMAgSLBWbTCWI7dBY2CvHnA5JRcmlofiy9ZL/HKlojiiKEYYgkiSE4R1PXqC3oOVqbfhgGaLuWtmyOmenOQalfwbJkbvja6W+RYGrXy7LMQUoOISSkEJBk3GsoKwq3sr1kjKEsS4dTT0xC9GHXdRfo+x49sdLux7CPF6hjDq8oCsRxfMZ2u7VrJ66nNDTsVr0CGWmbiATr90eozRxq7cPj9r3yPAcJE5MI9SecUrpUV1B6QFsWEK934M+3qO5v8A3x0GYDMtuMpAAAAABJRU5ErkJggg==&amp;#x27;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;cdnjs copy as script tag&quot; title=&quot;One click to &amp;#x22;Copy as script tag&amp;#x22;&quot; src=&quot;/static/6f0e571a8df2f80dc6329502937f11cf/799d3/cdnjs.png&quot; srcset=&quot;/static/6f0e571a8df2f80dc6329502937f11cf/00d96/cdnjs.png 148w, /static/6f0e571a8df2f80dc6329502937f11cf/0b23c/cdnjs.png 295w, /static/6f0e571a8df2f80dc6329502937f11cf/799d3/cdnjs.png 590w, /static/6f0e571a8df2f80dc6329502937f11cf/2a3d6/cdnjs.png 885w, /static/6f0e571a8df2f80dc6329502937f11cf/ae92f/cdnjs.png 1180w, /static/6f0e571a8df2f80dc6329502937f11cf/f0f69/cdnjs.png 2460w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;cdnjs copy as script tag&quot; title=&quot;One click to &amp;#x22;Copy as script tag&amp;#x22;&quot; src=&quot;/static/6f0e571a8df2f80dc6329502937f11cf/799d3/cdnjs.png&quot; srcset=&quot;/static/6f0e571a8df2f80dc6329502937f11cf/00d96/cdnjs.png 148w, /static/6f0e571a8df2f80dc6329502937f11cf/0b23c/cdnjs.png 295w, /static/6f0e571a8df2f80dc6329502937f11cf/799d3/cdnjs.png 590w, /static/6f0e571a8df2f80dc6329502937f11cf/2a3d6/cdnjs.png 885w, /static/6f0e571a8df2f80dc6329502937f11cf/ae92f/cdnjs.png 1180w, /static/6f0e571a8df2f80dc6329502937f11cf/f0f69/cdnjs.png 2460w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;figcaption&gt;One click to &quot;Copy as script tag&quot;&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;Parallelly in the &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; world, &lt;a href=&quot;http://npmjs.com&quot;&gt;npm&lt;/a&gt;, the Node.js Package Manager was created. With npm, it is much easier to install and maintain packages and their version, &lt;em&gt;(a “package” can be seen as a group of JavaScript modules and their description file)&lt;/em&gt;, for a Node.js project. All a developer need to do list out the dependencies and their version in &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; and run &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt;.&lt;/p&gt;
@@ -1225,6 +1232,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/b9f29e417a6ee27a6ccd9d1a6625ff3f/2a3d6/bower.png 885w,
 /static/b9f29e417a6ee27a6ccd9d1a6625ff3f/cff4d/bower.png 1006w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
@@ -1266,6 +1274,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/567d924485ecb578fc7d16ec7dbf9454/2a3d6/browserify.png 885w,
 /static/567d924485ecb578fc7d16ec7dbf9454/7c981/browserify.png 942w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
