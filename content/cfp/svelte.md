@@ -79,3 +79,28 @@ At the end of the talk, you will have a deeper appreciation of the tradeoffs tha
       - determine static/dynamic view in build time
       - more optimised output bundle
       - Weakness: not all assignment / mutation can be tracked in build time, hard to debug
+
+# Compile Svelte in your Head
+
+## v1
+
+Ever peek into the JS output of the Svelte REPL and wonder how each section of the output code works?
+
+In this talk, we are going to breakdown the Svelte compile output and investigate into how each of them works.
+
+At the end of the talk, you will get a deeper understanding of Svelte and be able to write a better Svelte component.
+
+## v2
+
+How does Svelte work? How is Svelte different from other modern frameworks?
+
+In this talk, we are going to talk a look at how Svelte compiles your code to tiny, framework-less vanilla JS.
+
+# The Svelte Compiler
+
+Have you ever wonder how does the Svelte compilation process works?
+Have you ever feeling curious and want to read Svelte source code but does not know where to start?
+
+This talk will give you an overview of the Svelte compilation process, from parsing the source code, analyse the code to generating final JavaScript code.
+
+At the end of the talk, you will get a deeper understanding of the Svelte compilation process.
