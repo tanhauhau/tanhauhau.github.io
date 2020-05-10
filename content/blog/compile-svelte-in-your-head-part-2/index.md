@@ -5,6 +5,8 @@ tag: Svelte, JavaScript
 series: Compile Svelte in your head
 ---
 
+**⬅ ⬅  Previously in [Part 1](/compile-svelte-in-your-head-part-1/).**
+
 [Previously](/compile-svelte-in-your-head-part-1/), when I mentioned the `$$invalidate` function, I explained that the `$$invalidate` function works conceptually like the following:
 
 ```js
@@ -811,6 +813,8 @@ If you wish to know more, [follow me on Twitter](https://twitter.com/lihautan).
 I'll post it on Twitter when the next part is ready, where I'll be covering [logic blocks](https://svelte.dev/tutorial/if-blocks), [slots](https://svelte.dev/tutorial/slots), [context](https://svelte.dev/tutorial/context-api), and many others.
 
 **⬅ ⬅  Previously in [Part 1](/compile-svelte-in-your-head-part-1/).**
+
+**➡ ➡  Continue reading on [Part 3](/compile-svelte-in-your-head-part-3/).**
 
 ## Further Resources
 - Rich Harris shares about [Bitmask Tracking at Svelte Society NYC](https://www.youtube.com/watch?v=zq6PpM5t3z0&t=2530s).
