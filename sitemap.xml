@@ -31,6 +31,7 @@
 <url> <loc>https://lihautan.com/git-gudder/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/javascript-modules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/css-code-splitting/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lihautan.com/contributing-to-svelte-fixing-issue-5012/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/retry-async-function-with-callback-promise/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/contributing-to-svelte-fixing-issue-4392/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/compile-svelte-in-your-head-part-3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -76,7 +77,6 @@
 <url> <loc>https://lihautan.com/read-the-source-code-of-your-node-modules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/implementing-feature-in-svelte/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/how-to-be-knowledgeable/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://lihautan.com/contributing-to-svelte-fixing-issue-5012/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/contributing-to-svelte-optional-chaining/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/compile-svelte-in-your-head-part-4/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lihautan.com/reactivity-in-web-frameworks-the-what/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
