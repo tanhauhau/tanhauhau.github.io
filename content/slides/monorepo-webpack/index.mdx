@@ -1,0 +1,924 @@
+# 🎒 Monorepo and our Webpack
+
+<div style="text-align: center">Mattermost: @tanlh | Twitter: @lihautan</div>
+
++++
+
+## 📅 Agenda
+
+- 📚 Recap on module resolution & installation
+- 📈 Our history with **Monorepo**
+- 🎒 Our Webpack
+
++++
+
+# 📚 Recap on module resolution & installation
+
++++
+
+## 📚 Recap on module resolution & installation
+
+<!-- To some of you, I may be stating the obvious, but bear with me. -->
+
+**Module Resolution**
+
+> is to figure out where 🤬 is your module you are importing
+
+```js
+// 🤔 where do I find `some-location`
+import someModule from 'some-location';
+```
+
+<!--
+
+This may sound like a no brainer
+
+-->
+
++++
+
+## 📚 Recap on module resolution & installation
+
+**Installation**
+
+> 👨‍⚕️ kinda reverse engineer of module resolution, and you can be innovative about it
+
+```js
+// 💡 I know how you would look for `some-location`, 
+// so where should I put it so you can find it?
+import someModule from 'some-location';
+```
+
++++
+
+## 🔎 Module Resolution
+
+<script>
+  import ResolveExample from '/components/ResolveExample.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ parent
+  - index.js
+  - sibling.js
+  + sibling
+    - niece.js
+- uncle.js
+  `;
+  const examples = [
+    { code: "require('./sibling.js')", target: "/parent/sibling.js" },
+    { code: "require('../uncle.js')", target: "/uncle.js" },
+    { code: "require('./sibling/niece.js')", target: "/parent/sibling/niece.js" },
+  ];
+</script>
+<ResolveExample {folder} {examples} />
+
++++
+
+## 🔎 Module Resolution
+
+<script>
+  import ResolveExample from '/components/ResolveExample.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ a
+  + node_modules
+    + aa
+      - index.js
+  + b
+    + node_modules
+      + bb
+        - index.js
+    + c
+      + node_modules
+        + cc
+          - index.js
+      + d
+        + node_modules
+          + dd
+            - index.js
+        - e.js
+  `;
+  const examples = [
+    { code: "require('aa')", target: "/a/node_modules/aa/index.js" },
+    { code: "require('bb')", target: "/a/b/node_modules/bb/index.js" },
+    { code: "require('cc')", target: "/a/b/c/node_modules/cc/index.js" },
+    { code: "require('dd')", target: "/a/b/c/d/node_modules/dd/index.js" },
+  ];
+</script>
+<ResolveExample {folder} {examples} />
+
++++
+
+## 🔎 Module Resolution
+
+<script>
+  import ResolveExample from '/components/ResolveExample.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ a
+  + node_modules
+    + bb
+      - index.js
+  + b
+    + node_modules
+      + bb
+        - index.js
+    + c
+      + node_modules
+        + bb
+          - index.js
+      + d
+        + node_modules
+          + dd
+            - index.js
+        - e.js
+  `;
+  const examples = [
+    { code: "require('bb')", target: "/a/b/c/node_modules/bb/index.js" },
+  ];
+</script>
+<ResolveExample {folder} {examples} />
+
++++
+
+## 📦 Modules
+
+<!-- When you are importing a JS file, you are importing a JS module -->
+
+A JS module has the following capabilities:
+- Able to export functionality
+- Able to import functionality from another module
+- ...and a few interesting quirks 🙈
+
++++
+
+## 📦 Modules
+
+> Module instance is a singleton
+
+```js
+require('a') === require('a');
+```
+
++++
+
+## 📦 Modules
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ d
+  - index.js
+  + packages
+    + a
+      + node_modules
+        - c.js
+      - index.js
+    + b
+      + node_modules
+        - c.js
+      - index.js
+`;
+</script>
+
+<Folder {folder} />
+
+```js
+// filename: /d/packages/a/index.js
+import c_from_a from 'c';
+ 
+// filename: /d/packages/b/index.js
+import c_from_b from 'c';
+
+c_from_a !== c_from_b;
+```
+
++++
+
+## 📦 Modules
+
+> **Module Instance** created based on the location of the resolved module, instead of the "import request"
+
++++
+
+## 📦 Modules
+
+<!-- knowing how resolving works, we can cheat -->
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ d
+  - index.js
+  + packages
+    + node_modules
+      - c.js
+    + a
+      - index.js
+    + b
+      - index.js
+`;
+</script>
+
+<Folder {folder} />
+
+```js
+// filename: /d/packages/a/index.js
+import c_from_a from 'c';
+ 
+// filename: /d/packages/b/index.js
+import c_from_b from 'c';
+
+c_from_a === c_from_b;
+```
+
++++
+
+## 🔗 Symlink
+
+```sh
+symbolink_link_1 --> actual/location/file
+```
+
++++
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ d
+  - index.js
+  + packages
+    - c.js
+    + a
+      + node_modules
+        - c.js --> ../../c.js
+      - index.js
+    + b
+      + node_modules
+        - c.js --> ../../c.js
+      - index.js
+`;
+</script>
+
+<Folder {folder} />
+
+```js
+// filename: /d/packages/a/index.js
+import c_from_a from 'c';
+ 
+// filename: /d/packages/b/index.js
+import c_from_b from 'c';
+
+c_from_a === c_from_b;
+```
+
++++
+
+## ♻ Installation
+
+> 👨‍⚕️ kinda reverse engineer of module resolution, and you can be innovative about it
+
++++
+
+![images](/node_modules.jpg)
+
++++
+
+```sh
+a -> b -> c -> d
+```
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ a
+  + node_modules
+    + b
+      + node_modules
+        + c
+          + node_modules
+            + d
+`;
+</script>
+
+<Folder {folder} />
+
+```sh
+a/node_modules/b/node_modules/c/node_modules/d
+```
+
+<!-- this is 46 characters long, imagine -->
+
++++
+
+![](/node_modules_2.png)
+
++++
+
+## 🙈 Impossible?
+
+<pre>
+semver -> cross-spawn -> execa -> sane -> jest-haste-map -> @jest/transform -> jest-runtime -> jest-jasmine2 -> jest-runner -> @jest/test-sequencer -> jest-config -> @jest/core
+</pre>
+
+<pre>
+/node_modules/@jest/core/node_modules/jest-config/node_modules/@jest/test-sequencer/node_modules/jest-runner/node_modules/jest-jasmine2/node_modules/jest-runtime/node_modules/@jest/transform/node_modules/jest-haste-map/node_modules/sane/node_modules/execa/node_modules/cross-spawn/node_modules/semver/node_modules
+</pre>
+
+313 characters
+
+<style>
+  pre {
+    white-space: break-spaces;
+  }
+  pre:nth-child(2) {
+    word-break: break-all;
+  }
+</style>
+
++++
+
+## ⤴ 🆙 Hoisting
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+</script>
+
+<div>
+<Folder folder={toFolder`
++ a
+  + node_modules
+    + b
+      - index.js
+      + node_modules
+        + c
+          - index.js
+          + node_modules
+            + d
+              - index.js
+`} />
+
+<Folder folder={toFolder`
++ a
+  + node_modules
+    + b
+      - index.js
+    + c
+      - index.js
+    + d
+      - index.js
+`} />
+</div>
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+</style>
++++
+
+# 📈 Our history with Monorepo
+
++++
+
+## 🏯 Monorepo
+
+> way of organising **clearly defined** packages within **1 git repository**
+
+**clearly defined**
+- explicitly defined dependencies
+  - using `package.json`
+- clear boundaries & interfaces
+  - no assumptions on the inner structure of the package 
+  <Notes note="like how you would for external dependencies" />
+
+<script>
+  import Notes from '/components/Notes.svelte';
+</script>
+
++++
+
+## 🏯 Monorepo
+
+We need tools to help us:
+- maintain dependencies
+- package management
+
+<Notes note="
+- when pkg a imports pkg b, need to understand how resolution works, use magicry to make sure that the pkg b you are importing is the one within the monorepo
+- run scripts across packages, that understands dependency relationship
+" />
+
+<script>
+  import Notes from '/components/Notes.svelte';
+</script>
+
++++
+
+## 🏯 Monorepo tooling available in Late 2018
+
+- lerna
+- yarn workspace
+
++++
+
+## ♻ Installation
+
+- lerna + npm
+- lerna + npm + `hoisting: true`
+- lerna + yarn
+- lerna + yarn workspace
+
+<Notes note="
+2 general idea
+- symlink
+- hoisting
+" />
+
+<script>
+  import Notes from '/components/Notes.svelte';
+</script>
+
++++
+
+## 🔗 Symlink
+
+<Folder {folder} />
+
+<script>
+  import Notes from '/components/Notes.svelte';
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ root
+  + packages
+    + pkg-a
+      + node_modules
+        - pkg-b --> ../../pkg-b
+      - index.js # import('pkg-b')
+    + pkg-b
+    + pkg-c
+      + node_modules
+        - pkg-a --> ../../pkg-a
+      - index.js # import('pkg-a')
+      - package.json # { "pkg-a": "1.0.0" }
+    + pkg-d
+      + node_modules
+        - pkg-a # v0.5.0
+      - index.js # import('pkg-a')
+      - package.json # { "pkg-a": "0.5.0" }
+`;
+</script>
+
++++
+
+## ⤴ 🆙 Hoisting
+
+<Folder {folder} />
+
+<script>
+  import Notes from '/components/Notes.svelte';
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ root
+  + node_modules
+    - pkg-a --> ../packages/pkg-a # v1.0.0
+    - pkg-b --> ../packages/pkg-b
+  + packages
+    + pkg-a #v1.0.0
+      - index.js # import('pkg-b')
+    + pkg-b
+    + pkg-c
+      - index.js # import('pkg-a')
+      - package.json # { "pkg-a": "1.0.0" }
+    + pkg-d
+      + node_modules
+        - pkg-a # v0.5.0
+      - index.js # import('pkg-a')
+      - package.json # { "pkg-a": "0.5.0" }
+`;
+</script>
+
++++
+
+## 🥅 Our goal
+
+- Clearly defined dependencies
+  - Package can be easily isolated and removed from the monorepo
+
+<Notes note="
+- organisational reasons, more ppl maintain, various location
+- unlike babel monorepo, where build tools are monorepo's dependencies, we want a bit extreme, that includes dev deps, such as jest, eslint, etc.
+" />
+
+<script>
+  import Notes from '/components/Notes.svelte';
+</script>
+
++++
+
+## 🥅 Our goal
+
+> We naively chose lerna + yarn 🙈
+
+<Notes note="
+3 main platform within the monorepo
+- PC
+- mobile
+- react-native
+back then, we dont have the foresight to see the possible pitfalls" />
+
+<Folder {folder} />
+
+<script>
+  import Notes from '/components/Notes.svelte';
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ shopee
+  + node_modules
+    - product-page --> ../../packages/product-page
+    - shop-page --> ../../packages/shop-page
+  - index.js
++ packages
+  + product-page
+    + node_modules
+      - shopee-common-1 --> ../../shopee-common-1
+      - shopee-common-2 --> ../../shopee-common-2
+    - index.js
+  + shop-page
+    + node_modules
+      - shopee-common-2 --> ../../shopee-common-2
+      - shopee-common-3 --> ../../shopee-common-3
+    - index.js
+  + shopee-common-1
+    + node_modules
+      - shopee-common-3 --> ../../shopee-common-3
+    - index.js
+  + shopee-common-2
+    - index.js
+  + shopee-common-3
+    - index.js
+`;
+</script>
+
++++
+
+# 🎒 Our Webpack
+
++++
+
+## webpack
+
+webpack's `enhanced-resolve` implements node resolution algorithm + niceties, eg:
+- alias
+- custom extensions
+- custom main field
+- custom module folder
+
++++
+
+# 🥺 That's all
+
++++
+
+# 🤬 You wish
+
++++
+
+## 🐛 Problem #1: Local Testing
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ shopee
+  + node_modules
+    - react
++ packages
+  + xxx-utils
+    - index.test.js # require('react') // 🤔??
+`;
+</script>
+
+<Folder {folder} />
+
++++
+
+## 🐛 Problem #1: Local Testing
+
+- `devDependencies`
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ shopee
+  + node_modules
+    - react
++ packages
+  + xxx-utils
+    + node_modules
+      - react
+    - index.test.js # devDependencies: react
+    - index.js
+`;
+</script>
+
+<Folder {folder} />
+
++++
+
+## 🐛 Solution #1: peerDependencies
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ shopee
+  + node_modules
+    - react
++ packages
+  + xxx-utils
+    + node_modules
+      - react
+    - index.test.js # devDependencies: react, peerDependencies: react
+    - index.js
+`;
+</script>
+
+<Folder {folder} />
+
++++
+
+## 🐛 Solution #1: if peer, skip dev dependencies 🙅‍♂️
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  const folder = toFolder`
++ shopee
+  + node_modules
+    - react
++ packages
+  + xxx-utils
+    + node_modules
+      - react # ⛔️
+    - index.test.js # devDependencies: react, peerDependencies: react
+    - index.js
+`;
+</script>
+
+<Folder {folder} />
+
+```js
+// filename: webpack.config.js
+
+module.exports = {
+  resolve: {
+    modules: [
+      'node_modules',
+      '/shopee/node_modules',
+    ],
+    plugins: [new IfPeerSkipDevDependencyPlugin()],
+  }
+}
+```
+
++++
+
+```js
+const path = require('path');
+const NAME = 'IfPeerSkipDevDependencyPlugin';
+class IfPeerSkipDevDependencyPlugin {
+  apply(resolver) {
+    resolver
+      .getHook('after-described-resolve')
+      .tapAsync(NAME, (request, resolveContext, callback) => {
+        if (
+          isResolvingWithinNodeModules(request) &&
+          isRequestInPeerDependenciesAndDevDependencies(request)
+        ) {
+          // early end the resolver
+          return callback(null, null);
+        }
+        // continue the resolver
+        callback();
+      });
+  }
+}
+
+function isResolvingWithinNodeModules(request) {
+  return (
+    request.request.startsWith('./') &&
+    request.relativePath === './node_modules'
+  );
+}
+
+function isRequestInPeerDependenciesAndDevDependencies(request) {
+  const peerDependencies = request.descriptionFileData.peerDependencies;
+  const key = request.request.replace(/^\.\//, '');
+  return peerDependencies && key in peerDependencies;
+}
+```
+
++++
+
+## 🐛 Problem #2: Problem #1 2.0 🤮
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  import Notes from '/components/Notes.svelte';
+  const folder = toFolder`
++ shopee
++ packages
+  + checkout-page
+    + node_modules
+      - payment-utils --> ../../payment-utils
+      - crypto-js
+  + payment-utils
+    - index.js # import 'crypto-js';
+`;
+</script>
+
+<Folder {folder} />
+
+```js
+// checkout-page/package.json
+{
+  "name": "checkout-page",
+  "dependencies": {
+    "crypto-js": "1.0.0",
+    "paymnent-utils": "1.0.0"
+  }
+}
+
+// payment-utils/package.json
+{
+  "name": "checkout-page",
+  "peerDependencies": {
+    "crypto-js": "1.0.0"
+  }  
+}
+```
+
+<Notes note="common scenario, like react-router uses react, but mark react as peer" />
+
++++
+
+## 🐛 Solution #2: `symlinks: false`
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  import Notes from '/components/Notes.svelte';
+  const folder = toFolder`
++ shopee
++ packages
+  + checkout-page
+    + node_modules
+      + payment-utils --> ../../payment-utils
+        - index.js # import 'crypto-js';
+      - crypto-js
+  + payment-utils
+    - index.js # import 'crypto-js';
+`;
+</script>
+
+<Folder {folder} />
+
+```js
+// filename: webpack.config.js
+
+module.exports = {
+  resolve: {
+    symlinks: false,
+    modules: [
+      'node_modules',
+      '/shopee/node_modules',
+    ],
+    plugins: [new IfPeerSkipDevDependencyPlugin()],
+  }
+}
+```
+
++++
+
+## 🐛 Solution #2: `symlinks: false`
+
+<script>
+  import Folder from '/components/Folder.svelte';
+  import toFolder from '/components/toFolder.js';
+  import Notes from '/components/Notes.svelte';
+  const folder = toFolder`
++ shopee
++ packages
+  + checkout-page
+    + node_modules
+      + payment-utils --> ../../payment-utils
+        - index.js # import 'crypto-js';
+      - crypto-js
+    - index.js
+  + payment-utils
+    - index.js # import 'crypto-js';
+  + order-page
+    + node_modules
+      + payment-utils --> ../../payment-utils
+        - index.js # import 'crypto-js';
+      - crypto-js
+    - index.js
+`;
+</script>
+
+<Folder {folder} />
+
++++
+
+## 🐛 Solution #2: `symlinks: false`
+
+```js
+if (moduleA.identifier() !== moduleB.identifier()) {
+  // ...
+}
+```
+
++++
+
+## 🐛 Solution #2: SymlinkAwarePlugin
+
+```js
+module.exports = {
+  resolve: {
+    symlinks: false,
+    modules: [
+      'node_modules',
+      '/shopee/node_modules',
+    ],
+    plugins: [new IfPeerSkipDevDependencyPlugin()],
+  },
+  plugins: [new SymlinkAwarePlugin()]
+}
+```
+
+```js
+class SymlinkAwarePlugin {
+  apply(compiler) {
+    compiler.hooks.normalModuleFactory.tap(PLUGIN_NAME, normalModuleFactory => {
+      normalModuleFactory.hooks.afterResolve.tapAsync(
+        PLUGIN_NAME,
+        async (data, callback) => {
+          // find the actual location from the symlink
+          data.__actualLocation = await getActualLocation(data.resource);
+          callback(null, data);
+        }
+      );
+      normalModuleFactory.hooks.createModule.tap(PLUGIN_NAME, data => {
+        return new SymlinkNormalModule(data);
+      });
+    });
+  }
+}
+
+class SymlinkNormalModule extends NormalModule {
+  constructor(data) {
+    super(data);
+    this.actualLocation = data.__actualLocation;
+  }
+  identifier() {
+    // return actual location instead of symlink location
+    return this.actualLocation;
+    // return this.resource;
+  }
+}
+```
+
++++
+
+# ...More problems? 🙈
+
++++
+
+# Learnings 📕
+
++++
+
+## Yarn v2 is here 🥰
+
+- Focused install `yarn workspace focus`
+- `yarn workspace foreach --topological run build`
+
++++
+
+# Frontend is always changing, always keep a lookout
+
++++
+
+# Thank you
