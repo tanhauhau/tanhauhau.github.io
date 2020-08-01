@@ -18,7 +18,7 @@ const OUTPUT_FOLDER = path.join(__dirname, '../docs');
 const LAYOUT_FOLDER = path.join(__dirname, '../src/layout');
 const ROUTES_FOLDER = path.join(__dirname, '../src/routes');
 const DEFAULT_LAYOUT = 'blog';
-const HOSTNAME = 'http://127.0.0.1:8080/';
+const HOSTNAME = 'https://lihautan.com/';
 
 (async () => {
   // cleanup
