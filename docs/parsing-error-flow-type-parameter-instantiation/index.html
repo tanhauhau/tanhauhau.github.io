@@ -218,6 +218,14 @@ foobar<span class="token operator">&lt;</span><span class="token maybe-class-nam
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./b41e97fb.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

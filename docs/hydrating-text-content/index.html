@@ -317,6 +317,14 @@ The section above is entirely based on my understanding by reading the <a href="
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./bf9de369.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

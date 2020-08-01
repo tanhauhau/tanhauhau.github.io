@@ -180,6 +180,14 @@ NOTE: copy code from EachBlock, since they lookalike</p>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./e5fa6836.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

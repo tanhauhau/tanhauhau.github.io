@@ -64,6 +64,14 @@
       <li class="svelte-1syr2sj">🎹 I play piano and played <a href="https://en.wikipedia.org/wiki/Pipa">pipa</a> in a Chinese Orchestra during highschool.</li></ol></div>
 </main><script src="./about-route.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

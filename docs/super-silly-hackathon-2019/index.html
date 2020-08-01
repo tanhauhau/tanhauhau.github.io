@@ -483,6 +483,14 @@ fs<span class="token punctuation">.</span><span class="token method function pro
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./6d5d10eb.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

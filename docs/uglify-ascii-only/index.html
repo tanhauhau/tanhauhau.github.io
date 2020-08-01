@@ -119,6 +119,14 @@ module<span class="token punctuation">.</span><span class="token property-access
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./4371b4a2.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

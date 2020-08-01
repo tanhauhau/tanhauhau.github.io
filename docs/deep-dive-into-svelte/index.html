@@ -416,6 +416,14 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./b24f9219.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

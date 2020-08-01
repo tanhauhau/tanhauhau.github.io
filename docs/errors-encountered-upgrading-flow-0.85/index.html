@@ -129,6 +129,14 @@ Expect your requests to be faster, and your requests to take a bit less time.</p
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./8f3df72b.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

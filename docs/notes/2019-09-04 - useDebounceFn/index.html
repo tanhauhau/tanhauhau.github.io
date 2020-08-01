@@ -100,6 +100,14 @@ export default function useDebounceFn&lt;T extends (...args: any) =&gt; void&gt;
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./53b0f25c.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

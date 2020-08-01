@@ -76,6 +76,14 @@ lastly sepcify output file</p>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./f5401a7d.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

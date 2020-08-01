@@ -293,6 +293,14 @@ tutorial<span class="token punctuation">.</span><span class="token property-acce
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./4b527d7f.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

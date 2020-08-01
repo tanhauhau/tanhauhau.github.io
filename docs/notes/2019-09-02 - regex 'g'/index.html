@@ -68,6 +68,14 @@ I was tripped by <a href="https://stackoverflow.com/questions/15276873/is-javasc
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./8a6e8c9c.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

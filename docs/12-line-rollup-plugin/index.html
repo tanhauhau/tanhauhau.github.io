@@ -183,6 +183,14 @@ module<span class="token punctuation">.</span><span class="token function-variab
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./85ac5ac1.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>

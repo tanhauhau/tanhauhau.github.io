@@ -383,6 +383,14 @@
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./22bc0e3b.js" async></script></div>
   
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>
