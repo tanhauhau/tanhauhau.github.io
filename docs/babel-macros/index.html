@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Babel macros | Tan Li Hau</title><link href="http://127.0.0.1:8080/babel-macros/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" content="Custom JavaScript syntax is hard to maintain, custom babel transform plugin is no better. That&#39;s why we need Babel macros." data-svelte="svelte-1k4ncsr"><meta name="image" content="http://127.0.0.1:8080/babel-macros/assets/hero-twitter-d84d5f7e.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:image" content="http://127.0.0.1:8080/babel-macros/assets/hero-twitter-d84d5f7e.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="Babel macros" data-svelte="svelte-1k4ncsr"><meta name="og:description" content="Custom JavaScript syntax is hard to maintain, custom babel transform plugin is no better. That&#39;s why we need Babel macros." data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="Babel macros" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" content="Custom JavaScript syntax is hard to maintain, custom babel transform plugin is no better. That&#39;s why we need Babel macros." data-svelte="svelte-1k4ncsr"><meta name="twitter:image" content="http://127.0.0.1:8080/babel-macros/assets/hero-twitter-d84d5f7e.jpg" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="JavaScript" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="babel" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="ast" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="transform" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fbabel-macros" data-svelte="svelte-1k4ncsr"><meta itemprop="image" content="http://127.0.0.1:8080/babel-macros/assets/hero-twitter-d84d5f7e.jpg" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Custom JavaScript syntax is hard to maintain, custom babel transform plugin is no better. That's why we need Babel macros.","headline":"Babel macros","name":"Babel macros","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fbabel-macros","name":"Babel macros"},"position":2}]}</script><link as="script" rel="preload" href="./d6e1d476.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./d6e1d476.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./d6e1d476.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>Babel macros</h1>
+  
+  <span class="svelte-2w4dum">JavaScript</span><span class="svelte-2w4dum">babel</span><span class="svelte-2w4dum">ast</span><span class="svelte-2w4dum">transform</span>
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#motivation">Motivation</a></li><ul><li><a href="#documentation-and-community-support">Documentation and community support</a></li><li><a href="#tooling">Tooling</a></li><li><a href="#maintainability">Maintainability</a></li><li><a href="#consistency-of-the-syntax">Consistency of the syntax</a></li></ul><li><a href="#compile-time-vs-runtime">Compile-time vs Runtime</a></li><li><a href="#babel-macros">Babel macros</a></li><ul><li><a href="#so-what-is-babel-macros-again">So what is Babel macros again?</a></li></ul><li><a href="#how-to-write-babel-macros">How to write Babel macros</a></li><ul><li><a href="#mock-macro">mock.macro</a></li></ul><li><a href="#summary">Summary</a></li><li><a href="#further-reading">Further Reading</a></li></ul></section>
+<p>In this article, I am going to talk about Babel macros.</p>
+<section><h2><a href="#motivation" id="motivation">Motivation</a></h2>
+<p>In my previous post, <a href="/creating-custom-javascript-syntax-with-babel">&quot;Creating custom JavaScript syntax with Babel&quot;</a>, I&#39;ve shown you detailed steps on how you can create a custom syntax and write transform plugin or polyfills so that the syntax can be run in browsers today.</p>
+<p>However, it is purely educational, and I am not recommending you to create your custom JavaScript syntax for production projects for several reasons:</p></section>
+<section><h3><a href="#documentation-and-community-support" id="documentation-and-community-support">Documentation and community support</a></h3>
+<p>If anything goes wrong, the great JavaScript community out there has no idea what is the <code>@@</code> (<a href="/creating-custom-javascript-syntax-with-babel#overview">the curry function syntax we created previously</a>) means. Meaning the support that a new developer to the team can get is only as good as your documentation.</p></section>
+<section><h3><a href="#tooling" id="tooling">Tooling</a></h3>
+<p>You need to make all the tooling you use to work. I mean eslint, prettier, Flowtype/TypeScript, your editor...</p></section>
+<section><h3><a href="#maintainability" id="maintainability">Maintainability</a></h3>
+<p>If the forked version has a bug, do you have enough support to fix it?
+If the babel upstream fixed a bug or added a feature, how often do you merge the upstream into your fork?</p></section>
+<section><h3><a href="#consistency-of-the-syntax" id="consistency-of-the-syntax">Consistency of the syntax</a></h3>
+<p>This is the hardest part of creating a new syntax. An added syntax is an added mental concept for the language users, so the new mental model should be transferable to every scenario of the language.</p>
+<p>Take our <code>@@</code> syntax, for example, if it works for a normal function declaration, it&#39;s expected to work for anonymous functions, arrow functions, class methods. Have you thought about how it would work with generator functions and async functions? If a curried function returns another function, does that make the returned function curried as well?</p></section>
+<section><h2><a href="#compile-time-vs-runtime" id="compile-time-vs-runtime">Compile-time vs Runtime</a></h2>
+<p>I think you get my point. But the idea of having a magical syntax that keeps the code elegant and short is enticing.</p>
+<p>Take <a href="https://v8.dev/features/optional-chaining" rel="nofollow">optional chaining</a> for example, before having the optional chaining operator <code>?.</code>, we had a few ways to write <code>props?.user?.friends?.[0]?.friend</code>, which is:</p>
+<p><strong>a mundane to write, not easy to read (less intentional), but most efficient possible:</strong></p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> firstFriend <span class="token operator">=</span>
+  props<span class="token punctuation">.</span>user <span class="token operator">&amp;&amp;</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends <span class="token operator">&amp;&amp;</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token operator">?</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>friend
+    <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token comment">// or with ternary</span>
+<span class="token keyword">const</span> firstFriend <span class="token operator">=</span> props
+  <span class="token operator">?</span> props<span class="token punctuation">.</span>user
+    <span class="token operator">?</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends
+      <span class="token operator">?</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends
+        <span class="token operator">?</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+          <span class="token operator">?</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>friend
+          <span class="token punctuation">:</span> <span class="token keyword">null</span>
+        <span class="token punctuation">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">:</span> <span class="token keyword">null</span>
+  <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span></code></pre>
+<p><strong>easy to write, easy to read, but with slightly more runtime overhead:</strong></p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> firstFriend <span class="token operator">=</span> <span class="token function">idx</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> <span class="token parameter">_</span> <span class="token operator">=></span> _<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>friend<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">idx</span><span class="token punctuation">(</span><span class="token parameter">input<span class="token punctuation">,</span> accessor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">accessor</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<blockquote><b>Note:</b> I&#39;ve tried to search online whether a `try-catch` is more expensive, however the <a href="https://stackoverflow.com/questions/19727905/in-javascript-is-it-expensive-to-use-try-catch-blocks-even-if-an-exception-is-n">search result</a> <a href="https://news.ycombinator.com/item?id=3922963">is not</a> <a href="https://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">conclusive</a>. <a href="https://twitter.com/lihautan">Let me know</a> if you have a conclusive research on this.
+</blockquote>
+<p>Is there a third option that is <strong>easy to read and write, yet without the try-catch runtime overhead?</strong></p>
+<p>Well, if you look at the <a href="https://github.com/facebookincubator/idx" rel="nofollow"><code>facebookincubator/idx</code></a> library, it uses a <a href="https://github.com/facebookincubator/idx#babel-plugin" rel="nofollow">Babel plugin</a> to search through require or imports of <code>idx</code> and replaces all its usages, for example when you write:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">import</span> idx <span class="token keyword">from</span> <span class="token string">'idx'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">getFriends</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token function">idx</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> <span class="token parameter">_</span> <span class="token operator">=></span> _<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>friends<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>it gets transformed into:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">getFriends</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> props<span class="token punctuation">.</span>user <span class="token operator">==</span> <span class="token keyword">null</span>
+    <span class="token operator">?</span> props<span class="token punctuation">.</span>user
+    <span class="token punctuation">:</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends <span class="token operator">==</span> <span class="token keyword">null</span>
+    <span class="token operator">?</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends
+    <span class="token punctuation">:</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span>
+    <span class="token operator">?</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token punctuation">:</span> props<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>friends<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>So your code is easy to read, and no runtime overhead. You get the best of both worlds!</p>
+<p>Though nothing is perfect. Here, I wanted to point out some of my personal opinions about this approach:</p>
+<blockquote><p>While maintaining a good developer experience (DX), we&#39;ve shifted the runtime overhead to compile time.</p></blockquote>
+<p>You can keep the way you wanted to write the code while having the compiler to transform the code to something you are <em>&quot;supposed&quot;</em> to write.</p>
+<p>A win-win solution.</p>
+<p><strong>How do we apply this technique to other similar situations?</strong></p>
+<p>First, you need to <a href="/step-by-step-guide-for-writing-a-babel-transformation">write a Babel plugin</a>.</p>
+<p>Secondly, you need a <strong>marker</strong> to target the transformation.</p>
+<p>In this example, the default import from the <code>&quot;idx&quot;</code> module is the <strong>marker</strong>, all the usage of the default import would be transformed by the Babel plugin.</p>
+<p>Thirdly, you need to update your babel configuration. For every new plugin, <strong>you need to add them in</strong>; <strong>you need to make sure the order of plugin is correct</strong>.</p>
+<p><strong>What if there&#39;s a bug in the Babel plugin?</strong></p>
+<p>This would be the most confusing part for the new developers on the codebase.</p>
+<p>In this example, if the <code>idx</code> function has a bug, it is natural for developers to dig into the source code of <code>idx</code>. However, <code>&quot;idx&quot;</code> is nothing but a <strong>marker</strong> for the <code>babel-plugin-idx</code> to transform away. So if there&#39;s any bug, it should be inside <code>babel-plugin-idx</code> instead of <code>idx</code>.</p>
+<p>Besides, the bug may be due to the configuration of the Babel plugin instead of the code logic itself. However if you change the configuration, it could affect all the usages of the <code>idx</code> function, because <strong>babel configuration is global</strong>.</p>
+<hr>
+<p>To summarise, I think that this solution is a win-win for DX vs User Experience (UX), however, if we can make the transform plugin more accessible to all developers, eg: without having to update babel configuration for every new transform plugin, easier to debug, and a localized configuration.</p>
+<p>Well, you are looking at <a href="https://github.com/kentcdodds/babel-plugin-macros" rel="nofollow">babel macros</a>. 👀</p></section>
+<section><h2><a href="#babel-macros" id="babel-macros">Babel macros</a></h2>
+<p>So, here&#39;s how it would look like with babel macro:</p>
+<p><strong>You add <code>babel-plugin-macro</code> to babel config</strong></p>
+<p>And that&#39;s all the change you need for babel configuration.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: babel.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'babel-plugin-macros'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+<p><strong>You write your own macro</strong></p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: src/utils/idx.macro.js</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> createMacro <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'babel-plugin-macros'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">createMacro</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> state<span class="token punctuation">,</span> references <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  references<span class="token punctuation">.</span>default<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">referencePath</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">idx_transform</span><span class="token punctuation">(</span>referencePath<span class="token punctuation">.</span>parentPath<span class="token punctuation">,</span> state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>We&#39;ll talk about the code later, one thing to take away here is that your filename has to end with <code>.macro</code> or <code>.macro.js</code>.</p>
+<p><strong>Use it</strong></p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: src/index.js</span>
+<span class="token keyword">import</span> idx <span class="token keyword">from</span> <span class="token string">'./utils/idx.macro'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">getFriends</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token function">idx</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> <span class="token parameter">_</span> <span class="token operator">=></span> _<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>friends<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>As you can see here, if there&#39;s something wrong about <code>idx</code>, the user would know which file exactly to look at.</p>
+<p>You don&#39;t get the disconnection between the module <code>idx</code> and the plugin <code>babel-plugin-idx</code>.</p>
+<p>Besides, if you want to modify configuration, say for this usage, you can do it easily:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: src/index.js</span>
+<span class="token keyword">import</span> idx <span class="token keyword">from</span> <span class="token string">'./utils/idx.macro'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">getFriends</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token keyword">return</span> <span class="token function">idx</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> <span class="token parameter">_</span> <span class="token operator">=></span> _<span class="token punctuation">.</span>user<span class="token punctuation">.</span>friends<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>friends<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> strict<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Simple and explicit. Isn&#39;t that great?</p></section>
+<section><h3><a href="#so-what-is-babel-macros-again" id="so-what-is-babel-macros-again">So what is Babel macros again?</a></h3>
+<p><strong>Babel macros</strong> is a concept from the <a href="https://github.com/kentcdodds/babel-plugin-macros" rel="nofollow"><code>babel-plugin-macros</code></a>, which defines the standard interface between compile-time code transformation and your runtime code.</p>
+<p>In compile-time, <code>babel-plugin-macros</code> will look for all <code>import</code> or <code>require</code> from modules ends with <code>.macro</code>, finds all references of the imported variables, and passes them to the <code>.macro</code> file to transform them.</p>
+<p>The imported variables are not restricted to be a function, it can be a variable, a type from type system (Flow / TypeScript).</p>
+<p>If it is a default export, you can name it any way you like, if it is a named export, you can reassign to another variable name too.</p>
+<p>Cool, so how can I write my Babel macros?</p></section>
+<section><h2><a href="#how-to-write-babel-macros" id="how-to-write-babel-macros">How to write Babel macros</a></h2>
+<p><a href="http://kentcdodds.com" rel="nofollow">Kent C Dodds</a> has written <a href="https://github.com/kentcdodds/babel-plugin-macros/blob/master/other/docs/author.md" rel="nofollow">a fantastic guide for macro authors</a>.</p>
+<p>Please go read it.</p>
+<p>If you insist to stay, I am going to show you how I wrote my Babel macros, in particular, the <a href="https://www.npmjs.com/package/mock.macro" rel="nofollow">mock.macro</a>. And hopefully, along the way, you learned how to write your Babel macros as well.</p></section>
+<section><h3><a href="#mock-macro" id="mock-macro">mock.macro</a></h3>
+<p><strong>Motivation</strong></p>
+<p>Usually, when working with a backend developer on a frontend application, I would use static type to define the API schema. For example, a user api would look like this:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span>
+  <span class="token parameter">userId<span class="token punctuation">:</span> number</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Response<span class="token operator">&lt;</span><span class="token punctuation">&#123;</span>
+  id<span class="token punctuation">:</span> number<span class="token punctuation">,</span>
+  username<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  email<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  address<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token operator">></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></code></pre>
+<p>However while waiting for the backend developer to develop the API, I would have to use mock data for development:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span><span class="token parameter">userId<span class="token punctuation">:</span> number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Response<span class="token operator">&lt;</span><span class="token punctuation">&#123;</span> <span class="token operator">...</span> <span class="token punctuation">&#125;</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-start</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    username<span class="token punctuation">:</span> <span class="token string">'tanhauhau'</span><span class="token punctuation">,</span>
+    email<span class="token punctuation">:</span> <span class="token string">'tanhauhau@foo.bar'</span><span class="token punctuation">,</span>
+    address<span class="token punctuation">:</span> <span class="token string">'123 Bar Street, Foo'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token comment">// highlight-end</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>And along the way, due to unforeseen circumstances and lack of foresight, the response schema of the API was changed multiple times:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span>
+  <span class="token parameter">userId<span class="token punctuation">:</span> number</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Response<span class="token operator">&lt;</span><span class="token punctuation">&#123;</span>
+  id<span class="token punctuation">:</span> number<span class="token punctuation">,</span>
+  username<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  email<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  address<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  <span class="token comment">// highlight-next-line</span>
+  contact<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    username<span class="token punctuation">:</span> <span class="token string">'tanhauhau'</span><span class="token punctuation">,</span>
+    email<span class="token punctuation">:</span> <span class="token string">'tanhauhau@foo.bar'</span><span class="token punctuation">,</span>
+    address<span class="token punctuation">:</span> <span class="token string">'123 Bar Street, Foo'</span><span class="token punctuation">,</span>
+    <span class="token comment">// highlight-next-line</span>
+    contact<span class="token punctuation">:</span> <span class="token string">'0123456789'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Here you see I need to update both the type definition as well as the mock data. This reminds me of <a href="https://babel-blade.netlify.com/docs/declarationdeclaration" rel="nofollow">the double declaration problem</a> coined by <a href="https://twitter.com/swyx" rel="nofollow">@swyx</a> <a href="https://www.youtube.com/watch?v=1WNT5RCENfo" rel="nofollow">in his talk</a>. Which means that this could potentially be solved with Babel macros.</p>
+<p>So in my head, I imagined with Babel macros, I could write:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">import</span> type <span class="token punctuation">&#123;</span> MockResponse <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./mock.macro'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span>
+  <span class="token parameter">userId<span class="token punctuation">:</span> number</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> MockResponse<span class="token operator">&lt;</span><span class="token punctuation">&#123;</span>
+  id<span class="token punctuation">:</span> number<span class="token punctuation">,</span>
+  username<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  email<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  address<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  contact<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// TODO:</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>and when I call the function <code>fetchUser</code>, I would get my mock response in return.</p>
+<p><strong>Implementing mock.macro</strong></p>
+<p>Implementing mock.macro requires some basic knowledge about Abstract Syntax Tree (AST) and writing babel transformation, you can check out <a href="/step-by-step-guide-for-writing-a-babel-transformation">the step-by-step guide I&#39;ve written previously</a>.</p>
+<p>Implementing Babel macros is quite easy, the api from the <code>babel-plugin-macros</code> is pretty straightforward, all you need is to provide a default export to your macro file:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: mock.macro.js</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> createMacro <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'babel-plugin-macros'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">createMacro</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> references<span class="token punctuation">,</span> state<span class="token punctuation">,</span> babel <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// TODO:</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code>createMacro</code> takes in a callback function, which is executed when someone imports this macro file. It provides:</p>
+<ul><li><strong>references</strong></li></ul>
+<p>All the reference that was imported from the macro file.</p>
+<p>For example:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">import</span> foo<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> bar <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./foobar.macro'</span><span class="token punctuation">;</span></code></pre>
+<p>will give you an object, with the import name as the <code>key</code>, and array of paths as the <code>value</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token punctuation">&#123;</span>
+  <span class="token string">"default"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"bar"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Inside the array, you can get all paths where the imported names are referenced. For example:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">import</span> foo <span class="token keyword">from</span> <span class="token string">'./foobar.macro.js'</span><span class="token punctuation">;</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token comment">// &lt;-- referenced &#96;foo&#96;</span>
+
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> foo <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// &lt;-- referenced &#96;foo&#96;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">baz</span><span class="token punctuation">(</span><span class="token parameter">foo</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> foo <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// &lt;-- not referencing &#96;foo&#96;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// &#96;references&#96;:</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token string">"default"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    Path<span class="token punctuation">,</span> <span class="token comment">// foo in foo('a')</span>
+    Path<span class="token punctuation">,</span> <span class="token comment">// foo in foo + 1</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<ul><li><strong>state</strong></li></ul>
+<p>It gives you the current state of the file being traversed.</p>
+<p>So, in this example, I need to transform all the references of <code>MockResponse</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: mock.macro.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">createMacro</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> references<span class="token punctuation">,</span> state<span class="token punctuation">,</span> babel <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-start</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>references<span class="token punctuation">.</span>MockResponse<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// TODO:</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// highlight-end</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Next, I need to figure out how the transformed code would look like:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">import</span> faker <span class="token keyword">from</span> <span class="token string">'faker'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span><span class="token parameter">userId</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    id<span class="token punctuation">:</span> faker<span class="token punctuation">.</span>random<span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    username<span class="token punctuation">:</span> faker<span class="token punctuation">.</span>random<span class="token punctuation">.</span><span class="token function">word</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    email<span class="token punctuation">:</span> faker<span class="token punctuation">.</span>random<span class="token punctuation">.</span><span class="token function">word</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    address<span class="token punctuation">:</span> faker<span class="token punctuation">.</span>random<span class="token punctuation">.</span><span class="token function">word</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    contact<span class="token punctuation">:</span> faker<span class="token punctuation">.</span>random<span class="token punctuation">.</span><span class="token function">word</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>I decided to use <a href="https://github.com/marak/Faker.js/" rel="nofollow">faker.js</a> as the random data generator.</p>
+<p>So I have to import <code>faker</code> at the top of the file:</p>
+<pre class="language-js">
+<code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">createMacro</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> references<span class="token punctuation">,</span> state<span class="token punctuation">,</span> babel <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>references<span class="token punctuation">.</span>MockResponse<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// highlight-start</span>
+    <span class="token keyword">const</span> fakerIdentifier <span class="token operator">=</span> state<span class="token punctuation">.</span>file<span class="token punctuation">.</span>path<span class="token punctuation">.</span>scope<span class="token punctuation">.</span><span class="token function">generateUidIdentifier</span><span class="token punctuation">(</span>
+      <span class="token string">'faker'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> importStatement <span class="token operator">=</span> babel<span class="token punctuation">.</span><span class="token function">template</span><span class="token punctuation">(</span><span class="token string">"import %%FAKER%% from 'faker'"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token constant">FAKER</span><span class="token punctuation">:</span> fakerIdentifier<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    state<span class="token punctuation">.</span>file<span class="token punctuation">.</span>path<span class="token punctuation">.</span><span class="token function">unshiftContainer</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">,</span> importStatement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-end</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Next, for each references of <code>MockRespone</code>, I need to find the <code>FunctionDeclaration</code> that it belongs to, and insert a <code>ReturnStatement</code> into the top of the function body:</p>
+<pre class="language-js">
+<code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">createMacro</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> references<span class="token punctuation">,</span> state<span class="token punctuation">,</span> babel <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>references<span class="token punctuation">.</span>MockResponse<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ... inserting &#96;import faker from 'faker'&#96;</span>
+
+    <span class="token comment">// highlight-start</span>
+    references<span class="token punctuation">.</span>MockResponse<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">reference</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> functionDeclaration <span class="token operator">=</span> reference<span class="token punctuation">.</span><span class="token function">getFunctionParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> typeDef <span class="token operator">=</span> reference<span class="token punctuation">.</span>parentPath<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'typeParameters.params.0'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>node<span class="token punctuation">;</span>
+      functionDeclaration
+        <span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">unshiftContainer</span><span class="token punctuation">(</span>
+          <span class="token string">'body'</span><span class="token punctuation">,</span>
+          babel<span class="token punctuation">.</span>types<span class="token punctuation">.</span><span class="token function">returnStatement</span><span class="token punctuation">(</span>
+            <span class="token function">generateFakerCode</span><span class="token punctuation">(</span>fakerIdentifier<span class="token punctuation">,</span> typeDef<span class="token punctuation">)</span>
+          <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-end</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>In the <code>generateFakerCode</code>, I&#39;ll generate a AST node based on the node type of the <code>typeDef</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">generateFakerCode</span><span class="token punctuation">(</span><span class="token parameter">fakerIdentifier<span class="token punctuation">,</span> typeDef</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>typeDef<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token string">'ObjectTypeAnnotation'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> babel<span class="token punctuation">.</span>types<span class="token punctuation">.</span><span class="token function">objectExpression</span><span class="token punctuation">(</span>
+        typeDef<span class="token punctuation">.</span>properties<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">property</span> <span class="token operator">=></span>
+          babel<span class="token punctuation">.</span>types<span class="token punctuation">.</span><span class="token function">objectProperty</span><span class="token punctuation">(</span>
+            babel<span class="token punctuation">.</span>types<span class="token punctuation">.</span><span class="token function">identifier</span><span class="token punctuation">(</span>property<span class="token punctuation">.</span>key<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">generateFakerCode</span><span class="token punctuation">(</span>fakerIdentifier<span class="token punctuation">,</span> property<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+          <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'NumberTypeAnnotation'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> babel<span class="token punctuation">.</span><span class="token function">expression</span><span class="token punctuation">(</span><span class="token string">'%%FAKER%%.random.number()'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token constant">FAKER</span><span class="token punctuation">:</span> fakerIdentifier<span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'StringTypeAnnotation'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> babel<span class="token punctuation">.</span><span class="token function">expression</span><span class="token punctuation">(</span><span class="token string">'%%FAKER%%.random.word()'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token constant">FAKER</span><span class="token punctuation">:</span> fakerIdentifier<span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'BooleanTypeAnnotation'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> babel<span class="token punctuation">.</span><span class="token function">expression</span><span class="token punctuation">(</span><span class="token string">'%%FAKER%%.random.boolean()'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token constant">FAKER</span><span class="token punctuation">:</span> fakerIdentifier<span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">MacroError</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Unknown type definition: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>typeDef<span class="token punctuation">.</span>type<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>That&#39;s it! A generated mock function via type definition using Babel macros.</p>
+<p>One last thing, what happens when the API is ready, and you want to disable the mocking behavior?</p>
+<p>We can read the 2nd parameter of the <code>MockResponse</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchUser</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span> MockResponse<span class="token operator">&lt;</span><span class="token comment">/*...*/</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token operator">></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></code></pre>
+<p>If the 2nd parameter is <code>false</code>, we disable the mocking behavior:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: mock.macro.js</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> createMacro <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'babel-plugin-macros'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">createMacro</span><span class="token punctuation">(</span>
+  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> references<span class="token punctuation">,</span> state<span class="token punctuation">,</span> babel<span class="token punctuation">,</span> config <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    references<span class="token punctuation">.</span>MockResponse<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">reference</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> functionDeclaration <span class="token operator">=</span> reference<span class="token punctuation">.</span><span class="token function">getFunctionParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> typeDef <span class="token operator">=</span> reference<span class="token punctuation">.</span>parentPath<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'typeParameters.params.0'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>node<span class="token punctuation">;</span>
+
+      <span class="token comment">// highlight-start</span>
+      <span class="token comment">// if the 2nd argument present and it is 'false', disable mocking</span>
+      <span class="token keyword">const</span> secondParam <span class="token operator">=</span> reference<span class="token punctuation">.</span>parentPath<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'typeParameters.params.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>secondParam <span class="token operator">&amp;&amp;</span> secondParam<span class="token punctuation">.</span><span class="token function">isBooleanLiteralTypeAnnotation</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> value<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token comment">// highlight-end</span>
+      <span class="token comment">// ...insert return statement</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote><p>You can find the full code from <a href="https://github.com/tanhauhau/mock.macro" rel="nofollow">Github</a>.</p></blockquote></section>
+<section><h2><a href="#summary" id="summary">Summary</a></h2>
+<p>Sometimes, it is more efficient to move runtime abstraction and complexity to compile time. However, developing and maintaining a babel plugin for each of them may be difficult to maintain and debug, as there&#39;s a gap between the code written and build time plugin, eg: <code>idx</code> and <code>babel-plugin-idx</code>.</p>
+<p><code>babel-plugin-macros</code> solves this by allow users to import <code>.macro</code> files directly into the codebase. The explicit import bridges the gap between build-time and runtime and allows the user to develop and debug their macro easily.</p></section>
+<section><h2><a href="#further-reading" id="further-reading">Further Reading</a></h2>
+<ul><li><a href="https://github.com/kentcdodds/babel-plugin-macros" rel="nofollow">babel-plugin-macros</a> by <a href="https://twitter.com/kentcdodds/" rel="nofollow">Kent C. Dodds</a></li>
+<li><a href="https://www.youtube.com/watch?v=1WNT5RCENfo" rel="nofollow">I Can Babel Macros (and So Can You!)</a> by <a href="https://twitter.com/swyx" rel="nofollow">Shawn Wang</a></li>
+<li><a href="https://github.com/kentcdodds/babel-plugin-macros/blob/master/other/docs/author.md" rel="nofollow"><code>babel-plugin-macros</code> Usage for macros authors</a></li>
+<li><a href="https://babeljs.io/blog/2017/09/11/zero-config-with-babel-macros" rel="nofollow">Zero-config code transformation with babel-plugin-macros</a> by <a href="https://twitter.com/kentcdodds/" rel="nofollow">Kent C. Dodds</a></li>
+<li><a href="https://github.com/jgierer12/awesome-babel-macros" rel="nofollow">Awesome list for Babel macros</a></li>
+<li>The idea of converting type definition to mock generator comes from <a href="https://github.com/Cryrivers/manta-style" rel="nofollow">Manta Style, the futuristic API Mock Server for Frontend</a></li></ul></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./d6e1d476.js" async></script></div>
+  
+</body>
+
+</html>

@@ -4,7 +4,7 @@ date: "2019-03-16T08:00:00Z"
 description: "About the tools frontend developer used in 2019"
 ---
 
-# Motivation
+## Motivation
 
 Some people said, _"A year in the JavaScript world is equal to 10 years in the outside world."_ It maybe a bit of exaggerated, but it shed some light on the learning hell of a frontend developer.
 
@@ -14,7 +14,7 @@ Some people said, _"A year in the JavaScript world is equal to 10 years in the o
 
 In this post and the posts to come, I would like to share some of my insights on how I navigate around all these ever evolving tools, libraries and frameworks.
 
-# Disclaimer
+## Disclaimer
 
 Before you move on, I have to make some disclaimers.
 
@@ -28,7 +28,7 @@ Lastly, the opinions and insights I gathered are from articles, tweets, Github i
 
 > So some opinions I have might not be the true intention of the library maintainers, but I am giving my perspective in the way I think is the best for me and for you to understand the tools.
 
-# Asking Questions
+## Asking Questions
 
 I realised that in 2019, someone new to frontend development, there is a lot of knowledge and concepts required to acquire, plethora of tools to learn, and I persoanlly think that's a lot to ask. But yet, this is our state of our industry currently.
 
@@ -56,6 +56,6 @@ So, in my humble opinion, the best way of learning all the tools out there in th
 
 9. **Optimisation**. How does the browser downloads and exectues my code? What can I do to optimise the performance of my code? and how do I do it?
 
-# Answering Them
+## Answering Them
 
 The above are questions that I asked, and I am going to answer them one by one in the future articles.

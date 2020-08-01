@@ -3,7 +3,6 @@ title: Deep dive into Svelte
 description: wip
 date: '2019-11-09T08:00:00Z'
 lastUpdated: '2019-11-09T08:00:00Z'
-tags: a,b,c
 wip: true
 ---
 

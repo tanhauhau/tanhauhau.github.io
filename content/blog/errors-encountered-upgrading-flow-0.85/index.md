@@ -43,7 +43,7 @@ is _calling foobar with argument, 1 and type, "Type"_, instead of:
 foobar < Type > 1
 ```
 
-_is the result of foobar < Type, greater than 1?_ 😂
+_is the result of foobar {@html '<'} Type, greater than 1?_ 😂
 
 You can read more about it in [Prettier's blog post](https://prettier.io/blog/2019/01/20/1.16.0.html#add-babel-flow-parser-5685-by-ikatyang).
 

@@ -1,7 +1,11 @@
 ---
 title: Step-by-step guide for writing a custom babel transformation
 date: '2019-09-12T08:00:00Z'
-tags: JavaScript,babel,ast,transform
+tags: 
+  - JavaScript
+  - babel
+  - ast
+  - transform
 description: Writing your first babel plugin
 series: Intermediate Babel
 ---

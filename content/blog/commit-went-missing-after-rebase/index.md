@@ -2,7 +2,11 @@
 title: Git commits went missing after a rebase
 date: "2019-09-04T08:00:00Z"
 description: What happened when you do a rebase
-tags: JavaScript,git,rebase,scm
+tags:
+  - JavaScript
+  - git
+  - rebase
+  - scm
 ---
 
 Last week, I [shared about git commands](/git-gudder/) at [Shopee React Knowledgeable](https://github.com/Shopee/shopee-react-knowledgeable). At the end of the talk, one of my colleague approached me and asked me about git rebase. She somehow ended up with a messed up git history with `git rebase`, and she couldn't comprehend how she ended up there.
@@ -90,6 +94,6 @@ And you would get:
 
 Here again, git is smart enough not to rewrite `commit #1` and `commit #2`.
 
-# Summary
+## Summary
 
 When using `git rebase`, always remember the 3 reference points of rebase, the `new base`, `upstream` and `branch`.

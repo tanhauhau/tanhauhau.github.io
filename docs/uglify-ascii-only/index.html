@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>The `ascii_only` option in uglify-js | Tan Li Hau</title><link href="http://127.0.0.1:8080/uglify-ascii-only/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" content="that get my emoji showing in my chrome extension" data-svelte="svelte-1k4ncsr"><meta name="image" data-svelte="svelte-1k4ncsr"><meta name="og:image" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="The `ascii_only` option in uglify-js" data-svelte="svelte-1k4ncsr"><meta name="og:description" content="that get my emoji showing in my chrome extension" data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="The `ascii_only` option in uglify-js" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" content="that get my emoji showing in my chrome extension" data-svelte="svelte-1k4ncsr"><meta name="twitter:image" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fuglify-ascii-only" data-svelte="svelte-1k4ncsr"><meta itemprop="image" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"that get my emoji showing in my chrome extension","headline":"The `ascii_only` option in uglify-js","name":"The `ascii_only` option in uglify-js","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fuglify-ascii-only","name":"The `ascii_only` option in uglify-js"},"position":2}]}</script><link as="script" rel="preload" href="./c71ddae0.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./c71ddae0.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./c71ddae0.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>The `ascii_only` option in uglify-js</h1>
+  
+  
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#til-uglifyjs-ascii-only-option-use-it-when-you-want-to-escape-unicode-characters">TIL: UglifyJs ascii_only option, use it when you want to escape Unicode characters.</a></li></ul></section>
+<p>The background story</p>
+<p>I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the 😍😀😎 are not rendered correctly!</p>
+<p><img src="adf2abda876019fd.png" alt="The 😍😍😀😀isn’t rendered correctly in chrome extension"></p>
+<p>And so I inspect the source code loaded into the chrome extension, it wasn’t loaded correctly as well!</p>
+<p><img src="7afb27b2027d0eb4.png" alt="problem with the source too"></p>
+<p>And so I think, probably the encoding issue was caused by the webpack compilation, but, my compiled code looks exactly fine!</p>
+<p><img src="aeb3ba002a361331.png" alt="The compiled code seems okay!"></p>
+<p>So, most likely is a decoding issue when the emoji code get loaded into chrome extension. So I manually changed the emoji in the compiled code to <code>\ud83d\ude0d</code> (unicode for 😍). Guess what? The emoji is showing correctly in the chrome extension!</p>
+<p><img src="e40d56e0e272da42.png" alt="😍!"></p>
+<p>So I changed my source code to manually type in the unicode, and compiled it using webpack. To my surprise, the unicode was compiled back into the emoji (😍) it represents!</p>
+<p>I googled around and I found <a href="https://github.com/babel/babel/pull/4478" rel="nofollow">this fix for babel-generator</a>:</p>
+<p><img src="cec8624969909357.png" alt="babel issue"></p>
+<p>I checked my babel version, and it had included this fix. So what went wrong?</p>
+<hr>
+<p>My colleague reminded me that during webpack compilation, there are 2 phases, the <strong>transpilation</strong> (via babel) and the <strong>minification</strong> (via uglify plugin).</p>
+<p>So I disabled the optimisation in webpack config, and noticed that my compiled code contains the original unicode string (<code>\ud83d\ude0d</code>), instead of the emoji (😍) string. So the unicode string was converted to emoji string during minification!</p>
+<p>So I went to my favourite <a href="https://skalman.github.io/UglifyJS-online/" rel="nofollow">Online JavaScript Minifier</a> (by <a href="https://github.com/skalman" rel="nofollow">skalman</a>) to try it out.</p>
+<p><img src="4a468cb0933b0473.png" alt="online javasript minifier"></p>
+<p>After some googling, I <a href="https://github.com/mishoo/UglifyJS2/issues/490" rel="nofollow">found this issue</a> which described my scenario perfectly.</p>
+<p><img src="5824c5e3e9173f25.png" alt="why uglifyjs always compress unicode characters to utf8"></p>
+<p>Turned out there is a <code>ascii_only</code> for <a href="https://github.com/mishoo/UglifyJS2#output-options" rel="nofollow">output options</a>, and it is default to <code>false</code>. So I set <code>ascii_only</code> to <code>true</code>, ran webpack, and checked my compiled code, it contained the unicode string (<code>\ud83d\ude0d</code>)! And even when I wrote emoji string (😍) in my source code, it got compiled to unicode as well.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> <span class="token maybe-class-name">UglifyJsPlugin</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'uglifyjs-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//...</span>
+  optimization<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+    minimizer<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">UglifyJsPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      uglifyOptions<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// highlight-start</span>
+        output<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">// true for &#96;ascii_only&#96;</span>
+          ascii_only<span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token comment">// highlight-end</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<hr>
+<section><h2><a href="#til-uglifyjs-ascii-only-option-use-it-when-you-want-to-escape-unicode-characters" id="til-uglifyjs-ascii-only-option-use-it-when-you-want-to-escape-unicode-characters">TIL: UglifyJs ascii_only option, use it when you want to escape Unicode characters.</a></h2>
+<hr>
+<p>Why is there a <code>ascii_only</code> option?</p>
+<p>My guess is that it takes less space for a unicode character (16–17bit) than the escaped ascii characters (6 <em>8 bit — 12 </em> bit), that’s why using unicode character is the default option (<code>ascii_only=false</code>).</p></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./c71ddae0.js" async></script></div>
+  
+</body>
+
+</html>

@@ -1,7 +1,10 @@
 ---
 title: Retry asynchronous function using the callback pattern, promise chain and async await
 date: '2020-06-21T08:00:00Z'
-tag: JavaScript, Asynchronous, Problem Solving
+tags: 
+  - JavaScript
+  - Asynchronous
+  - Problem Solving
 description: How to retry asynchronous function using the callback pattern, promise chain and async await. Mental model for asynchronous JavaScript.
 ---
 

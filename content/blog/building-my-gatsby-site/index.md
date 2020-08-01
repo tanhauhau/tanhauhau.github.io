@@ -80,7 +80,7 @@ _using emoji-regex find emojis and wrap them with a <span>_
 ...and it works!
 
 <!-- TODO: -->
-![]()
+<!-- ![]() -->
 
 Although somewhere when I started writing the gatsby plugin, a weird error popped up, and after some digging, I noticed that 
 <!-- TODO: -->

@@ -1,7 +1,9 @@
 ---
 title: Compile Svelte in your head (Part 4)
 date: '2020-05-07T08:00:00Z'
-tag: Svelte, JavaScript
+tags: 
+  - Svelte
+  - JavaScript
 series: Compile Svelte in your head
 wip: true
 ---

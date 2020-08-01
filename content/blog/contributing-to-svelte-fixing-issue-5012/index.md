@@ -1,10 +1,25 @@
 ---
 title: 'Contributing to Svelte - Fixing issue #5012'
 date: '2020-06-25T08:00:00Z'
-tag: Svelte, JavaScript, Open Source
+tags: 
+  - Svelte
+  - JavaScript
+  - Open Source
 series: Contributing to Svelte
 description: 'Svelte issue #5012 - Slot containing only {@html value} renders in wrong place on update'
 ---
+
+<style>
+  .issue {
+    border: 4px solid;
+    box-shadow: var(--box-shadow);
+    margin: 0 calc(-1 * var(--prism-padding));
+    padding: var(--prism-padding);
+  }
+  .issue p {
+    margin-bottom: 0.5em;
+  }
+</style>
 
 ## Background
 
@@ -14,9 +29,11 @@ So today, I'm going to walk through a new issue, [#5012](https://github.com/svel
 
 ## The bug
 
-**Slot containing only {@html value} renders in wrong place on update [#5012](https://github.com/sveltejs/svelte/issues/5012)**
+<div class="issue">
 
-When a slotted component is instantiated and the only contents of the slot is {@html value}, changing value will cause the HTML-ized value to render at the end of the slot's parent element (i.e. after all sibling elements) instead of in the correct place.
+**Slot containing only {@html '{@html value}'} renders in wrong place on update [#5012](https://github.com/sveltejs/svelte/issues/5012)**
+
+When a slotted component is instantiated and the only contents of the slot is {@html '{@html value}'}, changing value will cause the HTML-ized value to render at the end of the slot's parent element (i.e. after all sibling elements) instead of in the correct place.
 
 **To Reproduce**
 
@@ -38,7 +55,7 @@ Potentially serious, but not serious for me.
 
 Can be worked around by changing the slot contents to `<div>{@html value}</div>` or changing the child component to use `<div><slot /><div>`, which works fine for me.
 
----
+</div>
 
 ## Verifying the bug
 
@@ -54,7 +71,7 @@ Yup. This is indeed a bug! 🐛
 
 ## Investigating the bug
 
-It's amazing that the issue author tracked down the regression behavior of this issue, stating that it started happening since 3.7. Probably because the author just upgraded Svelte from < 3.7, or maybe he tried every versions to figure out whether it is regression bug or a undiscovered bug. Anyway, kudos to the issue author! 💪 💪
+It's amazing that the issue author tracked down the regression behavior of this issue, stating that it started happening since 3.7. Probably because the author just upgraded Svelte from {@html '<'} 3.7, or maybe he tried every versions to figure out whether it is regression bug or a undiscovered bug. Anyway, kudos to the issue author! 💪 💪
 
 Most open source projects maintain a change log file, usually named `CHANGELOG.md` located at the root of the project folder, so that you can figured out what's added / removed / updated in each version.
 

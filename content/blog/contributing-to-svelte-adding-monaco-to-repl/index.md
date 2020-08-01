@@ -1,7 +1,9 @@
 ---
 title: adding monaco to the svelte repl
 date: '2020-03-22T08:00:00Z'
-tag: Svelte, JavaScript
+tags: 
+  - Svelte
+  - JavaScript
 wip: true
 ---
 
@@ -60,6 +62,9 @@ loadSample(sampleId, function (err, sample) {
 });
 ```
 
+
+```js
+
 		data.js.model = monaco.editor.createModel('console.log("hi")', 'javascript');
 		data.css.model = monaco.editor.createModel('css', 'css');
 		data.html.model = monaco.editor.createModel('html', 'html');
@@ -70,6 +75,7 @@ loadSample(sampleId, function (err, sample) {
 				enabled: false
 			}
 		});
+```
 
 - how to add svlete language server into it
 - markdown 
@@ -85,6 +91,7 @@ store the state when switching tabs
 restore state upon selecting tabs
 
 - listen to changes
+
 ```js
 editor.onDidChangeModelContent
 ```

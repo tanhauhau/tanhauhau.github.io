@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Contributing to Svelte - Fixing issue #4392 | Tan Li Hau</title><link href="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-4392/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" content="I am going to tell you an anecdote on how I investigated and fixed a bug in Svelte. I documented down my train of thoughts as detailed as possible. I hope this gives anyone who is reading, a glimpse on how to work on the Svelte source code." data-svelte="svelte-1k4ncsr"><meta name="image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-4392/assets/hero-twitter-b9c07d38.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-4392/assets/hero-twitter-b9c07d38.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="Contributing to Svelte - Fixing issue #4392" data-svelte="svelte-1k4ncsr"><meta name="og:description" content="I am going to tell you an anecdote on how I investigated and fixed a bug in Svelte. I documented down my train of thoughts as detailed as possible. I hope this gives anyone who is reading, a glimpse on how to work on the Svelte source code." data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="Contributing to Svelte - Fixing issue #4392" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" content="I am going to tell you an anecdote on how I investigated and fixed a bug in Svelte. I documented down my train of thoughts as detailed as possible. I hope this gives anyone who is reading, a glimpse on how to work on the Svelte source code." data-svelte="svelte-1k4ncsr"><meta name="twitter:image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-4392/assets/hero-twitter-b9c07d38.jpg" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="Svelte" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="JavaScript" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="Open Source" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fcontributing-to-svelte-fixing-issue-4392" data-svelte="svelte-1k4ncsr"><meta itemprop="image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-4392/assets/hero-twitter-b9c07d38.jpg" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"I am going to tell you an anecdote on how I investigated and fixed a bug in Svelte. I documented down my train of thoughts as detailed as possible. I hope this gives anyone who is reading, a glimpse on how to work on the Svelte source code.","headline":"Contributing to Svelte - Fixing issue #4392","name":"Contributing to Svelte - Fixing issue #4392","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fcontributing-to-svelte-fixing-issue-4392","name":"Contributing to Svelte - Fixing issue #4392"},"position":2}]}</script><link as="script" rel="preload" href="./9feb547c.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./9feb547c.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./9feb547c.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>Contributing to Svelte - Fixing issue #4392</h1>
+  
+  <span class="svelte-2w4dum">Svelte</span><span class="svelte-2w4dum">JavaScript</span><span class="svelte-2w4dum">Open Source</span>
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#background">Background</a></li><li><a href="#the-story-begins">The story begins</a></li><li><a href="#verifying-the-bug">Verifying the bug</a></li><li><a href="#investigating-the-bug">Investigating the bug</a></li><li><a href="#fixing-the-bug">Fixing the bug</a></li><li><a href="#submitting-the-fix">Submitting the fix</a></li></ul></section>
+<section><h2><a href="#background" id="background">Background</a></h2>
+<p>As Svelte gains more attention, I find that more and more people are interested in contributing to Svelte.</p>
+<p>Of course, contributing to Svelte, does not mean to contribute only in code, it could be:</p>
+<ul><li>answering questions about Svelte, on social media, Stack Overflow, or <a href="https://svelte.dev/chat" rel="nofollow">Discord</a></li>
+<li>improving Svelte docs, or write tutorials and articles about Svelte</li>
+<li>organising and speaking in meetups about Svelte</li></ul>
+<p>For those who want to contribute in code, most people are unsure where to start. So I wrote <a href="/the-svelte-compiler-handbook/">The Svelte Compiler Handbook</a> as an overview of the Svelte source code.</p>
+<p>However, today, I want to try a different tone.</p>
+<p>I am going to tell you an anecdote on how I investigated and fixed a bug in Svelte.</p>
+<p>I documented down my train of thoughts as detailed as possible.</p>
+<p>I hope this gives anyone who is reading, a glimpse on how to work on the Svelte source code.</p></section>
+<section><h2><a href="#the-story-begins" id="the-story-begins">The story begins</a></h2>
+<p>I was combing through <a href="https://github.com/sveltejs/svelte/issues?q=is%3Aopen+is%3Aissue+label%3Abug" rel="nofollow">bugs on GitHub</a>, and found this rather interesting bug:</p>
+<hr>
+<p><strong>Select multiple value does not get set with spread props <a href="https://github.com/sveltejs/svelte/issues/4392" rel="nofollow">#4392</a></strong></p>
+<p>Adding any type of spread, even an empty object <code>{...{}}</code>, causes the value not to be set:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+  let value = [&#39;Hello&#39;, &#39;World&#39;];
+&lt;/script&gt;
+
+&lt;select multiple &#123;value&#125; &#123;...&#123;&#125;&#125;&gt;
+  &lt;option&gt;Hello&lt;/option&gt;
+  &lt;option&gt;World&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+<p>To reproduce: <a href="https://svelte.dev/repl/99bd5ebecc464e328972252e287ab716?version=3.18.1" rel="nofollow">REPL</a>.</p>
+<hr></section>
+<section><h2><a href="#verifying-the-bug" id="verifying-the-bug">Verifying the bug</a></h2>
+<p>I clicked into the REPL and tried to understand about the bug.</p>
+<p>I found that if the <code>&lt;select multiple&gt;</code> has spread attribute <code>{...any}</code>, the <code>value</code> attribute will not be reactive. Changes in the value of <code>value</code> will not be reflected to the <code>&lt;select&gt;</code>.</p>
+<p>I noticed the REPL link uses the version <code>3.18.1</code>, it&#39;s not the latest version of Svelte. At the point of writing, Svelte is at <strong>3.22.3</strong>. I tried removing the <code>?version=3.18.1</code> from the query params to verify whether the bug has fixed, and realised that the bug is still there. (Great! Something interesting to investigate into.)</p>
+<p>To understand the current status of the issue, I read through the comments. According to <a href="https://github.com/Conduitry" rel="nofollow">Conduitry</a>, the issue is related to <strong>Radio/checkbox input with bind:group and spread props makes variable undefined</strong> <a href="https://github.com/sveltejs/svelte/issues/3680" rel="nofollow">#3680</a> and can be fixed together. However, the issue <a href="https://github.com/sveltejs/svelte/issues/3680" rel="nofollow">#3680</a> was fixed and closed, yet this issue is still open.</p>
+<p>Nevertheless, I read through <a href="https://github.com/sveltejs/svelte/pull/4398" rel="nofollow">the PR</a> for the closed issue <a href="https://github.com/sveltejs/svelte/issues/3680" rel="nofollow">#3680</a>, roughly understand how it was fixed and hopefully it can give me some inspirations on this issue.</p></section>
+<section><h2><a href="#investigating-the-bug" id="investigating-the-bug">Investigating the bug</a></h2>
+<p>Once I verified that the behavior described in the issue is unexpected and reproducible in the latest version of Svelte, I copied the REPL code into my local machine to investigate.</p>
+<p>I have a <code>test-svelte</code> folder ready in my local machine, where I created using <a href="https://github.com/sveltejs/template" rel="nofollow">Svelte Template</a>. I have <code>npm link</code>ed my local Svelte clone to the <code>test-svelte</code> folder, so I can rebuild <code>test-svelte</code> anytime with the latest changes done to my Svelte clone.</p>
+<pre class="language-null">
+<code class="language-">- /Projects
+  - svelte                &lt;-- cloned from https://github.com/sveltejs/svelte
+  - test-svelte           &lt;-- initialised with Svelte Template
+    - node_modules/svelte &lt;-- symlink to &#96;/Projects/svelte&#96;</code></pre>
+<p>I have <code>yarn dev</code> running in the Svelte folder, so any changes I make gets compiled immediately.</p>
+<p>I prefer to <strong>build</strong> <code>test-svelte</code> and serve it with <a href="https://www.npmjs.com/package/http-server" rel="nofollow">http-server</a> rather than start a dev server <code>test-svelte</code> in watch mode. That allows me to</p>
+<ul><li>Run the <code>http-server</code> in the background while tweaking the Svelte code or the <code>test-svelte</code> app.</li>
+<li>Not having to restart the dev server whenever I&#39;ve made changes to the Svelte code</li>
+<li>Able to inspect and modify <code>bundle.js</code> without worrying that accidentaly save in the <code>test-svelte</code> app will overwrite the <code>bundle.js</code></li></ul>
+<p>Looking at the different <code>bundle.js</code> generated from with <code>{...spread}</code> attributes and without spread attributes</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+  let value = [&#39;Hello&#39;, &#39;World&#39;];
+&lt;/script&gt;
+
+&lt;!-- with spread --&gt;
+&lt;select multiple &#123;value&#125; &#123;...&#123;&#125;&#125;&gt;
+  &lt;option&gt;Hello&lt;/option&gt;
+  &lt;option&gt;World&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- without spread --&gt;
+&lt;select multiple &#123;value&#125;&gt;
+  &lt;option&gt;Hello&lt;/option&gt;
+  &lt;option&gt;World&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+<p>I found the following diffs in the bundled output:</p>
+<pre class="language-diff">
+<code class="language-diff"><span class="token inserted-sign inserted">+ let select_levels = [&#123; multiple: true &#125;, &#123; value: /*value*/ ctx[0] &#125;, &#123;&#125;];
++	let select_data = &#123;&#125;;
++	for (let i = 0; i &lt; select_levels.length; i += 1) &#123;
++	  select_data = assign(select_data, select_levels[i]);
++	&#125;
+</span><span class="token deleted-sign deleted">- let select_value_value;
+</span>
+<span class="token unchanged">  return &#123;
+    c() &#123;
+      /* ... */
+      set_attributes(select, select_data);
+    &#125;,
+    m(target, anchor) &#123;
+      /* ... */
+</span><span class="token deleted-sign deleted">-     select_value_value = /*value*/ ctx[0];
+</span>
+<span class="token deleted-sign deleted">-     for (var i = 0; i &lt; select.options.length; i += 1) &#123;
+-       var option = select.options[i];
+-       option.selected = ~select_value_value.indexOf(option.__value);
+-     &#125;
+</span><span class="token unchanged">    &#125;,
+</span><span class="token deleted-sign deleted">-   p: noop,
+</span><span class="token inserted-sign inserted">+    p(ctx, [dirty]) &#123;
++      set_attributes(select, get_spread_update(select_levels, [&#123; multiple:   true &#125;, dirty &amp; /*value*/ 1 &amp;&amp; &#123; value: /*value*/ ctx[0] &#125;, &#123;&#125;]));
++    &#125;,
+</span><span class="token unchanged">    /* ... */
+  &#125;;</span></code></pre>
+<p>Well, I know I havn&#39;t cover how spread attribute works in any of my <a href="/compile-svelte-in-your-head-part-1/">&quot;Compile Svelte in your Head&quot;</a> articles, but the general idea is that, Svelte builds an array of attributes, and then apply it to the element / Component.</p>
+<p>For example, if we write the following in Svlete</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;div foo=&quot;foo&quot; &#123;...bar&#125; baz=&quot;baz&quot; &#123;...qux&#125; /&gt;</code></pre>
+<p>It gets compiled to something like this:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> levels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span> foo<span class="token punctuation">:</span> <span class="token string">'foo'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> bar<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> baz<span class="token punctuation">:</span> <span class="token string">'baz'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> qux<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// build the attribute maps</span>
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> levels<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  data <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> levels<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// set attribute to element</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> attributeName <span class="token keyword">in</span> data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  div<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span>attributeName<span class="token punctuation">,</span> data<span class="token punctuation">[</span>attributeName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// if &#96;bar&#96; changed</span>
+<span class="token keyword">const</span> updates <span class="token operator">=</span> <span class="token function">get_spread_update</span><span class="token punctuation">(</span>levels<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token boolean">false</span><span class="token punctuation">,</span> bar<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// updates will return the updates needed to make, in this case, the diff in &#96;bar&#96;, eg: &#123; aa: '1' &#125;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> attributeName <span class="token keyword">in</span> updates<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  div<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span>attributeName<span class="token punctuation">,</span> updates<span class="token punctuation">[</span>attributeName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>So, this roughly explains the additional code added into the <code>bundle.js</code> for handling spread attributes.</p>
+<p>However the code that is removed, is something I am not familiar with.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// in &#96;mount&#96; method</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> select<span class="token punctuation">.</span>options<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> option <span class="token operator">=</span> select<span class="token punctuation">.</span>options<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  option<span class="token punctuation">.</span>selected <span class="token operator">=</span> <span class="token operator">~</span>select_value_value<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>__value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>It seems like we are trying to set <code>option.selected</code> after we mount the <code>&lt;select&gt;</code> element. Not sure how important is that to us.</p>
+<p>To verify that the bug is because that the above code snippet is missing when having a spread attribute, I tried adding the code snippet into the <code>bundle.js</code> manually, and refresh the page.</p>
+<pre class="language-js">
+<code class="language-js">  <span class="token comment">// ...</span>
+  <span class="token function">m</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> anchor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">insert</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> select<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">append</span><span class="token punctuation">(</span>select<span class="token punctuation">,</span> option0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">append</span><span class="token punctuation">(</span>select<span class="token punctuation">,</span> option1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-start</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> select<span class="token punctuation">.</span>options<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">var</span> option <span class="token operator">=</span> select<span class="token punctuation">.</span>options<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      option<span class="token punctuation">.</span>selected <span class="token operator">=</span> <span class="token operator">~</span>ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>__value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// highlight-end</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span></code></pre>
+<p>Instead of <code>~select_value_value.indexOf(...)</code>, I changed it to <code>~ctx[0].indexOf(...)</code>, as <code>select_value_value</code> wasn&#39;t created when using spread attribute.</p>
+<p>...and it works!</p>
+<p><img src="data:image/png;base64,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" alt="Fixed"></p>
+<p>So, now we know that the bug is caused by missing setting <code>option.selected</code> on mount, now its time to figure out what the code snippet is not generated when there&#39;s a spread attribute.</p>
+<p>To quickly find out why something is not generated, I tried to look for where it is generated, figuring out probably whether certain condition was not set correctly to cause the Svelte compiler to omit out the code snippet.</p>
+<p>To find the right place to start looking is an art. Usually I try to global search a small snippet of code that is <strong>most likely static</strong>, something that has no variable name, for example:</p>
+<ul><li><code>.indexOf(option.__value)</code></li>
+<li><code>.options.length;</code></li>
+<li><code>.selected = ~</code></li></ul>
+<p>The only search result I got when searching for <code>.indexOf(option.__value)</code> is in <a href="https://github.com/sveltejs/svelte/blob/e34f2088434423914bbc91b84a450a7f7477252b/src/runtime/internal/dom.ts#L221-L226" rel="nofollow">src/runtime/internal/dom.ts</a></p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">select_options</span><span class="token punctuation">(</span><span class="token parameter">select<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> select<span class="token punctuation">.</span>options<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> option <span class="token operator">=</span> select<span class="token punctuation">.</span>options<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    option<span class="token punctuation">.</span>selected <span class="token operator">=</span> <span class="token operator">~</span>value<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>__value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Anything within <code>src/runtime/</code> are helper functions that are referenced from the output code, to reduce the output code size. Hmm... probably we should reuse the <code>select_options</code> helper function:</p>
+<pre class="language-js">
+<code class="language-js">  <span class="token comment">// ...</span>
+  <span class="token function">m</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> anchor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">insert</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> select<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">append</span><span class="token punctuation">(</span>select<span class="token punctuation">,</span> option0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">append</span><span class="token punctuation">(</span>select<span class="token punctuation">,</span> option1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-start</span>
+<span class="token operator">-</span>   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> select<span class="token punctuation">.</span>options<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token operator">-</span>     <span class="token keyword">var</span> option <span class="token operator">=</span> select<span class="token punctuation">.</span>options<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">-</span>     option<span class="token punctuation">.</span>selected <span class="token operator">=</span> <span class="token operator">~</span>ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>__value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">-</span>   <span class="token punctuation">&#125;</span>
+<span class="token operator">+</span>   <span class="token function">select_options</span><span class="token punctuation">(</span>select<span class="token punctuation">,</span> select_value_value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-end</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span></code></pre>
+<p>Anyway, <code>src/runtime/internal/dom.ts</code> is not where I am looking for, so I tried searching <code>.options.length</code></p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: src/compiler/compile/render_dom/wrappers/Element/Attribute.ts</span>
+
+updater <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  for (var </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>i<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = 0; </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>i<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> &lt; </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>element<span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.options.length; </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>i<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> += 1) &#123;
+    var </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>option<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>element<span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.options[</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>i<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">];
+
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>if_statement<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+  &#125;
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>last<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>value<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;
+  </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>updater<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Yes, this is most likely where it is.</p>
+<p>Firstly, let me update the <code>updater</code> to use the <code>src/runtime/</code> <code>select_options</code> helper instead:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// highlight-start</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>is_multiple_select<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  updater <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>element<span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>last<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+  updater <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_option(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>element<span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>last<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// highlight-end</span>
+
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>last<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>value<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;
+  </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>updater<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The <code>b`...`</code>, is called a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates" rel="nofollow">tagged template</a>, where the <code>b</code> is a function that takes in the template literal and return something. In this case, the <code>b</code> function returns an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" rel="nofollow">Abstract Syntaxt Tree (AST)</a>.</p>
+<p>The <code>b</code> function comes from <a href="https://www.npmjs.com/package/code-red" rel="nofollow">code-red</a>, a utility to generate a JavaScript AST node. Beside <code>b</code>, <code>code-red</code> provides a few helper functions:</p>
+<ul><li><code>b</code> returns a block node</li>
+<li><code>x</code> returns an expression node</li>
+<li><code>p</code> returns a object property node</li></ul>
+<p>These helper functions are useful in generating code in Svelte compiler, particularly because the placeholder itself can takes in another AST node:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> node <span class="token operator">=</span> <span class="token punctuation">&#123;</span> type<span class="token punctuation">:</span> <span class="token string">'Identifier'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'foo'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> code <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">const </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>node<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = 1;</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span> <span class="token comment">// returns an AST node for &#96;const foo = 1;&#96;</span></code></pre>
+<p><code>@</code> in front of <code>@select_option</code> is a convention in Svelte, where it will <a href="https://github.com/sveltejs/svelte/blob/e34f2088434423914bbc91b84a450a7f7477252b/src/compiler/compile/Component.ts#L245-L264" rel="nofollow">get replaced</a> to refer to helpr functions in <code>src/runtime/</code> before writing the generated AST out:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> code <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@foo(bar)</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+<span class="token comment">// turns into</span>
+
+<span class="token comment">// import &#123; foo &#125; from 'svelte/internal';</span>
+<span class="token comment">// foo(bar);</span></code></pre>
+<p>Coming back to figure out why this piece of code is not executed when there&#39;s a spread attribute,</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// highlight-next-line</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>is_legacy_input_type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token comment">// highlight-next-line</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>is_select_value_attribute<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>is_multiple_select<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    updater <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>element<span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>last<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    updater <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_option(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>element<span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>last<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>last<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>value<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>updater<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+  </span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>is_src<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>I tried adding <code>console.log</code> before the if statement, to figure out the value for <code>is_legacy_input_type</code> and <code>is_select_value_attribute</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// highlight-start</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+  <span class="token string">'is_legacy_input_type:'</span><span class="token punctuation">,</span>
+  is_legacy_input_type<span class="token punctuation">,</span>
+  <span class="token string">'is_select_value_attribute:'</span><span class="token punctuation">,</span>
+  is_select_value_attribute
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// highlight-end</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>is_legacy_input_type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>To my surpise, there was no log. <code>AttributeWrapper#render</code> wasn&#39;t executed.</p>
+<p>I tried removing the spread attribute, and verified from the log that the <code>AttributeWrapper#render</code> method was indeed executed when there&#39;s no spread attribute.</p>
+<p>To figure out the caller of the <code>AttributeWrapper#render</code> method, I added <code>console.trace</code> at the top of the method:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  console<span class="token punctuation">.</span><span class="token function">trace</span><span class="token punctuation">(</span><span class="token string">'trace'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<pre class="language-md">
+<code class="language-md">Trace: trace
+  <span class="token comment">&lt;!-- highlight-next-line --></span>
+  at AttributeWrapper.render (/Projects/svelte/compiler.js:8269:11)
+  at /Projects/svelte/compiler.js:10749:14
+  at Array.forEach (<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>anonymous</span><span class="token punctuation">></span></span>)
+  <span class="token comment">&lt;!-- highlight-next-line --></span>
+  at ElementWrapper.add_attributes (/Projects/svelte/compiler.js:10748:19)
+  at ElementWrapper.render (/Projects/svelte/compiler.js:10472:8)
+  at /Projects/svelte/compiler.js:10454:11
+  at Array.forEach (<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>anonymous</span><span class="token punctuation">></span></span>)
+  at ElementWrapper.render (/Projects/svelte/compiler.js:10453:24)
+  at FragmentWrapper.render (/Projects/svelte/compiler.js:13030:18)
+  at new Renderer (/Projects/svelte/compiler.js:13112:17)</code></pre>
+<p>This brought me to <a href="https://github.com/sveltejs/svelte/blob/e34f2088434423914bbc91b84a450a7f7477252b/src/compiler/compile/render_dom/wrappers/Element/index.ts#L642-L659" rel="nofollow">src/compiler/compile/render_dom/wrappers/Element/index.ts</a></p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">add_attributes</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Get all the class dependencies first</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>attributes<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">attribute</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>attribute<span class="token punctuation">.</span>node<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'class'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> dependencies <span class="token operator">=</span> attribute<span class="token punctuation">.</span>node<span class="token punctuation">.</span><span class="token function">get_dependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>class_dependencies<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>dependencies<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>attributes<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token parameter">attr</span> <span class="token operator">=></span> attr<span class="token punctuation">.</span>is_spread<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">add_spread_attributes</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">this</span><span class="token punctuation">.</span>attributes<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">attribute</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// highlight-next-line</span>
+    attribute<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>If there&#39;s a spread attribute, it will call the <code>this.node.attributes.some(attr =&gt; attr.is_spread)</code> method instead of calling <code>attribute.render(block)</code>, so that&#39;s probably why <code>AttributeWrapper#render</code> wasn&#39;t called.</p>
+<p>I looked into the method <code>add_spread_attributes</code>, found out it contain only the code about handling spread attributes as I explained earlier. It didn&#39;t have any code related to <code>select_options</code>, so I figured that, maybe <code>&lt;select multiple&gt;</code> with spread attribute is an edge case that wasn&#39;t handled currently at all.</p>
+<p>So, I tried to add a special check for this case at the bottom of the <code>add_spread_attributes</code> method:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">add_spread_attributes</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token comment">// highlight-start</span>
+  <span class="token comment">// for &#96;&lt;select>&#96; element only</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'select'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.value);</span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// highlight-end</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>As mentioned in the <a href="/the-svelte-compiler-handbook/#dom-renderer">The Svelte Compiler Handbook</a>, a <code>block</code> is where it keeps the code to generate the <a href="/compile-svelte-in-your-head-part-1/#create_fragment"><code>create_fragment</code></a> function. The return object of the <code>create_fragment</code> function contains various method as mentioned in <a href="/compile-svelte-in-your-head-part-1/#create_fragment">Compile Svelte in your Head</a>, such as <code>c()</code>, <code>m()</code> and <code>d()</code>. To add code into different method, you can push them into the array in <code>block.chunks</code>, for example:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// push &#96;const foo = 1&#96; to &#96;m()&#96;</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">const foo = 1</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// push &#96;const bar = 2&#96; to &#96;c()&#96;</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>create<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">const bar = 2</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>I tried adding <code>@select_options(...)</code> into the <code>m()</code> method and yup, the <code>&lt;select&gt;</code> element is pre-selected correctly!</p></section>
+<section><h2><a href="#fixing-the-bug" id="fixing-the-bug">Fixing the bug</a></h2>
+<p>To ensure the bug is fixed, I need to come up with a test.</p>
+<p>Usually I come up with test cases that try to entail various scenario I can imagine.</p>
+<p>In this example, we&#39;ve manually tested the case where the <code>&lt;select multiple {value} {...{}}&gt;</code>, the value is set correctly during initialisation. but have we check the case where:</p>
+<ul><li>we update the value of <code>value</code>, will the <code>&lt;select&gt;</code> get updated accordingly?</li>
+<li>if the value is overriden by the spreaded attribute, eg <code>&lt;select mutliple {value} { ...{value: []} }&gt;</code>?</li></ul>
+<p>Ideally, the test cases come up should be failed before the fix, and passed after the fix.</p>
+<p>So here&#39;s the test case I came up:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+  let value = [&#39;Hello&#39;, &#39;World&#39;];
+  export let spread = &#123;&#125;;
+&lt;/script&gt;
+
+&lt;select multiple &#123;value&#125; &#123;...spread&#125;&gt;
+  &lt;option&gt;Hello&lt;/option&gt;
+  &lt;option&gt;World&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;input type=&quot;checkbox&quot; value=&quot;Hello&quot; bind:group=&#123;value&#125;&gt;
+&lt;input type=&quot;checkbox&quot; value=&quot;World&quot; bind:group=&#123;value&#125;&gt;</code></pre>
+<p>I can check and uncheck the checkbox to change the value of <code>value</code> to verify the the <code>value</code> is reactive, and <code>&lt;select&gt;</code> will get updated accordingly.</p>
+<p>Besides that, I exported <code>spread</code>, so that I can change the object to something object to contain <code>value</code>, eg: <code>{ value: [] }</code>, and see how <code>&lt;select&gt;</code> will update accordingly. Make sure that our fix not just work with <code>value</code> attribute, and also when the <code>value</code> is spreaded into <code>&lt;select&gt;</code>.</p>
+<p>You may think that we are familiar with our fix, we know what it will fix, what it will not fix, do we need think up and write all the edge cases?</p>
+<p>Well, I think you should. Future you will thank the present you when he encounter a fail test, that just mean his change may have an unintentional regressional change. If you don&#39;t have the test case, the future you will never know what edge case he didn&#39;t accounted for.</p>
+<p>Runtime test cases are added into <code>test/runtime/samples/</code>. Each folder represent 1 test case. Inside the folder, the component to be tested is named <code>App.svelte</code>, and the test case is written <code>_config.js</code>.</p>
+<p><code>_config.js</code> default exports a object:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// filename: _config.js</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// initial props to passed to the component</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*...*/</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token comment">// initial rendered html</span>
+  html<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span>
+  <span class="token comment">// test case</span>
+  <span class="token keyword">async</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> assert<span class="token punctuation">,</span> target <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// you can test the behavior of the component here</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+<p>An example of test case of unchecking the checkbox, and verify <code>&lt;select&gt;</code> value get updated</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">// ...</span>
+	<span class="token keyword">async</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> assert<span class="token punctuation">,</span> target<span class="token punctuation">,</span> window <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// find the element</span>
+		<span class="token keyword">const</span> <span class="token punctuation">[</span>input1<span class="token punctuation">,</span> input2<span class="token punctuation">]</span> <span class="token operator">=</span> target<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> select <span class="token operator">=</span> target<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"select"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> <span class="token punctuation">[</span>option1<span class="token punctuation">,</span> option2<span class="token punctuation">]</span> <span class="token operator">=</span> select<span class="token punctuation">.</span>childNodes<span class="token punctuation">;</span>
+
+    <span class="token comment">// uncheck the checkbox</span>
+		<span class="token keyword">const</span> event <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">window<span class="token punctuation">.</span>Event</span><span class="token punctuation">(</span><span class="token string">"change"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		input1<span class="token punctuation">.</span>checked <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+		<span class="token keyword">await</span> input1<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// verify the component updated correctly</span>
+		<span class="token keyword">const</span> selections <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>select<span class="token punctuation">.</span>selectedOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		assert<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span>selections<span class="token punctuation">.</span>length<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		assert<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token operator">!</span>selections<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>option1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		assert<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span>selections<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>option2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+<p>To run only this test, so that we can focus on ensuring the test case pass, we can set <code>solo: true</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  solo<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+<p><strong>Quick tip:</strong> running <code>npm run test</code> will build Svelte code first before executing the test. If you are like me, running <code>npm run dev</code> on the background, Svelte code is build on every code change. So, <code>npm run quicktest</code> would allow you to skip the <code>pretest</code> build, and run the test suite immediately.</p>
+<p>With the test, I realised that I didn&#39;t handle the case when the <code>value</code> is updated.</p>
+<p>So I guess what I needed to do is to add the same code in the <code>p()</code> (update) method too!</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">add_spread_attributes</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'select'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.value);</span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-start</span>
+    block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>update<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.value);</span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-end</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Well, of course in this way, the <code>select_options</code> get executed unconditionally whenever any variable is updated.</p>
+<p>I need to make sure that the <code>select_options(...)</code> inside the <code>p()</code> method get executed only when the value of <code>value</code> changes, and also probably when <code>spread</code> changes too, because it could potentially override the value of <code>value</code>. </p>
+<p>If you&#39;ve read <a href="/compile-svelte-in-your-head-part-2/#bitmask-in-svelte">Compile Svelte in your Head - Bitmask in Svelte</a>, you know that Svelte uses bitmask to check any variable changes.</p>
+<p>How do I know what is the bitmask to use in this case, well I dont have to.</p>
+<p>I can use <a href="https://github.com/sveltejs/svelte/blob/e34f2088434423914bbc91b84a450a7f7477252b/src/compiler/compile/render_dom/Renderer.ts#L206" rel="nofollow"><code>renderer.dirty(dependencies)</code></a> to help me with that:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">add_spread_attributes</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'select'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> dependencies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.value);</span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-start</span>
+    block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>update<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      <span class="token comment">// block.renderer.dirty(...) will give me &#96;dirty &amp; bitmask&#96;</span>
+      b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">if (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>block<span class="token punctuation">.</span>renderer<span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span>dependencies<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">) @select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.value);</span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-end</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Next, I need to figure out what are the dependencies to be included. In this particular case, the dependencies of all attributes have to be taken consideration, because it is hard to tell which one would be eventually applied due to the spread attribute.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">add_spread_attributes</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'select'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// highlight-start</span>
+    <span class="token keyword">const</span> dependencies <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> attr <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>attributes<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> dep <span class="token keyword">of</span> attr<span class="token punctuation">.</span>node<span class="token punctuation">.</span>dependencies<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        dependencies<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>dep<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// highlight-end</span>
+    block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.value);</span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>update<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">if (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>block<span class="token punctuation">.</span>renderer<span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span>dependencies<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">) @select_options(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>data<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.value);</span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>After a few tweaks, finally I passed all my test cases, and its time to create a pull request!</p></section>
+<section><h2><a href="#submitting-the-fix" id="submitting-the-fix">Submitting the fix</a></h2>
+<p>Before pushing the fix to remote, it is important to make sure that all the lints and typescript definitions are correct. You can run <code>npm run lint --fixed</code> for linting, and <code>npm run tsd</code> to generate typescript definition.</p>
+<p>If you are unsure on how to create a pull request, you can check out <a href="https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/" rel="nofollow">How to make your first pull request on GitHub</a>.</p>
+<p>I pushed my branch and created a <a href="https://github.com/sveltejs/svelte/pull/4894" rel="nofollow">Pull Request to Svelte</a>, and now I am waiting for feedback and for it to get merged. </p>
+<p>Svelte is not maintained by full-time maintainers, everyone has their full-time job, so please be patient and be nice.</p>
+<hr>
+<p>If you wish to learn more about Svelte, <a href="https://twitter.com/lihautan" rel="nofollow">follow me on Twitter</a>.</p>
+<p>If you have anything unclear about this article, find me on <a href="https://twitter.com/lihautan" rel="nofollow">Twitter</a> too!</p></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./9feb547c.js" async></script></div>
+  
+</body>
+
+</html>

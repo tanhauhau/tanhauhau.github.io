@@ -2,7 +2,11 @@
 title: Creating custom JavaScript syntax with Babel
 date: '2019-09-25T08:00:00Z'
 description: Forking babel parser and creating your custom JavaScript syntax isn't as hard as you think.
-tags: JavaScript,babel,ast,transform
+tags: 
+  - JavaScript
+  - babel
+  - ast
+  - transform
 series: Intermediate Babel
 ---
 

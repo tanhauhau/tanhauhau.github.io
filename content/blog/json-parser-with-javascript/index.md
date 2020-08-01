@@ -2,7 +2,9 @@
 title: JSON Parser with JavaScript
 date: '2019-12-12T08:00:00Z'
 description: Step-by-step guide on implementing a JSON parser
-tags: JavaScript,AST,
+tags: 
+  - JavaScript
+  - AST
 series: AST
 ---
 

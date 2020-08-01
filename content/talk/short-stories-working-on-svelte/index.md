@@ -355,13 +355,13 @@ So I would like to end my stories with one of my favourite quote, from Steve Job
 
 So I would like to end the sharing with 2 shoutouts:
 
-### **Please do sharing more often.**
+### Please do sharing more often.
 
 What you have learned or tried, ever small or simple, it maybe useful for someone in the audience in ways you can never imagine.
 
 *You can't connect the dots looking forward.*
 
-### **Please do participate in RK more often**
+### Please do participate in RK more often
 
 Our weekly internal RK is not mandatory. But still, make an effort to join us every week. You never know what you've just learned may be useful to you some day in the future.
 

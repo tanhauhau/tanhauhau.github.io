@@ -2,7 +2,10 @@
 title: I wrote a 12-line Rollup plugin
 date: '2019-11-30T08:00:00Z'
 description: Why would I install a package with so many files and dependencies, just to do a something simple that can be done in 12 lines of code?
-tags: JavaScript,rollup,plugin
+tags: 
+  - JavaScript
+  - rollup
+  - plugin
 ---
 
 ## Background
@@ -40,11 +43,11 @@ In todays JavaScript landscape, there's a *"node_module"* for everything.
 
 So I [googled](https://www.google.com/search?q=rollup+plugin+copy+files) _"rollup plugin copy files"_, without a suprise, there are multiple rollup plugins published to npm:
 
-![google search](./images/google search.png 'Google result for "rollup plugin copy files"')
+![google search](./images/google-search.png 'Google result for "rollup plugin copy files"')
 
 So I decided to install the first plugin, because it has the highest weekly downloads:
 
-![rollup-plugin-copy weekly downloads](./images/rollup-plugin-copy usage.png "17K weekly downloads")
+![rollup-plugin-copy weekly downloads](./images/rollup-plugin-copy-usage.png "17K weekly downloads")
 
 When I installed the plugin, I realise I was installing much more than I needed:
 

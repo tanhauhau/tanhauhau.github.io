@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Contributing to Svelte - Fixing issue #5012 | Tan Li Hau</title><link href="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-5012/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" content="Svelte issue #5012 - Slot containing only {@html value} renders in wrong place on update" data-svelte="svelte-1k4ncsr"><meta name="image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-5012/assets/hero-twitter-14595226.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-5012/assets/hero-twitter-14595226.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="Contributing to Svelte - Fixing issue #5012" data-svelte="svelte-1k4ncsr"><meta name="og:description" content="Svelte issue #5012 - Slot containing only {@html value} renders in wrong place on update" data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="Contributing to Svelte - Fixing issue #5012" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" content="Svelte issue #5012 - Slot containing only {@html value} renders in wrong place on update" data-svelte="svelte-1k4ncsr"><meta name="twitter:image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-5012/assets/hero-twitter-14595226.jpg" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="Svelte" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="JavaScript" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="Open Source" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fcontributing-to-svelte-fixing-issue-5012" data-svelte="svelte-1k4ncsr"><meta itemprop="image" content="http://127.0.0.1:8080/contributing-to-svelte-fixing-issue-5012/assets/hero-twitter-14595226.jpg" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Svelte issue #5012 - Slot containing only {@html value} renders in wrong place on update","headline":"Contributing to Svelte - Fixing issue #5012","name":"Contributing to Svelte - Fixing issue #5012","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fcontributing-to-svelte-fixing-issue-5012","name":"Contributing to Svelte - Fixing issue #5012"},"position":2}]}</script><link as="script" rel="preload" href="./5ba604d0.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./5ba604d0.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./5ba604d0.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>Contributing to Svelte - Fixing issue #5012</h1>
+  
+  <span class="svelte-2w4dum">Svelte</span><span class="svelte-2w4dum">JavaScript</span><span class="svelte-2w4dum">Open Source</span>
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#background">Background</a></li><li><a href="#the-bug">The bug</a></li><li><a href="#verifying-the-bug">Verifying the bug</a></li><li><a href="#investigating-the-bug">Investigating the bug</a></li><ul><li><a href="#htmltag">HtmlTag</a></li></ul><li><a href="#fixing-the-bug">Fixing the bug</a></li></ul></section>
+<section><h2><a href="#background" id="background">Background</a></h2>
+<p>Following <a href="/contributing-to-svelte-fixing-issue-4392">Contributing to Svelte - Fixing issue #4392</a>, I find it interesting to write my thought process down on fixing a Svelte issue.</p>
+<p>So today, I&#39;m going to walk through a new issue, <a href="https://github.com/sveltejs/svelte/issues/5012" rel="nofollow">#5012</a>.</p></section>
+<section><h2><a href="#the-bug" id="the-bug">The bug</a></h2>
+<div class="issue svelte-t9d7ix"><p class="svelte-t9d7ix"><strong>Slot containing only {@html value} renders in wrong place on update <a href="https://github.com/sveltejs/svelte/issues/5012" rel="nofollow">#5012</a></strong></p>
+<p class="svelte-t9d7ix">When a slotted component is instantiated and the only contents of the slot is {@html value}, changing value will cause the HTML-ized value to render at the end of the slot&#39;s parent element (i.e. after all sibling elements) instead of in the correct place.</p>
+<p class="svelte-t9d7ix"><strong>To Reproduce</strong></p>
+<p class="svelte-t9d7ix"><a href="https://svelte.dev/repl/1f9da40bca4b44a089041e826648de2f" rel="nofollow">https://svelte.dev/repl/1f9da40bca4b44a089041e826648de2f</a></p>
+<p class="svelte-t9d7ix">Click the Switch button and see that the contents of the slot moves to the end.</p>
+<p class="svelte-t9d7ix"><strong>Expected behavior</strong></p>
+<p class="svelte-t9d7ix">Slot continues to render in the correct place.</p>
+<p class="svelte-t9d7ix"><strong>Information about your Svelte project:</strong></p>
+<p class="svelte-t9d7ix">Looks like this appeared in version 3.7 and is still present in 3.23.2. If I run the REPL on 3.6.11 it behaves properly.</p>
+<p class="svelte-t9d7ix"><strong>Severity</strong></p>
+<p class="svelte-t9d7ix">Potentially serious, but not serious for me.</p>
+<p class="svelte-t9d7ix">Can be worked around by changing the slot contents to <code>&lt;div&gt;{@html value}&lt;/div&gt;</code> or changing the child component to use <code>&lt;div&gt;&lt;slot /&gt;&lt;div&gt;</code>, which works fine for me.</p></div></section>
+<section><h2><a href="#verifying-the-bug" id="verifying-the-bug">Verifying the bug</a></h2>
+<p>I clicked into the REPL and tried to understand about the bug.</p>
+<p>Initially, you see 2 lines of text, &quot;Another first line&quot;, &quot;This line should be last.&quot;.</p>
+<p>But as soon as I updated the <code>{@html content}</code>, the <code>{@html content}</code> moved to be after the &quot;This line should be last.&quot; and stayed there.</p>
+<p><img src="3a649d18b90fca49.gif" alt="screen recording of the bug behavior"></p>
+<p>Yup. This is indeed a bug! 🐛</p></section>
+<section><h2><a href="#investigating-the-bug" id="investigating-the-bug">Investigating the bug</a></h2>
+<p>It&#39;s amazing that the issue author tracked down the regression behavior of this issue, stating that it started happening since 3.7. Probably because the author just upgraded Svelte from < 3.7, or maybe he tried every versions to figure out whether it is regression bug or a undiscovered bug. Anyway, kudos to the issue author! 💪 💪</p>
+<p>Most open source projects maintain a change log file, usually named <code>CHANGELOG.md</code> located at the root of the project folder, so that you can figured out what&#39;s added / removed / updated in each version.</p>
+<p>You can find Svelte&#39;s <a href="https://github.com/sveltejs/svelte/blob/master/CHANGELOG.md" rel="nofollow"><code>CHANGELOG.md</code> here</a>.</p>
+<p><img src="9d8e49d4d12888bc.png" alt="changelog"></p>
+<p>From the changelog, the most relevant commits seemed to be <strong>&quot;Remount HTML tags correctly (<a href="https://github.com/sveltejs/svelte/pull/3329" rel="nofollow">#3329</a>)&quot;</strong></p>
+<p>Reading through the PR, it seemed that <a href="https://github.com/sveltejs/svelte/pull/3329" rel="nofollow">#3329</a> was when <code>HtmlTag</code> is first introduced!</p></section>
+<section><h3><a href="#htmltag" id="htmltag">HtmlTag</a></h3>
+<p><a href="https://github.com/sveltejs/svelte/blob/1c39f6079f630ea549984b8e9eda1853cd5fa883/src/runtime/internal/dom.ts#L321-L362" rel="nofollow"><code>HtmlTag</code></a> is a helper class that helps Svelte manage raw <a href="https://svelte.dev/tutorial/html-tags" rel="nofollow"><code>{@html ...}</code> tag</a>.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// in the compiled Svelte code,</span>
+<span class="token comment">// you would see the use of &#96;HtmlTag&#96;</span>
+<span class="token comment">// when you use &#96;&#123;@html ...&#125;&#96;</span>
+<span class="token keyword">const</span> html_tag <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlTag</span><span class="token punctuation">(</span>anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// mounting raw html string, call the &#96;m&#96;ount method</span>
+html_tag<span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span><span class="token string">'&lt;div>content&lt;/div>'</span><span class="token punctuation">,</span> target<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// when the html string content change, call the u&#96;p&#96;date method</span>
+html_tag<span class="token punctuation">.</span><span class="token function">p</span><span class="token punctuation">(</span><span class="token string">'&lt;b>new&lt;/b>html&lt;br />'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// when unmount, call the &#96;d&#96;etach method</span>
+html_tag<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The HtmlTag instance provides the <code>m</code>, <code>p</code>, <code>d</code> method, and it will maintain the HTML elements created through the HTML string.</p>
+<p>So, before v3.7, <code>{@html ...}</code> was handled differently, and from the PR, I assume it was more buggy than the current implementation, albeit getting the case reported by this issue #5012 right. So, there&#39;s no reverting back, nor taking the implementation pre-v3.7 as a reference to figure this bug out.</p>
+<p>Reading through the implementation of the <code>HtmlTag</code>, it seemed that the <code>anchor</code> is a key to this issue.</p>
+<p><code>HtmlTag</code> uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore" rel="nofollow"><code>insertBefore</code></a> to insert HTML elements into the DOM. There&#39;s a nullable 2nd argument for <code>insertBefore</code>, if it is <code>null</code>, the element will be inserted at the end of the parent.</p>
+<p>In this case, the <code>anchor</code> is indeed <code>null</code>, so when there&#39;s a change in the HTML content, the previous HTML elements were removed and the new HTML elements were inserted at the end of the parent.</p>
+<pre class="language-html">
+<code class="language-html"><span class="token comment">&lt;!-- Initially --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- slot --></span>
+  &#123;@html content&#125;
+  <span class="token comment">&lt;!-- slot --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+    This line should be last.
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- when the html content changed --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- slot --></span>
+  <span class="token comment">&lt;!-- &#123;@html content&#125; removed --></span>
+  <span class="token comment">&lt;!-- slot --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+    This line should be last.
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  &#123;@html content&#125;
+  <span class="token comment">&lt;!-- inserted at the end of the parent --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
+<p><strong>Why doesn&#39;t the <code>{@html content}</code> added at the end of the parent in the initial render?</strong> Well, the elements are added in order during mounting. The HTML elements from <code>HtmlTag</code> was added at the end of the parent, followed by the <code>&lt;p&gt;This line should be last&lt;/p&gt;</code>.</p>
+<p>The <code>anchor</code> is an argument to the <code>HtmlTag</code> constructor, so one can safely assume that it is not always <code>null</code>.</p>
+<p>So, I tried out using <code>{@html content}</code> in various ways, to figure out what may be an anchor for the <code>HtmlTag</code></p>
+<p><strong>Repro #1</strong> (<a href="https://svelte.dev/repl/f31104585d974a54a76808aa5d0820a8?version=3.23.2" rel="nofollow">REPL</a>)</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+  let content = &#39;first line&#39;;
+&lt;/script&gt;
+
+&#123;@html content&#125;&lt;button on:click=&#123;() =&gt; &#123;content = &#39;line first&#39;;&#125;&#125; /&gt;</code></pre>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// compiled js</span>
+<span class="token comment">// ...</span>
+  <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    button <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    html_tag <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlTag</span><span class="token punctuation">(</span>button<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token comment">// ...</span></code></pre>
+<p>In this case, the <code>&lt;button /&gt;</code> element turns out to be the anchor, which totally make sense, as the html content should be inserted before <code>&lt;button /&gt;</code>.</p>
+<p>So, it seemed like the anchor is the next element right after <code>{@html ...}</code>. 🤔</p>
+<p><strong>Repro #2</strong> (<a href="https://svelte.dev/repl/d469d63a77c94998839603738ea97451?version=3.23.2" rel="nofollow">REPL</a>)</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+	import Foo from &#39;./Foo.svelte&#39;;
+  let content = &#39;first line&#39;;
+&lt;/script&gt;
+
+&lt;button on:click=&#123;() =&gt; &#123;content = &#39;line first&#39;;&#125;&#125; /&gt;
+&#123;@html content&#125;&lt;Foo /&gt;</code></pre>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// compiled js</span>
+<span class="token comment">// ...</span>
+  <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    button <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    t <span class="token operator">=</span> <span class="token function">space</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    html_anchor <span class="token operator">=</span> <span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">create_component</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>$$<span class="token punctuation">.</span>fragment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    html_tag <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlTag</span><span class="token punctuation">(</span>html_anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token comment">// ...</span></code></pre>
+<p>If the next element right after <code>{@html ...}</code> is a component, then Svelte will insert a empty <a href="https://developer.mozilla.org/en-US/docs/Web/API/Text" rel="nofollow">Text</a> node in between <code>{@html ...}</code> and the component, and the anchor is the empty Text node.</p>
+<p>Well, that make sense too, because we can&#39;t see what&#39;s inside the component, we can&#39;t get the first element rendered in the component as the anchor. So, an extra empty Text node is used for anchoring.</p>
+<p>So, it seemed like the anchor for the <code>HtmlTag</code> depends on the next element, and the <code>HtmlTag</code> itself is the last element, then the anchor would be <code>null</code>.</p>
+<p>This seemed fine in most cases, as in if the <code>HtmlTag</code> is indeed the last element of its parent, then, we don&#39;t need an anchor. Adding and updating <code>HtmlTag</code> will always add HTML elements at the end of its parent.</p>
+<p>However, I figured there are 2 edge cases that this assumption may not be true.</p>
+<p>The 1st edge case is the one reported in the issue #5012, if the <code>{@html ...}</code> is the last element within a slot. As we can&#39;t tell how the slot would be used in the component, it may not be the last element of it&#39;s parent.</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;div&gt;
+  &lt;slot /&gt;
+  &lt;div&gt;This is the last child&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>The 2nd edge case is that <code>{@html ...}</code> is the last element, but it is a the root of the Component.</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;!-- Component.svelte --&gt;
+&lt;script&gt;
+  export let content;
+&lt;/script&gt;
+
+&#123;@html content&#125;
+
+&lt;!-- App.svelte --&gt;
+&lt;script&gt;
+  import Component from &#39;./Component.svelte&#39;;
+&lt;/script&gt;
+&lt;div&gt;
+  &lt;Component content=&#123;&#39;&lt;div&gt;html string&lt;/div&gt;&#39;&#125;/&gt;
+  &lt;div&gt;This is the last child&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/9d19540d1eb249c3af519894e42f0f75?version=3.23.2" rel="nofollow">REPL</a></p>
+<p>As you can see in this contrived example, we can&#39;t assume where the component is being used by its parent, so, even it seemed to be the last element in the component, it may not be the case in the parent component.</p></section>
+<section><h2><a href="#fixing-the-bug" id="fixing-the-bug">Fixing the bug</a></h2>
+<p>Once we figured out the cause of the bug, the fix is much simpler.</p>
+<p>Just as how Svelte will add a empty Text node as an anchor if the next element is a component, we are going to add the same anchor if</p>
+<ul><li>the <code>{@html ...}</code> has no next element, and</li>
+<li>either<ul><li><code>{@html ...}</code> is at the root of a slot, or</li>
+<li><code>{@html ...}</code> is at the root of a component.</li></ul></li></ul>
+<p>I know my way in the Svelte repo, good enough to know where to add this extra condition.</p>
+<p>But if you are new, you can try global search the keyword <code>html_anchor</code>, the variable name of the anchor added by Svelte, it should lead you to it.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// src/compiler/compile/render_dom/wrappers/RawMustacheTag.ts#L42</span>
+
+<span class="token keyword">const</span> needs_anchor <span class="token operator">=</span> in_head <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">.</span><span class="token function">is_dom_node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ...</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>needs_anchor<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  block<span class="token punctuation">.</span><span class="token function">add_element</span><span class="token punctuation">(</span>html_anchor<span class="token punctuation">,</span> x<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@empty()</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span> x<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">@empty()</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span> parent_node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><a href="https://github.com/sveltejs/svelte/blob/1c39f6079f630ea549984b8e9eda1853cd5fa883/src/compiler/compile/render_dom/wrappers/RawMustacheTag.ts#L42" rel="nofollow">Link to Github</a></p>
+<p>Here we see that the condition of adding an anchor is that if</p>
+<ul><li>it is in the <code>&lt;svelte:head&gt;</code>, or</li>
+<li>the next element is not a dom element, (which could be a component, or logic blocks <em>(oh why didn&#39;t I think about this case too?)</em>)</li></ul>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> needs_anchor <span class="token operator">=</span>
+  in_head <span class="token operator">||</span>
+  <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>next
+    <span class="token operator">?</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">.</span><span class="token function">is_dom_node</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">:</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>parent <span class="token operator">||</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span><span class="token function">is_dom_node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>So, we check if</p>
+<ul><li>it has a parent (if it is at the root of component), or</li>
+<li>if the parent is not an element (it could be within a slot, or a logic block <code>{#if}</code>)</li></ul>
+<p>For the test case, I used to 2 edge case examples, try to simulate some clicks, and make sure that the <code>{@html ...}</code> stay in place even after the HTML content changes.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  html<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+    &lt;button>Switch&lt;/button>
+    &lt;p>Another first line&lt;/p>
+    &lt;p>This line should be last.&lt;/p>
+  </span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> assert<span class="token punctuation">,</span> target<span class="token punctuation">,</span> window <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> btn <span class="token operator">=</span> target<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> clickEvent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">window<span class="token punctuation">.</span>MouseEvent</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// simulate clicks</span>
+    <span class="token keyword">await</span> btn<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>clickEvent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    assert<span class="token punctuation">.</span><span class="token function">htmlEqual</span><span class="token punctuation">(</span>
+      target<span class="token punctuation">.</span>innerHTML<span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+        &lt;button>Switch&lt;/button>
+        &lt;p>First line&lt;/p>
+        &lt;p>This line should be last.&lt;/p>
+      </span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// simulate clicks</span>
+    <span class="token keyword">await</span> btn<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>clickEvent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    assert<span class="token punctuation">.</span><span class="token function">htmlEqual</span><span class="token punctuation">(</span>
+      target<span class="token punctuation">.</span>innerHTML<span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+        &lt;button>Switch&lt;/button>
+        &lt;p>Another first line&lt;/p>
+        &lt;p>This line should be last.&lt;/p>
+      </span><span class="token template-punctuation string">&#96;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+<p>You can read the <a href="https://github.com/sveltejs/svelte/pull/5061" rel="nofollow">Pull Request #5061</a> to see all the test cases written up.</p>
+<hr>
+<p>If you wish to learn more about Svelte, <a href="https://twitter.com/lihautan" rel="nofollow">follow me on Twitter</a>.</p>
+<p>If you have anything unclear about this article, find me on <a href="https://twitter.com/lihautan" rel="nofollow">Twitter</a> too!</p></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./5ba604d0.js" async></script></div>
+  
+</body>
+
+</html>

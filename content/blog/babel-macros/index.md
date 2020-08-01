@@ -2,7 +2,11 @@
 title: Babel macros
 date: '2019-10-08T08:00:00Z'
 series: Intermediate Babel
-tags: JavaScript,babel,ast,transform
+tags: 
+  - JavaScript
+  - babel
+  - ast
+  - transform
 description: "Custom JavaScript syntax is hard to maintain, custom babel transform plugin is no better. That's why we need Babel macros."
 ---
 
@@ -14,20 +18,20 @@ In my previous post, ["Creating custom JavaScript syntax with Babel"](/creating-
 
 However, it is purely educational, and I am not recommending you to create your custom JavaScript syntax for production projects for several reasons:
 
-#### Documentation and community support
+### Documentation and community support
 
 If anything goes wrong, the great JavaScript community out there has no idea what is the `@@` ([the curry function syntax we created previously](/creating-custom-javascript-syntax-with-babel#overview)) means. Meaning the support that a new developer to the team can get is only as good as your documentation.
 
-#### Tooling
+### Tooling
 
 You need to make all the tooling you use to work. I mean eslint, prettier, Flowtype/TypeScript, your editor...
 
-#### Maintainability
+### Maintainability
 
 If the forked version has a bug, do you have enough support to fix it?
 If the babel upstream fixed a bug or added a feature, how often do you merge the upstream into your fork?
 
-#### Consistency of the syntax
+### Consistency of the syntax
 
 This is the hardest part of creating a new syntax. An added syntax is an added mental concept for the language users, so the new mental model should be transferable to every scenario of the language.
 
@@ -39,7 +43,7 @@ I think you get my point. But the idea of having a magical syntax that keeps the
 
 Take [optional chaining](https://v8.dev/features/optional-chaining) for example, before having the optional chaining operator `?.`, we had a few ways to write `props?.user?.friends?.[0]?.friend`, which is:
 
-#### a mundane to write, not easy to read (less intentional), but most efficient possible:
+**a mundane to write, not easy to read (less intentional), but most efficient possible:**
 
 ```js
 const firstFriend =
@@ -61,7 +65,7 @@ const firstFriend = props
   : null;
 ```
 
-#### easy to write, easy to read, but with slightly more runtime overhead:
+**easy to write, easy to read, but with slightly more runtime overhead:**
 
 ```js
 const firstFriend = idx(props, _ => _.user.friends[0].friend);
@@ -75,7 +79,7 @@ function idx(input, accessor) {
 }
 ```
 
-> <small>**Note:** I've tried to search online whether a `try-catch` is more expensive, however the [search result](https://stackoverflow.com/questions/19727905/in-javascript-is-it-expensive-to-use-try-catch-blocks-even-if-an-exception-is-n) [is not](https://news.ycombinator.com/item?id=3922963) [conclusive](https://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code). [Let me know](https://twitter.com/lihautan) if you have a conclusive research on this.</small>
+> <b>Note:</b> I've tried to search online whether a `try-catch` is more expensive, however the <a href="https://stackoverflow.com/questions/19727905/in-javascript-is-it-expensive-to-use-try-catch-blocks-even-if-an-exception-is-n">search result</a> <a href="https://news.ycombinator.com/item?id=3922963">is not</a> <a href="https://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">conclusive</a>. <a href="https://twitter.com/lihautan">Let me know</a> if you have a conclusive research on this.
 
 Is there a third option that is **easy to read and write, yet without the try-catch runtime overhead?**
 
@@ -107,13 +111,13 @@ So your code is easy to read, and no runtime overhead. You get the best of both 
 
 Though nothing is perfect. Here, I wanted to point out some of my personal opinions about this approach:
 
-#### While maintaining a good developer experience (DX), we've shifted the runtime overhead to compile time.
+> While maintaining a good developer experience (DX), we've shifted the runtime overhead to compile time.
 
 You can keep the way you wanted to write the code while having the compiler to transform the code to something you are _"supposed"_ to write.
 
 A win-win solution.
 
-#### How do we apply this technique to other similar situations?
+**How do we apply this technique to other similar situations?**
 
 First, you need to [write a Babel plugin](/step-by-step-guide-for-writing-a-babel-transformation).
 
@@ -123,7 +127,7 @@ In this example, the default import from the `"idx"` module is the **marker**, a
 
 Thirdly, you need to update your babel configuration. For every new plugin, **you need to add them in**; **you need to make sure the order of plugin is correct**.
 
-#### What if there's a bug in the Babel plugin?
+**What if there's a bug in the Babel plugin?**
 
 This would be the most confusing part for the new developers on the codebase.
 
@@ -141,7 +145,7 @@ Well, you are looking at [babel macros](https://github.com/kentcdodds/babel-plug
 
 So, here's how it would look like with babel macro:
 
-#### You add `babel-plugin-macro` to babel config
+**You add `babel-plugin-macro` to babel config**
 
 And that's all the change you need for babel configuration.
 
@@ -153,7 +157,7 @@ module.exports = {
 };
 ```
 
-#### You write your own macro
+**You write your own macro**
 
 ```js
 // filename: src/utils/idx.macro.js
@@ -168,7 +172,7 @@ module.exports = createMacro(({ state, references }) => {
 
 We'll talk about the code later, one thing to take away here is that your filename has to end with `.macro` or `.macro.js`.
 
-#### Use it
+**Use it**
 
 ```js
 // filename: src/index.js
@@ -219,7 +223,7 @@ If you insist to stay, I am going to show you how I wrote my Babel macros, in pa
 
 ### mock.macro
 
-#### Motivation
+**Motivation**
 
 Usually, when working with a backend developer on a frontend application, I would use static type to define the API schema. For example, a user api would look like this:
 
@@ -295,7 +299,7 @@ async function fetchUser(
 
 and when I call the function `fetchUser`, I would get my mock response in return.
 
-#### Implementing mock.macro
+**Implementing mock.macro**
 
 Implementing mock.macro requires some basic knowledge about Abstract Syntax Tree (AST) and writing babel transformation, you can check out [the step-by-step guide I've written previously](/step-by-step-guide-for-writing-a-babel-transformation).
 

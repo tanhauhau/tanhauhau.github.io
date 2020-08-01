@@ -260,7 +260,7 @@ And, if you noticed, I need to append the `const CSS_FILES = [...]` to every fil
 
 According to [@evilebottnawi](https://twitter.com/evilebottnawi) that this is not appropriate
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A lot of plugin uses `compiler.hooks.emit` for emitting new assets, it is invalid. Ideally plugins should use `compilation.hooks.additionalAssets` for adding new assets.</p>&mdash; evilebottnawi (@evilebottnawi) <a href="https://twitter.com/evilebottnawi/status/1230417598677954560?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A lot of plugin uses `compiler.hooks.emit` for emitting new assets, it is invalid. Ideally plugins should use `compilation.hooks.additionalAssets` for adding new assets.</p>&mdash; evilebottnawi (@evilebottnawi) <a href="https://twitter.com/evilebottnawi/status/1230417598677954560?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote>
 
 ## The 3rd approach
 
@@ -356,4 +356,4 @@ So, [let me know](https://twitter.com/lihautan) if you have any thoughts or sugg
 
 You can read [the discussions that's happening on Twitter](https://twitter.com/lihautan/status/1230301241533583360):
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Need some suggestions and inputs from <a href="https://twitter.com/webpack?ref_src=twsrc%5Etfw">@webpack</a> masters, I&#39;ve written the problem and approaches that I&#39;ve taken over here: <a href="https://t.co/gLsPG9Joeq">https://t.co/gLsPG9Joeq</a>, still I&#39;m not sure I am doing it right 🙈<a href="https://twitter.com/wSokra?ref_src=twsrc%5Etfw">@wSokra</a> <a href="https://twitter.com/evilebottnawi?ref_src=twsrc%5Etfw">@evilebottnawi</a></p>&mdash; Tan Li Hau (@lihautan) <a href="https://twitter.com/lihautan/status/1230301241533583360?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Need some suggestions and inputs from <a href="https://twitter.com/webpack?ref_src=twsrc%5Etfw">@webpack</a> masters, I&#39;ve written the problem and approaches that I&#39;ve taken over here: <a href="https://t.co/gLsPG9Joeq">https://t.co/gLsPG9Joeq</a>, still I&#39;m not sure I am doing it right 🙈<a href="https://twitter.com/wSokra?ref_src=twsrc%5Etfw">@wSokra</a> <a href="https://twitter.com/evilebottnawi?ref_src=twsrc%5Etfw">@evilebottnawi</a></p>&mdash; Tan Li Hau (@lihautan) <a href="https://twitter.com/lihautan/status/1230301241533583360?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote>

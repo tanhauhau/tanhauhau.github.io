@@ -10,7 +10,7 @@ date: '2019-04-12'
 series: History of Web Development
 ---
 
-# Motivation
+## Motivation
 
 A while ago, I posted an article about [understanding frontend tools](https://lihautan.com/understand-the-frontend-tools/). I mentioned that the way I make sense of all the tools and frameworks out there in the JavaScript world, is to try writing a web application with plain JavaScript, and start asking questions.
 
@@ -20,7 +20,7 @@ One of the question is:
 
 So I will attempt to answer the question by first exploring how things are done in a "Vanilla" way, and my two cents about the inherent problem with it and how each tooling come about solving those problems.
 
-# The Vanilla way
+## The Vanilla way
 
 Imagine the following scenario:
 
@@ -140,7 +140,7 @@ Well, I am not sure some of these word existed, I think I might have made up som
 
 The problems above are no longer a concern any more in the 2019 world, yet it is still interesting to see what the JavaScript community has created to solve these problems.
 
-# Installability
+## Installability
 
 > The "how easy is it to install" problem.
 
@@ -196,7 +196,7 @@ Bower components for browser libraries and npm packages for build tools, had bee
 
 With [Browserify](http://browserify.org/), and other module bundler, eg [webpack](https://webpack.js.org), [rollup](https://rollupjs.org/) etc, we are now able to freely share code among Node.js and browser application, and use `npm` as a package manager for installing and upgrading packages.
 
-# Importability
+## Importability
 
 > The "how easy is it to import" problem.
 
@@ -272,7 +272,7 @@ Now, most [modern browsers have supported `<script type="module">`](https://deve
 
 Over the years, the JavaScript community have been trying to split JavaScript code into multiple files, and link them together with some module system, such as CommonJS and AMD. [TC39](https://www.ecma-international.org/memento/tc39.htm) introduced [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) in ES6 (ES2015) to offer an official module syntax in JavaScript, and before browsers supporting the ES modules syntax, we have to rely on build tools such as [webpack](https://webpack.js.org). Finally, modern browsers are now supporting `<script type="module">`, which means we can now use `import` and `export` in our JavaScript application without any configurations.
 
-# Scopability
+## Scopability
 
 > The "scope pollution" problem.
 
@@ -336,11 +336,11 @@ In terms of "scopeability", the solutions are namespace it or create a new funct
 
 In fact, these are the 2 different ways module bundlers bundled JavaScript modules into 1 JavaScript file. (which I will explained them further in my future talk).
 
-# Summary
+## Summary
 
 We've seen how module system was introduced into JavaScript, and how different tools, standards, or syntax come about in solving the **Installability**, **Scopability** and **Importability** problem.
 
-# Further Readings
+## Further Readings
 
 - [CommonJS effort sets javascript on path for world domination](https://arstechnica.com/information-technology/2009/12/commonjs-effort-sets-javascript-on-path-for-world-domination/)
 - [Writing Modular JavaScript With AMD, CommonJS & ES Harmony](https://addyosmani.com/writing-modular-js/)

@@ -2,7 +2,12 @@
 title: Manipulating AST with JavaScript
 date: '2019-11-22T08:00:00Z'
 description: 'Manipulating AST is not that hard anyway'
-tags: JavaScript,ast,transform,depth-first-search,dfs
+tags: 
+  - JavaScript
+  - ast
+  - transform
+  - depth-first-search
+  - dfs
 series: AST
 ---
 

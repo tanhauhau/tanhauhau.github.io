@@ -1,7 +1,11 @@
 ---
 title: I wrote my module bundler II
 date: '2019-10-16T08:00:00Z'
-tags: JavaScript,module bundler,dev tool,webpack
+tags: 
+  - JavaScript
+  - module bundler
+  - dev tool
+  - webpack
 description: "We've built a simple bundler to bundle javascript code. Let's add CSS, HTML and serve it in the browser!"
 series: Write a module bundler
 ---
@@ -71,7 +75,7 @@ _Did I just said "import libraries"?_ 🙊
 
 To bundle for the web, the most important piece is to have the HTML.
 
-Usually, we provide an HTML template to the module bundler. And when the module bundler finishes the bundling process, it will come up with a list of files that is required to start the application and add them into the HTML file in the form of a `<script>` tag.
+Usually, we provide an HTML template to the module bundler. And when the module bundler finishes the bundling process, it will come up with a list of files that is required to start the application and add them into the HTML file in the form of a `&lt;script&gt;` tag.
 
 To illustrate here is the HTML template that I've prepared:
 
@@ -126,9 +130,9 @@ function generateHTMLTemplate(htmlTemplatePath, outputFiles) {
 }
 ```
 
-Here, I used a `.replace(END_BODY_TAG, '...' + END_BODY_TAG)` to insert the `<script>` tags before the end of the `</body>` tag.
+Here, I used a `.replace(END_BODY_TAG, '...' + END_BODY_TAG)` to insert the `&lt;script&gt;` tags before the end of the `</body>` tag.
 
-> <small>**Note:** Read [here](https://www.codecademy.com/forum_questions/55dee24b937676fb5e000139) to learn why it's a best practice to add `<script>` tag at the end of the `<body>` tag.</small>
+> <small>**Note:** Read [here](https://www.codecademy.com/forum_questions/55dee24b937676fb5e000139) to learn why it's a best practice to add `&lt;script&gt;` tag at the end of the `<body>` tag.</small>
 
 ## Adding CSS
 

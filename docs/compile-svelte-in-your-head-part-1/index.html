@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Compile Svelte in your head (Part 1) | Tan Li Hau</title><link href="http://127.0.0.1:8080/compile-svelte-in-your-head-part-1/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" data-svelte="svelte-1k4ncsr"><meta name="image" content="http://127.0.0.1:8080/compile-svelte-in-your-head-part-1/assets/hero-twitter-37d7c018.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:image" content="http://127.0.0.1:8080/compile-svelte-in-your-head-part-1/assets/hero-twitter-37d7c018.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="Compile Svelte in your head (Part 1)" data-svelte="svelte-1k4ncsr"><meta name="og:description" data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="Compile Svelte in your head (Part 1)" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" data-svelte="svelte-1k4ncsr"><meta name="twitter:image" content="http://127.0.0.1:8080/compile-svelte-in-your-head-part-1/assets/hero-twitter-37d7c018.jpg" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="Svelte" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="JavaScript" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fcompile-svelte-in-your-head-part-1" data-svelte="svelte-1k4ncsr"><meta itemprop="image" content="http://127.0.0.1:8080/compile-svelte-in-your-head-part-1/assets/hero-twitter-37d7c018.jpg" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"headline":"Compile Svelte in your head (Part 1)","name":"Compile Svelte in your head (Part 1)","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fcompile-svelte-in-your-head-part-1","name":"Compile Svelte in your head (Part 1)"},"position":2}]}</script><link as="script" rel="preload" href="./b6c466f9.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./b6c466f9.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./b6c466f9.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>Compile Svelte in your head (Part 1)</h1>
+  
+  <span class="svelte-2w4dum">Svelte</span><span class="svelte-2w4dum">JavaScript</span>
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#background">Background</a></li><li><a href="#introduction">Introduction</a></li><ul><li><a href="#creating-an-element">Creating an element</a></li><li><a href="#updating-an-element">Updating an element</a></li><li><a href="#removing-an-element">Removing an element</a></li><li><a href="#adding-style-to-an-element">Adding style to an element</a></li><li><a href="#listen-for-click-events-on-an-element">Listen for click events on an element</a></li></ul><li><a href="#svelte-syntax">Svelte syntax</a></li><li><a href="#compile-svelte-in-your-head">Compile Svelte in your Head</a></li><ul><li><a href="#create-fragment">create_fragment</a></li><ul><li><a href="#c">- c()</a></li><li><a href="#m-target-anchor">- m(target, anchor)</a></li><li><a href="#d-detaching">- d(detaching)</a></li></ul><li><a href="#export-default-class-app-extends-sveltecomponent">export default class App extends SvelteComponent</a></li><li><a href="#adding-data">Adding data</a></li><li><a href="#updating-data">Updating data</a></li><ul><li><a href="#p-ctx-dirty">- p(ctx, dirty)</a></li></ul><li><a href="#instance-variable">instance variable</a></li><li><a href="#instance-self-props-invalidate">instance($$self, $$props, \$\$invalidate)</a></li><li><a href="#invalidate">\$\$invalidate</a></li><li><a href="#adding-event-listeners">Adding event listeners</a></li><li><a href="#listen-and-dispose">listen and dispose</a></li></ul><li><a href="#summary">Summary</a></li><ul><ul><li><a href="#create-fragment">1. create_fragment</a></li><li><a href="#instance">2. instance</a></li><li><a href="#class-app-extends-sveltecomponent">3. class App extends SvelteComponent</a></li></ul></ul><li><a href="#closing-note">Closing Note</a></li></ul></section>
+<section><h2><a href="#background" id="background">Background</a></h2>
+<p>A while ago, <a href="https://twitter.com/swyx" rel="nofollow">@swyx</a> came back to Singapore and visited us in <a href="https://careers.shopee.sg/about/" rel="nofollow">Shopee Singapore</a> (<a href="https://grnh.se/32e5b3532" rel="nofollow">We&#39;re hiring!</a>).</p>
+<p>He gave an amazing sharing on <a href="https://www.swyx.io/speaking/svelte-compile-lightning/" rel="nofollow">Compile Svelte in Your Head</a> (<a href="https://www.youtube.com/watch?v=FNmvcswdjV8" rel="nofollow">video</a>) in the <a href="https://reactknowledgeable.org/" rel="nofollow">ReactKnowledgeable Originals</a>.</p>
+<p>I love his presentation and the title is so catchy, so I begged him to use the catchy title as this series of articles about the Svelte compiler. It will be about how Svelte sees your code and compiles it down to plain JavaScript.</p></section>
+<section><h2><a href="#introduction" id="introduction">Introduction</a></h2>
+<p>Lets refresh ourselves with how we write web app without any framework:</p></section>
+<section><h3><a href="#creating-an-element" id="creating-an-element">Creating an element</a></h3>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// create a h1 element</span>
+<span class="token keyword">const</span> h1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+h1<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token comment">// ...and add it to the body</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>h1<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
+<section><h3><a href="#updating-an-element" id="updating-an-element">Updating an element</a></h3>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// update the text of the h1 element</span>
+h1<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Bye World'</span><span class="token punctuation">;</span></code></pre></section>
+<section><h3><a href="#removing-an-element" id="removing-an-element">Removing an element</a></h3>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// finally, we remove the h1 element</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>h1<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
+<section><h3><a href="#adding-style-to-an-element" id="adding-style-to-an-element">Adding style to an element</a></h3>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> h1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+h1<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token comment">// highlight-start</span>
+<span class="token comment">// add class name to the h1 element</span>
+h1<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'abc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ...and add a &lt;style> tag to the head</span>
+<span class="token keyword">const</span> style <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+style<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'.abc &#123; color: blue; &#125;'</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>style<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// highlight-end</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>h1<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
+<section><h3><a href="#listen-for-click-events-on-an-element" id="listen-for-click-events-on-an-element">Listen for click events on an element</a></h3>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> button <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+button<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Click Me!'</span><span class="token punctuation">;</span>
+<span class="token comment">// highlight-start</span>
+<span class="token comment">// listen to "click" events</span>
+button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hi!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// highlight-end</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>button<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>These are code that you have to write, without using any framework or library.</p>
+<p>The main idea of this article is to show how the Svelte compiler compiles the Svelte syntax into statements of codes that I&#39;ve shown above.</p></section>
+<section><h2><a href="#svelte-syntax" id="svelte-syntax">Svelte syntax</a></h2>
+<p>Here I&#39;m going to show you some basics of the Svelte syntax.</p>
+<blockquote><p>If you wish to learn more, I highly recommend trying <a href="https://svelte.dev/tutorial/basics" rel="nofollow">Svelte&#39;s interactive tutorial</a>.</p></blockquote>
+<p>So here is a basic Svelte component:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/99aeea705b1e48fe8610b3ccee948280" rel="nofollow">Svelte REPL</a></p>
+<p>To add style, you add a <code>&lt;style&gt;</code> tag:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;style&gt;
+  h1 &#123;
+    color: rebeccapurple;
+  &#125;
+&lt;/style&gt;
+&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/cf54441399864c0f9b0cb25710a5fe9b" rel="nofollow">Svelte REPL</a></p>
+<p>At this point, writing Svelte component just feels like writing HTML, that&#39;s because Svelte syntax is a super set of the HTML syntax.</p>
+<p>Let&#39;s look at how we add a data to our component:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+  let name = &#39;World&#39;;
+&lt;/script&gt;
+&lt;h1&gt;Hello &#123;name&#125;&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/c149ca960b0444948dc0c00a9175bcb3" rel="nofollow">Svelte REPL</a></p>
+<p>We put JavaScript inside the curly brackets.</p>
+<p>To add a click handler, we use the <code>on:</code> directive</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+  let count = 0;
+  function onClickButton(event) &#123;
+    console.log(count);
+  &#125;
+&lt;/script&gt;
+&lt;button on:click=&#123;onClickButton&#125;&gt;Clicked &#123;count&#125;&lt;/button&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/1da1dcaf51814ed09d2341ea7915f0a1" rel="nofollow">Svelte REPL</a></p>
+<p>To change the data, we use <a href="https://www.w3schools.com/js/js_assignment.asp" rel="nofollow">assignment operators</a></p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+  let count = 0;
+  function onClickButton(event) &#123;
+    // highlight-next-line
+    count += 1;
+  &#125;
+&lt;/script&gt;
+&lt;button on:click=&#123;onClickButton&#125;&gt;Clicked &#123;count&#125;&lt;/button&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/7bff4b7746df4007a51155d2006ce724" rel="nofollow">Svelte REPL</a></p>
+<p>Let&#39;s move on to see how Svelte syntax is compiled into JavaScript that we&#39;ve seen earlier</p></section>
+<section><h2><a href="#compile-svelte-in-your-head" id="compile-svelte-in-your-head">Compile Svelte in your Head</a></h2>
+<p>The Svelte compiler analyses the code you write and generates an optimised JavaScript output.</p>
+<p>To study how Svelte compiles the code, lets start with the smallest example possible, and slowly build up the code. Through the process, you will see that Svelte incrementally adds to the output code based on your changes.</p>
+<p>The first example that we are going to see is:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/99aeea705b1e48fe8610b3ccee948280?version=3.19.1" rel="nofollow">Svelte REPL</a></p>
+<p>The output code:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> h1<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      h1 <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      h1<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Hello world'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">m</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> anchor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">insert</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> h1<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">d</span><span class="token punctuation">(</span><span class="token parameter">detaching</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>detaching<span class="token punctuation">)</span> <span class="token function">detach</span><span class="token punctuation">(</span>h1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">SvelteComponent</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> options<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> create_fragment<span class="token punctuation">,</span> safe_not_equal<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>You can break down the output code into 2 sections:</p>
+<ul><li><code>create_fragment</code></li>
+<li><code>class App extends SvelteComponent</code></li></ul></section>
+<section><h3><a href="#create-fragment" id="create-fragment">create_fragment</a></h3>
+<p>Svelte components are the building blocks of a Svelte application. Each Svelte component focuses on building its piece or fragment of the final DOM.</p>
+<p>The <code>create_fragment</code> function gives the Svelte component an instruction manual on how to build the DOM fragment.</p>
+<p>Look at the return object of the <code>create_fragment</code> function. It has methods, such as:</p></section>
+<section><h4><a href="#c" id="c">- c()</a></h4>
+<p>Short for <strong>create</strong>.</p>
+<p>Contains instructions to create all the elements in the fragment.</p>
+<p>In this example, it contains instructions to create the <code>h1</code> element</p>
+<pre class="language-js">
+<code class="language-js">h1 <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+h1<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span></code></pre></section>
+<section><h4><a href="#m-target-anchor" id="m-target-anchor">- m(target, anchor)</a></h4>
+<p>Short for <strong>mount</strong>.</p>
+<p>Contains instructions to mount the elements into the target.</p>
+<p>In this example, it contains instructions to insert the <code>h1</code> element into the <code>target</code>.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">insert</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> h1<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// http://github.com/sveltejs/svelte/tree/master/src/runtime/internal/dom.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> node<span class="token punctuation">,</span> anchor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  target<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> anchor <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h4><a href="#d-detaching" id="d-detaching">- d(detaching)</a></h4>
+<p>Short for <strong>destroy</strong>.</p>
+<p>Contains instructions to remove the elements from the target.</p>
+<p>In this example, we detach the <code>h1</code> element from the DOM</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">detach</span><span class="token punctuation">(</span>h1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// http://github.com/sveltejs/svelte/tree/master/src/runtime/internal/dom.ts</span>
+<span class="token keyword">function</span> <span class="token function">detach</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  node<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<blockquote><p>The method names are short for better minification. <a href="https://alistapart.com/article/javascript-minification-part-ii/#section3" rel="nofollow">See what can&#39;t be minified here</a>.</p></blockquote></section>
+<section><h3><a href="#export-default-class-app-extends-sveltecomponent" id="export-default-class-app-extends-sveltecomponent">export default class App extends SvelteComponent</a></h3>
+<p>Each component is a class, which you can import and instantiate through <a href="https://svelte.dev/docs#Client-side_component_API" rel="nofollow">this API</a>.</p>
+<p>And in the constructor, we initialize the component with information that made up the component such as <code>create_fragment</code>. Svelte will only pass information that it is needed and remove them whenever it is not necessary.</p>
+<p>Try removing the <code>&lt;h1&gt;</code> tag and see what happens to the output:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;!-- empty --&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/1f29ce52adf446fc9116bb957b7200ec?version=3.19.1" rel="nofollow">Svelte REPL</a></p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">SvelteComponent</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> options<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> safe_not_equal<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Svelte will pass in <code>null</code> instead of <code>create_fragment</code>!</p>
+<p>The <code>init</code> function is where Svelte sets up most of the internals, such as:</p>
+<ul><li>component props, <code>ctx</code> (will explain what <code>ctx</code> is later) and context</li>
+<li>component lifecycle events</li>
+<li>component update mechanism</li></ul>
+<p>and at the very end, Svelte calls the <code>create_fragment</code> to create and mount elements into the DOM.</p>
+<p>If you noticed, all the internal state and methods are attached to <code>this.$$</code>.</p>
+<p>So if you ever access the <code>$$</code> property of the component, you are tapping into the internals. You&#39;ve been warned! 🙈🚨</p></section>
+<section><h3><a href="#adding-data" id="adding-data">Adding data</a></h3>
+<p>Now that we&#39;ve looked at the bare minimum of a Svelte component, let&#39;s see how adding a data would change the compiled output:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+	let name = &#39;World&#39;;
+&lt;/script&gt;
+&lt;h1&gt;Hello &#123;name&#125;&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/c149ca960b0444948dc0c00a9175bcb3?version=3.19.1" rel="nofollow">Svelte REPL</a></p>
+<p>Notice the change in the output:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      h1 <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// highlight-next-line</span>
+      h1<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// highlight-next-line</span>
+<span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'World'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">SvelteComponent</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Some observations:</p>
+<ul><li>What you&#39;ve written in the <code>&lt;script&gt;</code> tag is moved into the top level of the code</li>
+<li><code>h1</code> element&#39;s text content is now a template literal</li></ul>
+<p>There&#39;s a lot of amazing things happening under the hood right now, but let&#39;s hold our horses for a while, because it&#39;s best explained when comparing with the next code change.</p></section>
+<section><h3><a href="#updating-data" id="updating-data">Updating data</a></h3>
+<p>Let&#39;s add a function to update the <code>name</code>:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+	let name = &#39;World&#39;;
+	function update() &#123;
+		name = &#39;Svelte&#39;;
+	&#125;
+&lt;/script&gt;
+&lt;h1&gt;Hello &#123;name&#125;&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/3841485f4d224774ba42617e4e964968?version=3.19.1" rel="nofollow">Svelte REPL</a></p>
+<p>...and observe the change in the compiled output:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// highlight-start</span>
+      h1 <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      t0 <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">'Hello '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      t1 <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token comment">/*name*/</span> ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// highlight-end</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">m</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> anchor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">insert</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> h1<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">append</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> t0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">append</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> t1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token comment">// highlight-start</span>
+    <span class="token function">p</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> <span class="token punctuation">[</span>dirty<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>dirty <span class="token operator">&amp;</span> <span class="token comment">/*name*/</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">set_data</span><span class="token punctuation">(</span>t1<span class="token punctuation">,</span> <span class="token comment">/*name*/</span> ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token comment">// highlight-end</span>
+    <span class="token function">d</span><span class="token punctuation">(</span><span class="token parameter">detaching</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>detaching<span class="token punctuation">)</span> <span class="token function">detach</span><span class="token punctuation">(</span>h1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// highlight-start</span>
+<span class="token keyword">function</span> <span class="token function">instance</span><span class="token punctuation">(</span><span class="token parameter">$$self<span class="token punctuation">,</span> $$props<span class="token punctuation">,</span> $$invalidate</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'World'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">$$invalidate</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'Svelte'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// highlight-end</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">SvelteComponent</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment<span class="token punctuation">,</span> safe_not_equal<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Some observations:</p>
+<ul><li>the text content of <code>&lt;h1&gt;</code> element is now broken into 2 text nodes, created by the <code>text(...)</code> function</li>
+<li>the return object of the <code>create_fragment</code> has a new method, <code>p(ctx, dirty)</code></li>
+<li>a new function <code>instance</code> is created</li>
+<li>What you&#39;ve written in the <code>&lt;script&gt;</code> tag is now moved into the <code>instance</code> function</li>
+<li>for the sharp-eyed, the variable <code>name</code> that was used in the <code>create_fragment</code> is now replaced by <code>ctx[0]</code></li></ul>
+<p>So, why the change?</p>
+<p>The Svelte compiler tracks all the variables declared in the <code>&lt;script&gt;</code> tag.</p>
+<p>It tracks whether the variable:</p>
+<ul><li>can be mutated? eg: <code>count++</code>,</li>
+<li>can be reassigned? eg: <code>name = &#39;Svelte&#39;</code>,</li>
+<li>is referenced in the template? eg: <code>&lt;h1&gt;Hello {name}&lt;/h1&gt;</code></li>
+<li>is writable? eg: <code>const i = 1;</code> vs <code>let i = 1;</code></li>
+<li>... and many more</li></ul>
+<p>When the Svelte compiler realises that the variable <code>name</code> can be reassigned, (due to <code>name = &#39;Svelte&#39;;</code> in <code>update</code>), it breaks down the text content of the <code>h1</code> into parts, so that it can dynamically update part of the text.</p>
+<p>Indeed, you can see that there&#39;s a new method, <code>p</code>, to update the text node.</p></section>
+<section><h4><a href="#p-ctx-dirty" id="p-ctx-dirty">- p(ctx, dirty)</a></h4>
+<p>Short for <strong>u_p_date</strong>.</p>
+<p><strong>p(ctx, dirty)</strong> contains instructions to update the elements based on what has changed in the state (<code>dirty</code>) and the state (<code>ctx</code>) of the component.</p></section>
+<section><h3><a href="#instance-variable" id="instance-variable">instance variable</a></h3>
+<p>The compiler realises that the variable <code>name</code> cannot be shared across different instances of the <code>App</code> component. That&#39;s why it moves the declaration of the variable <code>name</code> into a function called <code>instance</code>.</p>
+<p>In the previous example, no matter how many instances of the <code>App</code> component, the value of the variable <code>name</code> is the same and unchanged across the instances:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;App /&gt;
+&lt;App /&gt;
+&lt;App /&gt;
+
+&lt;!-- gives you --&gt;
+&lt;h1&gt;Hello world&lt;/h1&gt;
+&lt;h1&gt;Hello world&lt;/h1&gt;
+&lt;h1&gt;Hello world&lt;/h1&gt;</code></pre>
+<p>But, in this example, the variable <code>name</code> can be changed within 1 instance of the component, so the declaration of the variable <code>name</code> is now moved into the <code>instance</code> function:</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;App /&gt;
+&lt;App /&gt;
+&lt;App /&gt;
+
+&lt;!-- could possibly be --&gt;
+&lt;h1&gt;Hello world&lt;/h1&gt;
+&lt;!-- highlight-next-line --&gt;
+&lt;h1&gt;Hello Svelte&lt;/h1&gt;
+&lt;h1&gt;Hello world&lt;/h1&gt;
+&lt;!-- depending on the inner state of the component --&gt;</code></pre></section>
+<section><h3><a href="#instance-self-props-invalidate" id="instance-self-props-invalidate">instance($$self, $$props, \$\$invalidate)</a></h3>
+<p>The <code>instance</code> function returns a list of <em>instance</em> variables, which are variables that are:</p>
+<ul><li>referenced in the template</li>
+<li>mutated or reassigned, (can be changed within 1 instance of the component)</li></ul>
+<p>In Svelte, we call this list of instance variables, <strong>ctx</strong>.</p>
+<p>In the <code>init</code> function, Svelte calls the <code>instance</code> function to create <strong>ctx</strong>, and uses it to create the fragment for the component:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// conceptually,</span>
+<span class="token keyword">const</span> ctx <span class="token operator">=</span> <span class="token function">instance</span><span class="token punctuation">(</span><span class="token comment">/*...*/</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fragment <span class="token operator">=</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// create the fragment</span>
+fragment<span class="token punctuation">.</span><span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// mount the fragment onto the DOM</span>
+fragment<span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Now, instead of accessing the variable <code>name</code> outside of the component, we refer to the variable <code>name</code> passed via the <strong>ctx</strong>:</p>
+<pre class="language-js">
+<code class="language-js">t1 <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token comment">/*name*/</span> ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The reason that ctx is an array instead of a map or an object is because of an optimisation related to bitmask, you can see <a href="https://github.com/sveltejs/svelte/issues/1922" rel="nofollow">the discussion about it here</a></p></section>
+<section><h3><a href="#invalidate" id="invalidate">\$\$invalidate</a></h3>
+<p>The secret behind the system of reactivity in Svelte is the <code>$$invalidate</code> function.</p>
+<p>Every variable that has been</p>
+<ul><li>reassigned or mutated</li>
+<li>referenced in the template</li></ul>
+<p>will have the <code>$$invalidate</code> function inserted right after the assignment or mutation:</p>
+<pre class="language-js">
+<code class="language-js">name <span class="token operator">=</span> <span class="token string">'Svelte'</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+foo<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">// compiled into something like</span>
+name <span class="token operator">=</span> <span class="token string">'Svelte'</span><span class="token punctuation">;</span>
+<span class="token function">$$invalidate</span><span class="token punctuation">(</span><span class="token comment">/* name */</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token function">$$invalidate</span><span class="token punctuation">(</span><span class="token comment">/* count */</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+foo<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token function">$$invalidate</span><span class="token punctuation">(</span><span class="token comment">/* foo */</span><span class="token punctuation">,</span> foo<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The <code>$$invalidate</code> function marks the variable dirty and schedules an update for the component:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// conceptually...</span>
+<span class="token keyword">const</span> ctx <span class="token operator">=</span> <span class="token function">instance</span><span class="token punctuation">(</span><span class="token comment">/*...*/</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fragment <span class="token operator">=</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// to track which variable has changed</span>
+<span class="token keyword">const</span> dirty <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">$$invalidate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">variable<span class="token punctuation">,</span> newValue</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// update ctx</span>
+  ctx<span class="token punctuation">[</span>variable<span class="token punctuation">]</span> <span class="token operator">=</span> newValue<span class="token punctuation">;</span>
+  <span class="token comment">// mark variable as dirty</span>
+  dirty<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>variable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// schedules update for the component</span>
+  <span class="token function">scheduleUpdate</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// gets called when update is scheduled</span>
+<span class="token keyword">function</span> <span class="token function">flushUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// update the fragment</span>
+  fragment<span class="token punctuation">.</span><span class="token function">p</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> dirty<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// clear the dirty</span>
+  dirty<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#adding-event-listeners" id="adding-event-listeners">Adding event listeners</a></h3>
+<p>Let&#39;s now add an event listener</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;script&gt;
+	let name = &#39;world&#39;;
+	function update() &#123;
+		name = &#39;Svelte&#39;;
+	&#125;
+&lt;/script&gt;
+&lt;!-- highlight-next-line --&gt;
+&lt;h1 on:click=&#123;update&#125;&gt;Hello &#123;name&#125;&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/5b12ff52c2874f4dbb6405d9133b34da?version=3.19.1" rel="nofollow">Svelte REPL</a></p>
+<p>And observe the difference:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      h1 <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      t0 <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">'Hello '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      t1 <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token comment">/*name*/</span> ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">m</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> anchor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">insert</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> h1<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">append</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> t0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">append</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> t1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// highlight-next-line</span>
+      dispose <span class="token operator">=</span> <span class="token function">listen</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token comment">/*update*/</span> ctx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">p</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> <span class="token punctuation">[</span>dirty<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>dirty <span class="token operator">&amp;</span> <span class="token comment">/*name*/</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">set_data</span><span class="token punctuation">(</span>t1<span class="token punctuation">,</span> <span class="token comment">/*name*/</span> ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">d</span><span class="token punctuation">(</span><span class="token parameter">detaching</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>detaching<span class="token punctuation">)</span> <span class="token function">detach</span><span class="token punctuation">(</span>h1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// highlight-next-line</span>
+      <span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">instance</span><span class="token punctuation">(</span><span class="token parameter">$$self<span class="token punctuation">,</span> $$props<span class="token punctuation">,</span> $$invalidate</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'world'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">$$invalidate</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'Svelte'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> update<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// ...</span></code></pre>
+<p>Some observations:</p>
+<ul><li><code>instance</code> function now returns 2 variables instead of 1</li>
+<li>Listen to click event during <strong>mount</strong> and dispose it in <strong>destroy</strong></li></ul>
+<p>As I&#39;ve mentioned earlier, <code>instance</code> function returns variables that are <strong>referenced in the template</strong> and that are <strong>mutated or reassigned</strong>.</p>
+<p>Since we&#39;ve just referenced the <code>update</code> function in the template, it is now returned in the <code>instance</code> function as part of the <strong>ctx</strong>.</p>
+<p>Svelte tries generate as compact JavaScript output as possible, not returning an extra variable if it is not necessary.</p></section>
+<section><h3><a href="#listen-and-dispose" id="listen-and-dispose">listen and dispose</a></h3>
+<p>Whenever you add <a href="https://svelte.dev/tutorial/dom-events" rel="nofollow">an event listener</a> in Svelte, Svelte will inject code to add an <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener" rel="nofollow">event listener</a> and remove it when the DOM fragment is removed from the DOM.</p>
+<p>Try adding more event listeners,</p>
+<pre class="language-svelte">
+<code class="language-svelte">&lt;h1
+	on:click=&#123;update&#125;
+	on:mousedown=&#123;update&#125;
+	on:touchstart=&#123;update&#125;&gt;
+  Hello &#123;name&#125;!
+&lt;/h1&gt;</code></pre>
+<p><a href="https://svelte.dev/repl/efde6f2aaf624e708767f1bd3e94e479?version=3.19.1" rel="nofollow">Svelte REPL</a></p>
+<p>and observe the compiled output:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// ...</span>
+<span class="token comment">// highlight-start</span>
+dispose <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token function">listen</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token comment">/*update*/</span> ctx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">listen</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> <span class="token string">'mousedown'</span><span class="token punctuation">,</span> <span class="token comment">/*update*/</span> ctx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">listen</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> <span class="token string">'touchstart'</span><span class="token punctuation">,</span> <span class="token comment">/*update*/</span> ctx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> passive<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// highlight-end</span>
+<span class="token comment">// ...</span>
+<span class="token comment">// highlight-next-line</span>
+<span class="token function">run_all</span><span class="token punctuation">(</span>dispose<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Instead of declaring and creating a new variable to remove each event listener, Svelte assigns all of them to an array:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// instead of</span>
+dispose1 <span class="token operator">=</span> <span class="token function">listen</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> <span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token comment">/*update*/</span> ctx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+dispose2 <span class="token operator">=</span> <span class="token function">listen</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> <span class="token string">'mousedown'</span><span class="token punctuation">,</span> <span class="token comment">/*update*/</span> ctx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+dispose2 <span class="token operator">=</span> <span class="token function">listen</span><span class="token punctuation">(</span>h1<span class="token punctuation">,</span> <span class="token string">'touchstart'</span><span class="token punctuation">,</span> <span class="token comment">/*update*/</span> ctx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> passive<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ...</span>
+<span class="token function">dispose1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">dispose2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">dispose3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Minification can compact the variable name, but you can&#39;t remove the brackets.</p>
+<p>Again, this is another great example of where Svelte tries to generate compact JavaScript output. Svelte does not create the <code>dispose</code> array when there&#39;s only 1 event listener.</p></section>
+<section><h2><a href="#summary" id="summary">Summary</a></h2>
+<p>The Svelte syntax is a superset of HTML.</p>
+<p>When you write a Svelte component, the Svelte compiler analyses your code and generates optimised JavaScript code output.</p>
+<p>The output can be divided into 3 segments:</p></section>
+<section><h4><a href="#create-fragment" id="create-fragment">1. create_fragment</a></h4>
+<ul><li>Returns a fragment, which is an instruction manual on how to build the DOM fragment for the component</li></ul></section>
+<section><h4><a href="#instance" id="instance">2. instance</a></h4>
+<ul><li>Most of the code written in the <code>&lt;script&gt;</code> tag is in here.</li>
+<li>Returns a list of instance variables that are referenced in the template</li>
+<li><code>$$invalidate</code> is inserted after every assignment and mutation of the instance variable</li></ul></section>
+<section><h4><a href="#class-app-extends-sveltecomponent" id="class-app-extends-sveltecomponent">3. class App extends SvelteComponent</a></h4>
+<ul><li>Initialise the component with <code>create_fragment</code> and <code>instance</code> function</li>
+<li>Sets up the component internals</li>
+<li>Provides the <a href="https://svelte.dev/docs#Client-side_component_API" rel="nofollow">Component API</a></li></ul>
+<p>Svelte strives to generate as compact JavaScript as possible, for example:</p>
+<ul><li>Breaking text content of <code>h1</code> into separate text nodes only when part of the text can be updated</li>
+<li>Not defining <code>create_fragment</code> or <code>instance</code> function when it is not needed</li>
+<li>Generate <code>dispose</code> as an array or a function, depending on the number of event listeners.</li>
+<li>...</li></ul></section>
+<section><h2><a href="#closing-note" id="closing-note">Closing Note</a></h2>
+<p>We&#39;ve covered the basic structure of the Svelte&#39;s compiled output, and this is just the beginning.</p>
+<p>If you wish to know more, <a href="https://twitter.com/lihautan" rel="nofollow">follow me on Twitter</a>.</p>
+<p>I&#39;ll post it on Twitter when the next part is ready, where I&#39;ll be covering <a href="https://svelte.dev/tutorial/if-blocks" rel="nofollow">logic blocks</a>, <a href="https://svelte.dev/tutorial/slots" rel="nofollow">slots</a>, <a href="https://svelte.dev/tutorial/context-api" rel="nofollow">context</a>, and many others.</p>
+<p><strong>➡ ➡  Continue reading on <a href="/compile-svelte-in-your-head-part-2/">Part 2</a>.</strong></p></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./b6c466f9.js" async></script></div>
+  
+</body>
+
+</html>

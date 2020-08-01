@@ -3,7 +3,11 @@ title: What is module bundler and how does it work?
 date: '2019-08-30T08:00:00Z'
 lastUpdated: '2019-08-30T15:05:00Z'
 description: 'understand how module bundler works'
-tags: JavaScript,module bundler,dev tool,webpack
+tags: 
+  - JavaScript
+  - module bundler
+  - dev tool
+  - webpack
 series: Write a module bundler
 ---
 

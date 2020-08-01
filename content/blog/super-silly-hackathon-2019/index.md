@@ -3,12 +3,12 @@ title: Super Silly Hackathon 2019
 date: '2019-12-14T08:00:00Z'
 lastUpdated: '2019-12-15T15:19:00Z'
 description: A quick walkthrough on how I created my pet in the browser for the Super Silly Hackathon 2019.
-tags: JavaScript,blog,hackathon
+tags: 
+  - JavaScript
+  - blog
+  - hackathon
 series: Hackathon Projects
 ---
-
-<!-- for twitter -->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I just came back from the [Super Silly Hackathon 2019](https://supersillyhackathon.sg/). It was my second time to participate in this Super Silly Hackathon.
 
@@ -16,9 +16,7 @@ I just came back from the [Super Silly Hackathon 2019](https://supersillyhackath
 
 This year, my silly hackathon idea is to build [a little pet in the browser](https://github.com/tanhauhau/browser-pet)!
 
-<div style="text-align:center">
-  <img style="height:100px;" src="./images/rest.gif" />
-</div>
+![rest](./images/rest.gif)
 
 ## Inspiration?
 
@@ -28,21 +26,15 @@ I saw the [tamagotchi](https://github.com/graceavery/tamagotchiTemp) on touchbar
 
 #### 1. It runs away from mouse cursor
 
-<div style="text-align:center">
-  <img style="height:100px;" src="./images/evade.gif" />
-</div>
+![evade](./images/evade.gif)
 
 #### 2. It eats whatever you try to type into an input
 
-<div style="text-align:center">
-  <img style="height:300px;" src="./images/eat.gif" />
-</div>
+![eat](./images/eat.gif)
 
 #### 3. It annihilates the buttons you hover onto
 
-<div style="text-align:center">
-  <img style="height:300px;" src="./images/annihilate.gif" />
-</div>
+![annihilate](./images/annihilate.gif)
 
 ## Implementation
 
@@ -203,9 +195,7 @@ I used `await` to wait for animation to finish, before schedule the next action 
 
 I drew a sprite sheet that make the pet looks like it is squiggling away,
 
-<div style="text-align:center">
-  <img style="height:100px;" src="./images/shift-left.gif" />
-</div>
+![shift](./images/shift-left.gif)
 
 while at the same time set the `transform: translateX()` to actually move it:
 

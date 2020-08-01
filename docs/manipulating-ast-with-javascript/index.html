@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Manipulating AST with JavaScript | Tan Li Hau</title><link href="http://127.0.0.1:8080/manipulating-ast-with-javascript/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" content="Manipulating AST is not that hard anyway" data-svelte="svelte-1k4ncsr"><meta name="image" content="http://127.0.0.1:8080/manipulating-ast-with-javascript/assets/hero-twitter-b36b194e.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:image" content="http://127.0.0.1:8080/manipulating-ast-with-javascript/assets/hero-twitter-b36b194e.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="Manipulating AST with JavaScript" data-svelte="svelte-1k4ncsr"><meta name="og:description" content="Manipulating AST is not that hard anyway" data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="Manipulating AST with JavaScript" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" content="Manipulating AST is not that hard anyway" data-svelte="svelte-1k4ncsr"><meta name="twitter:image" content="http://127.0.0.1:8080/manipulating-ast-with-javascript/assets/hero-twitter-b36b194e.jpg" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="JavaScript" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="ast" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="transform" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="depth-first-search" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="dfs" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fmanipulating-ast-with-javascript" data-svelte="svelte-1k4ncsr"><meta itemprop="image" content="http://127.0.0.1:8080/manipulating-ast-with-javascript/assets/hero-twitter-b36b194e.jpg" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Manipulating AST is not that hard anyway","headline":"Manipulating AST with JavaScript","name":"Manipulating AST with JavaScript","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fmanipulating-ast-with-javascript","name":"Manipulating AST with JavaScript"},"position":2}]}</script><link as="script" rel="preload" href="./a335f2ca.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./a335f2ca.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./a335f2ca.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>Manipulating AST with JavaScript</h1>
+  
+  <span class="svelte-2w4dum">JavaScript</span><span class="svelte-2w4dum">ast</span><span class="svelte-2w4dum">transform</span><span class="svelte-2w4dum">depth-first-search</span><span class="svelte-2w4dum">dfs</span>
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#the-parsers">The parsers</a></li><li><a href="#traversing-an-ast">Traversing an AST</a></li><li><a href="#manipulating-ast">Manipulating AST</a></li><ul><li><a href="#adding-a-node">Adding a node</a></li><li><a href="#replacing-a-node">Replacing a node</a></li><li><a href="#removing-a-node">Removing a node</a></li></ul><li><a href="#targeting-a-node">Targeting a node</a></li><li><a href="#creating-a-node">Creating a node</a></li><li><a href="#summary">Summary</a></li><li><a href="#further-readings">Further Readings</a></li></ul></section>
+<p>Previously, I&#39;ve talked about <a href="/step-by-step-guide-for-writing-a-babel-transformation">how to write a babel transformation</a>, and I went one step deeper into <a href="https://babeljs.io/" rel="nofollow">Babel</a>, by <a href="/creating-custom-javascript-syntax-with-babel">showing how you can create a custom JavaScript syntax</a>, I demonstrated how Babel parses your code into AST, transforms it and generates back into code.</p>
+<p>Armed with the knowledge and experience of playing the JavaScript AST with Babel, let&#39;s take a look at how we can generalize this knowledge into other languages as well.</p>
+<blockquote><p>When I refer to &quot;other languages&quot;, I am actually referring to popular frontend languages, for example: <a href="https://www.ecma-international.org/publications/standards/Ecma-262.htm" rel="nofollow">JavaScript</a>, <a href="http://typescriptlang.org/" rel="nofollow">TypeScript</a>, <a href="https://sass-lang.com/" rel="nofollow">Sass</a>, <a href="https://www.w3.org/Style/CSS/" rel="nofollow">CSS</a>, <a href="https://www.w3.org/html/" rel="nofollow">HTML</a>, <a href="https://en.wikipedia.org/wiki/Markdown" rel="nofollow">markdown</a>...</p>
+<p>Of course, it does not limit to just frontend languages. It&#39;s just that it&#39;s easier to find a parser for these languages written in JavaScript than other languages, say C++ or Java.</p></blockquote>
+<section><h2><a href="#the-parsers" id="the-parsers">The parsers</a></h2>
+<p>Like how we use Babel to do parsing and generating JavaScript, there are other libraries out there to help us with parsing and generating our language.</p>
+<p>One easy trick to find these libraries is through <a href="https://astexplorer.net/" rel="nofollow">https://astexplorer.net/</a>.</p>
+<p><img src="b581a0310d989fe0.gif" alt="ast explorer"></p>
+<p>After you choose a language, you would see a list of parsers you can use to parse your language. For example, if you choose <strong>HTML</strong>, there&#39;s <a href="https://github.com/fb55/htmlparser2" rel="nofollow">htmlparser2</a>, <a href="https://github.com/nik-garmash/hyntax" rel="nofollow">hyntax</a>, <a href="https://github.com/inikulin/parse5" rel="nofollow">parse5</a>... And when you choose one of the parsers, you can immediately see how the AST looks like on the right panel and the Github link to the parser on the top right.</p>
+<p><img src="25aa4cbe5d6607fb.png" alt="ast explorer"></p>
+<p>Here is a un-exhaustive list of parsers, and it&#39;s <code>parse</code> and <code>generate</code> methods:</p>
+<div style="overflow:auto;margin-bottom:2em;"><table><thead><tr><th>Language</th>
+      <th>Parser</th>
+      <th><code class="language-text">parse</code></th>
+      <th><code class="language-text">generate</code></th></tr></thead>
+  <tbody><tr><td>HTML</td>
+      <td><a href="https://github.com/inikulin/parse5/tree/master/packages/parse5">parse5</a></td>
+      <td><a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md#parse"><code class="language-text">parse5.parse(str)</code></a></td>
+      <td><a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md#serialize"><code class="language-text">parse5.serialize(ast)</code></a></td></tr>
+    <tr><td>Markdown</td>
+      <td><a href="https://github.com/remarkjs/remark">remark</a></td>
+      <td><a href="https://github.com/remarkjs/remark/tree/master/packages/remark-parse"><code class="language-text">unified().use(remarkParse)</code></a></td>
+      <td><a href="https://github.com/remarkjs/remark/tree/master/packages/remark-stringify"><code class="language-text">unified().use(remarkStringify)</code></a></td></tr>
+    <tr><td>CSS</td>
+      <td><a href="https://github.com/csstree/csstree">css-tree</a></td>
+      <td><a href="https://github.com/csstree/csstree/blob/master/docs/parsing.md"><code class="language-text">csstree.parse(str)</code></a></td>
+      <td><a href="https://github.com/csstree/csstree/blob/master/docs/generate.md"><code class="language-text">csstree.generate(ast)</code></a></td></tr>
+    <tr><td>Sass</td>
+      <td><a href="https://github.com/shawnbot/sast">sast</a></td>
+      <td><a href="https://github.com/shawnbot/sast#sastparsesource--options-"><code class="language-text">sast.parse(str)</code></a></td>
+      <td><a href="https://github.com/shawnbot/sast#saststringifynode-"><code class="language-text">sast.stringify(ast)</code></a></td></tr>
+    <tr><td>JavaScript</td>
+      <td><a href="https://babeljs.io/">babel</a></td>
+      <td><a href="https://babeljs.io/docs/en/babel-parser#babelparserparsecode-options"><code class="language-text">babel.parse(str)</code></a></td>
+      <td><a href="https://babeljs.io/docs/en/babel-generator"><code class="language-text">babel.generate(ast)</code></a></td></tr>
+    <tr><td>TypeScript</td>
+      <td><a href="http://typescriptlang.org/">TypeScript</a></td>
+      <td><a href="https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API#creating-and-printing-a-typescript-ast"><code class="language-text">ts.createSourceFile(str)</code></a></td>
+      <td><a href="https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API#creating-and-printing-a-typescript-ast"><code class="language-text">ts.createPrinter().printFile(ast)</code></a></td></tr></tbody></table></div>
+<p>As you can see most parsers provide both parsing and generating methods.</p>
+<p>So in general, you can have the following as a template to write your code transformation code:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> code <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">readFileSync</span><span class="token punctuation">(</span><span class="token string">'/file/to/code'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ast <span class="token operator">=</span> <span class="token function">parserMethod</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// the magical transform function</span>
+<span class="token comment">// usually not a pure function</span>
+<span class="token function">transform</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> output <span class="token operator">=</span> <span class="token function">generatorMethod</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fs<span class="token punctuation">.</span><span class="token method function property-access">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'/file/to/output'</span><span class="token punctuation">,</span> output<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>You can, of course, transforming AST of one language to AST of another language, for example: Sass ➡️ CSS, Markdown ➡️ HTML, and use the generator of another language to generate out the code.</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> lang1 <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">readFileSync</span><span class="token punctuation">(</span><span class="token string">'/file/to/code'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ast <span class="token operator">=</span> <span class="token function">parserMethodLang1</span><span class="token punctuation">(</span>lang1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// the magical transform function</span>
+<span class="token comment">// usually not a pure function</span>
+<span class="token function">transformLang1ToLang2</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> lang2 <span class="token operator">=</span> <span class="token function">generatorMethodLang2</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fs<span class="token punctuation">.</span><span class="token method function property-access">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'/file/to/output'</span><span class="token punctuation">,</span> lang2<span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Now armed with this template, let&#39;s talk about the more <em>magical</em> stuff, <em>the transform function</em>.</p></section>
+<section><h2><a href="#traversing-an-ast" id="traversing-an-ast">Traversing an AST</a></h2>
+<p>As the name AST suggests, AST uses a tree data structure. To hone the skills of manipulating AST, we need to recall our long distant memory of <em>&quot;Algorithm 101&quot;</em>, the <strong>depth-first search (DFS)</strong> tree traversal algorithm.</p>
+<p><a href="https://twitter.com/vaidehijoshi" rel="nofollow">Vaidehi Joshi</a> wrote an amazing article on <a href="https://medium.com/basecs/demystifying-depth-first-search-a7c14cccf056" rel="nofollow">demystifying Depth-First Search</a>, I don&#39;t think I can explain any better, so if you want to recap on depth-first search, please go and read <a href="https://medium.com/basecs/demystifying-depth-first-search-a7c14cccf056" rel="nofollow">her article</a> before we continue.</p>
+<p>Now you have a clearer idea of how depth-first search works, a depth-first search on an AST would look something like this:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">ast</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// TODO: do something with this node</span>
+
+  <span class="token keyword">const</span> keys <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> keys<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> child <span class="token operator">=</span> ast<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// could be an array of nodes or just a node</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">.</span><span class="token method function property-access">isArray</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> child<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">visit</span><span class="token punctuation">(</span>child<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNode</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">visit</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">isNode</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// probably need more check,</span>
+  <span class="token comment">// for example,</span>
+  <span class="token comment">// if the node contains certain properties</span>
+  <span class="token keyword">return</span> <span class="token keyword">typeof</span> node <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>We can then fill up the <code>TODO</code> with our manipulation code.</p>
+<p>If we find ourselves needing to do multiple traversals, with different AST manipulation, we would soon realize that mixing AST manipulation code with the traversal code is <em>not clean enough</em>. Naturally, you would realize <em>it is cleaner</em> to pass in a callback function that gets called every time we visit a node:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// highlight-next-line</span>
+<span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">ast<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token function">callback</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> keys <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> keys<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> child <span class="token operator">=</span> ast<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">.</span><span class="token method function property-access">isArray</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> child<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// highlight-next-line</span>
+        <span class="token function">visit</span><span class="token punctuation">(</span>child<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNode</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// highlight-next-line</span>
+      <span class="token function">visit</span><span class="token punctuation">(</span>child<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">isNode</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// probably need more check,</span>
+  <span class="token comment">// for example,</span>
+  <span class="token comment">// if the node contains certain properties</span>
+  <span class="token keyword">return</span> <span class="token keyword">typeof</span> node <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>The <code>visit</code> function is now generic enough that you can use it for any AST:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token function">visit</span><span class="token punctuation">(</span>htmlAst<span class="token punctuation">,</span> <span class="token parameter">htmlAstNode</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/*...*/</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">visit</span><span class="token punctuation">(</span>cssAst<span class="token punctuation">,</span> <span class="token parameter">cssAstNode</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/*...*/</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Naturally, you would think that having the information of the parent node, and the key / index of the current node would be useful to have in the callback function:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">ast<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token keyword">function</span> <span class="token function">_visit</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> keys <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> keys<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> child <span class="token operator">=</span> node<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">.</span><span class="token method function property-access">isArray</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> child<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">// highlight-next-line</span>
+          <span class="token function">_visit</span><span class="token punctuation">(</span>child<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> node<span class="token punctuation">,</span> key<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNode</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// highlight-next-line</span>
+        <span class="token function">_visit</span><span class="token punctuation">(</span>child<span class="token punctuation">,</span> node<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token function">_visit</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Now, we might think to ourselves, I dont want to get callback for every node visited, I just need callback for a certain node. You might be tempted to add a condition in the <code>visit</code> function:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">ast<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">_visit</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">someCondition</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token spread operator">...</span></code></pre>
+<p>But you think twice: <em>what if someone else wants to use <code>visit</code> but with a different condition for callback?</em></p>
+<p>For most of the time, you want to callback only to a certain types of node. In that case, instead of passing in a callback function, you can pass in a map of node type to their respective callback functions:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">ast<span class="token punctuation">,</span> callbackMap</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">_visit</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// highlight-start</span>
+    <span class="token keyword">const</span> nodeType <span class="token operator">=</span> <span class="token function">getNodeType</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nodeType <span class="token keyword">in</span> callbackMap<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      callbackMap<span class="token punctuation">[</span>nodeType<span class="token punctuation">]</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// highlight-end</span>
+    <span class="token spread operator">...</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">visit</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token function"><span class="token maybe-class-name">Identifier</span></span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// do something</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+<p>At this point, you maybe realize, <em>hey, this looks so much like one of those AST traversing libraries!</em> And yes, this is how they get implemented.</p>
+<p>Now we can traverse the AST, and find the node that we are interested in, so the next step is to manipulate them.</p></section>
+<section><h2><a href="#manipulating-ast" id="manipulating-ast">Manipulating AST</a></h2>
+<p>Manipulating the AST can be categorized into 3 different operations:</p>
+<ul><li>Adding a node</li>
+<li>Replacing a node</li>
+<li>Removing a node</li></ul></section>
+<section><h3><a href="#adding-a-node" id="adding-a-node">Adding a node</a></h3>
+<p>To add a node, you can assign it to a keyed property of your node:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  node<span class="token punctuation">.</span><span class="token property-access">foo</span> <span class="token operator">=</span> <span class="token function">createNewNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>or push the new node, if the keyed property is an array:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  node<span class="token punctuation">.</span><span class="token property-access">foo</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token function">createNewNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>To add a node as a sibling, you may need to access the node&#39;s parent:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// add as first sibling</span>
+  parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">unshift</span><span class="token punctuation">(</span><span class="token function">createNewNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// add as last sibling</span>
+  parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token function">createNewNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// add as next sibling</span>
+  parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">createNewNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// add as prev sibling</span>
+  parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">createNewNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#replacing-a-node" id="replacing-a-node">Replacing a node</a></h3>
+<p>To replace the current node to another node, update the key property of the current node&#39;s parent:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">updatedNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>If the key property of the parent is an array:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">updatedNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#removing-a-node" id="removing-a-node">Removing a node</a></h3>
+<p>To remove the current node, delete the key property of the current node&#39;s parent:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">delete</span> parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>If the key property of the parent is an array:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  parent<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<blockquote><p>The operations of <strong>adding</strong>, <strong>replacing</strong>, and <strong>removing</strong> nodes are so common that, they are usually implemented as a util function.</p></blockquote>
+<p>However, there&#39;s <strong>one important step</strong> that I did not cover: after you mutate the node, you need to make sure that the traversal still works fine.</p>
+<p>For a node that is a property of a key of its parent, adding, replacing and removing them are usually fine. Except for the replace operation, you might need to revisit the <em>&quot;current node&quot;</em>, which is the <em>new replacing node</em>.</p>
+<p>However, for node that are in an array, you need to take special care to update the array index of the loop:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">ast<span class="token punctuation">,</span> callbackMap</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">_visit</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">.</span><span class="token method function property-access">isArray</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> child<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">_visit</span><span class="token punctuation">(</span>child<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> node<span class="token punctuation">,</span> key<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// highlight-start</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasRemoved</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">// offset the index</span>
+          j<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// highlight-end</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>But how do you know that the current node was removed?</p>
+<p>Well, knowing when a node got removed is sometimes a secret that lies within the <code>remove</code> util function from the tree traversal library.</p>
+<p>It could be as simple as setting a flag when you call <code>remove</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// highlight-start</span>
+<span class="token keyword">let</span> _hasRemoved <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  _hasRemoved <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token comment">// proceed to remove current node</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">hasRemoved</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> result <span class="token operator">=</span> _hasRemoved<span class="token punctuation">;</span>
+  <span class="token comment">// reset back</span>
+  _hasRemoved <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// highlight-end</span>
+
+<span class="token comment">// function _visit(...) &#123; ...</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> child<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">_visit</span><span class="token punctuation">(</span>child<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> node<span class="token punctuation">,</span> key<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasRemoved</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// ...somewhere in your visitCallback</span>
+<span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>But sometimes, instead of having to import the <code>remove</code> util from the tree traversal library, the <code>remove</code> function is available in <code>this</code> of the <code>visitCallback</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">ast<span class="token punctuation">,</span> callbackMap</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">_visit</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// highlight-start</span>
+    <span class="token keyword">let</span> _hasRemoved <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> _this <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// don't need to take in &#96;node&#96; and &#96;parent&#96;,</span>
+      <span class="token comment">// because it know exactly what they are</span>
+      <span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        _hasRemoved <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token comment">// proceed to remove current node</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token comment">// highlight-end</span>
+
+    <span class="token comment">// ...</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nodeType <span class="token keyword">in</span> callbackMap<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// highlight-next-line</span>
+      callbackMap<span class="token punctuation">[</span>nodeType<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">call</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span> node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// ...somewhere in your visitCallback</span>
+<span class="token keyword">function</span> <span class="token function">visitCallback</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// highlight-next-line</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Now you learned the 3 basic operations of manipulating the AST, you maybe wonder how exactly is to use these basic operations to write a codemod or an AST transform plugin?</p>
+<p>Well, in my <a href="/step-by-step-guide-for-writing-a-babel-transformation">step-by-step guide</a>, I&#39;ve explained that, you can use AST explorer like <a href="http://astexplorer.net/" rel="nofollow">http://astexplorer.net/</a> or <a href="https://lihautan.com/babel-ast-explorer" rel="nofollow">Babel AST Explorer</a> to help you.</p>
+<p>You need to:</p>
+<ul><li><strong>Know how the part of the code you want to change look like in the AST</strong>, so you can target the specific type of the node, and</li>
+<li><strong>Know how does the final output you wish to see look like in the AST</strong>, so you know what nodes to create, update or remove.</li></ul>
+<p>So we are going to elaborate more on these 2 steps specifically.</p></section>
+<section><h2><a href="#targeting-a-node" id="targeting-a-node">Targeting a node</a></h2>
+<p>Node targeting, most of the times, is just a lot of <code>===</code>.</p>
+<p>For example, if you want to target a <code>&lt;figure&gt;</code> with a class <code>foo</code> that contains an <code>&lt;img&gt;</code> and a <code>&lt;figcaption&gt;</code> in <a href="https://github.com/fb55/htmlparser2" rel="nofollow">htmlparser2</a>:</p>
+<pre class="language-html">
+<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figure</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>foo<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figcaption</span><span class="token punctuation">></span></span>lorem ipsum<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figcaption</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figure</span><span class="token punctuation">></span></span></code></pre>
+<p>You need to check:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    <span class="token comment">/* 1. is node &lt;figure> */</span>
+    node<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">===</span> <span class="token string">'tag'</span> <span class="token operator">&amp;&amp;</span>
+    node<span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">===</span> <span class="token string">'figure'</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">/* 2. is node contain class &#96;foo&#96; */</span>
+    node<span class="token punctuation">.</span><span class="token property-access">attribs</span><span class="token punctuation">.</span><span class="token property-access">class</span> <span class="token operator">===</span> <span class="token string">'foo'</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">/* 3. is node children contain &lt;img> */</span>
+    node<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span>
+      <span class="token parameter">child</span> <span class="token arrow operator">=></span> child<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">===</span> <span class="token string">'tag'</span> <span class="token operator">&amp;&amp;</span> child<span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">===</span> <span class="token string">'img'</span>
+    <span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token keyword nil">undefined</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">/* 4. is node children contain &lt;figcaption> */</span>
+    node<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span>
+      <span class="token parameter">child</span> <span class="token arrow operator">=></span> child<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">===</span> <span class="token string">'tag'</span> <span class="token operator">&amp;&amp;</span> child<span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">===</span> <span class="token string">'figcaption'</span>
+    <span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token keyword nil">undefined</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// do something</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>To make it less verbose, we can refactor each check into reusable functions:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">isTag</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> node<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">===</span> <span class="token string">'tag'</span> <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">===</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">hasAttr</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> node<span class="token punctuation">.</span><span class="token property-access">attribs</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> value<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">hasChild</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> node<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token keyword nil">undefined</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">visit</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    <span class="token comment">/* 1. is node &lt;figure> */</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token function">isTag</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> <span class="token string">'figure'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">/* 2. is node contain class &#96;foo&#96; */</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token function">hasAttr</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> <span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'foo'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">/* 3. is node children contain &lt;img> */</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token function">hasChild</span><span class="token punctuation">(</span><span class="token parameter">child</span> <span class="token arrow operator">=></span> <span class="token function">isTag</span><span class="token punctuation">(</span>child<span class="token punctuation">,</span> <span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">/* 4. is node children contain &lt;figcaption> */</span>
+    <span class="token comment">// highlight-next-line</span>
+    <span class="token function">hasChild</span><span class="token punctuation">(</span><span class="token parameter">child</span> <span class="token arrow operator">=></span> <span class="token function">isTag</span><span class="token punctuation">(</span>child<span class="token punctuation">,</span> <span class="token string">'figcaption'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// do something</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h2><a href="#creating-a-node" id="creating-a-node">Creating a node</a></h2>
+<p>There are a few ways you can create an AST node.</p>
+<p>The simplest and crudest way is to <strong>manually create the node object</strong>. Most of the time, the node object is a JavaScript object. So you can just create them manually:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> newNode <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  type<span class="token punctuation">:</span> <span class="token string">'Identifier'</span><span class="token punctuation">,</span>
+  name<span class="token punctuation">:</span> <span class="token string">'foo'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+<p>It may become unwieldy when creating large, complex AST nodes, so sometimes library decides to provide builder functions, like <a href="https://babeljs.io/docs/en/babel-types" rel="nofollow">@babel/types</a> to simplify node creation and provide default values:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> newNode <span class="token operator">=</span> t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> newNode2 <span class="token operator">=</span> t<span class="token punctuation">.</span><span class="token method function property-access">functionDeclaration</span><span class="token punctuation">(</span>
+  <span class="token string">'bar'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>
+    t<span class="token punctuation">.</span><span class="token method function property-access">expressionStatement</span><span class="token punctuation">(</span>
+      t<span class="token punctuation">.</span><span class="token method function property-access">callExpression</span><span class="token punctuation">(</span>
+        t<span class="token punctuation">.</span><span class="token method function property-access">memberExpression</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span><span class="token string">'console'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span><span class="token string">'log'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span>t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    t<span class="token punctuation">.</span><span class="token method function property-access">returnStatement</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>It looked more concise and tidier, but it is hard to comprehend and grasp what node it is creating.</p>
+<p>So, a better way of creating complex AST node, is to use the <code>parse</code> function + <code>string</code>:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> newNode2 <span class="token operator">=</span> babelParser<span class="token punctuation">.</span><span class="token method function property-access">parse</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  function bar(foo) &#123;
+    console.log(foo);
+    return foo;
+  &#125;
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">program</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> newNode3 <span class="token operator">=</span> cssTree<span class="token punctuation">.</span><span class="token method function property-access">parse</span><span class="token punctuation">(</span>
+  <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  .foo &#123;
+    color: red;
+  &#125;
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> context<span class="token punctuation">:</span> <span class="token string">'rule'</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>For Babel, there&#39;s an amazing util called <a href="https://babeljs.io/docs/en/babel-template" rel="nofollow">@babel/template</a>, where you can use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" rel="nofollow">template literals</a> to create AST node:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">const</span> newNode4 <span class="token operator">=</span> template<span class="token punctuation">.</span><span class="token property-access">statement</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  console.log(foo);
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// placeholder can be an AST node or string</span>
+<span class="token keyword">const</span> newNode5 <span class="token operator">=</span> template<span class="token punctuation">.</span><span class="token property-access">statement</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  function bar(foo) &#123;
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>newNode4<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">
+    alert("</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token string">'hello world'</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">")
+    return foo;
+  &#125;
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span></code></pre></section>
+<section><h2><a href="#summary" id="summary">Summary</a></h2>
+<p>We&#39;ve gone through:</p>
+<ul><li>How to traverse an AST, using depth-first search algorithm,</li>
+<li>The 3 basic AST manipulations, addition, replacement, and removal,</li>
+<li>How to target a node in AST, and</li>
+<li>How to create an AST node</li></ul></section>
+<section><h2><a href="#further-readings" id="further-readings">Further Readings</a></h2>
+<p><a href="https://twitter.com/flexdinesh" rel="nofollow">Dinesh (@flexdinesh)</a> <a href="https://twitter.com/flexdinesh/status/1196680010343432192" rel="nofollow">tweeted</a> his pocket collection of AST resources:</p>
+<ul><li><a href="https://frontendmasters.com/courses/linting-asts/" rel="nofollow">Code Transformation and Linting with ASTs</a></li>
+<li><a href="https://kentcdodds.com/blog/write-your-own-code-transform/" rel="nofollow">Write your own code transform for fun and profit</a></li>
+<li><a href="https://www.sitepoint.com/understanding-asts-building-babel-plugin/" rel="nofollow">Understanding ASTs by Building Your Own Babel Plugin</a></li>
+<li><a href="https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#toc-writing-your-first-babel-plugin" rel="nofollow">Writing your first Babel Plugin</a></li>
+<li><a href="https://medium.com/the-guild/this-is-how-i-build-babel-plug-ins-b0a13dcd0352" rel="nofollow">This is how I build Babel plug-ins</a></li>
+<li><a href="https://varunzxzx.github.io/blog/writing-babel-plugin" rel="nofollow">Writing My First Babel Plugin</a></li></ul></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./a335f2ca.js" async></script></div>
+  
+</body>
+
+</html>

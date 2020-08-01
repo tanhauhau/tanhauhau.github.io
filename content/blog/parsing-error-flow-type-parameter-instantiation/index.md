@@ -189,7 +189,7 @@ foobar<XType>(1);
 
 the first half of the code before `// @flow` was parsed as a normal JS code, and the second half after `// @flow` was parsed as a Flow code.
 
-You can see this clearly with [my recently build ASTExplorer clone for babel](<https://lihautan.com/babel-ast-explorer/#?%7B%22babel%22%3A%7B%22jsx%22%3Afalse%2C%22flow%22%3Atrue%2C%22typescript%22%3Afalse%2C%22objectRestSpread%22%3Afalse%2C%22pipelineOperator%22%3Afalse%2C%22throwExpressions%22%3Afalse%2C%22optionalChaining%22%3Afalse%2C%22nullishCoalescingOperator%22%3Afalse%2C%22exportDefaultFrom%22%3Afalse%2C%22dynamicImport%22%3Afalse%7D%2C%22code%22%3A%22foobar%3CXType%3E(1)%3B%5Cn%2F%2F%20%40flow%5Cnfoobar%3CXType%3E(1)%3B%22%7D>).
+You can see this clearly with {@html '<a href="https://lihautan.com/babel-ast-explorer/#?%7B%22babel%22%3A%7B%22jsx%22%3Afalse%2C%22flow%22%3Atrue%2C%22typescript%22%3Afalse%2C%22objectRestSpread%22%3Afalse%2C%22pipelineOperator%22%3Afalse%2C%22throwExpressions%22%3Afalse%2C%22optionalChaining%22%3Afalse%2C%22nullishCoalescingOperator%22%3Afalse%2C%22exportDefaultFrom%22%3Afalse%2C%22dynamicImport%22%3Afalse%7D%2C%22code%22%3A%22foobar%3CXType%3E(1)%3B%5Cn%2F%2F%20%40flow%5Cnfoobar%3CXType%3E(1)%3B%22%7D">my recently build ASTExplorer clone for babel</a>'}.
 
 _(I built it with React + Hooks over a long weekend, which I will share about how did it in the future.)_.
 

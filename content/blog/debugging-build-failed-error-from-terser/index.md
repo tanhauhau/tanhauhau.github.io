@@ -1,7 +1,8 @@
 ---
 title: 'Debugging Story: Build failed, error from Terser'
 date: '2020-01-08T08:00:00Z'
-tags: debugging
+tags:
+  - debugging
 description: "It all started with an error message during the build: 'ERROR in bundle.xxx.js from Terser'."
 ---
 
@@ -245,7 +246,7 @@ The git blame for the line of code was for some code refactoring, so I went to G
 
 **Tip:** Github blame has this very useful button, that allows you to view blame prior to the change.
 
-![Github: view blame prior to the change](./images/github blame.png)
+![Github: view blame prior to the change](./images/github-blame.png)
 
 A few blame traces later, I ended up with a commit that fixed the bug:
 

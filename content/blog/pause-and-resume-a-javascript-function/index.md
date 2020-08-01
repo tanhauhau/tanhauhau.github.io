@@ -2,7 +2,9 @@
 title: Pause and resume a JavaScript function
 date: '2019-12-09T08:00:00Z'
 description: A thought experiment on how you can pause and resume the execution of a JavaScript function
-tags: JavaScript,React
+tags: 
+  - JavaScript
+  - React
 ---
 
 In JavaScript, IO (eg Filesystem IO, Network IO) is **asynchronous**. That means when you are calling a function that involves IO, you got to have a callback function passed in to be notified when the IO is done.

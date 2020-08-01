@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Solving Nonogram with Code | Tan Li Hau</title><link href="http://127.0.0.1:8080/solving-nonogram-with-code/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" content="...said me to my colleague, &quot;If I could come up with a program to solve this, I would stop playing it&quot;" data-svelte="svelte-1k4ncsr"><meta name="image" content="http://127.0.0.1:8080/solving-nonogram-with-code/assets/hero-twitter-5e097af2.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:image" content="http://127.0.0.1:8080/solving-nonogram-with-code/assets/hero-twitter-5e097af2.jpg" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="Solving Nonogram with Code" data-svelte="svelte-1k4ncsr"><meta name="og:description" content="...said me to my colleague, &quot;If I could come up with a program to solve this, I would stop playing it&quot;" data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="Solving Nonogram with Code" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" content="...said me to my colleague, &quot;If I could come up with a program to solve this, I would stop playing it&quot;" data-svelte="svelte-1k4ncsr"><meta name="twitter:image" content="http://127.0.0.1:8080/solving-nonogram-with-code/assets/hero-twitter-5e097af2.jpg" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="JavaScript" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="nonogram" data-svelte="svelte-1k4ncsr"><meta name="keywords" content="algorithm" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fsolving-nonogram-with-code" data-svelte="svelte-1k4ncsr"><meta itemprop="image" content="http://127.0.0.1:8080/solving-nonogram-with-code/assets/hero-twitter-5e097af2.jpg" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"...said me to my colleague, \"If I could come up with a program to solve this, I would stop playing it\"","headline":"Solving Nonogram with Code","name":"Solving Nonogram with Code","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fsolving-nonogram-with-code","name":"Solving Nonogram with Code"},"position":2}]}</script><link as="script" rel="preload" href="./d1bb5bb3.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./d1bb5bb3.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./d1bb5bb3.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>Solving Nonogram with Code</h1>
+  
+  <span class="svelte-2w4dum">JavaScript</span><span class="svelte-2w4dum">nonogram</span><span class="svelte-2w4dum">algorithm</span>
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#background">Background</a></li><li><a href="#the-nonogram">The nonogram</a></li><li><a href="#the-frontend">The Frontend</a></li><li><a href="#the-algorithm">The Algorithm</a></li><li><a href="#the-animation">The animation</a></li><li><a href="#what-s-next">What&#39;s next?</a></li></ul></section>
+<section><h2><a href="#background" id="background">Background</a></h2>
+<p>Last week I was playing <a href="https://play.google.com/store/apps/details?id=com.easybrain.nonogram" rel="nofollow">nonogram</a> during lunchtime.</p>
+<p><em>&quot;I am addicted to this game right now,&quot;</em> said me to my colleague, <em>&quot;If I could come up with a program to solve this, I would stop playing it&quot;</em> And then we went into a discussion of algorithms, machine learnings, computer visions...</p>
+<p>I can&#39;t remember how our topic went from one to another. But one thing stuck to my head, <strong><em>I need to write software to solve my nonogram!</em></strong></p></section>
+<section><h2><a href="#the-nonogram" id="the-nonogram">The nonogram</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Nonogram" rel="nofollow">The nonogram</a> is a puzzle game with a n x n grid, where the cells must be filled or left blank, according to the numbers at the side of the grid. The number describes how many unbroken lines of filled cells in the given row or column. For example, <code>&quot;2 4 3&quot;</code> would mean there are sets of two, four and three filled cells, in that order, with at least one blank cell between successive groups.</p></section>
+<section><h2><a href="#the-frontend" id="the-frontend">The Frontend</a></h2>
+<p>I am a frontend developer, so, I can&#39;t resist the temptation to treat everything as if it were a nail with my frontend hammer.</p>
+<p>So the first thing I did was to <code>create-react-app</code> and get a plain <code>React</code> application started.</p>
+<p>Next, I had to create the nonogram grids. Initially, I was playing around with <code>display: inline-block</code> of divs, until I realised, <em>hey, this is a good case for <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" rel="nofollow">CSS Grids</a></em>!</p>
+<p><img src="138445b76bed14c2.gif" alt="resizing nonogram"></p>
+<pre class="language-jsx">
+<code class="language-jsx"><span class="token comment">// dynamically generate grid template</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>
+  <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>
+    gridTemplate<span class="token punctuation">:</span> <span class="token function">getGridTemplate</span><span class="token punctuation">(</span>
+      width<span class="token punctuation">,</span>
+      height<span class="token punctuation">,</span>
+      blockSize<span class="token punctuation">,</span>
+      labelXSize<span class="token punctuation">,</span>
+      labelYSize
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    width<span class="token punctuation">:</span> blockSize <span class="token operator">*</span> width <span class="token operator">+</span> labelXSize<span class="token punctuation">,</span>
+    margin<span class="token punctuation">:</span> <span class="token string">'16px auto'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span>
+<span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token punctuation">&#123;</span>labels<span class="token punctuation">&#125;</span><span class="token plain-text">
+  </span><span class="token punctuation">&#123;</span>grids<span class="token punctuation">&#125;</span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">getGridTemplate</span><span class="token punctuation">(</span><span class="token parameter">width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> blockSize<span class="token punctuation">,</span> labelXSize<span class="token punctuation">,</span> labelYSize</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>labelYSize<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>blockSize<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span>
+    height
+  <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> / </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>labelXSize<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>blockSize<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span>width<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>One thing cool about CSS grid is that I was no longer limited by the order of the elements within the grid layout, I can position in whichever grid I want by specifying <code>grid-column</code> and <code>grid-row</code>. So here you see that I can build the <code>labels</code> first then the <code>grids</code>, freeing myself from building html structure in terms of rows and columns.</p>
+<p>The next thing, naturally, was to allow user (just me) to key in the constraints of the nonogram. To make sure what I keyed in is making sense, I added validation to the inputs:</p>
+<p><img src="47402de621157923.gif" alt="validating the inputs"></p>
+<pre class="language-jsx">
+<code class="language-jsx"><span class="token keyword">function</span> <span class="token function">getError</span><span class="token punctuation">(</span><span class="token parameter">text<span class="token punctuation">,</span> max</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex">/^[0-9 ]*$/</span><span class="token punctuation">.</span><span class="token method function property-access">test</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">'Invalid characters'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">validateSum</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> max<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">'Sum exceeded limit'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h2><a href="#the-algorithm" id="the-algorithm">The Algorithm</a></h2>
+<p>The algorithm I came up with is to exhaustive search and backtracking. What that means in layman terms is to try every possible combinations, validating the board on each step and stop as soon as possible whenever there&#39;s no possible step moving forward:</p>
+<pre class="language-js">
+<code class="language-js"><span class="token keyword">function</span> <span class="token function">findSolution</span><span class="token punctuation">(</span><span class="token parameter">i<span class="token punctuation">,</span> j</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> height<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>nextI<span class="token punctuation">,</span> nextJ<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">getNextStep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// try to mark the cell with &#96;true&#96; (filled) first</span>
+  board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">verify</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">findSolution</span><span class="token punctuation">(</span>nextI<span class="token punctuation">,</span> nextJ<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// if not possible, mark it with &#96;false&#96; (blank)</span>
+  board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">verify</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">findSolution</span><span class="token punctuation">(</span>nextI<span class="token punctuation">,</span> nextJ<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// if still no solution</span>
+  <span class="token comment">// end this, no possible step moving forward</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">findSolution</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The main gist of the algorithm is at the <code>verify</code> function, here are a few considerations I had when writing the <code>verify</code> function:</p>
+<ul><li>I am filling the board from left-to-right, top-to-bottom</li>
+<li>I am verifying the board as I am filling, so I need to make sure that the move I made at a cell is still within the constraint of the row/column of the cell</li>
+<li>If I fill the cell, I should not create more line-groups than necessary</li>
+<li>If I fill the cell, I should not make the current line-group longer than necessary</li>
+<li>If I leave the cell blank, I should not make the current line-group shorter than necessary</li>
+<li>When I finished a row / column, I need to make sure the current row / column requirements are all met</li></ul>
+<p>I don&#39;t want to bore you with the full code over here, you can read it on <a href="https://github.com/tanhauhau/nonogram/blob/dev/src/utils.js#L25-L78" rel="nofollow">my Github repo</a> if you curious enough.</p>
+<p><img src="ea055cb2fd4b7e2f.png" alt="solution" title="Nonogram solution"></p></section>
+<section><h2><a href="#the-animation" id="the-animation">The animation</a></h2>
+<p>I built and published <a href="https://lihautan.com/nonogram/" rel="nofollow">my nonogram solver</a> and brag about it with my colleagues.</p>
+<p>A few days later, another thought came in to my mind, how about showing the nonogram solving steps on the UI. That would be cooler than just solving it!</p>
+<p>There&#39;s 2 method I could think of:</p>
+<ul><li>Take snapshot of the grid at each step, replay the snapshots as animation</li>
+<li>Record the action taken at each step, replay the actions to build the animation</li></ul>
+<p>The 2nd approach sounded like <code>redux</code>, by replaying the actions, you can time travel to any state of your UI.</p>
+<p>I heeded the 2nd approach, and the results is pretty rad:</p>
+<p><img src="7bfbcf67e3276087.gif" alt="animated solution"></p>
+<pre class="language-js">
+<code class="language-js"><span class="token comment">// recording the steps</span>
+<span class="token comment">// highlight-next-line</span>
+<span class="token keyword">const</span> steps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">findSolution</span><span class="token punctuation">(</span><span class="token parameter">i<span class="token punctuation">,</span> j</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> height<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>nextI<span class="token punctuation">,</span> nextJ<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">getNextStep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// try to mark the cell with &#96;true&#96; (filled) first</span>
+  board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token comment">// highlight-next-line</span>
+  steps<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> mark<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> j <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">verify</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">findSolution</span><span class="token punctuation">(</span>nextI<span class="token punctuation">,</span> nextJ<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">// if not possible, mark it with &#96;false&#96; (blank)</span>
+  board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token comment">// highlight-next-line</span>
+  steps<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> mark<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> j <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">verify</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">findSolution</span><span class="token punctuation">(</span>nextI<span class="token punctuation">,</span> nextJ<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// replaying the steps</span>
+<span class="token comment">// highlight-start</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> step <span class="token keyword">of</span> steps<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> nextSolution <span class="token operator">=</span> <span class="token function">getNextSolution</span><span class="token punctuation">(</span>solution<span class="token punctuation">,</span> step<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setSolution</span><span class="token punctuation">(</span>nextSolution<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">getNextSolution</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> mark<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>
+    <span class="token spread operator">...</span>state<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token spread operator">...</span>state<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">,</span> mark<span class="token punctuation">,</span> <span class="token spread operator">...</span>state<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token spread operator">...</span>state<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h2><a href="#what-s-next" id="what-s-next">What&#39;s next?</a></h2>
+<p>Computer vision recognise the grid so I don&#39;t need to manual keying in the numbers?</p>
+<p>Automated robotic arms pressing on the screen so I don&#39;t have to fill in the solution manually?</p>
+<p>¯\_(ツ)_/¯</p>
+<p>Well, I&#39;ll keep these for another day.</p></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./d1bb5bb3.js" async></script></div>
+  
+</body>
+
+</html>

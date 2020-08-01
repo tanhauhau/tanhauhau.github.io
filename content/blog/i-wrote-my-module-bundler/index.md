@@ -1,7 +1,11 @@
 ---
 title: I wrote my module bundler
 date: '2019-09-18T08:00:00Z'
-tags: JavaScript,module bundler,dev tool,webpack
+tags: 
+  - JavaScript
+  - module bundler
+  - dev tool
+  - webpack
 description: "In my previous article, I explained how module bundler works. In this article, I am going to show you how I wrote my module bundler..."
 series: Write a module bundler
 ---
@@ -16,7 +20,7 @@ In this article, I am going to show you how I wrote my module bundler. The modul
 
 ---
 
-# Getting Started
+## Getting Started
 
 I talked about the input (the JavaScript modules) and the output (the bundled JavaScript file) of a module bundler in [my previous article](/what-is-module-bundler-and-how-does-it-work/). Now it's time to write a module bundler that takes in the input and produces the output.
 
@@ -27,7 +31,7 @@ A _basic_ module bundler can be broken down into 2 parts:
 
 > A **dependency graph** is a graph representation of the dependency relationship between modules.
 
-## The Input
+### The Input
 
 In this article, I will be using following files as my input to the bundler:
 
@@ -59,7 +63,7 @@ export default area;
 
 I've created the project on [Github](https://github.com/tanhauhau/byo-bundler/tree/master/fixture), so if you are interested to try out yourself, you can clone it and checkout the `fixture-1` tag. The input files are in the `fixture/` folder.
 
-# Writing
+## Writing
 
 I started with the main structure of the module bundler:
 
@@ -576,7 +580,7 @@ That's it! A working module bundler!
 
 Of course, the module bundler I've shown here is **nowhere near webpack**. Webpack supports more module system, resolving strategies, loading strategies, plugin system, optimisation, and many many more.
 
-# Optimisation
+## Optimisation
 
 I played around my module bundler, and I quickly noticed a bug: **Circular Dependency**.
 
@@ -613,7 +617,7 @@ When I ran it through my module bunlder, immediately it ran into a stack overflo
 RangeError: Maximum call stack size exceeded
 ```
 
-## Circular dependency
+### Circular dependency
 
 There were 2 junctures that the code did recursive traversal which have led to the endless loop:
 
@@ -732,7 +736,7 @@ Brilliant! The key is to lazily get the value of `PI` when needed!
 
 I changed my babel transformation code, which I am not showing it here. If you are curious enough, you can check out [the changes I made from Github](https://github.com/tanhauhau/byo-bundler/compare/feat-2-bundling...feat-3-circular-dependency).
 
-# Summary
+## Summary
 
 There's two phases in module bundling: **Dependency Resolution** and **Bundling**.
 
@@ -748,7 +752,7 @@ which I will cover them in my next article when they are ready.
 
 Till then. Cheers. 😎
 
-# Further Readings
+## Further Readings
 
 - [Ronen Amiel, Build Your Own Webpack - You Gotta Love Frontend 2018](https://www.youtube.com/watch?v=Gc9-7PBqOC8)
 - [Luciano Mammino, Unbundling the JavaScript module bundler - DublinJS July 2018](https://slides.com/lucianomammino/unbundling-the-javascript-module-bundler-dublinjs)

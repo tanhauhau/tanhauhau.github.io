@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://lihautan.com" rel="me">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Yet Another Micro Frontend Proof of Concept | Tan Li Hau</title><link href="http://127.0.0.1:8080/micro-frontends-poc/assets/_blog-299aa480.css" rel="stylesheet" data-svelte="svelte-1k4ncsr"><meta name="description" content="A decentralised router definition" data-svelte="svelte-1k4ncsr"><meta name="image" data-svelte="svelte-1k4ncsr"><meta name="og:image" data-svelte="svelte-1k4ncsr"><meta name="og:title" content="Yet Another Micro Frontend Proof of Concept" data-svelte="svelte-1k4ncsr"><meta name="og:description" content="A decentralised router definition" data-svelte="svelte-1k4ncsr"><meta name="og:type" content="website" data-svelte="svelte-1k4ncsr"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1k4ncsr"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1k4ncsr"><meta name="twitter:title" content="Yet Another Micro Frontend Proof of Concept" data-svelte="svelte-1k4ncsr"><meta name="twitter:description" content="A decentralised router definition" data-svelte="svelte-1k4ncsr"><meta name="twitter:image" data-svelte="svelte-1k4ncsr"><meta itemprop="url" content="http%3A%2F%2F127.0.0.1%3A8080%2Fmicro-frontends-poc" data-svelte="svelte-1k4ncsr"><meta itemprop="image" data-svelte="svelte-1k4ncsr"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"A decentralised router definition","headline":"Yet Another Micro Frontend Proof of Concept","name":"Yet Another Micro Frontend Proof of Concept","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"http%3A%2F%2F127.0.0.1%3A8080%2Fmicro-frontends-poc","name":"Yet Another Micro Frontend Proof of Concept"},"position":2}]}</script><link as="script" rel="preload" href="./a789862f.js"><link as="style" rel="preload" href="./assets%2F_blog-299aa480.css"><link as="style" rel="preload" href="./a789862f.css"><link href="./assets%2F_blog-299aa480.css" rel="stylesheet"><link href="./a789862f.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-2w4dum">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-2w4dum"><h1>Yet Another Micro Frontend Proof of Concept</h1>
+  
+  
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#what-is-this-different">What is this different?</a></li><li><a href="#the-bridge">The Bridge</a></li><li><a href="#the-routing-mechanism">The routing mechanism</a></li><li><a href="#the-global-registry">The global registry</a></li><li><a href="#shared-global-state">Shared Global State</a></li></ul><li><a href="#trying-it-out-locally">Trying it out locally</a></li><ul><li><a href="#developing-the-micro-frontend-individually">Developing the micro frontend individually</a></li></ul></section>
+<p>Yes, this is <a href="https://github.com/tanhauhau/micro-frontend" rel="nofollow">yet another proof of concept for micro frontend architecture</a>.</p>
+<p>Please <a href="https://github.com/tanhauhau/micro-frontend" rel="nofollow">check out the code</a> and try to play with it locally.</p>
+<section><h2><a href="#what-is-this-different" id="what-is-this-different">What is this different?</a></h2>
+<ul><li><p><strong>No centralised routing definition</strong></p>
+<p>Once the main SPA is deployed, new routes can be added to the SPA without redeploying the main SPA.</p></li>
+<li><p><strong>A central registry</strong></p>
+<p>Individual micro frontend does not need to bundle in common dependencies like <code>react</code>, <code>react-router</code>, eg. Furthermore, they <strong>shouldn&#39;t be</strong> bundled into the micro frontend as multiple instance of <code>react</code> or <code>react-router</code> may cause some bugs.</p></li>
+<li><p><strong>A shared global state</strong></p>
+<p>In this demo, I am using <a href="https://redux.js.org" rel="nofollow">redux</a> for state management.</p>
+<p>Each micro-frontend is connected to the same global store, so data is easily shared across the application.</p></li></ul></section>
+<section><h2><a href="#the-bridge" id="the-bridge">The Bridge</a></h2>
+<p>The center piece of this micro frontend architecture is <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/base/src/Bridge/index.js" rel="nofollow">the Bridge</a>.</p>
+<p>It contains 2 types of communication method:</p>
+<ul><li>message passing</li>
+<li>shared memory</li></ul>
+<p><strong>Message passing</strong> is done via a pub sub mechanism called <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/base/src/Bridge/Channel.js" rel="nofollow">the Channel</a>, whereas <strong>shared memory</strong> is done via <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/base/src/Bridge/Registry.js" rel="nofollow">the Registry</a>.</p>
+<p>I attach the Bridge to the window, so each micro frontend can connect to the bridge.</p></section>
+<section><h2><a href="#the-routing-mechanism" id="the-routing-mechanism">The routing mechanism</a></h2>
+<p>In the PoC, I used <a href="https://reacttraining.com/react-router/web" rel="nofollow">react-router</a> as the routing library. The <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/base/src/App/Routes.js#L17" rel="nofollow">route definition</a> is dynamic, as it listens <code>&quot;registerRoute&quot;</code> event through <em>the Bridge</em>, and add it to the route definition.</p>
+<p>One thing to note is that, I use <code>&lt;Switch /&gt;</code>, which will render the first <code>&lt;Route /&gt;</code> that matches the url.</p>
+<p>The magic happens in the last route, which will be rendered when none of the routes in the route definition matches.</p>
+<p>The last route renders the <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/base/src/App/FallbackDiscovery.js" rel="nofollow">Fallback Discovery</a> component, which will based on the current location and some pre-defined rules, tries to find the micro frontend manifest for the unknown route. </p>
+<p>If the micro frontend manifest does not exist, it will render a 404 page. However, if the manifest exists, it will fetch the manifest file.</p>
+<p>The micro frontend manifest file is nothing but a json file that contains the <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/base/src/App/FallbackDiscovery.js#L31" rel="nofollow">entry asset</a> for the route micro frontend.</p>
+<p>Once the entry asset is loaded, the new micro frontend itself will register a new route to the route definition via <code>&quot;registerRoute&quot;</code> event, which has to be the route that matches the current URL.</p>
+<p>Whenever there&#39;s a new route added, the <code>react-router</code>&#39;s <code>&lt;Router /&gt;</code> component will re-render and it will match the newly added route, which renders our newly added micro-frontend.</p></section>
+<section><h2><a href="#the-global-registry" id="the-global-registry">The global registry</a></h2>
+<p>There&#39;s 2 main reasons why I am not bundling <code>react</code>, <code>react-redux</code>, and <code>react-router</code> into each micro frontends:</p>
+<ul><li><p><strong>Bundle size</strong>, there&#39;s no reason to download duplicate copies of <code>react</code> or <code>react-redux</code>.</p></li>
+<li><p><strong>No multiple instance</strong>, both <code>react-redux</code> and <code>react-router</code> uses React Context to pass information down the React component tree. However, this way of data passing disallow multiple instances of the <em>Context</em> object, as each instances has a different memory reference.</p></li></ul>
+<p>So, the main SPA runtime bundles <code>react</code>, <code>react-redux</code>, etc and <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/base/src/initRegistry.js#L9" rel="nofollow">set it into the <code>Bridge.Registry</code>.</a>.</p>
+<p>When each micro-frontend is built, the <em>import statement</em> for these modules <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/food/webpack.config.js#L23" rel="nofollow">will be transformed</a> into the <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/build/BridgeAliasPlugin/aliases/react.js" rel="nofollow">some aliases</a>, that reads the module from the <code>Bridge.Registry</code>.</p></section>
+<section><h2><a href="#shared-global-state" id="shared-global-state">Shared Global State</a></h2>
+<p>In the PoC, the micro frontends are <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/food/src/FoodDetail.js#L36" rel="nofollow">connected to the shared global store via <code>connect()</code> from <code>react-redux</code></a></p>
+<p>Interesting to note is that both <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/food/src/FoodDetail.js#L13" rel="nofollow">the food detail</a> and <a href="https://github.com/tanhauhau/micro-frontend/blob/master/packages/foods/src/FoodList.js" rel="nofollow">the food list</a> register the same key for the reducer, but yet both of the works seamlessly.</p>
+<p>Note that when we transit from Food List page to Food Detail page, we already have the food detail information from the store, therefore there is no need to fetch the food detail anymore.</p></section>
+<section><h1><a href="#trying-it-out-locally" id="trying-it-out-locally">Trying it out locally</a></h1>
+<p>Run <code>yarn start</code> in the root folder, which will <a href="https://github.com/tanhauhau/micro-frontend/blob/master/scripts/start-dev-server.js" rel="nofollow">start a simple express server</a>. The express server is used to serve static files based on specific rules.</p>
+<p>To build individual micro frontends, you need to go to each folder and run <code>yarn build</code>. Alternatively, you can start the watch mode via <code>yarn dev</code>.</p></section>
+<section><h2><a href="#developing-the-micro-frontend-individually" id="developing-the-micro-frontend-individually">Developing the micro frontend individually</a></h2>
+<p>WIP</p></section></article></main>
+
+<footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div></footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./a789862f.js" async></script></div>
+  
+</body>
+
+</html>

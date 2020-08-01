@@ -1,7 +1,10 @@
 ---
 title: "Contributing to Svelte - Fixing issue #4392"
 date: '2020-05-23T08:00:00Z'
-tag: Svelte, JavaScript, Open Source
+tags: 
+  - Svelte
+  - JavaScript
+  - Open Source
 series: Contributing to Svelte
 description: I am going to tell you an anecdote on how I investigated and fixed a bug in Svelte. I documented down my train of thoughts as detailed as possible. I hope this gives anyone who is reading, a glimpse on how to work on the Svelte source code.
 wip: true

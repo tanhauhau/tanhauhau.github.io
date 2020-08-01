@@ -2,7 +2,10 @@
 title: Solving Nonogram with Code
 date: '2019-09-14T08:00:00Z'
 description: '...said me to my colleague, "If I could come up with a program to solve this, I would stop playing it"'
-tag: JavaScript,nonogram,algorithm
+tags: 
+  - JavaScript
+  - nonogram
+  - algorithm
 ---
 
 ## Background

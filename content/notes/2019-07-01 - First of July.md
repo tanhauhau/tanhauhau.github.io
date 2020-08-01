@@ -1,5 +1,5 @@
 <!-- 
-tag: chrome-extension
+tags: chrome-extension
 -->
 
 - Adding to context menu, with right click
@@ -7,7 +7,7 @@ tag: chrome-extension
   - API docs https://developer.chrome.com/apps/contextMenus
 
 <!-- 
-tag: interview
+tags: interview
 -->
 
 - `@zhaojinjiang` shared some of his interview experience
