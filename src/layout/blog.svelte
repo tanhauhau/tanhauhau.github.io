@@ -1,7 +1,7 @@
 <script>
   import Header from './Header.svelte';
   import Newsletter from './Newsletter.svelte';
-  import baseCss from 'file://./_blog.css';
+  import 'file://./_blog.css';
   import image from 'file://@/../hero-twitter.jpg';
   export let title;
   export let description;
@@ -16,7 +16,6 @@
 
 <svelte:head>
   <title>{title} | Tan Li Hau</title>
-  <link href={baseCss} rel="stylesheet" />
   <meta name="description" content={description} />
   <meta name="image" content={image} />
 

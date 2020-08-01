@@ -286,21 +286,17 @@ const HOSTNAME = 'https://lihautan.com/';
         for (const { fileName } of clientOutput.output) {
           if (fileName.endsWith('.js')) {
             scripts.push(
-              `<script src="./${encodeURIComponent(fileName)}" async></script>`
+              `<script src="./${encodeUrl(fileName)}" async></script>`
             );
             preloads.push(
-              `<link as="script" rel="preload" href="./${encodeURIComponent(
-                fileName
-              )}">`
+              `<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`
             );
           } else if (fileName.endsWith('.css')) {
             styles.push(
-              `<link href="./${encodeURIComponent(fileName)}" rel="stylesheet">`
+              `<link href="./${encodeUrl(fileName)}" rel="stylesheet">`
             );
             preloads.push(
-              `<link as="style" rel="preload" href="./${encodeURIComponent(
-                fileName
-              )}">`
+              `<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`
             );
           }
         }
@@ -336,12 +332,24 @@ const HOSTNAME = 'https://lihautan.com/';
     result[page.metadata.type].push(page);
   });
 
-  result.blog = result.blog.sort((a, b) =>
-    a.metadata.date === b.metadata.date ? 0 : a.metadata.date < b.metadata.date ? 1 : -1
-  ).filter(_ => !_.metadata.wip);
-  result.talk = result.talk.sort((a, b) =>
-    a.metadata.date === b.metadata.date ? 0 : a.metadata.date < b.metadata.date ? 1 : -1
-  ).filter(_ => !_.metadata.wip);
+  result.blog = result.blog
+    .sort((a, b) =>
+      a.metadata.date === b.metadata.date
+        ? 0
+        : a.metadata.date < b.metadata.date
+        ? 1
+        : -1
+    )
+    .filter(_ => !_.metadata.wip);
+  result.talk = result.talk
+    .sort((a, b) =>
+      a.metadata.date === b.metadata.date
+        ? 0
+        : a.metadata.date < b.metadata.date
+        ? 1
+        : -1
+    )
+    .filter(_ => !_.metadata.wip);
 
   await Promise.all([
     fs.writeFile(
@@ -517,21 +525,17 @@ async function buildList({
         for (const { fileName } of output) {
           if (fileName.endsWith('.js')) {
             scripts.push(
-              `<script src="./${encodeURIComponent(fileName)}" async></script>`
+              `<script src="./${encodeUrl(fileName)}" async></script>`
             );
             preloads.push(
-              `<link as="script" rel="preload" href="./${encodeURIComponent(
-                fileName
-              )}">`
+              `<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`
             );
           } else if (fileName.endsWith('.css')) {
             styles.push(
-              `<link href="./${encodeURIComponent(fileName)}" rel="stylesheet">`
+              `<link href="./${encodeUrl(fileName)}" rel="stylesheet">`
             );
             preloads.push(
-              `<link as="style" rel="preload" href="./${encodeURIComponent(
-                fileName
-              )}">`
+              `<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`
             );
           }
         }
@@ -583,21 +587,17 @@ async function buildRoute({
         for (const { fileName } of output) {
           if (fileName.endsWith('.js')) {
             scripts.push(
-              `<script src="./${encodeURIComponent(fileName)}" async></script>`
+              `<script src="./${encodeUrl(fileName)}" async></script>`
             );
             preloads.push(
-              `<link as="script" rel="preload" href="./${encodeURIComponent(
-                fileName
-              )}">`
+              `<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`
             );
           } else if (fileName.endsWith('.css')) {
             styles.push(
-              `<link href="./${encodeURIComponent(fileName)}" rel="stylesheet">`
+              `<link href="./${encodeUrl(fileName)}" rel="stylesheet">`
             );
             preloads.push(
-              `<link as="style" rel="preload" href="./${encodeURIComponent(
-                fileName
-              )}">`
+              `<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`
             );
           }
         }
@@ -613,4 +613,10 @@ async function buildRoute({
       'utf-8'
     )
   );
+}
+
+function encodeUrl(url) {
+  const map = { ['%3A']: ':', ['%2F']: '/' };
+  url = encodeURIComponent(url);
+  return url.replace(/(%3A|%2F)/g, match => map[match]);
 }
