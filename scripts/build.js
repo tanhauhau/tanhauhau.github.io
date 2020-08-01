@@ -22,9 +22,9 @@ const HOSTNAME = 'https://lihautan.com/';
 
 (async () => {
   // cleanup
-  try {
-    await cleanup(OUTPUT_FOLDER);
-  } catch {}
+  // try {
+  //   await cleanup(OUTPUT_FOLDER);
+  // } catch {}
 
   // start
 
@@ -411,6 +411,16 @@ const HOSTNAME = 'https://lihautan.com/';
         outputPath: key,
       });
     })
+  );
+
+  const assets = await fs.readdir(path.join(__dirname, './template/assets'));
+  await Promise.all(
+    assets.map(asset =>
+      fs.copyFile(
+        path.join(__dirname, './template/assets', asset),
+        path.join(OUTPUT_FOLDER, asset)
+      )
+    )
   );
 })();
 
