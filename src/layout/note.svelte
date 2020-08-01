@@ -1,6 +1,6 @@
 <script>
   import Header from './Header.svelte';
-  import baseCss from 'file://./_blog.css';
+  import baseCss from 'file://./blog-base.css';
   export let name;
   export let date;
   export let tags = [];

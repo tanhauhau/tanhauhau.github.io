@@ -1,7 +1,7 @@
 <script>
   import Header from './Header.svelte';
   import Newsletter from './Newsletter.svelte';
-  import 'file://./_blog.css';
+  import 'file://./blog-base.css';
   import image from 'file://@/../hero-twitter.jpg';
   export let title;
   export let description;
