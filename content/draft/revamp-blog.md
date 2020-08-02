@@ -110,3 +110,12 @@ Require stack:
 
 - filename starts with underscore, not served.
 
+- [ ] manifest.json
+- [ ] offline support
+- [ ] dark mode
+- [ ] snippet diff+javascript
+- [ ] common css chunk
+- [ ] google analytics
+- [ ] webmentions
+- [ ] carbon ads
+- [ ] rss support

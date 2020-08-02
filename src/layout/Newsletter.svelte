@@ -13,7 +13,7 @@
     class="embeddable-buttondown-form"
   >
     <div class="form-item">
-      <input type="email" name="email" id="bd-email" bind:value={email} placeholder="youremail@example.com" />
+      <input type="email" name="email" id="bd-email" bind:value={email} aria-label="email address" placeholder="youremail@example.com" />
       <input type="submit" value="Subscribe" disabled={!email} />
     </div>
     <input type="hidden" value="1" name="embed" />

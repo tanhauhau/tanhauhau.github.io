@@ -516,7 +516,13 @@ function create_fragment(ctx) {
 			t11 = claim_space(ul_nodes);
 			li6 = claim_element(ul_nodes, "LI", { class: true });
 			var li6_nodes = children(li6);
-			a6 = claim_element(li6_nodes, "A", { href: true, class: true });
+
+			a6 = claim_element(li6_nodes, "A", {
+				"aria-label": true,
+				href: true,
+				class: true
+			});
+
 			var a6_nodes = children(a6);
 			svg0 = claim_element(a6_nodes, "svg", { viewBox: true, class: true }, 1);
 			var svg0_nodes = children(svg0);
@@ -525,7 +531,13 @@ function create_fragment(ctx) {
 			svg0_nodes.forEach(detach);
 			a6_nodes.forEach(detach);
 			t12 = claim_space(li6_nodes);
-			a7 = claim_element(li6_nodes, "A", { href: true, class: true });
+
+			a7 = claim_element(li6_nodes, "A", {
+				"aria-label": true,
+				href: true,
+				class: true
+			});
+
 			var a7_nodes = children(a7);
 			svg1 = claim_element(a7_nodes, "svg", { viewBox: true, class: true }, 1);
 			var svg1_nodes = children(svg1);
@@ -561,11 +573,13 @@ function create_fragment(ctx) {
 			attr(path0, "d", "M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66\n    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5\n    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z");
 			attr(svg0, "viewBox", "0 0 24 24");
 			attr(svg0, "class", "svelte-f3e4uo");
+			attr(a6, "aria-label", "Twitter account");
 			attr(a6, "href", "https://twitter.com/lihautan");
 			attr(a6, "class", "svelte-f3e4uo");
 			attr(path1, "d", "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0\n    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07\n    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65\n    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42\n    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22");
 			attr(svg1, "viewBox", "0 0 24 24");
 			attr(svg1, "class", "svelte-f3e4uo");
+			attr(a7, "aria-label", "Github account");
 			attr(a7, "href", "https://github.com/tanhauhau");
 			attr(a7, "class", "svelte-f3e4uo");
 			attr(li6, "class", "social svelte-f3e4uo");
@@ -732,7 +746,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-17rdosq");
+			attr(span, "class", "svelte-ydavce");
 		},
 		m(target, anchor) {
 			insert(target, span, anchor);
@@ -801,10 +815,10 @@ function create_each_block(key_1, ctx) {
 			this.h();
 		},
 		h() {
-			attr(p0, "class", "title svelte-17rdosq");
+			attr(p0, "class", "title svelte-ydavce");
 			attr(a, "href", a_href_value = "/" + /*slug*/ ctx[4]);
-			attr(a, "class", "svelte-17rdosq");
-			attr(li, "class", "svelte-17rdosq");
+			attr(a, "class", "svelte-ydavce");
+			attr(li, "class", "svelte-ydavce");
 			this.first = li;
 		},
 		m(target, anchor) {
@@ -906,8 +920,8 @@ function create_fragment$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(ul, "class", "svelte-17rdosq");
-			attr(main, "class", "blogs svelte-17rdosq");
+			attr(ul, "class", "svelte-ydavce");
+			attr(main, "class", "blogs svelte-ydavce");
 		},
 		m(target, anchor) {
 			mount_component(header, target, anchor);

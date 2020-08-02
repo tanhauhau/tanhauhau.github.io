@@ -21,15 +21,25 @@ const DEFAULT_LAYOUT = 'blog';
 const HOSTNAME = 'https://lihautan.com/';
 
 (async () => {
-  // cleanup
-  // try {
-  //   await cleanup(OUTPUT_FOLDER);
-  // } catch {}
+  console.time('all');
+  let [jsTemplate, template, layouts, pages, _] = await Promise.all([
+    fs.readFile(path.join(__dirname, './template/page.js'), 'utf-8'),
+    fs.readFile(path.join(__dirname, './template/index.html'), 'utf-8'),
+    getLayouts(LAYOUT_FOLDER, DEFAULT_LAYOUT),
+    glob('**/*.md', { cwd: CONTENT_FOLDER }),
+    init,
+  ]);
 
-  // start
+  await Promise.all([
+    buildPages(pages, layouts, jsTemplate, template),
+    buildRoutes(template),
+    copyAll(path.join(__dirname, './template/assets'), OUTPUT_FOLDER),
+  ]);
+  console.timeEnd('all');
+})();
 
-  let layouts = await getLayouts(LAYOUT_FOLDER, DEFAULT_LAYOUT);
-  let pages = await glob('**/*.md', { cwd: CONTENT_FOLDER });
+async function buildPages(pages, layouts, jsTemplate, template) {
+  console.time('buildPages');
   pages = pages
     .map(page => {
       const [type, filename] = splitTypePath(page);
@@ -49,8 +59,6 @@ const HOSTNAME = 'https://lihautan.com/';
     })
     .filter(Boolean);
 
-  await init;
-
   pages = await Promise.all(
     pages.map(async meta => {
       const markdown = await fs.readFile(meta.mdPath, 'utf8');
@@ -65,11 +73,6 @@ const HOSTNAME = 'https://lihautan.com/';
         },
       };
     })
-  );
-
-  const jsTemplate = await fs.readFile(
-    path.join(__dirname, './template/page.js'),
-    'utf-8'
   );
 
   pages = await Promise.all(
@@ -263,11 +266,6 @@ const HOSTNAME = 'https://lihautan.com/';
     })
   );
 
-  const template = await fs.readFile(
-    path.join(__dirname, './template/index.html'),
-    'utf-8'
-  );
-
   pages = await Promise.all(
     pages.map(async ({ meta, output }) => {
       try {
@@ -333,22 +331,10 @@ const HOSTNAME = 'https://lihautan.com/';
   });
 
   result.blog = result.blog
-    .sort((a, b) =>
-      a.metadata.date === b.metadata.date
-        ? 0
-        : a.metadata.date < b.metadata.date
-        ? 1
-        : -1
-    )
+    .sort(reverseSortByDate)
     .filter(_ => !_.metadata.wip);
   result.talk = result.talk
-    .sort((a, b) =>
-      a.metadata.date === b.metadata.date
-        ? 0
-        : a.metadata.date < b.metadata.date
-        ? 1
-        : -1
-    )
+    .sort(reverseSortByDate)
     .filter(_ => !_.metadata.wip);
 
   await Promise.all([
@@ -367,9 +353,6 @@ const HOSTNAME = 'https://lihautan.com/';
       JSON.stringify(result.talk),
       'utf-8'
     ),
-  ]);
-
-  await Promise.all([
     buildList({
       data: {
         data: result.blog,
@@ -399,6 +382,11 @@ const HOSTNAME = 'https://lihautan.com/';
     }),
   ]);
 
+  console.timeEnd('buildPages');
+}
+
+async function buildRoutes(template) {
+  console.time('buildRoutes');
   let routes = await getRoutes(ROUTES_FOLDER);
   const templatePath = path.join(__dirname, './template/route.js');
   await Promise.all(
@@ -412,17 +400,10 @@ const HOSTNAME = 'https://lihautan.com/';
       });
     })
   );
+  console.timeEnd('buildRoutes');
+}
 
-  const assets = await fs.readdir(path.join(__dirname, './template/assets'));
-  await Promise.all(
-    assets.map(asset =>
-      fs.copyFile(
-        path.join(__dirname, './template/assets', asset),
-        path.join(OUTPUT_FOLDER, asset)
-      )
-    )
-  );
-})();
+
 
 function splitTypePath(filename) {
   const index = filename.indexOf('/');
@@ -625,8 +606,29 @@ async function buildRoute({
   );
 }
 
+function reverseSortByDate(a, b) {
+  return a.metadata.date === b.metadata.date
+    ? 0
+    : a.metadata.date < b.metadata.date
+    ? 1
+    : -1;
+}
+
 function encodeUrl(url) {
   const map = { ['%3A']: ':', ['%2F']: '/' };
   url = encodeURIComponent(url);
   return url.replace(/(%3A|%2F)/g, match => map[match]);
+}
+
+async function copyAll(from, to) {
+  const files = await fs.readdir(from);
+  await Promise.all(
+    files.map(async file => {
+      if ((await fs.stat(path.join(from, file))).isDirectory()) {
+        await mkdirp(path.join(to, file));
+        return copyAll(path.join(from, file), path.join(to, file));
+      }
+      return fs.copyFile(path.join(from, file), path.join(to, file));
+    })
+  );
 }

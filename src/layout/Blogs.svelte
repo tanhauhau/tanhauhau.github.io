@@ -80,4 +80,7 @@
     font-size: 32px;
     margin: 10px 0;
   }
+  :global(.sitemap li:nth-child(n + 2)) {
+    margin-top: 8px;
+  }
 </style>
