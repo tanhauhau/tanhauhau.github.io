@@ -58,8 +58,8 @@
     "description":"Breadcrumbs list",
     "name":"Breadcrumbs",
     "itemListElement":[
-      {"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},
-      {"@type":"ListItem","item":{"@id": '__$$HOSTNAME$$__', "name": title},"position":2}
+      {"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},
+      {"@type":"ListItem","item":{"@id": '__$$HOSTNAME$$__', "name": title},"name": title,"position":2}
     ]
   })}</script>`}
 </svelte:head>
