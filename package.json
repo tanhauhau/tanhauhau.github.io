@@ -1,51 +1,14 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "tanhauhau.github.io",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Tan Li Hau <lhtan93@gmail.com>",
   "dependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
-    "gatsby": "^2.18.4",
-    "gatsby-image": "^2.2.34",
-    "gatsby-plugin-feed": "2.3.22",
-    "gatsby-plugin-google-analytics": "^2.1.29",
-    "gatsby-plugin-manifest": "^2.2.30",
-    "gatsby-plugin-offline": "^3.0.24",
-    "gatsby-plugin-react-helmet": "^3.1.16",
-    "gatsby-plugin-sharp": "^2.3.4",
-    "gatsby-plugin-typography": "^2.3.18",
-    "gatsby-remark-copy-linked-files": "^2.1.31",
-    "gatsby-remark-images": "^2.1.34",
-    "gatsby-remark-prismjs": "^3.3.25",
-    "gatsby-remark-responsive-iframe": "^2.2.28",
-    "gatsby-remark-smartypants": "^2.1.17",
-    "gatsby-source-filesystem": "^2.1.39",
-    "gatsby-transformer-remark": "^2.6.38",
-    "gatsby-transformer-sharp": "^2.3.6",
-    "prism-svelte": "^0.4.6",
-    "prismjs": "^1.17.1",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "react-helmet": "^5.2.1",
-    "react-typography": "^0.16.19",
-    "typeface-lora": "^0.0.72",
-    "typeface-varela-round": "^0.0.71",
-    "typography": "^0.16.19",
-    "typography-theme-lincoln": "^0.16.19"
-  },
-  "devDependencies": {
     "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@rollup/plugin-replace": "^2.3.3",
-    "@rollup/plugin-url": "^5.0.1",
     "emoji-regex": "^8.0.0",
-    "es-module-lexer": "^0.3.24",
-    "gatsby-plugin-sitemap": "^2.0.12",
-    "gatsby-remark-autolink-headers": "^2.1.10",
     "husky": "^1.3.1",
     "imagemin": "^7.0.1",
     "imagemin-gifsicle": "^7.0.0",
@@ -55,6 +18,8 @@
     "mdast-util-definitions": "^3.0.1",
     "mdsvex": "^0.8.2",
     "prettier": "^1.16.4",
+    "prism-svelte": "^0.4.6",
+    "prismjs": "^1.17.1",
     "rehype": "^8.0.0",
     "rollup": "^2.23.0",
     "rollup-plugin-postcss": "^3.1.3",
@@ -63,30 +28,13 @@
     "tiny-glob": "^0.2.6",
     "unist-util-visit": "^2.0.3"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
-    "build": "gatsby build",
-    "deploy": "node ./scripts/publish.js",
-    "develop": "gatsby develop",
-    "clean": "gatsby clean",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "note": "node scripts/new-note.js",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "note": "node scripts/new-note.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn build && yarn deploy"
-    }
+  "devDependencies": {
+    "rollup-plugin-terser": "^6.1.0"
   }
 }

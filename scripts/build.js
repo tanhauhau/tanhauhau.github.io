@@ -3,7 +3,6 @@ const fs = require('fs').promises;
 const path = require('path');
 const glob = require('tiny-glob');
 const svelte = require('svelte/compiler');
-const { init, parse } = require('es-module-lexer');
 const render = require('./render-svelte');
 const bundle = require('./bundle');
 const { mkdirp } = require('./mkdirp');
@@ -30,12 +29,11 @@ const skipCache = !!process.env.SKIP_CACHE;
 
   await cleanup(OUTPUT_FOLDER);
 
-  let [jsTemplate, template, layouts, pages, _] = await Promise.all([
+  let [jsTemplate, template, layouts, pages] = await Promise.all([
     fs.readFile(path.join(__dirname, './template/page.js'), 'utf-8'),
     fs.readFile(path.join(__dirname, './template/index.html'), 'utf-8'),
     getLayouts(LAYOUT_FOLDER, DEFAULT_LAYOUT),
     glob('**/*.md', { cwd: CONTENT_FOLDER }),
-    init,
   ]);
 
   await Promise.all([
@@ -273,7 +271,7 @@ async function buildList({
         for (const { fileName } of output) {
           if (fileName.endsWith('.js')) {
             scripts.push(
-              `<script src="./${encodeUrl(fileName)}" async></script>`
+              `<script src="./${encodeUrl(fileName)}" async defer></script>`
             );
             preloads.push(
               `<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`

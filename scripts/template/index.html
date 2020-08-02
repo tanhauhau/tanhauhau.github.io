@@ -22,6 +22,7 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="preload" href="/main.js" as="script" />
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -59,8 +60,7 @@
   <div id="app">{{body}}</div>
   {{scripts}}
 
-  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
-  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script async defer src="/main.js"></script>
 </body>
 
 </html>

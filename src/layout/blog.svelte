@@ -84,7 +84,7 @@
   <CarbonAd />
 </footer>
 
-{@html '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'}
+{@html '<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'}
 
 <style>
   span {
@@ -116,5 +116,9 @@
   .skip:focus {
     width: unset;
     height: unset;
+  }
+  
+  :global(.sitemap li:nth-child(n + 2)) {
+    margin-top: 8px;
   }
 </style>
