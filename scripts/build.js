@@ -11,6 +11,7 @@ const getDefinitions = require(`mdast-util-definitions`);
 const buildPage = require('./buildPage');
 const { encodeUrl } = require('./encodeUrl');
 const { renderTemplate } = require('./renderTemplate');
+const crypto = require('crypto');
 
 const {
   CONTENT_FOLDER,
@@ -45,14 +46,25 @@ const {
 
 async function buildPages(pages, layouts, jsTemplate, template) {
   console.time('buildPages');
-  pages = pages
-    .map(page => {
+  const cacheMap = getCacheMap();
+
+  pages = await Promise.all(
+    pages.map(async page => {
       const [type, filename] = splitTypePath(page);
       if (!USE_CONTENT.has(type)) return null;
       const slug = getSlug(type, filename);
       const twitterImagePath = getTwitterImagePath(page);
       const mdPath = path.join(CONTENT_FOLDER, page);
 
+      const markdown = await fs.readFile(mdPath, 'utf8');
+      const hash = crypto
+        .createHmac('sha256', '')
+        .update(markdown)
+        .digest('hex');
+
+      if (cacheMap[page] === hash) return null;
+
+      cacheMap[page] = hash;
       return {
         type,
         filename,
@@ -62,7 +74,8 @@ async function buildPages(pages, layouts, jsTemplate, template) {
         componentName: titleCase(slug),
       };
     })
-    .filter(Boolean);
+  );
+  pages = pages.filter(Boolean);
 
   pages = await buildPage(pages, { layouts, jsTemplate, template });
 
@@ -127,6 +140,8 @@ async function buildPages(pages, layouts, jsTemplate, template) {
       outputPath: 'talks',
     }),
   ]);
+
+  await writeCacheMap(cacheMap);
 
   console.timeEnd('buildPages');
 }
@@ -366,5 +381,24 @@ async function copyAll(from, to) {
       }
       return fs.copyFile(path.join(from, file), path.join(to, file));
     })
+  );
+}
+
+function getCacheMap() {
+  try {
+    return require(path.join(
+      require.resolve('svelte'),
+      '../../.cache/lihautan.json'
+    ));
+  } catch {
+    return {};
+  }
+}
+
+function writeCacheMap(cacheMap) {
+  return fs.writeFile(
+    path.join(require.resolve('svelte'), '../../.cache/lihautan.json'),
+    JSON.stringify(cacheMap),
+    'utf-8'
   );
 }

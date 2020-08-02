@@ -1,7 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
 const mdsvex = require('mdsvex');
-const crypto = require('crypto');
 const render = require('./render-svelte');
 const bundle = require('./bundle');
 const { mkdirp } = require('./mkdirp');
@@ -14,11 +13,6 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
   const outputFolder = path.join(OUTPUT_FOLDER, meta.slug);
   const markdown = await fs.readFile(meta.mdPath, 'utf8');
   await mkdirp(outputFolder);
-
-  const hash = crypto
-    .createHmac('sha256', '')
-    .update(markdown)
-    .digest('hex');
 
   try {
     const svelteCode = await mdsvex.compile(markdown, {
@@ -242,53 +236,61 @@ const {
   parentPort,
   workerData,
 } = require('worker_threads');
+const numOfCores = require('os').cpus().length;
 
-if (isMainThread) {
-  module.exports = async function(pages, data) {
-    const tasks = pages.map(meta => ({ ...data, meta }));
-    const workers = Array(Math.min(require('os').cpus().length, pages.length))
-      .fill(null)
-      .map(_ => new Worker(__filename));
-    let totalTaskLeft = tasks.length;
-    let totalTaskFinished = 0;
-    const results = [];
+function buildPageWithWorkerPool(tasks) {
+  const workers = Array(Math.min(numOfCores, tasks.length))
+    .fill(null)
+    .map(_ => new Worker(__filename));
+  let totalTaskLeft = tasks.length;
+  let totalTaskFinished = 0;
+  const results = [];
 
-    let resolve, reject;
-    const promise = new Promise((res, rej) => {
-      resolve = res;
-      reject = rej;
+  let resolve, reject;
+  const promise = new Promise((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+
+  function onDone(workerIndex) {
+    return function(workerResult) {
+      results.push(workerResult);
+      if (++totalTaskFinished === tasks.length) {
+        workers.forEach(worker => worker.terminate());
+        resolve(results);
+      } else if (totalTaskLeft > 0) {
+        workers[workerIndex].postMessage(tasks[--totalTaskLeft]);
+      }
+    };
+  }
+
+  function onFailed(error) {
+    reject(error);
+  }
+
+  // initial assignment
+  for (let i = 0; i < workers.length; i++) {
+    workers[i].on('message', onDone(i));
+    workers[i].on('error', onFailed);
+    workers[i].on('exit', code => {
+      if (code !== 0)
+        reject(new Error(`Worker stopped with exit code ${code}`));
     });
+    workers[i].postMessage(tasks[--totalTaskLeft]);
+  }
 
-    function onDone(workerIndex) {
-      return function(workerResult) {
-        results.push(workerResult);
-        if (++totalTaskFinished === tasks.length) {
-          workers.forEach(worker => worker.terminate());
-          resolve(results);
-        } else if (totalTaskLeft > 0) {
-          workers[workerIndex].postMessage(tasks[--totalTaskLeft]);
-        }
-      };
-    }
+  return promise;
+}
 
-    function onFailed(error) {
-      reject(error);
-    }
-
-    // initial assignment
-    for (let i = 0; i < workers.length; i++) {
-      workers[i].on('message', onDone(i));
-      workers[i].on('error', onFailed);
-      workers[i].on('exit', code => {
-        if (code !== 0)
-          reject(new Error(`Worker stopped with exit code ${code}`));
-      });
-      workers[i].postMessage(tasks[--totalTaskLeft]);
-    }
-
-    return promise;
-  };
-} else {
+module.exports = function(pages, data) {
+  const tasks = pages.map(meta => ({ ...data, meta }));
+  if (tasks.length < numOfCores * 2) {
+    return Promise.all(tasks.map(task => buildPage(task)));
+  } else {
+    return buildPageWithWorkerPool(tasks);
+  }
+};
+if (!isMainThread) {
   parentPort.on('message', task => {
     buildPage(task).then(result => {
       parentPort.postMessage(result);

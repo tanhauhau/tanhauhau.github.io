@@ -29,7 +29,7 @@
     overflow: hidden;
     position: fixed;
     bottom: 16px;
-    left: 16px;
+    right: 16px;
     padding: 1em;
     width: 130px;
     background: #fff;
