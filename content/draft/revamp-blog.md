@@ -115,7 +115,7 @@ Require stack:
 - [ ] dark mode
 - [ ] snippet diff+javascript
 - [ ] common css chunk
-- [ ] google analytics
+- [x] google analytics
 - [ ] webmentions
-- [ ] carbon ads
+- [x] carbon ads
 - [ ] rss support

@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Reactivity in Web Frameworks (Part 2) | Tan Li Hau</title><meta name="description" content="Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Reactivity in Web Frameworks (Part 2)" data-svelte="svelte-n0q11s"><meta name="og:description" content="Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Reactivity in Web Frameworks (Part 2)" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-what" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?","headline":"Reactivity in Web Frameworks (Part 2)","name":"Reactivity in Web Frameworks (Part 2)","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-what","name":"Reactivity in Web Frameworks (Part 2)"},"position":2}]}</script><link as="script" rel="preload" href="./9911b4f5.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./9911b4f5.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./9911b4f5.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-what" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-what","name":""},"position":2}]}</script><link as="script" rel="preload" href="./dda82793.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./dda82793.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./dda82793.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>Reactivity in Web Frameworks (Part 2)</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
   
 
@@ -85,14 +87,13 @@
 <ul><li>When does the application state change?</li>
 <li>What has the application state changed?</li></ul>
 <p>In <a href="/reactivity-in-web-frameworks-the-when">Part 1</a>, I started with a counter app example.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">App</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> <span class="token punctuation">[</span>counter<span class="token punctuation">,</span> setCounter<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>counter<span class="token punctuation">,</span> setCounter<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token operator">&lt;</span>div<span class="token operator">></span>
-      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCounter</span><span class="token punctuation">(</span><span class="token parameter">counter</span> <span class="token arrow operator">=></span> counter <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">-</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCounter</span><span class="token punctuation">(</span><span class="token parameter">counter</span> <span class="token operator">=></span> counter <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">-</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
       <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span>counter<span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCounter</span><span class="token punctuation">(</span><span class="token parameter">counter</span> <span class="token arrow operator">=></span> counter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">+</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCounter</span><span class="token punctuation">(</span><span class="token parameter">counter</span> <span class="token operator">=></span> counter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">+</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -107,30 +108,29 @@
 <p>But, how?</p>
 <p>The framework needs to figure out <strong>what needs to be updated</strong>, so that the framework will only update the part of the view that needs to be changed.</p>
 <p>Without knowing what needs to be updated, the quickest and dirtiest way of updating the view would be to destroy and recreate everything:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> applicationState</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> applicationState</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// destroy everything</span>
-  root<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  root<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
   <span class="token comment">// ...and rebuild</span>
   <span class="token keyword">const</span> newElement <span class="token operator">=</span> <span class="token function">buildUi</span><span class="token punctuation">(</span>applicationState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  root<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>newElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  root<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>newElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">// building the counter app</span>
 <span class="token keyword">function</span> <span class="token function">buildUi</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> counter <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> div <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">const</span> button1 <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  button1<span class="token punctuation">.</span><span class="token property-access">textContent</span> <span class="token operator">=</span> <span class="token string">'-'</span><span class="token punctuation">;</span>
-  div<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span>button1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> button1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  button1<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'-'</span><span class="token punctuation">;</span>
+  div<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>button1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">const</span> span <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  span<span class="token punctuation">.</span><span class="token property-access">textContent</span> <span class="token operator">=</span> counter<span class="token punctuation">;</span>
-  div<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span>span<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> span <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  span<span class="token punctuation">.</span>textContent <span class="token operator">=</span> counter<span class="token punctuation">;</span>
+  div<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>span<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">const</span> button2 <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  button2<span class="token punctuation">.</span><span class="token property-access">textContent</span> <span class="token operator">=</span> <span class="token string">'+'</span><span class="token punctuation">;</span>
-  div<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span>button2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> button2 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  button2<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'+'</span><span class="token punctuation">;</span>
+  div<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>button2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token keyword">return</span> div<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -156,12 +156,11 @@
 <ul><li>losing focus</li>
 <li>cost of creating new elements, DOM manipulations</li></ul>
 <p>So, a more well-thought mechanism is to create a intermediate representation of the UI. Instead of tearing down and recreate every DOM element everytime when there&#39;s an update, we compare the latest intermediate representation with the previous one, figure out the difference between the two representations and generate a list of operations needed to patch the DOM.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">let</span> previousUi <span class="token operator">=</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> previousUi <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> applicationState</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> newUi <span class="token operator">=</span> <span class="token function">buildIntermediateUi</span><span class="token punctuation">(</span>applicationState<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> operationsNeeded <span class="token operator">=</span> <span class="token function">diff</span><span class="token punctuation">(</span>newUi<span class="token punctuation">,</span> previousUi<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  operationsNeeded<span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span>runOperation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  operationsNeeded<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>runOperation<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">// keep for comparison in the next update</span>
   previousUi <span class="token operator">=</span> newUi<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -191,8 +190,7 @@
 <section><h3><a href="#framework-knows-exactly-what-has-changed-and-what-needs-to-be-updated" id="framework-knows-exactly-what-has-changed-and-what-needs-to-be-updated">Framework knows exactly what has changed and what needs to be updated</a></h3>
 <p>On the other extreme end of the spectrum, framework knows exactly what has changed and what needs to be updated.</p>
 <p>This is the most efficient way of updating the UI, where everything needed by the framework has already been figured out. So the only thing the framework needs to do is to apply those updates to the DOM.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> changes</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> changes</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">applyChanges</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> changes<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -200,7 +198,7 @@
 <span class="token keyword">function</span> <span class="token function">applyChanges</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> changes</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// update span's text if &#96;counter&#96; changed</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'counter'</span> <span class="token keyword">in</span> changes<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    root<span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">textContent</span> <span class="token operator">=</span> changes<span class="token punctuation">.</span><span class="token property-access">counter</span><span class="token punctuation">;</span>
+    root<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>textContent <span class="token operator">=</span> changes<span class="token punctuation">.</span>counter<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre></section>
 <section><h3><a href="#the-component-model" id="the-component-model">The Component Model</a></h3>
@@ -217,9 +215,10 @@ decides whether the framework </p>
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./9911b4f5.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./dda82793.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

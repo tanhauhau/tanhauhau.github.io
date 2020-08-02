@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Who accessed my property? | Tan Li Hau</title><meta name="description" content="How to know when object property get accessed or modified" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Who accessed my property?" data-svelte="svelte-n0q11s"><meta name="og:description" content="How to know when object property get accessed or modified" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Who accessed my property?" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="How to know when object property get accessed or modified" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fwho-accessed-my-property" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"How to know when object property get accessed or modified","headline":"Who accessed my property?","name":"Who accessed my property?","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fwho-accessed-my-property","name":"Who accessed my property?"},"position":2}]}</script><link as="script" rel="preload" href="./89f37b50.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./89f37b50.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./89f37b50.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fwho-accessed-my-property" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fwho-accessed-my-property","name":""},"position":2}]}</script><link as="script" rel="preload" href="./686c98ab.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./686c98ab.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./686c98ab.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>Who accessed my property?</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
   
 
@@ -81,10 +83,9 @@
 <p><strong>Question</strong>: How do you know where and when <code>obj.awesome</code> is being accessed or modified?</p>
 <hr>
 <p><strong>So why is this important?</strong> If you are using frontend framework that does <a href="https://stackoverflow.com/a/13504965" rel="nofollow">2-way binding</a>, eg: <a href="https://angular.io/guide/ajs-quick-reference#ng-model" rel="nofollow">Angular</a>, <a href="https://vuejs.org/v2/guide/forms.html" rel="nofollow">Vue</a>, do you know how does the framework “watch” your <code>state</code> object? How does the framework knows when to update your DOM when you set some property of the <code>state</code> object?</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// setting a property in the &#96;$scope&#96; object triggers</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// setting a property in the &#96;$scope&#96; object triggers</span>
 <span class="token comment">// the framework to update the model and the DOM</span>
-$scope<span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span></code></pre>
+$scope<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span></code></pre>
 <hr>
 <p><strong>Answer:</strong> You use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" rel="nofollow"><code>Object.defineProperty()</code></a>.</p>
 <p><code>Object.defineProperty(obj, prop, descriptor)</code> allows us to define a property to an object with a descriptor for the property being defined.</p>
@@ -107,10 +108,9 @@ $scope<span class="token punctuation">.</span><span class="token property-access
 <p>You can add a breakpoint via <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger" rel="nofollow"><code>debugger;</code></a> in your getter and setter function, to invoke the debugging feature of your development tools to look at the call stack.</p>
 <p>Another way of looking at the call stack without using a debugger is to <strong>throw an Error</strong> in the getter and setter function.</p>
 <p>Yes. You hear me right. Throwing an error will allow you to get the call stack when the error is thrown:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">let</span> _value<span class="token punctuation">;</span>
-<span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'awesome'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-  <span class="token function-variable function">get</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> _value<span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'awesome'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">get</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// highlight-start</span>
     <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// intentionally throw an Error to get the call stack</span>
@@ -118,13 +118,13 @@ $scope<span class="token punctuation">.</span><span class="token property-access
     <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// stack is the stack trace, </span>
       <span class="token comment">// containing error message and the stack</span>
-      <span class="token keyword">const</span> stack <span class="token operator">=</span> error<span class="token punctuation">.</span><span class="token property-access">stack</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> stack <span class="token operator">=</span> error<span class="token punctuation">.</span>stack<span class="token punctuation">;</span>
       <span class="token comment">// print the callee stack</span>
-      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
         stack
-          <span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">'&#92;n'</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token string">'&#92;n'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'&#92;n'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'&#92;n'</span><span class="token punctuation">)</span>
       <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token comment">// highlight-end</span>
@@ -138,9 +138,10 @@ $scope<span class="token punctuation">.</span><span class="token property-access
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./89f37b50.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./686c98ab.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Note: 2019-07-09 webpack &amp; &quot;microfrontends&quot; | Tan Li Hau</title><link href="https://lihautan.com/notes/2019-07-09 - webpack &amp; &quot;microfrontends&quot;/assets/blog-base-ed21726f.css" rel="stylesheet" data-svelte="svelte-jez2i1"><meta name="og:title" content="webpack &amp; &quot;microfrontends&quot;" data-svelte="svelte-jez2i1"><meta name="og:type" content="website" data-svelte="svelte-jez2i1"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2F2019-07-09%20-%20webpack%20%26%20%22microfrontends%22" data-svelte="svelte-jez2i1"><link as="script" rel="preload" href="./d5ff13e8.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./d5ff13e8.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./d5ff13e8.css" rel="stylesheet">
+  <title>Note: 2019-07-09 webpack &amp; &quot;microfrontends&quot; | Tan Li Hau</title><link href="https://lihautan.com/notes/2019-07-09 - webpack &amp; &quot;microfrontends&quot;/assets/blog-base-ed21726f.css" rel="stylesheet" data-svelte="svelte-jez2i1"><meta name="og:title" content="webpack &amp; &quot;microfrontends&quot;" data-svelte="svelte-jez2i1"><meta name="og:type" content="website" data-svelte="svelte-jez2i1"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2F2019-07-09%20-%20webpack%20%26%20%22microfrontends%22" data-svelte="svelte-jez2i1"><link as="script" rel="preload" href="./b1701ce2.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./b1701ce2.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./b1701ce2.css" rel="stylesheet">
 </head>
 
 <body>
@@ -79,8 +81,7 @@
 
   <article>
 <p>To silent MiniCssExtractPlugin annoying logs:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// filename: webpack.config.js</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// filename: webpack.config.js</span>
 <span class="token punctuation">&#123;</span>
   stats<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
     children<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
@@ -97,7 +98,7 @@
 <li>multiple webpack built may have conflicting <code>chunkIds</code></li>
 <li>thankfully this can be solved via <a href="https://github.com/darshanlsagar/webpack-custom-chunk-id-plugin" rel="nofollow">webpack-custom-chunk-id-plugin</a></li></ul></li></ul></article></main>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./d5ff13e8.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./b1701ce2.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

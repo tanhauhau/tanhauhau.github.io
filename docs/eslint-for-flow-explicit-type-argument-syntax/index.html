@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>My eslint doesn’t work with for flow 0.85’s explicit type argument syntax | Tan Li Hau</title><meta name="description" content="and how I figured out why." data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="My eslint doesn’t work with for flow 0.85’s explicit type argument syntax" data-svelte="svelte-n0q11s"><meta name="og:description" content="and how I figured out why." data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="My eslint doesn’t work with for flow 0.85’s explicit type argument syntax" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="and how I figured out why." data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"and how I figured out why.","headline":"My eslint doesn’t work with for flow 0.85’s explicit type argument syntax","name":"My eslint doesn’t work with for flow 0.85’s explicit type argument syntax","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax","name":"My eslint doesn’t work with for flow 0.85’s explicit type argument syntax"},"position":2}]}</script><link as="script" rel="preload" href="./0c6cdc72.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./0c6cdc72.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./0c6cdc72.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax","name":""},"position":2}]}</script><link as="script" rel="preload" href="./c92dffa5.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./c92dffa5.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./c92dffa5.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,18 +75,16 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>My eslint doesn’t work with for flow 0.85’s explicit type argument syntax</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
   
 
   <article><p>Today <a href="https://dev.wgao19.cc/" rel="nofollow">Wei Gao</a> posed an interesting question:</p>
 <p>She was upgrading Flow to v0.85, <a href="https://medium.com/flow-type/asking-for-required-annotations-64d4f9c1edf8" rel="nofollow">which requires her to explicitly type the argument of the function call</a>. However, when she saved the file, our <a href="https://github.com/prettier/prettier" rel="nofollow">eslint-prettier</a> automatically format the code into a weird syntax:</p>
 <p>So, when she wrote:</p>
-<pre class="language-js">
-<code class="language-js">fooFunction<span class="token operator">&lt;</span><span class="token maybe-class-name">Bar</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js">fooFunction<span class="token operator">&lt;</span><span class="token maybe-class-name">Bar</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>With <a href="https://github.com/prettier/eslint-plugin-prettier" rel="nofollow">eslint-plugin-prettier</a>, eslint <em>“fixed”</em> the code into:</p>
-<pre class="language-js">
-<code class="language-js">fooFunction <span class="token operator">&lt;</span> <span class="token maybe-class-name">Bar</span> <span class="token operator">></span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js">fooFunction <span class="token operator">&lt;</span> <span class="token maybe-class-name">Bar</span> <span class="token operator">></span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>It felt like eslint sees <code>&lt;</code> and <code>&gt;</code> as the comparison operator, rather than <code>&lt;Type&gt;</code> as a whole!</p>
 <p>To confirm with my hypothesis, I opened up my favourite tool for inspecting <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" rel="nofollow">AST</a>: <a href="https://astexplorer.net/" rel="nofollow">astexplorer.net</a></p>
 <hr>
@@ -117,9 +117,10 @@
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./0c6cdc72.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./c92dffa5.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

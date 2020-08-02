@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Deep dive into Svelte | Tan Li Hau</title><meta name="description" content="wip" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Deep dive into Svelte" data-svelte="svelte-n0q11s"><meta name="og:description" content="wip" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Deep dive into Svelte" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="wip" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fdeep-dive-into-svelte" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"wip","headline":"Deep dive into Svelte","name":"Deep dive into Svelte","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fdeep-dive-into-svelte","name":"Deep dive into Svelte"},"position":2}]}</script><link as="script" rel="preload" href="./9f13bef0.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./9f13bef0.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./9f13bef0.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fdeep-dive-into-svelte" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fdeep-dive-into-svelte","name":""},"position":2}]}</script><link as="script" rel="preload" href="./5df729fa.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./5df729fa.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./5df729fa.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>Deep dive into Svelte</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
   
 
@@ -104,14 +106,12 @@
 <p>There are generally 2 approaches to this:</p>
 <p><strong>1. HTML + JS</strong></p>
 <p>You build your app layout in HTML:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token comment">&lt;!-- filename: index.html --></span>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- filename: index.html --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>decrement<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>count<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>increment<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
 <p>then in JS, you use id selector to query out the dynamic part of your HTML and attach event listeners to respond to user inputs:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// filename: script.js</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// filename: script.js</span>
 <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> span <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#count'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#decrement'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
@@ -121,8 +121,7 @@ document<span class="token punctuation">.</span><span class="token function">que
 <p><strong>2. JS only</strong></p>
 <p>If you want to have more than 1 counter, the former approach may require you to <em>copy + paste</em> your HTML <em>n</em> times for <em>n</em> number of counters.</p>
 <p>The alternative would be to build the HTML elements programatically:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// filename: script.js</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// filename: script.js</span>
 <span class="token keyword">function</span> <span class="token function">buildCounter</span><span class="token punctuation">(</span><span class="token parameter">parent</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> span <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> decrementBtn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -152,8 +151,7 @@ document<span class="token punctuation">.</span><span class="token function">que
 <p>So why does this matter? Well, before we proceed to explain how this got to do with Svelte, let&#39;s first talk about React.</p>
 <p><em>I chose to talk about React <strong>just because I am a React developer</strong>, I use React at my work and at this very blog site. I am most familiar with React than any other JS frameworks out there</em></p>
 <p>In React, you can argubly write a much concise and declarative code:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// filename: Counter.jsx</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// filename: Counter.jsx</span>
 <span class="token keyword">function</span> <span class="token function">Counter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
@@ -169,8 +167,7 @@ document<span class="token punctuation">.</span><span class="token function">que
 <p>As you can see, there&#39;s a lot of code <strong>executed</strong> under the hood, which you may think is overkill for this contrived example. But with a much larger/complex application, you will soon appreciate the flexibilty React provides. to achieve that, react has to make sure it has code to capture all the different scenarios, without knowing what will be written by us, the developer.</p>
 <p>Now, here is how Svelte is different. <strong>Svelte is a compiler</strong>. Svelte knows what we, the developer, has written, and generate only code that is needed for our application.</p>
 <p>Here&#39;s what Svelte generated for our Counter app (<a href="https://svelte.dev/repl/2ed88da423f24cd980dad77e8a07e248?version=3.12.1" rel="nofollow">repl</a>):</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// import &#123; element, ... &#125; from "svelte/internal"</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// import &#123; element, ... &#125; from "svelte/internal"</span>
 <span class="token comment">// ...</span>
 <span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">var</span> button0<span class="token punctuation">,</span> span<span class="token punctuation">,</span> t<span class="token punctuation">,</span> button1<span class="token punctuation">,</span> dispose<span class="token punctuation">;</span>
@@ -214,12 +211,10 @@ document<span class="token punctuation">.</span><span class="token function">que
 <section><h2><a href="#conceptually-how-does-compiled-svelte-component-work" id="conceptually-how-does-compiled-svelte-component-work">Conceptually, how does compiled Svelte component work?</a></h2>
 <p>In this section, we are going to write Svelte component incrementally, and see how each changes ended up in the compiled Svelte component.</p>
 <p>Let&#39;s start with a simple button and a text:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Click Me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Click Me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Hello Svelte<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
 <p>When Svelte sees this, these HTML elements will translate into JavaScript statement to create the elements:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 button<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Click Me'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 p<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Hello Svelte'</span><span class="token punctuation">;</span>
@@ -227,12 +222,11 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
 <span class="token comment">// element('p') is short for &#96;document.createElement('p');</span></code></pre>
 <p>If you inspect the Svelte compiled output, you would notice that these instruction lies in a function call <code>create_fragment</code>. <code>create_fragment</code> is the function where Svelte keeps the DOM instructions for the component.</p>
 <p>Next, lets add some event listener to the button:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span>
-  function onClick() &#123;
-    console.log('Greetings!');
-  &#125;
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">function</span> <span class="token function">onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Greetings!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation">=</span>&#123;onClick&#125;</span><span class="token punctuation">></span></span>Click Me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Hello Svelte<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
 </section>
@@ -244,8 +238,7 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
 <ul><li><code>create_fragment</code></li>
 <li><code>instance</code></li>
 <li>the Component itself</li></ul>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// 1. create_fragment</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// 1. create_fragment</span>
 <span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*...*/</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -275,8 +268,7 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
 <p><strong>3. The component itself</strong></p>
 <p>Each compiled component, by default, is a subclass of <code>SvelteComponent</code>.</p>
 <p>To create the component onto the DOM, you can create an instance of the component:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">App</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> target<span class="token punctuation">:</span> document<span class="token punctuation">.</span>body <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">App</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> target<span class="token punctuation">:</span> document<span class="token punctuation">.</span>body <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>In the constructor of <code>App</code>, as you can see, calls the <code>init</code> function, which takes in both <code>instance</code> and <code>create_fragment</code> function.</p>
 <p>The <code>init</code> function, as the name suggests, will set things up, which lead us to the <code>instance</code> function.</p>
 <p><strong>2. <code>instance</code></strong></p>
@@ -295,8 +287,7 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
 <p>The <code>instance</code> function contains all of your business logic, and returns an object. The object contains all the variables and functions you&#39;ve declared and used in the HTML code. The object is referred as <code>ctx</code> in Svelte, and that brings us to the <code>create_fragment</code> function.</p>
 <p><strong>1. <code>create_fragment</code></strong></p>
 <p>The <code>create_fragment</code> function deals with the HTML code you&#39;ve written in a <code>.svelte</code> component. The <code>create_fragment</code> function takes in the <code>ctx</code> object, and returns an object that instructs the Svelte component how to render into the DOM, that looks like this:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> t<span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// create</span>
@@ -357,27 +348,22 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
 <section><h3><a href="#pieces-them-together" id="pieces-them-together">Pieces them together</a></h3>
 <p>With every pieces in mind, let&#39;s summarise what we&#39;ve learned so far:</p>
 <p>You create the component into DOM by create a new instance of the Svelte component:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">App</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> target<span class="token punctuation">:</span> document<span class="token punctuation">.</span>body <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">App</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> target<span class="token punctuation">:</span> document<span class="token punctuation">.</span>body <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Which in the constructor of <code>App</code>, it calls the <code>init</code> function:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></code></pre>
 <p>Within the <code>init</code> function, the <code>instance</code> function is called:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-next-line</span>
   <span class="token keyword">const</span> ctx <span class="token operator">=</span> <span class="token function">instance</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> options<span class="token punctuation">.</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Which returns the <code>ctx</code>, and it is passed into the <code>create_fragment</code> function:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> ctx <span class="token operator">=</span> <span class="token function">instance</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> options<span class="token punctuation">.</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">// highlight-next-line</span>
   <span class="token keyword">const</span> fragment <span class="token operator">=</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Which returns instructions on how to create DOM nodes and mount the nodes into DOM:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> ctx <span class="token operator">=</span> <span class="token function">instance</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> options<span class="token punctuation">.</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> fragment <span class="token operator">=</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">// highlight-start</span>
@@ -395,8 +381,7 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
 <p>That my friend, is the secret 3rd argument of the <code>instance</code> function, <strong><code>$$invalidate</code></strong>.</p>
 <p>Whenever you reassign a value to your variable, Svelte will add an extra statement of <code>$$invalidate(...)</code> statement after your re-assignment.</p>
 <p><code>$$invalidate</code> takes 2 arguments, the name of the variable, and the new value of the variable:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span> options<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> create_fragment</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-start</span>
   <span class="token keyword">const</span> <span class="token function-variable function">$$invalidate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     ctx<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
@@ -426,9 +411,10 @@ p<span class="token punctuation">.</span>textContent <span class="token operator
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./9f13bef0.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./5df729fa.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

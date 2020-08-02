@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Implementing {#range} in Svelte | Tan Li Hau</title><meta name="description" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Implementing {#range} in Svelte" data-svelte="svelte-n0q11s"><meta name="og:description" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Implementing {#range} in Svelte" data-svelte="svelte-n0q11s"><meta name="twitter:description" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"headline":"Implementing {#range} in Svelte","name":"Implementing {#range} in Svelte","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte","name":"Implementing {#range} in Svelte"},"position":2}]}</script><link as="script" rel="preload" href="./560982e8.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./560982e8.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./560982e8.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte","name":""},"position":2}]}</script><link as="script" rel="preload" href="./fc5fdcf0.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./fc5fdcf0.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./fc5fdcf0.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>Implementing {#range} in Svelte</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
   
 
@@ -87,13 +89,11 @@
 <p>Armed with the overview of the compilation pipeline, let&#39;s dive into the detail, by implementing a new logic block, <code>{#range}</code>.</p>
 <p>A quick idea of how <code>{#range}</code> behaves:</p>
 <p><strong>1. The syntax:</strong></p>
-<pre class="language-svelte">
-<code class="language-svelte">&lt;!-- loop &#96;n&#96; through 1, 2, 3, 4, 5 --&gt;
+<pre class="language-svelte"><code class="language-svelte">&lt;!-- loop &#96;n&#96; through 1, 2, 3, 4, 5 --&gt;
 &#123;#range 1..5 as n&#125;
   &#123;n&#125;
 &#123;/range&#125;</code></pre>
-<pre class="language-svelte">
-<code class="language-svelte">&lt;script&gt;
+<pre class="language-svelte"><code class="language-svelte">&lt;script&gt;
   let start = 1;
   let end = 5;
 &lt;/script&gt;
@@ -134,53 +134,52 @@ NOTE: copy code from EachBlock, since they lookalike</p>
   at new FragmentWrapper (compiler.js:12888:21)
   at new Renderer (compiler.js:12983:19)
   at dom (compiler.js:13199:19)</code></pre>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">class</span> <span class="token class-name">RangeBlockWrapper</span> <span class="token keyword">extends</span> <span class="token class-name">Wrapper</span> <span class="token punctuation">&#123;</span>
-	block<span class="token punctuation">:</span> <span class="token maybe-class-name">Block</span><span class="token punctuation">;</span>
-	node<span class="token punctuation">:</span> <span class="token maybe-class-name">RangeBlock</span><span class="token punctuation">;</span>
-	fragment<span class="token punctuation">:</span> <span class="token maybe-class-name">FragmentWrapper</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">RangeBlockWrapper</span> <span class="token keyword">extends</span> <span class="token class-name">Wrapper</span> <span class="token punctuation">&#123;</span>
+	block<span class="token punctuation">:</span> Block<span class="token punctuation">;</span>
+	node<span class="token punctuation">:</span> RangeBlock<span class="token punctuation">;</span>
+	fragment<span class="token punctuation">:</span> FragmentWrapper<span class="token punctuation">;</span>
 
-	index_name<span class="token punctuation">:</span> <span class="token maybe-class-name">Identifier</span><span class="token punctuation">;</span>
+	index_name<span class="token punctuation">:</span> Identifier<span class="token punctuation">;</span>
 
 	<span class="token function">constructor</span><span class="token punctuation">(</span>
-		<span class="token parameter">renderer<span class="token punctuation">:</span> <span class="token maybe-class-name">Renderer</span><span class="token punctuation">,</span>
-		block<span class="token punctuation">:</span> <span class="token maybe-class-name">Block</span><span class="token punctuation">,</span>
-		parent<span class="token punctuation">:</span> <span class="token maybe-class-name">Wrapper</span><span class="token punctuation">,</span>
-		node<span class="token punctuation">:</span> <span class="token maybe-class-name">RangeBlock</span><span class="token punctuation">,</span>
+		<span class="token parameter">renderer<span class="token punctuation">:</span> Renderer<span class="token punctuation">,</span>
+		block<span class="token punctuation">:</span> Block<span class="token punctuation">,</span>
+		parent<span class="token punctuation">:</span> Wrapper<span class="token punctuation">,</span>
+		node<span class="token punctuation">:</span> RangeBlock<span class="token punctuation">,</span>
 		strip_whitespace<span class="token punctuation">:</span> boolean<span class="token punctuation">,</span>
-		next_sibling<span class="token punctuation">:</span> <span class="token maybe-class-name">Wrapper</span></span>
+		next_sibling<span class="token punctuation">:</span> Wrapper</span>
 	<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 		<span class="token keyword">super</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span> block<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">cannot_use_innerhtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">not_static_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">cannot_use_innerhtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">not_static_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 		<span class="token comment">// const &#123; dependencies &#125; = node.expression;</span>
 		<span class="token comment">// block.add_dependencies(dependencies);</span>
 
-		renderer<span class="token punctuation">.</span><span class="token method function property-access">add_to_context</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">.</span><span class="token property-access">index</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		renderer<span class="token punctuation">.</span><span class="token function">add_to_context</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>index<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">block</span> <span class="token operator">=</span> block<span class="token punctuation">.</span><span class="token method function property-access">child</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-			comment<span class="token punctuation">:</span> <span class="token function">create_debugging_comment</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">renderer</span><span class="token punctuation">.</span><span class="token property-access">component</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-			name<span class="token punctuation">:</span> renderer<span class="token punctuation">.</span><span class="token property-access">component</span><span class="token punctuation">.</span><span class="token method function property-access">get_unique_name</span><span class="token punctuation">(</span><span class="token string">"create_range_block"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>block <span class="token operator">=</span> block<span class="token punctuation">.</span><span class="token function">child</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+			comment<span class="token punctuation">:</span> <span class="token function">create_debugging_comment</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>component<span class="token punctuation">)</span><span class="token punctuation">,</span>
+			name<span class="token punctuation">:</span> renderer<span class="token punctuation">.</span>component<span class="token punctuation">.</span><span class="token function">get_unique_name</span><span class="token punctuation">(</span><span class="token string">"create_range_block"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 			type<span class="token punctuation">:</span> <span class="token string">"range"</span><span class="token punctuation">,</span>
 		<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">index_name</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> type<span class="token punctuation">:</span> <span class="token string">"Identifier"</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">.</span><span class="token property-access">index</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>index_name <span class="token operator">=</span> <span class="token punctuation">&#123;</span> type<span class="token punctuation">:</span> <span class="token string">"Identifier"</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>index <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-		renderer<span class="token punctuation">.</span><span class="token property-access">blocks</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">block</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		renderer<span class="token punctuation">.</span>blocks<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">fragment</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FragmentWrapper</span><span class="token punctuation">(</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>fragment <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FragmentWrapper</span><span class="token punctuation">(</span>
 			renderer<span class="token punctuation">,</span>
-			<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">block</span><span class="token punctuation">,</span>
-			node<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">,</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">,</span>
+			node<span class="token punctuation">.</span>children<span class="token punctuation">,</span>
 			<span class="token keyword">this</span><span class="token punctuation">,</span>
 			strip_whitespace<span class="token punctuation">,</span>
 			next_sibling
 		<span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 
-	<span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> <span class="token maybe-class-name">Block</span><span class="token punctuation">,</span> parent_node<span class="token punctuation">:</span> <span class="token maybe-class-name">Identifier</span><span class="token punctuation">,</span> parent_nodes<span class="token punctuation">:</span> <span class="token maybe-class-name">Identifier</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">fragment</span><span class="token punctuation">.</span><span class="token method function property-access">render</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">block</span><span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span> x<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">#nodes</span><span class="token template-punctuation string">&#96;</span></span> <span class="token keyword module">as</span> <span class="token maybe-class-name">Identifier</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block<span class="token punctuation">,</span> parent_node<span class="token punctuation">:</span> Identifier<span class="token punctuation">,</span> parent_nodes<span class="token punctuation">:</span> Identifier</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>fragment<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> x<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">#nodes</span><span class="token template-punctuation string">&#96;</span></span> <span class="token keyword">as</span> Identifier<span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre></section></article></main>
 
@@ -190,9 +189,10 @@ NOTE: copy code from EachBlock, since they lookalike</p>
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./560982e8.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./fc5fdcf0.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Hydrating text content from Server-Side Rendering | Tan Li Hau</title><meta name="description" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Hydrating text content from Server-Side Rendering" data-svelte="svelte-n0q11s"><meta name="og:description" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Hydrating text content from Server-Side Rendering" data-svelte="svelte-n0q11s"><meta name="twitter:description" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fhydrating-text-content" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"headline":"Hydrating text content from Server-Side Rendering","name":"Hydrating text content from Server-Side Rendering","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fhydrating-text-content","name":"Hydrating text content from Server-Side Rendering"},"position":2}]}</script><link as="script" rel="preload" href="./eb0c0edc.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./eb0c0edc.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./eb0c0edc.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fhydrating-text-content" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fhydrating-text-content","name":""},"position":2}]}</script><link as="script" rel="preload" href="./8b38ef08.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./8b38ef08.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./8b38ef08.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>Hydrating text content from Server-Side Rendering</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
   
 
@@ -87,13 +89,12 @@
 <pre class="language-null">
 <code class="language-">Text content did not match. Server: &quot;Count: 0&quot; Client: &quot;Count: &quot;</code></pre>
 <p>To give you a sense of the situation, this is the component I was trying to rehydrate:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">App</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token operator">&lt;</span>div<span class="token operator">></span>
-      <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token maybe-class-name">Count</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token maybe-class-name">Increment</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>div<span class="token operator">></span>Count<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span>Increment<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -102,22 +103,19 @@
 <p>Still, my curiosity made me dig deeper, to find out the reason behind it.</p></section>
 <section><h2><a href="#the-investigation" id="the-investigation">The investigation</a></h2>
 <p>So, the first thing I looked at, was the server-rendered HTML, which will be hydrated by React later.</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Count: 0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Increment<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>Looks pretty normal right?</p>
 <p>Somehow, my gut feeling telling me to look at the DOM with and without hydration next:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token comment">&lt;!-- disabled javascript --></span>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- disabled javascript --></span>
 └─ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     ├─ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     │   └─ "Count: 0"
     └─ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>
         └─ "Increment"</code></pre>
-<pre class="language-html">
-<code class="language-html"><span class="token comment">&lt;!-- enabled javascript --></span>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- enabled javascript --></span>
 └─ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     ├─ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     │   ├─ "Count: "
@@ -128,14 +126,12 @@
 <p>Although they both looked visually the same, but in the DOM created by the initial HTML has only 1 text node, <code>&quot;Count: 0&quot;</code>, but the DOM after hydration has 2 text nodes, <code>&quot;Count: &quot;</code> and <code>&quot;0&quot;</code>.</p>
 <p>Why is that so? The secret lies in the component <code>App</code>.</p>
 <p>The functional component <code>App</code> returns the following React element when <code>count</code> is <code>0</code>:</p>
-<pre class="language-jsx">
-<code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+<pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">Count: </span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">Increment</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>which itself is a plain JavaScript object, which is roughly:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">&#123;</span>
   type<span class="token punctuation">:</span> <span class="token string">'div'</span><span class="token punctuation">,</span>
   props<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
     children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
@@ -173,8 +169,7 @@
 <p>🙈</p>
 <p>So, what is the difference between <a href="https://reactjs.org/docs/react-dom-server.html#rendertostaticmarkup" rel="nofollow"><code>ReactDOMServer.renderToStaticMarkup</code></a> and <a href="https://reactjs.org/docs/react-dom-server.html#rendertostring" rel="nofollow"><code>ReactDOMServer.renderToString</code></a> ?</p>
 <p>This is what <a href="https://reactjs.org/docs/react-dom-server.html#rendertostring" rel="nofollow"><code>ReactDOMServer.renderToString</code></a> generates:</p>
-<pre class="language-diff">
-<code class="language-diff"><span class="token deleted-sign deleted">- &lt;div>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted">- &lt;div>
 </span><span class="token inserted-sign inserted">+ &lt;div data-reactroot="">
 </span><span class="token deleted-sign deleted">-  &lt;div>Count: 0&lt;/div>
 </span><span class="token inserted-sign inserted">+  &lt;div>Count: &lt;!-- -->0&lt;/div>
@@ -182,8 +177,7 @@
 </span><span class="token deleted-arrow deleted">&lt;/div></span></code></pre>
 <p>It adds a <code>data-reactroot</code> which is used by React internally. (From what I read from the code, it seemed to be used by React only to warn legacy code to <a href="https://hackernoon.com/whats-new-with-server-side-rendering-in-react-16-9b0d78585d67" rel="nofollow">switch from <code>render()</code> to <code>hydrate()</code></a> before stopping support in React v17, correct me if I&#39;m wrong).</p>
 <p>Besides, it adds a comment in between <code>&quot;Count: &quot;</code> and <code>&quot;0&quot;</code>, so the initial DOM looks like this:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token comment">&lt;!-- disabled javascript --></span>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- disabled javascript --></span>
 └─ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     ├─ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     │   ├─ "Count: "
@@ -198,13 +192,11 @@
 <p>So, the next obvious place to apply what I&#39;ve learned is <a href="http://github.com/sveltejs/svelte" rel="nofollow">Svelte</a>.</p>
 <p>I found out there are 2 places that Svelte can use this technique for better hydration.</p>
 <p>The first is the hydrating text node. I found out that Svelte hydrates neighboring text nodes the same way as I described as &quot;a bug&quot;, modifying the 1st text node and creating the 2nd text node. It gets &quot;worse&quot; when you have more neighboring text nodes:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&#123;a&#125; + &#123;b&#125; = &#123;a + b&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&#123;a&#125; + &#123;b&#125; = &#123;a + b&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p><em>5 neighboring text nodes</em></p>
 <p>The second place I found the technique is useful, is hydrating <a href="https://svelte.dev/tutorial/html-tags" rel="nofollow">HTML tags (<code>{@html string}</code>)</a>.</p>
 <p>HTML tags allows you to render arbitrary HTML into the DOM, just like React&#39;s <a href="https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml" rel="nofollow">dangerouslySetInnerHTML</a>.</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">const</span> string <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
     &lt;h1>Introduction&lt;/h1>
     &lt;div>Hello World&lt;/div>
@@ -214,8 +206,7 @@
 <p>So, why is hydrating HTML tag hard?</p>
 <p>HTML tag allow multiple elements to be passed in, which makes it hard to determine the bound of the HTML tag when hydrating.</p>
 <p>Take this example:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword module">import</span> <span class="token maybe-class-name">Header</span> <span class="token keyword module">from</span> <span class="token string">'./Header.svelte'</span><span class="token punctuation">;</span>
   <span class="token keyword module">import</span> <span class="token maybe-class-name">Footer</span> <span class="token keyword module">from</span> <span class="token string">'./Footer.svelte'</span><span class="token punctuation">;</span>
   
@@ -229,8 +220,7 @@
 &#123;@html string&#125;
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Footer</span><span class="token punctuation">></span></span>This is footer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Footer</span><span class="token punctuation">></span></span></code></pre>
 <p>The rendered HTML may look something like this:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>This is header<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>This is header<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
@@ -247,8 +237,7 @@
 <p>Hydrating this component meant that we are going to claim components belong to <code>&lt;Header&gt;</code>, <code>{@html string}</code> then <code>&lt;Footer&gt;</code>.</p>
 <blockquote><p><strong>Claiming</strong> in Svelte means marking the element as part of the component, and hydrate it by providing reactivity to the element.</p></blockquote>
 <p>Claiming the <code>&lt;Header /&gt;</code> component, by itself, will claim away <code>&lt;header&gt;</code> and <code>&lt;nav&gt;</code>, because in <code>Header.svelte</code> contains these 2 elements:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token comment">&lt;!-- Header.svelte --></span>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Header.svelte --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
@@ -258,8 +247,7 @@
 <blockquote><p>You can learn about Svelte <code>&lt;slot&gt;</code> <a href="https://svelte.dev/tutorial/slots" rel="nofollow">here</a></p></blockquote>
 <p>Now claiming for <code>{@html string}</code> is tricky, because you have no idea when it ends and when is the start of the <code>&lt;Footer /&gt;</code> component</p>
 <p>If we put a comment as a marker for the end of the HTML tag, it would make things easier:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>This is header<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>This is header<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
@@ -272,8 +260,7 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>footer-img<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
   This is footer
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// claim HTML node until a comment that matches the &#96;commentMarker&#96;</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// claim HTML node until a comment that matches the &#96;commentMarker&#96;</span>
 <span class="token keyword">function</span> <span class="token function">claimUntil</span><span class="token punctuation">(</span><span class="token parameter">nodes<span class="token punctuation">,</span> commentMarker</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> nodes<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -292,16 +279,14 @@
 <section><h2><a href="#dangerouslysetinnerhtml" id="dangerouslysetinnerhtml">dangerouslySetInnerHtml</a></h2>
 <p>React has <a href="https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml" rel="nofollow">dangerouslySetInnerHTML</a> right? Does it have the same issue?</p>
 <p>Apparently not. <code>dangerouslySetInnerHTML</code> is always used inside an HTML element, so the parent element is the boundary of the inner HTML content.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">MyComponent</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">MyComponent</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token operator">&lt;</span>div dangerouslySetInnerHTML<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>__html<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
     &lt;h1>Introduction&lt;/h1>
     &lt;div>Hello World&lt;/div>
   </span><span class="token template-punctuation string">&#96;</span></span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<pre class="language-html">
-<code class="language-html"><span class="token comment">&lt;!-- the parent &#96;&lt;div>&#96; act as a boundary --></span>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- the parent &#96;&lt;div>&#96; act as a boundary --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Introduction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Hello World<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -327,9 +312,10 @@ The section above is entirely based on my understanding by reading the <a href="
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./eb0c0edc.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./8b38ef08.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

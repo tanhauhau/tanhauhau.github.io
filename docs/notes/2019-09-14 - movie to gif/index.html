@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Note: 2019-09-14 movie to gif | Tan Li Hau</title><link href="https://lihautan.com/notes/2019-09-14 - movie to gif/assets/blog-base-ed21726f.css" rel="stylesheet" data-svelte="svelte-jez2i1"><meta name="og:title" content="movie to gif" data-svelte="svelte-jez2i1"><meta name="og:type" content="website" data-svelte="svelte-jez2i1"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2F2019-09-14%20-%20movie%20to%20gif" data-svelte="svelte-jez2i1"><link as="script" rel="preload" href="./6ecb701c.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./6ecb701c.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./6ecb701c.css" rel="stylesheet">
+  <title>Note: 2019-09-14 movie to gif | Tan Li Hau</title><link href="https://lihautan.com/notes/2019-09-14 - movie to gif/assets/blog-base-ed21726f.css" rel="stylesheet" data-svelte="svelte-jez2i1"><meta name="og:title" content="movie to gif" data-svelte="svelte-jez2i1"><meta name="og:type" content="website" data-svelte="svelte-jez2i1"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2F2019-09-14%20-%20movie%20to%20gif" data-svelte="svelte-jez2i1"><link as="script" rel="preload" href="./612e2211.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./612e2211.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./612e2211.css" rel="stylesheet">
 </head>
 
 <body>
@@ -78,8 +80,7 @@
   
 
   <article><p>movie to gif via <code>ffmpeg</code></p>
-<pre class="language-sh">
-<code class="language-sh">ffmpeg -i ~/Desktop/darkmode.mov -filter_complex &quot;[0:v] fps=40, setpts=0.5*PTS&quot; -f gif ~/Desktop/darkmode-2.gif</code></pre>
+<pre class="language-sh"><code class="language-sh">ffmpeg -i ~/Desktop/darkmode.mov -filter_complex &quot;[0:v] fps=40, setpts=0.5*PTS&quot; -f gif ~/Desktop/darkmode-2.gif</code></pre>
 <p><code>-i</code> specify input file
 <code>-f</code> specify format
 lastly sepcify output file</p>
@@ -88,7 +89,7 @@ lastly sepcify output file</p>
 <li><code>-filter_complex</code> to do filtering<ul><li><code>fps=40</code> control frame per second, more or less detail</li>
 <li><code>setpts=0.5*PTS</code> speed up the video <a href="https://trac.ffmpeg.org/wiki/How%20to%20speed%20up%20/%20slow%20down%20a%20video" rel="nofollow">reference</a></li></ul></li></ul></article></main>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./6ecb701c.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./612e2211.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

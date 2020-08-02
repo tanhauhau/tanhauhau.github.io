@@ -2,26 +2,31 @@ const { existsSync } = require('fs');
 const fs = require('fs').promises;
 const path = require('path');
 const glob = require('tiny-glob');
-const mdsvex = require('mdsvex');
 const svelte = require('svelte/compiler');
-const crypto = require('crypto');
 const { init, parse } = require('es-module-lexer');
 const render = require('./render-svelte');
 const bundle = require('./bundle');
 const { mkdirp } = require('./mkdirp');
-const visit = require('unist-util-visit');
 const getDefinitions = require(`mdast-util-definitions`);
+const buildPage = require('./buildPage');
+const { encodeUrl } = require('./encodeUrl');
+const { renderTemplate } = require('./renderTemplate');
 
-const CONTENT_FOLDER = path.join(__dirname, '../content');
-const USE_CONTENT = new Set(['blog', 'notes', 'talk']);
-const OUTPUT_FOLDER = path.join(__dirname, '../docs');
-const LAYOUT_FOLDER = path.join(__dirname, '../src/layout');
-const ROUTES_FOLDER = path.join(__dirname, '../src/routes');
-const DEFAULT_LAYOUT = 'blog';
-const HOSTNAME = 'https://lihautan.com/';
+const {
+  CONTENT_FOLDER,
+  USE_CONTENT,
+  OUTPUT_FOLDER,
+  LAYOUT_FOLDER,
+  ROUTES_FOLDER,
+  DEFAULT_LAYOUT,
+  HOSTNAME,
+} = require('./config');
 
 (async () => {
   console.time('all');
+
+  await cleanup(OUTPUT_FOLDER);
+
   let [jsTemplate, template, layouts, pages, _] = await Promise.all([
     fs.readFile(path.join(__dirname, './template/page.js'), 'utf-8'),
     fs.readFile(path.join(__dirname, './template/index.html'), 'utf-8'),
@@ -59,266 +64,7 @@ async function buildPages(pages, layouts, jsTemplate, template) {
     })
     .filter(Boolean);
 
-  pages = await Promise.all(
-    pages.map(async meta => {
-      const markdown = await fs.readFile(meta.mdPath, 'utf8');
-      return {
-        meta,
-        source: {
-          markdown,
-          hash: crypto
-            .createHmac('sha256', '')
-            .update(markdown)
-            .digest('hex'),
-        },
-      };
-    })
-  );
-
-  pages = await Promise.all(
-    pages.map(async ({ meta, source: { markdown } }) => {
-      try {
-        const svelteCode = await mdsvex.compile(markdown, {
-          layout: layouts,
-          smartypants: false,
-          remarkPlugins: [
-            function imageExternal() {
-              const map = { ["'"]: '&#39;', ['"']: '&#34;' };
-              return tree => {
-                let i = 0;
-                const images = [];
-                visit(tree, ['image', 'imageReference'], node => {
-                  if (/^https?\:\/\//.test(node.url)) return;
-                  images[i] = node.url;
-                  node.url = `{__build_img__${i}}`;
-                  if (node.title) {
-                    node.title = node.title.replace(
-                      /['"]/g,
-                      value => map[value]
-                    );
-                  }
-                  if (node.alt) {
-                    node.alt = node.alt.replace(/['"]/g, value => map[value]);
-                  }
-
-                  i++;
-                });
-                tree.children.push({
-                  type: 'html',
-                  value: [
-                    '<script context="module">',
-                    ...images.map(
-                      (img, idx) => `import __build_img__${idx} from '${img}'`
-                    ),
-                    '</script>',
-                  ].join('\n'),
-                });
-              };
-            },
-            function tableOfContents() {
-              function toHtml(headings) {
-                const html = [
-                  '<section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents">',
-                ];
-                let previousDepth = 2;
-                for (const heading of headings) {
-                  let { depth } = heading;
-                  while (depth > previousDepth) {
-                    html.push('<ul>');
-                    previousDepth++;
-                  }
-                  while (depth < previousDepth) {
-                    html.push('</ul>');
-                    previousDepth--;
-                  }
-                  html.push(
-                    `<li><a href="#${heading.link}">${heading.title}</a></li>`
-                  );
-                  previousDepth = depth;
-                }
-                html.push('</ul></section>');
-                return html.join('');
-              }
-
-              return tree => {
-                const titles = [];
-                const indexes = [];
-                tree.children.forEach((node, index) => {
-                  if (node.type !== 'heading') return;
-                  indexes.push(index);
-                  const link = node.children
-                    .map(child =>
-                      child.type !== 'html' && child.value
-                        ? child.value.toLowerCase()
-                        : ''
-                    )
-                    .filter(Boolean)
-                    .join(' ')
-                    .replace(/[^a-z]+/g, '-')
-                    .replace(/(^-|-$)/g, '');
-                  titles.push({
-                    title: node.children
-                      .map(child =>
-                        child.type !== 'html' && child.value ? child.value : ''
-                      )
-                      .join(' '),
-                    link,
-                    depth: node.depth,
-                  });
-                  node.children.unshift({
-                    type: 'html',
-                    value: `<a href="#${link}" id="${link}">`,
-                  });
-                  node.children.push({
-                    type: 'html',
-                    value: '</a>',
-                  });
-                });
-                let offset = 0;
-                let isStart = true;
-
-                for (const idx of indexes) {
-                  if (!isStart) {
-                    tree.children.splice(idx + offset++, 0, {
-                      type: 'html',
-                      value: '</section>',
-                    });
-                  }
-                  tree.children.splice(idx + offset++, 0, {
-                    type: 'html',
-                    value: '<section>',
-                  });
-                  isStart = false;
-                }
-
-                if (titles.length) {
-                  tree.children.splice(
-                    tree.children[0].type === 'yaml' ? 1 : 0,
-                    0,
-                    {
-                      type: 'html',
-                      value: toHtml(titles),
-                    }
-                  );
-                }
-              };
-            },
-            function forNotes() {
-              return (tree, vfile) => {
-                vfile.data.fm = {
-                  ...vfile.data.fm,
-                  slug: meta.slug,
-                  type: meta.type,
-                };
-                if (meta.type === 'notes') {
-                  const [_, date, name] = meta.filename.match(
-                    /(\d+-\d+-\d+)\s*-\s*(.+)\.md$/
-                  );
-                  Object.assign(vfile.data.fm, {
-                    date,
-                    name,
-                    layout: 'note',
-                  });
-                }
-              };
-            },
-          ],
-        });
-
-        const [ssrBundle, clientBundle] = await Promise.all([
-          bundle(
-            { [meta.mdPath + '.svelte']: svelteCode.code },
-            meta.mdPath + '.svelte',
-            { ssr: true, hostname: HOSTNAME + meta.slug }
-          ).then(_ => _.generate({ format: 'commonjs', exports: 'named' })),
-          bundle(
-            {
-              [meta.mdPath]: jsTemplate,
-              [path.join(
-                meta.mdPath,
-                '../@@page-markup.svelte'
-              )]: svelteCode.code,
-            },
-            meta.mdPath,
-            { hostname: HOSTNAME + meta.slug }
-          ),
-        ]);
-
-        const ssrOutput = await render(ssrBundle.output[0].code).then(_ =>
-          _.render()
-        );
-
-        return {
-          meta,
-          output: {
-            ssr: ssrOutput,
-            client: {
-              // css: clientCss,
-              js: clientBundle,
-            },
-          },
-        };
-      } catch (error) {
-        console.log('Failed to prepare ' + meta.mdPath);
-        console.log(error);
-        throw error;
-      }
-    })
-  );
-
-  pages = await Promise.all(
-    pages.map(async ({ meta, output }) => {
-      try {
-        const outputFolder = path.join(OUTPUT_FOLDER, meta.slug);
-        await mkdirp(outputFolder);
-
-        const clientOutput = await output.client.js.write({
-          entryFileNames: '[hash].js',
-          dir: outputFolder,
-        });
-
-        const preloads = [];
-        const styles = [];
-        const scripts = [];
-
-        for (const { fileName } of clientOutput.output) {
-          if (fileName.endsWith('.js')) {
-            scripts.push(
-              `<script src="./${encodeUrl(fileName)}" async></script>`
-            );
-            preloads.push(
-              `<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`
-            );
-          } else if (fileName.endsWith('.css')) {
-            styles.push(
-              `<link href="./${encodeUrl(fileName)}" rel="stylesheet">`
-            );
-            preloads.push(
-              `<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`
-            );
-          }
-        }
-
-        await fs.writeFile(
-          path.join(outputFolder, 'index.html'),
-          renderTemplate(template, {
-            head: output.ssr.head + preloads.join('') + styles.join(''),
-            body: output.ssr.html + scripts.join(''),
-          }),
-          'utf-8'
-        );
-
-        return {
-          metadata: { ...output.ssr.metadata, type: meta.type },
-          slug: meta.slug,
-        };
-      } catch (error) {
-        console.log('Failed to compile ' + meta.mdPath);
-        console.log(error);
-        throw error;
-      }
-    })
-  );
+  pages = await buildPage(pages, { layouts, jsTemplate, template });
 
   const result = {
     notes: [],
@@ -403,8 +149,6 @@ async function buildRoutes(template) {
   console.timeEnd('buildRoutes');
 }
 
-
-
 function splitTypePath(filename) {
   const index = filename.indexOf('/');
   return [filename.slice(0, index), filename.slice(index + 1)];
@@ -439,10 +183,6 @@ function titleCase(str) {
       .map(part => part[0].toUpperCase() + part.slice(1).toLowerCase())
       .join('')
   );
-}
-
-function renderTemplate(template, map) {
-  return template.replace(/{{([^}]+)}}/g, (_, key) => map[key] || '');
 }
 
 async function getLayouts(folder, def) {
@@ -614,14 +354,10 @@ function reverseSortByDate(a, b) {
     : -1;
 }
 
-function encodeUrl(url) {
-  const map = { ['%3A']: ':', ['%2F']: '/' };
-  url = encodeURIComponent(url);
-  return url.replace(/(%3A|%2F)/g, match => map[match]);
-}
-
 async function copyAll(from, to) {
   const files = await fs.readdir(from);
+  await mkdirp(to);
+
   await Promise.all(
     files.map(async file => {
       if ((await fs.stat(path.join(from, file))).isDirectory()) {

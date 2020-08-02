@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Reactivity in Web Frameworks (Part 1) | Tan Li Hau</title><meta name="description" content="Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Reactivity in Web Frameworks (Part 1)" data-svelte="svelte-n0q11s"><meta name="og:description" content="Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Reactivity in Web Frameworks (Part 1)" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-when" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Reactivity is the ability of a web framework to update your view whenever the application state has changed. How do web frameworks achieve reactivity?","headline":"Reactivity in Web Frameworks (Part 1)","name":"Reactivity in Web Frameworks (Part 1)","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-when","name":"Reactivity in Web Frameworks (Part 1)"},"position":2}]}</script><link as="script" rel="preload" href="./92ecbc30.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./92ecbc30.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./92ecbc30.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-when" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Freactivity-in-web-frameworks-the-when","name":""},"position":2}]}</script><link as="script" rel="preload" href="./c3730a0f.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./c3730a0f.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./c3730a0f.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>Reactivity in Web Frameworks (Part 1)</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
   
 
@@ -83,8 +85,7 @@
 <p>It is the core of any modern web framework.</p>
 <p>To understand what reactivity is, let’s look at an example counter app.</p>
 <p>This is how you would write in plain JavaScript:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">const</span> root <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> root <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 root<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token html language-html">
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
@@ -103,8 +104,7 @@ incrementBtn<span class="token punctuation">.</span><span class="token method fu
   span<span class="token punctuation">.</span><span class="token property-access">innerText</span> <span class="token operator">=</span> count<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>This is how you would do it in Vue:</p>
-<pre class="language-html">
-<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">v-on:</span>click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>counter -= 1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>&#123;&#123; counter &#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
@@ -122,8 +122,7 @@ incrementBtn<span class="token punctuation">.</span><span class="token method fu
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>… and this in React:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">App</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">App</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>counter<span class="token punctuation">,</span> setCounter<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token operator">&lt;</span><span class="token operator">></span>
@@ -151,8 +150,7 @@ The framework will bridge the application state and the view, updating the view 
 <p>Different frameworks employ different strategies to detect when the application state has changed, but in essence, it usually boils down to calling a <code>scheduleUpdate()</code> in the framework.
 <code>scheduleUpdate</code> is usually a debounced <code>update</code> function of the framework. Because changes in the application state may cause derived state changes, or the framework user may change different parts of the application state consecutively. If the framework updates the view on every state change, it may change the view too frequent, which may be inefficient, or it may have an inconsistent view (<a href="https://techterms.com/definition/screen_tearing" rel="nofollow">may result in tearing</a>).</p>
 <p>Imagine this contrived React example:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Todos</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Todos</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>todos<span class="token punctuation">,</span> setTodos<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>totalTodos<span class="token punctuation">,</span> setTotalTodos<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -170,8 +168,7 @@ The framework will bridge the application state and the view, updating the view 
 <p>First of all, why is it called mutation tracking? That’s because we can only track mutation.</p>
 <p>By the word mutation, it infers that our application state has to be an object, because you can’t mutate a primitive.</p>
 <p>Primitives like numbers, string, boolean, are passed by value into a function. So, if you reassign the primitive to another value, the reassignment will never be able to be observed within the function:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token function">render</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// changes to the data will not be propagated into the render function</span>
 data <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
@@ -185,8 +182,7 @@ data <span class="token operator">=</span> <span class="token number">2</span><s
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Object on the other hand, is passed by reference. So any changes to the same object can be observed from within:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token function">render</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// mutate data some time later</span>
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
@@ -207,8 +203,7 @@ data <span class="token operator">=</span> <span class="token number">2</span><s
 <p>With the introduction of ES6 Proxy, the mutation tracking method has become much straightforward. But still, let’s take a look at how you can implement a mutation tracking with / without ES6 Proxy.</p></section>
 <section><h3><a href="#prior-proxy" id="prior-proxy">Prior Proxy</a></h3>
 <p>To track mutation without proxy, we can define a custom getters and setters for all the property of the object. So whenever the framework user changes the value of a property, the custom setter will be called, and we will know that something has changed:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">getTrackableObject</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getTrackableObject</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>obj<span class="token punctuation">[</span><span class="token known-class-name class-name">Symbol</span><span class="token punctuation">.</span><span class="token method function property-access">for</span><span class="token punctuation">(</span><span class="token string">'isTracked'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
   <span class="token keyword">const</span> tracked <span class="token operator">=</span> <span class="token known-class-name class-name">Array</span><span class="token punctuation">.</span><span class="token method function property-access">isArray</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -244,8 +239,7 @@ appState<span class="token punctuation">.</span><span class="token property-acce
 <p>This is something you can’t fix without a better JavaScript API, so a probable workaround for this caveat is to provide a helper function instead. For example, in Vue, you need to use the helper function <a href="https://vuejs.org/v2/guide/reactivity.html#Change-Detection-Caveats" rel="nofollow"><code>Vue.set(object, propertyName, value)</code></a> instead of <code>object[propertyName] = value</code>.</p>
 <p>Tracking mutation of an array is similar to mutation tracking for an object. However, besides being able to change the array item through assignment, it is possible to mutate an array through its mutating method, eg: <code>push</code>, <code>pop</code>, <code>splice</code>, <code>unshift</code>, <code>shift</code>, <code>sort</code> and <code>reverse</code>.</p>
 <p>To track changes made by these methods, you have to patch them:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">const</span> <span class="token maybe-class-name">TrackableArrayProto</span> <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">create</span><span class="token punctuation">(</span><span class="token class-name">Array</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token maybe-class-name">TrackableArrayProto</span> <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">create</span><span class="token punctuation">(</span><span class="token class-name">Array</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> method <span class="token keyword">of</span> <span class="token punctuation">[</span>
   <span class="token string">'push'</span><span class="token punctuation">,</span>
   <span class="token string">'pop'</span><span class="token punctuation">,</span>
@@ -283,8 +277,7 @@ appState<span class="token punctuation">[</span><span class="token number">0</sp
 <p>There’s where <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" rel="nofollow">ES6 Proxy</a> comes to help.</p></section>
 <section><h3><a href="#with-proxy" id="with-proxy">With Proxy</a></h3>
 <p>Proxy allow us to define custom behaviours on fundamental operations on the target object. This is great for mutation tracking, because Proxy allow us to intercept setting and deleting property, irrelevant to whether we uses index assignment, <code>obj[key] = value</code> or mutating methods, <code>obj.push(value)</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">getTrackableObject</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getTrackableObject</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">getTrackableObject</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -311,16 +304,14 @@ appState<span class="token punctuation">.</span><span class="token property-acce
 appState<span class="token punctuation">.</span><span class="token property-access">bar</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'foo'</span><span class="token punctuation">;</span> <span class="token comment">// log &#96;'0' has changed.</span></code></pre>
 <p><strong>So how do we use mutation tracking?</strong></p>
 <p>The good thing about mutation tracking is that, if you noticed in the example above, the framework user is unaware of the tracking and treats <code>appState</code> as a normal object:</p>
-<pre class="language-js">
-<code class="language-js">appState<span class="token punctuation">.</span><span class="token property-access">foo</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js">appState<span class="token punctuation">.</span><span class="token property-access">foo</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 appState<span class="token punctuation">.</span><span class="token property-access">bar</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 appState<span class="token punctuation">.</span><span class="token property-access">bar</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'foo'</span><span class="token punctuation">;</span></code></pre>
 <p>We can set up the tracking during the initialisation of the component, either:</p>
 <ul><li>track a property of the component,</li>
 <li>track the component instance itself,</li>
 <li>or something in between the above</li></ul>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// track a property of the component</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// track a property of the component</span>
 <span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">initialState</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span> <span class="token operator">=</span> <span class="token function">getTrackableObject</span><span class="token punctuation">(</span>initialState<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -357,16 +348,14 @@ appState<span class="token punctuation">.</span><span class="token property-acce
 <section><h3><a href="#just-call-scheduleupdate" id="just-call-scheduleupdate">Just call <code>scheduleUpdate</code></a></h3>
 <p>Some frameworks design their API in the way such that it “tricks” the framework user to tell the framework that the application state has changed.</p>
 <p>Instead of remembering to call <code>scheduleUpdate</code> whenever you change the application state, the framework forces you to use their API to change application state:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// instead of</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// instead of</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">appState</span><span class="token punctuation">.</span><span class="token property-access">one</span> <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">;</span>
 <span class="token function">scheduleUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// you have to use the frameworks API</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">setAppState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> one<span class="token punctuation">:</span> <span class="token string">'1'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>This gives us a much simpler design and less edge case to handle:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
   <span class="token function">setAppState</span><span class="token punctuation">(</span><span class="token parameter">appState</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">appState</span> <span class="token operator">=</span> appState<span class="token punctuation">;</span>
     <span class="token function">scheduleUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -374,8 +363,7 @@ appState<span class="token punctuation">.</span><span class="token property-acce
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Inspired by <a href="https://github.com/facebook/react/blob/0cf22a56a18790ef34c71bef14f64695c0498619/packages/react/src/ReactBaseClasses.js#L57" rel="nofollow">React’s <code>setState</code></a>.</p>
 <p>However, this may trip new developers into the framework:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
   <span class="token function">someHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// if setting the state directly, instead of calling &#96;setAppState&#96;</span>
     <span class="token comment">// this will not schedule an update, and thus no reactivity</span>
@@ -383,8 +371,7 @@ appState<span class="token punctuation">.</span><span class="token property-acce
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>... and it maybe a bit clumsy when adding / removing items from an array:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
   <span class="token function">someHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// this will not schedule update</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">appState</span><span class="token punctuation">.</span><span class="token property-access">list</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -402,8 +389,7 @@ appState<span class="token punctuation">.</span><span class="token property-acce
 <li>...</li></ul>
 <p>So, instead of enforcing framework users to use <code>setAppState()</code>, framework users should use the
 custom timeouts, api handlers, ...:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">timeout</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">timeout</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scheduleUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -436,15 +422,13 @@ custom timeouts, api handlers, ...:</p>
 <p>If the dilemma is between developer expressiveness versus runtime complexity, probably we could get the best of both worlds by shifting the complexity from runtime to build time?</p></section>
 <section><h3><a href="#static-analysis" id="static-analysis">Static analysis</a></h3>
 <p>If we have a compiler that allow framework users to write:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">class</span> <span class="token class-name">UserComponent</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">UserComponent</span> <span class="token punctuation">&#123;</span>
   <span class="token function">someHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">appState</span><span class="token punctuation">.</span><span class="token property-access">one</span> <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>and compiles it to:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">class</span> <span class="token class-name">UserComponent</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">UserComponent</span> <span class="token punctuation">&#123;</span>
   <span class="token function">someHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">appState</span><span class="token punctuation">.</span><span class="token property-access">one</span> <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">;</span>
     <span class="token function">scheduleUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;-- insert this during compilation</span>
@@ -452,8 +436,7 @@ custom timeouts, api handlers, ...:</p>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Then, we would really have best of both worlds! 😎</p>
 <p>Let’s look at different scenarios that the framework user would write, and see whether we know when to insert the <code>scheduleUpdate()</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">class</span> <span class="token class-name">UserComponent</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">UserComponent</span> <span class="token punctuation">&#123;</span>
   <span class="token function">someHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">appState</span><span class="token punctuation">.</span><span class="token property-access">one</span> <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">;</span> <span class="token comment">// &lt;-- ✅changes to application state</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">foo</span> <span class="token operator">=</span> <span class="token string">'bar'</span><span class="token punctuation">;</span> <span class="token comment">// &lt;-- ⛔️ not changing application state</span>
@@ -511,9 +494,10 @@ custom timeouts, api handlers, ...:</p>
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./92ecbc30.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./c3730a0f.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

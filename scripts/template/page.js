@@ -1,6 +1,8 @@
 import PageComponent from '@@page-markup.svelte';
 
-const app = new PageComponent({
-  target: document.querySelector('#app'),
-  hydrate: true,
-});
+setTimeout(() => {
+  const app = new PageComponent({
+    target: document.querySelector('#app'),
+    hydrate: true,
+  });
+}, 3000);

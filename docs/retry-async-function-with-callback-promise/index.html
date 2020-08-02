@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
     html {
       font-family: 'Lato', sans-serif;
@@ -50,7 +52,7 @@
   </style>
 
   
-  <title>Retry asynchronous function using the callback pattern, promise chain and async await | Tan Li Hau</title><meta name="description" content="How to retry asynchronous function using the callback pattern, promise chain and async await. Mental model for asynchronous JavaScript." data-svelte="svelte-n0q11s"><meta name="image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><meta name="og:image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><meta name="og:title" content="Retry asynchronous function using the callback pattern, promise chain and async await" data-svelte="svelte-n0q11s"><meta name="og:description" content="How to retry asynchronous function using the callback pattern, promise chain and async await. Mental model for asynchronous JavaScript." data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Retry asynchronous function using the callback pattern, promise chain and async await" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="How to retry asynchronous function using the callback pattern, promise chain and async await. Mental model for asynchronous JavaScript." data-svelte="svelte-n0q11s"><meta name="twitter:image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><meta name="keywords" content="JavaScript" data-svelte="svelte-n0q11s"><meta name="keywords" content="Asynchronous" data-svelte="svelte-n0q11s"><meta name="keywords" content="Problem Solving" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fretry-async-function-with-callback-promise" data-svelte="svelte-n0q11s"><meta itemprop="image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"How to retry asynchronous function using the callback pattern, promise chain and async await. Mental model for asynchronous JavaScript.","headline":"Retry asynchronous function using the callback pattern, promise chain and async await","name":"Retry asynchronous function using the callback pattern, promise chain and async await","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fretry-async-function-with-callback-promise","name":"Retry asynchronous function using the callback pattern, promise chain and async await"},"position":2}]}</script><link as="script" rel="preload" href="./d071feb6.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./d071feb6.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./d071feb6.css" rel="stylesheet">
+  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><meta name="og:image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fretry-async-function-with-callback-promise" data-svelte="svelte-n0q11s"><meta itemprop="image" content="https://lihautan.com/retry-async-function-with-callback-promise/assets/hero-twitter-3c52317b.jpg" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fretry-async-function-with-callback-promise","name":""},"position":2}]}</script><link as="script" rel="preload" href="./81e1ac00.js"><link as="style" rel="preload" href="./assets/blog-base-ed21726f.css"><link as="style" rel="preload" href="./81e1ac00.css"><link href="./assets/blog-base-ed21726f.css" rel="stylesheet"><link href="./81e1ac00.css" rel="stylesheet">
 </head>
 
 <body>
@@ -73,9 +75,9 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1>Retry asynchronous function using the callback pattern, promise chain and async await</h1>
+<main id="content" class="blog svelte-2w4dum"><h1></h1>
   
-  <span class="svelte-2w4dum">JavaScript</span><span class="svelte-2w4dum">Asynchronous</span><span class="svelte-2w4dum">Problem Solving</span>
+  
 
   <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#the-callback-pattern">The callback pattern</a></li><li><a href="#the-promise-chain">The promise chain</a></li><li><a href="#async-await">Async await</a></li><li><a href="#testing">Testing</a></li><li><a href="#closing-note">Closing Note</a></li></ul></section>
 <p>JavaScript is a single-threaded programming language, which means only one thing can happen at a time in a single thread.</p>
@@ -85,18 +87,15 @@
 <p>Let&#39;s take a look at retrying asynchronous function that takes in a callback function that follows <a href="https://gist.github.com/sunnycmf/b2ad4f80a3b627f04ff2" rel="nofollow">the callback convention</a>:</p>
 <ul><li>The first argument of the callback function is an error object</li>
 <li>The second argument contains the callback results.</li></ul>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> result</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> result</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>So we are going to implement the <code>retry</code> function, that takes in the asynchronous function to retry, <code>fn</code> and a callback function, <code>cb</code>, that will be called when the function succeeded or failed after all the retry attempts.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">//</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>The first thing we are going to do is to call the function <code>fn</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-start</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//</span>
@@ -104,12 +103,11 @@
   <span class="token comment">// highlight-end</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>We check if there&#39;s an error, if there&#39;s no error, we can call the <code>cb</code> function to indicate the function succeeded. However, if there&#39;s an error, we are going to call the function again to retry.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// highlight-start</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
       <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//</span>
@@ -119,22 +117,21 @@
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Let&#39;s retry at most 3 times:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 1st attempt</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// 2nd attempt</span>
       <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-          <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
           <span class="token comment">// 3rd attempt</span>
           <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-              <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
               <span class="token comment">// failed for 3 times</span>
               <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed retrying 3 times'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -148,8 +145,7 @@
 <p>Notice that it starts to get unwieldy as we are nesting more callback functions. It&#39;s hard to figure out which close bracket <code>}</code> is belong to without proper indentation.</p>
 <p>This is the so-called <a href="http://callbackhell.com/" rel="nofollow">&quot;Callback Hell&quot;</a> in JavaScript.</p>
 <p>Let&#39;s make it more unbearable to prove the point by flipping the if case:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 1st attempt</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -162,28 +158,27 @@
               <span class="token comment">// failed for 3 times</span>
               <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed retrying 3 times'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-              <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
           <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-          <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Now can you tell which <code>data</code> is belong to which function?</p>
 <p>Now, instead of always retry at most 3 times, we are going to retry at most <code>n</code> times.</p>
 <p>So we are going to introduce a new argument, <code>n</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-next-line</span>
   <span class="token keyword">let</span> attempt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 1st attempt</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// highlight-start</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span>attempt<span class="token operator">++</span> <span class="token operator">===</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -193,7 +188,7 @@
         <span class="token comment">// 2nd attempt</span>
         <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
           <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
           <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
             <span class="token comment">// highlight-start</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>attempt<span class="token operator">++</span> <span class="token operator">===</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -213,15 +208,14 @@
 <p><img src="25ca4aff5059749c.png" alt="recursive pattern"></p>
 <p>Note that the code within the outer red square is the same as the code within the inner red square, which is the same as the inner inner red square ...</p>
 <p>So, let&#39;s extract the code within the red square out into a function and replace the red squares with the function:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> attempt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
   <span class="token comment">// highlight-start</span>
   <span class="token keyword">function</span> <span class="token function">_retry</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token function">fn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>attempt<span class="token operator">++</span> <span class="token operator">===</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
           <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Failed retrying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>n<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -240,136 +234,124 @@
 <section><h2><a href="#the-promise-chain" id="the-promise-chain">The promise chain</a></h2>
 <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" rel="nofollow">Promise</a>, according to MDN, object represents the eventual completion of an asynchronous operation, and its resulting value.</p>
 <p>A Promise object provides <code>.then</code> and <code>.catch</code> method, which takes in callback function to be called when the promise is resolved or rejected respectively. The <code>.then</code> and <code>.catch</code> method then returns a new Promise of the return value of the callback function.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token function">getPromiseA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// a promise</span>
-  <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span>handleA<span class="token punctuation">)</span> <span class="token comment">// returns a new promise</span>
-  <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span>handleB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns another new promise</span>
+<pre class="language-js"><code class="language-js"><span class="token function">getPromiseA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// a promise</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>handleA<span class="token punctuation">)</span> <span class="token comment">// returns a new promise</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>handleB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns another new promise</span>
 
 <span class="token function">getPromiseB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// a promise</span>
-  <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span>handleA<span class="token punctuation">)</span> <span class="token comment">// returns a new promise</span>
-  <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span>handleB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns another new promise</span></code></pre>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>handleA<span class="token punctuation">)</span> <span class="token comment">// returns a new promise</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>handleB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns another new promise</span></code></pre>
 <p>The chaining of <code>.then</code> and <code>.catch</code> is a common pattern, called <a href="https://www.javascripttutorial.net/es6/promise-chaining/" rel="nofollow">Promise chaining</a>.</p>
 <p>Now, lets implement the <code>retry</code> function, which takes in the asynchronous function to retry, <code>fn</code> and return a promise, which resolved when the function succeeded or resolved after failing all the retry attempts.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">//</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>The first thing we are going to do is to call the function <code>fn</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-next-line</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns a promise</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>We need to retry calling <code>fn</code> again, if the first <code>fn</code> is rejected</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// returns a promise</span>
     <span class="token comment">// highlight-next-line</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns a new promise</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns a new promise</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>If that new promise rejected again, we retry by calling <code>fn</code> again</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// returns a promise (promise#1)</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns a new promise (promise#2)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns a new promise (promise#2)</span>
     <span class="token comment">// highlight-next-line</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns yet a new promise (promise#3)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns yet a new promise (promise#3)</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>The last promise <em>(promise#3)</em> will reject if the 3rd <code>fn()</code> attempt rejects, and resolve if any of the <code>fn()</code> attempts resolve.</p>
 <p>The callback method within <code>.catch</code> will be called only when the previous <code>fn()</code> attempt rejects.</p>
 <p>We are going to return a rejected promise with the error indicating max retries has met, if the last promise <code>(promise#3)</code> rejected, and a resolved promise with the result from <code>fn()</code>.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> promise3 <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// returns a promise (promise#1)</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns a new promise (promise#2)</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns yet a new promise (promise#3)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns a new promise (promise#2)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns yet a new promise (promise#3)</span>
 
-  <span class="token keyword">return</span> promise3<span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span>
-    <span class="token parameter">data</span> <span class="token arrow operator">=></span> data<span class="token punctuation">,</span> <span class="token comment">// resolved with the result from &#96;fn()&#96;</span>
-    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> promise3<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+    <span class="token parameter">data</span> <span class="token operator">=></span> data<span class="token punctuation">,</span> <span class="token comment">// resolved with the result from &#96;fn()&#96;</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// reject with the max retry error</span>
       <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed retrying 3 times'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>And we can make the code more concise, as the following two are equivalent, in terms of what is being resolved and rejected:</p>
-<pre class="language-js">
-<code class="language-js">promise3<span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span>
-  <span class="token parameter">data</span> <span class="token arrow operator">=></span> data<span class="token punctuation">,</span> <span class="token comment">// resolved with the result from &#96;fn()&#96;</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js">promise3<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+  <span class="token parameter">data</span> <span class="token operator">=></span> data<span class="token punctuation">,</span> <span class="token comment">// resolved with the result from &#96;fn()&#96;</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// reject with the max retry error</span>
     <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed retrying 3 times'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// is equivalent to</span>
 promise3 <span class="token comment">// resolved with the result from &#96;fn()&#96;</span>
-  <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// reject with the max retry error</span>
     <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed retrying 3 times'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Also, we can substitute the variable <code>promise3</code> with it&#39;s promise chain value:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// prettier-ignore</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// prettier-ignore</span>
 <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-start</span>
   <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// returns a promise (promise#1)</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns a new promise (promise#2)</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns yet a new promise (promise#3)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns a new promise (promise#2)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// returns yet a new promise (promise#3)</span>
     <span class="token comment">// highlight-end</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// reject with the max retry error</span>
       <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed retrying 3 times'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Now, instead of always retry at most 3 times, we are going to retry at most <code>n</code> times.</p>
 <p>So we are going to introduce a new argument, <code>n</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// prettier-ignore</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// prettier-ignore</span>
 <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// attempt #1</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// attempt #2</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// attempt #2</span>
     <span class="token comment">// ...</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// attempt #n</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Failed retrying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>n<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// attempt #n</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Failed retrying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>n<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Instead of writing <code>.catch(() =&gt; fn())</code> <code>n</code> number of times, we can build the Promise up using a for loop.</p>
 <p><strong>Assuming <code>n</code> is always greater or equal to 1,</strong></p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> promise <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-  promise<span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  promise<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Failed retrying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>n<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> promise<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>What if <code>n</code> is <code>0</code> or negative? We shouldn&#39;t call <code>fn()</code> at all!</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> promise<span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// highlight-start</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>promise<span class="token punctuation">)</span> promise <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span> promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// highlight-end</span>
   <span class="token punctuation">&#125;</span>
-  promise<span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  promise<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Failed retrying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>n<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> promise<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Well, this maybe a little bit inelegant, having to execute the <code>if (!promise) ... else ...</code> on every loop, we can initialise the promise with a rejected promise, so that we can treat the 1st <code>fn()</code> called as the 1st retry:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-next-line</span>
-  <span class="token keyword">let</span> promise <span class="token operator">=</span> <span class="token known-class-name class-name">Promise</span><span class="token punctuation">.</span><span class="token method function property-access">reject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> promise <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// highlight-next-line</span>
-    promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-  promise<span class="token punctuation">.</span><span class="token method function property-access">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  promise<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Failed retrying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>n<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> promise<span class="token punctuation">;</span>
@@ -378,40 +360,35 @@ promise3 <span class="token comment">// resolved with the result from &#96;fn()&
 <section><h2><a href="#async-await" id="async-await">Async await</a></h2>
 <p>When you use a promise, you need to use <code>.then</code> to get the resolved value, and that happened asynchronously.</p>
 <p>Meaning, if you have</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">let</span> value<span class="token punctuation">;</span>
-promise<span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> value<span class="token punctuation">;</span>
+promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   value <span class="token operator">=</span> data<span class="token punctuation">;</span>
-  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'resolved'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resolved'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'here'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'here'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>You would see</p>
-<pre class="language-js">
-<code class="language-js"><span class="token string">"here"</span> <span class="token keyword nil">undefined</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token string">"here"</span> <span class="token keyword">undefined</span></code></pre>
 <p>first, and then some time later,</p>
-<pre class="language-js">
-<code class="language-js"><span class="token string">"resolved"</span> <span class="token string">"value"</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token string">"resolved"</span> <span class="token string">"value"</span></code></pre>
 <p>This is because the function in the <code>.then</code> is called asynchronously, it is executed in a separate timeline of execution, so to speak.</p>
 <p>And <code>async</code> + <code>await</code> in JavaScript allow us to stitch multiple separate timeline of execution into disguisedly 1 timeline of execution flow.</p>
 <p>Everytime when we <code>await</code>, we jump into a different asynchronous timeline.</p>
 <p>So, with the code with Promise + <code>.then</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// timeline #1</span>
   promise
-    <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// timeline #2</span>
       <span class="token keyword">return</span> <span class="token function">doSomething</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token parameter">data2</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data2</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// timeline #3</span>
       <span class="token function">doAnotherThing</span><span class="token punctuation">(</span>data2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">// timeline #1</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>can be written in <code>async</code> + <code>await</code> in the following manner:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// timeline #1</span>
   <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token keyword">await</span> promise<span class="token punctuation">;</span>
   <span class="token comment">// timeline #2</span>
@@ -420,19 +397,16 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token function">doAnotherThing</span><span class="token punctuation">(</span>data2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Now, lets implement the <code>retry</code> function using <code>async</code> + <code>await</code>.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">//</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>The first thing we are going to do is to call the function <code>fn</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-next-line</span>
   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns a promise</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>We need to retry calling <code>fn</code> again, if the first <code>fn</code> is rejected. Instead of <code>.catch</code>, we use <code>await</code> + <code>try catch</code></p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-next-line</span>
   <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">await</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -443,8 +417,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token comment">// highlight-end</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>If the 2nd <code>fn()</code> rejected again, we retry by calling <code>fn</code> again</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">await</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">&#123;</span>
@@ -458,8 +431,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>And if the last <code>fn()</code> rejected again, we are going to return a rejected promise with an error indicating max retries has met by throw the error</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">await</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">&#123;</span>
@@ -476,8 +448,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Now, if we need to return a Promise resolved with the resolved value from <code>fn()</code></p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// highlight-next-line</span>
     <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -496,8 +467,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Since we are ending early in the <code>try</code> block, and we are not using the error from the <code>catch</code> block, we can make the code less nested</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
@@ -514,8 +484,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Now, instead of always retry at most 3 times, we are going to retry at most <code>n</code> times.</p>
 <p>So we are going to introduce a new argument, <code>n</code>:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1st attempt</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
@@ -533,8 +502,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Failed retrying </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>n<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Instead of writing it <code>n</code> number of times, we can achieve it using a <code>for</code> loop:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">retry</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -557,19 +525,16 @@ promise<span class="token punctuation">.</span><span class="token method functio
 <li>verify we get the max retry error</li></ul></li></ul>
 <p>So, the key is to devise such <code>fn</code> that we can control when it succeed and when it failed.</p>
 <p>We can create a function that returns such function</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>The function takes in number indicating how many time the return function would fail, before succeeding thereafter</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// highlight-next-line</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// highlight-next-line</span>
 <span class="token keyword">function</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token parameter">numFailure</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>To know how many times the function is called, we can track it with a variable</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token parameter">numFailure</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token parameter">numFailure</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// highlight-next-line</span>
   <span class="token keyword">let</span> numCalls <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -578,8 +543,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>As long as the number of times called is less than the number of time it should fail, it will fail.</p>
-<pre class="language-js">
-<code class="language-js"><span class="token comment">// calback version</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// calback version</span>
 <span class="token keyword">function</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token parameter">numFailure</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> numCalls <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -587,7 +551,7 @@ promise<span class="token punctuation">.</span><span class="token method functio
     <span class="token keyword">if</span> <span class="token punctuation">(</span>numCalls <span class="token operator">&lt;=</span> numFailure<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword null nil">null</span><span class="token punctuation">,</span> numCalls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> numCalls<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -598,20 +562,19 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     numCalls<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>numCalls <span class="token operator">&lt;=</span> numFailure<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">return</span> <span class="token known-class-name class-name">Promise</span><span class="token punctuation">.</span><span class="token method function property-access">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">return</span> <span class="token known-class-name class-name">Promise</span><span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span>numCalls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>numCalls<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>Next, to verify the function get called a certain number of times, we can create a &quot;spy&quot; function:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token keyword">function</span> <span class="token function">spy</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">spy</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> numCalled <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-    <span class="token function-variable function">fn</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token spread operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">fn</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       numCalled<span class="token operator">++</span><span class="token punctuation">;</span>
-      <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token spread operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token function">getNumberOfTimesCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> numCalled<span class="token punctuation">;</span>
@@ -619,35 +582,34 @@ promise<span class="token punctuation">.</span><span class="token method functio
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>So, let&#39;s put all of them together:</p>
-<pre class="language-js">
-<code class="language-js"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'&#96;fn&#96; failed on 1st attempt, and succeed thereafter (callback based)'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'&#96;fn&#96; failed on 1st attempt, and succeed thereafter (callback based)'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> spied <span class="token operator">=</span> <span class="token function">spy</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment">// retry at most 3 times</span>
-  <span class="token function">retry</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span><span class="token property-access">fn</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">retry</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span>fn<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// verify &#96;fn&#96; get called only 2 times</span>
-    <span class="token function">assert</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span><span class="token method function property-access">getNumberOfTimesCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span><span class="token function">getNumberOfTimesCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">// verify we get the return value from the 2nd attempt</span>
     <span class="token function">assert</span><span class="token punctuation">(</span>data <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'&#96;fn&#96; failed on 1st attempt, and succeed thereafter (promise based)'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'&#96;fn&#96; failed on 1st attempt, and succeed thereafter (promise based)'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token function">mockFnFactory</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> spied <span class="token operator">=</span> <span class="token function">spy</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment">// retry at most 3 times</span>
-  <span class="token function">retry</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span><span class="token property-access">fn</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span>
-    <span class="token parameter">data</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">retry</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span>fn<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+    <span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// verify &#96;fn&#96; get called only 2 times</span>
-      <span class="token function">assert</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span><span class="token method function property-access">getNumberOfTimesCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">assert</span><span class="token punctuation">(</span>spied<span class="token punctuation">.</span><span class="token function">getNumberOfTimesCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
       <span class="token comment">// verify we get the return value from the 2nd attempt</span>
       <span class="token function">assert</span><span class="token punctuation">(</span>data <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token parameter">error</span> <span class="token arrow operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token parameter">error</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
 <section><h2><a href="#closing-note" id="closing-note">Closing Note</a></h2>
@@ -661,9 +623,10 @@ promise<span class="token punctuation">.</span><span class="token method functio
       <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
     <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
-</div></footer>
+</div>
+  </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./d071feb6.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./81e1ac00.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

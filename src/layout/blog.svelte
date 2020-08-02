@@ -1,11 +1,12 @@
 <script>
   import Header from './Header.svelte';
   import Newsletter from './Newsletter.svelte';
+  import CarbonAd from './CarbonAd.svelte';
   import 'file://./blog-base.css';
   import image from 'file://@/../hero-twitter.jpg';
-  export let title;
-  export let description;
-  export let tags = [];
+  export const title = "";
+  export const description = "";
+  export const tags = [];
 
   const jsonLdAuthor = {
     ['@type']: 'Person',
@@ -80,6 +81,7 @@
 
 <footer>
   <Newsletter />
+  <CarbonAd />
 </footer>
 
 {@html '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'}
