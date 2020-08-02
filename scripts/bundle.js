@@ -5,13 +5,24 @@ const {
 const rollupPluginPostCss = require('rollup-plugin-postcss');
 const rollupPluginSvelte = require('rollup-plugin-svelte');
 const rollupPluginCommonJs = require('@rollup/plugin-commonjs');
-const rollupPluginUrl = require('@rollup/plugin-url');
 const rollupPluginReplace = require('@rollup/plugin-replace');
 const { init, parse } = require('es-module-lexer');
 const path = require('path');
-const fs = require('fs');
+const crypto = require('crypto');
+const fs = require('fs').promises;
+const { mkdirp } = require('./mkdirp');
 
-module.exports = async function(codeMap, location, { ssr, hostname, resolveMap = {} } = {}) {
+const imagemin = require('imagemin');
+const imageminWebp = require('imagemin-webp');
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminGifsicle = require('imagemin-gifsicle');
+
+module.exports = async function(
+  codeMap,
+  location,
+  { ssr, hostname, resolveMap = {} } = {}
+) {
   const bundle = await rollup.rollup({
     input: location,
     plugins: [
@@ -58,12 +69,12 @@ module.exports = async function(codeMap, location, { ssr, hostname, resolveMap =
           }
           return null;
         },
-        load(id) {
+        async load(id) {
           if (id.startsWith('file://')) {
             const referenceId = this.emitFile({
               type: 'asset',
               name: path.basename(id),
-              source: fs.readFileSync(id.replace('file://', '')),
+              source: await fs.readFile(id.replace('file://', '')),
             });
             return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
           } else if (id.startsWith('optional://')) {
@@ -88,10 +99,90 @@ module.exports = async function(codeMap, location, { ssr, hostname, resolveMap =
         emitCss: true,
         generate: ssr ? 'ssr' : 'dom',
       }),
-      rollupPluginUrl({
-        emitFiles: !ssr,
-        include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif'],
-      }),
+      (function() {
+        const images = {};
+        const webps = {};
+        return {
+          async resolveId(source, importer) {
+            if (source.startsWith('webp://')) {
+              source = source.replace('webp://', '');
+              const resolved = await this.resolve(source, importer);
+              if (resolved) {
+                return {
+                  ...resolved,
+                  id: 'webp://' + resolved.id,
+                };
+              }
+            }
+            return null;
+          },
+          async load(id) {
+            if (!id.startsWith('webp://') && !/\.(svg|png|jpg|gif)$/.test(id))
+              return;
+            const isWebp = id.startsWith('webp://');
+            id = id.replace('webp://', '');
+            let extname = isWebp ? '.webp' : path.extname(id);
+            const hash = crypto
+              .createHash('sha1')
+              .update(await fs.readFile(id))
+              .digest('hex')
+              .substr(0, 16);
+            let data = `${hash}${extname}`;
+            if (isWebp) {
+              webps[id] = data;
+            } else {
+              images[id] = data;
+            }
+            return `export default "${data}"`;
+          },
+          async generateBundle(outputOptions) {
+            if (ssr) return;
+
+            const base = outputOptions.dir || path.dirname(outputOptions.file);
+            await mkdirp(base);
+
+            const keys = Object.keys(images);
+
+            const optimisedImages = await imagemin(keys, {
+              plugins: [
+                imageminJpegtran(),
+                imageminPngquant({
+                  quality: [0.6, 0.8],
+                }),
+                imageminGifsicle(),
+              ],
+            });
+
+            await Promise.all(
+              keys.map(async (name, idx) => {
+                const output = images[name];
+                const outputDirectory = path.join(base, path.dirname(output));
+                await mkdirp(outputDirectory);
+                return fs.writeFile(
+                  path.join(base, output),
+                  optimisedImages[idx].data
+                );
+              })
+            );
+
+            const webpKeys = Object.keys(webps);
+            const webpImages = await imagemin(keys, {
+              plugins: [imageminWebp({ quality: 50 })],
+            });
+            await Promise.all(
+              webpKeys.map(async (name, idx) => {
+                const output = webps[name];
+                const outputDirectory = path.join(base, path.dirname(output));
+                await mkdirp(outputDirectory);
+                return fs.writeFile(
+                  path.join(base, output),
+                  webpImages[idx].data
+                );
+              })
+            );
+          },
+        };
+      })(),
       rollupPluginPostCss({
         extract: true,
         exclude: [/^file:\/\//],

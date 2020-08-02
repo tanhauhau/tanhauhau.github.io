@@ -52,7 +52,7 @@
   </style>
 
   
-  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Ferrors-encountered-upgrading-flow-0.85" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Ferrors-encountered-upgrading-flow-0.85","name":""},"position":2}]}</script><link as="script" rel="preload" href="./676dc486.js"><link as="style" rel="preload" href="./assets/blog-base-ddb14eb9.css"><link as="style" rel="preload" href="./676dc486.css"><link href="./assets/blog-base-ddb14eb9.css" rel="stylesheet"><link href="./676dc486.css" rel="stylesheet">
+  <title>Errors encountered upgrading Flow v0.85 | Tan Li Hau</title><meta name="description" content="and how we solved them" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Errors encountered upgrading Flow v0.85" data-svelte="svelte-n0q11s"><meta name="og:description" content="and how we solved them" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Errors encountered upgrading Flow v0.85" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="and how we solved them" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Ferrors-encountered-upgrading-flow-0.85" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"and how we solved them","headline":"Errors encountered upgrading Flow v0.85","name":"Errors encountered upgrading Flow v0.85","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Ferrors-encountered-upgrading-flow-0.85","name":"Errors encountered upgrading Flow v0.85"},"position":2}]}</script><link as="script" rel="preload" href="./abd2f85c.js"><link as="style" rel="preload" href="./assets/blog-base-ddb14eb9.css"><link as="style" rel="preload" href="./abd2f85c.css"><link href="./assets/blog-base-ddb14eb9.css" rel="stylesheet"><link href="./abd2f85c.css" rel="stylesheet">
 </head>
 
 <body>
@@ -75,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1></h1>
+<main id="content" class="blog svelte-2w4dum"><h1>Errors encountered upgrading Flow v0.85</h1>
   
   
 
@@ -95,9 +95,9 @@
 <p>There was another interesting bug that we ran into regarding <a href="https://babeljs.io/docs/en/babel-plugin-transform-flow-strip-types" rel="nofollow">@babel/plugin-transform-flow-strip-types</a>, you can read more on how we uncover it in <a href="/parsing-error-flow-type-parameter-instantiation/">my other blog post</a>.</p></section>
 <section><h2><a href="#prettier" id="prettier">Prettier</a></h2>
 <p>We had to upgrade prettier to <a href="https://prettier.io/blog/2019/01/20/1.16.0.html" rel="nofollow">v1.16.0</a> and use <code>babel-flow</code> parser for <code>prettier</code> to resolve the ambiguity in syntax arise in parsing the newer Flow syntax. In simpler terms, to tell Prettier that</p>
-<pre class="language-js"><code class="language-js">foobar<span class="token operator">&lt;</span><span class="token maybe-class-name">Type</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-js"><code class="language-js">foobar<span class="token operator">&lt;</span>Type<span class="token operator">></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
 <p>is <em>calling foobar with argument, 1 and type, &quot;Type&quot;</em>, instead of:</p>
-<pre class="language-js"><code class="language-js">foobar <span class="token operator">&lt;</span> <span class="token maybe-class-name">Type</span> <span class="token operator">></span> <span class="token number">1</span></code></pre>
+<pre class="language-js"><code class="language-js">foobar <span class="token operator">&lt;</span> Type <span class="token operator">></span> <span class="token number">1</span></code></pre>
 <p><em>is the result of foobar < Type, greater than 1?</em> 😂</p>
 <p>You can read more about it in <a href="https://prettier.io/blog/2019/01/20/1.16.0.html#add-babel-flow-parser-5685-by-ikatyang" rel="nofollow">Prettier&#39;s blog post</a>.</p></section>
 <section><h2><a href="#vscode" id="vscode">VSCode</a></h2>
@@ -141,7 +141,7 @@ Expect your requests to be faster, and your requests to take a bit less time.</p
 </div>
   </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./676dc486.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./abd2f85c.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

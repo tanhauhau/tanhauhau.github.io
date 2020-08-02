@@ -4,9 +4,9 @@
   import CarbonAd from './CarbonAd.svelte';
   import 'file://./blog-base.css';
   import image from 'file://@/../hero-twitter.jpg';
-  export const title = "";
-  export const description = "";
-  export const tags = [];
+  export let title = "";
+  export let description = "";
+  export let tags = [];
 
   const jsonLdAuthor = {
     ['@type']: 'Person',

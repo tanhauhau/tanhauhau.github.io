@@ -52,7 +52,7 @@
   </style>
 
   
-  <title> | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"","name":"","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax","name":""},"position":2}]}</script><link as="script" rel="preload" href="./471bd7d4.js"><link as="style" rel="preload" href="./assets/blog-base-ddb14eb9.css"><link as="style" rel="preload" href="./471bd7d4.css"><link href="./assets/blog-base-ddb14eb9.css" rel="stylesheet"><link href="./471bd7d4.css" rel="stylesheet">
+  <title>My eslint doesn’t work with for flow 0.85’s explicit type argument syntax | Tan Li Hau</title><meta name="description" content="and how I figured out why." data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="My eslint doesn’t work with for flow 0.85’s explicit type argument syntax" data-svelte="svelte-n0q11s"><meta name="og:description" content="and how I figured out why." data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="My eslint doesn’t work with for flow 0.85’s explicit type argument syntax" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="and how I figured out why." data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"and how I figured out why.","headline":"My eslint doesn’t work with for flow 0.85’s explicit type argument syntax","name":"My eslint doesn’t work with for flow 0.85’s explicit type argument syntax","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Feslint-for-flow-explicit-type-argument-syntax","name":"My eslint doesn’t work with for flow 0.85’s explicit type argument syntax"},"position":2}]}</script><link as="script" rel="preload" href="./7bf27c5f.js"><link as="style" rel="preload" href="./assets/blog-base-ddb14eb9.css"><link as="style" rel="preload" href="./7bf27c5f.css"><link href="./assets/blog-base-ddb14eb9.css" rel="stylesheet"><link href="./7bf27c5f.css" rel="stylesheet">
 </head>
 
 <body>
@@ -75,7 +75,7 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-2w4dum"><h1></h1>
+<main id="content" class="blog svelte-2w4dum"><h1>My eslint doesn’t work with for flow 0.85’s explicit type argument syntax</h1>
   
   
 
@@ -89,7 +89,7 @@
 <p>To confirm with my hypothesis, I opened up my favourite tool for inspecting <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" rel="nofollow">AST</a>: <a href="https://astexplorer.net/" rel="nofollow">astexplorer.net</a></p>
 <hr>
 <p>You can paste your code into <a href="https://astexplorer.net/" rel="nofollow">astexplorer.net</a> and see how different parser “sees” your code in terms of a AST (Abstract Syntax Tree).</p>
-<p><img src="f67eed7cfc0548de.png" alt="You can choose different a parser!"></p>
+<p><picture><source type="image/webp" srcset="f67eed7cfc0548de.webp"><source type="image/jpeg" srcset="f67eed7cfc0548de.png"><img alt="You can choose different a parser!" src="f67eed7cfc0548de.png"></picture></p>
 <p>As you can see from the picture above, you can choose from different parsers:</p>
 <ul><li><strong>acorn</strong> — the parser used by webpack after the loaders, webpack uses acorn’s AST to find <code>import</code> and <code>require()</code> syntax to know generate the dependency tree of your project, as well as provide an entry for plugins like <a href="https://webpack.js.org/plugins/define-plugin/" rel="nofollow">DefinePlugin</a> to transform the transpiled code.</li>
 <li><strong>babylon</strong>— the <a href="https://github.com/babel/babel/" rel="nofollow">babel</a> parser, now it’s called <a href="https://babeljs.io/docs/en/babel-parser" rel="nofollow">@babel/parser</a>.</li>
@@ -98,9 +98,9 @@
 <li><strong>babel-eslint</strong> — a wrapper of babel parser for eslint, which is also the one we used, because we have a ton of babel plugins configured, so by using babel-eslint we don’t have to reconfigure the same plugins for eslint.</li></ul>
 <hr>
 <p>So I copied our code into astexplorer, and selected the “flow” parser:</p>
-<p><img src="47830b248a76313c.png" alt="flow ast"></p>
+<p><picture><source type="image/webp" srcset="47830b248a76313c.webp"><source type="image/jpeg" srcset="47830b248a76313c.png"><img alt="flow ast" src="47830b248a76313c.png"></picture></p>
 <p>I can see the type annotation is being parsed as “TypeParameterInstantiation”, however when I changed the parser to “babel-eslint8”,</p>
-<p><img src="88f1e669536ed3b0.png" alt="babel eslint 8 ast"></p>
+<p><picture><source type="image/webp" srcset="88f1e669536ed3b0.webp"><source type="image/jpeg" srcset="88f1e669536ed3b0.png"><img alt="babel eslint 8 ast" src="88f1e669536ed3b0.png"></picture></p>
 <p>I get a Binary Expression and a SequenceExpression!</p>
 <hr>
 <p><strong>Binary Expression</strong> is a way to express logical expression and mathematical expression, eg: <code>a + b</code> , <code>a &amp;&amp; b</code> , <code>a &lt;= b</code>, etc.</p>
@@ -108,7 +108,7 @@
 <hr>
 <p>Now this explains why prettier will try to add space in between <code>&lt;</code> and <code>&gt;</code> .</p>
 <p>I saw that there’s a babel-eslint9, and I gave it a try, and…</p>
-<p><img src="47830b248a76313c.png" alt="babel eslint 9 ast"></p>
+<p><picture><source type="image/webp" srcset="47830b248a76313c.webp"><source type="image/jpeg" srcset="47830b248a76313c.png"><img alt="babel eslint 9 ast" src="47830b248a76313c.png"></picture></p>
 <p>It seems like the bug was fixed on <code>babel-eslint9</code>, so I plowed through the release notes of babel-eslint, and I found this <a href="https://github.com/babel/babel-eslint/pull/444" rel="nofollow">merge commit</a>. So it seems like upgrading babel-eslint to v9 will solve the issue! 🎉</p></article></main>
 
 <footer class="svelte-2w4dum"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
@@ -120,7 +120,7 @@
 </div>
   </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./471bd7d4.js" async></script></div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./7bf27c5f.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

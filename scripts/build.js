@@ -23,6 +23,8 @@ const {
   HOSTNAME,
 } = require('./config');
 
+const skipCache = !!process.env.SKIP_CACHE;
+
 (async () => {
   console.time('all');
 
@@ -385,6 +387,7 @@ async function copyAll(from, to) {
 }
 
 function getCacheMap() {
+  if (skipCache) return {};
   try {
     return require(path.join(
       require.resolve('svelte'),

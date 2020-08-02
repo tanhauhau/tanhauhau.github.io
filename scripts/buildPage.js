@@ -23,10 +23,12 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
           const map = { ["'"]: '&#39;', ['"']: '&#34;' };
           return tree => {
             let i = 0;
-            const images = [];
+            const imports = [];
+
             visit(tree, ['image', 'imageReference'], node => {
               if (/^https?\:\/\//.test(node.url)) return;
-              images[i] = node.url;
+              const { url } = node;
+              imports.push(`import __build_img__${i} from '${node.url}'`);
               node.url = `{__build_img__${i}}`;
               if (node.title) {
                 node.title = node.title.replace(/['"]/g, value => map[value]);
@@ -35,15 +37,29 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
                 node.alt = node.alt.replace(/['"]/g, value => map[value]);
               }
 
+              if (/\.(jpg|png)$/.test(url)) {
+                node.type = 'html';
+                node.value = [
+                  '<picture>',
+                  `<source type="image/webp" srcset="{__build_img_webp__${i}}" />`,
+                  `<source type="image/jpeg" srcset="${node.url}" />`,
+                  `<img alt="${node.alt}" src="${node.url}" />`,
+                  '</picture>',
+                ].join('');
+
+                imports.push(
+                  `import __build_img_webp__${i} from 'webp://${url}'`
+                );
+              }
+
               i++;
             });
+
             tree.children.push({
               type: 'html',
               value: [
                 '<script context="module">',
-                ...images.map(
-                  (img, idx) => `import __build_img__${idx} from '${img}'`
-                ),
+                ...imports,
                 '</script>',
               ].join('\n'),
             });
