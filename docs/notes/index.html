@@ -22,7 +22,6 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
-  <link rel="preload" href="/main.js" as="script" />
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -100,17 +99,17 @@
         </a>
     </li><li class="svelte-17rdosq"><a href="/notes/2019-09-02 - regex &#39;g&#39;" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-09-02 - regex &#39;g&#39;</p>
         </a>
-    </li><li class="svelte-17rdosq"><a href="/notes/2019-08-27 - Content Security Policy" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-08-27 - Content Security Policy</p>
-        </a>
     </li><li class="svelte-17rdosq"><a href="/notes/2019-07-29 - babel plugin order" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-07-29 - babel plugin order</p>
+        </a>
+    </li><li class="svelte-17rdosq"><a href="/notes/2019-08-27 - Content Security Policy" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-08-27 - Content Security Policy</p>
         </a>
     </li><li class="svelte-17rdosq"><a href="/notes/2019-07-09 - webpack &amp; &quot;microfrontends&quot;" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-07-09 - webpack &amp; &quot;microfrontends&quot;</p>
         </a>
     </li><li class="svelte-17rdosq"><a href="/notes/2019-07-03 - random" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-07-03 - random</p>
         </a>
-    </li><li class="svelte-17rdosq"><a href="/notes/2019-07-01 - First of July" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-07-01 - First of July</p>
-        </a>
     </li><li class="svelte-17rdosq"><a href="/notes/2019-07-02 - my gatsby site" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-07-02 - my gatsby site</p>
+        </a>
+    </li><li class="svelte-17rdosq"><a href="/notes/2019-07-01 - First of July" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-07-01 - First of July</p>
         </a>
     </li><li class="svelte-17rdosq"><a href="/notes/2019-06-28 - svelte stencil" class="svelte-17rdosq"><p class="title svelte-17rdosq">2019-06-28 - svelte stencil</p>
         </a>
@@ -130,7 +129,9 @@
 </main><script src="./notes.js" async defer></script></div>
   
 
-  <script async defer src="/main.js"></script>
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
 </body>
 
 </html>

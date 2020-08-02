@@ -22,7 +22,6 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
-  <link rel="preload" href="/main.js" as="script" />
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -53,7 +52,7 @@
   </style>
 
   
-  <title>5 Steps to build NodeJS using Travis CI | Tan Li Hau</title><meta name="description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-n0q11s"><meta name="og:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Setting up Travis CI for your NodeJS Github repo!","headline":"5 Steps to build NodeJS using Travis CI","name":"5 Steps to build NodeJS using Travis CI","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci","name":"5 Steps to build NodeJS using Travis CI"},"position":2}]}</script><link as="script" rel="preload" href="./d31fe162.js"><link as="style" rel="preload" href="./assets/blog-base-ddb14eb9.css"><link as="style" rel="preload" href="./d31fe162.css"><link href="./assets/blog-base-ddb14eb9.css" rel="stylesheet"><link href="./d31fe162.css" rel="stylesheet">
+  <title>5 Steps to build NodeJS using Travis CI | Tan Li Hau</title><meta name="description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-n0q11s"><meta name="og:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Setting up Travis CI for your NodeJS Github repo!","headline":"5 Steps to build NodeJS using Travis CI","name":"5 Steps to build NodeJS using Travis CI","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci","name":"5 Steps to build NodeJS using Travis CI"},"position":2}]}</script><link as="script" rel="preload" href="./403665dd.js"><link as="style" rel="preload" href="./assets/blog-base-ddb14eb9.css"><link as="style" rel="preload" href="./403665dd.css"><link href="./assets/blog-base-ddb14eb9.css" rel="stylesheet"><link href="./403665dd.css" rel="stylesheet">
 </head>
 
 <body>
@@ -88,11 +87,11 @@
 <section><h2><a href="#how-do-i-use-travis-ci" id="how-do-i-use-travis-ci">2. How do I use Travis CI</a></h2>
 <p>Go to <a href="https://travis-ci.org" rel="nofollow">Travis CI</a>. Sign in using your GitHub account. You will be prompted to authorise Travis CI to your GitHub account. Approved that.</p>
 <p>When you see something like this:</p>
-<p><picture><source type="image/webp" srcset="30285200e85d7abf.webp"><source type="image/jpeg" srcset="30285200e85d7abf.png"><img alt="travis" src="30285200e85d7abf.png"></picture></p>
+<p><picture><source type="image/webp" srcset="30285200e85d7abf.webp"><source type="image/jpeg" srcset="30285200e85d7abf.png"><img title="null" alt="travis" data-src="30285200e85d7abf.png" loading="lazy"></picture></p>
 <p>Voila. You have created a Travis CI account.</p>
 <p>Next thing you are going to do is to click the <code>(+)</code> button beside the <em>“My Repositories”</em> on the left.</p>
 <p>You will then see a list of projects on your GitHub.</p>
-<p><picture><source type="image/webp" srcset="a00250dfaf4363ff.webp"><source type="image/jpeg" srcset="a00250dfaf4363ff.png"><img alt="travis" src="a00250dfaf4363ff.png"></picture></p>
+<p><picture><source type="image/webp" srcset="a00250dfaf4363ff.webp"><source type="image/jpeg" srcset="a00250dfaf4363ff.png"><img title="null" alt="travis" data-src="a00250dfaf4363ff.png" loading="lazy"></picture></p>
 <p>If the list of repositories is empty, click “Sync account” to fetch all your repositories.</p>
 <p>Turn on one of your project for Continuous Integration!</p>
 <p>That’s all.</p></section>
@@ -109,7 +108,7 @@
 <p>The version of Node.js I am using is 4.2 at the time of writing this article. To be safe, you can run “node — version” on your command line to determine which version of Node.js you are running.</p>
 <blockquote><p>Make sure that you have all your dependencies persists to the package.json as Travis CI will install all the dependencies from it by calling npm install.</p></blockquote>
 <p>Another thing to take note is that if you wanna run your test script, make sure to include it in the <code>package.json</code>.</p>
-<p><picture><source type="image/webp" srcset="d226f8139ecb84fe.webp"><source type="image/jpeg" srcset="d226f8139ecb84fe.png"><img alt="packagejson" src="d226f8139ecb84fe.png"></picture></p></section>
+<p><picture><source type="image/webp" srcset="d226f8139ecb84fe.webp"><source type="image/jpeg" srcset="d226f8139ecb84fe.png"><img title="null" alt="packagejson" data-src="d226f8139ecb84fe.png" loading="lazy"></picture></p></section>
 <section><h2><a href="#how-do-i-use-bower-and-install-bower-dependencies" id="how-do-i-use-bower-and-install-bower-dependencies">4. How do I use bower and install bower dependencies</a></h2>
 <p>If you are using bower, add a before_script for .travis.yml</p>
 <pre class="language-yml"><code class="language-yml"><span class="token key atrule">language</span><span class="token punctuation">:</span> node_js
@@ -121,17 +120,17 @@
 <p>Or likewise if you are lazy, copy and paste this to your command line.</p>
 <pre class="language-sh"><code class="language-sh">curl https://gist.githubusercontent.com/tanhauhau/71998bf221810186f046db94cda10c4e/raw/d1e8aee0981a96c20f94de6db386da048face423/.travis.yml &gt; .travis.yml</code></pre>
 <p>One thing to take note for bower is that when there is dependency conflict, bower will ask you to choose which version of the dependency to be installed interactively. In the case for Travis CI, Travis CI will not know which version to install it for you where you will see an error like this:</p>
-<p><picture><source type="image/webp" srcset="16b672cca46f68c4.webp"><source type="image/jpeg" srcset="16b672cca46f68c4.png"><img alt="bower" src="16b672cca46f68c4.png"></picture></p>
+<p><picture><source type="image/webp" srcset="16b672cca46f68c4.webp"><source type="image/jpeg" srcset="16b672cca46f68c4.png"><img title="null" alt="bower" data-src="16b672cca46f68c4.png" loading="lazy"></picture></p>
 <blockquote><p>Therefore, you will have to <a href="https://jaketrent.com/post/bower-resolutions/" rel="nofollow">persists the resolution to bower.json</a> to avoid the build error.</p></blockquote></section>
 <section><h2><a href="#include-a-travis-ci-badge" id="include-a-travis-ci-badge">5. Include a Travis CI badge</a></h2>
 <p>To summarise, you have set up your Travis CI, copied and pasted the <code>.travis.yml</code> to your project, commited and pushed your project to GitHub, and Travis CI had built and tested your project.</p>
 <p>Now, it’s time to add a badge to your GitHub repository!</p>
 <p>Simply clicked the badge in Travis CI and choose for Markdown.</p>
-<p><picture><source type="image/webp" srcset="e43a9c3249f8bb4a.webp"><source type="image/jpeg" srcset="e43a9c3249f8bb4a.png"><img alt="badge" src="e43a9c3249f8bb4a.png"></picture></p>
+<p><picture><source type="image/webp" srcset="e43a9c3249f8bb4a.webp"><source type="image/jpeg" srcset="e43a9c3249f8bb4a.png"><img title="null" alt="badge" data-src="e43a9c3249f8bb4a.png" loading="lazy"></picture></p>
 <p>Copy and paste the line into your README.md.</p>
 <p>Commit and Push.</p>
 <p>And now you have a Travis CI badge on your repo!</p>
-<p><picture><source type="image/webp" srcset="15dcca7d3b1a22fa.webp"><source type="image/jpeg" srcset="15dcca7d3b1a22fa.png"><img alt="badge" src="15dcca7d3b1a22fa.png"></picture></p></section></article></main>
+<p><picture><source type="image/webp" srcset="15dcca7d3b1a22fa.webp"><source type="image/jpeg" srcset="15dcca7d3b1a22fa.png"><img title="null" alt="badge" data-src="15dcca7d3b1a22fa.png" loading="lazy"></picture></p></section></article></main>
 
 <footer class="svelte-9tqnza"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
   <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
@@ -142,10 +141,12 @@
 </div>
   </footer>
 
-<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./d31fe162.js" async></script></div>
+<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script src="./403665dd.js" async></script></div>
   
 
-  <script async defer src="/main.js"></script>
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
 </body>
 
 </html>

@@ -43,13 +43,16 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
                   '<picture>',
                   `<source type="image/webp" srcset="{__build_img_webp__${i}}" />`,
                   `<source type="image/jpeg" srcset="${node.url}" />`,
-                  `<img alt="${node.alt}" src="${node.url}" />`,
+                  `<img title="${node.title}" alt="${node.alt}" data-src="${node.url}" loading="lazy" />`,
                   '</picture>',
                 ].join('');
 
                 imports.push(
                   `import __build_img_webp__${i} from 'webp://${url}'`
                 );
+              } else {
+                node.type = 'html';
+                node.value = `<img title="${node.title}" alt="${node.alt}" data-src="${node.url}" loading="lazy" />`;
               }
 
               i++;
