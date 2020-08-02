@@ -108,7 +108,7 @@ Looking at the different `bundle.js` generated from with `{...spread}` attribute
 
 I found the following diffs in the bundled output:
 
-```diff
+```diff-js
 + let select_levels = [{ multiple: true }, { value: /*value*/ ctx[0] }, {}];
 +	let select_data = {};
 +	for (let i = 0; i < select_levels.length; i += 1) {

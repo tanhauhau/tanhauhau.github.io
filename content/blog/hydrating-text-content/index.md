@@ -147,7 +147,7 @@ So, what is the difference between [`ReactDOMServer.renderToStaticMarkup`](https
 
 This is what [`ReactDOMServer.renderToString`](https://reactjs.org/docs/react-dom-server.html#rendertostring) generates:
 
-```diff
+```diff-svelte
 - <div>
 + <div data-reactroot="">
 -  <div>Count: 0</div>

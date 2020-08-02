@@ -21,13 +21,16 @@ const {
   DEFAULT_LAYOUT,
   HOSTNAME,
 } = require('./config');
+const { cleanup } = require("./cleanup");
 
 const skipCache = !!process.env.SKIP_CACHE;
 
 (async () => {
   console.time('all');
 
-  await cleanup(OUTPUT_FOLDER);
+  if (skipCache) {
+    await cleanup(OUTPUT_FOLDER);
+  }
 
   let [jsTemplate, template, layouts, pages] = await Promise.all([
     fs.readFile(path.join(__dirname, './template/page.js'), 'utf-8'),
@@ -219,21 +222,6 @@ async function getRoutes(folder) {
     result[file.replace('.svelte', '')] = path.join(folder, file);
   }
   return result;
-}
-
-async function cleanup(folder) {
-  const files = await fs.readdir(folder);
-  await Promise.all(
-    files.map(async file => {
-      const filepath = path.join(folder, file);
-      if ((await fs.stat(filepath)).isDirectory()) {
-        await cleanup(filepath);
-      } else {
-        await fs.unlink(filepath);
-      }
-    })
-  );
-  await fs.rmdir(folder);
 }
 
 async function buildList({

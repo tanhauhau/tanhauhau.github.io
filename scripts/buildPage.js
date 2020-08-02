@@ -8,10 +8,20 @@ const visit = require('unist-util-visit');
 const { encodeUrl } = require('./encodeUrl');
 const { renderTemplate } = require('./renderTemplate');
 const { OUTPUT_FOLDER, HOSTNAME } = require('./config');
+const { cleanup } = require("./cleanup");
+
+global.Prism = require('prismjs');
+require('prism-svelte');
+require('prismjs/components/prism-diff');
+require('prismjs/plugins/diff-highlight/prism-diff-highlight');
+Prism.languages['diff-js'] = Prism.languages['diff'];
+Prism.languages['diff-svelte'] = Prism.languages['diff'];
 
 async function buildPage({ layouts, jsTemplate, template, meta }) {
   const outputFolder = path.join(OUTPUT_FOLDER, meta.slug);
   const markdown = await fs.readFile(meta.mdPath, 'utf8');
+
+  await cleanup(outputFolder);
   await mkdirp(outputFolder);
 
   try {

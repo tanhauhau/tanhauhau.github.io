@@ -52,7 +52,7 @@
   </style>
 
   
-  <title>Implementing {#range} in Svelte | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Implementing {#range} in Svelte" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Implementing {#range} in Svelte" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Implementing {#range} in Svelte","name":"Implementing {#range} in Svelte","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte","name":"Implementing {#range} in Svelte"},"position":2}]}</script><link as="script" rel="preload" href="./38f26c8c.js"><link as="style" rel="preload" href="./assets/blog-base-ddb14eb9.css"><link as="style" rel="preload" href="./38f26c8c.css"><link href="./assets/blog-base-ddb14eb9.css" rel="stylesheet"><link href="./38f26c8c.css" rel="stylesheet">
+  <title>Implementing {#range} in Svelte | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-n0q11s"><meta name="image" data-svelte="svelte-n0q11s"><meta name="og:image" data-svelte="svelte-n0q11s"><meta name="og:title" content="Implementing {#range} in Svelte" data-svelte="svelte-n0q11s"><meta name="og:description" content="" data-svelte="svelte-n0q11s"><meta name="og:type" content="website" data-svelte="svelte-n0q11s"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-n0q11s"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-n0q11s"><meta name="twitter:title" content="Implementing {#range} in Svelte" data-svelte="svelte-n0q11s"><meta name="twitter:description" content="" data-svelte="svelte-n0q11s"><meta name="twitter:image" data-svelte="svelte-n0q11s"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte" data-svelte="svelte-n0q11s"><meta itemprop="image" data-svelte="svelte-n0q11s"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Implementing {#range} in Svelte","name":"Implementing {#range} in Svelte","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fimplementing-feature-in-svelte","name":"Implementing {#range} in Svelte"},"position":2}]}</script><link as="script" rel="preload" href="./8070db5e.js"><link as="style" rel="preload" href="./assets/blog-base-8d11877d.css"><link as="style" rel="preload" href="./8070db5e.css"><link href="./assets/blog-base-8d11877d.css" rel="stylesheet"><link href="./8070db5e.css" rel="stylesheet">
 </head>
 
 <body>
@@ -89,22 +89,22 @@
 <p>Armed with the overview of the compilation pipeline, let&#39;s dive into the detail, by implementing a new logic block, <code>{#range}</code>.</p>
 <p>A quick idea of how <code>{#range}</code> behaves:</p>
 <p><strong>1. The syntax:</strong></p>
-<pre class="language-svelte"><code class="language-svelte">&lt;!-- loop &#96;n&#96; through 1, 2, 3, 4, 5 --&gt;
-&#123;#range 1..5 as n&#125;
-  &#123;n&#125;
-&#123;/range&#125;</code></pre>
-<pre class="language-svelte"><code class="language-svelte">&lt;script&gt;
-  let start = 1;
-  let end = 5;
-&lt;/script&gt;
+<pre class="language-svelte"><code class="language-svelte"><span class="token comment">&lt;!-- loop &#96;n&#96; through 1, 2, 3, 4, 5 --></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>#range <span class="token number">1.</span><span class="token number">.5</span> <span class="token keyword">as</span> n<span class="token punctuation">&#125;</span></span>
+  <span class="token language-javascript"><span class="token punctuation">&#123;</span>n<span class="token punctuation">&#125;</span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>range<span class="token punctuation">&#125;</span></span></code></pre>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> end <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
-&lt;!-- loop &#96;n&#96; through 1, 2, 3, 4, 5 --&gt;
-&#123;#range start..end as n&#125;
-  &#123;n&#125;
-&#123;/range&#125;
+<span class="token comment">&lt;!-- loop &#96;n&#96; through 1, 2, 3, 4, 5 --></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>#range start<span class="token punctuation">.</span><span class="token punctuation">.</span>end <span class="token keyword">as</span> n<span class="token punctuation">&#125;</span></span>
+  <span class="token language-javascript"><span class="token punctuation">&#123;</span>n<span class="token punctuation">&#125;</span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>range<span class="token punctuation">&#125;</span></span>
 
-&lt;input bind:value=&#123;start&#125; type=&quot;number&quot; /&gt;
-&lt;input bind:value=&#123;end&#125; type=&quot;number&quot; /&gt;</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name"><span class="token namespace">bind:</span>value=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>start<span class="token punctuation">&#125;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name"><span class="token namespace">bind:</span>value=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>end<span class="token punctuation">&#125;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <p><strong>2. The behavior:</strong></p>
 <p>The <code>{#range}</code> behaves like <a href="https://www.rubyguides.com/2016/06/ruby-ranges-how-do-they-work/" rel="nofollow">Ruby range</a>:</p>
 <ul><li><code>{#range}</code> loops from the start to end inclusively</li>
@@ -191,7 +191,7 @@ NOTE: copy code from EachBlock, since they lookalike</p>
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./38f26c8c.js" async></script></div>
+</footer><script src="./8070db5e.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
