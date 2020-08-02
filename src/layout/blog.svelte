@@ -84,8 +84,6 @@
   <CarbonAd />
 </footer>
 
-{@html '<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'}
-
 <style>
   span {
     padding: 4px 8px;
