@@ -21,7 +21,7 @@ const {
   DEFAULT_LAYOUT,
   HOSTNAME,
 } = require('./config');
-const { cleanup } = require("./cleanup");
+const { cleanup } = require('./cleanup');
 
 const skipCache = !!process.env.SKIP_CACHE;
 
@@ -83,38 +83,36 @@ async function buildPages(pages, layouts, jsTemplate, template) {
   pages = await buildPage(pages, { layouts, jsTemplate, template });
 
   const result = {
-    notes: [],
-    blog: [],
-    talk: [],
+    notes: new Map(),
+    blog: new Map(),
+    talk: new Map(),
   };
 
-  pages.forEach(page => {
-    result[page.metadata.type].push(page);
-  });
+  const blogsOutput = path.join(OUTPUT_FOLDER, 'blogs.json');
+  const notesOutput = path.join(OUTPUT_FOLDER, 'notes.json');
+  const talksOutput = path.join(OUTPUT_FOLDER, 'talks.json');
 
-  result.blog = result.blog
+  const addToMap = page => result[page.metadata.type].set(page.slug, page);
+
+  if (!skipCache) {
+    tryRequire(blogsOutput, []).forEach(addToMap);
+    tryRequire(notesOutput, []).forEach(addToMap);
+    tryRequire(blogsOutput, []).forEach(addToMap);
+  }
+  pages.forEach(addToMap);
+
+  result.notes = Array.from(result.notes.values());
+  result.blog = Array.from(result.blog.values())
     .sort(reverseSortByDate)
     .filter(_ => !_.metadata.wip);
-  result.talk = result.talk
+  result.talk = Array.from(result.talk.values())
     .sort(reverseSortByDate)
     .filter(_ => !_.metadata.wip);
 
   await Promise.all([
-    fs.writeFile(
-      path.join(OUTPUT_FOLDER, 'blogs.json'),
-      JSON.stringify(result.blog),
-      'utf-8'
-    ),
-    fs.writeFile(
-      path.join(OUTPUT_FOLDER, 'notes.json'),
-      JSON.stringify(result.notes),
-      'utf-8'
-    ),
-    fs.writeFile(
-      path.join(OUTPUT_FOLDER, 'talks.json'),
-      JSON.stringify(result.talk),
-      'utf-8'
-    ),
+    writeJson(blogsOutput, result.blog),
+    writeJson(notesOutput, result.notes),
+    writeJson(talksOutput, result.talk),
     buildList({
       data: {
         data: result.blog,
@@ -374,20 +372,27 @@ async function copyAll(from, to) {
 
 function getCacheMap() {
   if (skipCache) return {};
-  try {
-    return require(path.join(
-      require.resolve('svelte'),
-      '../../.cache/lihautan.json'
-    ));
-  } catch {
-    return {};
-  }
+  return tryRequire(
+    path.join(require.resolve('svelte'), '../../.cache/lihautan.json'),
+    {}
+  );
 }
 
 function writeCacheMap(cacheMap) {
-  return fs.writeFile(
+  return writeJson(
     path.join(require.resolve('svelte'), '../../.cache/lihautan.json'),
-    JSON.stringify(cacheMap),
-    'utf-8'
+    cacheMap
   );
+}
+
+function tryRequire(file, def) {
+  try {
+    return require(file);
+  } catch {
+    return def;
+  }
+}
+
+function writeJson(file, data) {
+  return fs.writeFile(file, JSON.stringify(data), 'utf-8');
 }
