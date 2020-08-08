@@ -8,10 +8,10 @@
 <main class="blogs">
   <h1>Li Hau's Notes</h1>
   <ul>
-  {#each data as { metadata: { name, date, tags } = {}, slug } (slug)}
+  {#each data as { metadata: { title, tags } = {}, slug } (slug)}
     <li>
       <a href="/{slug}">
-        <p class="title">{date} - {name}</p>
+        <p class="title">{title}</p>
         {#if tags}<p>{#each tags as tag}<span>{tag}</span>{/each}</p>{/if}
       </a>
     </li>

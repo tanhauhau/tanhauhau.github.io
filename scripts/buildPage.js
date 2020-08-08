@@ -8,7 +8,7 @@ const visit = require('unist-util-visit');
 const { encodeUrl } = require('./encodeUrl');
 const { renderTemplate } = require('./renderTemplate');
 const { OUTPUT_FOLDER, HOSTNAME } = require('./config');
-const { cleanup } = require("./cleanup");
+const { cleanup } = require('./cleanup');
 
 global.Prism = require('prismjs');
 require('prism-svelte');
@@ -174,14 +174,25 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
               type: meta.type,
             };
             if (meta.type === 'notes') {
-              const [_, date, name] = meta.filename.match(
+              const match = meta.filename.match(
                 /(\d+-\d+-\d+)\s*-\s*(.+)\.md$/
               );
-              Object.assign(vfile.data.fm, {
-                date,
-                name,
-                layout: 'note',
-              });
+              if (match) {
+                const [_, date, name] = match;
+                Object.assign(vfile.data.fm, {
+                  date,
+                  name,
+                  title: `${date} - ${name}`,
+                  layout: 'note',
+                });
+              } else {
+                const name = meta.filename.replace(/\.md$/, '');
+                Object.assign(vfile.data.fm, {
+                  name,
+                  title: name,
+                  layout: 'note',
+                });
+              }
             }
           };
         },

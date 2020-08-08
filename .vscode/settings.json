@@ -1,0 +1,6 @@
+{
+  "foam.openDailyNote.directory": "content/notes",
+  "foam.openDailyNote.filenameFormat": "yyyy-mm-dd-'daily-note'",
+  "foam.openDailyNote.fileExtension": "md",
+  "foam.openDailyNote.titleFormat": "yyyy-mm-dd"
+}

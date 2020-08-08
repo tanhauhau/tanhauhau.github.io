@@ -2,7 +2,7 @@
   import Header from './Header.svelte';
   import baseCss from 'file://./blog-base.css';
   export let name;
-  export let date;
+  export let title;
   export let tags = [];
 
   const jsonLdAuthor = {
@@ -13,7 +13,7 @@
 
 
 <svelte:head>
-  <title>Note: {date} {name} | Tan Li Hau</title>
+  <title>Note: {title} | Tan Li Hau</title>
   <link href={baseCss} rel="stylesheet" />
 
   <meta name="og:title" content={name} />
@@ -30,7 +30,7 @@
 <Header />
 
 <main id="content" class="blog">
-  <h1>{date} - {name}</h1>
+  <h1>{title}</h1>
   
   {#each tags as tag}
     <span>{tag}</span>
