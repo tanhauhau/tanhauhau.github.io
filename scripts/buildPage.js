@@ -179,19 +179,31 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
               );
               if (match) {
                 const [_, date, name] = match;
-                Object.assign(vfile.data.fm, {
-                  date,
-                  name,
-                  title: `${date} - ${name}`,
-                  layout: 'note',
-                });
+                Object.assign(
+                  vfile.data.fm,
+                  Object.assign(
+                    {
+                      date,
+                      name,
+                      title: `${date} - ${name}`,
+                      layout: 'note',
+                    },
+                    vfile.data.fm
+                  )
+                );
               } else {
                 const name = meta.filename.replace(/\.md$/, '');
-                Object.assign(vfile.data.fm, {
-                  name,
-                  title: name,
-                  layout: 'note',
-                });
+                Object.assign(
+                  vfile.data.fm,
+                  Object.assign(
+                    {
+                      name,
+                      title: name,
+                      layout: 'note',
+                    },
+                    vfile.data.fm
+                  )
+                );
               }
             }
           };
