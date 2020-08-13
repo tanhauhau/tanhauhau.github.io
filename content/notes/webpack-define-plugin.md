@@ -97,3 +97,7 @@ require('foo');
 ```
 
 the bundled code still have `foo` and `bar`'s code.
+
+## Read More
+
+- https://webpack.js.org/plugins/internal-plugins/#constplugin
