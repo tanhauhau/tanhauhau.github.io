@@ -67,7 +67,7 @@ if (true) {
 
 webpack's parser is able to collapse the conditional of the latter, but not the former.
 
-> the collapse of conditional expression happens [here](https://github.com/webpack/webpack/blob/master/lib/javascript/JavascriptParser.js#L1189)
+> the collapse of conditional expression happens [here](https://github.com/webpack/webpack/blob/master/lib/ConstPlugin.js#L133)
 
 ```js
 if (true) {
