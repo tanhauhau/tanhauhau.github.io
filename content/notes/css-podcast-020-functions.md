@@ -230,6 +230,7 @@ Runtime contextual expressions that return dynamic real-time value per the state
 
 - Billion Laughs Attack (https://drafts.csswg.org/css-variables/#long-variables)
 - XSS through `url()` + `attr()`
+- [Third party CSS is not safe](https://jakearchibald.com/2018/third-party-css-is-not-safe/)
 
 ```css
 /* Billion Laughs Attack */
@@ -247,3 +248,4 @@ Runtime contextual expressions that return dynamic real-time value per the state
   --v10: var(--v9) var(--v9) var(--v9) var(--v9) var(--v9) var(--v9) var(--v9) var(--v9) var(--v9) var(--v9);
 }
 ```
+

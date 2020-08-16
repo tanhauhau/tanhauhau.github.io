@@ -5,7 +5,9 @@ tags:
   - conference notes
 ---
 
-## [Different type of technical leadership](https://leaddev.com/exploring-different-types-technical-leadership)
+## Different type of technical leadership
+
+[Different type of technical leadership](https://leaddev.com/exploring-different-types-technical-leadership)
 
 - https://www.patkua.com/
 
@@ -28,7 +30,9 @@ Trident model
   - experience, knowledge, likeable
 - the story teller
 
-## [How to scale yourself at the speed of Slack](https://leaddev.com/how-scale-yourself-speed-slack)
+## How to scale yourself at the speed of Slack
+
+[How to scale yourself at the speed of Slack](https://leaddev.com/how-scale-yourself-speed-slack)
 
 - **No Parachute**
   - Your old job doesn't exists! (You cant go back anymore!)
@@ -59,7 +63,9 @@ Trident model
 10. Treat people fairly and with respect. It's a tremendous privilege to be thier leader.
 
 
-## [Optimising the glue work in your team](https://leaddev.com/optimizing-glue-work-your-team)
+## Optimising the glue work in your team
+
+[Optimising the glue work in your team](https://leaddev.com/optimizing-glue-work-your-team)
 - what to do if you are a glue
 1. have the career conversation
    - what do you need to do to get promoted?
@@ -71,7 +77,9 @@ Trident model
 
 > "Our skills are not fixed in place, we can learn to do a lot of things"
 
-## [Communicating and documenting architectural decisions](https://leaddev.com/documenting-and-communicating-architectural-decisions)
+## Communicating and documenting architectural decisions
+
+[Communicating and documenting architectural decisions](https://leaddev.com/documenting-and-communicating-architectural-decisions)
 
 ### 1. Lightweight Architectural Decision Records (ADR)
 - "Why did we decide to do it this way?"
@@ -112,7 +120,9 @@ Trident model
 
 - simplest possible thing that executes all the components in the path, to show how each of them connects.
 
-## [Being right is only half the battle](https://leaddev.com/being-right-only-half-battle-how-optimize-your-interpersonal-connections)
+## Being right is only half the battle
+
+[Being right is only half the battle](https://leaddev.com/being-right-only-half-battle-how-optimize-your-interpersonal-connections)
 
 ### How to read minds
 
