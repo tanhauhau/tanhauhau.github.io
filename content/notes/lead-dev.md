@@ -142,7 +142,7 @@ Play back and verify.
 
 eg: "fixing old bugs even over shipping new featuers", "quick iteration even over polished ui"
 
-## How to predict future
+### How to predict future
 
 - socialise and get feedbacks in the early stage
   - "How would you react if I said we should ...."
