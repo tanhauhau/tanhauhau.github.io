@@ -7,3 +7,9 @@
   - https://www.amazon.com/dp/B06XP3GJ7F/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
 - contributing to firefox https://github.com/nt1m/conic-gradient-dissertation/blob/master/dissertation.pdf
 - https://wealthenjoy.com/webinar/tammy-chambless-2020-08-13/
+- [部署速度翻6倍，知乎从0到1实现部署系统演进及优化](https://mp.weixin.qq.com/s/6r1u1ejVZCxce4ADz63hJA)
+- [Bash shell, take control of PS1, PS2, PS3, PS4](https://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/)
+- [react-devtools](https://github.com/facebook/react-devtools/blob/master/agent/Bridge.js)
+- [finding and fixing nodejs memory leak](https://marmelab.com/blog/2018/04/03/how-to-track-and-fix-memory-leak-with-nodejs.html#using-the-heap-dump-npm-package)
+- [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)
+- [Verbal Advantage](https://www.amazon.com/Verbal-Advantage-Steps-Powerful-Vocabulary/dp/0375709320)

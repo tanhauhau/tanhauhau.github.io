@@ -62,6 +62,9 @@
       padding: 0 calc(2 * var(--prism-padding));
     }
   }
+  article {
+    margin-top: 20px;
+  }
   .skip {
     position: absolute;
     width: 1px;

@@ -3,13 +3,14 @@ title: "The CSS Podcast: 019: Z-Index and Stacking Context"
 tags:
   - z-index
   - stacking context
+  - The CSS Podcast
 ---
 
 ## 1️⃣ Natural stacking order
 
 - Order of the element in the DOM.
 - Last child in DOM tree appears in the frontmost
-- CSS grid when assigning mutliple elements into the same grid, order on top depending on order in DOM tree
+- CSS grid when assigning multiple elements into the same grid, without z-index, the order of stacking of the elements depends on their order in the DOM
 - `flex-direction: reverse` does not change the stacking order
 
 ## 2️⃣ z-index
@@ -22,7 +23,7 @@ tags:
 ## 3️⃣ negative z-index
 
 - negative z-index goes behind the parent.
-- body tag has base z-index, you can't go behind the `<body>`
+- html tag has base z-index, you can't go behind the `<html>`
 
 ```html
 <div class="parent">
@@ -55,8 +56,8 @@ tags:
 
 ## 4️⃣ Highest z-index value
 
-- not mentioned in spec, but limited by the type of variable used to store them (32-bit signed integer)
-- 2^31 - 1
+- Not mentioned in the spec, limited by the implementation (32-bit signed integer)
+- (2^31)-1
 
 ## 5️⃣ Debugging z-index
 

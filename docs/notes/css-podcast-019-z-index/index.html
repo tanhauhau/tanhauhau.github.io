@@ -52,13 +52,13 @@
   </style>
 
   
-  <title>Note: The CSS Podcast: 019: Z-Index and Stacking Context | Tan Li Hau</title><link href="https://lihautan.com/notes/css-podcast-019-z-index/assets/blog-base-967d71e9.css" rel="stylesheet" data-svelte="svelte-ywf7m8"><meta name="og:title" content="css-podcast-019-z-index" data-svelte="svelte-ywf7m8"><meta name="og:type" content="website" data-svelte="svelte-ywf7m8"><meta name="keywords" content="z-index" data-svelte="svelte-ywf7m8"><meta name="keywords" content="stacking context" data-svelte="svelte-ywf7m8"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fcss-podcast-019-z-index" data-svelte="svelte-ywf7m8"><link as="script" rel="preload" href="./fdf91656.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./fdf91656.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./fdf91656.css" rel="stylesheet">
+  <title>Note: The CSS Podcast: 019: Z-Index and Stacking Context | Tan Li Hau</title><link href="https://lihautan.com/notes/css-podcast-019-z-index/assets/blog-base-967d71e9.css" rel="stylesheet" data-svelte="svelte-ywf7m8"><meta name="og:title" content="css-podcast-019-z-index" data-svelte="svelte-ywf7m8"><meta name="og:type" content="website" data-svelte="svelte-ywf7m8"><meta name="keywords" content="z-index" data-svelte="svelte-ywf7m8"><meta name="keywords" content="stacking context" data-svelte="svelte-ywf7m8"><meta name="keywords" content="The CSS Podcast" data-svelte="svelte-ywf7m8"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fcss-podcast-019-z-index" data-svelte="svelte-ywf7m8"><link as="script" rel="preload" href="./973d566f.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./973d566f.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./973d566f.css" rel="stylesheet">
 </head>
 
 <body>
   <div id="app">
 
-<a href="#content" class="skip svelte-10cnqwo">Skip to content</a>
+<a href="#content" class="skip svelte-186dllz">Skip to content</a>
 <header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
     <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
     <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
@@ -75,15 +75,15 @@
     3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
 </header>
 
-<main id="content" class="blog svelte-10cnqwo"><h1>The CSS Podcast: 019: Z-Index and Stacking Context</h1>
+<main id="content" class="blog svelte-186dllz"><h1>The CSS Podcast: 019: Z-Index and Stacking Context</h1>
   
-  <span class="svelte-10cnqwo">z-index</span><span class="svelte-10cnqwo">stacking context</span>
+  <span class="svelte-186dllz">z-index</span><span class="svelte-186dllz">stacking context</span><span class="svelte-186dllz">The CSS Podcast</span>
 
-  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#natural-stacking-order">1️⃣ Natural stacking order</a></li><li><a href="#z-index">2️⃣ z-index</a></li><li><a href="#negative-z-index">3️⃣ negative z-index</a></li><li><a href="#highest-z-index-value">4️⃣ Highest z-index value</a></li><li><a href="#debugging-z-index">5️⃣ Debugging z-index</a></li><li><a href="#manage-z-index">6️⃣ Manage z-index</a></li><li><a href="#stacking-context">7️⃣ stacking context</a></li><li><a href="#links">Links</a></li></ul></section>
+  <article class="svelte-186dllz"><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#natural-stacking-order">1️⃣ Natural stacking order</a></li><li><a href="#z-index">2️⃣ z-index</a></li><li><a href="#negative-z-index">3️⃣ negative z-index</a></li><li><a href="#highest-z-index-value">4️⃣ Highest z-index value</a></li><li><a href="#debugging-z-index">5️⃣ Debugging z-index</a></li><li><a href="#manage-z-index">6️⃣ Manage z-index</a></li><li><a href="#stacking-context">7️⃣ stacking context</a></li><li><a href="#links">Links</a></li></ul></section>
 <section><h2><a href="#natural-stacking-order" id="natural-stacking-order">1️⃣ Natural stacking order</a></h2>
 <ul><li>Order of the element in the DOM.</li>
 <li>Last child in DOM tree appears in the frontmost</li>
-<li>CSS grid when assigning mutliple elements into the same grid, order on top depending on order in DOM tree</li>
+<li>CSS grid when assigning multiple elements into the same grid, without z-index, the order of stacking of the elements depends on their order in the DOM</li>
 <li><code>flex-direction: reverse</code> does not change the stacking order</li></ul></section>
 <section><h2><a href="#z-index" id="z-index">2️⃣ z-index</a></h2>
 <ul><li>can be positive / negative</li>
@@ -91,7 +91,7 @@
 <li>why z-index not working, position</li></ul></section>
 <section><h2><a href="#negative-z-index" id="negative-z-index">3️⃣ negative z-index</a></h2>
 <ul><li>negative z-index goes behind the parent.</li>
-<li>body tag has base z-index, you can&#39;t go behind the <code>&lt;body&gt;</code></li></ul>
+<li>html tag has base z-index, you can&#39;t go behind the <code>&lt;html&gt;</code></li></ul>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>parent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token comment">&lt;!-- child hidden behind parent --></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>child<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -118,8 +118,8 @@
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
 <p><a href="https://codepen.io/tanhauhau/pen/WNwvraL" rel="nofollow">Codepen</a></p></section>
 <section><h2><a href="#highest-z-index-value" id="highest-z-index-value">4️⃣ Highest z-index value</a></h2>
-<ul><li>not mentioned in spec, but limited by the type of variable used to store them (32-bit signed integer)</li>
-<li>2^31 - 1</li></ul></section>
+<ul><li>Not mentioned in the spec, limited by the implementation (32-bit signed integer)</li>
+<li>(2^31)-1</li></ul></section>
 <section><h2><a href="#debugging-z-index" id="debugging-z-index">5️⃣ Debugging z-index</a></h2>
 <ul><li><p>Layers panel</p>
 <p><picture><source type="image/webp" srcset="63875c2221a8d717.webp"><source type="image/jpeg" srcset="63875c2221a8d717.png"><img title="null" alt="null" data-src="63875c2221a8d717.png" loading="lazy"></picture></p></li>
@@ -198,7 +198,7 @@
 <section><h2><a href="#links" id="links">Links</a></h2>
 <ul><li><a href="https://podcasts.google.com/feed/aHR0cHM6Ly90aGVjc3Nwb2RjYXN0LmxpYnN5bi5jb20vcnNz/episode/NmZmNzlmOTgtNmM2NS00MjVhLWE0M2UtNTY1YmY4MjYxODU5?sa=X&ved=2ahUKEwiH-uH7_YzrAhWlGbcAHWJKBHcQkfYCegQIARAF" rel="nofollow">The CSS Podcast: 019: Z-Index and Stacking Context</a></li>
 <li><a href="https://philipwalton.com/articles/what-no-one-told-you-about-z-index/" rel="nofollow">Philip Walton: What no one told you about z-index</a> (<a href="./what-no-one-told-you-about-z-index">My Note</a>)</li></ul></section></article>
-</main><script src="./fdf91656.js" async></script></div>
+</main><script src="./973d566f.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

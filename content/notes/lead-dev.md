@@ -25,3 +25,7 @@ Trident model
 - the story teller
 
 ## [How to scale yourself at the speed of Slack](https://leaddev.com/how-scale-yourself-speed-slack)
+
+- **No Parachute**
+  - Your old job doesn't exists! (You cant go back anymore!)
+- 
