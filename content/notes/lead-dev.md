@@ -92,6 +92,7 @@ Trident model
     - bias, tensions
   - decision
   - consequences
+- [Why write ADRs](/notes/why-write-architectural-decision-records.md)
 
 ### 2. Enterprise Architecture Guilds
 - Open decision making to all

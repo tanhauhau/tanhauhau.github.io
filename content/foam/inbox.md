@@ -13,3 +13,6 @@
 - [finding and fixing nodejs memory leak](https://marmelab.com/blog/2018/04/03/how-to-track-and-fix-memory-leak-with-nodejs.html#using-the-heap-dump-npm-package)
 - [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)
 - [Verbal Advantage](https://www.amazon.com/Verbal-Advantage-Steps-Powerful-Vocabulary/dp/0375709320)
+- ScrollTrigger - Highlight Text https://codepen.io/hexagoncircle/full/gOPMwvd
+- ana rodrigues blog https://ohhelloana.blog/ - layout idea for digital gardens
+- Style Stage https://stylestage.dev/
