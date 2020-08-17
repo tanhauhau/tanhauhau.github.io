@@ -16,3 +16,4 @@
 - ScrollTrigger - Highlight Text https://codepen.io/hexagoncircle/full/gOPMwvd
 - ana rodrigues blog https://ohhelloana.blog/ - layout idea for digital gardens
 - Style Stage https://stylestage.dev/
+- https://www.youtube.com/watch?v=llGgO74uXMI
