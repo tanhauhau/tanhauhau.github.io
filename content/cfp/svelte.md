@@ -104,3 +104,13 @@ Have you ever feeling curious and want to read Svelte source code but does not k
 This talk will give you an overview of the Svelte compilation process, from parsing the source code, analyse the code to generating final JavaScript code.
 
 At the end of the talk, you will get a deeper understanding of the Svelte compilation process.
+
+---
+
+# Demystifying Svelte Transitions
+
+It's unbelievably easy to create a cool slick transition in Svelte. Do you ever wonder how Svelte make it so simple? or how does Svelte make it performant and smooth?
+
+In this talk, we will be looking into the transition mechanism, how Svelte coordinates transitions across components, and what make them performant.
+
+At the end of the talk, you will have a deeper appreciation of Svelte transition.
