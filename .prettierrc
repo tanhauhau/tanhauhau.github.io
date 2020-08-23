@@ -3,5 +3,16 @@
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
-  "trailingComma": "es5"
+  "trailingComma": "es5",
+  "printWidth": 500,
+  "overrides": [
+    {
+      "files": "content/slides/**/*.mdx",
+      "options": {
+        "printWidth": 500,
+        "htmlWhitespaceSensitivity": "strict",
+        "proseWrap": "never"
+      }
+    }
+  ]
 }

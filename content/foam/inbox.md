@@ -17,3 +17,5 @@
 - ana rodrigues blog https://ohhelloana.blog/ - layout idea for digital gardens
 - Style Stage https://stylestage.dev/
 - https://www.youtube.com/watch?v=llGgO74uXMI
+- SVG filters https://www.sarasoueidan.com/blog/svg-filters/
+- Video games and future of education https://www.youtube.com/watch?v=qWFScmtiC44&feature=youtu.be

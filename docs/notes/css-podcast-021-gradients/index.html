@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://twitter.com/lihautan" rel="me" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#bd93f9" />
+  <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Note: The CSS Podcast: 021: Gradients | Tan Li Hau</title><link href="https://lihautan.com/notes/css-podcast-021-gradients/assets/blog-base-967d71e9.css" rel="stylesheet" data-svelte="svelte-ywf7m8"><meta name="og:title" content="css-podcast-021-gradients" data-svelte="svelte-ywf7m8"><meta name="og:type" content="website" data-svelte="svelte-ywf7m8"><meta name="keywords" content="css gradients" data-svelte="svelte-ywf7m8"><meta name="keywords" content="The CSS Podcast" data-svelte="svelte-ywf7m8"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fcss-podcast-021-gradients" data-svelte="svelte-ywf7m8"><link as="script" rel="preload" href="./51f852c3.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./51f852c3.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./51f852c3.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-186dllz">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-186dllz"><h1>The CSS Podcast: 021: Gradients</h1>
+  
+  <span class="svelte-186dllz">css gradients</span><span class="svelte-186dllz">The CSS Podcast</span>
+
+  <article class="svelte-186dllz"><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#css-gradients">CSS Gradients</a></li><li><a href="#linear-gradient">linear-gradient()</a></li><li><a href="#radial-gradient">radial-gradient()</a></li><li><a href="#conic-gradient">conic-gradient()</a></li><li><a href="#repeating-linear-gradient-repeating-radial-gradient-repeating-conic-gradient">repeating-linear-gradient, repeating-radial-gradient, repeating-conic-gradient</a></li><li><a href="#animating-repeating-conic-gradient">animating repeating-conic-gradient</a></li><li><a href="#avoid-transparent">Avoid  transparent</a></li></ul></section>
+<section><h2><a href="#css-gradients" id="css-gradients">CSS Gradients</a></h2>
+<p>Gradient is an image that smoothly fading from 1 color to another</p>
+<p><strong>Color stops</strong> - a color and a corresponding position on the gradient line
+<strong>Color transition hints</strong> - a position to decide whether the middle point should be for the 2 color stops
+<strong>Color stop fixup</strong> - automatically assigning a length to color stops</p></section>
+<section><h2><a href="#linear-gradient" id="linear-gradient">linear-gradient()</a></h2>
+<pre class="language-null">
+<code class="language-">linear-gradient(
+  [ &lt;angle&gt; | to &lt;side-or-corner&gt; ]? ,
+  &lt;color-stop-list&gt;
+)
+&lt;side-or-corner&gt; = [left | right] || [top | bottom]</code></pre>
+<p>angle</p>
+<ul><li>example: 180deg, 3.14rad, 0.5turn</li>
+<li>to bottom, to right, to top left</li></ul>
+<pre class="language-css"><code class="language-css"><span class="token selector">.element</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">linear-graident</span><span class="token punctuation">(</span>pink<span class="token punctuation">,</span> orange<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* default color transition hints at 50% */</span>
+  <span class="token function">linear-gradient</span><span class="token punctuation">(</span>pink<span class="token punctuation">,</span> 50%<span class="token punctuation">,</span> orange<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* color stop fixup, starting color at 0%, final color at 100% */</span>
+  <span class="token function">linear-gradient</span><span class="token punctuation">(</span>pink 0%<span class="token punctuation">,</span> orange 100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">linear-gradient</span><span class="token punctuation">(</span>pink 0%<span class="token punctuation">,</span> 50%<span class="token punctuation">,</span> orange 100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h2><a href="#radial-gradient" id="radial-gradient">radial-gradient()</a></h2>
+<pre class="language-null">
+<code class="language-">radial-gradient(
+  [ &lt;ending-shape&gt; || &lt;size&gt; ]? [ at &lt;position&gt; ]? ,
+  &lt;color-stop-list&gt;
+)</code></pre>
+<ul><li><p>ending shape is either circle / ellipse</p></li>
+<li><p>can provide ending shape or size</p></li>
+<li><p>if only passing size, if only 1 size -&gt; circle, multiple sizes -&gt; ellipse</p></li>
+<li><p>size</p>
+<ul><li>cannot be negative</li>
+<li>absolute length (eg: 5rem, 10px) / relative length (eg: 30%)</li>
+<li>closest-side, farthest-side, closest-corner, farthest-corner<ul><li>the circle / ellipse must passes through</li></ul></li></ul></li></ul>
+<pre class="language-css"><code class="language-css">&lt;section>
+  &lt;div id=<span class="token string">"closest-side"</span>>&lt;/div>
+  &lt;div id=<span class="token string">"farthest-side"</span>>&lt;/div>
+  &lt;div id=<span class="token string">"closest-corner"</span>>&lt;/div>
+  &lt;div id=<span class="token string">"farthest-corner"</span>>&lt;/div>
+&lt;/section></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">#closest-side</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>circle closest-side<span class="token punctuation">,</span> yellow 100%<span class="token punctuation">,</span> 100%<span class="token punctuation">,</span> red<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">#farthest-side</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>circle farthest-side<span class="token punctuation">,</span> yellow 100%<span class="token punctuation">,</span> 100%<span class="token punctuation">,</span> red<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">#closest-corner</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>circle closest-corner at 30px 30px<span class="token punctuation">,</span> yellow 100%<span class="token punctuation">,</span> 100%<span class="token punctuation">,</span> red<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">#farthest-corner</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>circle farthest-corner at 30px 30px<span class="token punctuation">,</span> yellow 100%<span class="token punctuation">,</span> 100%<span class="token punctuation">,</span> red<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><picture><source type="image/webp" srcset="3916853a3ce3a171.webp"><source type="image/jpeg" srcset="3916853a3ce3a171.png"><img title="null" alt="radial graident sizes" data-src="3916853a3ce3a171.png" loading="lazy"></picture></p>
+<ul><li>Codepen <a href="https://codepen.io/tanhauhau/pen/poyRgOj?editors=1100" rel="nofollow">https://codepen.io/tanhauhau/pen/poyRgOj?editors=1100</a></li></ul></section>
+<section><h2><a href="#conic-gradient" id="conic-gradient">conic-gradient()</a></h2>
+<ul><li>part of CSS images module level 4</li></ul>
+<pre class="language-null">
+<code class="language-">conic-gradient() = conic-gradient(
+  [ from &lt;angle&gt; ]? [ at &lt;position&gt; ]?,
+  &lt;angular-color-stop-list&gt;</code></pre>
+<ul><li>color stops uses deg / rad / turn units</li></ul></section>
+<section><h2><a href="#repeating-linear-gradient-repeating-radial-gradient-repeating-conic-gradient" id="repeating-linear-gradient-repeating-radial-gradient-repeating-conic-gradient">repeating-linear-gradient, repeating-radial-gradient, repeating-conic-gradient</a></h2>
+<ul><li>same color stop list as <code>linear-gradient</code>, <code>radial-gradient</code>, <code>conic-gradient</code></li>
+<li>common pitfall of gradient not repeating is because gradient size of 100%</li>
+<li>tip: use % based color stops for fixed size gradient, length based color stops for unknown size gradient</li>
+<li>tip: pair it with background size, repeat and position to create a pattern<ul><li><a href="https://leaverou.github.io/css3patterns/" rel="nofollow">https://leaverou.github.io/css3patterns/</a></li></ul></li></ul></section>
+<section><h2><a href="#animating-repeating-conic-gradient" id="animating-repeating-conic-gradient">animating repeating-conic-gradient</a></h2>
+<ul><li>from <a href="https://lea.verou.me/" rel="nofollow">https://lea.verou.me/</a> header</li>
+<li>using CSS Houdini to make css variable animatable</li></ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">repeating-conic-gradient</span><span class="token punctuation">(</span>from <span class="token function">calc</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span>--number<span class="token punctuation">,</span> 0<span class="token punctuation">)</span> * 1turn<span class="token punctuation">)</span> at center<span class="token punctuation">,</span> red 0 4deg<span class="token punctuation">,</span> transparent 0 8deg<span class="token punctuation">)</span> fixed<span class="token punctuation">;</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> to1 600s linear infinite<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token atrule"><span class="token rule">@keyframes</span> to1</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">to</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">--number</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token constant">CSS</span> <span class="token operator">&amp;&amp;</span> <span class="token constant">CSS</span><span class="token punctuation">.</span>registerProperty<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token constant">CSS</span><span class="token punctuation">.</span><span class="token function">registerProperty</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      name<span class="token punctuation">:</span> <span class="token string">'--number'</span><span class="token punctuation">,</span>
+      syntax<span class="token punctuation">:</span> <span class="token string">'&lt;number>'</span><span class="token punctuation">,</span>
+      inherits<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      initialValue<span class="token punctuation">:</span> <span class="token string">'0'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre></section>
+<section><h2><a href="#avoid-transparent" id="avoid-transparent">Avoid <code>transparent</code></a></h2>
+<ul><li>avoid transparent in gradients</li>
+<li>maybe transitioning to white transparent / black transparent</li></ul>
+<p>safari:
+<picture><source type="image/webp" srcset="b4e3a6db6c4065ee.webp"><source type="image/jpeg" srcset="b4e3a6db6c4065ee.png"><img title="null" alt="transparent safari" data-src="b4e3a6db6c4065ee.png" loading="lazy"></picture></p>
+<p>chrome:
+<picture><source type="image/webp" srcset="b99de16c0c7080a6.webp"><source type="image/jpeg" srcset="b99de16c0c7080a6.png"><img title="null" alt="transparent chrome" data-src="b99de16c0c7080a6.png" loading="lazy"></picture></p>
+<p>Links:</p>
+<ul><li>CSS Image Module Level 3 - Gradients <a href="https://www.w3.org/TR/css-images-3/#gradients" rel="nofollow">https://www.w3.org/TR/css-images-3/#gradients</a></li>
+<li>CSS Image Module Level 4 - Gradients <a href="https://drafts.csswg.org/css-images-4/#gradients" rel="nofollow">https://drafts.csswg.org/css-images-4/#gradients</a><ul><li>conic-gradient, repeating-conic-gradient</li></ul></li>
+<li>Gradient generator <a href="https://www.colorzilla.com/gradient-editor/" rel="nofollow">https://www.colorzilla.com/gradient-editor/</a></li>
+<li>Cicada Principle <a href="https://lea.verou.me/2020/07/the-cicada-principle-revisited-with-css-variables/" rel="nofollow">https://lea.verou.me/2020/07/the-cicada-principle-revisited-with-css-variables/</a></li></ul></section></article>
+</main><script src="./51f852c3.js" async></script></div>
+  
+
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
+</body>
+
+</html>
