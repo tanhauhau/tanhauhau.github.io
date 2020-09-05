@@ -2,7 +2,12 @@
 title: Third party CSS is not safe
 occasion: talk.css meetup
 occasionLink: 'https://singaporecss.github.io/54/'
+videoLink: 'https://engineers.sg/video/third-party-css-is-not-safe-talk-css-54--4113'
 date: '2020-09-02'
+tags:
+  - css
+  - vulnerability
+  - talk.css
 ---
 
 Recently, I read [Jake Archibald's "Third party CSS is not safe"](https://jakearchibald.com/2018/third-party-css-is-not-safe/), and it has a lot to say about why 3rd party CSS is not safe. You should give it a read, but if you are lazy, here I am going to read it along with you.
@@ -259,3 +264,8 @@ Third party CSS is not absolutely safe, where you can trust them blindly. It can
 
 ## Further reading
 
+- https://jakearchibald.com/2018/third-party-css-is-not-safe/
+- https://github.com/maxchehab/CSS-Keylogging
+- https://vimeo.com/100264064#t=1290s
+- https://www.youtube.com/watch?v=eb3suf4REyI
+- https://www.nds.ruhr-uni-bochum.de/media/emma/veroeffentlichungen/2012/08/16/scriptlessAttacks-ccs2012.pdf

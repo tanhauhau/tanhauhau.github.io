@@ -97,7 +97,7 @@ async function buildPages(pages, layouts, jsTemplate, template) {
   if (!skipCache) {
     tryRequire(blogsOutput, []).forEach(addToMap);
     tryRequire(notesOutput, []).forEach(addToMap);
-    tryRequire(blogsOutput, []).forEach(addToMap);
+    tryRequire(talksOutput, []).forEach(addToMap);
   }
   pages.forEach(addToMap);
 

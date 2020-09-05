@@ -166,6 +166,21 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
             }
           };
         },
+        function forTalk() {
+          return (tree, vfile) => {
+            if (meta.type === 'talk') {
+              Object.assign(
+                vfile.data.fm,
+                Object.assign(
+                  {
+                    layout: 'talk',
+                  },
+                  vfile.data.fm
+                )
+              );
+            }
+          }
+        },
         function forNotes() {
           return (tree, vfile) => {
             vfile.data.fm = {
