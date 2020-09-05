@@ -1,0 +1,15 @@
+@font-face {
+  font-family: blah;
+  src: url('/a') format('woff');
+  unicode-range: U+65;
+}
+
+@font-face {
+  font-family: blah;
+  src: url('/a') format('woff');
+  unicode-range: U+66;
+}
+
+input[title="Search"] {
+  font-family: blah;
+}
