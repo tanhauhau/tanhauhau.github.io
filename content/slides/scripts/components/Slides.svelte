@@ -1,6 +1,9 @@
 <script>
   import { slide } from 'svelte/transition';
   export let slides = [];
+
+  let slideInstances = [];
+
   let slideIndex = 0;
 
   const hash = window.location.hash;
@@ -9,6 +12,7 @@
   }
 
   $: window.location.hash = `page-${slideIndex}`;
+  $: currentSlide = slideInstances[slideIndex];
 
   function onKeyDown(event) {
     switch(event.key) {
@@ -24,13 +28,30 @@
         next();
         break;
       }
+      case 'p':
+      case 'P': {
+        if (!document.fullscreenElement) {
+          console.log('fullscreen');
+          document.documentElement.requestFullscreen({ navigationUI: 'hide' });
+        } else {
+          console.log('exit fullscreen');
+          if (document.exitFullscreen) {
+            document.exitFullscreen(); 
+          }
+        }
+        break;
+      }
     }
   }
   function prev() {
-    slideIndex = Math.max(slideIndex - 1, 0);
+    if (!(currentSlide && typeof currentSlide.prev === 'function' && currentSlide.prev())) {
+      slideIndex = Math.max(slideIndex - 1, 0);
+    }
   }
   function next() {
-    slideIndex = Math.min(slideIndex + 1, slides.length - 1);
+    if (!(currentSlide && typeof currentSlide.next === 'function' && currentSlide.next())) {
+      slideIndex = Math.min(slideIndex + 1, slides.length - 1);
+    }
   }
 </script>
 
@@ -42,7 +63,7 @@
     style="
   transform: translateX({(index - slideIndex) * 100}%) scale({index === slideIndex ? 1 : 0.8});
 ">
-    <Slide />
+    <Slide bind:this={slideInstances[index]} />
   </section>
 {/each}
 
@@ -60,5 +81,6 @@
     overflow: scroll;
     transition: transform 0.25s ease-in-out;
     padding: 16px;
+    overflow-x: hidden;
   }
 </style>

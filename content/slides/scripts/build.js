@@ -1,9 +1,23 @@
+// setup prism
+global.Prism = require('prismjs');
+require('prism-svelte');
+require('prismjs/components/prism-diff');
+require('prismjs/plugins/diff-highlight/prism-diff-highlight');
+Prism.languages['diff-js'] = Prism.languages['diff'];
+Prism.languages['diff-svelte'] = Prism.languages['diff'];
+
 const mdsvex = require('mdsvex');
 const svelte = require('svelte/compiler');
 const path = require('path');
 const fs = require('fs').promises;
 const { watch, watchFile } = require('fs');
-const slide = 'monorepo-webpack';
+const rollup = require('rollup');
+const rollupPluginSvelte = require('rollup-plugin-svelte');
+const rollupPluginCommonJs = require('@rollup/plugin-commonjs');
+const { nodeResolve: rollupPluginNodeResolve } = require('@rollup/plugin-node-resolve');
+const rollupPluginPostCss = require('rollup-plugin-postcss');
+const slide = 'svelte-compiler';
+
 
 const watchMode = process.argv.includes('--watch');
 
@@ -13,168 +27,158 @@ const userComponentFolder = path.join(__dirname, '..', slide, 'components');
 const svelteFolder = path.join(__dirname, '_svelte');
 const outputFolder = path.join(__dirname, '..', slide, 'preview');
 
-const watchers = [];
-
 (async () => {
-  await buildSlides(contentPath, outputFolder + '/slides');
-  await buildComponents(
-    componentFolder,
-    userComponentFolder,
-    outputFolder + '/components'
-  );
-  await copySvelteLib(svelteFolder, outputFolder + '/svelte');
-  console.log('🎉 Build!');
-  console.log('😎 Watching...');
-  watchSlides(contentPath, outputFolder + '/slides');
-  watchComponents(
-    componentFolder,
-    userComponentFolder,
-    outputFolder + '/components'
-  );
+  await copyWorkers(outputFolder + '/worker');
+
+  await buildSlides(contentPath, outputFolder);
 })();
+
+async function copyWorkers(outputFolder) {
+  await mkdirp(outputFolder);
+  const workerFolder = path.join(__dirname, '../node_modules/@sveltejs/svelte-repl/workers');
+  const files = await fs.readdir(workerFolder);
+  for (const file of files) {
+    await fs.copyFile(path.join(workerFolder, file), path.join(outputFolder, file));
+  }
+}
 
 async function buildSlides(contentPath, outputFolder) {
   mkdirp(outputFolder);
 
-  const content = await fs.readFile(contentPath, 'utf-8');
-  const pages = content
-    .split('+++\n')
-    .map(page => page.trim())
-    .filter(Boolean);
+  let pages;
 
-  const compiledPages = await Promise.all(pages.map(compilePage));
-  for (let i = 0; i < compiledPages.length; i++) {
-    await fs.writeFile(
-      outputFolder + `/Slides-${i}.js`,
-      compiledPages[i],
-      'utf-8'
-    );
-  }
-  const slidesIndex = [
-    ...compiledPages.map((_, i) => `import Slides${i} from './Slides-${i}.js'`),
-    '',
-    'export default [',
-    ...compiledPages.map((_, i) => `Slides${i}, `),
-    '];',
-  ].join('\n');
-  await fs.writeFile(outputFolder + '/index.js', slidesIndex, 'utf-8');
-}
+  const watcher = await rollup.watch({
+    input: '@@entry',
+    plugins: [
+      {
+        async load(id) {
+          if (id === '@@entry') {
+            this.addWatchFile(contentPath);
+            const content = await fs.readFile(contentPath, 'utf-8');
+            pages = content
+              .split('+++\n')
+              .map(page => page.trim())
+              .filter(Boolean);
+            // prettier-ignore
+            return [
+              ...pages.map((_, index) => `import Slides${index} from '@@slides${index}.svelte';`), 
+              '', 
+              'const slides = [', 
+                ...pages.map((_, index) => `Slides${index}, `), 
+              '];',
+              `import Slide from '${path.join(__dirname, './components/Slides.svelte')}';`,
+              `new Slide({ target: document.body, props: { slides } });`,
+            ].join('\n');
+          } else if (id.startsWith('@@slides')) {
+            const match = id.match(/@@slides(\d+)/);
+            const pageIndex = Number(match[1]);
+            return await cachedMdsvex(pageIndex, pages[pageIndex]);
+          }
+          return null;
+        },
+        resolveId(source, importer) {
+          if (source.startsWith('@@')) {
+            return { id: source };
+          }
+          if (importer.startsWith('@@')) {
+            return this.resolve(source, contentPath);
+          }
+          return null;
+        },
+      },
+      // raw-loader
+      {
+        async resolveId(source, importer) {
+          if (source.startsWith('raw://')) {
+            const resolved = await this.resolve(source.slice(6), importer);
+            if (resolved) {
+              return {
+                ...resolved,
+                id: 'raw://' + resolved.id + '.js',
+              };
+            }
+          }
+        },
+        async load(id) {
+          if (id.startsWith('raw://')) {
+            const actualPath = id.slice(6, -3);
+            const content = await fs.readFile(actualPath, 'utf-8');
+            this.addWatchFile(actualPath);
+            return `export default ${JSON.stringify(content)}`;
+          }
+        },
+      },
+      // file-loader
+      {
+        async resolveId(source, importer) {
+          if (source.startsWith('file://')) {
+            let isOptional = false;
+            source = source.replace('file://', '');
+            const resolved = await this.resolve(source, importer);
+            if (resolved) {
+              return {
+                ...resolved,
+                id: 'file://' + resolved.id,
+              };
+            }
+          }
+          return null;
+        },
+        async load(id) {
+          if (id.startsWith('file://')) {
+            const referenceId = this.emitFile({
+              type: 'asset',
+              name: path.basename(id),
+              source: await fs.readFile(id.replace('file://', '')),
+            });
+            return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
+          }
+        },
+        resolveFileUrl({ fileName, moduleId }) {
+          if (moduleId.startsWith('file://')) {
+            return JSON.stringify('/' + fileName);
+          }
+        },
+      },
+      rollupPluginSvelte({
+        generate: 'dom',
+      }),
+      rollupPluginNodeResolve({
+        browser: true,
+        dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
+      }),
+      rollupPluginCommonJs(),
+      rollupPluginPostCss({
+        extract: true,
+      }),
+    ],
+    output: {
+      entryFileNames: 'output.js',
+      dir: outputFolder,
+    },
+    preserveEntrySignatures: false,
+    watch: {
+      exclude: 'node_modules/**',
+      clearScreen: true,
+    },
+  });
 
-async function watchSlides(contentPath, outputFolder) {
-  watchers.push(
-    watchFile(contentPath, () => {
-      buildSlides(contentPath, outputFolder);
-    })
-  );
-}
+  watcher.on('event', event => {
+    console.log(event.code);
+    if (event.error) {
+      console.log(event.error);
+    }
+    // event.code can be one of:
+    //   START        — the watcher is (re)starting
+    //   BUNDLE_START — building an individual bundle
+    //   BUNDLE_END   — finished building a bundle
+    //   END          — finished building all bundles
+    //   ERROR        — encountered an error while bundling
+  });
 
-async function buildComponents(
-  componentFolder,
-  userComponentFolder,
-  outputFolder
-) {
-  await mkdirp(outputFolder);
-
-  const components = await fs.readdir(componentFolder);
-  const userComponents = await fs.readdir(userComponentFolder);
-  const compiledComponents = await Promise.all([
-    ...components.map(component =>
-      compileComponent(path.join(componentFolder, component))
-    ),
-    ...userComponents.map(component =>
-      compileComponent(path.join(userComponentFolder, component))
-    ),
-  ]);
-
-  await Promise.all(
-    compiledComponents.map((component, index) => {
-      const filename = (index >= components.length
-        ? userComponents[index - components.length]
-        : components[index]
-      ).replace(/\.svelte$/, '.js');
-      return fs.writeFile(
-        path.join(outputFolder, filename),
-        component,
-        'utf-8'
-      );
-    })
-  );
-}
-
-async function buildComponent(component, outputFolder) {
-  const compiledComponent = await compileComponent(component);
-  return fs.writeFile(
-    path.join(
-      outputFolder,
-      path.basename(component).replace(/\.svelte$/, '.js')
-    ),
-    compiledComponent,
-    'utf-8'
-  );
-}
-
-async function watchComponents(
-  componentFolder,
-  userComponentFolder,
-  outputFolder
-) {
-  watchers.push(
-    watch(componentFolder, (event, filename) => {
-      if (event === 'change') {
-        buildComponent(path.join(componentFolder, filename), outputFolder);
-      }
-    })
-  );
-  watchers.push(
-    watch(userComponentFolder, (event, filename) => {
-      if (event === 'change') {
-        buildComponent(path.join(userComponentFolder, filename), outputFolder);
-      }
-    })
-  );
-}
-
-async function copySvelteLib(svelteFolder, outputFolder) {
-  await mkdirp(outputFolder);
-
-  const components = await fs.readdir(svelteFolder);
-  await Promise.all(
-    components.map(component => {
-      return fs.copyFile(
-        path.join(svelteFolder, component),
-        path.join(outputFolder, component)
-      );
-    })
-  );
-}
-
-async function compilePage(page) {
-  const svelteCode = await mdsvex.compile(page);
-  const svelteCompiledCode = svelte.compile(svelteCode.code, {
-    format: 'esm',
-  }).js.code;
-  return replaceImports(svelteCompiledCode);
-}
-
-async function compileComponent(component) {
-  const content = await fs.readFile(component, 'utf-8');
-  if (component.endsWith('.js')) {
-    return content;
-  }
-  const svelteCompiledCode = svelte.compile(content, {
-    format: 'esm',
-    name: path.basename(component).replace(/\.svelte$/, ''),
-  }).js.code;
-  return replaceImports(svelteCompiledCode);
-}
-
-function replaceImports(content) {
-  return content
-    .replace(
-      /(?:svelte\/(animate|easing|internal|motion|store|transition))/g,
-      '/svelte/$1.js'
-    )
-    .replace(/(import .+ from )"(?:(.+)\.svelte)"/g, '$1"$2.js"');
+  process.on('beforeExit', () => {
+    watcher.close();
+  });
 }
 
 async function mkdirp(folder) {
@@ -189,6 +193,15 @@ async function mkdirp(folder) {
   }
 }
 
-process.on('beforeExit', () => {
-  watchers.forEach(watcher => watcher.close());
-});
+const cache = {};
+async function cachedMdsvex(id, source) {
+  if (cache[id]) {
+    const [prevSource, prevResult] = cache[id];
+    if (source === prevSource) {
+      return prevResult;
+    }
+  }
+  const result = (await mdsvex.compile(source)).code;
+  cache[id] = [source, result];
+  return result;
+}
