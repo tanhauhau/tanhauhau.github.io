@@ -19,3 +19,11 @@
 - https://www.youtube.com/watch?v=llGgO74uXMI
 - SVG filters https://www.sarasoueidan.com/blog/svg-filters/
 - Video games and future of education https://www.youtube.com/watch?v=qWFScmtiC44&feature=youtu.be
+- https://dev.to/arcanis/yarn-2-2-dedupe-faster-lighter-ha5
+- https://github.com/vuejs/vue-devtools/pull/1270
+- https://github.com/escaya/escaya
+- https://palladiummag.com/2020/08/13/the-true-story-of-lee-kuan-yews-singapore/
+- https://a16z.com/2020/09/01/tabletop-games-go-digital/
+- https://www.youtube.com/watch?v=DPNCRgoQr0o&feature=youtu.be
+- https://www.youtube.com/watch?v=qY0UF7jaqfs&t=2s
+- https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/

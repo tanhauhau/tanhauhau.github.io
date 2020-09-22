@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -52,7 +54,7 @@
   </style>
 
   
-  <title>Webpack&#39;s TemplatePlugin | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Webpack&#39;s TemplatePlugin" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Webpack&#39;s TemplatePlugin" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fwebpack-plugin-main-template" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Webpack's TemplatePlugin","name":"Webpack's TemplatePlugin","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fwebpack-plugin-main-template","name":"Webpack's TemplatePlugin"},"name":"Webpack's TemplatePlugin","position":2}]}</script><link as="script" rel="preload" href="./b5ec5c37.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./b5ec5c37.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./b5ec5c37.css" rel="stylesheet">
+  <title>Webpack&#39;s TemplatePlugin | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Webpack&#39;s TemplatePlugin" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Webpack&#39;s TemplatePlugin" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fwebpack-plugin-main-template" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Webpack's TemplatePlugin","name":"Webpack's TemplatePlugin","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fwebpack-plugin-main-template","name":"Webpack's TemplatePlugin"},"name":"Webpack's TemplatePlugin","position":2}]}</script><link as="script" rel="preload" href="./a890b299.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./a890b299.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./a890b299.css" rel="stylesheet">
 </head>
 
 <body>
@@ -118,8 +120,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   libraryTarget<span class="token punctuation">:</span> <span class="token string">'commonjs2'</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token comment">// dist/bundle.js</span>
-<span class="token comment">// highlight-next-line</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">webpackStart</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> moduleMap<span class="token punctuation">,</span> entryPoint <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="prism-highlight-code-line">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">webpackStart</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> moduleMap<span class="token punctuation">,</span> entryPoint <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></span>
   <span class="token comment">// ...</span>
   <span class="token keyword">return</span> <span class="token function">require</span><span class="token punctuation">(</span>entryPoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
@@ -138,10 +139,8 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   libraryTarget<span class="token punctuation">:</span> <span class="token string">'self'</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token comment">// dist/bundle.js</span>
-<span class="token comment">// highlight-next-line</span>
-Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>
-  <span class="token comment">// highlight-next-line</span>
-  self<span class="token punctuation">,</span>
+<span class="prism-highlight-code-line">Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span></span>
+<span class="prism-highlight-code-line">  self<span class="token punctuation">,</span></span>
   <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">webpackStart</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> moduleMap<span class="token punctuation">,</span> entryPoint <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// ...</span>
     <span class="token keyword">return</span> <span class="token function">require</span><span class="token punctuation">(</span>entryPoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -162,8 +161,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token comment">// dist/bundle.js</span>
-<span class="token comment">// highlight-next-line</span>
-<span class="token keyword">var</span> myApp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">webpackStart</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> moduleMap<span class="token punctuation">,</span> entryPoint <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="prism-highlight-code-line"><span class="token keyword">var</span> myApp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">webpackStart</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> moduleMap<span class="token punctuation">,</span> entryPoint <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></span>
   <span class="token comment">// ...</span>
   <span class="token keyword">return</span> <span class="token function">require</span><span class="token punctuation">(</span>entryPoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
@@ -189,8 +187,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token string">'src/index.js'</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">exports<span class="token punctuation">,</span> require</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     exports<span class="token punctuation">.</span>default <span class="token operator">=</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token comment">// highlight-next-line</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span>
+<span class="prism-highlight-code-line"><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span></span>
 
 <span class="token comment">// myApp === 'foo'</span></code></pre>
 <p>Again you can observe that by playing different option values of <code>output.library</code>, <code>output.libraryTarget</code>, <code>output.libraryExport</code>, webpack adds different prefix and suffix to the bundled code:</p>
@@ -246,10 +243,8 @@ customRegistry<span class="token punctuation">.</span><span class="token functio
         <span class="token string">'SetVarTemplatePlugin'</span><span class="token punctuation">,</span>
         <span class="token punctuation">(</span><span class="token parameter">source<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> chunk<span class="token punctuation">,</span> chunkGraph <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
           <span class="token comment">// ...</span>
-          <span class="token comment">// highlight-start</span>
-          <span class="token keyword">const</span> prefix <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>varExpression<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> =</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
-          <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcatSource</span><span class="token punctuation">(</span>prefix<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
-          <span class="token comment">// highlight-end</span>
+<span class="prism-highlight-code-line">          <span class="token keyword">const</span> prefix <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>varExpression<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> =</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">          <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcatSource</span><span class="token punctuation">(</span>prefix<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
         <span class="token punctuation">&#125;</span>
       <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -302,7 +297,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./b5ec5c37.js" async></script></div>
+</footer><script src="./a890b299.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

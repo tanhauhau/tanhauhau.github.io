@@ -45,7 +45,7 @@ There's a big optimisation that changes the underlying implementation of the `$$
 
 Let's explain some of the variables that you are going to see, some of which was introduced in [Part 1](/compile-svelte-in-your-head-part-1):
 
-### \$\$.ctx
+### $$.ctx
 
 There's no official name for it. You can call it **context** as it is the context which the template is based on to render onto the DOM.
 
@@ -91,7 +91,7 @@ ctx.update(); // logs `world` scoped in the `instance` closure
 
 Whenever a new instance of a component is created, the `instance` function is called and the `ctx` object is created and captured within a new closure scope.
 
-### \$\$.dirty
+### $$.dirty
 
 `$$.dirty` is a object that is used to track which instance variable had just changed and needs to be updated onto the DOM.
 
@@ -155,7 +155,7 @@ p(changed, ctx) {
 
 After Svelte updates the DOM, the `$$.dirty` is set back to `null` to indicate all changes has been applied onto the DOM.
 
-### \$\$invalidate
+### $$invalidate
 
 `$$invalidate` is the secret behind reactivity in Svelte.
 

@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -52,7 +54,7 @@
   </style>
 
   
-  <title>JSON Parser with JavaScript | Tan Li Hau</title><meta name="description" content="Step-by-step guide on implementing a JSON parser" data-svelte="svelte-15e3uyc"><meta name="image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><meta name="og:image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><meta name="og:title" content="JSON Parser with JavaScript" data-svelte="svelte-15e3uyc"><meta name="og:description" content="Step-by-step guide on implementing a JSON parser" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="JSON Parser with JavaScript" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="Step-by-step guide on implementing a JSON parser" data-svelte="svelte-15e3uyc"><meta name="twitter:image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><meta name="keywords" content="JavaScript" data-svelte="svelte-15e3uyc"><meta name="keywords" content="AST" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fjson-parser-with-javascript" data-svelte="svelte-15e3uyc"><meta itemprop="image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Step-by-step guide on implementing a JSON parser","headline":"JSON Parser with JavaScript","name":"JSON Parser with JavaScript","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fjson-parser-with-javascript","name":"JSON Parser with JavaScript"},"name":"JSON Parser with JavaScript","position":2}]}</script><link as="script" rel="preload" href="./b6a81d4e.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./b6a81d4e.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./b6a81d4e.css" rel="stylesheet">
+  <title>JSON Parser with JavaScript | Tan Li Hau</title><meta name="description" content="Step-by-step guide on implementing a JSON parser" data-svelte="svelte-15e3uyc"><meta name="image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><meta name="og:image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><meta name="og:title" content="JSON Parser with JavaScript" data-svelte="svelte-15e3uyc"><meta name="og:description" content="Step-by-step guide on implementing a JSON parser" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="JSON Parser with JavaScript" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="Step-by-step guide on implementing a JSON parser" data-svelte="svelte-15e3uyc"><meta name="twitter:image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><meta name="keywords" content="JavaScript" data-svelte="svelte-15e3uyc"><meta name="keywords" content="AST" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fjson-parser-with-javascript" data-svelte="svelte-15e3uyc"><meta itemprop="image" content="https://lihautan.com/json-parser-with-javascript/assets/hero-twitter-4080d421.jpg" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Step-by-step guide on implementing a JSON parser","headline":"JSON Parser with JavaScript","name":"JSON Parser with JavaScript","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fjson-parser-with-javascript","name":"JSON Parser with JavaScript"},"name":"JSON Parser with JavaScript","position":2}]}</script><link as="script" rel="preload" href="./48fe5ec8.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./48fe5ec8.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./48fe5ec8.css" rel="stylesheet">
 </head>
 
 <body>
@@ -83,8 +85,7 @@
 <p>The interview question of the week for this week on Cassidoo&#39;s weekly newsletter is,</p>
 <blockquote><p>Write a function that takes in a string of valid JSON and converts it to an object (or whatever your chosen language uses, dicts, maps, etc).
 Example input:</p></blockquote>
-<pre class="language-null">
-<code class="language-">fakeParseJSON(&#39;&#123; &quot;data&quot;: &#123; &quot;fish&quot;: &quot;cake&quot;, &quot;array&quot;: [1,2,3], &quot;children&quot;: [ &#123; &quot;something&quot;: &quot;else&quot; &#125;, &#123; &quot;candy&quot;: &quot;cane&quot; &#125;, &#123; &quot;sponge&quot;: &quot;bob&quot; &#125; ] &#125; &#125; &#39;)</code></pre>
+<pre class="language-null"><code class="language-">fakeParseJSON(&#39;&#123; &quot;data&quot;: &#123; &quot;fish&quot;: &quot;cake&quot;, &quot;array&quot;: [1,2,3], &quot;children&quot;: [ &#123; &quot;something&quot;: &quot;else&quot; &#125;, &#123; &quot;candy&quot;: &quot;cane&quot; &#125;, &#123; &quot;sponge&quot;: &quot;bob&quot; &#125; ] &#125; &#125; &#39;)</code></pre>
 <p>At one point, I was tempted to just to write:</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">const</span> fakeParseJSON <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span>parse<span class="token punctuation">;</span></code></pre>
 <p>But, I thought, I&#39;ve written quite a few articles about AST:</p>
@@ -101,8 +102,7 @@ Example input:</p></blockquote>
 <p><img src="https://www.json.org/img/object.png" alt="https://www.json.org/img/object.png"></p>
 <small>Image source: https://www.json.org/img/object.png</small>
 <ul><li><a href="https://www.crockford.com/mckeeman.html" rel="nofollow">The McKeeman Form</a>, a variant of <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form" rel="nofollow">Backus-Naur Form (BNF)</a>, on the right</li></ul>
-<pre class="language-null">
-<code class="language-">json
+<pre class="language-null"><code class="language-">json
   element
 
 value
@@ -171,23 +171,19 @@ object
       i<span class="token operator">++</span><span class="token punctuation">;</span>
       <span class="token function">skipWhitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-      <span class="token comment">// highlight-next-line</span>
-      <span class="token keyword">let</span> initial <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">      <span class="token keyword">let</span> initial <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></span>
       <span class="token comment">// if it is not '&#125;',</span>
       <span class="token comment">// we take the path of string -> whitespace -> ':' -> value -> ...</span>
       <span class="token keyword">while</span> <span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'&#125;'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">// highlight-start</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>initial<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-          <span class="token function">eatComma</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-          <span class="token function">skipWhitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token comment">// highlight-end</span>
+<span class="prism-highlight-code-line">        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>initial<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></span>
+<span class="prism-highlight-code-line">          <span class="token function">eatComma</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">          <span class="token function">skipWhitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">        <span class="token punctuation">&#125;</span></span>
         <span class="token keyword">const</span> key <span class="token operator">=</span> <span class="token function">parseString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">skipWhitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">eatColon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token function">parseValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// highlight-next-line</span>
-        initial <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">        initial <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></span>
       <span class="token punctuation">&#125;</span>
       <span class="token comment">// move to the next character of '&#125;'</span>
       i<span class="token operator">++</span><span class="token punctuation">;</span>
@@ -224,8 +220,7 @@ object
       i<span class="token operator">++</span><span class="token punctuation">;</span>
       <span class="token function">skipWhitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-      <span class="token comment">// highlight-next-line</span>
-      <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">      <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></span>
 
       <span class="token keyword">let</span> initial <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
       <span class="token comment">// if it is not '&#125;',</span>
@@ -239,15 +234,13 @@ object
         <span class="token function">skipWhitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">eatColon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token function">parseValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// highlight-next-line</span>
-        result<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">        result<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span></span>
         initial <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span>
       <span class="token comment">// move to the next character of '&#125;'</span>
       i<span class="token operator">++</span><span class="token punctuation">;</span>
 
-      <span class="token comment">// highlight-next-line</span>
-      <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">      <span class="token keyword">return</span> result<span class="token punctuation">;</span></span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -338,12 +331,10 @@ object
   <span class="token comment">// ...</span>
   <span class="token keyword">function</span> <span class="token function">parseObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// ...</span>
-    <span class="token comment">// highlight-next-line</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'&#125;'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="prism-highlight-code-line">    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'&#125;'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></span>
       <span class="token comment">// ...</span>
     <span class="token punctuation">&#125;</span>
-    <span class="token comment">// highlight-next-line</span>
-    <span class="token function">checkUnexpectedEndOfInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">    <span class="token function">checkUnexpectedEndOfInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
 
     <span class="token comment">// move to the next character of '&#125;'</span>
     i<span class="token operator">++</span><span class="token punctuation">;</span>
@@ -441,7 +432,7 @@ Expecting a <span class="token template-string"><span class="token template-punc
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./b6a81d4e.js" async></script></div>
+</footer><script src="./48fe5ec8.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

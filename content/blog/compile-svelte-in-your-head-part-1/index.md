@@ -456,7 +456,7 @@ But, in this example, the variable `name` can be changed within 1 instance of th
 <!-- depending on the inner state of the component -->
 ```
 
-### instance($$self, $$props, \$\$invalidate)
+### instance($$self, $$props, $$invalidate)
 
 The `instance` function returns a list of _instance_ variables, which are variables that are:
 
@@ -485,7 +485,8 @@ t1 = text(/*name*/ ctx[0]);
 
 The reason that ctx is an array instead of a map or an object is because of an optimisation related to bitmask, you can see [the discussion about it here](https://github.com/sveltejs/svelte/issues/1922)
 
-### \$\$invalidate
+### $$invalidate
+
 
 The secret behind the system of reactivity in Svelte is the `$$invalidate` function.
 

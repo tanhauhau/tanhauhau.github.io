@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -52,7 +54,7 @@
   </style>
 
   
-  <title>Note: Converting movie to gif | Tan Li Hau</title><link href="https://lihautan.com/notes/movie-to-gif/assets/blog-base-967d71e9.css" rel="stylesheet" data-svelte="svelte-ywf7m8"><meta name="og:title" content="movie-to-gif" data-svelte="svelte-ywf7m8"><meta name="og:type" content="website" data-svelte="svelte-ywf7m8"><meta name="keywords" content="ffmpeg" data-svelte="svelte-ywf7m8"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fmovie-to-gif" data-svelte="svelte-ywf7m8"><link as="script" rel="preload" href="./f1b456d9.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./f1b456d9.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./f1b456d9.css" rel="stylesheet">
+  <title>Note: Converting movie to gif | Tan Li Hau</title><link href="https://lihautan.com/notes/movie-to-gif/assets/blog-base-3554d53c.css" rel="stylesheet" data-svelte="svelte-ywf7m8"><meta name="og:title" content="movie-to-gif" data-svelte="svelte-ywf7m8"><meta name="og:type" content="website" data-svelte="svelte-ywf7m8"><meta name="keywords" content="ffmpeg" data-svelte="svelte-ywf7m8"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fmovie-to-gif" data-svelte="svelte-ywf7m8"><link as="script" rel="preload" href="./76b8161e.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./76b8161e.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./76b8161e.css" rel="stylesheet">
 </head>
 
 <body>
@@ -80,7 +82,7 @@
   <span class="svelte-186dllz">ffmpeg</span>
 
   <article class="svelte-186dllz"><p>movie to gif via <code>ffmpeg</code></p>
-<pre class="language-sh"><code class="language-sh">ffmpeg -i ~/Desktop/darkmode.mov -filter_complex &quot;[0:v] fps=40, setpts=0.5*PTS&quot; -f gif ~/Desktop/darkmode-2.gif</code></pre>
+<pre class="language-sh"><code class="language-sh">ffmpeg -i ~/Desktop/darkmode.mov -filter_complex <span class="token string">"[0:v] fps=40, setpts=0.5*PTS"</span> -f gif ~/Desktop/darkmode-2.gif</code></pre>
 <p><code>-i</code> specify input file
 <code>-f</code> specify format
 lastly sepcify output file</p>
@@ -88,7 +90,7 @@ lastly sepcify output file</p>
 <ul><li><code>-ss</code> for seeking</li>
 <li><code>-filter_complex</code> to do filtering<ul><li><code>fps=40</code> control frame per second, more or less detail</li>
 <li><code>setpts=0.5*PTS</code> speed up the video <a href="https://trac.ffmpeg.org/wiki/How%20to%20speed%20up%20/%20slow%20down%20a%20video" rel="nofollow">reference</a></li></ul></li></ul></article>
-</main><script src="./f1b456d9.js" async></script></div>
+</main><script src="./76b8161e.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

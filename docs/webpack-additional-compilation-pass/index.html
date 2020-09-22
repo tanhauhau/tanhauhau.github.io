@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -52,7 +54,7 @@
   </style>
 
   
-  <title>Webpack Additional Compilation Pass | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Webpack Additional Compilation Pass" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Webpack Additional Compilation Pass" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fwebpack-additional-compilation-pass" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Webpack Additional Compilation Pass","name":"Webpack Additional Compilation Pass","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fwebpack-additional-compilation-pass","name":"Webpack Additional Compilation Pass"},"name":"Webpack Additional Compilation Pass","position":2}]}</script><link as="script" rel="preload" href="./8f90e45e.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./8f90e45e.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./8f90e45e.css" rel="stylesheet">
+  <title>Webpack Additional Compilation Pass | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Webpack Additional Compilation Pass" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Webpack Additional Compilation Pass" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fwebpack-additional-compilation-pass" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Webpack Additional Compilation Pass","name":"Webpack Additional Compilation Pass","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fwebpack-additional-compilation-pass","name":"Webpack Additional Compilation Pass"},"name":"Webpack Additional Compilation Pass","position":2}]}</script><link as="script" rel="preload" href="./b74395c5.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./b74395c5.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./b74395c5.css" rel="stylesheet">
 </head>
 
 <body>
@@ -140,8 +142,7 @@ app<span class="token punctuation">.</span><span class="token function">get</spa
 <span class="token comment">// ...</span></code></pre>
 <p>If you scrutinize the code, you may wonder whether <code>./dist/webpack-manifest.json</code> is the correct relative path from the compiled code?</p>
 <p>Probably <code>./webpack-manifest.json</code> would be more accurate, if our output folder looks like this:</p>
-<pre class="language-null">
-<code class="language-">dist
+<pre class="language-null"><code class="language-">dist
 ├── webpack-manifest.json
 └── bundle.js  // &lt;-- the main output bundle</code></pre>
 <p>One can safely argue that, the approach above works and let&#39;s move on the next task. But, curiosity drives me to seek deeper for a more &quot;elegant&quot; solution, where one don&#39;t need <code>require(&#39;webpack-manifest.json&#39;)</code> in runtime, but that information is compiled into the code.</p></section>
@@ -163,8 +164,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token keyword">const</span> cssFiles <span class="token operator">=</span> <span class="token function">filterCssFiles</span><span class="token punctuation">(</span>webpackManifest<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// ...</span></code></pre>
 <p>The reason we are using the relative path <code>./webpack-manifest.json</code> is that we are assuming the output folder looks like this:</p>
-<pre class="language-null">
-<code class="language-">dist
+<pre class="language-null"><code class="language-">dist
 ├── bundle.js  // &lt;-- the main output bundle
 └── webpack-manifest.json // &lt;-- relative to bundle.js</code></pre>
 <p>You can read more about webpack externals from <a href="https://webpack.js.org/configuration/externals/" rel="nofollow">the webpack documentation</a>.</p></section>
@@ -203,10 +203,8 @@ app<span class="token punctuation">.</span><span class="token function">get</spa
       <span class="token comment">// ...</span>
       hooks<span class="token punctuation">.</span>render<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token string">'MyWebpackPlugin'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">source<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> chunk<span class="token punctuation">,</span> chunkGraph <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
         <span class="token comment">// ...</span>
-        <span class="token comment">// highlight-start</span>
-        <span class="token keyword">const</span> prefix <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">const CSS_FILES = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>manifest<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcatSource</span><span class="token punctuation">(</span>prefix<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// highlight-end</span>
+<span class="prism-highlight-code-line">        <span class="token keyword">const</span> prefix <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">const CSS_FILES = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>manifest<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcatSource</span><span class="token punctuation">(</span>prefix<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -295,16 +293,14 @@ app<span class="token punctuation">.</span><span class="token function">get</spa
         normalModuleFactory<span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>parser
           <span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">'javascript/auto'</span><span class="token punctuation">)</span>
           <span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token string">'MyWebpackPlugin'</span><span class="token punctuation">,</span> <span class="token parameter">parser</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">// highlight-start</span>
-            parser<span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>expression
-              <span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">'CSS_FILES'</span><span class="token punctuation">)</span>
-              <span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token string">'MyWebpackPlugin'</span><span class="token punctuation">,</span> <span class="token parameter">expr</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">return</span> ParserHelpers<span class="token punctuation">.</span><span class="token function">toConstantDependency</span><span class="token punctuation">(</span>
-                  parser<span class="token punctuation">,</span>
-                  <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>manifest<span class="token punctuation">)</span>
-                <span class="token punctuation">)</span><span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-              <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">// highlight-end</span>
+<span class="prism-highlight-code-line">            parser<span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>expression</span>
+<span class="prism-highlight-code-line">              <span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">'CSS_FILES'</span><span class="token punctuation">)</span></span>
+<span class="prism-highlight-code-line">              <span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token string">'MyWebpackPlugin'</span><span class="token punctuation">,</span> <span class="token parameter">expr</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></span>
+<span class="prism-highlight-code-line">                <span class="token keyword">return</span> ParserHelpers<span class="token punctuation">.</span><span class="token function">toConstantDependency</span><span class="token punctuation">(</span></span>
+<span class="prism-highlight-code-line">                  parser<span class="token punctuation">,</span></span>
+<span class="prism-highlight-code-line">                  <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>manifest<span class="token punctuation">)</span></span>
+<span class="prism-highlight-code-line">                <span class="token punctuation">)</span><span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">              <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
           <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -318,8 +314,7 @@ app<span class="token punctuation">.</span><span class="token function">get</spa
   <span class="token comment">// ...</span>
   res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
     <span class="token comment">// replaced via parser hooks</span>
-    <span class="token comment">// highlight-next-line</span>
-    css<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'http://cdn/assets/style.xxx.css'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="prism-highlight-code-line">    css<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'http://cdn/assets/style.xxx.css'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></span>
     html<span class="token punctuation">:</span> htmlContent<span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
@@ -338,7 +333,7 @@ app<span class="token punctuation">.</span><span class="token function">get</spa
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./8f90e45e.js" async></script></div>
+</footer><script src="./b74395c5.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

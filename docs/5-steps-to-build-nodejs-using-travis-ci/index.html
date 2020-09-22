@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -52,7 +54,7 @@
   </style>
 
   
-  <title>5 Steps to build NodeJS using Travis CI | Tan Li Hau</title><meta name="description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-15e3uyc"><meta name="og:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Setting up Travis CI for your NodeJS Github repo!","headline":"5 Steps to build NodeJS using Travis CI","name":"5 Steps to build NodeJS using Travis CI","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci","name":"5 Steps to build NodeJS using Travis CI"},"name":"5 Steps to build NodeJS using Travis CI","position":2}]}</script><link as="script" rel="preload" href="./37826bc7.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./37826bc7.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./37826bc7.css" rel="stylesheet">
+  <title>5 Steps to build NodeJS using Travis CI | Tan Li Hau</title><meta name="description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-15e3uyc"><meta name="og:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="5 Steps to build NodeJS using Travis CI" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="Setting up Travis CI for your NodeJS Github repo!" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Setting up Travis CI for your NodeJS Github repo!","headline":"5 Steps to build NodeJS using Travis CI","name":"5 Steps to build NodeJS using Travis CI","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2F5-steps-to-build-nodejs-using-travis-ci","name":"5 Steps to build NodeJS using Travis CI"},"name":"5 Steps to build NodeJS using Travis CI","position":2}]}</script><link as="script" rel="preload" href="./d287baf0.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./d287baf0.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./d287baf0.css" rel="stylesheet">
 </head>
 
 <body>
@@ -104,7 +106,7 @@
   <span class="token punctuation">-</span> <span class="token number">4.2</span></code></pre>
 <p>Commit and Push. That’s simple.</p>
 <p>Or if you are lazy, run this:</p>
-<pre class="language-sh"><code class="language-sh">curl https://gist.githubusercontent.com/tanhauhau/405e39884e80288615a7b51181fd5228/raw/9045c2e219547f0a228da630abff345d8add0c47/.travis.yml &gt; .travis.yml</code></pre>
+<pre class="language-sh"><code class="language-sh"><span class="token function">curl</span> https://gist.githubusercontent.com/tanhauhau/405e39884e80288615a7b51181fd5228/raw/9045c2e219547f0a228da630abff345d8add0c47/.travis.yml <span class="token operator">></span> .travis.yml</code></pre>
 <p>The version of Node.js I am using is 4.2 at the time of writing this article. To be safe, you can run “node — version” on your command line to determine which version of Node.js you are running.</p>
 <blockquote><p>Make sure that you have all your dependencies persists to the package.json as Travis CI will install all the dependencies from it by calling npm install.</p></blockquote>
 <p>Another thing to take note is that if you wanna run your test script, make sure to include it in the <code>package.json</code>.</p>
@@ -118,7 +120,7 @@
   <span class="token punctuation">-</span> npm install <span class="token punctuation">-</span>g bower
   <span class="token punctuation">-</span> bower install</code></pre>
 <p>Or likewise if you are lazy, copy and paste this to your command line.</p>
-<pre class="language-sh"><code class="language-sh">curl https://gist.githubusercontent.com/tanhauhau/71998bf221810186f046db94cda10c4e/raw/d1e8aee0981a96c20f94de6db386da048face423/.travis.yml &gt; .travis.yml</code></pre>
+<pre class="language-sh"><code class="language-sh"><span class="token function">curl</span> https://gist.githubusercontent.com/tanhauhau/71998bf221810186f046db94cda10c4e/raw/d1e8aee0981a96c20f94de6db386da048face423/.travis.yml <span class="token operator">></span> .travis.yml</code></pre>
 <p>One thing to take note for bower is that when there is dependency conflict, bower will ask you to choose which version of the dependency to be installed interactively. In the case for Travis CI, Travis CI will not know which version to install it for you where you will see an error like this:</p>
 <p><picture><source type="image/webp" srcset="16b672cca46f68c4.webp"><source type="image/jpeg" srcset="16b672cca46f68c4.png"><img title="null" alt="bower" data-src="16b672cca46f68c4.png" loading="lazy"></picture></p>
 <blockquote><p>Therefore, you will have to <a href="https://jaketrent.com/post/bower-resolutions/" rel="nofollow">persists the resolution to bower.json</a> to avoid the build error.</p></blockquote></section>
@@ -140,7 +142,7 @@
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./37826bc7.js" async></script></div>
+</footer><script src="./d287baf0.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

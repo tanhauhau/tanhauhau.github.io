@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -52,7 +54,7 @@
   </style>
 
   
-  <title>Creating custom JavaScript syntax with Babel | Tan Li Hau</title><meta name="description" content="Forking babel parser and creating your custom JavaScript syntax isn&#39;t as hard as you think." data-svelte="svelte-15e3uyc"><meta name="image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><meta name="og:image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Creating custom JavaScript syntax with Babel" data-svelte="svelte-15e3uyc"><meta name="og:description" content="Forking babel parser and creating your custom JavaScript syntax isn&#39;t as hard as you think." data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Creating custom JavaScript syntax with Babel" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="Forking babel parser and creating your custom JavaScript syntax isn&#39;t as hard as you think." data-svelte="svelte-15e3uyc"><meta name="twitter:image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><meta name="keywords" content="JavaScript" data-svelte="svelte-15e3uyc"><meta name="keywords" content="babel" data-svelte="svelte-15e3uyc"><meta name="keywords" content="ast" data-svelte="svelte-15e3uyc"><meta name="keywords" content="transform" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fcreating-custom-javascript-syntax-with-babel" data-svelte="svelte-15e3uyc"><meta itemprop="image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Forking babel parser and creating your custom JavaScript syntax isn't as hard as you think.","headline":"Creating custom JavaScript syntax with Babel","name":"Creating custom JavaScript syntax with Babel","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fcreating-custom-javascript-syntax-with-babel","name":"Creating custom JavaScript syntax with Babel"},"name":"Creating custom JavaScript syntax with Babel","position":2}]}</script><link as="script" rel="preload" href="./af3eda2d.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./af3eda2d.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./af3eda2d.css" rel="stylesheet">
+  <title>Creating custom JavaScript syntax with Babel | Tan Li Hau</title><meta name="description" content="Forking babel parser and creating your custom JavaScript syntax isn&#39;t as hard as you think." data-svelte="svelte-15e3uyc"><meta name="image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><meta name="og:image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Creating custom JavaScript syntax with Babel" data-svelte="svelte-15e3uyc"><meta name="og:description" content="Forking babel parser and creating your custom JavaScript syntax isn&#39;t as hard as you think." data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Creating custom JavaScript syntax with Babel" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="Forking babel parser and creating your custom JavaScript syntax isn&#39;t as hard as you think." data-svelte="svelte-15e3uyc"><meta name="twitter:image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><meta name="keywords" content="JavaScript" data-svelte="svelte-15e3uyc"><meta name="keywords" content="babel" data-svelte="svelte-15e3uyc"><meta name="keywords" content="ast" data-svelte="svelte-15e3uyc"><meta name="keywords" content="transform" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fcreating-custom-javascript-syntax-with-babel" data-svelte="svelte-15e3uyc"><meta itemprop="image" content="https://lihautan.com/creating-custom-javascript-syntax-with-babel/assets/hero-twitter-ebb286c0.jpg" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Forking babel parser and creating your custom JavaScript syntax isn't as hard as you think.","headline":"Creating custom JavaScript syntax with Babel","name":"Creating custom JavaScript syntax with Babel","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fcreating-custom-javascript-syntax-with-babel","name":"Creating custom JavaScript syntax with Babel"},"name":"Creating custom JavaScript syntax with Babel","position":2}]}</script><link as="script" rel="preload" href="./b749cae8.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./b749cae8.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./b749cae8.css" rel="stylesheet">
 </head>
 
 <body>
@@ -87,7 +89,7 @@
 <span class="token keyword">function</span> @@ <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> a <span class="token operator">+</span> b <span class="token operator">+</span> c<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
-<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span></code></pre>
 <p>We are going to create a <a href="https://en.wikipedia.org/wiki/Currying" rel="nofollow">curry function</a> syntax <code>@@</code>. The syntax is like the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*" rel="nofollow">generator function</a>, except you place <code>@@</code> instead of <code>*</code> in between the <code>function</code> keyword and the function name, eg <code>function @@ name(arg1, arg2)</code>.</p>
 <p>In this example, you can have <a href="https://scotch.io/tutorials/javascript-functional-programming-explained-partial-application-and-currying" rel="nofollow">partial application</a> with the function <code>foo</code>. Calling <code>foo</code> with the number of parameters less than the arguments required will return a new function of the remaining arguments:</p>
 <pre class="language-js"><code class="language-js"><span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
@@ -105,12 +107,12 @@
 <p><picture><source type="image/webp" srcset="c7ce0c4a376bfa80.webp"><source type="image/jpeg" srcset="c7ce0c4a376bfa80.png"><img title="Forking babel" alt="forking babel" data-src="c7ce0c4a376bfa80.png" loading="lazy"></picture></p>
 <p>If this is your first time forking a popular open-source project, congratulations! 🎉</p>
 <p>Clone your forked babel to your local workspace and <a href="https://github.com/tanhauhau/babel/blob/master/CONTRIBUTING.md#setup" rel="nofollow">set it up</a>:</p>
-<pre class="language-sh"><code class="language-sh">$ git clone https://github.com/tanhauhau/babel.git
+<pre class="language-sh"><code class="language-sh">$ <span class="token function">git</span> clone https://github.com/tanhauhau/babel.git
 
-# set up
-$ cd babel
-$ make bootstrap
-$ make build</code></pre>
+<span class="token comment"># set up</span>
+$ <span class="token builtin class-name">cd</span> babel
+$ <span class="token function">make</span> bootstrap
+$ <span class="token function">make</span> build</code></pre>
 <p>Meanwhile, let me briefly walk you through how the babel repository is organised.</p>
 <p>Babel uses a monorepo structure, all the packages, eg: <code>@babel/core</code>, <code>@babel/parser</code>, <code>@babel/plugin-transform-react-jsx</code>, etc are in the <code>packages/</code> folder:</p>
 <pre class="language-yml"><code class="language-yml"><span class="token punctuation">-</span> doc
@@ -133,8 +135,7 @@ $ make build</code></pre>
 <blockquote><small>Don&#39;t get scared of by the word **compiler**, it is nothing but parsing your code and generate XXX out of it. XXX could be machine code, which is the compiler most of us have in mind; XXX could be JavaScript compatible with older browsers, which is the case for Babel.</small></blockquote></section>
 <section><h2><a href="#our-custom-babel-parser" id="our-custom-babel-parser">Our custom babel parser</a></h2>
 <p>The folder we are going to work on is <code>packages/babel-parser/</code>:</p>
-<pre class="language-null">
-<code class="language-">- src/
+<pre class="language-null"><code class="language-">- src/
   - tokenizer/
   - parser/
   - plugins/
@@ -147,43 +148,43 @@ $ make build</code></pre>
 <p>Let&#39;s do a <a href="https://en.wikipedia.org/wiki/Test-driven_development" rel="nofollow">Test-driven development (TDD)</a>. I find it easier to define the test case then slowly work our way to &quot;fix&quot; it. It is especially true in an unfamiliar codebase, TDD allows you to &quot;easily&quot; point out code places you need to change.</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// filename: packages/babel-parser/test/curry-function.js</span>
 
-<span class="token keyword module">import</span> <span class="token punctuation">&#123;</span> parse <span class="token punctuation">&#125;</span> <span class="token keyword module">from</span> <span class="token string">'../lib'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> parse <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'../lib'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">getParser</span><span class="token punctuation">(</span><span class="token parameter">code</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">parse</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> sourceType<span class="token punctuation">:</span> <span class="token string">'module'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">parse</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> sourceType<span class="token punctuation">:</span> <span class="token string">'module'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'curry function syntax'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should parse'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">getParser</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">function @@ foo() &#123;&#125;</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toMatchSnapshot</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">getParser</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">function @@ foo() &#123;&#125;</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toMatchSnapshot</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>You can run <code>TEST_ONLY=babel-parser TEST_GREP=&quot;curry function&quot; make test-only</code> to run tests for <code>babel-parser</code> and see your failing case:</p>
-<pre class="language-sh"><code class="language-sh">SyntaxError: Unexpected token (1:9)
+<pre class="language-sh"><code class="language-sh">SyntaxError: Unexpected token <span class="token punctuation">(</span><span class="token number">1</span>:9<span class="token punctuation">)</span>
 
-at Parser.raise (packages/babel-parser/src/parser/location.js:39:63)
-at Parser.raise [as unexpected] (packages/babel-parser/src/parser/util.js:133:16)
-at Parser.unexpected [as parseIdentifierName] (packages/babel-parser/src/parser/expression.js:2090:18)
-at Parser.parseIdentifierName [as parseIdentifier] (packages/babel-parser/src/parser/expression.js:2052:23)
-at Parser.parseIdentifier (packages/babel-parser/src/parser/statement.js:1096:52)</code></pre>
+at Parser.raise <span class="token punctuation">(</span>packages/babel-parser/src/parser/location.js:39:63<span class="token punctuation">)</span>
+at Parser.raise <span class="token punctuation">[</span>as unexpected<span class="token punctuation">]</span> <span class="token punctuation">(</span>packages/babel-parser/src/parser/util.js:133:16<span class="token punctuation">)</span>
+at Parser.unexpected <span class="token punctuation">[</span>as parseIdentifierName<span class="token punctuation">]</span> <span class="token punctuation">(</span>packages/babel-parser/src/parser/expression.js:2090:18<span class="token punctuation">)</span>
+at Parser.parseIdentifierName <span class="token punctuation">[</span>as parseIdentifier<span class="token punctuation">]</span> <span class="token punctuation">(</span>packages/babel-parser/src/parser/expression.js:2052:23<span class="token punctuation">)</span>
+at Parser.parseIdentifier <span class="token punctuation">(</span>packages/babel-parser/src/parser/statement.js:1096:52<span class="token punctuation">)</span></code></pre>
 <blockquote><small>If you find scanning through all the test cases takes time, you can directly call `jest` to run the test:</small>
-<pre class="language-sh"><code class="language-sh">BABEL_ENV=test node_modules/.bin/jest -u packages/babel-parser/test/curry-function.js</code></pre></blockquote>
+<pre class="language-sh"><code class="language-sh"><span class="token assign-left variable">BABEL_ENV</span><span class="token operator">=</span>test node_modules/.bin/jest -u packages/babel-parser/test/curry-function.js</code></pre></blockquote>
 <p>Our parser found 2 seemingly innocent <code>@</code> tokens at a place where they shouldn&#39;t be present.</p>
 <p>How do I know that? Let&#39;s start the watch mode, <code>make watch</code>, wear our detective cap 🕵️‍ and start digging!</p>
 <p>Tracing the stack trace, led us to <a href="https://github.com/tanhauhau/babel/blob/feat/curry-function/packages/babel-parser/src/parser/expression.js#L2092" rel="nofollow"><code>packages/babel-parser/src/parser/expression.js</code></a> where it throws <code>this.unexpected()</code>.</p>
 <p>Let us add some <code>console.log</code>:</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// filename: packages/babel-parser/src/parser/expression.js</span>
 <span class="token function">parseIdentifierName</span><span class="token punctuation">(</span>pos<span class="token punctuation">:</span> number<span class="token punctuation">,</span> liberal<span class="token operator">?</span><span class="token punctuation">:</span> boolean<span class="token punctuation">)</span><span class="token punctuation">:</span> string <span class="token punctuation">&#123;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// ...</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// current token</span>
-    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">lookahead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// next token</span>
-    <span class="token keyword">throw</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">unexpected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// current token</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">lookahead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// next token</span>
+    <span class="token keyword">throw</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">unexpected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>As you can see, both tokens are <code>@</code> token:</p>
-<pre class="language-js"><code class="language-js"><span class="token maybe-class-name">TokenType</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js">TokenType <span class="token punctuation">&#123;</span>
   label<span class="token punctuation">:</span> <span class="token string">'@'</span><span class="token punctuation">,</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -201,11 +202,10 @@ at Parser.parseIdentifier (packages/babel-parser/src/parser/statement.js:1096:52
 <p>Here you see a list of tokens, so let&#39;s add our new token definition in as well:</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// filename: packages/babel-parser/src/tokenizer/types.js</span>
 
-<span class="token keyword module">export</span> <span class="token keyword">const</span> types<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span>name<span class="token punctuation">:</span> string<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token maybe-class-name">TokenType</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> types<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span>name<span class="token punctuation">:</span> string<span class="token punctuation">]</span><span class="token punctuation">:</span> TokenType <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// ...</span>
   at<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">TokenType</span><span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token comment">// highlight-next-line</span>
-  atat<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">TokenType</span><span class="token punctuation">(</span><span class="token string">'@@'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="prism-highlight-code-line">  atat<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">TokenType</span><span class="token punctuation">(</span><span class="token string">'@@'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
 <p>Next, let&#39;s find out where the token gets created during <em>tokenization</em>. A quick search on <code>tt.at</code> within <code>babel-parser/src/tokenizer</code> lead us to <a href="https://github.com/tanhauhau/babel/blob/da0af5fd99a9b747370a2240df3abf2940b9649c/packages/babel-parser/src/tokenizer/index.js#L790" rel="nofollow">packages/babel-parser/src/tokenizer/index.js</a></p>
 <blockquote><small>Well, token types are import as `tt` throughout the babel-parser.</small></blockquote>
@@ -215,29 +215,27 @@ at Parser.parseIdentifier (packages/babel-parser/src/parser/statement.js:1096:52
 <span class="token function">getTokenFromCode</span><span class="token punctuation">(</span>code<span class="token punctuation">:</span> number<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>code<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// ...</span>
-    <span class="token keyword">case</span> charCodes<span class="token punctuation">.</span><span class="token property-access">atSign</span><span class="token punctuation">:</span>
-      <span class="token comment">// highlight-start</span>
-      <span class="token comment">// if the next character is a &#96;@&#96;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">input</span><span class="token punctuation">.</span><span class="token method function property-access">charCodeAt</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">===</span> charCodes<span class="token punctuation">.</span><span class="token property-access">atSign</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">// create &#96;tt.atat&#96; instead</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">finishOp</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">atat</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">finishOp</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">at</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-      <span class="token keyword">return</span><span class="token punctuation">;</span>
-      <span class="token comment">// highlight-end</span>
+    <span class="token keyword">case</span> charCodes<span class="token punctuation">.</span>atSign<span class="token punctuation">:</span>
+<span class="prism-highlight-code-line">      <span class="token comment">// if the next character is a &#96;@&#96;</span></span>
+<span class="prism-highlight-code-line">      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>input<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>pos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">===</span> charCodes<span class="token punctuation">.</span>atSign<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></span>
+<span class="prism-highlight-code-line">        <span class="token comment">// create &#96;tt.atat&#96; instead</span></span>
+<span class="prism-highlight-code-line">        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">finishOp</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>atat<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></span>
+<span class="prism-highlight-code-line">        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">finishOp</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>at<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">      <span class="token punctuation">&#125;</span></span>
+<span class="prism-highlight-code-line">      <span class="token keyword">return</span><span class="token punctuation">;</span></span>
     <span class="token comment">// ...</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>If you run the test again, you will see that the current token and the next token has changed:</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// current token</span>
-<span class="token maybe-class-name">TokenType</span> <span class="token punctuation">&#123;</span>
+TokenType <span class="token punctuation">&#123;</span>
   label<span class="token punctuation">:</span> <span class="token string">'@@'</span><span class="token punctuation">,</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">// next token</span>
-<span class="token maybe-class-name">TokenType</span> <span class="token punctuation">&#123;</span>
+TokenType <span class="token punctuation">&#123;</span>
   label<span class="token punctuation">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -252,30 +250,28 @@ at Parser.parseIdentifier (packages/babel-parser/src/parser/statement.js:1096:52
 <p>A quick search on <em>&quot;FunctionDeclaration&quot;</em> leads us to a function called <code>parseFunction</code> in <a href="https://github.com/tanhauhau/babel/blob/da0af5fd99a9b747370a2240df3abf2940b9649c/packages/babel-parser/src/parser/statement.js#L1030" rel="nofollow">packages/babel-parser/src/parser/statement.js</a>, and here we find a line that sets the <code>generator</code> attribute, let&#39;s add one more line:</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// filename: packages/babel-parser/src/parser/statement.js</span>
 
-<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">class</span> <span class="token class-name">StatementParser</span> <span class="token keyword">extends</span> <span class="token class-name">ExpressionParser</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">StatementParser</span> <span class="token keyword">extends</span> <span class="token class-name">ExpressionParser</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// ...</span>
-  parseFunction<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">:</span> <span class="token constant">N</span><span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">NormalFunction</span></span><span class="token operator">></span><span class="token punctuation">(</span>
+  parseFunction<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">:</span> <span class="token constant">N</span><span class="token punctuation">.</span>NormalFunction<span class="token operator">></span><span class="token punctuation">(</span>
     node<span class="token punctuation">:</span> <span class="token constant">T</span><span class="token punctuation">,</span>
     statement<span class="token operator">?</span><span class="token punctuation">:</span> number <span class="token operator">=</span> <span class="token constant">FUNC_NO_FLAGS</span><span class="token punctuation">,</span>
     isAsync<span class="token operator">?</span><span class="token punctuation">:</span> boolean <span class="token operator">=</span> <span class="token boolean">false</span>
   <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token constant">T</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// ...</span>
-    node<span class="token punctuation">.</span><span class="token property-access">generator</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">star</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// highlight-next-line</span>
-    node<span class="token punctuation">.</span><span class="token property-access">curry</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">atat</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    node<span class="token punctuation">.</span>generator <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>star<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">    node<span class="token punctuation">.</span>curry <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>atat<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>If you run the test again, you will be amazed that it passed!</p>
 <pre class="language-sh"><code class="language-sh"> PASS  packages/babel-parser/test/curry-function.js
-  curry function syntax
-    ✓ should parse (12ms)</code></pre>
+  curry <span class="token keyword">function</span> syntax
+    ✓ should parse <span class="token punctuation">(</span>12ms<span class="token punctuation">)</span></code></pre>
 <p>That&#39;s it? How did we miraculously fix it?</p>
 <p>I am going to briefly explain how parsing works, and in the process hopefully, you understood what that one-liner change did.</p></section>
 <section><h3><a href="#how-parsing-works" id="how-parsing-works">How parsing works</a></h3>
 <p>With the list of tokens from the <em>tokenizer</em>, the parser consumes the token one by one and constructs the AST. The parser uses the language grammar specification to decide how to use the tokens, which token to expect next.</p>
 <p>The grammar specification looks something like this:</p>
-<pre class="language-null">
-<code class="language-">...
+<pre class="language-null"><code class="language-">...
 ExponentiationExpression -&gt; UnaryExpression
                             UpdateExpression ** ExponentiationExpression
 MultiplicativeExpression -&gt; ExponentiationExpression
@@ -289,25 +285,23 @@ AdditiveExpression       -&gt; MultiplicativeExpression
 <li>an <code>AdditiveExpression</code> followed by <code>+</code> operator token followed by <code>MultiplicativeExpression</code>, or</li>
 <li>an <code>AdditiveExpression</code> followed by <code>-</code> operator token followed by <code>MultiplicativeExpression</code>.</li></ul>
 <p>So if you have an expression <code>1 + 2 * 3</code>, it will be like:</p>
-<pre class="language-null">
-<code class="language-">(AdditiveExpression &quot;+&quot; 1 (MultiplicativeExpression &quot;*&quot; 2 3))</code></pre>
+<pre class="language-null"><code class="language-">(AdditiveExpression &quot;+&quot; 1 (MultiplicativeExpression &quot;*&quot; 2 3))</code></pre>
 <p>instead of</p>
-<pre class="language-null">
-<code class="language-">(MultiplicativeExpression &quot;*&quot; (AdditiveExpression &quot;+&quot; 1 2) 3)</code></pre>
+<pre class="language-null"><code class="language-">(MultiplicativeExpression &quot;*&quot; (AdditiveExpression &quot;+&quot; 1 2) 3)</code></pre>
 <p>With these rules, we translate them into parser code:</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Parser</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// ...</span>
   <span class="token function">parseAdditiveExpression</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">const</span> left <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">parseMultiplicativeExpression</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> left <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">parseMultiplicativeExpression</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// if the current token is &#96;+&#96; or &#96;-&#96;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">plus</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">minus</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">const</span> operator <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>plus<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>minus<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> operator <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
       <span class="token comment">// move on to the next token</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">const</span> right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">parseMultiplicativeExpression</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">parseMultiplicativeExpression</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
       <span class="token comment">// create the node</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">finishNode</span><span class="token punctuation">(</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">finishNode</span><span class="token punctuation">(</span>
         <span class="token punctuation">&#123;</span>
           operator<span class="token punctuation">,</span>
           left<span class="token punctuation">,</span>
@@ -332,23 +326,22 @@ AdditiveExpression       -&gt; MultiplicativeExpression
 <p>If you take a look again the parser code we just changed, it&#39;s easier to read it in now.</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// filename: packages/babel-parser/src/parser/statement.js</span>
 
-<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">class</span> <span class="token class-name">StatementParser</span> <span class="token keyword">extends</span> <span class="token class-name">ExpressionParser</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">StatementParser</span> <span class="token keyword">extends</span> <span class="token class-name">ExpressionParser</span> <span class="token punctuation">&#123;</span>
   <span class="token function">parseStatementContent</span><span class="token punctuation">(</span><span class="token comment">/* ...*/</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// ...</span>
     <span class="token comment">// NOTE: we call match to check the current token</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">_function</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>_function<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">// NOTE: function statement has a higher precendence than a generic statement</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">parseFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">parseFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
   <span class="token comment">// ...</span>
   <span class="token function">parseFunction</span><span class="token punctuation">(</span><span class="token comment">/* ... */</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// NOTE: we call eat to check whether the optional token exists</span>
-    node<span class="token punctuation">.</span><span class="token property-access">generator</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">star</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// highlight-next-line</span>
-    node<span class="token punctuation">.</span><span class="token property-access">curry</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span><span class="token property-access">atat</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    node<span class="token punctuation">.</span><span class="token property-access">id</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">parseFunctionId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    node<span class="token punctuation">.</span>generator <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>star<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="prism-highlight-code-line">    node<span class="token punctuation">.</span>curry <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span>tt<span class="token punctuation">.</span>atat<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+    node<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">parseFunctionId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>I know I didn&#39;t do a good job explaining how a parser works. Here are some resources that I learned from, and I highly recommend them:</p>
@@ -365,12 +358,12 @@ AdditiveExpression       -&gt; MultiplicativeExpression
 <p>But maybe before that, you may have some doubts on how are we going to use our custom babel parser, especially with whatever build stack we are using right now?</p>
 <p>Well, fret not. A babel plugin can provide a custom parser, which is <a href="https://babeljs.io/docs/en/babel-parser#will-the-babel-parser-support-a-plugin-system" rel="nofollow">documented on the babel website</a></p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// filename: babel-plugin-transformation-curry-function.js</span>
-<span class="token keyword module">import</span> customParser <span class="token keyword module">from</span> <span class="token string">'./custom-parser'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> customParser <span class="token keyword">from</span> <span class="token string">'./custom-parser'</span><span class="token punctuation">;</span>
 
-<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">function</span> <span class="token function">ourBabelPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">ourBabelPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     <span class="token function">parserOverride</span><span class="token punctuation">(</span><span class="token parameter">code<span class="token punctuation">,</span> opts</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">return</span> customParser<span class="token punctuation">.</span><span class="token method function property-access">parse</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> opts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> customParser<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> opts<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -383,12 +376,12 @@ AdditiveExpression       -&gt; MultiplicativeExpression
 <hr>
 <p>Ok, to make our function curryable, we can wrap it with a <code>currying</code> helper higher-order function:</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">currying</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> numParamsRequired <span class="token operator">=</span> fn<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> numParamsRequired <span class="token operator">=</span> fn<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
   <span class="token keyword">function</span> <span class="token function">curryFactory</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token spread operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">const</span> newParams <span class="token operator">=</span> params<span class="token punctuation">.</span><span class="token method function property-access">concat</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>newParams<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">>=</span> numParamsRequired<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token spread operator">...</span>newParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> newParams <span class="token operator">=</span> params<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>newParams<span class="token punctuation">.</span>length <span class="token operator">>=</span> numParamsRequired<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>newParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span>
       <span class="token keyword">return</span> <span class="token function">curryFactory</span><span class="token punctuation">(</span>newParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
@@ -409,29 +402,27 @@ AdditiveExpression       -&gt; MultiplicativeExpression
 <blockquote><p>Let&#39;s first ignore <a href="https://scotch.io/tutorials/understanding-hoisting-in-javascript" rel="nofollow">function hoisting</a> in JavaScript, where you can call <code>foo</code> before it is defined.</p></blockquote>
 <p>If you have read my <a href="/step-by-step-guide-for-writing-a-babel-transformation">step-by-step guide on babel transformation</a>, writing this transformation should be manageable:</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// filename: babel-plugin-transformation-curry-function.js</span>
-<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">function</span> <span class="token function">ourBabelPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">ourBabelPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// ...</span>
-    <span class="token comment">// highlight-start</span>
-    visitor<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
-      <span class="token function"><span class="token maybe-class-name">FunctionDeclaration</span></span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">'curry'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-          <span class="token comment">// const foo = curry(function () &#123; ... &#125;);</span>
-          path<span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">.</span><span class="token property-access">curry</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-          path<span class="token punctuation">.</span><span class="token method function property-access">replaceWith</span><span class="token punctuation">(</span>
-            t<span class="token punctuation">.</span><span class="token method function property-access">variableDeclaration</span><span class="token punctuation">(</span><span class="token string">'const'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-              t<span class="token punctuation">.</span><span class="token method function property-access">variableDeclarator</span><span class="token punctuation">(</span>
-                t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">'id.name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                t<span class="token punctuation">.</span><span class="token method function property-access">callExpression</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span><span class="token string">'currying'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-                  t<span class="token punctuation">.</span><span class="token method function property-access">toExpression</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                <span class="token punctuation">]</span><span class="token punctuation">)</span>
-              <span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token punctuation">]</span><span class="token punctuation">)</span>
-          <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token comment">// highlight-end</span>
+<span class="prism-highlight-code-line">    visitor<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span></span>
+<span class="prism-highlight-code-line">      <span class="token function">FunctionDeclaration</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></span>
+<span class="prism-highlight-code-line">        <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'curry'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>node<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></span>
+<span class="prism-highlight-code-line">          <span class="token comment">// const foo = curry(function () &#123; ... &#125;);</span></span>
+<span class="prism-highlight-code-line">          path<span class="token punctuation">.</span>node<span class="token punctuation">.</span>curry <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">          path<span class="token punctuation">.</span><span class="token function">replaceWith</span><span class="token punctuation">(</span></span>
+<span class="prism-highlight-code-line">            t<span class="token punctuation">.</span><span class="token function">variableDeclaration</span><span class="token punctuation">(</span><span class="token string">'const'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span></span>
+<span class="prism-highlight-code-line">              t<span class="token punctuation">.</span><span class="token function">variableDeclarator</span><span class="token punctuation">(</span></span>
+<span class="prism-highlight-code-line">                t<span class="token punctuation">.</span><span class="token function">identifier</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'id.name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>node<span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="prism-highlight-code-line">                t<span class="token punctuation">.</span><span class="token function">callExpression</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">identifier</span><span class="token punctuation">(</span><span class="token string">'currying'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span></span>
+<span class="prism-highlight-code-line">                  t<span class="token punctuation">.</span><span class="token function">toExpression</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span>node<span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="prism-highlight-code-line">                <span class="token punctuation">]</span><span class="token punctuation">)</span></span>
+<span class="prism-highlight-code-line">              <span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+<span class="prism-highlight-code-line">            <span class="token punctuation">]</span><span class="token punctuation">)</span></span>
+<span class="prism-highlight-code-line">          <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="prism-highlight-code-line">        <span class="token punctuation">&#125;</span></span>
+<span class="prism-highlight-code-line">      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></span>
+<span class="prism-highlight-code-line">    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>The question is how do we provide the <code>currying</code> function?</p>
@@ -451,7 +442,7 @@ AdditiveExpression       -&gt; MultiplicativeExpression
 <p><em><strong>Disclaimer:</strong> I have not personally tried this, but I believe it will work. If you encountered problems trying this, <a href="https://twitter.com/lihautan" rel="nofollow">DM me</a>, I am very happy to discuss it with you.</em></p>
 <p>Adding a new helper function into <code>@babel/helpers</code> is very easy.</p>
 <p>Head over to <a href="https://github.com/tanhauhau/babel/blob/feat/curry-function/packages/babel-helpers/src/helpers.js" rel="nofollow">packages/babel-helpers/src/helpers.js</a> and add a new entry:</p>
-<pre class="language-js"><code class="language-js">helpers<span class="token punctuation">.</span><span class="token property-access">currying</span> <span class="token operator">=</span> <span class="token function">helper</span><span class="token punctuation">(</span><span class="token string">"7.6.0"</span><span class="token punctuation">)</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+<pre class="language-js"><code class="language-js">helpers<span class="token punctuation">.</span>currying <span class="token operator">=</span> <span class="token function">helper</span><span class="token punctuation">(</span><span class="token string">"7.6.0"</span><span class="token punctuation">)</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
   export default function currying(fn) &#123;
     const numParamsRequired = fn.length;
     function curryFactory(params) &#123;
@@ -469,12 +460,12 @@ AdditiveExpression       -&gt; MultiplicativeExpression
 <p>The helper tag function specifies the <code>@babel/core</code> version required. The trick here is to <code>export default</code> the <code>currying</code> function.</p>
 <p>To use the helper, just call the <code>this.addHelper()</code>:</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// ...</span>
-path<span class="token punctuation">.</span><span class="token method function property-access">replaceWith</span><span class="token punctuation">(</span>
-  t<span class="token punctuation">.</span><span class="token method function property-access">variableDeclaration</span><span class="token punctuation">(</span><span class="token string">'const'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    t<span class="token punctuation">.</span><span class="token method function property-access">variableDeclarator</span><span class="token punctuation">(</span>
-      t<span class="token punctuation">.</span><span class="token method function property-access">identifier</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">'id.name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      t<span class="token punctuation">.</span><span class="token method function property-access">callExpression</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">addHelper</span><span class="token punctuation">(</span><span class="token string">"currying"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-        t<span class="token punctuation">.</span><span class="token method function property-access">toExpression</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token property-access">node</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+path<span class="token punctuation">.</span><span class="token function">replaceWith</span><span class="token punctuation">(</span>
+  t<span class="token punctuation">.</span><span class="token function">variableDeclaration</span><span class="token punctuation">(</span><span class="token string">'const'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    t<span class="token punctuation">.</span><span class="token function">variableDeclarator</span><span class="token punctuation">(</span>
+      t<span class="token punctuation">.</span><span class="token function">identifier</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'id.name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>node<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      t<span class="token punctuation">.</span><span class="token function">callExpression</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addHelper</span><span class="token punctuation">(</span><span class="token string">"currying"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+        t<span class="token punctuation">.</span><span class="token function">toExpression</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span>node<span class="token punctuation">)</span><span class="token punctuation">,</span>
       <span class="token punctuation">]</span><span class="token punctuation">)</span>
     <span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -510,7 +501,7 @@ path<span class="token punctuation">.</span><span class="token method function p
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./af3eda2d.js" async></script></div>
+</footer><script src="./b749cae8.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

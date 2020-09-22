@@ -22,6 +22,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
     onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
   <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
   <style>
@@ -52,7 +54,7 @@
   </style>
 
   
-  <title>Hydrating text content from Server-Side Rendering | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Hydrating text content from Server-Side Rendering" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Hydrating text content from Server-Side Rendering" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fhydrating-text-content" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Hydrating text content from Server-Side Rendering","name":"Hydrating text content from Server-Side Rendering","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fhydrating-text-content","name":"Hydrating text content from Server-Side Rendering"},"name":"Hydrating text content from Server-Side Rendering","position":2}]}</script><link as="script" rel="preload" href="./33f58e4a.js"><link as="style" rel="preload" href="./assets/blog-base-967d71e9.css"><link as="style" rel="preload" href="./33f58e4a.css"><link href="./assets/blog-base-967d71e9.css" rel="stylesheet"><link href="./33f58e4a.css" rel="stylesheet">
+  <title>Hydrating text content from Server-Side Rendering | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Hydrating text content from Server-Side Rendering" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Hydrating text content from Server-Side Rendering" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fhydrating-text-content" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Hydrating text content from Server-Side Rendering","name":"Hydrating text content from Server-Side Rendering","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fhydrating-text-content","name":"Hydrating text content from Server-Side Rendering"},"name":"Hydrating text content from Server-Side Rendering","position":2}]}</script><link as="script" rel="preload" href="./86f09b34.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./86f09b34.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./86f09b34.css" rel="stylesheet">
 </head>
 
 <body>
@@ -86,8 +88,7 @@
 <p>I am going to share a story, how I &quot;understand&quot; more about the mechanics of rehydration in React, and how I apply it in real life.</p></section>
 <section><h2><a href="#background" id="background">Background</a></h2>
 <p>Recently, I was bewildered by a React hydration warning:</p>
-<pre class="language-null">
-<code class="language-">Text content did not match. Server: &quot;Count: 0&quot; Client: &quot;Count: &quot;</code></pre>
+<pre class="language-null"><code class="language-">Text content did not match. Server: &quot;Count: 0&quot; Client: &quot;Count: &quot;</code></pre>
 <p>To give you a sense of the situation, this is the component I was trying to rehydrate:</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -128,7 +129,7 @@
 <p>The functional component <code>App</code> returns the following React element when <code>count</code> is <code>0</code>:</p>
 <pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">Count: </span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
-  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">Increment</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">Increment</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>which itself is a plain JavaScript object, which is roughly:</p>
 <pre class="language-js"><code class="language-js"><span class="token punctuation">&#123;</span>
@@ -145,7 +146,7 @@
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
       type<span class="token punctuation">:</span> <span class="token string">'button'</span><span class="token punctuation">,</span>
       props<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token function-variable function">onClick</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">onClick</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
           <span class="token string">'Increment'</span><span class="token punctuation">,</span>
         <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -157,8 +158,7 @@
 <p>So, when React tries to hydrate the <code>div</code> from SSR, it starts with comparing all the props from the React element and the attributes from the DOM. Then, it compares the element&#39;s children.</p>
 <p>Based on the React element, React expects 2 text nodes, but the DOM only has 1. So it tries to match with the 1st text node, and create the 2nd one.</p>
 <p>It is when the matching happens, where React realizes that it is expecting the text node to contain <code>&quot;Count: &quot;</code>, but the server content is <code>&quot;Count: 0&quot;</code>, thus the error message:</p>
-<pre class="language-null">
-<code class="language-">Text content did not match. Server: &quot;Count: 0&quot; Client: &quot;Count: &quot;</code></pre>
+<pre class="language-null"><code class="language-">Text content did not match. Server: &quot;Count: 0&quot; Client: &quot;Count: &quot;</code></pre>
 <p>Then, React patches the text node, by setting the content to the expected <code>&quot;Count: &quot;</code>, and created another text node, <code>&quot;0&quot;</code>, so visually there&#39;s no change, but in the DOM, React has changed the text content and created a new text node.</p></section>
 <section><h2><a href="#is-this-a-bug" id="is-this-a-bug">Is this a bug?</a></h2>
 <p>So, is this a React hydration bug? or is this an expected behavior?</p>
@@ -207,8 +207,8 @@
 <p>HTML tag allow multiple elements to be passed in, which makes it hard to determine the bound of the HTML tag when hydrating.</p>
 <p>Take this example:</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword module">import</span> <span class="token maybe-class-name">Header</span> <span class="token keyword module">from</span> <span class="token string">'./Header.svelte'</span><span class="token punctuation">;</span>
-  <span class="token keyword module">import</span> <span class="token maybe-class-name">Footer</span> <span class="token keyword module">from</span> <span class="token string">'./Footer.svelte'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> Header <span class="token keyword">from</span> <span class="token string">'./Header.svelte'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> Footer <span class="token keyword">from</span> <span class="token string">'./Footer.svelte'</span><span class="token punctuation">;</span>
   
   <span class="token keyword">const</span> string <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
     &lt;h1>Introduction&lt;/h1>
@@ -263,13 +263,13 @@
 <pre class="language-js"><code class="language-js"><span class="token comment">// claim HTML node until a comment that matches the &#96;commentMarker&#96;</span>
 <span class="token keyword">function</span> <span class="token function">claimUntil</span><span class="token punctuation">(</span><span class="token parameter">nodes<span class="token punctuation">,</span> commentMarker</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> nodes<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> nodes<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> node <span class="token operator">=</span> nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span><span class="token property-access">nodeType</span> <span class="token operator">===</span> <span class="token number">8</span> <span class="token comment">/* comment node */</span> <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span><span class="token property-access">textContent</span><span class="token punctuation">.</span><span class="token method function property-access">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> commentMarker<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>nodeType <span class="token operator">===</span> <span class="token number">8</span> <span class="token comment">/* comment node */</span> <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>textContent<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> commentMarker<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">break</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
-  <span class="token keyword">return</span> nodes<span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> nodes<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">function</span> <span class="token function">claimHtmlTag</span><span class="token punctuation">(</span><span class="token parameter">nodes</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -279,7 +279,7 @@
 <section><h2><a href="#dangerouslysetinnerhtml" id="dangerouslysetinnerhtml">dangerouslySetInnerHtml</a></h2>
 <p>React has <a href="https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml" rel="nofollow">dangerouslySetInnerHTML</a> right? Does it have the same issue?</p>
 <p>Apparently not. <code>dangerouslySetInnerHTML</code> is always used inside an HTML element, so the parent element is the boundary of the inner HTML content.</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">MyComponent</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">MyComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token operator">&lt;</span>div dangerouslySetInnerHTML<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>__html<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
     &lt;h1>Introduction&lt;/h1>
     &lt;div>Hello World&lt;/div>
@@ -314,7 +314,7 @@ The section above is entirely based on my understanding by reading the <a href="
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./33f58e4a.js" async></script></div>
+</footer><script src="./86f09b34.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

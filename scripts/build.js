@@ -8,6 +8,8 @@ const bundle = require('./bundle');
 const { mkdirp } = require('./mkdirp');
 const getDefinitions = require(`mdast-util-definitions`);
 const buildPage = require('./buildPage');
+const buildRss = require('./buildRss');
+const buildSitemap = require('./buildSitemap');
 const { encodeUrl } = require('./encodeUrl');
 const { renderTemplate } = require('./renderTemplate');
 const crypto = require('crypto');
@@ -109,6 +111,9 @@ async function buildPages(pages, layouts, jsTemplate, template) {
     .sort(reverseSortByDate)
     .filter(_ => !_.metadata.wip);
 
+  await buildRss(result);
+  await buildSitemap(result);
+    
   await Promise.all([
     writeJson(blogsOutput, result.blog),
     writeJson(notesOutput, result.notes),

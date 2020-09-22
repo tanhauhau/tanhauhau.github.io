@@ -170,7 +170,7 @@ That's why [bower](https://bower.io) was created. It is called the package manag
 ![bower](./images/bower.png)
 
 <!-- prettier-ignore -->
-```html{2-3}
+```html
 /project
   /bower_components
   /node_modules

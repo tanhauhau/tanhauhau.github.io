@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://twitter.com/lihautan" rel="me" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#bd93f9" />
+  <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Note: The CSS Podcast: 023: Filters | Tan Li Hau</title><link href="https://lihautan.com/notes/css-podcast-023-filters/assets/blog-base-3554d53c.css" rel="stylesheet" data-svelte="svelte-ywf7m8"><meta name="og:title" content="css-podcast-023-filters" data-svelte="svelte-ywf7m8"><meta name="og:type" content="website" data-svelte="svelte-ywf7m8"><meta name="keywords" content="css filters" data-svelte="svelte-ywf7m8"><meta name="keywords" content="The CSS Podcast" data-svelte="svelte-ywf7m8"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fcss-podcast-023-filters" data-svelte="svelte-ywf7m8"><link as="script" rel="preload" href="./8067ce9c.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./8067ce9c.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./8067ce9c.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-186dllz">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-186dllz"><h1>The CSS Podcast: 023: Filters</h1>
+  
+  <span class="svelte-186dllz">css filters</span><span class="svelte-186dllz">The CSS Podcast</span>
+
+  <article class="svelte-186dllz"><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#css-filters">CSS Filters</a></li><ul><li><a href="#blur">blur()</a></li><li><a href="#brightness">brightness()</a></li><li><a href="#contrast">contrast()</a></li><li><a href="#grayscale">grayscale()</a></li><li><a href="#invert">invert()</a></li><li><a href="#opacity">opacity()</a></li><li><a href="#saturate">saturate()</a></li><li><a href="#sepia">sepia()</a></li><li><a href="#hue-rotate">hue-rotate()</a></li><li><a href="#drop-shadow">drop-shadow()</a></li><li><a href="#url">url()</a></li><li><a href="#backdrop-filter">backdrop-filter</a></li></ul><li><a href="#svg-filters">SVG Filters</a></li><ul><li><a href="#filter-primitives">filter primitives</a></li><li><a href="#filter-region">filter region</a></li><li><a href="#create-a-drop-shadow">Create a drop shadow</a></li><li><a href="#color-matrix">Color Matrix</a></li></ul></ul></section>
+<section><h2><a href="#css-filters" id="css-filters">CSS Filters</a></h2>
+<ul><li>applied in order provided</li>
+<li>you can use filter functions or url to svg filters</li></ul>
+<pre class="language-css"><code class="language-css"><span class="token selector">.element</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>1px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>#blur<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>commonfilters.xml#blur<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#blur" id="blur">blur()</a></h3>
+<ul><li>uses gaussian blur</li>
+<li>specify blur radius</li></ul>
+<pre class="language-css"><code class="language-css"><span class="token selector">.center</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>3px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.right</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>10px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><picture><source type="image/webp" srcset="eeb559c6f8d1496e.webp"><source type="image/jpeg" srcset="eeb559c6f8d1496e.png"><img title="null" alt="filter blur" data-src="eeb559c6f8d1496e.png" loading="lazy" class="svelte-pzh0pi"></picture></p></section>
+<section><h3><a href="#brightness" id="brightness">brightness()</a></h3>
+<ul><li>takes in percentage value</li>
+<li>greater than 100% - lightening</li>
+<li>less than 100% - darkening</li>
+<li>0 - complete black</li></ul>
+<pre class="language-css"><code class="language-css"><span class="token selector">.left</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">brightness</span><span class="token punctuation">(</span>0.5<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.right</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">brightness</span><span class="token punctuation">(</span>1.5<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><picture><source type="image/webp" srcset="039520751fea8cdc.webp"><source type="image/jpeg" srcset="039520751fea8cdc.png"><img title="null" alt="filter brightness" data-src="039520751fea8cdc.png" loading="lazy" class="svelte-pzh0pi"></picture></p></section>
+<section><h3><a href="#contrast" id="contrast">contrast()</a></h3>
+<ul><li>takes in percentage value</li>
+<li>greater than 100% - increasing contrast</li>
+<li>less than 100% - decreasing contrast</li></ul>
+<pre class="language-css"><code class="language-css"><span class="token selector">.left</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">contrast</span><span class="token punctuation">(</span>0.5<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.right</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">contrast</span><span class="token punctuation">(</span>1.5<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><picture><source type="image/webp" srcset="8d1ebac87309bb83.webp"><source type="image/jpeg" srcset="8d1ebac87309bb83.png"><img title="null" alt="filter contrast" data-src="8d1ebac87309bb83.png" loading="lazy" class="svelte-pzh0pi"></picture></p></section>
+<section><h3><a href="#grayscale" id="grayscale">grayscale()</a></h3>
+<ul><li>grayscale vs desaturation<ul><li>grayscale: perceptual information of the color will be maintained</li></ul></li></ul></section>
+<section><h3><a href="#invert" id="invert">invert()</a></h3>
+<ul><li>inverts the dark and light</li>
+<li><code>invert(1)</code> is the default, which completely inverts</li>
+<li><code>invert(0.5)</code> will end up a 50% color gray (light increase and dark decrease at the same amount and meet at 50%)</li>
+<li>can be used to implement dark mode (invert everything, then invert the image again)</li></ul></section>
+<section><h3><a href="#opacity" id="opacity">opacity()</a></h3>
+<ul><li>similar to opacity property</li></ul></section>
+<section><h3><a href="#saturate" id="saturate">saturate()</a></h3>
+<ul><li>takes in percentage value</li>
+<li>greater than 100% - increasing saturation</li>
+<li>less than 100% - decreasing saturation</li></ul></section>
+<section><h3><a href="#sepia" id="sepia">sepia()</a></h3>
+<ul><li>sepia has a warm, yellow/brown appearance</li>
+<li>takes in percentage value</li>
+<li>value from 0% - 100%, 100% is complete sepia, 0% is no effect</li></ul></section>
+<section><h3><a href="#hue-rotate" id="hue-rotate">hue-rotate()</a></h3>
+<ul><li>rotates the color along the color wheel</li>
+<li>takes in an angle</li></ul></section>
+<section><h3><a href="#drop-shadow" id="drop-shadow">drop-shadow()</a></h3>
+<ul><li>works on the painted space instead of the box</li>
+<li>not casting shadow if it is transparent</li></ul></section>
+<section><h3><a href="#url" id="url">url()</a></h3>
+<ul><li>point to svg filter</li>
+<li>svg must be inline, cannot be a url as an image, so that it can be referenced</li></ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.element</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>#my-filter<span class="token punctuation">)</span></span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+ 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-filter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceGraphic<span class="token punctuation">"</span></span> <span class="token attr-name">stdDeviation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></section>
+<section><h3><a href="#backdrop-filter" id="backdrop-filter"><code>backdrop-filter</code></a></h3>
+<ul><li>apply behind the element, instead on the element</li>
+<li><a href="https://css-tricks.com/almanac/properties/b/backdrop-filter/" rel="nofollow">https://css-tricks.com/almanac/properties/b/backdrop-filter/</a></li></ul></section>
+<section><h2><a href="#svg-filters" id="svg-filters">SVG Filters</a></h2>
+<ul><li>defined in <code>&lt;filter&gt;</code> element</li>
+<li>define a series of one or more filter primitives</li>
+<li>1 filter primitive performs <strong>1 single fundamental graphic operation</strong> on <strong>one or more</strong> inputs</li></ul></section>
+<section><h3><a href="#filter-primitives" id="filter-primitives">filter primitives</a></h3>
+<ul><li>filter primitives named start with <code>fe</code>, short for &quot;filter effect&quot;</li>
+<li>filter primitives take 1-2 inputs and output 1 result</li>
+<li><code>in</code> and <code>in2</code> attribute for input, <code>result</code> attribute for output</li>
+<li>input takes in result, <code>SourceGraphic</code> and <code>SourceAlpha</code></li></ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-filter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- take in 1 input &#96;in&#96; --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>INPUT_NAME<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+    <span class="token comment">&lt;!-- take in 2 inputs &#96;in&#96; and &#96;in2&#96; --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feComposite</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>INPUT_NAME_1<span class="token punctuation">"</span></span> <span class="token attr-name">in2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>INPUT_NAME_2<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    
+    <span class="token comment">&lt;!-- &#96;result&#96; defines the result name, 
+		which can be passed in as input for the next filter --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>OUTPUT_1<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>OUTPUT_1<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    
+    <span class="token comment">&lt;!-- use the source as input for the filter primitive --></span>
+    <span class="token comment">&lt;!-- apply filter on the source element --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceGraphic<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+    <span class="token comment">&lt;!-- apply filter on the alpha channel of the source element,
+		the silhouette of the source --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceAlpha<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></section>
+<section><h3><a href="#filter-region" id="filter-region">filter region</a></h3>
+<ul><li>filter region is based on the bounding box of the element</li>
+<li>filter result beyond filter region will be clipped off</li>
+<li>default filter region extends 10% the width and height of bounding box in all 4 directions</li></ul>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- x, y, width, height sets the filter region --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span>
+  <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>-10%<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>-10%<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120%<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120%<span class="token punctuation">"</span></span>
+  <span class="token attr-name">filterUnits</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>objectBoundingBox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- filter primitives here --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre>
+<ul><li>use <code>&lt;feFlood&gt;</code> to figure out the filter region</li></ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feFlood</span>
+    <span class="token attr-name">flood-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#EB0066<span class="token punctuation">"</span></span> <span class="token attr-name">flood-opacity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0.5<span class="token punctuation">"</span></span>
+    <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flood<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>feFlood</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feMerge</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feMergeNode</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceGraphic<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feMergeNode</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flood<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>feMerge</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre></section>
+<section><h3><a href="#create-a-drop-shadow" id="create-a-drop-shadow">Create a drop shadow</a></h3>
+<ol><li>Blur the silhouette of the layer</li></ol>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-filter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span>
+    <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceAlpha<span class="token punctuation">"</span></span> <span class="token attr-name">stdDeviation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROP<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre>
+<p><picture><source type="image/webp" srcset="b96b9552ac226c8b.webp"><source type="image/jpeg" srcset="b96b9552ac226c8b.png"><img title="null" alt="step-1" data-src="b96b9552ac226c8b.png" loading="lazy" class="svelte-pzh0pi"></picture></p>
+<ol start="2"><li>Composite the blur layer with a solid color layer to create a colored blur</li></ol>
+<ul><li>Learn compositing + blending in <a href="https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/" rel="nofollow">https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/</a></li></ul>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-filter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceAlpha<span class="token punctuation">"</span></span> <span class="token attr-name">stdDeviation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROP<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>feGaussianBlur</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feFlood</span> <span class="token attr-name">flood-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#EB0066<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>COLOR<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feComposite</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>COLOR<span class="token punctuation">"</span></span> <span class="token attr-name">in2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROP<span class="token punctuation">"</span></span> <span class="token attr-name">operator</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>in<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHADOW<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre>
+<p><picture><source type="image/webp" srcset="6c59a6820e28923a.webp"><source type="image/jpeg" srcset="6c59a6820e28923a.png"><img title="null" alt="step-2" data-src="6c59a6820e28923a.png" loading="lazy" class="svelte-pzh0pi"></picture></p>
+<ol start="3"><li>Shift the shadow bottom-right with <code>&lt;feOffset&gt;</code></li></ol>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-filter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceAlpha<span class="token punctuation">"</span></span> <span class="token attr-name">stdDeviation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROP<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>feGaussianBlur</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feFlood</span> <span class="token attr-name">flood-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#EB0066<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>COLOR<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feComposite</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>COLOR<span class="token punctuation">"</span></span> <span class="token attr-name">in2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROP<span class="token punctuation">"</span></span> <span class="token attr-name">operator</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>in<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHADOW<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feOffset</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHADOW<span class="token punctuation">"</span></span> <span class="token attr-name">dx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">dy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROPSHADOW<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre>
+<p><picture><source type="image/webp" srcset="891d4bbd44dfa9ef.webp"><source type="image/jpeg" srcset="891d4bbd44dfa9ef.png"><img title="null" alt="step-3" data-src="891d4bbd44dfa9ef.png" loading="lazy" class="svelte-pzh0pi"></picture></p>
+<ol start="4"><li>Combine the shadow with the original image</li></ol>
+<ul><li>layer merge in order of declaration, latter layer stacks on top of previous layer</li></ul>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-filter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feGaussianBlur</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceAlpha<span class="token punctuation">"</span></span> <span class="token attr-name">stdDeviation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROP<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>feGaussianBlur</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feFlood</span> <span class="token attr-name">flood-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#EB0066<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>COLOR<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feComposite</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>COLOR<span class="token punctuation">"</span></span> <span class="token attr-name">in2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROP<span class="token punctuation">"</span></span> <span class="token attr-name">operator</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>in<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHADOW<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feOffset</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHADOW<span class="token punctuation">"</span></span> <span class="token attr-name">dx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">dy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROPSHADOW<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feMerge</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feMergeNode</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>DROPSHADOW<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feMergeNode</span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceGraphic<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>feMerge</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre>
+<p><picture><source type="image/webp" srcset="66be419a66ca9e4c.webp"><source type="image/jpeg" srcset="66be419a66ca9e4c.png"><img title="null" alt="step-4" data-src="66be419a66ca9e4c.png" loading="lazy" class="svelte-pzh0pi"></picture></p></section>
+<section><h3><a href="#color-matrix" id="color-matrix">Color Matrix</a></h3>
+<ul><li><a href="https://alistapart.com/article/finessing-fecolormatrix/" rel="nofollow">https://alistapart.com/article/finessing-fecolormatrix/</a></li>
+<li><a href="https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/" rel="nofollow">https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/</a></li></ul>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>linear<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feColorMatrix</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>matrix<span class="token punctuation">"</span></span>
+    <span class="token attr-name">values</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>R 0 0 0 0
+            0 G 0 0 0
+            0 0 B 0 0
+            0 0 0 A 0 <span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">/* R G B A 1 */</span>
+<span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token comment">// R = 1*R + 0*G + 0*B + 0*A + 0</span>
+<span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token comment">// G = 0*R + 1*G + 0*B + 0*A + 0</span>
+<span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token comment">// B = 0*R + 0*G + 1*B + 0*A + 0</span>
+<span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token comment">// A = 0*R + 0*G + 0*B + 1*A + 0</span></code></pre>
+<ul><li><a href="https://svelte.dev/repl/1fa3e758ef2442d1bcc1eba37a2bdd58" rel="nofollow">color matrix playground</a></li></ul>
+<ol><li>Colorizing</li></ol>
+<p><picture><source type="image/webp" srcset="f157786df0a1c183.webp"><source type="image/jpeg" srcset="f157786df0a1c183.png"><img title="null" alt="colorise default" data-src="f157786df0a1c183.png" loading="lazy" class="svelte-pzh0pi"></picture></p>
+<ul><li>Removing other color to colorise image into the remaining color</li>
+<li>colorise red -&gt; remove blue &amp; green
+<picture><source type="image/webp" srcset="4b225a4c4286bfc5.webp"><source type="image/jpeg" srcset="4b225a4c4286bfc5.png"><img title="null" alt="colorise red" data-src="4b225a4c4286bfc5.png" loading="lazy" class="svelte-pzh0pi"></picture></li>
+<li>colorise yellow -&gt; remove blue (red + green = yellow)
+<picture><source type="image/webp" srcset="3cf77cf408da38cd.webp"><source type="image/jpeg" srcset="3cf77cf408da38cd.png"><img title="null" alt="colorise yellow" data-src="3cf77cf408da38cd.png" loading="lazy" class="svelte-pzh0pi"></picture></li></ul>
+<ol start="2"><li>Alpha values</li></ol>
+<ul><li><p>add opacity level to the red channel</p>
+<ul><li>any red remaining red</li>
+<li>green -&gt; yellow (red + green = yellow)</li>
+<li>blue -&gt; magenta (red + blue = magenta)
+<picture><source type="image/webp" srcset="e3917c5feb79a558.webp"><source type="image/jpeg" srcset="e3917c5feb79a558.png"><img title="null" alt="red filter" data-src="e3917c5feb79a558.png" loading="lazy" class="svelte-pzh0pi"></picture></li></ul></li>
+<li><p>hard yellow filter
+<picture><source type="image/webp" srcset="748140ca3f00989a.webp"><source type="image/jpeg" srcset="748140ca3f00989a.png"><img title="null" alt="yellow filter" data-src="748140ca3f00989a.png" loading="lazy" class="svelte-pzh0pi"></picture></p></li>
+<li><p>have a value some where between 0-1 to see the mixture in the shadow
+<picture><source type="image/webp" srcset="d1e7d15ad25cb832.webp"><source type="image/jpeg" srcset="d1e7d15ad25cb832.png"><img title="null" alt="yellow filter 2" data-src="d1e7d15ad25cb832.png" loading="lazy" class="svelte-pzh0pi"></picture></p></li></ul>
+<ul><li>negative value could offset the channel by the amount of opacity
+<picture><source type="image/webp" srcset="b150743b60631123.webp"><source type="image/jpeg" srcset="b150743b60631123.png"><img title="null" alt="negative alpha" data-src="b150743b60631123.png" loading="lazy" class="svelte-pzh0pi"></picture><ul><li>the following 2 color matrix is identical</li></ul></li></ul>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feColorMatrix</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>matrix<span class="token punctuation">"</span></span>
+    <span class="token attr-name">values</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1  0  0  0  0
+            0  1  0  0  0
+            0  0  1 -1  0
+            0  0  0  1  0 <span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feColorMatrix</span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>matrix<span class="token punctuation">"</span></span>
+    <span class="token attr-name">values</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1  0  0  0  0
+            0  1  0  0  0
+            0  0  0  0  0
+            0  0  0  1  0 <span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></code></pre>
+<ol start="3"><li>Blowing out channels</li></ol>
+<ul><li>turn 1 color to white</li>
+<li>set the alpha channel to <code>-2</code>
+<picture><source type="image/webp" srcset="6baab518756be78e.webp"><source type="image/jpeg" srcset="6baab518756be78e.png"><img title="null" alt="blow-out-green" data-src="6baab518756be78e.png" loading="lazy" class="svelte-pzh0pi"></picture></li></ul>
+<ol start="4"><li>Change color</li></ol>
+<ul><li>No more green, any green looks like magenta now. (luminosity of green is lost)
+<picture><source type="image/webp" srcset="43a9e9dc5ed26d98.webp"><source type="image/jpeg" srcset="43a9e9dc5ed26d98.png"><img title="null" alt="change-color" data-src="43a9e9dc5ed26d98.png" loading="lazy" class="svelte-pzh0pi"></picture></li></ul>
+<ol start="5"><li>Lighten or darken</li></ol>
+<ul><li>increase intensity to lighten, decrease to darken
+<picture><source type="image/webp" srcset="bdd747d7ecb59460.webp"><source type="image/jpeg" srcset="bdd747d7ecb59460.png"><img title="null" alt="lighten" data-src="bdd747d7ecb59460.png" loading="lazy" class="svelte-pzh0pi"></picture>
+<picture><source type="image/webp" srcset="a98065268ec41c1f.webp"><source type="image/jpeg" srcset="a98065268ec41c1f.png"><img title="null" alt="darken" data-src="a98065268ec41c1f.png" loading="lazy" class="svelte-pzh0pi"></picture></li></ul>
+<ol start="6"><li>Grayscale</li></ol>
+<ul><li>make sure red, green, blue have the same value
+<picture><source type="image/webp" srcset="9a13eb4b9b06160b.webp"><source type="image/jpeg" srcset="9a13eb4b9b06160b.png"><img title="null" alt="grayscale" data-src="9a13eb4b9b06160b.png" loading="lazy" class="svelte-pzh0pi"></picture></li></ul>
+<ul><li>feMerge</li></ul>
+<p>svg filter effects
+fe color matrix</p>
+<ul><li>4x4 matrix
+[1000,0100,0010,0001]</li>
+<li>a</li></ul>
+<p>svg filter</p>
+<p>feBlend</p>
+<ul><li>just like how blend mode works
+feComponentTransfer </li></ul>
+<p>feComposite
+pixel level image interactions, how each pixels composite together</p>
+<p>feConvolve
+how pixels interacte with its neighbour, this results in blurring, sharpening</p>
+<p>feDiffuseLighting
+defines a light source</p>
+<p>feDisplacementMap
+displaces an image, in, using another image in2 to displace the in image</p>
+<p>feFlood
+fills the filter subregion with the specified color and opacity</p>
+<p>feGaussianBlur
+same as what <code>blur()</code> use</p>
+<p>feImage
+to use with other filters, feBlend or feComposite</p>
+<p>feMerge
+asynchronous operations in the filter effects instead of layering them</p>
+<p>feMorphology
+erods or dilates the input image</p>
+<p>feOffset
+useful for creating dropShadow</p>
+<p>feSpecularLighting
+use alpha channel as bump map</p>
+<p>feTile
+how image repeated to fill the space</p>
+<p>feTurbulence
+creates image using Perlin turbulence function</p>
+<p><a href="https://www.w3.org/TR/filter-effects-1/#ShorthandEquivalents" rel="nofollow">https://www.w3.org/TR/filter-effects-1/#ShorthandEquivalents</a></p>
+<ul><li><a href="https://tympanus.net/codrops/2019/01/15/svg-filters-101" rel="nofollow">https://tympanus.net/codrops/2019/01/15/svg-filters-101</a></li>
+<li><a href="https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/" rel="nofollow">https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/</a></li>
+<li><a href="https://alistapart.com/article/finessing-fecolormatrix/" rel="nofollow">https://alistapart.com/article/finessing-fecolormatrix/</a></li>
+<li><a href="https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/" rel="nofollow">https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/</a></li>
+<li><a href="https://css-tricks.com/look-svg-light-source-filters/" rel="nofollow">https://css-tricks.com/look-svg-light-source-filters/</a></li></ul></section></article>
+</main><script src="./8067ce9c.js" async></script></div>
+  
+
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
+</body>
+
+</html>
