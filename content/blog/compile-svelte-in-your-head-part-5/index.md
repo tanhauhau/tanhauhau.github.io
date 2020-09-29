@@ -5,6 +5,7 @@ tags:
   - Svelte
   - JavaScript
 series: Compile Svelte in your head
+wip: true
 ---
 
 **⬅ ⬅ Previously in [Part 4](/compile-svelte-in-your-head-part-4/).**

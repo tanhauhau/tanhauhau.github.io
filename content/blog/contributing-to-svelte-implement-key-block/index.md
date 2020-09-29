@@ -701,3 +701,4 @@ You can read the [Pull Request #5397](https://github.com/sveltejs/svelte/pull/53
 If you wish to learn more about Svelte, [follow me on Twitter](https://twitter.com/lihautan).
 
 If you have anything unclear about this article, find me on [Twitter](https://twitter.com/lihautan) too!
+
