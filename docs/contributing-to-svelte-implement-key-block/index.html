@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://twitter.com/lihautan" rel="me" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#bd93f9" />
+  <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Contributing to Svelte - Implement {#key} | Tan Li Hau</title><meta name="description" content="I am going to share an anecdote on how I implemented {#key} logic block in Svelte" data-svelte="svelte-15e3uyc"><meta name="image" content="https://lihautan.com/contributing-to-svelte-implement-key-block/assets/hero-twitter-14595226.jpg" data-svelte="svelte-15e3uyc"><meta name="og:image" content="https://lihautan.com/contributing-to-svelte-implement-key-block/assets/hero-twitter-14595226.jpg" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Contributing to Svelte - Implement {#key}" data-svelte="svelte-15e3uyc"><meta name="og:description" content="I am going to share an anecdote on how I implemented {#key} logic block in Svelte" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Contributing to Svelte - Implement {#key}" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="I am going to share an anecdote on how I implemented {#key} logic block in Svelte" data-svelte="svelte-15e3uyc"><meta name="twitter:image" content="https://lihautan.com/contributing-to-svelte-implement-key-block/assets/hero-twitter-14595226.jpg" data-svelte="svelte-15e3uyc"><meta name="keywords" content="Svelte" data-svelte="svelte-15e3uyc"><meta name="keywords" content="JavaScript" data-svelte="svelte-15e3uyc"><meta name="keywords" content="Open Source" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fcontributing-to-svelte-implement-key-block" data-svelte="svelte-15e3uyc"><meta itemprop="image" content="https://lihautan.com/contributing-to-svelte-implement-key-block/assets/hero-twitter-14595226.jpg" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"I am going to share an anecdote on how I implemented {#key} logic block in Svelte","headline":"Contributing to Svelte - Implement {#key}","name":"Contributing to Svelte - Implement {#key}","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fcontributing-to-svelte-implement-key-block","name":"Contributing to Svelte - Implement {#key}"},"name":"Contributing to Svelte - Implement {#key}","position":2}]}</script><link as="script" rel="preload" href="./c71103de.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./c71103de.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./c71103de.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-9tqnza">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-9tqnza"><h1>Contributing to Svelte - Implement {#key}</h1>
+  
+  <span class="svelte-9tqnza">Svelte</span><span class="svelte-9tqnza">JavaScript</span><span class="svelte-9tqnza">Open Source</span>
+
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#background">Background</a></li><li><a href="#the-motivation">The motivation</a></li><ul><li><a href="#transitions-for-reactive-data-change">Transitions for reactive data change</a></li></ul><li><a href="#the-implementation">The implementation</a></li><ul><li><a href="#parsing">Parsing</a></li><li><a href="#tracking-references-and-dependencies">Tracking references and dependencies</a></li><li><a href="#creating-code-blocks-fragments">Creating code blocks &amp; fragments</a></li><li><a href="#creating-code-for-ssr">Creating code for SSR</a></li><li><a href="#generate-code">Generate code</a></li><li><a href="#a-few-other-implementation-consideration">A few other implementation consideration</a></li></ul><li><a href="#the-testing">The testing</a></li><li><a href="#closing-notes">Closing Notes</a></li></ul></section>
+<section><h2><a href="#background" id="background">Background</a></h2>
+<p>Unlike the other contributing to Svelte posts [<a href="/contributing-to-svelte-fixing-issue-5012">1</a>] [<a href="/contributing-to-svelte-fixing-issue-4392">2</a>], which I wrote it while implementing the fix, describing as detailed as possible, today I am going to share the process of how I implemented the <code>{#key}</code> block retrospectively.</p>
+<p>The implementation of the <code>{#key}</code> block is much simpler, relative to <code>{#if}</code>, <code>{#await}</code> or <code>{#each}</code>. And I believe the process of implementing the <code>{#key}</code> block helps paint the pratical side of <a href="/the-svelte-compiler-handbook">&quot;The Svelte Compiler Handbook&quot;</a> or my <a href="/looking-into-the-svelte-compiler">&quot;Looking into the Svelte compiler&quot; talk</a>.</p></section>
+<section><h2><a href="#the-motivation" id="the-motivation">The motivation</a></h2>
+<p>The idea of <code>{#key}</code> block starts with the feature request 2 years ago <em>(yea, it&#39;s that long)</em> for <strong>the ability to key a non-each component</strong>, <a href="https://github.com/sveltejs/svelte/issues/1469" rel="nofollow">GitHub issue #1469</a>.</p>
+<p>To <code>key</code> a component, is to force recreation of the component when the <code>key</code> changes.</p>
+<p>And you see this ability of destroying and creating new components when using <code>{#each}</code> with <code>key</code>:</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span> id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'alice'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span> id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'bob'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token each"><span class="token punctuation">&#123;</span><span class="token keyword">#each</span> <span class="token language-javascript">data </span><span class="token keyword">as</span> <span class="token language-javascript">item </span><span class="token language-javascript"><span class="token punctuation">(</span>item<span class="token punctuation">.</span>id<span class="token punctuation">)</span></span><span class="token punctuation">&#125;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token language-javascript"><span class="token punctuation">&#123;</span> item<span class="token punctuation">.</span>name <span class="token punctuation">&#125;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>each<span class="token punctuation">&#125;</span></span></code></pre>
+<p><a href="https://svelte.dev/repl/1be3a0b123aa4384853ff5abd103f9ae" rel="nofollow">REPL</a></p>
+<p>When we call the function <code>update</code>, we removed <code>alice</code> from the <code>data</code> and we added <code>bob</code>. The net effect is still having a list of 1 item. However, instead of reusing the 1 <code>&lt;div /&gt;</code> by updating <code>{ item.name }</code> to <code>&quot;bob&quot;</code>, Svelte removes and destroys the <code>&lt;div /&gt;</code> and create a new <code>&lt;div /&gt;</code> for <code>bob</code>. This is because of the <a href="https://svelte.dev/tutorial/keyed-each-blocks" rel="nofollow">key we specified to the <code>{#each}</code> block</a>. Svelte will not reuse the <code>&lt;div /&gt;</code> because it was created with a different <code>key</code>.</p>
+<p>One of the benefits of having a key for <code>{#each}</code> item is to be able to add transition to the item correctly. Without a <code>key</code> to identify which item is added / removed, the transiion on a <code>{#each}</code> list will always applied to the last item, when the list grows or shrinks in length.</p>
+<p><a href="https://svelte.dev/repl/b1f5815f8b5f4634afa9025492739fa4" rel="nofollow">Try with and without the <code>key</code> in this REPL</a> to see the importance of having a <code>key</code>.</p>
+<blockquote><p>This is similar to the <code>key</code> attribute of React, if you are familiar with React. <a href="https://www.nikgraf.com/blog/using-reacts-key-attribute-to-remount-a-component" rel="nofollow">Check this out on how to remount a component with the <code>key</code> attribute in React</a>.</p></blockquote>
+<p>However, the ability of having to <code>key</code> an element / component only exist for the <code>{#each}</code> block. To workaround the constraint, it&#39;s common to use the <strong>&quot;1-item keyed-each hack&quot;</strong>:</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token each"><span class="token punctuation">&#123;</span><span class="token keyword">#each</span> <span class="token language-javascript">key </span><span class="token keyword">as</span> <span class="token language-javascript">k </span><span class="token language-javascript"><span class="token punctuation">(</span>k<span class="token punctuation">)</span></span><span class="token punctuation">&#125;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token punctuation">/></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>each<span class="token punctuation">&#125;</span></span></code></pre>
+<p>The <code>&lt;div /&gt;</code> will be recreated if the <code>key</code> has changed.</p></section>
+<section><h3><a href="#transitions-for-reactive-data-change" id="transitions-for-reactive-data-change">Transitions for reactive data change</a></h3>
+<p>Another commonly brought up request, to <strong>be able to apply <code>transition:</code> to an element when a reactive data changes</strong> (<a href="https://github.com/sveltejs/svelte/issues/5119" rel="nofollow">GitHub issue #5119</a>):</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> fade <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'svelte/transition'</span>
+  <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> count <span class="token operator">+=</span><span class="token number">1</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>handleClick<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>Click me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>You clicked <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span> <span class="token attr-name"><span class="token namespace">transition:</span>fade</span><span class="token punctuation">></span></span><span class="token language-javascript"><span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span> times<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+<p>This is another facet of the same issue.</p>
+<p>We need an ability to transition the old element out, and transition a new element in when a data, or a <code>key</code> changes.</p>
+<p>A workaround, again, is to use the <strong>&quot;1-item keyed-each hack&quot;</strong>:</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> fade <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'svelte/transition'</span>
+  <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> count <span class="token operator">+=</span><span class="token number">1</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>handleClick<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>Click me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>You clicked
+  <span class="token each"><span class="token punctuation">&#123;</span><span class="token keyword">#each</span> <span class="token language-javascript"><span class="token punctuation">[</span>count<span class="token punctuation">]</span> </span><span class="token keyword">as</span> <span class="token language-javascript">count </span><span class="token language-javascript"><span class="token punctuation">(</span>count<span class="token punctuation">)</span></span><span class="token punctuation">&#125;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span> <span class="token attr-name"><span class="token namespace">transition:</span>fade</span><span class="token punctuation">></span></span><span class="token language-javascript"><span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span>
+  <span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>each<span class="token punctuation">&#125;</span></span>
+ times<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+<p>So the proposal of the feature request was to have a <code>{#key}</code> block:</p>
+<pre class="language-null"><code class="language-">&lt;p&gt;You clicked
+  &#123;#key count&#125;
+    &lt;strong transition:fade&gt;&#123;count&#125;&lt;/strong&gt;
+  &#123;/key&#125;
+ times&lt;/p&gt;</code></pre>
+<p>I&#39;ve seen this issue months ago, and I passed the issue. I didn&#39;t think I know good enough to implement a new logic block. However, the issue recently resurfaced as someone commented on it recently. And this time, I felt I am ready, so here&#39;s my journey of implementing the <code>{#key}</code> block.</p></section>
+<section><h2><a href="#the-implementation" id="the-implementation">The implementation</a></h2>
+<p>As explained in <a href="/the-svelte-compiler-handbook">&quot;The Svelte Compiler Handbook&quot;</a>, the Svelte compilation process can be broken into steps:</p>
+<ul><li>Parsing</li>
+<li>Tracking references and dependencies</li>
+<li>Creating code blocks &amp; fragments</li>
+<li>Generate code</li></ul>
+<p>Of course, that&#39;s the steps that we are going to work on as well.</p></section>
+<section><h3><a href="#parsing" id="parsing">Parsing</a></h3>
+<p>The actual parsing starts <a href="https://github.com/sveltejs/svelte/blob/82dc26a31c37906153e07686b73d3af08dd50154/src/compiler/parse/index.ts#L51" rel="nofollow">here in src/compiler/parse/index.ts</a>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> state<span class="token punctuation">:</span> ParserState <span class="token operator">=</span> fragment<span class="token punctuation">;</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>index <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>template<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  state <span class="token operator">=</span> <span class="token function">state</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token operator">||</span> fragment<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>There are 4 states in the parser:</p>
+<ul><li><strong>fragment</strong> - in this state, we check the current character and determine which state we should proceed to</li>
+<li><strong>tag</strong> - we enter this state when we encounter <code>&lt;</code> character. In this state, we are going to parse HTML tags (eg: <code>&lt;p&gt;</code>), attributes (eg: <code>class</code>) and directives (eg: <code>on:</code>).</li>
+<li><strong>mustache</strong> - we enter this state when we encounter <code>{</code> character. In this state, we are going to parse expression, <code>{ value }</code> and logic blocks <code>{#if}</code></li>
+<li><strong>text</strong> - In this state, we are going to parse texts that are neither <code>&lt;</code> nor <code>{</code>, which includes whitespace, newlines, and texts!</li></ul>
+<p>To be able to parse the <code>{#key}</code> block, we are going to take a look at the <a href="https://github.com/sveltejs/svelte/blob/82dc26a31c37906153e07686b73d3af08dd50154/src/compiler/parse/state/mustache.ts#L35" rel="nofollow"><strong>mustache</strong> state function</a>.</p>
+<p>The <code>{#key}</code> block syntax is similar to <code>{#if}</code> without <code>else</code>, we take in an expression in the opening block and that&#39;s all:</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token language-javascript"><span class="token punctuation">&#123;</span>#key expression<span class="token punctuation">&#125;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token punctuation">/></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>key<span class="token punctuation">&#125;</span></span>
+
+<span class="token comment">&lt;!-- similar to --></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> expression<span class="token punctuation">&#125;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token punctuation">/></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span></code></pre>
+<p>So over here, when we encounter a <code>{#</code>, we add a case to check if we are starting a <code>{#key}</code> block:</p>
+<pre class="language-diff-js"><code class="language-diff-js">// ...
+&#125; else if (parser.eat(#)) &#123;
+<span class="token unchanged language-js"><span class="token prefix unchanged"> </span> <span class="token comment">// if &#123;#if foo&#125;, &#123;#each foo&#125; or &#123;#await foo&#125;</span>
+<span class="token prefix unchanged"> </span> <span class="token keyword">let</span> type<span class="token punctuation">;</span>
+</span>
+<span class="token unchanged language-js"><span class="token prefix unchanged"> </span> <span class="token keyword">if</span> <span class="token punctuation">(</span>parser<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'if'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   type <span class="token operator">=</span> <span class="token string">'IfBlock'</span><span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>parser<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'each'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   type <span class="token operator">=</span> <span class="token string">'EachBlock'</span><span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>parser<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'await'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   type <span class="token operator">=</span> <span class="token string">'AwaitBlock'</span><span class="token punctuation">;</span>
+</span><span class="token inserted-sign inserted language-js"><span class="token prefix inserted">+</span>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>parser<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix inserted">+</span>    type <span class="token operator">=</span> <span class="token string">'KeyBlock'</span><span class="token punctuation">;</span>
+</span><span class="token unchanged language-js"><span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   parser<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>     code<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">expected-block-type</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span>
+</span><span class="token deleted-sign deleted language-js"><span class="token prefix deleted">-</span>      message<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Expected if, each or await</span><span class="token template-punctuation string">&#96;</span></span>
+</span><span class="token inserted-sign inserted language-js"><span class="token prefix inserted">+</span>      message<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Expected if, each, await or key</span><span class="token template-punctuation string">&#96;</span></span>
+</span><span class="token unchanged language-js"><span class="token prefix unchanged"> </span>   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span></span></code></pre>
+<p>Similarly, for closing block <code>{/</code>, we are going to make sure that <code>{#key}</code> closes with <code>{/key}</code>:</p>
+<pre class="language-diff-js"><code class="language-diff-js">if (parser.eat('/')) &#123;
+<span class="token unchanged language-js"><span class="token prefix unchanged"> </span> <span class="token keyword">let</span> block <span class="token operator">=</span> parser<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token keyword">let</span> expected<span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token comment">// ...</span>
+<span class="token prefix unchanged"> </span> <span class="token keyword">if</span> <span class="token punctuation">(</span>block<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'IfBlock'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   expected <span class="token operator">=</span> <span class="token string">'if'</span><span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>block<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'EachBlock'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   expected <span class="token operator">=</span> <span class="token string">'each'</span><span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>block<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'AwaitBlock'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   expected <span class="token operator">=</span> <span class="token string">'await'</span><span class="token punctuation">;</span>
+</span><span class="token inserted-sign inserted language-js"><span class="token prefix inserted">+</span>  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>block<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'KeyBlock'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix inserted">+</span>    expected <span class="token operator">=</span> <span class="token string">'key'</span><span class="token punctuation">;</span>
+</span><span class="token unchanged language-js"><span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>   parser<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<span class="token prefix unchanged"> </span>     code<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">unexpected-block-close</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span>
+<span class="token prefix unchanged"> </span>     message<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">Unexpected block closing tag</span><span class="token template-punctuation string">&#96;</span></span>
+<span class="token prefix unchanged"> </span>   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token prefix unchanged"> </span> <span class="token punctuation">&#125;</span></span></code></pre>
+<p>The next step is to read the JS expression. Since all logic blocks, <code>{#if}</code>, <code>{#each}</code> and <code>{#await}</code> will read the JS expression next, it is no different for <code>{#key}</code> and it is already taken care of:</p>
+<pre class="language-js"><code class="language-js">parser<span class="token punctuation">.</span><span class="token function">require_whitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// read the JS expression</span>
+<span class="prism-highlight-code-line"><span class="token keyword">const</span> expression <span class="token operator">=</span> <span class="token function">read_expression</span><span class="token punctuation">(</span>parser<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+
+<span class="token comment">// create the AST node</span>
+<span class="token keyword">const</span> block<span class="token punctuation">:</span> TemplateNode <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+parser<span class="token punctuation">.</span><span class="token function">allow_whitespace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// other logic blocks specific syntax</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'EachBlock'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// &#123;#each&#125; block specific syntax for &#123;#each list as item&#125;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>So, let&#39;s move on to the next step!</p></section>
+<section><h3><a href="#tracking-references-and-dependencies" id="tracking-references-and-dependencies">Tracking references and dependencies</a></h3>
+<p>If you noticed in the previous step, the type name we created for <code>{#key}</code> block is called <code>KeyBlock</code>.</p>
+<p>So, to keep the name consistent, we are going to create a <code>KeyBlock</code> class in <code>src/compiler/compile/nodes/KeyBlock.ts</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> Expression <span class="token keyword">from</span> <span class="token string">'./shared/Expression'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> map_children <span class="token keyword">from</span> <span class="token string">'./shared/map_children'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> AbstractBlock <span class="token keyword">from</span> <span class="token string">'./shared/AbstractBlock'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">KeyBlock</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractBlock</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// for discriminant property for TypeScript to differentiate types</span>
+  type<span class="token punctuation">:</span> <span class="token string">'KeyBlock'</span><span class="token punctuation">;</span>
+
+  expression<span class="token punctuation">:</span> Expression<span class="token punctuation">;</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">component<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> scope<span class="token punctuation">,</span> info</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>component<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> scope<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// create an Expression instance for the expression</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>expression <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Expression</span><span class="token punctuation">(</span>component<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> scope<span class="token punctuation">,</span> info<span class="token punctuation">.</span>expression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// loop through children and create respective node instance</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token function">map_children</span><span class="token punctuation">(</span>component<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> scope<span class="token punctuation">,</span> info<span class="token punctuation">.</span>children<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// simple validation: make sure the block is not empty</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">warn_if_empty_block</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>I&#39;ve added comments annotating the code above, hopefully it&#39;s self-explanatory.</p>
+<p>A few more points:</p>
+<ul><li><code>info</code> is the AST node we got from the parsing.</li>
+<li>the <code>class Expression</code> is constructed with the JavaScript AST of the expression and it is where we traverse the AST and marked the variables within the expression as <code>referenced: true</code>.</li>
+<li><code>map_children</code> is used to map the <code>children</code> of the <code>KeyBlock</code> AST node to the compile node.</li></ul>
+<blockquote><p>Pardon for my lack of &quot;appropriate&quot; naming to differentiate the nodes in the Svelte codebase.</p>
+<p>Throughout the Svelte compilation process, the node is transformed one to another, which in every step of the transformation, new analysis is performed, and new information are added.</p>
+<p>Here, I am going to call:</p>
+<ul><li>the node resulting from the parser: <strong>AST node</strong></li>
+<li>the node created by the <code>Component</code>, which extends from <a href="https://github.com/sveltejs/svelte/blob/caebe0deb80d959ad7c7b5276d7e017be71769c7/src/compiler/compile/nodes/shared/Node.ts" rel="nofollow"><code>compiler/compile/nodes/shared/Node.ts</code></a>: <strong>compile node</strong> <em>(because they are stored in the <code>compile</code> folder)</em></li>
+<li>the node created by the <code>Renderer</code>, which extends from <a href="https://github.com/sveltejs/svelte/blob/2b2f40d32ae36a94b77b69959494687073a3ebbc/src/compiler/compile/render_dom/wrappers/shared/Wrapper.ts#L7" rel="nofollow"><code>compiler/compile/render_dom/wrappers/shared/Wrapper.ts</code></a>: <strong>render-dom Wrapper</strong> <em>(also because they are stored in the <code>render_dom/wrappers</code> folder)</em></li></ul></blockquote>
+<p>If you managed to keep up so far, you may be sensing where we are heading next.</p>
+<p>We need to add <code>KeyBlock</code> into <code>map_children</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// src/compiler/compile/nodes/shared/map_children.ts</span>
+<span class="token keyword">function</span> <span class="token function">get_constructor</span><span class="token punctuation">(</span><span class="token parameter">type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token string">'AwaitBlock'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> AwaitBlock<span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'Body'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> Body<span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+<span class="prism-highlight-code-line">    <span class="token keyword">case</span> <span class="token string">'KeyBlock'</span><span class="token punctuation">:</span></span>
+      <span class="token keyword">return</span> KeyBlock<span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Also, we need to add <code>KeyBlock</code> as one of the <code>INode</code> type for TypeScript:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// src/compiler/compile/nodes/interfaces.ts</span>
+<span class="token keyword">export</span> type INode <span class="token operator">=</span>
+  <span class="token operator">|</span> Action
+  <span class="token operator">|</span> Animation
+  <span class="token comment">// ...</span>
+<span class="prism-highlight-code-line">  <span class="token operator">|</span> KeyBlock<span class="token punctuation">;</span></span>
+<span class="token comment">// ...</span></code></pre>
+<p>And now, let&#39;s move on to implementing a <strong>render-dom Wrapper</strong> for <code>KeyBlock</code>.</p></section>
+<section><h3><a href="#creating-code-blocks-fragments" id="creating-code-blocks-fragments">Creating code blocks &amp; fragments</a></h3>
+<p>At this point, we need to decide how the compiled JS should look like, it&#39;s time for us to <strong>reverse-compile Svelte in your head</strong>!</p>
+<p>If you&#39;ve read my <a href="/compile-svelte-in-your-head-part-4">Compile Svelte in your head (Part 4)</a>, you&#39;ve seen how we create a different <code>create_fragment</code> function for each of the logic branches, so we can control the content within a logic branch as a whole.</p>
+<p>Similarly, we can create a <code>create_fragment</code> function for the content of the <code>{#key}</code>, then we can control when to create / mount / update / destroy the content.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">create_key_block</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// instructions to create / mount / update / destroy inner content of &#123;#key&#125;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">d</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>To use the <code>create_key_block</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> key_block <span class="token operator">=</span> <span class="token function">create_key_block</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// create the elements for the &#123;#key&#125;</span>
+key_block<span class="token punctuation">.</span><span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// mount the elements in the &#123;#key&#125;</span>
+key_block<span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// update the elements in the &#123;#key&#125;</span>
+key_block<span class="token punctuation">.</span><span class="token function">p</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> dirty<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// destroy the elements in the &#123;#key&#125;</span>
+key_block<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>detaching<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// intro &amp; outro the elements in the &#123;#key&#125;</span>
+<span class="token function">transition_in</span><span class="token punctuation">(</span>key_block<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">transition_out</span><span class="token punctuation">(</span>key_block<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The next thing to do, is to place these statements in the right position:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// init</span>
+  <span class="token keyword">let</span> key_block <span class="token operator">=</span> <span class="token function">create_key_block</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// create</span>
+      key_block<span class="token punctuation">.</span><span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">m</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> anchor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// mount</span>
+      key_block<span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">p</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> dirty</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// update</span>
+      key_block<span class="token punctuation">.</span><span class="token function">p</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> dirty<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">i</span><span class="token punctuation">(</span><span class="token parameter">local</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// intro</span>
+      <span class="token function">transition_in</span><span class="token punctuation">(</span>key_block<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">o</span><span class="token punctuation">(</span><span class="token parameter">local</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// outro</span>
+      <span class="token function">transition_out</span><span class="token punctuation">(</span>key_block<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">d</span><span class="token punctuation">(</span><span class="token parameter">detaching</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// destroy</span>
+      key_block<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>detaching<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Now, the most important piece of the <code>{#key}</code> block, the logic to</p>
+<ul><li>check if the expression has changed</li>
+<li>if so, recreate the elements inside the <code>{#key}</code> block</li></ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">create_fragment</span><span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// we store the previous key expression value</span>
+  <span class="token keyword">let</span> previous_key <span class="token operator">=</span> value_of_the_key_expression<span class="token punctuation">;</span>
+  <span class="token comment">// ...</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span>
+    <span class="token function">p</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> dirty</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        <span class="token comment">// if the any variables within the key has changed, and</span>
+        dirty <span class="token operator">&amp;</span> dynamic_variables_in_key_expression <span class="token operator">&amp;&amp;</span>
+        <span class="token comment">// if the value of the key expression has changed</span>
+        previous_key <span class="token operator">!==</span> <span class="token punctuation">(</span>previous_key <span class="token operator">=</span> value_of_the_key_expression<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// destroy the elements</span>
+        <span class="token comment">// detaching = 1 (true) to remove the elements immediately</span>
+        key_block<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// create a new key_block</span>
+        key_block <span class="token operator">=</span> <span class="token function">create_key_block</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        key_block<span class="token punctuation">.</span><span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// mount the new key_block</span>
+        key_block<span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// if the key has not changed, make sure the content of &#123;#key&#125; is up to date</span>
+        key_block<span class="token punctuation">.</span><span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>If there is transition in the content of the <code>key_block</code>, we need extra code for the transition:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// instead of key_block.d(1);</span>
+<span class="token function">group_outros</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">transition_out</span><span class="token punctuation">(</span>key_block<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> noop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">check_outros</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// before key_block.m(...)</span>
+<span class="token function">transition_in</span><span class="token punctuation">(</span>key_block<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>I am going to gloss over the details of how <code>outros</code> / <code>intros</code> work, we will cover them in the later parts of &quot;Compile Svelte in your head&quot;, so let&#39;s assume these code are up for the job.</p>
+<p>Now we have done the reverse-compile Svelte in your head, let&#39;s reverse the reverse, and write the render code for Svelte <code>{#key}</code> block.</p>
+<p>Here are some setup code for the render-dom Wrapper for <code>{#key}</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">KeyBlockWrapper</span> <span class="token keyword">extends</span> <span class="token class-name">Wrapper</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token comment">// the &#96;key_block&#96; variable</span>
+  <span class="token keyword">var</span><span class="token punctuation">:</span> Identifier <span class="token operator">=</span> <span class="token punctuation">&#123;</span> type<span class="token punctuation">:</span> <span class="token string">'Identifier'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'key_block'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">renderer<span class="token punctuation">:</span> Renderer<span class="token punctuation">,</span> block<span class="token punctuation">:</span> Block<span class="token punctuation">,</span> parent<span class="token punctuation">:</span> Wrapper<span class="token punctuation">,</span> node<span class="token punctuation">:</span> EachBlock<span class="token punctuation">,</span> strip_whitespace<span class="token punctuation">:</span> boolean<span class="token punctuation">,</span> next_sibling<span class="token punctuation">:</span> Wrapper</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span> block<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// deoptimisation, set flag indicate the content is not static</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">cannot_use_innerhtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">not_static_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// get all the dynamic variables within the expression</span>
+    <span class="token comment">// useful for later</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>dependencies <span class="token operator">=</span> node<span class="token punctuation">.</span>expression<span class="token punctuation">.</span><span class="token function">dynamic_dependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// create a new &#96;create_fragment&#96; function</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>block <span class="token operator">=</span> block<span class="token punctuation">.</span><span class="token function">child</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      comment<span class="token punctuation">:</span> <span class="token function">create_debugging_comment</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> renderer<span class="token punctuation">.</span>component<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> renderer<span class="token punctuation">.</span>component<span class="token punctuation">.</span><span class="token function">get_unique_name</span><span class="token punctuation">(</span><span class="token string">'create_key_block'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      type<span class="token punctuation">:</span> <span class="token string">'key'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    renderer<span class="token punctuation">.</span>blocks<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// create render-dom Wrappers for the children</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>fragment <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FragmentWrapper</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">,</span> node<span class="token punctuation">.</span>children<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> strip_whitespace<span class="token punctuation">,</span> next_sibling<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block<span class="token punctuation">,</span> parent_node<span class="token punctuation">:</span> Identifier<span class="token punctuation">,</span> parent_nodes<span class="token punctuation">:</span> Identifier</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// NOTE: here is where we write the render code</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>A few more points:</p>
+<ul><li>the <code>block</code> in the <code>render</code> method is the current <code>create_fragment</code> function that the <code>{#key}</code> block is in; <code>this.block</code> is the new <code>create_fragment</code> function that we created to put the content of the <code>{#key}</code> block<ul><li>we named the new <code>create_fragment</code> function <code>&quot;create_key_block&quot;</code></li>
+<li>to make sure there&#39;s no conflicting names, we use <code>renderer.component.get_unique_name()</code></li></ul></li>
+<li>All <strong>render-dom wrappers</strong> has a property named <code>var</code>, which is the variable name referencing the element / block to be created by the <strong>render-dom wrapper</strong>.<ul><li>the <code>var</code> name will be <a href="https://github.com/sveltejs/svelte/blob/8148a7a33444805320923e4c4e071f62dee3df6c/src/compiler/compile/render_dom/Block.ts#L118-L152" rel="nofollow">deconflicted by the Renderer</a></li></ul></li></ul>
+<p>Now, let&#39;s implement the <code>render</code> method.</p>
+<p>Firstly, render the children into <code>this.block</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">block<span class="token punctuation">:</span> Block<span class="token punctuation">,</span> parent_node<span class="token punctuation">:</span> Identifier<span class="token punctuation">,</span> parent_nodes<span class="token punctuation">:</span> Identifier</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="prism-highlight-code-line">  <span class="token keyword">this</span><span class="token punctuation">.</span>fragment<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span></span>
+<span class="prism-highlight-code-line">    <span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">,</span></span>
+<span class="prism-highlight-code-line">    <span class="token keyword">null</span><span class="token punctuation">,</span></span>
+<span class="prism-highlight-code-line">    <span class="token punctuation">(</span>x<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">#nodes</span><span class="token template-punctuation string">&#96;</span></span> <span class="token keyword">as</span> unknown<span class="token punctuation">)</span> <span class="token keyword">as</span> Identifier</span>
+<span class="prism-highlight-code-line">  <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>We pass in <code>null</code> as <code>parent_node</code> and <code>x`#nodes`</code> as <code>parent_nodes</code> to indicate that the children will be rendered at the root of the <code>this.block</code>.</p>
+<hr>
+<p>If I am implementing the <code>render</code> method of an Element render-dom Wrapper, and currently rendering the <code>&lt;div&gt;</code> in the following code snippet:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>then I will render the <code>&lt;span /&gt;</code> with:</p>
+<pre class="language-js"><code class="language-js">spanWrapper<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+  block<span class="token punctuation">,</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token punctuation">,</span> <span class="token comment">// div's var</span>
+  x<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.childNodes</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">,</span> <span class="token comment">// div.childNodes</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>so the <code>&lt;span /&gt;</code> will be inserted into the current <code>&lt;div /&gt;</code> and hydrate from the <code>&lt;div /&gt;</code>&#39;s childNodes.</p>
+<hr>
+<p>Next, I am going to insert code into each of the fragment methods:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// let key_block = create_key_block(ctx);</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>init<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+  b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">let </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">(#ctx)</span><span class="token template-punctuation string">&#96;</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// key_block.c();</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>create<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.c();</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// key_block.m(...);</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>mount<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+  b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.m(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>parent_node <span class="token operator">||</span> <span class="token string">"#target"</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>parent_node <span class="token operator">?</span> <span class="token string">"null"</span> <span class="token punctuation">:</span> <span class="token string">"#anchor"</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);</span><span class="token template-punctuation string">&#96;</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// key_block.p(...);</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>update<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+  b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.p(#ctx, #dirty);</span><span class="token template-punctuation string">&#96;</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// key_block.d(...);</span>
+block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>destroy<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.d(detaching)</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>A few more points:</p>
+<ul><li>we push the code into respective methods of the <code>block</code>, eg: <code>init</code>, <code>create</code>, <code>mount</code>, ...</li>
+<li>we use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates" rel="nofollow">tagged templates</a>, <code>b`...` </code> to create a JavaScript AST node. The <code>b</code> tag function allow us to pass in JavaScript AST node as placeholder, so that is very convenient.<ul><li>You can check out more about the <code>b</code> tag function from <a href="https://github.com/Rich-Harris/code-red" rel="nofollow">code-red</a></li></ul></li></ul>
+<p>Now, to implement the dirty checking, we use <code>this.dependencies</code></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> is_dirty <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>dependencies<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>To determine whether our expression value has changed, we are going to compute the expression and compare it with <code>previous_key</code> and determine whether it has changed.</p>
+<p>Here&#39;s a recap of the compiled code that we&#39;ve come up previously:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// we store the previous key expression value</span>
+<span class="token keyword">let</span> previous_key <span class="token operator">=</span> value_of_the_key_expression<span class="token punctuation">;</span>
+<span class="token comment">// ...</span>
+<span class="token comment">// if the value of the key expression has changed</span>
+previous_key <span class="token operator">!==</span> <span class="token punctuation">(</span>previous_key <span class="token operator">=</span> value_of_the_key_expression<span class="token punctuation">)</span></code></pre>
+<p>We start with declaring the variable, <code>previous_key</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> previous_key <span class="token operator">=</span> block<span class="token punctuation">.</span><span class="token function">get_unique_name</span><span class="token punctuation">(</span><span class="token string">'previous_key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> snippet <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span>expression<span class="token punctuation">.</span><span class="token function">manipulate</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span><span class="token punctuation">;</span>
+block<span class="token punctuation">.</span><span class="token function">add_variable</span><span class="token punctuation">(</span>previous_key<span class="token punctuation">,</span> snippet<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code>expression.manipulate(block)</code> will convert the expression to refer to the <code>ctx</code> variable, for example:</p>
+<pre class="language-js"><code class="language-js">human<span class="token punctuation">.</span>age <span class="token operator">+</span> limit
+<span class="token comment">// into something like</span>
+ctx<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>age <span class="token operator">+</span> ctx<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span></code></pre>
+<p>Next we are going to compare the new value and assign it to <code>previous_key</code> after that.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> has_change <span class="token operator">=</span> x<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>previous_key<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> !== (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>previous_key<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>snippet<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">)</span><span class="token template-punctuation string">&#96;</span></span></code></pre>
+<p>And to combine all of these, we have:</p>
+<pre class="language-js"><code class="language-js">block<span class="token punctuation">.</span>chunks<span class="token punctuation">.</span>update<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  if (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>is_dirty<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> &amp;&amp; </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>has_change<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">) &#123;
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.d(1);
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">(#ctx);
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.c();
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.m(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">get_update_mount_node</span><span class="token punctuation">(</span>anchor<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>anchor<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);
+  &#125; else &#123;
+    </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.p(#ctx, #dirty);
+  &#125;
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>We are using the <code>anchor</code> when we are mounting the new <code>key_block</code>, you can check out <a href="/compile-svelte-in-your-head-part-4/#the-extra-text-node">Compile Svelte in your head Part 4: the extra text node</a>, explaining why we need the anchor node, and here is how the anchor node being computed:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> anchor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">get_or_create_anchor</span><span class="token punctuation">(</span>block<span class="token punctuation">,</span> parent_node<span class="token punctuation">,</span> parent_nodes<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>It could be the next sibling, or it could be a new <code>empty()</code> text node created.</p>
+<p>Finally, if the content has transition, we need to add code for the transition as well:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> has_transitions <span class="token operator">=</span> <span class="token operator">!</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">.</span>has_intro_method <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">.</span>block<span class="token punctuation">.</span>has_outro_method<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> transition_out <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  @group_outros();
+  @transition_out(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, 1, 1, @noop);
+  @check_outros();
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> transition_in <span class="token operator">=</span> b<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+  @transition_in(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>var<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);
+</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span></code></pre>
+<p>Where to place them? Well, I&#39;ll leave that as your exercise to figure that out. 😉</p></section>
+<section><h3><a href="#creating-code-for-ssr" id="creating-code-for-ssr">Creating code for SSR</a></h3>
+<p>For SSR, it is much simpler than for the <code>dom</code>. <code>{#key}</code> block has no special meaning in SSR, because, you will only render once in SSR:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> KeyBlock <span class="token keyword">from</span> <span class="token string">'../../nodes/KeyBlock'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Renderer<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> RenderOptions <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'../Renderer'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">:</span> KeyBlock<span class="token punctuation">,</span> renderer<span class="token punctuation">:</span> Renderer<span class="token punctuation">,</span> options<span class="token punctuation">:</span> RenderOptions</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	renderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>children<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>☝️ That&#39;s all the code we need for SSR. We are rendering the children, passing down the <code>options</code>, and add no extra code for the <code>{#key}</code> block.</p></section>
+<section><h3><a href="#generate-code" id="generate-code">Generate code</a></h3>
+<p>Well, everything in this step is set up generic enough to handle most use case.</p>
+<p>So, nothing to change here. 🤷‍♂️</p></section>
+<section><h3><a href="#a-few-other-implementation-consideration" id="a-few-other-implementation-consideration">A few other implementation consideration</a></h3>
+<ul><li>What if the expression in the <code>{#key}</code> block is not dynamic, do we give warnings? or optimise the output?</li>
+<li>How will <a href="https://svelte.dev/docs#svelte_options" rel="nofollow"><code>&lt;svelte:options immutable={true}&gt;</code></a> affect the code output?</li></ul></section>
+<section><h2><a href="#the-testing" id="the-testing">The testing</a></h2>
+<p>You&#39;ve seen me implementing test cases in the previous &quot;Contributing to Svelte&quot; articles [<a href="/contributing-to-svelte-fixing-issue-5012">1</a>] [<a href="/contributing-to-svelte-fixing-issue-4392">2</a>], here I am going to skip showing the implementation of the test cases, and probably point out some thoughts I had when coming up with tests:</p>
+<ol><li><p><strong>Happy path:</strong> changing the key expression should recreate the content</p></li>
+<li><p><strong>Happy path:</strong> Transition when recreating the content should work ✨</p></li>
+<li><p><strong>Possible edge case:</strong> Changing variables other than the key expression should <strong>not</strong> recreate the content in <code>{#key}</code></p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> reactive1<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> reactive2<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> key<span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>#key key<span class="token punctuation">&#125;</span></span>
+   <span class="token language-javascript"><span class="token punctuation">&#123;</span>key<span class="token punctuation">&#125;</span></span> <span class="token language-javascript"><span class="token punctuation">&#123;</span>reactive1<span class="token punctuation">&#125;</span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>key<span class="token punctuation">&#125;</span></span>
+
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>reactive2<span class="token punctuation">&#125;</span></span></code></pre></li>
+<li><p><strong>Possible edge case:</strong> Changing the variables within the key expression but the result value of the key expression stay the same</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+   <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+   <span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+     a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+     b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>#key a <span class="token operator">+</span> b<span class="token punctuation">&#125;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token punctuation">/></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span>key<span class="token punctuation">&#125;</span></span></code></pre></li></ol></section>
+<section><h2><a href="#closing-notes" id="closing-notes">Closing Notes</a></h2>
+<p>You can read the <a href="https://github.com/sveltejs/svelte/pull/5397" rel="nofollow">Pull Request #5397</a> to read the final implementation.</p>
+<hr>
+<p>If you wish to learn more about Svelte, <a href="https://twitter.com/lihautan" rel="nofollow">follow me on Twitter</a>.</p>
+<p>If you have anything unclear about this article, find me on <a href="https://twitter.com/lihautan" rel="nofollow">Twitter</a> too!</p></section></article></main>
+
+<footer class="svelte-9tqnza"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
+  <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
+  <form action="https://buttondown.email/api/emails/embed-subscribe/lihautan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lihautan', 'popupwindow')" class="embeddable-buttondown-form"><div class="form-item svelte-1k1s1co"><input type="email" name="email" id="bd-email" aria-label="email address" placeholder="youremail@example.com" class="svelte-1k1s1co">
+      <input type="submit" value="Subscribe" disabled class="svelte-1k1s1co"></div>
+    <input type="hidden" value="1" name="embed" class="svelte-1k1s1co">
+    <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
+</div>
+  
+</footer><script src="./c71103de.js" async></script></div>
+  
+
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
+</body>
+
+</html>

@@ -14,15 +14,7 @@ const { encodeUrl } = require('./encodeUrl');
 const { renderTemplate } = require('./renderTemplate');
 const crypto = require('crypto');
 
-const {
-  CONTENT_FOLDER,
-  USE_CONTENT,
-  OUTPUT_FOLDER,
-  LAYOUT_FOLDER,
-  ROUTES_FOLDER,
-  DEFAULT_LAYOUT,
-  HOSTNAME,
-} = require('./config');
+const { CONTENT_FOLDER, USE_CONTENT, OUTPUT_FOLDER, LAYOUT_FOLDER, ROUTES_FOLDER, DEFAULT_LAYOUT, HOSTNAME } = require('./config');
 const { cleanup } = require('./cleanup');
 
 const skipCache = !!process.env.SKIP_CACHE;
@@ -34,18 +26,9 @@ const skipCache = !!process.env.SKIP_CACHE;
     await cleanup(OUTPUT_FOLDER);
   }
 
-  let [jsTemplate, template, layouts, pages] = await Promise.all([
-    fs.readFile(path.join(__dirname, './template/page.js'), 'utf-8'),
-    fs.readFile(path.join(__dirname, './template/index.html'), 'utf-8'),
-    getLayouts(LAYOUT_FOLDER, DEFAULT_LAYOUT),
-    glob('**/*.md', { cwd: CONTENT_FOLDER }),
-  ]);
+  let [jsTemplate, template, layouts, pages] = await Promise.all([fs.readFile(path.join(__dirname, './template/page.js'), 'utf-8'), fs.readFile(path.join(__dirname, './template/index.html'), 'utf-8'), getLayouts(LAYOUT_FOLDER, DEFAULT_LAYOUT), glob('**/*.md', { cwd: CONTENT_FOLDER })]);
 
-  await Promise.all([
-    buildPages(pages, layouts, jsTemplate, template),
-    buildRoutes(template),
-    copyAll(path.join(__dirname, './template/assets'), OUTPUT_FOLDER),
-  ]);
+  await Promise.all([buildPages(pages, layouts, jsTemplate, template), buildRoutes(template), copyAll(path.join(__dirname, './template/assets'), OUTPUT_FOLDER), copySlides(OUTPUT_FOLDER)]);
   console.timeEnd('all');
 })();
 
@@ -113,7 +96,7 @@ async function buildPages(pages, layouts, jsTemplate, template) {
 
   await buildRss(result);
   await buildSitemap(result);
-    
+
   await Promise.all([
     writeJson(blogsOutput, result.blog),
     writeJson(notesOutput, result.notes),
@@ -176,10 +159,7 @@ function splitTypePath(filename) {
 }
 
 function getTwitterImagePath(filename) {
-  const imgPath = path.join(
-    path.dirname(path.join(CONTENT_FOLDER, filename)),
-    'hero-twitter.jpg'
-  );
+  const imgPath = path.join(path.dirname(path.join(CONTENT_FOLDER, filename)), 'hero-twitter.jpg');
   if (existsSync(imgPath)) {
     return imgPath;
   }
@@ -227,13 +207,7 @@ async function getRoutes(folder) {
   return result;
 }
 
-async function buildList({
-  data,
-  template,
-  templatePath,
-  componentPath,
-  outputPath,
-}) {
+async function buildList({ data, template, templatePath, componentPath, outputPath }) {
   const outputFolder = path.join(OUTPUT_FOLDER, outputPath);
 
   await Promise.all([
@@ -244,16 +218,10 @@ async function buildList({
       .then(bundle => bundle.generate({ format: 'commonjs', exports: 'named' }))
       .then(({ output }) => render(output[0].code))
       .then(renderer => renderer.render(data)),
-    bundle(
-      { ['@@data.json']: 'export default ' + JSON.stringify(data.data) },
-      templatePath,
-      {
-        hostname: HOSTNAME + outputPath,
-      }
-    )
-      .then(bundle =>
-        bundle.write({ entryFileNames: '[name].js', dir: outputFolder })
-      )
+    bundle({ ['@@data.json']: 'export default ' + JSON.stringify(data.data) }, templatePath, {
+      hostname: HOSTNAME + outputPath,
+    })
+      .then(bundle => bundle.write({ entryFileNames: '[name].js', dir: outputFolder }))
       .then(({ output }) => {
         const preloads = [];
         const styles = [];
@@ -261,19 +229,11 @@ async function buildList({
 
         for (const { fileName } of output) {
           if (fileName.endsWith('.js')) {
-            scripts.push(
-              `<script src="./${encodeUrl(fileName)}" async defer></script>`
-            );
-            preloads.push(
-              `<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`
-            );
+            scripts.push(`<script src="./${encodeUrl(fileName)}" async defer></script>`);
+            preloads.push(`<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`);
           } else if (fileName.endsWith('.css')) {
-            styles.push(
-              `<link href="./${encodeUrl(fileName)}" rel="stylesheet">`
-            );
-            preloads.push(
-              `<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`
-            );
+            styles.push(`<link href="./${encodeUrl(fileName)}" rel="stylesheet">`);
+            preloads.push(`<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`);
           }
         }
         return { preloads, styles, scripts };
@@ -290,12 +250,7 @@ async function buildList({
   );
 }
 
-async function buildRoute({
-  template,
-  templatePath,
-  componentPath,
-  outputPath,
-}) {
+async function buildRoute({ template, templatePath, componentPath, outputPath }) {
   await Promise.all([
     bundle({}, componentPath, {
       ssr: true,
@@ -323,19 +278,11 @@ async function buildRoute({
 
         for (const { fileName } of output) {
           if (fileName.endsWith('.js')) {
-            scripts.push(
-              `<script src="./${encodeUrl(fileName)}" async></script>`
-            );
-            preloads.push(
-              `<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`
-            );
+            scripts.push(`<script src="./${encodeUrl(fileName)}" async></script>`);
+            preloads.push(`<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`);
           } else if (fileName.endsWith('.css')) {
-            styles.push(
-              `<link href="./${encodeUrl(fileName)}" rel="stylesheet">`
-            );
-            preloads.push(
-              `<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`
-            );
+            styles.push(`<link href="./${encodeUrl(fileName)}" rel="stylesheet">`);
+            preloads.push(`<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`);
           }
         }
         return { preloads, styles, scripts };
@@ -353,11 +300,7 @@ async function buildRoute({
 }
 
 function reverseSortByDate(a, b) {
-  return a.metadata.date === b.metadata.date
-    ? 0
-    : a.metadata.date < b.metadata.date
-    ? 1
-    : -1;
+  return a.metadata.date === b.metadata.date ? 0 : a.metadata.date < b.metadata.date ? 1 : -1;
 }
 
 async function copyAll(from, to) {
@@ -375,19 +318,26 @@ async function copyAll(from, to) {
   );
 }
 
-function getCacheMap() {
-  if (skipCache) return {};
-  return tryRequire(
-    path.join(require.resolve('svelte'), '../../.cache/lihautan.json'),
-    {}
+async function copySlides(output) {
+  const slidesSource = path.join(CONTENT_FOLDER, 'slides');
+  const slides = await fs.readdir(slidesSource);
+  await Promise.all(
+    slides.map(async slide => {
+      const preview = path.join(slidesSource, slide, 'preview');
+      if (await existsSync(preview)) {
+        return copyAll(preview, path.join(output, 'slides', slide));
+      }
+    })
   );
 }
 
+function getCacheMap() {
+  if (skipCache) return {};
+  return tryRequire(path.join(require.resolve('svelte'), '../../.cache/lihautan.json'), {});
+}
+
 function writeCacheMap(cacheMap) {
-  return writeJson(
-    path.join(require.resolve('svelte'), '../../.cache/lihautan.json'),
-    cacheMap
-  );
+  return writeJson(path.join(require.resolve('svelte'), '../../.cache/lihautan.json'), cacheMap);
 }
 
 function tryRequire(file, def) {

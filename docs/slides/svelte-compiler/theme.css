@@ -1,0 +1,116 @@
+:root {
+	/* easings */
+  --out-back:    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* theme vars */
+  --back:       	#ffffff;
+	--back-light: 	#f6fafd;
+	--back-api: 		#eff8ff;
+	--prime:      	#ff3e00;
+	--second:     	#676778;
+	--flash:      	#40b3ff;
+	--heading:	var(--second);
+	--text:      		#444;
+	--sidebar-text: rgba(255, 255, 255, .75);
+	--border-w:  		.3rem; /* border-width  */
+  --border-r:  		.4rem; /* border-radius */
+  
+  /* typo vars */
+  --code-fs: 1.3rem;
+	--h6:      1.4rem;
+	--h5:      1.6rem;
+	--h4:      1.8rem; /* default font-size */
+	--h3:      2.6rem;
+	--h2:        3rem;
+	--h1:      3.2rem;
+	--linemax:   42em; /* max line-length */
+  --lh:  		 	  1.5; /* base line-height */
+  
+  --font: 'Overpass', sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+}
+
+/*	fonts ---------------------------------- */
+/* overpass-300normal - latin */
+@font-face {
+	font-family: 'Overpass';
+	font-style: normal;
+	font-weight: 300;
+	src:
+		local('Overpass Light '),
+		local('Overpass-Light'),
+		url('/fonts/overpass/overpass-latin-300.woff2') format('woff2');
+}
+
+/* overpass-600normal - latin */
+@font-face {
+	font-family: 'Overpass';
+	font-style: normal;
+	font-weight: 600;
+	src:
+		local('Overpass Bold '),
+		local('Overpass-Bold'),
+		url('/fonts/overpass/overpass-latin-600.woff2') format('woff2');
+}
+
+/* fira-mono-400normal - latin */
+@font-face {
+	font-family: 'Fira Mono';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		local('Fira Mono Regular '),
+		local('Fira Mono-Regular'),
+		url('/fonts/fira-mono/fira-mono-latin-400.woff2') format('woff2');
+}
+
+/*	inputs --------------------------------- */
+input[type="checkbox"] {
+	/* display: block; */
+	position: relative;
+	height: 1em;
+	width: calc(100% - 0.6em);
+	max-width: 2em;
+	top: -2px;
+	border-radius: 0.5em;
+	-webkit-appearance: none;
+	outline: none;
+	margin: 0 0.6em 0 0;
+}
+
+input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding: 2px;
+	border-radius: 1em;
+	top: 0;
+	left: 0;
+	background: var(--second);
+	/* box-sizing: border-box; */
+	box-sizing: content-box;
+}
+
+input[type="checkbox"]:checked::before {
+	background: var(--prime);
+}
+
+input[type="checkbox"]::after {
+	content: "";
+	position: absolute;
+	display: block;
+	height: 1em;
+	width: 1em;
+	top: 2px;
+	left: 2px;
+	border-radius: 1em;
+	background: white;
+	box-shadow: 0 0px 1px rgba(0,0,0,.4), 0 4px 2px rgba(0,0,0,.1);
+	-webkit-transition: background .2s ease-out, left .2s ease-out;
+}
+
+input[type="checkbox"]:checked::after {
+	left: calc(100% - 1em + 2px);
+}

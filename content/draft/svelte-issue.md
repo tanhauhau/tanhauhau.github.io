@@ -44,3 +44,20 @@ where to find ?
   --> block.chunks.update ?
   --> block.chunks.xxx ?
 - 
+
+---
+
+https://github.com/sveltejs/svelte/issues/5444
+
+<script>
+	let id = 0;
+</script>
+<button on:click={()=>id++}>
+	increment
+</button>
+{#each ["foo", "bar"] as key (id + key)}
+<div>
+	{id + key}
+	{Math.random()}
+</div>
+{/each}
