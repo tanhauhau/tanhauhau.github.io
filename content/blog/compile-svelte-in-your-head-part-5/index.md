@@ -15,6 +15,7 @@ To make sure we are on the same page, let's first explain how `{#each}` block wo
 
 ## The `{#each}` block
 
+`{#each}` block allow us to loop 
 
 
 ## Closing Note
