@@ -1,0 +1,13 @@
+  @keyframes slide {
+    0% { transform: translateX(0px); opacity: 0; }
+    10% { transform: translateX(10px); opacity: 0.5; }
+    20% { transform: translateX(20px); opacity: 1; }
+    30% { transform: translateX(30px); opacity: 0.5; }
+    40% { transform: translateX(40px); opacity: 0; }
+    50% { transform: translateX(50px); opacity: 0.5; }
+    60% { transform: translateX(60px); opacity: 1; }
+    70% { transform: translateX(70px); opacity: 0.5; }
+    80% { transform: translateX(80px); opacity: 0; }
+    90% { transform: translateX(90px); opacity: 0.5; }
+    100% { transform: translateX(100px); opacity: 1; }
+  }

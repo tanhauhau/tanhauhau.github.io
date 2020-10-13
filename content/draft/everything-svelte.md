@@ -6,3 +6,6 @@ Router
 - https://github.com/EmilTholin/svelte-routing
 - https://github.com/ItalyPaleAle/svelte-spa-router
 - https://github.com/jorgegorka/svelte-router
+
+vs other frameworks:
+- solid https://github.com/sveltejs/svelte/issues/3898

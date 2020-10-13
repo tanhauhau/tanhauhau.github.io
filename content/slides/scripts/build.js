@@ -1,4 +1,6 @@
 // setup prism
+const visit = require('unist-util-visit');
+
 global.Prism = require('prismjs');
 require('prism-svelte');
 require('prismjs/components/prism-diff');
@@ -16,8 +18,7 @@ const rollupPluginSvelte = require('rollup-plugin-svelte');
 const rollupPluginCommonJs = require('@rollup/plugin-commonjs');
 const { nodeResolve: rollupPluginNodeResolve } = require('@rollup/plugin-node-resolve');
 const rollupPluginPostCss = require('rollup-plugin-postcss');
-const slide = 'svelte-compiler';
-
+const slide = 'demystifying-transitions';
 
 const watchMode = process.argv.includes('--watch');
 
@@ -201,7 +202,21 @@ async function cachedMdsvex(id, source) {
       return prevResult;
     }
   }
-  const result = (await mdsvex.compile(source)).code;
+  const result = (
+    await mdsvex.compile(source, {
+      remarkPlugins: [
+        function removeNewLine() {
+          return (tree, vfile) => {
+            visit(tree, ['html'], node => {
+              if (node.lang) {
+                node.value = node.value.replace(/(@html `)\s+(.)/gm, '$1$2');
+              }
+            });
+          };
+        },
+      ],
+    })
+  ).code;
   cache[id] = [source, result];
   return result;
 }
