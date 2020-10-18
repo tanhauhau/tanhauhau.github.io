@@ -1,1 +1,2349 @@
-function e(){}function t(e,t){for(const a in t)e[a]=t[a];return e}function a(e){return e()}function n(){return Object.create(null)}function o(e){e.forEach(a)}function r(e){return"function"==typeof e}function c(e,t){return e!=e?t==t:e!==t||e&&"object"==typeof e||"function"==typeof e}function i(e,a,n,o){return e[1]&&o?t(n.ctx.slice(),e[1](o(a))):n.ctx}function s(e,t,a,n,o,r,c){const s=function(e,t,a,n){if(e[2]&&n){const o=e[2](n(a));if(void 0===t.dirty)return o;if("object"==typeof o){const e=[],a=Math.max(t.dirty.length,o.length);for(let n=0;n<a;n+=1)e[n]=t.dirty[n]|o[n];return e}return t.dirty|o}return t.dirty}(t,n,o,r);if(s){const o=i(t,a,n,c);e.p(o,s)}}function l(e,t){e.appendChild(t)}function h(e,t,a){e.insertBefore(t,a||null)}function u(e){e.parentNode.removeChild(e)}function f(e,t){for(let a=0;a<e.length;a+=1)e[a]&&e[a].d(t)}function d(e){return document.createElement(e)}function m(e){return document.createElementNS("http://www.w3.org/2000/svg",e)}function p(e){return document.createTextNode(e)}function v(){return p(" ")}function g(){return p("")}function E(e,t,a){null==a?e.removeAttribute(t):e.getAttribute(t)!==a&&e.setAttribute(t,a)}function y(e){return Array.from(e.childNodes)}function b(e,t,a,n){for(let n=0;n<e.length;n+=1){const o=e[n];if(o.nodeName===t){let t=0;const r=[];for(;t<o.attributes.length;){const e=o.attributes[t++];a[e.name]||r.push(e.name)}for(let e=0;e<r.length;e++)o.removeAttribute(r[e]);return e.splice(n,1)[0]}}return n?m(t):d(t)}function w(e,t){for(let a=0;a<e.length;a+=1){const n=e[a];if(3===n.nodeType)return n.data=""+t,e.splice(a,1)[0]}return p(t)}function $(e){return w(e," ")}function A(e,t){t=""+t,e.wholeText!==t&&(e.data=t)}function L(e,t){e.value=null==t?"":t}class S{constructor(e=null){this.a=e,this.e=this.n=null}m(e,t,a=null){this.e||(this.e=d(t.nodeName),this.t=t,this.h(e)),this.i(a)}h(e){this.e.innerHTML=e,this.n=Array.from(this.e.childNodes)}i(e){for(let t=0;t<this.n.length;t+=1)h(this.t,this.n[t],e)}p(e){this.d(),this.h(e),this.i(this.a)}d(){this.n.forEach(u)}}let P;function I(e){P=e}function T(e){(function(){if(!P)throw new Error("Function called outside component initialization");return P})().$$.on_mount.push(e)}const x=[],C=[],k=[],H=[],N=Promise.resolve();let M=!1;function O(e){k.push(e)}let j=!1;const D=new Set;function _(){if(!j){j=!0;do{for(let e=0;e<x.length;e+=1){const t=x[e];I(t),B(t.$$)}for(x.length=0;C.length;)C.pop()();for(let e=0;e<k.length;e+=1){const t=k[e];D.has(t)||(D.add(t),t())}k.length=0}while(x.length);for(;H.length;)H.pop()();M=!1,j=!1,D.clear()}}function B(e){if(null!==e.fragment){e.update(),o(e.before_update);const t=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,t),e.after_update.forEach(O)}}const F=new Set;function z(e,t){e&&e.i&&(F.delete(e),e.i(t))}function R(e,t,a,n){if(e&&e.o){if(F.has(e))return;F.add(e),(void 0).c.push(()=>{F.delete(e),n&&(a&&e.d(1),n())}),e.o(t)}}function q(e){e&&e.c()}function J(e,t){e&&e.l(t)}function U(e,t,n){const{fragment:c,on_mount:i,on_destroy:s,after_update:l}=e.$$;c&&c.m(t,n),O(()=>{const t=i.map(a).filter(r);s?s.push(...t):o(t),e.$$.on_mount=[]}),l.forEach(O)}function V(e,t){const a=e.$$;null!==a.fragment&&(o(a.on_destroy),a.fragment&&a.fragment.d(t),a.on_destroy=a.fragment=null,a.ctx=[])}function W(e,t){-1===e.$$.dirty[0]&&(x.push(e),M||(M=!0,N.then(_)),e.$$.dirty.fill(0)),e.$$.dirty[t/31|0]|=1<<t%31}function Y(t,a,r,c,i,s,l=[-1]){const h=P;I(t);const f=a.props||{},d=t.$$={fragment:null,ctx:null,props:s,update:e,not_equal:i,bound:n(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(h?h.$$.context:[]),callbacks:n(),dirty:l};let m=!1;if(d.ctx=r?r(t,f,(e,a,...n)=>{const o=n.length?n[0]:a;return d.ctx&&i(d.ctx[e],d.ctx[e]=o)&&(d.bound[e]&&d.bound[e](o),m&&W(t,e)),a}):[],d.update(),m=!0,o(d.before_update),d.fragment=!!c&&c(d.ctx),a.target){if(a.hydrate){const e=y(a.target);d.fragment&&d.fragment.l(e),e.forEach(u)}else d.fragment&&d.fragment.c();a.intro&&z(t.$$.fragment),U(t,a.target,a.anchor),_()}I(h)}class G{$destroy(){V(this,1),this.$destroy=e}$on(e,t){const a=this.$$.callbacks[e]||(this.$$.callbacks[e]=[]);return a.push(t),()=>{const e=a.indexOf(t);-1!==e&&a.splice(e,1)}}$set(){}}function K(t){let a,n,o,r,c,i,s,f,g,A,L,S,P,I,T,x,C,k,H,N,M,O,j,D,_,B,F,z,R,q,J,U,V,W,Y;return{c(){a=d("header"),n=d("nav"),o=d("ul"),r=d("li"),c=d("a"),i=p("Tan Li Hau"),s=v(),f=d("li"),g=d("a"),A=p("About"),L=v(),S=d("li"),P=d("a"),I=p("Writings"),T=v(),x=d("li"),C=d("a"),k=p("Talks"),H=v(),N=d("li"),M=d("a"),O=p("Notes"),j=v(),D=d("li"),_=d("a"),B=p("Newsletter"),F=v(),z=d("li"),R=d("a"),q=m("svg"),J=m("path"),U=v(),V=d("a"),W=m("svg"),Y=m("path"),this.h()},l(e){a=b(e,"HEADER",{class:!0});var t=y(a);n=b(t,"NAV",{});var l=y(n);o=b(l,"UL",{class:!0});var h=y(o);r=b(h,"LI",{class:!0});var d=y(r);c=b(d,"A",{href:!0,class:!0});var m=y(c);i=w(m,"Tan Li Hau"),m.forEach(u),d.forEach(u),s=$(h),f=b(h,"LI",{class:!0});var p=y(f);g=b(p,"A",{href:!0,class:!0});var v=y(g);A=w(v,"About"),v.forEach(u),p.forEach(u),L=$(h),S=b(h,"LI",{class:!0});var E=y(S);P=b(E,"A",{href:!0,class:!0});var G=y(P);I=w(G,"Writings"),G.forEach(u),E.forEach(u),T=$(h),x=b(h,"LI",{class:!0});var K=y(x);C=b(K,"A",{href:!0,class:!0});var Z=y(C);k=w(Z,"Talks"),Z.forEach(u),K.forEach(u),H=$(h),N=b(h,"LI",{class:!0});var Q=y(N);M=b(Q,"A",{href:!0,class:!0});var X=y(M);O=w(X,"Notes"),X.forEach(u),Q.forEach(u),j=$(h),D=b(h,"LI",{class:!0});var ee=y(D);_=b(ee,"A",{href:!0,class:!0});var te=y(_);B=w(te,"Newsletter"),te.forEach(u),ee.forEach(u),F=$(h),z=b(h,"LI",{class:!0});var ae=y(z);R=b(ae,"A",{"aria-label":!0,href:!0,class:!0});var ne=y(R);q=b(ne,"svg",{viewBox:!0,width:!0,height:!0,class:!0},1);var oe=y(q);J=b(oe,"path",{d:!0},1),y(J).forEach(u),oe.forEach(u),ne.forEach(u),U=$(ae),V=b(ae,"A",{"aria-label":!0,href:!0,class:!0});var re=y(V);W=b(re,"svg",{viewBox:!0,width:!0,height:!0,class:!0},1);var ce=y(W);Y=b(ce,"path",{d:!0},1),y(Y).forEach(u),ce.forEach(u),re.forEach(u),ae.forEach(u),h.forEach(u),l.forEach(u),t.forEach(u),this.h()},h(){E(c,"href","/"),E(c,"class","svelte-f3e4uo"),E(r,"class","svelte-f3e4uo"),E(g,"href","/about"),E(g,"class","svelte-f3e4uo"),E(f,"class","svelte-f3e4uo"),E(P,"href","/blogs"),E(P,"class","svelte-f3e4uo"),E(S,"class","svelte-f3e4uo"),E(C,"href","/talks"),E(C,"class","svelte-f3e4uo"),E(x,"class","svelte-f3e4uo"),E(M,"href","/notes"),E(M,"class","svelte-f3e4uo"),E(N,"class","svelte-f3e4uo"),E(_,"href","/newsletter"),E(_,"class","svelte-f3e4uo"),E(D,"class","svelte-f3e4uo"),E(J,"d","M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66\n    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5\n    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"),E(q,"viewBox","0 0 24 24"),E(q,"width","1em"),E(q,"height","1em"),E(q,"class","svelte-f3e4uo"),E(R,"aria-label","Twitter account"),E(R,"href","https://twitter.com/lihautan"),E(R,"class","svelte-f3e4uo"),E(Y,"d","M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0\n    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07\n    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65\n    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42\n    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"),E(W,"viewBox","0 0 24 24"),E(W,"width","1em"),E(W,"height","1em"),E(W,"class","svelte-f3e4uo"),E(V,"aria-label","Github account"),E(V,"href","https://github.com/tanhauhau"),E(V,"class","svelte-f3e4uo"),E(z,"class","social svelte-f3e4uo"),E(o,"class","svelte-f3e4uo"),E(a,"class","svelte-f3e4uo")},m(e,t){h(e,a,t),l(a,n),l(n,o),l(o,r),l(r,c),l(c,i),l(o,s),l(o,f),l(f,g),l(g,A),l(o,L),l(o,S),l(S,P),l(P,I),l(o,T),l(o,x),l(x,C),l(C,k),l(o,H),l(o,N),l(N,M),l(M,O),l(o,j),l(o,D),l(D,_),l(_,B),l(o,F),l(o,z),l(z,R),l(R,q),l(q,J),l(z,U),l(z,V),l(V,W),l(W,Y)},p:e,i:e,o:e,d(e){e&&u(a)}}}class Z extends G{constructor(e){super(),Y(this,e,null,K,c,{})}}function Q(t){let a,n,o,r,c,i,s,f,m,g,A,S,P,I,T,x,C,k,H,N;return{c(){a=d("div"),n=d("h1"),o=p("Subscribe to my newsletter"),r=v(),c=d("h2"),i=p("Get the latest blog posts and project updates delivered right to your inbox"),s=v(),f=d("form"),m=d("div"),g=d("input"),A=v(),S=d("input"),I=v(),T=d("input"),x=v(),C=d("p"),k=p("Powered by Buttondown."),this.h()},l(e){a=b(e,"DIV",{class:!0});var t=y(a);n=b(t,"H1",{});var l=y(n);o=w(l,"Subscribe to my newsletter"),l.forEach(u),r=$(t),c=b(t,"H2",{class:!0});var h=y(c);i=w(h,"Get the latest blog posts and project updates delivered right to your inbox"),h.forEach(u),s=$(t),f=b(t,"FORM",{action:!0,method:!0,target:!0,onsubmit:!0,class:!0});var d=y(f);m=b(d,"DIV",{class:!0});var p=y(m);g=b(p,"INPUT",{type:!0,name:!0,id:!0,"aria-label":!0,placeholder:!0,class:!0}),A=$(p),S=b(p,"INPUT",{type:!0,value:!0,disabled:!0,class:!0}),p.forEach(u),I=$(d),T=b(d,"INPUT",{type:!0,value:!0,name:!0,class:!0}),x=$(d),C=b(d,"P",{class:!0});var v=y(C);k=w(v,"Powered by Buttondown."),v.forEach(u),d.forEach(u),t.forEach(u),this.h()},h(){E(c,"class","svelte-1k1s1co"),E(g,"type","email"),E(g,"name","email"),E(g,"id","bd-email"),E(g,"aria-label","email address"),E(g,"placeholder","youremail@example.com"),E(g,"class","svelte-1k1s1co"),E(S,"type","submit"),S.value="Subscribe",S.disabled=P=!t[0],E(S,"class","svelte-1k1s1co"),E(m,"class","form-item svelte-1k1s1co"),E(T,"type","hidden"),T.value="1",E(T,"name","embed"),E(T,"class","svelte-1k1s1co"),E(C,"class","svelte-1k1s1co"),E(f,"action","https://buttondown.email/api/emails/embed-subscribe/lihautan"),E(f,"method","post"),E(f,"target","popupwindow"),E(f,"onsubmit","window.open('https://buttondown.email/lihautan', 'popupwindow')"),E(f,"class","embeddable-buttondown-form"),E(a,"class","form svelte-1k1s1co")},m(e,u){var d,p,v,E;h(e,a,u),l(a,n),l(n,o),l(a,r),l(a,c),l(c,i),l(a,s),l(a,f),l(f,m),l(m,g),L(g,t[0]),l(m,A),l(m,S),l(f,I),l(f,T),l(f,x),l(f,C),l(C,k),H||(d=g,p="input",v=t[1],d.addEventListener(p,v,E),N=()=>d.removeEventListener(p,v,E),H=!0)},p(e,[t]){1&t&&g.value!==e[0]&&L(g,e[0]),1&t&&P!==(P=!e[0])&&(S.disabled=P)},i:e,o:e,d(e){e&&u(a),H=!1,N()}}}function X(e,t,a){let n;return[n,function(){n=this.value,a(0,n)}]}class ee extends G{constructor(e){super(),Y(this,e,X,Q,c,{})}}function te(e){return T(()=>(setTimeout(()=>{if(window.innerWidth>1080){const e=document.createElement("script");e.async=!0,e.type="text/javascript",e.src="//cdn.carbonads.com/carbon.js?serve=CE7ITK3E&placement=lihautancom",e.id="_carbonads_js",document.body.appendChild(e)}},5e3),()=>{try{const e=document.getElementById("carbonads");e.parentNode.removeChild(e)}catch(e){}})),[]}class ae extends G{constructor(e){super(),Y(this,e,te,null,c,{})}}var ne="https://lihautan.com/compile-svelte-in-your-head/assets/hero-twitter-c5b6ca4d.jpg";function oe(e,t,a){const n=e.slice();return n[6]=t[a],n}function re(e,t,a){const n=e.slice();return n[6]=t[a],n}function ce(e){let t,a;return{c(){t=d("meta"),this.h()},l(e){t=b(e,"META",{name:!0,content:!0}),this.h()},h(){E(t,"name","keywords"),E(t,"content",a=e[6])},m(e,a){h(e,t,a)},p(e,n){4&n&&a!==(a=e[6])&&E(t,"content",a)},d(e){e&&u(t)}}}function ie(e){let t,a,n=e[6]+"";return{c(){t=d("span"),a=p(n),this.h()},l(e){t=b(e,"SPAN",{class:!0});var o=y(t);a=w(o,n),o.forEach(u),this.h()},h(){E(t,"class","svelte-9tqnza")},m(e,n){h(e,t,n),l(t,a)},p(e,t){4&t&&n!==(n=e[6]+"")&&A(a,n)},d(e){e&&u(t)}}}function se(e){let t,a,n,o,r,c,m,L,P,I,T,x,C,k,H,N,M,O,j,D,_,B,F,W,Y,G,K,Q,X,te,se,le,he,ue,fe,de,me=`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"Article",author:e[3],copyrightHolder:e[3],copyrightYear:"2020",creator:e[3],publisher:e[3],description:e[1],headline:e[0],name:e[0],inLanguage:"en"})}<\/script>`,pe=`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList",description:"Breadcrumbs list",name:"Breadcrumbs",itemListElement:[{"@type":"ListItem",item:{"@id":"https://lihautan.com",name:"Homepage"},name:"Homepage",position:1},{"@type":"ListItem",item:{"@id":"https%3A%2F%2Flihautan.com%2Fcompile-svelte-in-your-head",name:e[0]},name:e[0],position:2}]})}<\/script>`;document.title=t=e[0]+" | Tan Li Hau";let ve=e[2],ge=[];for(let t=0;t<ve.length;t+=1)ge[t]=ce(re(e,ve,t));F=new Z({});let Ee=e[2],ye=[];for(let t=0;t<Ee.length;t+=1)ye[t]=ie(oe(e,Ee,t));const be=e[5].default,we=function(e,t,a,n){if(e){const o=i(e,t,a,n);return e[0](o)}}(be,e,e[4],null);return he=new ee({}),fe=new ae({}),{c(){a=d("meta"),n=d("meta"),o=d("meta"),r=d("meta"),c=d("meta"),m=d("meta"),L=d("meta"),P=d("meta"),I=d("meta"),T=d("meta"),x=d("meta");for(let e=0;e<ge.length;e+=1)ge[e].c();C=d("meta"),k=d("meta"),N=g(),O=g(),j=v(),D=d("a"),_=p("Skip to content"),B=v(),q(F.$$.fragment),W=v(),Y=d("main"),G=d("h1"),K=p(e[0]),Q=v();for(let e=0;e<ye.length;e+=1)ye[e].c();X=v(),te=d("article"),we&&we.c(),se=v(),le=d("footer"),q(he.$$.fragment),ue=v(),q(fe.$$.fragment),this.h()},l(t){const i=function(e,t=document.body){return Array.from(t.querySelectorAll(e))}('[data-svelte="svelte-15e3uyc"]',document.head);a=b(i,"META",{name:!0,content:!0}),n=b(i,"META",{name:!0,content:!0}),o=b(i,"META",{name:!0,content:!0}),r=b(i,"META",{name:!0,content:!0}),c=b(i,"META",{name:!0,content:!0}),m=b(i,"META",{name:!0,content:!0}),L=b(i,"META",{name:!0,content:!0}),P=b(i,"META",{name:!0,content:!0}),I=b(i,"META",{name:!0,content:!0}),T=b(i,"META",{name:!0,content:!0}),x=b(i,"META",{name:!0,content:!0});for(let e=0;e<ge.length;e+=1)ge[e].l(i);C=b(i,"META",{itemprop:!0,content:!0}),k=b(i,"META",{itemprop:!0,content:!0}),N=g(),O=g(),i.forEach(u),j=$(t),D=b(t,"A",{href:!0,class:!0});var s=y(D);_=w(s,"Skip to content"),s.forEach(u),B=$(t),J(F.$$.fragment,t),W=$(t),Y=b(t,"MAIN",{id:!0,class:!0});var l=y(Y);G=b(l,"H1",{});var h=y(G);K=w(h,e[0]),h.forEach(u),Q=$(l);for(let e=0;e<ye.length;e+=1)ye[e].l(l);X=$(l),te=b(l,"ARTICLE",{});var f=y(te);we&&we.l(f),f.forEach(u),l.forEach(u),se=$(t),le=b(t,"FOOTER",{class:!0});var d=y(le);J(he.$$.fragment,d),ue=$(d),J(fe.$$.fragment,d),d.forEach(u),this.h()},h(){E(a,"name","description"),E(a,"content",e[1]),E(n,"name","image"),E(n,"content",ne),E(o,"name","og:image"),E(o,"content",ne),E(r,"name","og:title"),E(r,"content",e[0]),E(c,"name","og:description"),E(c,"content",e[1]),E(m,"name","og:type"),E(m,"content","website"),E(L,"name","twitter:card"),E(L,"content","summary_large_image"),E(P,"name","twitter:creator"),E(P,"content","@lihautan"),E(I,"name","twitter:title"),E(I,"content",e[0]),E(T,"name","twitter:description"),E(T,"content",e[1]),E(x,"name","twitter:image"),E(x,"content",ne),E(C,"itemprop","url"),E(C,"content","https%3A%2F%2Flihautan.com%2Fcompile-svelte-in-your-head"),E(k,"itemprop","image"),E(k,"content",ne),H=new S(N),M=new S(O),E(D,"href","#content"),E(D,"class","skip svelte-9tqnza"),E(Y,"id","content"),E(Y,"class","blog svelte-9tqnza"),E(le,"class","svelte-9tqnza")},m(e,t){l(document.head,a),l(document.head,n),l(document.head,o),l(document.head,r),l(document.head,c),l(document.head,m),l(document.head,L),l(document.head,P),l(document.head,I),l(document.head,T),l(document.head,x);for(let e=0;e<ge.length;e+=1)ge[e].m(document.head,null);l(document.head,C),l(document.head,k),H.m(me,document.head),l(document.head,N),M.m(pe,document.head),l(document.head,O),h(e,j,t),h(e,D,t),l(D,_),h(e,B,t),U(F,e,t),h(e,W,t),h(e,Y,t),l(Y,G),l(G,K),l(Y,Q);for(let e=0;e<ye.length;e+=1)ye[e].m(Y,null);l(Y,X),l(Y,te),we&&we.m(te,null),h(e,se,t),h(e,le,t),U(he,le,null),l(le,ue),U(fe,le,null),de=!0},p(e,[n]){if((!de||1&n)&&t!==(t=e[0]+" | Tan Li Hau")&&(document.title=t),(!de||2&n)&&E(a,"content",e[1]),(!de||1&n)&&E(r,"content",e[0]),(!de||2&n)&&E(c,"content",e[1]),(!de||1&n)&&E(I,"content",e[0]),(!de||2&n)&&E(T,"content",e[1]),4&n){let t;for(ve=e[2],t=0;t<ve.length;t+=1){const a=re(e,ve,t);ge[t]?ge[t].p(a,n):(ge[t]=ce(a),ge[t].c(),ge[t].m(C.parentNode,C))}for(;t<ge.length;t+=1)ge[t].d(1);ge.length=ve.length}if((!de||3&n)&&me!==(me=`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"Article",author:e[3],copyrightHolder:e[3],copyrightYear:"2020",creator:e[3],publisher:e[3],description:e[1],headline:e[0],name:e[0],inLanguage:"en"})}<\/script>`)&&H.p(me),(!de||1&n)&&pe!==(pe=`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList",description:"Breadcrumbs list",name:"Breadcrumbs",itemListElement:[{"@type":"ListItem",item:{"@id":"https://lihautan.com",name:"Homepage"},name:"Homepage",position:1},{"@type":"ListItem",item:{"@id":"https%3A%2F%2Flihautan.com%2Fcompile-svelte-in-your-head",name:e[0]},name:e[0],position:2}]})}<\/script>`)&&M.p(pe),(!de||1&n)&&A(K,e[0]),4&n){let t;for(Ee=e[2],t=0;t<Ee.length;t+=1){const a=oe(e,Ee,t);ye[t]?ye[t].p(a,n):(ye[t]=ie(a),ye[t].c(),ye[t].m(Y,X))}for(;t<ye.length;t+=1)ye[t].d(1);ye.length=Ee.length}we&&we.p&&16&n&&s(we,be,e,e[4],n,null,null)},i(e){de||(z(F.$$.fragment,e),z(we,e),z(he.$$.fragment,e),z(fe.$$.fragment,e),de=!0)},o(e){R(F.$$.fragment,e),R(we,e),R(he.$$.fragment,e),R(fe.$$.fragment,e),de=!1},d(e){u(a),u(n),u(o),u(r),u(c),u(m),u(L),u(P),u(I),u(T),u(x),f(ge,e),u(C),u(k),u(N),e&&H.d(),u(O),e&&M.d(),e&&u(j),e&&u(D),e&&u(B),V(F,e),e&&u(W),e&&u(Y),f(ye,e),we&&we.d(e),e&&u(se),e&&u(le),V(he),V(fe)}}}function le(e,t,a){let{title:n=""}=t,{description:o=""}=t,{tags:r=[]}=t;const c={"@type":"Person",name:"Tan Li Hau"};let{$$slots:i={},$$scope:s}=t;return e.$set=e=>{"title"in e&&a(0,n=e.title),"description"in e&&a(1,o=e.description),"tags"in e&&a(2,r=e.tags),"$$scope"in e&&a(4,s=e.$$scope)},[n,o,r,c,s,i]}class he extends G{constructor(e){super(),Y(this,e,le,se,c,{title:0,description:1,tags:2})}}function ue(e){let t,a,n,o,r,c,i,s,f,m,g,A,L,S,P,I,T,x,C,k,H,N,M,O,j,D,_,B,F,z,R,q,J,U,V,W,Y,G,K,Z,Q,X,ee,te,ae,ne,oe,re,ce,ie,se,le,he,ue,fe,de,me,pe,ve,ge,Ee,ye,be,we,$e,Ae,Le,Se,Pe,Ie,Te,xe,Ce,ke,He,Ne,Me,Oe,je,De,_e,Be,Fe,ze,Re,qe,Je,Ue,Ve,We,Ye,Ge,Ke,Ze,Qe,Xe,et,tt,at,nt,ot,rt,ct,it,st,lt,ht,ut,ft,dt,mt,pt,vt,gt,Et,yt,bt,wt,$t,At,Lt,St,Pt,It,Tt,xt,Ct,kt,Ht,Nt,Mt,Ot,jt,Dt,_t,Bt,Ft,zt,Rt;return{c(){t=d("section"),a=d("ul"),n=d("li"),o=d("a"),r=p("Background"),c=d("li"),i=d("a"),s=p("Compile Svelte in your Head"),f=v(),m=d("section"),g=d("h2"),A=d("a"),L=p("Background"),S=v(),P=d("p"),I=p("A while ago, "),T=d("a"),x=p("@swyx"),C=p(" came back to Singapore and visited us in "),k=d("a"),H=p("Shopee Singapore"),N=p(" ("),M=d("a"),O=p("We're hiring!"),j=p(")."),D=v(),_=d("p"),B=p("He gave an amazing sharing on "),F=d("a"),z=p("Compile Svelte in Your Head"),R=p(" ("),q=d("a"),J=p("video"),U=p(") in the "),V=d("a"),W=p("ReactKnowledgeable Originals"),Y=p("."),G=v(),K=d("p"),Z=p("I love his presentation and the title is so catchy, so I begged him to use the catchy title as this series of articles about the Svelte compiler. It will be about how Svelte sees your code and compiles it down to plain JavaScript."),Q=v(),X=d("section"),ee=d("h2"),te=d("a"),ae=p("Compile Svelte in your Head"),ne=v(),oe=d("p"),re=p("The incomplete outline:"),ce=v(),ie=d("ul"),se=d("li"),le=d("a"),he=p("Part 1 - The Foundation"),ue=v(),fe=d("li"),de=d("a"),me=p("Part 2 - "),pe=d("code"),ve=p("$$invalidate"),ge=p(" and Reactivity"),Ee=v(),ye=d("li"),be=d("a"),we=p("Part 3 - Directives - "),$e=d("code"),Ae=p("on:"),Le=p(", "),Se=d("code"),Pe=p("bind:"),Ie=p(", "),Te=d("code"),xe=p("use:"),Ce=v(),ke=d("li"),He=d("a"),Ne=p("Part 4 - Logic blocks - "),Me=d("code"),Oe=p("{#if}"),je=v(),De=d("li"),_e=p("Part 5 - Logic blocks - "),Be=d("code"),Fe=p("{#each}"),ze=v(),Re=d("li"),qe=p("Part 6 - Logic blocks - "),Je=d("code"),Ue=p("{#await}"),Ve=v(),We=d("li"),Ye=p("Part 7 - Directives - "),Ge=d("code"),Ke=p("bind:group"),Ze=v(),Qe=d("li"),Xe=p("Part 8 - Directives - "),et=d("code"),tt=p("<select bind:value />"),at=v(),nt=d("li"),ot=p("Part 9 - Spread props - "),rt=d("code"),ct=p("<element {...props} />"),it=v(),st=d("li"),lt=p("Part 10 - Svelte Components"),ht=v(),ut=d("li"),ft=p("Part 11 - Svelte Context"),dt=v(),mt=d("li"),pt=p("Part 12 - Slots"),vt=v(),gt=d("li"),Et=p("Part 13 - Svelte Stores"),yt=v(),bt=d("li"),wt=p("Part 14 - Svelte Motion"),$t=v(),At=d("li"),Lt=p("Part 15 - Special elements"),St=v(),Pt=d("li"),It=p("Part 16 - Transitions"),Tt=v(),xt=d("li"),Ct=p("Part 17 - Animations"),kt=v(),Ht=d("li"),Nt=p("Part 18 - Lifecycles"),Mt=v(),Ot=d("li"),jt=p("Part 19 - Module context"),Dt=v(),_t=d("li"),Bt=p("Part 20 - Server-side Rendering"),Ft=v(),zt=d("li"),Rt=p("Part 21 - Hydration"),this.h()},l(e){t=b(e,"SECTION",{});var l=y(t);a=b(l,"UL",{class:!0,id:!0,role:!0,"aria-label":!0});var h=y(a);n=b(h,"LI",{});var d=y(n);o=b(d,"A",{href:!0});var p=y(o);r=w(p,"Background"),p.forEach(u),d.forEach(u),c=b(h,"LI",{});var v=y(c);i=b(v,"A",{href:!0});var E=y(i);s=w(E,"Compile Svelte in your Head"),E.forEach(u),v.forEach(u),h.forEach(u),l.forEach(u),f=$(e),m=b(e,"SECTION",{});var qt=y(m);g=b(qt,"H2",{});var Jt=y(g);A=b(Jt,"A",{href:!0,id:!0});var Ut=y(A);L=w(Ut,"Background"),Ut.forEach(u),Jt.forEach(u),S=$(qt),P=b(qt,"P",{});var Vt=y(P);I=w(Vt,"A while ago, "),T=b(Vt,"A",{href:!0,rel:!0});var Wt=y(T);x=w(Wt,"@swyx"),Wt.forEach(u),C=w(Vt," came back to Singapore and visited us in "),k=b(Vt,"A",{href:!0,rel:!0});var Yt=y(k);H=w(Yt,"Shopee Singapore"),Yt.forEach(u),N=w(Vt," ("),M=b(Vt,"A",{href:!0,rel:!0});var Gt=y(M);O=w(Gt,"We're hiring!"),Gt.forEach(u),j=w(Vt,")."),Vt.forEach(u),D=$(qt),_=b(qt,"P",{});var Kt=y(_);B=w(Kt,"He gave an amazing sharing on "),F=b(Kt,"A",{href:!0,rel:!0});var Zt=y(F);z=w(Zt,"Compile Svelte in Your Head"),Zt.forEach(u),R=w(Kt," ("),q=b(Kt,"A",{href:!0,rel:!0});var Qt=y(q);J=w(Qt,"video"),Qt.forEach(u),U=w(Kt,") in the "),V=b(Kt,"A",{href:!0,rel:!0});var Xt=y(V);W=w(Xt,"ReactKnowledgeable Originals"),Xt.forEach(u),Y=w(Kt,"."),Kt.forEach(u),G=$(qt),K=b(qt,"P",{});var ea=y(K);Z=w(ea,"I love his presentation and the title is so catchy, so I begged him to use the catchy title as this series of articles about the Svelte compiler. It will be about how Svelte sees your code and compiles it down to plain JavaScript."),ea.forEach(u),qt.forEach(u),Q=$(e),X=b(e,"SECTION",{});var ta=y(X);ee=b(ta,"H2",{});var aa=y(ee);te=b(aa,"A",{href:!0,id:!0});var na=y(te);ae=w(na,"Compile Svelte in your Head"),na.forEach(u),aa.forEach(u),ne=$(ta),oe=b(ta,"P",{});var oa=y(oe);re=w(oa,"The incomplete outline:"),oa.forEach(u),ce=$(ta),ie=b(ta,"UL",{});var ra=y(ie);se=b(ra,"LI",{});var ca=y(se);le=b(ca,"A",{href:!0});var ia=y(le);he=w(ia,"Part 1 - The Foundation"),ia.forEach(u),ca.forEach(u),ue=$(ra),fe=b(ra,"LI",{});var sa=y(fe);de=b(sa,"A",{href:!0});var la=y(de);me=w(la,"Part 2 - "),pe=b(la,"CODE",{});var ha=y(pe);ve=w(ha,"$$invalidate"),ha.forEach(u),ge=w(la," and Reactivity"),la.forEach(u),sa.forEach(u),Ee=$(ra),ye=b(ra,"LI",{});var ua=y(ye);be=b(ua,"A",{href:!0});var fa=y(be);we=w(fa,"Part 3 - Directives - "),$e=b(fa,"CODE",{});var da=y($e);Ae=w(da,"on:"),da.forEach(u),Le=w(fa,", "),Se=b(fa,"CODE",{});var ma=y(Se);Pe=w(ma,"bind:"),ma.forEach(u),Ie=w(fa,", "),Te=b(fa,"CODE",{});var pa=y(Te);xe=w(pa,"use:"),pa.forEach(u),fa.forEach(u),ua.forEach(u),Ce=$(ra),ke=b(ra,"LI",{});var va=y(ke);He=b(va,"A",{href:!0});var ga=y(He);Ne=w(ga,"Part 4 - Logic blocks - "),Me=b(ga,"CODE",{});var Ea=y(Me);Oe=w(Ea,"{#if}"),Ea.forEach(u),ga.forEach(u),va.forEach(u),je=$(ra),De=b(ra,"LI",{});var ya=y(De);_e=w(ya,"Part 5 - Logic blocks - "),Be=b(ya,"CODE",{});var ba=y(Be);Fe=w(ba,"{#each}"),ba.forEach(u),ya.forEach(u),ze=$(ra),Re=b(ra,"LI",{});var wa=y(Re);qe=w(wa,"Part 6 - Logic blocks - "),Je=b(wa,"CODE",{});var $a=y(Je);Ue=w($a,"{#await}"),$a.forEach(u),wa.forEach(u),Ve=$(ra),We=b(ra,"LI",{});var Aa=y(We);Ye=w(Aa,"Part 7 - Directives - "),Ge=b(Aa,"CODE",{});var La=y(Ge);Ke=w(La,"bind:group"),La.forEach(u),Aa.forEach(u),Ze=$(ra),Qe=b(ra,"LI",{});var Sa=y(Qe);Xe=w(Sa,"Part 8 - Directives - "),et=b(Sa,"CODE",{});var Pa=y(et);tt=w(Pa,"<select bind:value />"),Pa.forEach(u),Sa.forEach(u),at=$(ra),nt=b(ra,"LI",{});var Ia=y(nt);ot=w(Ia,"Part 9 - Spread props - "),rt=b(Ia,"CODE",{});var Ta=y(rt);ct=w(Ta,"<element {...props} />"),Ta.forEach(u),Ia.forEach(u),it=$(ra),st=b(ra,"LI",{});var xa=y(st);lt=w(xa,"Part 10 - Svelte Components"),xa.forEach(u),ht=$(ra),ut=b(ra,"LI",{});var Ca=y(ut);ft=w(Ca,"Part 11 - Svelte Context"),Ca.forEach(u),dt=$(ra),mt=b(ra,"LI",{});var ka=y(mt);pt=w(ka,"Part 12 - Slots"),ka.forEach(u),vt=$(ra),gt=b(ra,"LI",{});var Ha=y(gt);Et=w(Ha,"Part 13 - Svelte Stores"),Ha.forEach(u),yt=$(ra),bt=b(ra,"LI",{});var Na=y(bt);wt=w(Na,"Part 14 - Svelte Motion"),Na.forEach(u),$t=$(ra),At=b(ra,"LI",{});var Ma=y(At);Lt=w(Ma,"Part 15 - Special elements"),Ma.forEach(u),St=$(ra),Pt=b(ra,"LI",{});var Oa=y(Pt);It=w(Oa,"Part 16 - Transitions"),Oa.forEach(u),Tt=$(ra),xt=b(ra,"LI",{});var ja=y(xt);Ct=w(ja,"Part 17 - Animations"),ja.forEach(u),kt=$(ra),Ht=b(ra,"LI",{});var Da=y(Ht);Nt=w(Da,"Part 18 - Lifecycles"),Da.forEach(u),Mt=$(ra),Ot=b(ra,"LI",{});var _a=y(Ot);jt=w(_a,"Part 19 - Module context"),_a.forEach(u),Dt=$(ra),_t=b(ra,"LI",{});var Ba=y(_t);Bt=w(Ba,"Part 20 - Server-side Rendering"),Ba.forEach(u),Ft=$(ra),zt=b(ra,"LI",{});var Fa=y(zt);Rt=w(Fa,"Part 21 - Hydration"),Fa.forEach(u),ra.forEach(u),ta.forEach(u),this.h()},h(){E(o,"href","#background"),E(i,"href","#compile-svelte-in-your-head"),E(a,"class","sitemap"),E(a,"id","sitemap"),E(a,"role","navigation"),E(a,"aria-label","Table of Contents"),E(A,"href","#background"),E(A,"id","background"),E(T,"href","https://twitter.com/swyx"),E(T,"rel","nofollow"),E(k,"href","https://careers.shopee.sg/about/"),E(k,"rel","nofollow"),E(M,"href","https://grnh.se/32e5b3532"),E(M,"rel","nofollow"),E(F,"href","https://www.swyx.io/speaking/svelte-compile-lightning/"),E(F,"rel","nofollow"),E(q,"href","https://www.youtube.com/watch?v=FNmvcswdjV8"),E(q,"rel","nofollow"),E(V,"href","https://reactknowledgeable.org/"),E(V,"rel","nofollow"),E(te,"href","#compile-svelte-in-your-head"),E(te,"id","compile-svelte-in-your-head"),E(le,"href","/compile-svelte-in-your-head-part-1"),E(de,"href","/compile-svelte-in-your-head-part-2"),E(be,"href","/compile-svelte-in-your-head-part-3"),E(He,"href","/compile-svelte-in-your-head-part-4")},m(e,u){h(e,t,u),l(t,a),l(a,n),l(n,o),l(o,r),l(a,c),l(c,i),l(i,s),h(e,f,u),h(e,m,u),l(m,g),l(g,A),l(A,L),l(m,S),l(m,P),l(P,I),l(P,T),l(T,x),l(P,C),l(P,k),l(k,H),l(P,N),l(P,M),l(M,O),l(P,j),l(m,D),l(m,_),l(_,B),l(_,F),l(F,z),l(_,R),l(_,q),l(q,J),l(_,U),l(_,V),l(V,W),l(_,Y),l(m,G),l(m,K),l(K,Z),h(e,Q,u),h(e,X,u),l(X,ee),l(ee,te),l(te,ae),l(X,ne),l(X,oe),l(oe,re),l(X,ce),l(X,ie),l(ie,se),l(se,le),l(le,he),l(ie,ue),l(ie,fe),l(fe,de),l(de,me),l(de,pe),l(pe,ve),l(de,ge),l(ie,Ee),l(ie,ye),l(ye,be),l(be,we),l(be,$e),l($e,Ae),l(be,Le),l(be,Se),l(Se,Pe),l(be,Ie),l(be,Te),l(Te,xe),l(ie,Ce),l(ie,ke),l(ke,He),l(He,Ne),l(He,Me),l(Me,Oe),l(ie,je),l(ie,De),l(De,_e),l(De,Be),l(Be,Fe),l(ie,ze),l(ie,Re),l(Re,qe),l(Re,Je),l(Je,Ue),l(ie,Ve),l(ie,We),l(We,Ye),l(We,Ge),l(Ge,Ke),l(ie,Ze),l(ie,Qe),l(Qe,Xe),l(Qe,et),l(et,tt),l(ie,at),l(ie,nt),l(nt,ot),l(nt,rt),l(rt,ct),l(ie,it),l(ie,st),l(st,lt),l(ie,ht),l(ie,ut),l(ut,ft),l(ie,dt),l(ie,mt),l(mt,pt),l(ie,vt),l(ie,gt),l(gt,Et),l(ie,yt),l(ie,bt),l(bt,wt),l(ie,$t),l(ie,At),l(At,Lt),l(ie,St),l(ie,Pt),l(Pt,It),l(ie,Tt),l(ie,xt),l(xt,Ct),l(ie,kt),l(ie,Ht),l(Ht,Nt),l(ie,Mt),l(ie,Ot),l(Ot,jt),l(ie,Dt),l(ie,_t),l(_t,Bt),l(ie,Ft),l(ie,zt),l(zt,Rt)},d(e){e&&u(t),e&&u(f),e&&u(m),e&&u(Q),e&&u(X)}}}function fe(e){let a,n;const o=[de];let r={$$slots:{default:[ue]},$$scope:{ctx:e}};for(let e=0;e<o.length;e+=1)r=t(r,o[e]);return a=new he({props:r}),{c(){q(a.$$.fragment)},l(e){J(a.$$.fragment,e)},m(e,t){U(a,e,t),n=!0},p(e,[t]){const n=0&t?function(e,t){const a={},n={},o={$$scope:1};let r=e.length;for(;r--;){const c=e[r],i=t[r];if(i){for(const e in c)e in i||(n[e]=1);for(const e in i)o[e]||(a[e]=i[e],o[e]=1);e[r]=i}else for(const e in c)o[e]=1}for(const e in n)e in a||(a[e]=void 0);return a}(o,[(r=de,"object"==typeof r&&null!==r?r:{})]):{};var r;1&t&&(n.$$scope={dirty:t,ctx:e}),a.$set(n)},i(e){n||(z(a.$$.fragment,e),n=!0)},o(e){R(a.$$.fragment,e),n=!1},d(e){V(a,e)}}}const de={title:"Compile Svelte in your head",date:"2020-10-05T08:00:00Z",tags:["Svelte","JavaScript"],series:"Compile Svelte in your head",slug:"compile-svelte-in-your-head",type:"blog"};class me extends G{constructor(e){super(),Y(this,e,null,fe,c,{})}}setTimeout(()=>{new me({target:document.querySelector("#app"),hydrate:!0});if(document.querySelector(".twitter-tweet")){const e=document.createElement("script");e.async=!0,e.src="https://platform.twitter.com/widgets.js",e.charset="utf-8",document.body.appendChild(e)}if("loading"in HTMLImageElement.prototype){document.querySelectorAll('img[loading="lazy"]').forEach(e=>{e.src=e.dataset.src})}else{const e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js",document.body.appendChild(e)}},3e3);
+function noop() { }
+function assign(tar, src) {
+    // @ts-ignore
+    for (const k in src)
+        tar[k] = src[k];
+    return tar;
+}
+function run(fn) {
+    return fn();
+}
+function blank_object() {
+    return Object.create(null);
+}
+function run_all(fns) {
+    fns.forEach(run);
+}
+function is_function(thing) {
+    return typeof thing === 'function';
+}
+function safe_not_equal(a, b) {
+    return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+}
+function create_slot(definition, ctx, $$scope, fn) {
+    if (definition) {
+        const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+        return definition[0](slot_ctx);
+    }
+}
+function get_slot_context(definition, ctx, $$scope, fn) {
+    return definition[1] && fn
+        ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+        : $$scope.ctx;
+}
+function get_slot_changes(definition, $$scope, dirty, fn) {
+    if (definition[2] && fn) {
+        const lets = definition[2](fn(dirty));
+        if ($$scope.dirty === undefined) {
+            return lets;
+        }
+        if (typeof lets === 'object') {
+            const merged = [];
+            const len = Math.max($$scope.dirty.length, lets.length);
+            for (let i = 0; i < len; i += 1) {
+                merged[i] = $$scope.dirty[i] | lets[i];
+            }
+            return merged;
+        }
+        return $$scope.dirty | lets;
+    }
+    return $$scope.dirty;
+}
+function update_slot(slot, slot_definition, ctx, $$scope, dirty, get_slot_changes_fn, get_slot_context_fn) {
+    const slot_changes = get_slot_changes(slot_definition, $$scope, dirty, get_slot_changes_fn);
+    if (slot_changes) {
+        const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+        slot.p(slot_context, slot_changes);
+    }
+}
+
+function append(target, node) {
+    target.appendChild(node);
+}
+function insert(target, node, anchor) {
+    target.insertBefore(node, anchor || null);
+}
+function detach(node) {
+    node.parentNode.removeChild(node);
+}
+function destroy_each(iterations, detaching) {
+    for (let i = 0; i < iterations.length; i += 1) {
+        if (iterations[i])
+            iterations[i].d(detaching);
+    }
+}
+function element(name) {
+    return document.createElement(name);
+}
+function svg_element(name) {
+    return document.createElementNS('http://www.w3.org/2000/svg', name);
+}
+function text(data) {
+    return document.createTextNode(data);
+}
+function space() {
+    return text(' ');
+}
+function empty() {
+    return text('');
+}
+function listen(node, event, handler, options) {
+    node.addEventListener(event, handler, options);
+    return () => node.removeEventListener(event, handler, options);
+}
+function attr(node, attribute, value) {
+    if (value == null)
+        node.removeAttribute(attribute);
+    else if (node.getAttribute(attribute) !== value)
+        node.setAttribute(attribute, value);
+}
+function children(element) {
+    return Array.from(element.childNodes);
+}
+function claim_element(nodes, name, attributes, svg) {
+    for (let i = 0; i < nodes.length; i += 1) {
+        const node = nodes[i];
+        if (node.nodeName === name) {
+            let j = 0;
+            const remove = [];
+            while (j < node.attributes.length) {
+                const attribute = node.attributes[j++];
+                if (!attributes[attribute.name]) {
+                    remove.push(attribute.name);
+                }
+            }
+            for (let k = 0; k < remove.length; k++) {
+                node.removeAttribute(remove[k]);
+            }
+            return nodes.splice(i, 1)[0];
+        }
+    }
+    return svg ? svg_element(name) : element(name);
+}
+function claim_text(nodes, data) {
+    for (let i = 0; i < nodes.length; i += 1) {
+        const node = nodes[i];
+        if (node.nodeType === 3) {
+            node.data = '' + data;
+            return nodes.splice(i, 1)[0];
+        }
+    }
+    return text(data);
+}
+function claim_space(nodes) {
+    return claim_text(nodes, ' ');
+}
+function set_data(text, data) {
+    data = '' + data;
+    if (text.wholeText !== data)
+        text.data = data;
+}
+function set_input_value(input, value) {
+    input.value = value == null ? '' : value;
+}
+function query_selector_all(selector, parent = document.body) {
+    return Array.from(parent.querySelectorAll(selector));
+}
+class HtmlTag {
+    constructor(anchor = null) {
+        this.a = anchor;
+        this.e = this.n = null;
+    }
+    m(html, target, anchor = null) {
+        if (!this.e) {
+            this.e = element(target.nodeName);
+            this.t = target;
+            this.h(html);
+        }
+        this.i(anchor);
+    }
+    h(html) {
+        this.e.innerHTML = html;
+        this.n = Array.from(this.e.childNodes);
+    }
+    i(anchor) {
+        for (let i = 0; i < this.n.length; i += 1) {
+            insert(this.t, this.n[i], anchor);
+        }
+    }
+    p(html) {
+        this.d();
+        this.h(html);
+        this.i(this.a);
+    }
+    d() {
+        this.n.forEach(detach);
+    }
+}
+
+let current_component;
+function set_current_component(component) {
+    current_component = component;
+}
+function get_current_component() {
+    if (!current_component)
+        throw new Error(`Function called outside component initialization`);
+    return current_component;
+}
+function onMount(fn) {
+    get_current_component().$$.on_mount.push(fn);
+}
+
+const dirty_components = [];
+const binding_callbacks = [];
+const render_callbacks = [];
+const flush_callbacks = [];
+const resolved_promise = Promise.resolve();
+let update_scheduled = false;
+function schedule_update() {
+    if (!update_scheduled) {
+        update_scheduled = true;
+        resolved_promise.then(flush);
+    }
+}
+function add_render_callback(fn) {
+    render_callbacks.push(fn);
+}
+let flushing = false;
+const seen_callbacks = new Set();
+function flush() {
+    if (flushing)
+        return;
+    flushing = true;
+    do {
+        // first, call beforeUpdate functions
+        // and update components
+        for (let i = 0; i < dirty_components.length; i += 1) {
+            const component = dirty_components[i];
+            set_current_component(component);
+            update(component.$$);
+        }
+        dirty_components.length = 0;
+        while (binding_callbacks.length)
+            binding_callbacks.pop()();
+        // then, once components are updated, call
+        // afterUpdate functions. This may cause
+        // subsequent updates...
+        for (let i = 0; i < render_callbacks.length; i += 1) {
+            const callback = render_callbacks[i];
+            if (!seen_callbacks.has(callback)) {
+                // ...so guard against infinite loops
+                seen_callbacks.add(callback);
+                callback();
+            }
+        }
+        render_callbacks.length = 0;
+    } while (dirty_components.length);
+    while (flush_callbacks.length) {
+        flush_callbacks.pop()();
+    }
+    update_scheduled = false;
+    flushing = false;
+    seen_callbacks.clear();
+}
+function update($$) {
+    if ($$.fragment !== null) {
+        $$.update();
+        run_all($$.before_update);
+        const dirty = $$.dirty;
+        $$.dirty = [-1];
+        $$.fragment && $$.fragment.p($$.ctx, dirty);
+        $$.after_update.forEach(add_render_callback);
+    }
+}
+const outroing = new Set();
+let outros;
+function transition_in(block, local) {
+    if (block && block.i) {
+        outroing.delete(block);
+        block.i(local);
+    }
+}
+function transition_out(block, local, detach, callback) {
+    if (block && block.o) {
+        if (outroing.has(block))
+            return;
+        outroing.add(block);
+        outros.c.push(() => {
+            outroing.delete(block);
+            if (callback) {
+                if (detach)
+                    block.d(1);
+                callback();
+            }
+        });
+        block.o(local);
+    }
+}
+
+function get_spread_update(levels, updates) {
+    const update = {};
+    const to_null_out = {};
+    const accounted_for = { $$scope: 1 };
+    let i = levels.length;
+    while (i--) {
+        const o = levels[i];
+        const n = updates[i];
+        if (n) {
+            for (const key in o) {
+                if (!(key in n))
+                    to_null_out[key] = 1;
+            }
+            for (const key in n) {
+                if (!accounted_for[key]) {
+                    update[key] = n[key];
+                    accounted_for[key] = 1;
+                }
+            }
+            levels[i] = n;
+        }
+        else {
+            for (const key in o) {
+                accounted_for[key] = 1;
+            }
+        }
+    }
+    for (const key in to_null_out) {
+        if (!(key in update))
+            update[key] = undefined;
+    }
+    return update;
+}
+function get_spread_object(spread_props) {
+    return typeof spread_props === 'object' && spread_props !== null ? spread_props : {};
+}
+function create_component(block) {
+    block && block.c();
+}
+function claim_component(block, parent_nodes) {
+    block && block.l(parent_nodes);
+}
+function mount_component(component, target, anchor) {
+    const { fragment, on_mount, on_destroy, after_update } = component.$$;
+    fragment && fragment.m(target, anchor);
+    // onMount happens before the initial afterUpdate
+    add_render_callback(() => {
+        const new_on_destroy = on_mount.map(run).filter(is_function);
+        if (on_destroy) {
+            on_destroy.push(...new_on_destroy);
+        }
+        else {
+            // Edge case - component was destroyed immediately,
+            // most likely as a result of a binding initialising
+            run_all(new_on_destroy);
+        }
+        component.$$.on_mount = [];
+    });
+    after_update.forEach(add_render_callback);
+}
+function destroy_component(component, detaching) {
+    const $$ = component.$$;
+    if ($$.fragment !== null) {
+        run_all($$.on_destroy);
+        $$.fragment && $$.fragment.d(detaching);
+        // TODO null out other refs, including component.$$ (but need to
+        // preserve final state?)
+        $$.on_destroy = $$.fragment = null;
+        $$.ctx = [];
+    }
+}
+function make_dirty(component, i) {
+    if (component.$$.dirty[0] === -1) {
+        dirty_components.push(component);
+        schedule_update();
+        component.$$.dirty.fill(0);
+    }
+    component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+}
+function init(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
+    const parent_component = current_component;
+    set_current_component(component);
+    const prop_values = options.props || {};
+    const $$ = component.$$ = {
+        fragment: null,
+        ctx: null,
+        // state
+        props,
+        update: noop,
+        not_equal,
+        bound: blank_object(),
+        // lifecycle
+        on_mount: [],
+        on_destroy: [],
+        before_update: [],
+        after_update: [],
+        context: new Map(parent_component ? parent_component.$$.context : []),
+        // everything else
+        callbacks: blank_object(),
+        dirty
+    };
+    let ready = false;
+    $$.ctx = instance
+        ? instance(component, prop_values, (i, ret, ...rest) => {
+            const value = rest.length ? rest[0] : ret;
+            if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                if ($$.bound[i])
+                    $$.bound[i](value);
+                if (ready)
+                    make_dirty(component, i);
+            }
+            return ret;
+        })
+        : [];
+    $$.update();
+    ready = true;
+    run_all($$.before_update);
+    // `false` as a special case of no DOM component
+    $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+    if (options.target) {
+        if (options.hydrate) {
+            const nodes = children(options.target);
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            $$.fragment && $$.fragment.l(nodes);
+            nodes.forEach(detach);
+        }
+        else {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            $$.fragment && $$.fragment.c();
+        }
+        if (options.intro)
+            transition_in(component.$$.fragment);
+        mount_component(component, options.target, options.anchor);
+        flush();
+    }
+    set_current_component(parent_component);
+}
+class SvelteComponent {
+    $destroy() {
+        destroy_component(this, 1);
+        this.$destroy = noop;
+    }
+    $on(type, callback) {
+        const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+        callbacks.push(callback);
+        return () => {
+            const index = callbacks.indexOf(callback);
+            if (index !== -1)
+                callbacks.splice(index, 1);
+        };
+    }
+    $set() {
+        // overridden by instance, if it has props
+    }
+}
+
+/* src/layout/Header.svelte generated by Svelte v3.24.0 */
+
+function create_fragment(ctx) {
+	let header;
+	let nav;
+	let ul;
+	let li0;
+	let a0;
+	let t0;
+	let t1;
+	let li1;
+	let a1;
+	let t2;
+	let t3;
+	let li2;
+	let a2;
+	let t4;
+	let t5;
+	let li3;
+	let a3;
+	let t6;
+	let t7;
+	let li4;
+	let a4;
+	let t8;
+	let t9;
+	let li5;
+	let a5;
+	let t10;
+	let t11;
+	let li6;
+	let a6;
+	let svg0;
+	let path0;
+	let t12;
+	let a7;
+	let svg1;
+	let path1;
+
+	return {
+		c() {
+			header = element("header");
+			nav = element("nav");
+			ul = element("ul");
+			li0 = element("li");
+			a0 = element("a");
+			t0 = text("Tan Li Hau");
+			t1 = space();
+			li1 = element("li");
+			a1 = element("a");
+			t2 = text("About");
+			t3 = space();
+			li2 = element("li");
+			a2 = element("a");
+			t4 = text("Writings");
+			t5 = space();
+			li3 = element("li");
+			a3 = element("a");
+			t6 = text("Talks");
+			t7 = space();
+			li4 = element("li");
+			a4 = element("a");
+			t8 = text("Notes");
+			t9 = space();
+			li5 = element("li");
+			a5 = element("a");
+			t10 = text("Newsletter");
+			t11 = space();
+			li6 = element("li");
+			a6 = element("a");
+			svg0 = svg_element("svg");
+			path0 = svg_element("path");
+			t12 = space();
+			a7 = element("a");
+			svg1 = svg_element("svg");
+			path1 = svg_element("path");
+			this.h();
+		},
+		l(nodes) {
+			header = claim_element(nodes, "HEADER", { class: true });
+			var header_nodes = children(header);
+			nav = claim_element(header_nodes, "NAV", {});
+			var nav_nodes = children(nav);
+			ul = claim_element(nav_nodes, "UL", { class: true });
+			var ul_nodes = children(ul);
+			li0 = claim_element(ul_nodes, "LI", { class: true });
+			var li0_nodes = children(li0);
+			a0 = claim_element(li0_nodes, "A", { href: true, class: true });
+			var a0_nodes = children(a0);
+			t0 = claim_text(a0_nodes, "Tan Li Hau");
+			a0_nodes.forEach(detach);
+			li0_nodes.forEach(detach);
+			t1 = claim_space(ul_nodes);
+			li1 = claim_element(ul_nodes, "LI", { class: true });
+			var li1_nodes = children(li1);
+			a1 = claim_element(li1_nodes, "A", { href: true, class: true });
+			var a1_nodes = children(a1);
+			t2 = claim_text(a1_nodes, "About");
+			a1_nodes.forEach(detach);
+			li1_nodes.forEach(detach);
+			t3 = claim_space(ul_nodes);
+			li2 = claim_element(ul_nodes, "LI", { class: true });
+			var li2_nodes = children(li2);
+			a2 = claim_element(li2_nodes, "A", { href: true, class: true });
+			var a2_nodes = children(a2);
+			t4 = claim_text(a2_nodes, "Writings");
+			a2_nodes.forEach(detach);
+			li2_nodes.forEach(detach);
+			t5 = claim_space(ul_nodes);
+			li3 = claim_element(ul_nodes, "LI", { class: true });
+			var li3_nodes = children(li3);
+			a3 = claim_element(li3_nodes, "A", { href: true, class: true });
+			var a3_nodes = children(a3);
+			t6 = claim_text(a3_nodes, "Talks");
+			a3_nodes.forEach(detach);
+			li3_nodes.forEach(detach);
+			t7 = claim_space(ul_nodes);
+			li4 = claim_element(ul_nodes, "LI", { class: true });
+			var li4_nodes = children(li4);
+			a4 = claim_element(li4_nodes, "A", { href: true, class: true });
+			var a4_nodes = children(a4);
+			t8 = claim_text(a4_nodes, "Notes");
+			a4_nodes.forEach(detach);
+			li4_nodes.forEach(detach);
+			t9 = claim_space(ul_nodes);
+			li5 = claim_element(ul_nodes, "LI", { class: true });
+			var li5_nodes = children(li5);
+			a5 = claim_element(li5_nodes, "A", { href: true, class: true });
+			var a5_nodes = children(a5);
+			t10 = claim_text(a5_nodes, "Newsletter");
+			a5_nodes.forEach(detach);
+			li5_nodes.forEach(detach);
+			t11 = claim_space(ul_nodes);
+			li6 = claim_element(ul_nodes, "LI", { class: true });
+			var li6_nodes = children(li6);
+
+			a6 = claim_element(li6_nodes, "A", {
+				"aria-label": true,
+				href: true,
+				class: true
+			});
+
+			var a6_nodes = children(a6);
+
+			svg0 = claim_element(
+				a6_nodes,
+				"svg",
+				{
+					viewBox: true,
+					width: true,
+					height: true,
+					class: true
+				},
+				1
+			);
+
+			var svg0_nodes = children(svg0);
+			path0 = claim_element(svg0_nodes, "path", { d: true }, 1);
+			children(path0).forEach(detach);
+			svg0_nodes.forEach(detach);
+			a6_nodes.forEach(detach);
+			t12 = claim_space(li6_nodes);
+
+			a7 = claim_element(li6_nodes, "A", {
+				"aria-label": true,
+				href: true,
+				class: true
+			});
+
+			var a7_nodes = children(a7);
+
+			svg1 = claim_element(
+				a7_nodes,
+				"svg",
+				{
+					viewBox: true,
+					width: true,
+					height: true,
+					class: true
+				},
+				1
+			);
+
+			var svg1_nodes = children(svg1);
+			path1 = claim_element(svg1_nodes, "path", { d: true }, 1);
+			children(path1).forEach(detach);
+			svg1_nodes.forEach(detach);
+			a7_nodes.forEach(detach);
+			li6_nodes.forEach(detach);
+			ul_nodes.forEach(detach);
+			nav_nodes.forEach(detach);
+			header_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(a0, "href", "/");
+			attr(a0, "class", "svelte-f3e4uo");
+			attr(li0, "class", "svelte-f3e4uo");
+			attr(a1, "href", "/about");
+			attr(a1, "class", "svelte-f3e4uo");
+			attr(li1, "class", "svelte-f3e4uo");
+			attr(a2, "href", "/blogs");
+			attr(a2, "class", "svelte-f3e4uo");
+			attr(li2, "class", "svelte-f3e4uo");
+			attr(a3, "href", "/talks");
+			attr(a3, "class", "svelte-f3e4uo");
+			attr(li3, "class", "svelte-f3e4uo");
+			attr(a4, "href", "/notes");
+			attr(a4, "class", "svelte-f3e4uo");
+			attr(li4, "class", "svelte-f3e4uo");
+			attr(a5, "href", "/newsletter");
+			attr(a5, "class", "svelte-f3e4uo");
+			attr(li5, "class", "svelte-f3e4uo");
+			attr(path0, "d", "M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66\n    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5\n    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z");
+			attr(svg0, "viewBox", "0 0 24 24");
+			attr(svg0, "width", "1em");
+			attr(svg0, "height", "1em");
+			attr(svg0, "class", "svelte-f3e4uo");
+			attr(a6, "aria-label", "Twitter account");
+			attr(a6, "href", "https://twitter.com/lihautan");
+			attr(a6, "class", "svelte-f3e4uo");
+			attr(path1, "d", "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0\n    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07\n    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65\n    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42\n    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22");
+			attr(svg1, "viewBox", "0 0 24 24");
+			attr(svg1, "width", "1em");
+			attr(svg1, "height", "1em");
+			attr(svg1, "class", "svelte-f3e4uo");
+			attr(a7, "aria-label", "Github account");
+			attr(a7, "href", "https://github.com/tanhauhau");
+			attr(a7, "class", "svelte-f3e4uo");
+			attr(li6, "class", "social svelte-f3e4uo");
+			attr(ul, "class", "svelte-f3e4uo");
+			attr(header, "class", "svelte-f3e4uo");
+		},
+		m(target, anchor) {
+			insert(target, header, anchor);
+			append(header, nav);
+			append(nav, ul);
+			append(ul, li0);
+			append(li0, a0);
+			append(a0, t0);
+			append(ul, t1);
+			append(ul, li1);
+			append(li1, a1);
+			append(a1, t2);
+			append(ul, t3);
+			append(ul, li2);
+			append(li2, a2);
+			append(a2, t4);
+			append(ul, t5);
+			append(ul, li3);
+			append(li3, a3);
+			append(a3, t6);
+			append(ul, t7);
+			append(ul, li4);
+			append(li4, a4);
+			append(a4, t8);
+			append(ul, t9);
+			append(ul, li5);
+			append(li5, a5);
+			append(a5, t10);
+			append(ul, t11);
+			append(ul, li6);
+			append(li6, a6);
+			append(a6, svg0);
+			append(svg0, path0);
+			append(li6, t12);
+			append(li6, a7);
+			append(a7, svg1);
+			append(svg1, path1);
+		},
+		p: noop,
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(header);
+		}
+	};
+}
+
+class Header extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, null, create_fragment, safe_not_equal, {});
+	}
+}
+
+/* src/layout/Newsletter.svelte generated by Svelte v3.24.0 */
+
+function create_fragment$1(ctx) {
+	let div1;
+	let h1;
+	let t0;
+	let t1;
+	let h2;
+	let t2;
+	let t3;
+	let form;
+	let div0;
+	let input0;
+	let t4;
+	let input1;
+	let input1_disabled_value;
+	let t5;
+	let input2;
+	let t6;
+	let p;
+	let t7;
+	let mounted;
+	let dispose;
+
+	return {
+		c() {
+			div1 = element("div");
+			h1 = element("h1");
+			t0 = text("Subscribe to my newsletter");
+			t1 = space();
+			h2 = element("h2");
+			t2 = text("Get the latest blog posts and project updates delivered right to your inbox");
+			t3 = space();
+			form = element("form");
+			div0 = element("div");
+			input0 = element("input");
+			t4 = space();
+			input1 = element("input");
+			t5 = space();
+			input2 = element("input");
+			t6 = space();
+			p = element("p");
+			t7 = text("Powered by Buttondown.");
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+			h1 = claim_element(div1_nodes, "H1", {});
+			var h1_nodes = children(h1);
+			t0 = claim_text(h1_nodes, "Subscribe to my newsletter");
+			h1_nodes.forEach(detach);
+			t1 = claim_space(div1_nodes);
+			h2 = claim_element(div1_nodes, "H2", { class: true });
+			var h2_nodes = children(h2);
+			t2 = claim_text(h2_nodes, "Get the latest blog posts and project updates delivered right to your inbox");
+			h2_nodes.forEach(detach);
+			t3 = claim_space(div1_nodes);
+
+			form = claim_element(div1_nodes, "FORM", {
+				action: true,
+				method: true,
+				target: true,
+				onsubmit: true,
+				class: true
+			});
+
+			var form_nodes = children(form);
+			div0 = claim_element(form_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+
+			input0 = claim_element(div0_nodes, "INPUT", {
+				type: true,
+				name: true,
+				id: true,
+				"aria-label": true,
+				placeholder: true,
+				class: true
+			});
+
+			t4 = claim_space(div0_nodes);
+
+			input1 = claim_element(div0_nodes, "INPUT", {
+				type: true,
+				value: true,
+				disabled: true,
+				class: true
+			});
+
+			div0_nodes.forEach(detach);
+			t5 = claim_space(form_nodes);
+
+			input2 = claim_element(form_nodes, "INPUT", {
+				type: true,
+				value: true,
+				name: true,
+				class: true
+			});
+
+			t6 = claim_space(form_nodes);
+			p = claim_element(form_nodes, "P", { class: true });
+			var p_nodes = children(p);
+			t7 = claim_text(p_nodes, "Powered by Buttondown.");
+			p_nodes.forEach(detach);
+			form_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(h2, "class", "svelte-1k1s1co");
+			attr(input0, "type", "email");
+			attr(input0, "name", "email");
+			attr(input0, "id", "bd-email");
+			attr(input0, "aria-label", "email address");
+			attr(input0, "placeholder", "youremail@example.com");
+			attr(input0, "class", "svelte-1k1s1co");
+			attr(input1, "type", "submit");
+			input1.value = "Subscribe";
+			input1.disabled = input1_disabled_value = !/*email*/ ctx[0];
+			attr(input1, "class", "svelte-1k1s1co");
+			attr(div0, "class", "form-item svelte-1k1s1co");
+			attr(input2, "type", "hidden");
+			input2.value = "1";
+			attr(input2, "name", "embed");
+			attr(input2, "class", "svelte-1k1s1co");
+			attr(p, "class", "svelte-1k1s1co");
+			attr(form, "action", "https://buttondown.email/api/emails/embed-subscribe/lihautan");
+			attr(form, "method", "post");
+			attr(form, "target", "popupwindow");
+			attr(form, "onsubmit", "window.open('https://buttondown.email/lihautan', 'popupwindow')");
+			attr(form, "class", "embeddable-buttondown-form");
+			attr(div1, "class", "form svelte-1k1s1co");
+		},
+		m(target, anchor) {
+			insert(target, div1, anchor);
+			append(div1, h1);
+			append(h1, t0);
+			append(div1, t1);
+			append(div1, h2);
+			append(h2, t2);
+			append(div1, t3);
+			append(div1, form);
+			append(form, div0);
+			append(div0, input0);
+			set_input_value(input0, /*email*/ ctx[0]);
+			append(div0, t4);
+			append(div0, input1);
+			append(form, t5);
+			append(form, input2);
+			append(form, t6);
+			append(form, p);
+			append(p, t7);
+
+			if (!mounted) {
+				dispose = listen(input0, "input", /*input0_input_handler*/ ctx[1]);
+				mounted = true;
+			}
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*email*/ 1 && input0.value !== /*email*/ ctx[0]) {
+				set_input_value(input0, /*email*/ ctx[0]);
+			}
+
+			if (dirty & /*email*/ 1 && input1_disabled_value !== (input1_disabled_value = !/*email*/ ctx[0])) {
+				input1.disabled = input1_disabled_value;
+			}
+		},
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div1);
+			mounted = false;
+			dispose();
+		}
+	};
+}
+
+function instance($$self, $$props, $$invalidate) {
+	let email;
+
+	function input0_input_handler() {
+		email = this.value;
+		$$invalidate(0, email);
+	}
+
+	return [email, input0_input_handler];
+}
+
+class Newsletter extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, instance, create_fragment$1, safe_not_equal, {});
+	}
+}
+
+/* src/layout/CarbonAd.svelte generated by Svelte v3.24.0 */
+
+function instance$1($$self) {
+	onMount(() => {
+		setTimeout(
+			() => {
+				if (window.innerWidth > 1080) {
+					const script = document.createElement("script");
+					script.async = true;
+					script.type = "text/javascript";
+					script.src = "//cdn.carbonads.com/carbon.js?serve=CE7ITK3E&placement=lihautancom";
+					script.id = "_carbonads_js";
+					document.body.appendChild(script);
+				}
+			},
+			5000
+		);
+
+		return () => {
+			try {
+				const ad = document.getElementById("carbonads");
+				ad.parentNode.removeChild(ad);
+			} catch(error) {
+				
+			} // ignore them
+		};
+	});
+
+	return [];
+}
+
+class CarbonAd extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, instance$1, null, safe_not_equal, {});
+	}
+}
+
+var image = "https://lihautan.com/compile-svelte-in-your-head/assets/hero-twitter-c5b6ca4d.jpg";
+
+/* src/layout/blog.svelte generated by Svelte v3.24.0 */
+
+function get_each_context(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[6] = list[i];
+	return child_ctx;
+}
+
+function get_each_context_1(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[6] = list[i];
+	return child_ctx;
+}
+
+// (34:2) {#each tags as tag}
+function create_each_block_1(ctx) {
+	let meta;
+	let meta_content_value;
+
+	return {
+		c() {
+			meta = element("meta");
+			this.h();
+		},
+		l(nodes) {
+			meta = claim_element(nodes, "META", { name: true, content: true });
+			this.h();
+		},
+		h() {
+			attr(meta, "name", "keywords");
+			attr(meta, "content", meta_content_value = /*tag*/ ctx[6]);
+		},
+		m(target, anchor) {
+			insert(target, meta, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*tags*/ 4 && meta_content_value !== (meta_content_value = /*tag*/ ctx[6])) {
+				attr(meta, "content", meta_content_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(meta);
+		}
+	};
+}
+
+// (73:2) {#each tags as tag}
+function create_each_block(ctx) {
+	let span;
+	let t_value = /*tag*/ ctx[6] + "";
+	let t;
+
+	return {
+		c() {
+			span = element("span");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			span = claim_element(nodes, "SPAN", { class: true });
+			var span_nodes = children(span);
+			t = claim_text(span_nodes, t_value);
+			span_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(span, "class", "svelte-9tqnza");
+		},
+		m(target, anchor) {
+			insert(target, span, anchor);
+			append(span, t);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*tags*/ 4 && t_value !== (t_value = /*tag*/ ctx[6] + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(span);
+		}
+	};
+}
+
+function create_fragment$2(ctx) {
+	let title_value;
+	let meta0;
+	let meta1;
+	let meta2;
+	let meta3;
+	let meta4;
+	let meta5;
+	let meta6;
+	let meta7;
+	let meta8;
+	let meta9;
+	let meta10;
+	let meta11;
+	let meta12;
+	let html_tag;
+
+	let raw0_value = `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Article",
+		author: /*jsonLdAuthor*/ ctx[3],
+		copyrightHolder: /*jsonLdAuthor*/ ctx[3],
+		copyrightYear: "2020",
+		creator: /*jsonLdAuthor*/ ctx[3],
+		publisher: /*jsonLdAuthor*/ ctx[3],
+		description: /*description*/ ctx[1],
+		headline: /*title*/ ctx[0],
+		name: /*title*/ ctx[0],
+		inLanguage: "en"
+	})}</script>` + "";
+
+	let html_anchor;
+	let html_tag_1;
+
+	let raw1_value = `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"description": "Breadcrumbs list",
+		"name": "Breadcrumbs",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"item": {
+					"@id": "https://lihautan.com",
+					"name": "Homepage"
+				},
+				"name": "Homepage",
+				"position": 1
+			},
+			{
+				"@type": "ListItem",
+				"item": {
+					"@id": "https%3A%2F%2Flihautan.com%2Fcompile-svelte-in-your-head",
+					"name": /*title*/ ctx[0]
+				},
+				"name": /*title*/ ctx[0],
+				"position": 2
+			}
+		]
+	})}</script>` + "";
+
+	let html_anchor_1;
+	let t0;
+	let a;
+	let t1;
+	let t2;
+	let header;
+	let t3;
+	let main;
+	let h1;
+	let t4;
+	let t5;
+	let t6;
+	let article;
+	let t7;
+	let footer;
+	let newsletter;
+	let t8;
+	let carbonad;
+	let current;
+	document.title = title_value = "" + (/*title*/ ctx[0] + " | Tan Li Hau");
+	let each_value_1 = /*tags*/ ctx[2];
+	let each_blocks_1 = [];
+
+	for (let i = 0; i < each_value_1.length; i += 1) {
+		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+	}
+
+	header = new Header({});
+	let each_value = /*tags*/ ctx[2];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+	}
+
+	const default_slot_template = /*$$slots*/ ctx[5].default;
+	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[4], null);
+	newsletter = new Newsletter({});
+	carbonad = new CarbonAd({});
+
+	return {
+		c() {
+			meta0 = element("meta");
+			meta1 = element("meta");
+			meta2 = element("meta");
+			meta3 = element("meta");
+			meta4 = element("meta");
+			meta5 = element("meta");
+			meta6 = element("meta");
+			meta7 = element("meta");
+			meta8 = element("meta");
+			meta9 = element("meta");
+			meta10 = element("meta");
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].c();
+			}
+
+			meta11 = element("meta");
+			meta12 = element("meta");
+			html_anchor = empty();
+			html_anchor_1 = empty();
+			t0 = space();
+			a = element("a");
+			t1 = text("Skip to content");
+			t2 = space();
+			create_component(header.$$.fragment);
+			t3 = space();
+			main = element("main");
+			h1 = element("h1");
+			t4 = text(/*title*/ ctx[0]);
+			t5 = space();
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t6 = space();
+			article = element("article");
+			if (default_slot) default_slot.c();
+			t7 = space();
+			footer = element("footer");
+			create_component(newsletter.$$.fragment);
+			t8 = space();
+			create_component(carbonad.$$.fragment);
+			this.h();
+		},
+		l(nodes) {
+			const head_nodes = query_selector_all("[data-svelte=\"svelte-15e3uyc\"]", document.head);
+			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta3 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta4 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta5 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta6 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta7 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta8 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta9 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta10 = claim_element(head_nodes, "META", { name: true, content: true });
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].l(head_nodes);
+			}
+
+			meta11 = claim_element(head_nodes, "META", { itemprop: true, content: true });
+			meta12 = claim_element(head_nodes, "META", { itemprop: true, content: true });
+			html_anchor = empty();
+			html_anchor_1 = empty();
+			head_nodes.forEach(detach);
+			t0 = claim_space(nodes);
+			a = claim_element(nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t1 = claim_text(a_nodes, "Skip to content");
+			a_nodes.forEach(detach);
+			t2 = claim_space(nodes);
+			claim_component(header.$$.fragment, nodes);
+			t3 = claim_space(nodes);
+			main = claim_element(nodes, "MAIN", { id: true, class: true });
+			var main_nodes = children(main);
+			h1 = claim_element(main_nodes, "H1", {});
+			var h1_nodes = children(h1);
+			t4 = claim_text(h1_nodes, /*title*/ ctx[0]);
+			h1_nodes.forEach(detach);
+			t5 = claim_space(main_nodes);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(main_nodes);
+			}
+
+			t6 = claim_space(main_nodes);
+			article = claim_element(main_nodes, "ARTICLE", {});
+			var article_nodes = children(article);
+			if (default_slot) default_slot.l(article_nodes);
+			article_nodes.forEach(detach);
+			main_nodes.forEach(detach);
+			t7 = claim_space(nodes);
+			footer = claim_element(nodes, "FOOTER", { class: true });
+			var footer_nodes = children(footer);
+			claim_component(newsletter.$$.fragment, footer_nodes);
+			t8 = claim_space(footer_nodes);
+			claim_component(carbonad.$$.fragment, footer_nodes);
+			footer_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(meta0, "name", "description");
+			attr(meta0, "content", /*description*/ ctx[1]);
+			attr(meta1, "name", "image");
+			attr(meta1, "content", image);
+			attr(meta2, "name", "og:image");
+			attr(meta2, "content", image);
+			attr(meta3, "name", "og:title");
+			attr(meta3, "content", /*title*/ ctx[0]);
+			attr(meta4, "name", "og:description");
+			attr(meta4, "content", /*description*/ ctx[1]);
+			attr(meta5, "name", "og:type");
+			attr(meta5, "content", "website");
+			attr(meta6, "name", "twitter:card");
+			attr(meta6, "content", "summary_large_image");
+			attr(meta7, "name", "twitter:creator");
+			attr(meta7, "content", "@lihautan");
+			attr(meta8, "name", "twitter:title");
+			attr(meta8, "content", /*title*/ ctx[0]);
+			attr(meta9, "name", "twitter:description");
+			attr(meta9, "content", /*description*/ ctx[1]);
+			attr(meta10, "name", "twitter:image");
+			attr(meta10, "content", image);
+			attr(meta11, "itemprop", "url");
+			attr(meta11, "content", "https%3A%2F%2Flihautan.com%2Fcompile-svelte-in-your-head");
+			attr(meta12, "itemprop", "image");
+			attr(meta12, "content", image);
+			html_tag = new HtmlTag(html_anchor);
+			html_tag_1 = new HtmlTag(html_anchor_1);
+			attr(a, "href", "#content");
+			attr(a, "class", "skip svelte-9tqnza");
+			attr(main, "id", "content");
+			attr(main, "class", "blog svelte-9tqnza");
+			attr(footer, "class", "svelte-9tqnza");
+		},
+		m(target, anchor) {
+			append(document.head, meta0);
+			append(document.head, meta1);
+			append(document.head, meta2);
+			append(document.head, meta3);
+			append(document.head, meta4);
+			append(document.head, meta5);
+			append(document.head, meta6);
+			append(document.head, meta7);
+			append(document.head, meta8);
+			append(document.head, meta9);
+			append(document.head, meta10);
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].m(document.head, null);
+			}
+
+			append(document.head, meta11);
+			append(document.head, meta12);
+			html_tag.m(raw0_value, document.head);
+			append(document.head, html_anchor);
+			html_tag_1.m(raw1_value, document.head);
+			append(document.head, html_anchor_1);
+			insert(target, t0, anchor);
+			insert(target, a, anchor);
+			append(a, t1);
+			insert(target, t2, anchor);
+			mount_component(header, target, anchor);
+			insert(target, t3, anchor);
+			insert(target, main, anchor);
+			append(main, h1);
+			append(h1, t4);
+			append(main, t5);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].m(main, null);
+			}
+
+			append(main, t6);
+			append(main, article);
+
+			if (default_slot) {
+				default_slot.m(article, null);
+			}
+
+			insert(target, t7, anchor);
+			insert(target, footer, anchor);
+			mount_component(newsletter, footer, null);
+			append(footer, t8);
+			mount_component(carbonad, footer, null);
+			current = true;
+		},
+		p(ctx, [dirty]) {
+			if ((!current || dirty & /*title*/ 1) && title_value !== (title_value = "" + (/*title*/ ctx[0] + " | Tan Li Hau"))) {
+				document.title = title_value;
+			}
+
+			if (!current || dirty & /*description*/ 2) {
+				attr(meta0, "content", /*description*/ ctx[1]);
+			}
+
+			if (!current || dirty & /*title*/ 1) {
+				attr(meta3, "content", /*title*/ ctx[0]);
+			}
+
+			if (!current || dirty & /*description*/ 2) {
+				attr(meta4, "content", /*description*/ ctx[1]);
+			}
+
+			if (!current || dirty & /*title*/ 1) {
+				attr(meta8, "content", /*title*/ ctx[0]);
+			}
+
+			if (!current || dirty & /*description*/ 2) {
+				attr(meta9, "content", /*description*/ ctx[1]);
+			}
+
+			if (dirty & /*tags*/ 4) {
+				each_value_1 = /*tags*/ ctx[2];
+				let i;
+
+				for (i = 0; i < each_value_1.length; i += 1) {
+					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+					if (each_blocks_1[i]) {
+						each_blocks_1[i].p(child_ctx, dirty);
+					} else {
+						each_blocks_1[i] = create_each_block_1(child_ctx);
+						each_blocks_1[i].c();
+						each_blocks_1[i].m(meta11.parentNode, meta11);
+					}
+				}
+
+				for (; i < each_blocks_1.length; i += 1) {
+					each_blocks_1[i].d(1);
+				}
+
+				each_blocks_1.length = each_value_1.length;
+			}
+
+			if ((!current || dirty & /*description, title*/ 3) && raw0_value !== (raw0_value = `<script type="application/ld+json">${JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Article",
+				author: /*jsonLdAuthor*/ ctx[3],
+				copyrightHolder: /*jsonLdAuthor*/ ctx[3],
+				copyrightYear: "2020",
+				creator: /*jsonLdAuthor*/ ctx[3],
+				publisher: /*jsonLdAuthor*/ ctx[3],
+				description: /*description*/ ctx[1],
+				headline: /*title*/ ctx[0],
+				name: /*title*/ ctx[0],
+				inLanguage: "en"
+			})}</script>` + "")) html_tag.p(raw0_value);
+
+			if ((!current || dirty & /*title*/ 1) && raw1_value !== (raw1_value = `<script type="application/ld+json">${JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				"description": "Breadcrumbs list",
+				"name": "Breadcrumbs",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"item": {
+							"@id": "https://lihautan.com",
+							"name": "Homepage"
+						},
+						"name": "Homepage",
+						"position": 1
+					},
+					{
+						"@type": "ListItem",
+						"item": {
+							"@id": "https%3A%2F%2Flihautan.com%2Fcompile-svelte-in-your-head",
+							"name": /*title*/ ctx[0]
+						},
+						"name": /*title*/ ctx[0],
+						"position": 2
+					}
+				]
+			})}</script>` + "")) html_tag_1.p(raw1_value);
+
+			if (!current || dirty & /*title*/ 1) set_data(t4, /*title*/ ctx[0]);
+
+			if (dirty & /*tags*/ 4) {
+				each_value = /*tags*/ ctx[2];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(main, t6);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
+			}
+
+			if (default_slot) {
+				if (default_slot.p && dirty & /*$$scope*/ 16) {
+					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[4], dirty, null, null);
+				}
+			}
+		},
+		i(local) {
+			if (current) return;
+			transition_in(header.$$.fragment, local);
+			transition_in(default_slot, local);
+			transition_in(newsletter.$$.fragment, local);
+			transition_in(carbonad.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(header.$$.fragment, local);
+			transition_out(default_slot, local);
+			transition_out(newsletter.$$.fragment, local);
+			transition_out(carbonad.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			detach(meta0);
+			detach(meta1);
+			detach(meta2);
+			detach(meta3);
+			detach(meta4);
+			detach(meta5);
+			detach(meta6);
+			detach(meta7);
+			detach(meta8);
+			detach(meta9);
+			detach(meta10);
+			destroy_each(each_blocks_1, detaching);
+			detach(meta11);
+			detach(meta12);
+			detach(html_anchor);
+			if (detaching) html_tag.d();
+			detach(html_anchor_1);
+			if (detaching) html_tag_1.d();
+			if (detaching) detach(t0);
+			if (detaching) detach(a);
+			if (detaching) detach(t2);
+			destroy_component(header, detaching);
+			if (detaching) detach(t3);
+			if (detaching) detach(main);
+			destroy_each(each_blocks, detaching);
+			if (default_slot) default_slot.d(detaching);
+			if (detaching) detach(t7);
+			if (detaching) detach(footer);
+			destroy_component(newsletter);
+			destroy_component(carbonad);
+		}
+	};
+}
+
+function instance$2($$self, $$props, $$invalidate) {
+	let { title = "" } = $$props;
+	let { description = "" } = $$props;
+	let { tags = [] } = $$props;
+	const jsonLdAuthor = { ["@type"]: "Person", name: "Tan Li Hau" };
+	let { $$slots = {}, $$scope } = $$props;
+
+	$$self.$set = $$props => {
+		if ("title" in $$props) $$invalidate(0, title = $$props.title);
+		if ("description" in $$props) $$invalidate(1, description = $$props.description);
+		if ("tags" in $$props) $$invalidate(2, tags = $$props.tags);
+		if ("$$scope" in $$props) $$invalidate(4, $$scope = $$props.$$scope);
+	};
+
+	return [title, description, tags, jsonLdAuthor, $$scope, $$slots];
+}
+
+class Blog extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, instance$2, create_fragment$2, safe_not_equal, { title: 0, description: 1, tags: 2 });
+	}
+}
+
+/* content/blog/compile-svelte-in-your-head/@@page-markup.svelte generated by Svelte v3.24.0 */
+
+function create_default_slot(ctx) {
+	let section0;
+	let ul0;
+	let li0;
+	let a0;
+	let t0;
+	let li1;
+	let a1;
+	let t1;
+	let t2;
+	let section1;
+	let h20;
+	let a2;
+	let t3;
+	let t4;
+	let p0;
+	let t5;
+	let a3;
+	let t6;
+	let t7;
+	let a4;
+	let t8;
+	let t9;
+	let a5;
+	let t10;
+	let t11;
+	let t12;
+	let p1;
+	let t13;
+	let a6;
+	let t14;
+	let t15;
+	let a7;
+	let t16;
+	let t17;
+	let a8;
+	let t18;
+	let t19;
+	let t20;
+	let p2;
+	let t21;
+	let t22;
+	let section2;
+	let h21;
+	let a9;
+	let t23;
+	let t24;
+	let p3;
+	let t25;
+	let t26;
+	let ul1;
+	let li2;
+	let a10;
+	let t27;
+	let t28;
+	let li3;
+	let a11;
+	let t29;
+	let code0;
+	let t30;
+	let t31;
+	let t32;
+	let li4;
+	let a12;
+	let t33;
+	let code1;
+	let t34;
+	let t35;
+	let code2;
+	let t36;
+	let t37;
+	let code3;
+	let t38;
+	let t39;
+	let li5;
+	let a13;
+	let t40;
+	let code4;
+	let t41;
+	let t42;
+	let li6;
+	let t43;
+	let code5;
+	let t44;
+	let t45;
+	let li7;
+	let t46;
+	let code6;
+	let t47;
+	let t48;
+	let li8;
+	let t49;
+	let code7;
+	let t50;
+	let t51;
+	let li9;
+	let t52;
+	let code8;
+	let t53;
+	let t54;
+	let li10;
+	let t55;
+	let code9;
+	let t56;
+	let t57;
+	let li11;
+	let t58;
+	let t59;
+	let li12;
+	let t60;
+	let t61;
+	let li13;
+	let t62;
+	let t63;
+	let li14;
+	let t64;
+	let t65;
+	let li15;
+	let t66;
+	let t67;
+	let li16;
+	let t68;
+	let t69;
+	let li17;
+	let t70;
+	let t71;
+	let li18;
+	let t72;
+	let t73;
+	let li19;
+	let t74;
+	let t75;
+	let li20;
+	let t76;
+	let t77;
+	let li21;
+	let t78;
+	let t79;
+	let li22;
+	let t80;
+
+	return {
+		c() {
+			section0 = element("section");
+			ul0 = element("ul");
+			li0 = element("li");
+			a0 = element("a");
+			t0 = text("Background");
+			li1 = element("li");
+			a1 = element("a");
+			t1 = text("Compile Svelte in your Head");
+			t2 = space();
+			section1 = element("section");
+			h20 = element("h2");
+			a2 = element("a");
+			t3 = text("Background");
+			t4 = space();
+			p0 = element("p");
+			t5 = text("A while ago, ");
+			a3 = element("a");
+			t6 = text("@swyx");
+			t7 = text(" came back to Singapore and visited us in ");
+			a4 = element("a");
+			t8 = text("Shopee Singapore");
+			t9 = text(" (");
+			a5 = element("a");
+			t10 = text("We're hiring!");
+			t11 = text(").");
+			t12 = space();
+			p1 = element("p");
+			t13 = text("He gave an amazing sharing on ");
+			a6 = element("a");
+			t14 = text("Compile Svelte in Your Head");
+			t15 = text(" (");
+			a7 = element("a");
+			t16 = text("video");
+			t17 = text(") in the ");
+			a8 = element("a");
+			t18 = text("ReactKnowledgeable Originals");
+			t19 = text(".");
+			t20 = space();
+			p2 = element("p");
+			t21 = text("I love his presentation and the title is so catchy, so I begged him to use the catchy title as this series of articles about the Svelte compiler. It will be about how Svelte sees your code and compiles it down to plain JavaScript.");
+			t22 = space();
+			section2 = element("section");
+			h21 = element("h2");
+			a9 = element("a");
+			t23 = text("Compile Svelte in your Head");
+			t24 = space();
+			p3 = element("p");
+			t25 = text("The incomplete outline:");
+			t26 = space();
+			ul1 = element("ul");
+			li2 = element("li");
+			a10 = element("a");
+			t27 = text("Part 1 - The Foundation");
+			t28 = space();
+			li3 = element("li");
+			a11 = element("a");
+			t29 = text("Part 2 - ");
+			code0 = element("code");
+			t30 = text("$$invalidate");
+			t31 = text(" and Reactivity");
+			t32 = space();
+			li4 = element("li");
+			a12 = element("a");
+			t33 = text("Part 3 - Directives - ");
+			code1 = element("code");
+			t34 = text("on:");
+			t35 = text(", ");
+			code2 = element("code");
+			t36 = text("bind:");
+			t37 = text(", ");
+			code3 = element("code");
+			t38 = text("use:");
+			t39 = space();
+			li5 = element("li");
+			a13 = element("a");
+			t40 = text("Part 4 - Logic blocks - ");
+			code4 = element("code");
+			t41 = text("{#if}");
+			t42 = space();
+			li6 = element("li");
+			t43 = text("Part 5 - Logic blocks - ");
+			code5 = element("code");
+			t44 = text("{#each}");
+			t45 = space();
+			li7 = element("li");
+			t46 = text("Part 6 - Logic blocks - ");
+			code6 = element("code");
+			t47 = text("{#await}");
+			t48 = space();
+			li8 = element("li");
+			t49 = text("Part 7 - Directives - ");
+			code7 = element("code");
+			t50 = text("bind:group");
+			t51 = space();
+			li9 = element("li");
+			t52 = text("Part 8 - Directives - ");
+			code8 = element("code");
+			t53 = text("<select bind:value />");
+			t54 = space();
+			li10 = element("li");
+			t55 = text("Part 9 - Spread props - ");
+			code9 = element("code");
+			t56 = text("<element {...props} />");
+			t57 = space();
+			li11 = element("li");
+			t58 = text("Part 10 - Svelte Components");
+			t59 = space();
+			li12 = element("li");
+			t60 = text("Part 11 - Svelte Context");
+			t61 = space();
+			li13 = element("li");
+			t62 = text("Part 12 - Slots");
+			t63 = space();
+			li14 = element("li");
+			t64 = text("Part 13 - Svelte Stores");
+			t65 = space();
+			li15 = element("li");
+			t66 = text("Part 14 - Svelte Motion");
+			t67 = space();
+			li16 = element("li");
+			t68 = text("Part 15 - Special elements");
+			t69 = space();
+			li17 = element("li");
+			t70 = text("Part 16 - Transitions");
+			t71 = space();
+			li18 = element("li");
+			t72 = text("Part 17 - Animations");
+			t73 = space();
+			li19 = element("li");
+			t74 = text("Part 18 - Lifecycles");
+			t75 = space();
+			li20 = element("li");
+			t76 = text("Part 19 - Module context");
+			t77 = space();
+			li21 = element("li");
+			t78 = text("Part 20 - Server-side Rendering");
+			t79 = space();
+			li22 = element("li");
+			t80 = text("Part 21 - Hydration");
+			this.h();
+		},
+		l(nodes) {
+			section0 = claim_element(nodes, "SECTION", {});
+			var section0_nodes = children(section0);
+
+			ul0 = claim_element(section0_nodes, "UL", {
+				class: true,
+				id: true,
+				role: true,
+				"aria-label": true
+			});
+
+			var ul0_nodes = children(ul0);
+			li0 = claim_element(ul0_nodes, "LI", {});
+			var li0_nodes = children(li0);
+			a0 = claim_element(li0_nodes, "A", { href: true });
+			var a0_nodes = children(a0);
+			t0 = claim_text(a0_nodes, "Background");
+			a0_nodes.forEach(detach);
+			li0_nodes.forEach(detach);
+			li1 = claim_element(ul0_nodes, "LI", {});
+			var li1_nodes = children(li1);
+			a1 = claim_element(li1_nodes, "A", { href: true });
+			var a1_nodes = children(a1);
+			t1 = claim_text(a1_nodes, "Compile Svelte in your Head");
+			a1_nodes.forEach(detach);
+			li1_nodes.forEach(detach);
+			ul0_nodes.forEach(detach);
+			section0_nodes.forEach(detach);
+			t2 = claim_space(nodes);
+			section1 = claim_element(nodes, "SECTION", {});
+			var section1_nodes = children(section1);
+			h20 = claim_element(section1_nodes, "H2", {});
+			var h20_nodes = children(h20);
+			a2 = claim_element(h20_nodes, "A", { href: true, id: true });
+			var a2_nodes = children(a2);
+			t3 = claim_text(a2_nodes, "Background");
+			a2_nodes.forEach(detach);
+			h20_nodes.forEach(detach);
+			t4 = claim_space(section1_nodes);
+			p0 = claim_element(section1_nodes, "P", {});
+			var p0_nodes = children(p0);
+			t5 = claim_text(p0_nodes, "A while ago, ");
+			a3 = claim_element(p0_nodes, "A", { href: true, rel: true });
+			var a3_nodes = children(a3);
+			t6 = claim_text(a3_nodes, "@swyx");
+			a3_nodes.forEach(detach);
+			t7 = claim_text(p0_nodes, " came back to Singapore and visited us in ");
+			a4 = claim_element(p0_nodes, "A", { href: true, rel: true });
+			var a4_nodes = children(a4);
+			t8 = claim_text(a4_nodes, "Shopee Singapore");
+			a4_nodes.forEach(detach);
+			t9 = claim_text(p0_nodes, " (");
+			a5 = claim_element(p0_nodes, "A", { href: true, rel: true });
+			var a5_nodes = children(a5);
+			t10 = claim_text(a5_nodes, "We're hiring!");
+			a5_nodes.forEach(detach);
+			t11 = claim_text(p0_nodes, ").");
+			p0_nodes.forEach(detach);
+			t12 = claim_space(section1_nodes);
+			p1 = claim_element(section1_nodes, "P", {});
+			var p1_nodes = children(p1);
+			t13 = claim_text(p1_nodes, "He gave an amazing sharing on ");
+			a6 = claim_element(p1_nodes, "A", { href: true, rel: true });
+			var a6_nodes = children(a6);
+			t14 = claim_text(a6_nodes, "Compile Svelte in Your Head");
+			a6_nodes.forEach(detach);
+			t15 = claim_text(p1_nodes, " (");
+			a7 = claim_element(p1_nodes, "A", { href: true, rel: true });
+			var a7_nodes = children(a7);
+			t16 = claim_text(a7_nodes, "video");
+			a7_nodes.forEach(detach);
+			t17 = claim_text(p1_nodes, ") in the ");
+			a8 = claim_element(p1_nodes, "A", { href: true, rel: true });
+			var a8_nodes = children(a8);
+			t18 = claim_text(a8_nodes, "ReactKnowledgeable Originals");
+			a8_nodes.forEach(detach);
+			t19 = claim_text(p1_nodes, ".");
+			p1_nodes.forEach(detach);
+			t20 = claim_space(section1_nodes);
+			p2 = claim_element(section1_nodes, "P", {});
+			var p2_nodes = children(p2);
+			t21 = claim_text(p2_nodes, "I love his presentation and the title is so catchy, so I begged him to use the catchy title as this series of articles about the Svelte compiler. It will be about how Svelte sees your code and compiles it down to plain JavaScript.");
+			p2_nodes.forEach(detach);
+			section1_nodes.forEach(detach);
+			t22 = claim_space(nodes);
+			section2 = claim_element(nodes, "SECTION", {});
+			var section2_nodes = children(section2);
+			h21 = claim_element(section2_nodes, "H2", {});
+			var h21_nodes = children(h21);
+			a9 = claim_element(h21_nodes, "A", { href: true, id: true });
+			var a9_nodes = children(a9);
+			t23 = claim_text(a9_nodes, "Compile Svelte in your Head");
+			a9_nodes.forEach(detach);
+			h21_nodes.forEach(detach);
+			t24 = claim_space(section2_nodes);
+			p3 = claim_element(section2_nodes, "P", {});
+			var p3_nodes = children(p3);
+			t25 = claim_text(p3_nodes, "The incomplete outline:");
+			p3_nodes.forEach(detach);
+			t26 = claim_space(section2_nodes);
+			ul1 = claim_element(section2_nodes, "UL", {});
+			var ul1_nodes = children(ul1);
+			li2 = claim_element(ul1_nodes, "LI", {});
+			var li2_nodes = children(li2);
+			a10 = claim_element(li2_nodes, "A", { href: true });
+			var a10_nodes = children(a10);
+			t27 = claim_text(a10_nodes, "Part 1 - The Foundation");
+			a10_nodes.forEach(detach);
+			li2_nodes.forEach(detach);
+			t28 = claim_space(ul1_nodes);
+			li3 = claim_element(ul1_nodes, "LI", {});
+			var li3_nodes = children(li3);
+			a11 = claim_element(li3_nodes, "A", { href: true });
+			var a11_nodes = children(a11);
+			t29 = claim_text(a11_nodes, "Part 2 - ");
+			code0 = claim_element(a11_nodes, "CODE", {});
+			var code0_nodes = children(code0);
+			t30 = claim_text(code0_nodes, "$$invalidate");
+			code0_nodes.forEach(detach);
+			t31 = claim_text(a11_nodes, " and Reactivity");
+			a11_nodes.forEach(detach);
+			li3_nodes.forEach(detach);
+			t32 = claim_space(ul1_nodes);
+			li4 = claim_element(ul1_nodes, "LI", {});
+			var li4_nodes = children(li4);
+			a12 = claim_element(li4_nodes, "A", { href: true });
+			var a12_nodes = children(a12);
+			t33 = claim_text(a12_nodes, "Part 3 - Directives - ");
+			code1 = claim_element(a12_nodes, "CODE", {});
+			var code1_nodes = children(code1);
+			t34 = claim_text(code1_nodes, "on:");
+			code1_nodes.forEach(detach);
+			t35 = claim_text(a12_nodes, ", ");
+			code2 = claim_element(a12_nodes, "CODE", {});
+			var code2_nodes = children(code2);
+			t36 = claim_text(code2_nodes, "bind:");
+			code2_nodes.forEach(detach);
+			t37 = claim_text(a12_nodes, ", ");
+			code3 = claim_element(a12_nodes, "CODE", {});
+			var code3_nodes = children(code3);
+			t38 = claim_text(code3_nodes, "use:");
+			code3_nodes.forEach(detach);
+			a12_nodes.forEach(detach);
+			li4_nodes.forEach(detach);
+			t39 = claim_space(ul1_nodes);
+			li5 = claim_element(ul1_nodes, "LI", {});
+			var li5_nodes = children(li5);
+			a13 = claim_element(li5_nodes, "A", { href: true });
+			var a13_nodes = children(a13);
+			t40 = claim_text(a13_nodes, "Part 4 - Logic blocks - ");
+			code4 = claim_element(a13_nodes, "CODE", {});
+			var code4_nodes = children(code4);
+			t41 = claim_text(code4_nodes, "{#if}");
+			code4_nodes.forEach(detach);
+			a13_nodes.forEach(detach);
+			li5_nodes.forEach(detach);
+			t42 = claim_space(ul1_nodes);
+			li6 = claim_element(ul1_nodes, "LI", {});
+			var li6_nodes = children(li6);
+			t43 = claim_text(li6_nodes, "Part 5 - Logic blocks - ");
+			code5 = claim_element(li6_nodes, "CODE", {});
+			var code5_nodes = children(code5);
+			t44 = claim_text(code5_nodes, "{#each}");
+			code5_nodes.forEach(detach);
+			li6_nodes.forEach(detach);
+			t45 = claim_space(ul1_nodes);
+			li7 = claim_element(ul1_nodes, "LI", {});
+			var li7_nodes = children(li7);
+			t46 = claim_text(li7_nodes, "Part 6 - Logic blocks - ");
+			code6 = claim_element(li7_nodes, "CODE", {});
+			var code6_nodes = children(code6);
+			t47 = claim_text(code6_nodes, "{#await}");
+			code6_nodes.forEach(detach);
+			li7_nodes.forEach(detach);
+			t48 = claim_space(ul1_nodes);
+			li8 = claim_element(ul1_nodes, "LI", {});
+			var li8_nodes = children(li8);
+			t49 = claim_text(li8_nodes, "Part 7 - Directives - ");
+			code7 = claim_element(li8_nodes, "CODE", {});
+			var code7_nodes = children(code7);
+			t50 = claim_text(code7_nodes, "bind:group");
+			code7_nodes.forEach(detach);
+			li8_nodes.forEach(detach);
+			t51 = claim_space(ul1_nodes);
+			li9 = claim_element(ul1_nodes, "LI", {});
+			var li9_nodes = children(li9);
+			t52 = claim_text(li9_nodes, "Part 8 - Directives - ");
+			code8 = claim_element(li9_nodes, "CODE", {});
+			var code8_nodes = children(code8);
+			t53 = claim_text(code8_nodes, "<select bind:value />");
+			code8_nodes.forEach(detach);
+			li9_nodes.forEach(detach);
+			t54 = claim_space(ul1_nodes);
+			li10 = claim_element(ul1_nodes, "LI", {});
+			var li10_nodes = children(li10);
+			t55 = claim_text(li10_nodes, "Part 9 - Spread props - ");
+			code9 = claim_element(li10_nodes, "CODE", {});
+			var code9_nodes = children(code9);
+			t56 = claim_text(code9_nodes, "<element {...props} />");
+			code9_nodes.forEach(detach);
+			li10_nodes.forEach(detach);
+			t57 = claim_space(ul1_nodes);
+			li11 = claim_element(ul1_nodes, "LI", {});
+			var li11_nodes = children(li11);
+			t58 = claim_text(li11_nodes, "Part 10 - Svelte Components");
+			li11_nodes.forEach(detach);
+			t59 = claim_space(ul1_nodes);
+			li12 = claim_element(ul1_nodes, "LI", {});
+			var li12_nodes = children(li12);
+			t60 = claim_text(li12_nodes, "Part 11 - Svelte Context");
+			li12_nodes.forEach(detach);
+			t61 = claim_space(ul1_nodes);
+			li13 = claim_element(ul1_nodes, "LI", {});
+			var li13_nodes = children(li13);
+			t62 = claim_text(li13_nodes, "Part 12 - Slots");
+			li13_nodes.forEach(detach);
+			t63 = claim_space(ul1_nodes);
+			li14 = claim_element(ul1_nodes, "LI", {});
+			var li14_nodes = children(li14);
+			t64 = claim_text(li14_nodes, "Part 13 - Svelte Stores");
+			li14_nodes.forEach(detach);
+			t65 = claim_space(ul1_nodes);
+			li15 = claim_element(ul1_nodes, "LI", {});
+			var li15_nodes = children(li15);
+			t66 = claim_text(li15_nodes, "Part 14 - Svelte Motion");
+			li15_nodes.forEach(detach);
+			t67 = claim_space(ul1_nodes);
+			li16 = claim_element(ul1_nodes, "LI", {});
+			var li16_nodes = children(li16);
+			t68 = claim_text(li16_nodes, "Part 15 - Special elements");
+			li16_nodes.forEach(detach);
+			t69 = claim_space(ul1_nodes);
+			li17 = claim_element(ul1_nodes, "LI", {});
+			var li17_nodes = children(li17);
+			t70 = claim_text(li17_nodes, "Part 16 - Transitions");
+			li17_nodes.forEach(detach);
+			t71 = claim_space(ul1_nodes);
+			li18 = claim_element(ul1_nodes, "LI", {});
+			var li18_nodes = children(li18);
+			t72 = claim_text(li18_nodes, "Part 17 - Animations");
+			li18_nodes.forEach(detach);
+			t73 = claim_space(ul1_nodes);
+			li19 = claim_element(ul1_nodes, "LI", {});
+			var li19_nodes = children(li19);
+			t74 = claim_text(li19_nodes, "Part 18 - Lifecycles");
+			li19_nodes.forEach(detach);
+			t75 = claim_space(ul1_nodes);
+			li20 = claim_element(ul1_nodes, "LI", {});
+			var li20_nodes = children(li20);
+			t76 = claim_text(li20_nodes, "Part 19 - Module context");
+			li20_nodes.forEach(detach);
+			t77 = claim_space(ul1_nodes);
+			li21 = claim_element(ul1_nodes, "LI", {});
+			var li21_nodes = children(li21);
+			t78 = claim_text(li21_nodes, "Part 20 - Server-side Rendering");
+			li21_nodes.forEach(detach);
+			t79 = claim_space(ul1_nodes);
+			li22 = claim_element(ul1_nodes, "LI", {});
+			var li22_nodes = children(li22);
+			t80 = claim_text(li22_nodes, "Part 21 - Hydration");
+			li22_nodes.forEach(detach);
+			ul1_nodes.forEach(detach);
+			section2_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(a0, "href", "#background");
+			attr(a1, "href", "#compile-svelte-in-your-head");
+			attr(ul0, "class", "sitemap");
+			attr(ul0, "id", "sitemap");
+			attr(ul0, "role", "navigation");
+			attr(ul0, "aria-label", "Table of Contents");
+			attr(a2, "href", "#background");
+			attr(a2, "id", "background");
+			attr(a3, "href", "https://twitter.com/swyx");
+			attr(a3, "rel", "nofollow");
+			attr(a4, "href", "https://careers.shopee.sg/about/");
+			attr(a4, "rel", "nofollow");
+			attr(a5, "href", "https://grnh.se/32e5b3532");
+			attr(a5, "rel", "nofollow");
+			attr(a6, "href", "https://www.swyx.io/speaking/svelte-compile-lightning/");
+			attr(a6, "rel", "nofollow");
+			attr(a7, "href", "https://www.youtube.com/watch?v=FNmvcswdjV8");
+			attr(a7, "rel", "nofollow");
+			attr(a8, "href", "https://reactknowledgeable.org/");
+			attr(a8, "rel", "nofollow");
+			attr(a9, "href", "#compile-svelte-in-your-head");
+			attr(a9, "id", "compile-svelte-in-your-head");
+			attr(a10, "href", "/compile-svelte-in-your-head-part-1");
+			attr(a11, "href", "/compile-svelte-in-your-head-part-2");
+			attr(a12, "href", "/compile-svelte-in-your-head-part-3");
+			attr(a13, "href", "/compile-svelte-in-your-head-part-4");
+		},
+		m(target, anchor) {
+			insert(target, section0, anchor);
+			append(section0, ul0);
+			append(ul0, li0);
+			append(li0, a0);
+			append(a0, t0);
+			append(ul0, li1);
+			append(li1, a1);
+			append(a1, t1);
+			insert(target, t2, anchor);
+			insert(target, section1, anchor);
+			append(section1, h20);
+			append(h20, a2);
+			append(a2, t3);
+			append(section1, t4);
+			append(section1, p0);
+			append(p0, t5);
+			append(p0, a3);
+			append(a3, t6);
+			append(p0, t7);
+			append(p0, a4);
+			append(a4, t8);
+			append(p0, t9);
+			append(p0, a5);
+			append(a5, t10);
+			append(p0, t11);
+			append(section1, t12);
+			append(section1, p1);
+			append(p1, t13);
+			append(p1, a6);
+			append(a6, t14);
+			append(p1, t15);
+			append(p1, a7);
+			append(a7, t16);
+			append(p1, t17);
+			append(p1, a8);
+			append(a8, t18);
+			append(p1, t19);
+			append(section1, t20);
+			append(section1, p2);
+			append(p2, t21);
+			insert(target, t22, anchor);
+			insert(target, section2, anchor);
+			append(section2, h21);
+			append(h21, a9);
+			append(a9, t23);
+			append(section2, t24);
+			append(section2, p3);
+			append(p3, t25);
+			append(section2, t26);
+			append(section2, ul1);
+			append(ul1, li2);
+			append(li2, a10);
+			append(a10, t27);
+			append(ul1, t28);
+			append(ul1, li3);
+			append(li3, a11);
+			append(a11, t29);
+			append(a11, code0);
+			append(code0, t30);
+			append(a11, t31);
+			append(ul1, t32);
+			append(ul1, li4);
+			append(li4, a12);
+			append(a12, t33);
+			append(a12, code1);
+			append(code1, t34);
+			append(a12, t35);
+			append(a12, code2);
+			append(code2, t36);
+			append(a12, t37);
+			append(a12, code3);
+			append(code3, t38);
+			append(ul1, t39);
+			append(ul1, li5);
+			append(li5, a13);
+			append(a13, t40);
+			append(a13, code4);
+			append(code4, t41);
+			append(ul1, t42);
+			append(ul1, li6);
+			append(li6, t43);
+			append(li6, code5);
+			append(code5, t44);
+			append(ul1, t45);
+			append(ul1, li7);
+			append(li7, t46);
+			append(li7, code6);
+			append(code6, t47);
+			append(ul1, t48);
+			append(ul1, li8);
+			append(li8, t49);
+			append(li8, code7);
+			append(code7, t50);
+			append(ul1, t51);
+			append(ul1, li9);
+			append(li9, t52);
+			append(li9, code8);
+			append(code8, t53);
+			append(ul1, t54);
+			append(ul1, li10);
+			append(li10, t55);
+			append(li10, code9);
+			append(code9, t56);
+			append(ul1, t57);
+			append(ul1, li11);
+			append(li11, t58);
+			append(ul1, t59);
+			append(ul1, li12);
+			append(li12, t60);
+			append(ul1, t61);
+			append(ul1, li13);
+			append(li13, t62);
+			append(ul1, t63);
+			append(ul1, li14);
+			append(li14, t64);
+			append(ul1, t65);
+			append(ul1, li15);
+			append(li15, t66);
+			append(ul1, t67);
+			append(ul1, li16);
+			append(li16, t68);
+			append(ul1, t69);
+			append(ul1, li17);
+			append(li17, t70);
+			append(ul1, t71);
+			append(ul1, li18);
+			append(li18, t72);
+			append(ul1, t73);
+			append(ul1, li19);
+			append(li19, t74);
+			append(ul1, t75);
+			append(ul1, li20);
+			append(li20, t76);
+			append(ul1, t77);
+			append(ul1, li21);
+			append(li21, t78);
+			append(ul1, t79);
+			append(ul1, li22);
+			append(li22, t80);
+		},
+		d(detaching) {
+			if (detaching) detach(section0);
+			if (detaching) detach(t2);
+			if (detaching) detach(section1);
+			if (detaching) detach(t22);
+			if (detaching) detach(section2);
+		}
+	};
+}
+
+function create_fragment$3(ctx) {
+	let layout_mdsvex_default;
+	let current;
+	const layout_mdsvex_default_spread_levels = [metadata];
+
+	let layout_mdsvex_default_props = {
+		$$slots: { default: [create_default_slot] },
+		$$scope: { ctx }
+	};
+
+	for (let i = 0; i < layout_mdsvex_default_spread_levels.length; i += 1) {
+		layout_mdsvex_default_props = assign(layout_mdsvex_default_props, layout_mdsvex_default_spread_levels[i]);
+	}
+
+	layout_mdsvex_default = new Blog({ props: layout_mdsvex_default_props });
+
+	return {
+		c() {
+			create_component(layout_mdsvex_default.$$.fragment);
+		},
+		l(nodes) {
+			claim_component(layout_mdsvex_default.$$.fragment, nodes);
+		},
+		m(target, anchor) {
+			mount_component(layout_mdsvex_default, target, anchor);
+			current = true;
+		},
+		p(ctx, [dirty]) {
+			const layout_mdsvex_default_changes = (dirty & /*metadata*/ 0)
+			? get_spread_update(layout_mdsvex_default_spread_levels, [get_spread_object(metadata)])
+			: {};
+
+			if (dirty & /*$$scope*/ 1) {
+				layout_mdsvex_default_changes.$$scope = { dirty, ctx };
+			}
+
+			layout_mdsvex_default.$set(layout_mdsvex_default_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(layout_mdsvex_default.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(layout_mdsvex_default.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(layout_mdsvex_default, detaching);
+		}
+	};
+}
+
+const metadata = {
+	"title": "Compile Svelte in your head",
+	"date": "2020-10-05T08:00:00Z",
+	"tags": ["Svelte", "JavaScript"],
+	"series": "Compile Svelte in your head",
+	"slug": "compile-svelte-in-your-head",
+	"type": "blog"
+};
+
+class Page_markup extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, null, create_fragment$3, safe_not_equal, {});
+	}
+}
+
+setTimeout(() => {
+  const app = new Page_markup({
+    target: document.querySelector('#app'),
+    hydrate: true,
+  });
+
+  if (document.querySelector('.twitter-tweet')) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://platform.twitter.com/widgets.js';
+    script.charset = 'utf-8';
+    document.body.appendChild(script);
+  }
+
+  // TODO
+  if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.src = img.dataset.src;
+    });
+  } else {
+    const script = document.createElement('script');
+    script.src =
+      'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+    document.body.appendChild(script);
+  }
+}, 3000);
