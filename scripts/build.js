@@ -279,10 +279,10 @@ async function buildRoute({ template, templatePath, componentPath, outputPath })
         for (const { fileName } of output) {
           if (fileName.endsWith('.js')) {
             scripts.push(`<script src="/${encodeUrl(fileName)}" async></script>`);
-            preloads.push(`<link as="script" rel="preload" href="./${encodeUrl(fileName)}">`);
+            preloads.push(`<link as="script" rel="preload" href="/${encodeUrl(fileName)}">`);
           } else if (fileName.endsWith('.css')) {
             styles.push(`<link href="/${encodeUrl(fileName)}" rel="stylesheet">`);
-            preloads.push(`<link as="style" rel="preload" href="./${encodeUrl(fileName)}">`);
+            preloads.push(`<link as="style" rel="preload" href="/${encodeUrl(fileName)}">`);
           }
         }
         return { preloads, styles, scripts };
