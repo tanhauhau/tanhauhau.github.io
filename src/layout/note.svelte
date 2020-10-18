@@ -1,6 +1,7 @@
 <script>
   import Header from './Header.svelte';
   import baseCss from 'file://./blog-base.css';
+  import image from 'file://@/../hero-twitter.jpg';
   export let name;
   export let title;
   export let tags = [];
@@ -15,13 +16,20 @@
 <svelte:head>
   <title>Note: {title} | Tan Li Hau</title>
   <link href={baseCss} rel="stylesheet" />
+  <meta name="image" content={image} />
 
+  <meta name="og:image" content={image} />
   <meta name="og:title" content={name} />
   <meta name="og:type" content="website" />
 
   {#each tags as tag}
     <meta name="keywords" content={tag} />
   {/each}
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@lihautan" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:image" content={image} />
 
   <meta itemprop="url" content="__$$HOSTNAME$$__" />
 </svelte:head>

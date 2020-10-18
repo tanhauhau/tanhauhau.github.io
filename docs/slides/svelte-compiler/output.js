@@ -3748,19 +3748,19 @@ function create_fragment$2(ctx) {
 function instance$1($$self, $$props, $$invalidate) {
 	let index = 0;
 
-	function next() {
-		if (index === 3) return false;
-		$$invalidate(0, index++, index);
-		return true;
-	}
+	// function next() {
+	// 	if (index === 3) return false;
+	// 	$$invalidate(0, index++, index);
+	// 	return true;
+	// }
 
-	function prev() {
-		if (index === 0) return false;
-		$$invalidate(0, index--, index);
-		return true;
-	}
+	// function prev() {
+	// 	if (index === 0) return false;
+	// 	$$invalidate(0, index--, index);
+	// 	return true;
+	// }
 
-	return [index, next, prev];
+	return [index];
 }
 
 class Slides2 extends SvelteComponent {

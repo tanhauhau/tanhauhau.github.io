@@ -138,9 +138,9 @@ I found the following diffs in the bundled output:
   };
 ```
 
-Well, I know I havn't cover how spread attribute works in any of my ["Compile Svelte in your Head"](/compile-svelte-in-your-head-part-1/) articles, but the general idea is that, Svelte builds an array of attributes, and then apply it to the element / Component.
+Well, I know I haven't cover how spread attribute works in any of my ["Compile Svelte in your Head"](/compile-svelte-in-your-head-part-1/) articles, but the general idea is that, Svelte builds an array of attributes, and then apply it to the element / Component.
 
-For example, if we write the following in Svlete
+For example, if we write the following in Svelte
 
 ```svelte
 <div foo="foo" {...bar} baz="baz" {...qux} />
@@ -469,7 +469,7 @@ Besides that, I exported `spread`, so that I can change the object to something 
 
 You may think that we are familiar with our fix, we know what it will fix, what it will not fix, do we need think up and write all the edge cases?
 
-Well, I think you should. Future you will thank the present you when he encounter a fail test, that just mean his change may have an unintentional regressional change. If you don't have the test case, the future you will never know what edge case he didn't accounted for.
+Well, I think you should. Future you will thank the present you when he encounter a fail test, that just mean his change may have an unintentional regression change. If you don't have the test case, the future you will never know what edge case he didn't accounted for.
 
 Runtime test cases are added into `test/runtime/samples/`. Each folder represent 1 test case. Inside the folder, the component to be tested is named `App.svelte`, and the test case is written `_config.js`.
 

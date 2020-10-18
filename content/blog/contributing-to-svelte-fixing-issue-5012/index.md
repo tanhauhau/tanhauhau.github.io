@@ -71,7 +71,7 @@ Yup. This is indeed a bug! 🐛
 
 ## Investigating the bug
 
-It's amazing that the issue author tracked down the regression behavior of this issue, stating that it started happening since 3.7. Probably because the author just upgraded Svelte from {@html '<'} 3.7, or maybe he tried every versions to figure out whether it is regression bug or a undiscovered bug. Anyway, kudos to the issue author! 💪 💪
+It's amazing that the issue author tracked down the regression behavior of this issue, stating that it started happening since 3.7. Probably because the author just upgraded Svelte from {@html '<'} 3.7, or maybe he tried every versions to figure out whether it is regression bug or an undiscovered bug. Anyway, kudos to the issue author! 💪 💪
 
 Most open source projects maintain a change log file, usually named `CHANGELOG.md` located at the root of the project folder, so that you can figured out what's added / removed / updated in each version.
 

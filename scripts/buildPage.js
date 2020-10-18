@@ -170,7 +170,7 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
               type: meta.type,
             };
             if (meta.type === 'notes') {
-              const match = meta.filename.match(/(\d+-\d+-\d+)\s*-\s*(.+)\.md$/);
+              const match = meta.filename.match(/(\d+-\d+-\d+)\s*-\s*(.+?)(\/index)?\.md$/);
               if (match) {
                 const [_, date, name] = match;
                 Object.assign(
@@ -186,7 +186,7 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
                   )
                 );
               } else {
-                const name = meta.filename.replace(/\.md$/, '');
+                const name = meta.filename.replace(/(\/index)?\.md$/, '');
                 Object.assign(
                   vfile.data.fm,
                   Object.assign(
@@ -214,7 +214,6 @@ async function buildPage({ layouts, jsTemplate, template, meta }) {
       ],
       highlight: {
         highlighter(code, lang) {
-          console.log(lang, !!Prism.languages[lang]);
           if (Prism.languages[lang]) {
             const highlighted = highlightWrap(Prism.highlight(code, Prism.languages[lang], lang));
             return `<pre class="language-${lang}">{@html \`<code class="language-${lang || ''}">${escape_svelty(highlighted)}</code>\`}</pre>`;

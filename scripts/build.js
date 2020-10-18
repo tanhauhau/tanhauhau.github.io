@@ -169,7 +169,7 @@ function getTwitterImagePath(filename) {
 function getSlug(type, filename) {
   switch (type) {
     case 'notes':
-      return 'notes/' + filename.replace(/\.md$/, '');
+      return 'notes/' + filename.replace(/(\/index)?\.md$/, '');
     case 'blog':
     case 'talk':
       return filename.split('/')[0];

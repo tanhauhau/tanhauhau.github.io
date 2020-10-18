@@ -6,7 +6,7 @@ const rollupPluginPostCss = require('rollup-plugin-postcss');
 const rollupPluginSvelte = require('rollup-plugin-svelte');
 const rollupPluginCommonJs = require('@rollup/plugin-commonjs');
 const rollupPluginReplace = require('@rollup/plugin-replace');
-const { terser } = require('rollup-plugin-terser');
+// const { terser } = require('rollup-plugin-terser');
 const path = require('path');
 const crypto = require('crypto');
 const fs = require('fs').promises;
@@ -166,7 +166,7 @@ module.exports = async function(
             );
 
             const webpKeys = Object.keys(webps);
-            const webpImages = await imagemin(keys, {
+            const webpImages = await imagemin(webpKeys, {
               plugins: [imageminWebp({ quality: 50 })],
             });
             await Promise.all(
@@ -193,7 +193,7 @@ module.exports = async function(
         __$$HOSTNAME$$__: encodeURIComponent(hostname),
       }),
 
-      terser(),
+      // terser(),
     ],
   });
   return bundle;

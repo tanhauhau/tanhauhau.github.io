@@ -54,7 +54,7 @@
   </style>
 
   
-  <title>Building a simplified webpack clone | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Building a simplified webpack clone" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Building a simplified webpack clone" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta name="keywords" content="JavaScript" data-svelte="svelte-15e3uyc"><meta name="keywords" content="webpack" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fbuilding-a-simplified-webpack-clone" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Building a simplified webpack clone","name":"Building a simplified webpack clone","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fbuilding-a-simplified-webpack-clone","name":"Building a simplified webpack clone"},"name":"Building a simplified webpack clone","position":2}]}</script><link as="script" rel="preload" href="./fec473e7.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./fec473e7.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./fec473e7.css" rel="stylesheet">
+  <title>Building a simplified webpack clone | Tan Li Hau</title><meta name="description" content="" data-svelte="svelte-15e3uyc"><meta name="image" data-svelte="svelte-15e3uyc"><meta name="og:image" data-svelte="svelte-15e3uyc"><meta name="og:title" content="Building a simplified webpack clone" data-svelte="svelte-15e3uyc"><meta name="og:description" content="" data-svelte="svelte-15e3uyc"><meta name="og:type" content="website" data-svelte="svelte-15e3uyc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-15e3uyc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-15e3uyc"><meta name="twitter:title" content="Building a simplified webpack clone" data-svelte="svelte-15e3uyc"><meta name="twitter:description" content="" data-svelte="svelte-15e3uyc"><meta name="twitter:image" data-svelte="svelte-15e3uyc"><meta name="keywords" content="JavaScript" data-svelte="svelte-15e3uyc"><meta name="keywords" content="webpack" data-svelte="svelte-15e3uyc"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fbuilding-a-simplified-webpack-clone" data-svelte="svelte-15e3uyc"><meta itemprop="image" data-svelte="svelte-15e3uyc"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"","headline":"Building a simplified webpack clone","name":"Building a simplified webpack clone","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https%3A%2F%2Flihautan.com%2Fbuilding-a-simplified-webpack-clone","name":"Building a simplified webpack clone"},"name":"Building a simplified webpack clone","position":2}]}</script><link as="script" rel="preload" href="./84b5ae28.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./84b5ae28.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./84b5ae28.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,7 +81,7 @@
   
   <span class="svelte-9tqnza">JavaScript</span><span class="svelte-9tqnza">webpack</span>
 
-  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#background">Background</a></li><li><a href="#prior-art">Prior Art</a></li><li><a href="#week-resolving">Week 1 - Resolving</a></li><ul><li><a href="#why-module-bundler">Why module bundler?</a></li><li><a href="#we-start-from-an-entry-file">1. We start from an entry file.</a></li><li><a href="#we-read-the-file-and-determine-what-is-being-imported-into-this-file">2. We read the file and determine what is being imported into this file</a></li><li><a href="#now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path">3. Now knowing what are the names you are importing from, you need to figure out their actual file path</a></li><li><a href="#after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-until-no-more-new-files-to-be-found">4️⃣ After you figured the file path you&#39;re importing from, for each of the file, 🔁 repeat step 2️⃣ until no more new files to be found.</a></li><li><a href="#assignment">Assignment</a></li></ul></ul></section>
+  <article><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#background">Background</a></li><li><a href="#prior-art">Prior Art</a></li><li><a href="#week-resolving">Week 1 - Resolving</a></li><ul><li><a href="#why-module-bundler">Why module bundler?</a></li><li><a href="#we-start-from-an-entry-file">1. We start from an entry file.</a></li><li><a href="#we-read-the-file-and-determine-what-is-being-imported-into-this-file">2. We read the file and determine what is being imported into this file</a></li><li><a href="#now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path">3. Now knowing what are the names you are importing from, you need to figure out their actual file path</a></li><li><a href="#after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-until-no-more-new-files-to-be-found">4️⃣ After you figured the file path you&#39;re importing from, for each of the file, 🔁 repeat step 2️⃣ until no more new files to be found.</a></li><li><a href="#assignment">Assignment</a></li></ul><li><a href="#week-bundling">Week 2 - Bundling</a></li><ul><li><a href="#observation-bundle-using-webpack">🔭 Observation: Bundle using webpack</a></li><ul><li><a href="#observation-bundle-using-rollup">🔭 Observation: Bundle using rollup</a></li></ul><li><a href="#output-target-of-bundling">📤 Output target of bundling</a></li><li><a href="#assignment">Assignment</a></li></ul></ul></section>
 <section><h2><a href="#background" id="background">Background</a></h2>
 <p>We are trying out a new form of our weekly sharing, which is interest group-based.</p>
 <p>I am hosting the <strong>&quot;Building a simplified webpack clone&quot;</strong> interest group, which lasted 8 weeks, and every week, we will cover 1 concept of webpack and an assignment to implement that concept ourselves.</p></section>
@@ -149,21 +149,21 @@ esprima<span class="token punctuation">.</span><span class="token function">pars
 <li>🔗 <a href="https://github.com/acornjs/acorn/tree/master/acorn-walk" rel="nofollow">acorn-walk</a></li>
 <li>🔗 <a href="https://github.com/Rich-Harris/estree-walker" rel="nofollow">estree-walker</a></li></ul>
 <pre class="language-js"><code class="language-js"><span class="token comment">// babel</span>
-<span class="token keyword">const</span> traverse <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@babel/traverse"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span>
+<span class="token keyword">const</span> traverse <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@babel/traverse'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span>
 <span class="token function">traverse</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-  <span class="token function">ImportDeclaration</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+  <span class="token function">ImportDeclaration</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// acorn</span>
 walk<span class="token punctuation">.</span><span class="token function">simple</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-  <span class="token function">ImportDeclaration</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+  <span class="token function">ImportDeclaration</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// estree-walker</span>
-<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> walk <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span> <span class="token string">'estree-walker'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> walk <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'estree-walker'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">walk</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-   <span class="token function">enter</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-   <span class="token function">leave</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span>
+  <span class="token function">enter</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">leave</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Some other useful links</p>
 <ul><li>Inspect your AST<ul><li><a href="https://astexplorer.net" rel="nofollow">https://astexplorer.net</a></li>
@@ -203,8 +203,183 @@ walk<span class="token punctuation">.</span><span class="token function">simple<
 <ul><li><code>module</code> (see above ☝️)</li>
 <li><code>exports</code> -&gt; list of var names you are importing, eg &quot;default&quot;, &quot;measure&quot; ..</li></ul>
 <p>📝 If 2 module are importing the same module, both should be referring to the same module instance</p>
-<pre class="language-js"><code class="language-js">moduleCFromModuleA <span class="token operator">===</span> moduleCFromModuleB</code></pre>
-<p>📝 Be careful with circular dependency 🙈</p></section></article></main>
+<pre class="language-js"><code class="language-js">moduleCFromModuleA <span class="token operator">===</span> moduleCFromModuleB<span class="token punctuation">;</span></code></pre>
+<p>📝 Be careful with circular dependency 🙈</p></section>
+<section><h2><a href="#week-bundling" id="week-bundling">Week 2 - Bundling</a></h2>
+<p>🤔 How do you bundle modules into 1 file?</p>
+<p>After studying the 2 most popular bundlers, webpack and rollup, i found that the way they bundle are very different.</p>
+<p>Both of them come a long way, I believe both has its own pros and cons</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// circle.js</span>
+<span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.141</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token parameter">radius</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token constant">PI</span> <span class="token operator">*</span> radius <span class="token operator">*</span> radius<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// square.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token parameter">side</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> side <span class="token operator">*</span> side<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// app.js</span>
+<span class="token keyword">import</span> squareArea <span class="token keyword">from</span> <span class="token string">'./square'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> circleArea <span class="token keyword">from</span> <span class="token string">'./circle'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Area of square: '</span><span class="token punctuation">,</span> <span class="token function">squareArea</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Area of circle'</span><span class="token punctuation">,</span> <span class="token function">circleArea</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
+<section><h3><a href="#observation-bundle-using-webpack" id="observation-bundle-using-webpack">🔭 Observation: Bundle using webpack</a></h3>
+<ul><li>📝 each module wrap in a function</li>
+<li>📝 a module map, module identifier as key</li>
+<li>📝 a runtime glue code to piece modules together</li>
+<li>📝 calling module function, with 2 parameters, 1 to assign the exports of the module, 1 to &quot;require&quot; other modules</li></ul>
+<pre class="language-js"><code class="language-js"><span class="token comment">// webpack-bundle.js</span>
+<span class="token keyword">const</span> modules <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token string">'circle.js'</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">__exports<span class="token punctuation">,</span> __getModule</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.141</span><span class="token punctuation">;</span>
+    __exports<span class="token punctuation">.</span><span class="token function-variable function">default</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token parameter">radius</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token constant">PI</span> <span class="token operator">*</span> radius <span class="token operator">*</span> radius<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token string">'square.js'</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">__exports<span class="token punctuation">,</span> __getModule</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    __exports<span class="token punctuation">.</span><span class="token function-variable function">default</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token parameter">side</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> side <span class="token operator">*</span> side<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token string">'app.js'</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">__exports<span class="token punctuation">,</span> __getModule</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> squareArea <span class="token operator">=</span> <span class="token function">__getModule</span><span class="token punctuation">(</span><span class="token string">'square.js'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> circleArea <span class="token operator">=</span> <span class="token function">__getModule</span><span class="token punctuation">(</span><span class="token string">'circle.js'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Area of square: '</span><span class="token punctuation">,</span> <span class="token function">squareArea</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Area of circle'</span><span class="token punctuation">,</span> <span class="token function">circleArea</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">webpackRuntime</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  modules<span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'app.js'</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
+<section><h4><a href="#observation-bundle-using-rollup" id="observation-bundle-using-rollup">🔭 Observation: Bundle using rollup</a></h4>
+<ul><li>📝 much flatter bundle</li>
+<li>📝 module are concatenated in topological order</li>
+<li>📝 exports and imports are removed by renaming them to the same variable name</li>
+<li>📝 any variable in module scope that may have naming conflict with other variables are renamed</li></ul>
+<pre class="language-js"><code class="language-js"><span class="token comment">// rollup-bundle.js</span>
+<span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.141</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">circle$area</span><span class="token punctuation">(</span><span class="token parameter">radius</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token constant">PI</span> <span class="token operator">*</span> radius <span class="token operator">*</span> radius<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">square$area</span><span class="token punctuation">(</span><span class="token parameter">side</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> side <span class="token operator">*</span> side<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Area of square: '</span><span class="token punctuation">,</span> <span class="token function">square$area</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Area of circle'</span><span class="token punctuation">,</span> <span class="token function">circle$area</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></section>
+<section><h3><a href="#output-target-of-bundling" id="output-target-of-bundling">📤 Output target of bundling</a></h3>
+<ul><li><p>IIFE (the most common target, we want to execute the script)</p></li>
+<li><p>CJS, ESM, UMD, AMD, ... (we want to bundle a library, exports of entry file is exported in selected module format)</p></li>
+<li><p>🔗 <a href="https://webpack.js.org/configuration/output/#outputlibrarytarget" rel="nofollow">https://webpack.js.org/configuration/output/#outputlibrarytarget</a></p></li>
+<li><p>🔗 <a href="https://rollupjs.org/guide/en/#configuration-files" rel="nofollow">https://rollupjs.org/guide/en/#configuration-files</a></p></li></ul></section>
+<section><h3><a href="#assignment" id="assignment">Assignment</a></h3>
+<p><a href="https://github.com/tanhauhau/rk-webpack-clone" rel="nofollow">Test cases</a></p>
+<p>Here are some of the the interesting test cases:</p>
+<p>🧪 Able to handle re-export nicely</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// a.js</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">as</span> b <span class="token keyword">from</span> <span class="token string">'./b'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'./c'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span> d <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./d'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// main.js</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> a <span class="token keyword">from</span> <span class="token string">'./a'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>🧪 Importing the same file twice, but are you able to make sure it&#39;s gonna be evaluated only once?</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// a.js</span>
+<span class="token keyword">import</span> <span class="token string">'./c'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// b.js</span>
+<span class="token keyword">import</span> <span class="token string">'./c'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// c.js</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'c.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// main.js</span>
+<span class="token keyword">import</span> <span class="token string">'./a'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./b'</span><span class="token punctuation">;</span></code></pre>
+<p>🧪 The dreaded circular dependency, are you able to make sure to get the value of <code>a</code>, <code>b</code>, <code>c</code> in all the files?</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// a.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> b <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./b'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> c <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./c'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">a.js | b=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>b<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> | c=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>c<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// b.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> a <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./a'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> c <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./c'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token string">'b'</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">b.js | a=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>a<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> | c=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>c<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// c.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> a <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./a'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> b <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./b'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token string">'c'</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">c.js | a=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>a<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> | b=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>b<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// main.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> a <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./a'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> b <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./b'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> c <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./c'</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">main.js | a=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>a<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> | b=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>b<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> | c=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>c<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>🧪 Are you able to export a variable before it is declared? Does the order matter?</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// a.js</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span> a<span class="token punctuation">,</span> b <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token string">'b'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// main.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> a<span class="token punctuation">,</span> b <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./a'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a = '</span> <span class="token operator">+</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b = '</span> <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>🧪 imported variables is not a normal variable, it&#39;s a live binding of the exported variable. Are you able to make sure that the value of <code>count</code> is always up to date?</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// data.js</span>
+<span class="token keyword">export</span> <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// a.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> count<span class="token punctuation">,</span> increment <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./data'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'count = '</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'count = '</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// b.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> count<span class="token punctuation">,</span> increment <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./data'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'count = '</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'count = '</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// main.js</span>
+<span class="token keyword">import</span> <span class="token string">'./a'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./b'</span><span class="token punctuation">;</span></code></pre></section></article></main>
 
 <footer class="svelte-9tqnza"><div class="form svelte-1k1s1co"><h1>Subscribe to my newsletter</h1>
   <h2 class="svelte-1k1s1co">Get the latest blog posts and project updates delivered right to your inbox</h2>
@@ -214,7 +389,7 @@ walk<span class="token punctuation">.</span><span class="token function">simple<
     <p class="svelte-1k1s1co">Powered by Buttondown.</p></form>
 </div>
   
-</footer><script src="./fec473e7.js" async></script></div>
+</footer><script src="./84b5ae28.js" async></script></div>
   
 
   <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>

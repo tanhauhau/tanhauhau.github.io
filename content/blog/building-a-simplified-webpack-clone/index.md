@@ -1,7 +1,7 @@
 ---
 title: Building a simplified webpack clone
 date: '2020-10-02T08:00:00Z'
-tags: 
+tags:
   - JavaScript
   - webpack
 ---
@@ -13,7 +13,7 @@ We are trying out a new form of our weekly sharing, which is interest group-base
 I am hosting the **"Building a simplified webpack clone"** interest group, which lasted 8 weeks, and every week, we will cover 1 concept of webpack and an assignment to implement that concept ourselves.
 
 ## Prior Art
- 
+
 - 📺 [Tobias Koppers](https://twitter.com/wSokra) - bundling live by hand - https://youtube.com/watch?v=UNMkLHzofQI
 - 📺 [Ronen Amiel](https://twitter.com/ronenamiel) - build your own webpack - https://youtube.com/watch?v=Gc9-7PBqOC8
 - 📖 adam kelly - https://freecodecamp.org/news/lets-learn-how-module-bundlers-work-and-then-write-one-ourselves-b2e3fe6c88ae/
@@ -31,6 +31,7 @@ Traditionally with limit on number of request connection, 🐌 slow internet spe
 🕰 Traditionally, we concatenate the source files into 1 big output file.
 
 But that begs the question
+
 - ❓ what should be the order of concatenation (files may depend on each other) ?
 - ❓ what if there's var naming conflict across files?
 - ❓ what if there's unused file?
@@ -109,25 +110,26 @@ const [imports, exports] = parse(code);
 
 ```js
 // babel
-const traverse = require("@babel/traverse").default;
+const traverse = require('@babel/traverse').default;
 traverse(ast, {
-  ImportDeclaration(node) {}
+  ImportDeclaration(node) {},
 });
 
 // acorn
 walk.simple(ast, {
-  ImportDeclaration(node) {}
+  ImportDeclaration(node) {},
 });
 
 // estree-walker
-const { walk } = require( 'estree-walker' );
+const { walk } = require('estree-walker');
 walk(ast, {
-   enter(node) { },
-   leave(node) { }
+  enter(node) {},
+  leave(node) {},
 });
 ```
 
 Some other useful links
+
 - Inspect your AST
   - https://astexplorer.net
   - https://lihautan.com/babel-ast-explorer/
@@ -140,6 +142,7 @@ Some other useful links
 ### 3. Now knowing what are the names you are importing from, you need to figure out their actual file path
 
 that depends on
+
 - the current file path
 - the name you are importing from
 
@@ -153,10 +156,11 @@ resolve('a/b/app.js', 'formulas');
 ```
 
 That leads us to the [Node.js Module Resolution Algorithm](https://nodejs.org/api/modules.html#modules_all_together)
- 
+
 It describes the steps taken to resolve the file.
 
 there are 3 scenarios in general:
+
 - load as file
 - load as directory
 - load as node_modules
@@ -164,30 +168,251 @@ there are 3 scenarios in general:
 ![node js module resolution algorithm](./images/resolution.png)
 
 Some other module resolution:
+
 - webpack uses [`enhanced-resolve`](https://github.com/webpack/enhanced-resolve) which is a highly configurable resolver
 - Typescript implements its own resolver, [see how TS resolving works](https://typescriptlang.org/docs/handbook/module-resolution.html)
 
 ### 4️⃣ After you figured the file path you're importing from, for each of the file, 🔁 repeat step 2️⃣ until no more new files to be found.
 
-### Assignment 
+### Assignment
 
 [Test cases](https://github.com/tanhauhau/rk-webpack-clone)
 
 For each test cases, we provide the entry file, and we expect
 
 📝 Module
+
 - `filepath`
 - `dependencies` -> list of Depedencies (see below 👇)
 - `isEntryFile` -> `true` if it is the entry file / `false` otherwise
 
 📝 Depedencies
+
 - `module` (see above ☝️)
 - `exports` -> list of var names you are importing, eg "default", "measure" ..
 
 📝 If 2 module are importing the same module, both should be referring to the same module instance
 
 ```js
-moduleCFromModuleA === moduleCFromModuleB
+moduleCFromModuleA === moduleCFromModuleB;
 ```
 
 📝 Be careful with circular dependency 🙈
+
+## Week 2 - Bundling
+
+🤔 How do you bundle modules into 1 file?
+
+After studying the 2 most popular bundlers, webpack and rollup, i found that the way they bundle are very different.
+
+Both of them come a long way, I believe both has its own pros and cons
+
+```js
+// circle.js
+const PI = 3.141;
+export default function area(radius) {
+  return PI * radius * radius;
+}
+
+// square.js
+export default function area(side) {
+  return side * side;
+}
+
+// app.js
+import squareArea from './square';
+import circleArea from './circle';
+
+console.log('Area of square: ', squareArea(5));
+console.log('Area of circle', circleArea(5));
+```
+
+### 🔭 Observation: Bundle using webpack
+
+- 📝 each module wrap in a function
+- 📝 a module map, module identifier as key
+- 📝 a runtime glue code to piece modules together
+- 📝 calling module function, with 2 parameters, 1 to assign the exports of the module, 1 to "require" other modules
+
+```js
+// webpack-bundle.js
+const modules = {
+  'circle.js': function(__exports, __getModule) {
+    const PI = 3.141;
+    __exports.default = function area(radius) {
+      return PI * radius * radius;
+    }
+  },
+  'square.js': function(__exports, __getModule) {
+    __exports.default = function area(side) {
+      return side * side;
+    }
+  },
+  'app.js': function(__exports, __getModule) {
+    const squareArea = __getModule('square.js').default;
+    const circleArea = __getModule('circle.js').default;
+    console.log('Area of square: ', squareArea(5))
+    console.log('Area of circle', circleArea(5))
+  }
+}
+webpackRuntime({
+  modules,
+  entry: 'app.js'
+});
+```
+
+#### 🔭 Observation: Bundle using rollup
+
+- 📝 much flatter bundle
+- 📝 module are concatenated in topological order
+- 📝 exports and imports are removed by renaming them to the same variable name
+- 📝 any variable in module scope that may have naming conflict with other variables are renamed
+
+```js
+// rollup-bundle.js
+const PI = 3.141;
+
+function circle$area(radius) {
+    return PI * radius * radius;
+}
+function square$area(side) {
+    return side * side;
+}
+
+console.log('Area of square: ', square$area(5));
+console.log('Area of circle', circle$area(5));
+```
+
+### 📤 Output target of bundling
+
+- IIFE (the most common target, we want to execute the script)
+- CJS, ESM, UMD, AMD, ... (we want to bundle a library, exports of entry file is exported in selected module format)
+
+- 🔗 https://webpack.js.org/configuration/output/#outputlibrarytarget
+- 🔗 https://rollupjs.org/guide/en/#configuration-files
+
+### Assignment
+
+[Test cases](https://github.com/tanhauhau/rk-webpack-clone)
+
+Here are some of the the interesting test cases:
+
+🧪 Able to handle re-export nicely
+
+```js
+// a.js
+export * as b from './b';
+export * from './c';
+export { d } from './d';
+
+// main.js
+import * as a from './a';
+
+console.log(a);
+```
+
+🧪 Importing the same file twice, but are you able to make sure it's gonna be evaluated only once?
+
+```js
+// a.js
+import './c';
+
+// b.js
+import './c';
+
+// c.js
+console.log('c.js');
+
+// main.js
+import './a';
+import './b';
+```
+
+🧪 The dreaded circular dependency, are you able to make sure to get the value of `a`, `b`, `c` in all the files?
+
+```js
+// a.js
+import { b } from './b';
+import { c } from './c';
+
+export const a = 'a';
+
+setTimeout(() => {
+  console.log(`a.js | b=${b} | c=${c}`);
+});
+
+// b.js
+import { a } from './a';
+import { c } from './c';
+
+export const b = 'b';
+
+setTimeout(() => {
+  console.log(`b.js | a=${a} | c=${c}`);
+});
+
+// c.js
+import { a } from './a';
+import { b } from './b';
+
+export const c = 'c';
+
+setTimeout(() => {
+  console.log(`c.js | a=${a} | b=${b}`);
+});
+
+// main.js
+import { a } from './a';
+import { b } from './b';
+import { c } from './c';
+
+setTimeout(() => {
+  console.log(`main.js | a=${a} | b=${b} | c=${c}`);
+});
+```
+
+🧪 Are you able to export a variable before it is declared? Does the order matter?
+
+```js
+// a.js
+let a = 'a';
+
+export { a, b };
+
+let b = 'b';
+
+// main.js
+import { a, b } from './a';
+
+console.log('a = ' + a);
+console.log('b = ' + b);
+```
+
+🧪 imported variables is not a normal variable, it's a live binding of the exported variable. Are you able to make sure that the value of `count` is always up to date?
+
+```js
+// data.js
+export let count = 1;
+
+export function increment() {
+  count++;
+}
+
+// a.js
+import { count, increment } from './data';
+
+console.log('count = ' + count);
+increment();
+console.log('count = ' + count);
+
+// b.js
+import { count, increment } from './data';
+
+console.log('count = ' + count);
+increment();
+console.log('count = ' + count);
+
+// main.js
+import './a';
+import './b';
+```

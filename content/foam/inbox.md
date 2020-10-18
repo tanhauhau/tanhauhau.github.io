@@ -28,3 +28,5 @@
 - https://www.youtube.com/watch?v=qY0UF7jaqfs&t=2s
 - https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/
 - Twitter Summary from 2020 - https://jvns.ca/blog/2020/07/10/twitter-summary-from-2020-so-far/
+- https://mmpractices.com/
+- https://www.codusoperandi.com/posts/increasing-your-luck-surface-area
