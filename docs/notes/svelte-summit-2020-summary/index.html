@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://twitter.com/lihautan" rel="me" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#bd93f9" />
+  <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Note: Svelte Summit 2020 Summary | Tan Li Hau</title><link href="https://lihautan.com/notes/svelte-summit-2020-summary/assets/blog-base-3554d53c.css" rel="stylesheet" data-svelte="svelte-179iwio"><meta name="image" data-svelte="svelte-179iwio"><meta name="og:image" data-svelte="svelte-179iwio"><meta name="og:title" content="svelte-summit-2020-summary" data-svelte="svelte-179iwio"><meta name="og:type" content="website" data-svelte="svelte-179iwio"><meta name="keywords" content="svelte" data-svelte="svelte-179iwio"><meta name="keywords" content="conference" data-svelte="svelte-179iwio"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-179iwio"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-179iwio"><meta name="twitter:title" content="Svelte Summit 2020 Summary" data-svelte="svelte-179iwio"><meta name="twitter:image" data-svelte="svelte-179iwio"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fsvelte-summit-2020-summary" data-svelte="svelte-179iwio"><link as="script" rel="preload" href="./bdb2593f.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./bdb2593f.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./bdb2593f.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-186dllz">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-186dllz"><h1>Svelte Summit 2020 Summary</h1>
+  
+  <span class="svelte-186dllz">svelte</span><span class="svelte-186dllz">conference</span>
+
+  <article class="svelte-186dllz"><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#the-zen-of-svelte">1️⃣ The Zen of Svelte</a></li><li><a href="#prototyping-design-with-real-data-models">2️⃣ Prototyping Design with Real Data Models</a></li><li><a href="#how-does-svelte-s-crossfade-function-work">3️⃣ How does Svelte&#39;s crossfade function work?</a></li><li><a href="#zero-config-svelte-websites-with-plenti">4️⃣ Zero config Svelte websites with Plenti</a></li><li><a href="#how-you-setup-data-visualization-with-svelte">5️⃣ How you setup data visualization with Svelte</a></li><li><a href="#svelte-at-the-edge-powering-svelte-apps-with-cloudflare-workers">6️⃣ Svelte at the Edge: Powering Svelte Apps with Cloudflare Workers</a></li><li><a href="#svelte-la-mode">7️⃣ Svelte à la Mode</a></li><li><a href="#introduction-to-svite">8️⃣ Introduction to Svite</a></li><li><a href="#svelte-animations">9️⃣ Svelte Animations</a></li></ul></section>
+<section><h2><a href="#the-zen-of-svelte" id="the-zen-of-svelte">1️⃣ The Zen of Svelte</a></h2>
+<p><a href="http://twitter.com/mrgnw" rel="nofollow">@mrgnw</a> did a ton of research comparing Svelte with Python, which is apparent on the references used in his talk.</p>
+<p>I believe the talk is inspired by
+<a href="https://twitter.com/feltcoop" rel="nofollow">@feltcoop</a>&#39;s <a href="https://github.com/feltcoop/why-svelte" rel="nofollow">&quot;Why Svelte&quot;</a>, where it says</p>
+<blockquote><p>&quot;Svelte is easy to learn. Its design philosophy shares much with <a href="https://www.python.org/dev/peps/pep-0020/" rel="nofollow">The Zen of Python</a>&quot;</p></blockquote>
+<blockquote><p>&quot;programming languages are how programmers express and communicate ideas — and the audience for those ideas is other programmers, not computers.&quot;</p>
+<ul><li>Guido van Rossum, King&#39;s Day Speech 2016 (<a href="http://neopythonic.blogspot.com/2016/04/kings-day-speech.html" rel="nofollow">http://neopythonic.blogspot.com/2016/04/kings-day-speech.html</a>)</li></ul></blockquote>
+<blockquote><p>&quot;Frameworks are not tools for organising your code, they are tools for organising your mind&quot;</p>
+<ul><li>Rich Harris, You Gotta Love Frontend Code Camp 2019 <a href="https://www.youtube.com/watch?v=AdNJ3fydeao" rel="nofollow">https://www.youtube.com/watch?v=AdNJ3fydeao</a></li></ul></blockquote>
+<blockquote><p>People who&#39;s day job has nothing to do with software development but who need to use software to process their data, can use Python to make their data processing doing exactly what they want to happen</p>
+<ul><li>Guido van Rossum, Oxford Union 2019 <a href="https://www.youtube.com/watch?v=7kn7NtlV6g0" rel="nofollow">https://www.youtube.com/watch?v=7kn7NtlV6g0</a></li></ul></blockquote>
+<blockquote><p>Because the best thing about jQuery was its inclusivitiy, jQuery said to people like me, with no discrenible programming skill, you too can be part of this thing (bringing creativity to the web)</p></blockquote>
+<ul><li>Rich Harris, JSCamp 2019, &quot;The Return of &#39;Write Less, Do More&#39;&quot; <a href="https://www.youtube.com/watch?v=BzX4aTRPzno" rel="nofollow">https://www.youtube.com/watch?v=BzX4aTRPzno</a></li></ul>
+<p>It works with what you already know, rather than replaces it with something new</p>
+<ul><li>if you can write HTML, you can write Svelte</li>
+<li>with preprocessor, you can write Svelte component with Jade, or Markdown</li></ul>
+<p><strong>Resources to learn Svelte</strong></p>
+<ul><li>📺 Svelte Master Youtube channel <a href="https://www.youtube.com/channel/UCg6SQd5jnWo5Y70rZD9SQFA" rel="nofollow">https://www.youtube.com/channel/UCg6SQd5jnWo5Y70rZD9SQFA</a></li>
+<li>🎮 Svelte Interactive Tutorial <a href="http://svelte.dev/tutorial" rel="nofollow">http://svelte.dev/tutorial</a></li>
+<li>🛠 Starter Template - <a href="https://github.com/sveltejs/template" rel="nofollow">https://github.com/sveltejs/template</a>, <a href="https://github.com/sveltejs/sapper-template" rel="nofollow">https://github.com/sveltejs/sapper-template</a></li>
+<li>🎪 MadeWithSvelte - <a href="https://madewithsvelte.com/" rel="nofollow">https://madewithsvelte.com/</a></li></ul>
+<blockquote><p>Svelte is Zen, because it&#39;s for people who wanna make things</p></blockquote></section>
+<section><h2><a href="#prototyping-design-with-real-data-models" id="prototyping-design-with-real-data-models">2️⃣ Prototyping Design with Real Data Models</a></h2>
+<p><a href="https://twitter.com/d3sandoval" rel="nofollow">@d3sandoval</a> performed a live coding in the talk. He showed us how he used Svelte to quickly implement an interactive prototype based on a Figma design for user testing.</p>
+<p>If you find him familiar, that&#39;s because he&#39;s the one who wrote the <a href="https://svelte.dev/blog/whats-new-in-svelte-october-2020" rel="nofollow">&quot;What&#39;s new in Svelte October 2020&quot;</a></p>
+<p>Benefits of building interactive mockup with Svelte</p>
+<ul><li>Fast to get started and going</li>
+<li>Allow user to explore different variations, rather than sticking to the golden path in the user interview</li>
+<li>Faster iteration, faster to test assumptions</li></ul>
+<p>Things people asked in the chat:</p>
+<ul><li>Official Svelte VSCode Plugin <a href="https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode" rel="nofollow">svelte-vscode</a></li>
+<li>the code <a href="https://github.com/d3sandoval/svelte-summit-example" rel="nofollow">https://github.com/d3sandoval/svelte-summit-example</a></li></ul>
+<blockquote><p>&quot;Using a production-like data model in application that is quick to build, which may otherwise take longer in our design file, allow us to respond to feedback quickly in prototyping&quot;</p></blockquote></section>
+<section><h2><a href="#how-does-svelte-s-crossfade-function-work" id="how-does-svelte-s-crossfade-function-work">3️⃣ How does Svelte&#39;s crossfade function work?</a></h2>
+<p><a href="https://twitter.com/nicolodavis" rel="nofollow">@nicolodavis</a></p>
+<ul><li>1️⃣ what it is</li>
+<li>2️⃣ how it works</li>
+<li>3️⃣ real world example</li></ul>
+<p><picture><source type="image/webp" srcset="b7914d00236be824.webp"><source type="image/jpeg" srcset="b7914d00236be824.png"><img title="null" alt="crossfade-vanilla" data-src="b7914d00236be824.png" loading="lazy"></picture></p>
+<p>If you describe how to move content imperatively</p>
+<ul><li>Copy the HTML from the source container</li>
+<li>Paste it into the target container</li>
+<li>Remove it from the source container</li></ul>
+<p><picture><source type="image/webp" srcset="4d47b6e0b8d2c4ed.webp"><source type="image/jpeg" srcset="4d47b6e0b8d2c4ed.png"><img title="null" alt="crossfade-if" data-src="4d47b6e0b8d2c4ed.png" loading="lazy"></picture></p>
+<p>If you want to describe it declaratively in Svelte,</p>
+<ul><li>use <code>{#if position === &#39;a&#39;}</code></li>
+<li>change <code>position</code></li></ul>
+<p>Svelte transition allows you to specify how an element is transition in when it&#39;s created, and transition out when it is destroyed.</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> slide <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'svelte/transition'</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">in:</span>slide</span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">out:</span>slide</span> <span class="token punctuation">/></span></span></code></pre>
+<ul><li>📝 crossfade coordinates the transition from 1 location to another</li>
+<li>📝 element is destroyed in its old position and created in its new position</li>
+<li>📝 both transitions are played simulatenously over each other</li>
+<li>📝 fades out the 1st transition, fades in the 2nd transition</li></ul>
+<p><img title="null" alt="crossfade" data-src="bce856342e382d9d.gif" loading="lazy"></p>
+<ul><li>📝 call crossfade to get <code>send</code> and <code>release</code></li>
+<li>📝 using <code>out:send</code> and <code>in:receive</code></li>
+<li>📝 the key needs to be the same</li></ul>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> crossfade <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'svelte/transition'</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>send<span class="token punctuation">,</span> receive<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">crossfade</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    fallback<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> position <span class="token operator">===</span> <span class="token string">'a'</span><span class="token punctuation">&#125;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">out:</span>send=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>key<span class="token punctuation">:</span><span class="token string">"box"</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>
+      ...
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>b<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> position <span class="token operator">===</span> <span class="token string">'b'</span><span class="token punctuation">&#125;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">in:</span>receive=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>key<span class="token punctuation">:</span><span class="token string">"box"</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>
+      ...
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>See how @nicolodavis uses crossfade in a real-world application, <a href="https://twitter.com/boardgamelabapp" rel="nofollow">@boardgamelabapp</a> <a href="https://boardgamelab.app/" rel="nofollow">https://boardgamelab.app/</a>.</p>
+<p><img title="null" alt="real world example" data-src="70061f3da10e51f5.gif" loading="lazy"></p></section>
+<section><h2><a href="#zero-config-svelte-websites-with-plenti" id="zero-config-svelte-websites-with-plenti">4️⃣ Zero config Svelte websites with Plenti</a></h2>
+<p><a href="https://twitter.com/jimafisk" rel="nofollow">@jimafisk</a> shared a static site generator, <a href="https://plenti.co" rel="nofollow">Plenti</a>.</p>
+<p><strong>Plenti</strong></p>
+<ul><li>🎪 Static Site Generator</li>
+<li>🏎 Go backend</li>
+<li>🛠 Build code in Go, no webpack / rollup, inspired by snowpack, called gopack</li>
+<li>⚡️ Reach to v8 engine directly to compile svelte components</li>
+<li>✨ Does not depend on Node.js / npm</li>
+<li>📖 JSON as data source</li>
+<li>👓 Optimised for screen reader users</li>
+<li>🍺 Hydrates app into single page application + client-side routing + automatically connects to JSON data source</li></ul>
+<p><strong>Install plenti</strong></p>
+<ul><li>⬇️ Download the binary</li>
+<li>📦 Install using package manager</li></ul>
+<pre class="language-sh"><code class="language-sh"><span class="token comment"># mac (homebrew)</span>
+brew tap plentico/homebrew-plenti
+brew <span class="token function">install</span> plenti
+
+<span class="token comment"># linux (snap)</span>
+snap <span class="token function">install</span> plenti
+
+<span class="token comment"># windows (scoop)</span>
+scoop bucket <span class="token function">add</span> plenti https://github.com/plentico/scoop-plenti</code></pre>
+<p><strong>Plenti command</strong></p>
+<pre class="language-sh"><code class="language-sh"><span class="token comment"># create a new site</span>
+plenti new site svelte-summit
+<span class="token comment"># create a new type</span>
+plenti new <span class="token builtin class-name">type</span> events
+
+<span class="token comment"># starts a lightweight webserver for local development</span>
+plenti serve</code></pre>
+<blockquote><p>&quot;You be so productive that you forget to check Twitter&quot; </p></blockquote></section>
+<section><h2><a href="#how-you-setup-data-visualization-with-svelte" id="how-you-setup-data-visualization-with-svelte">5️⃣ How you setup data visualization with Svelte</a></h2>
+<p><a href="http://twitter.com/h_i_g_s_c_h" rel="nofollow">@h_i_g_s_c_h</a> showed us how to use svelte to defend democracy. 🏹🛡🐉</p>
+<p>Check out his talk if you want to learn</p>
+<ul><li>✨ how to produce great nice visualisation with svelte</li>
+<li>🎨 how to use all the nice features that svelte comes with to produce cool visualisation</li></ul>
+<p>3 things to love svelte + data visualisation</p>
+<p><strong>1️⃣ modularisation</strong></p>
+<ul><li>organise code in components</li></ul>
+<p><img title="null" alt="modular" data-src="0b1134a15417c434.gif" loading="lazy"></p>
+<p><strong>2️⃣ transitions</strong></p>
+<ul><li>✨ easy to use</li>
+<li>🎭 built-in transitions, such as <code>fade</code>, <code>draw</code></li></ul>
+<pre class="language-svelte"><code class="language-svelte"><span class="token comment">&lt;!-- src/components/Balloon.svelte --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>balloon<span class="token punctuation">"</span></span>
+   <span class="token attr-name"><span class="token namespace">in:</span>fade|local=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>duration<span class="token punctuation">:</span> bloomDuration<span class="token punctuation">,</span> delay<span class="token punctuation">:</span> growDuration <span class="token operator">+</span> timePoint<span class="token punctuation">.</span>id <span class="token operator">*</span> jitterFactor<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span>
+   <span class="token attr-name"><span class="token namespace">out:</span>fade|local=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>duration<span class="token punctuation">:</span> bloomDuration<span class="token punctuation">,</span> delay<span class="token punctuation">:</span> timePoint<span class="token punctuation">.</span>id <span class="token operator">*</span> jitterFactor<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- src/components/SourceLink.svelte --></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> <span class="token punctuation">(</span>source<span class="token punctuation">.</span>show<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>source-link<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">d=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span></span>
+      <span class="token attr-name">stroke-width=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>$minDim <span class="token operator">/</span> <span class="token number">200</span><span class="token punctuation">&#125;</span></span>
+      <span class="token attr-name"><span class="token namespace">in:</span>draw|local=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>duration<span class="token punctuation">:</span> growDuration<span class="token punctuation">,</span> delay<span class="token punctuation">:</span> source<span class="token punctuation">.</span>id <span class="token operator">*</span> jitterFactor<span class="token punctuation">,</span> easing<span class="token punctuation">:</span> linear<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span>
+      <span class="token attr-name"><span class="token namespace">out:</span>draw|local=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>duration<span class="token punctuation">:</span> growDuration<span class="token punctuation">,</span> delay<span class="token punctuation">:</span> bloomDuration <span class="token operator">+</span> source<span class="token punctuation">.</span>id <span class="token operator">*</span> jitterFactor<span class="token punctuation">,</span> easing<span class="token punctuation">:</span> linear<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span></code></pre>
+<p><img title="null" alt="transition" data-src="47b1f5deb78bee6f.gif" loading="lazy"></p>
+<p><strong>3️⃣ actions</strong></p>
+<ul><li>allow reusable logics</li>
+<li>can reuse across projects</li></ul>
+<pre class="language-svelte"><code class="language-svelte"><span class="token comment">&lt;!-- src/components/Slider.svelte --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slider-handle<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">use:</span>slidable</span>
+  <span class="token attr-name"><span class="token namespace">on:</span>slide=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">handleSlide</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">'right'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span>
+  <span class="token attr-name"><span class="token namespace">on:</span>slideend=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">handleSlideEnd</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">'right'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>
+  ...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>Resources</p>
+<ul><li>🔗 <a href="https://github.com/DFRLab/interference2020" rel="nofollow">https://github.com/DFRLab/interference2020</a></li>
+<li>🔗 <a href="https://interference2020.org" rel="nofollow">https://interference2020.org</a></li>
+<li>🔗 <a href="https://twitter.com/h_i_g_s_c_h" rel="nofollow">https://twitter.com/h_i_g_s_c_h</a></li>
+<li>🔗 <a href="https://www.higsch.com/" rel="nofollow">https://www.higsch.com/</a></li></ul>
+<p><a href="https://twitter.com/h_i_g_s_c_h/status/1317963855201554433?s=20" rel="nofollow">Is that &quot;Svelte&quot; in German accent?</a></p></section>
+<section><h2><a href="#svelte-at-the-edge-powering-svelte-apps-with-cloudflare-workers" id="svelte-at-the-edge-powering-svelte-apps-with-cloudflare-workers">6️⃣ Svelte at the Edge: Powering Svelte Apps with Cloudflare Workers</a></h2>
+<p><a href="https://twitter.com/lukeed05" rel="nofollow">@lukeed05</a> shared with us how to deploying server-side rendering + Svelte + Cloudflare Workers at global scale 🌎</p>
+<p>Types of workers</p>
+<ul><li>Web Workers <ul><li>most common, general purpose, execute tasks off main thread</li></ul></li>
+<li>Worklets<ul><li>very lightweight, access to low-level render processes</li></ul></li>
+<li>Service Workers<ul><li>proxy between client and network / cache</li>
+<li>may intercept HTTP requests entirely</li></ul></li>
+<li>Cloudflare Workers<ul><li>works similarly as Service Workers, as a proxy between client and network / cache</li>
+<li>difference is its physical location</li></ul></li></ul>
+<p>Workers KV</p>
+<ul><li>key value store</li>
+<li>available in every network location</li>
+<li>extra persistent layer the worker can write into and read from anywhere</li></ul>
+<p>Worker Sites</p>
+<ul><li>upload the built assets into Workers KV<ul><li>filepath as key, file content as value</li></ul></li>
+<li>handle request by <ul><li>serve from cache</li>
+<li>cache miss, respond with content in Workers KV</li></ul></li></ul>
+<p>To build a svelte app for Cloudflare, make sure</p>
+<ul><li><code>hydrate: true</code>, so it hydrates on the browser</li>
+<li>no assumptions on being within the browser context</li>
+<li>build the site twice<ul><li>1 for the DOM output, 1 for SSR output</li>
+<li><code>generate: &#39;dom&#39; | &#39;ssr&#39;</code></li></ul></li></ul>
+<p><a href="https://github.com/lukeed/svelte-ssr-worker" rel="nofollow">Demo code</a></p>
+<p>Tools</p>
+<ul><li><a href="https://developers.cloudflare.com/workers/cli-wrangler" rel="nofollow">https://developers.cloudflare.com/workers/cli-wrangler</a></li>
+<li><a href="https://github.com/lukeed/cfw" rel="nofollow">https://github.com/lukeed/cfw</a></li>
+<li><a href="https://github.com/lukeed/freshie" rel="nofollow">https://github.com/lukeed/freshie</a></li></ul>
+<p><a href="https://github.com/lukeed/cfw" rel="nofollow">cfw</a>
+Suite of utilities for building and deploying Cloudflare Workers</p>
+<p><a href="https://github.com/lukeed/freshie" rel="nofollow">freshie</a></p>
+<p>CLI to build universal applications, supporting different backends (Node.js, Cloudflare Workers) X different frontends (Svelte, Vue, Preact)</p></section>
+<section><h2><a href="#svelte-la-mode" id="svelte-la-mode">7️⃣ Svelte à la Mode</a></h2>
+<p>A fun, cheeky talk by <a href="https://twitter.com/ronvoluted" rel="nofollow">@ronvoluted</a>, where he draws comparison of web + svelte to Pie à la Mode</p>
+<p>The pie 🥧, represent the web, the juicy things you can do with the web, it&#39;s a wondrous platform and it&#39;s prevalent. 🤤</p>
+<p>Svelte helps us embracing these qualities by sweetening the deal. That&#39;s the ice cream on top. 🍨</p>
+<p>@ronvoluted reminded us how easy to create a @sveltejs app</p>
+<ul><li>1️⃣ copy HTML markup from source elements panel of a website you like</li>
+<li>2️⃣ paste it in svelte.dev/repl</li>
+<li>3️⃣ copy + paste in the styles from the styles panel</li>
+<li>4️⃣ add <code>&lt;script&gt;</code> tag to sprinkle some logic</li></ul>
+<p>Resources to check what&#39;s available in the web platform</p>
+<ul><li>🔗 <a href="https://developer.mozilla.org/en-US/docs/Web/API" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/API</a></li>
+<li>🔗 <a href="http://developers.google.com/web/updates" rel="nofollow">http://developers.google.com/web/updates</a></li>
+<li>🔗 <a href="https://whatwebcando.today/" rel="nofollow">https://whatwebcando.today/</a></li></ul>
+<p>Check out these cool cats who made the web interactions that were showcased:</p>
+<ul><li>A Century of Surface Temperature Anomalies by Aodhan Sweeney <a href="http://students.washington.edu/aodhan/webgl_globe.html" rel="nofollow">http://students.washington.edu/aodhan/webgl_globe.html</a></li>
+<li>Dr Who Dalek ring modulator by @BBCRD <a href="https://webaudio.prototyping.bbc.co.uk" rel="nofollow">https://webaudio.prototyping.bbc.co.uk</a></li>
+<li>Creepy Mouth SVG by @shepazu <a href="http://svg-whiz.com/svg/linguistics/theCreepyMouth.svg" rel="nofollow">http://svg-whiz.com/svg/linguistics/theCreepyMouth.svg</a></li></ul>
+<p>Behind the scenes of his floating head in the talk Rolling on the floor laughing</p>
+<p><a href="https://twitter.com/SvelteSociety/status/1318196128769134592?s=20" rel="nofollow">https://twitter.com/SvelteSociety/status/1318196128769134592?s=20</a></p></section>
+<section><h2><a href="#introduction-to-svite" id="introduction-to-svite">8️⃣ Introduction to Svite</a></h2>
+<p>Dominik G introduce us to Svite, a Svelte integration for vite.</p>
+<p>He walked us through the 3 basic commands of svite</p>
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># create a new svite project from template</span>
+svite create hello-submit
+
+<span class="token comment"># start the dev server</span>
+svite dev
+
+<span class="token comment"># build for production</span>
+svite build</code></pre>
+<p>Svite supports hot-module reloading, and this is how fast it is</p>
+<p><img title="null" alt="svite hmr" data-src="31d9f3dce60ad133.gif" loading="lazy"></p>
+<p>🛣 Roadmap</p>
+<ul><li>prerender HTML after build</li>
+<li>improved typescript support</li>
+<li>template for library development</li>
+<li>website and more documentation</li>
+<li>or your next great idea</li></ul>
+<p>🔗 <a href="https://github.com/dominikg/svite" rel="nofollow">https://github.com/dominikg/svite</a></p></section>
+<section><h2><a href="#svelte-animations" id="svelte-animations">9️⃣ Svelte Animations</a></h2>
+<p><a href="https://twitter.com/mark_volkmann" rel="nofollow">@mark_volkmann</a> talked about transitions in svelte</p>
+<p>2 kinds of animations</p>
+<ul><li>1️⃣ when an element is added or removed <ul><li>eg: fade in when added, slide out when removed</li></ul></li>
+<li>2️⃣ when a value changes<ul><li>eg: gradually change from current value to new value</li></ul></li></ul>
+<p>Easing functions</p>
+<ul><li>animations can proceed at varying rates over duration</li>
+<li>Ease visualiser <a href="https://svelte.dev/examples#easing" rel="nofollow">https://svelte.dev/examples#easing</a></li>
+<li>easing names end with <code>In</code>, <code>Out</code>, <code>InOut</code><ul><li><code>In</code> affects the beginning of a transition</li>
+<li><code>Out</code> affects the beginning of a transition</li>
+<li><code>InOut</code> affects the beginning and ending of a transition</li></ul></li></ul>
+<p>animate:flip</p>
+<ul><li>moves element in an <code>{#each}</code> block to the target location when it changes</li>
+<li>like other transitions, accept custom <code>delay</code>, <code>duration</code>, <code>easing</code></li></ul>
+<p><img title="null" alt="flip" data-src="17c1d118d0a12e79.gif" loading="lazy"></p>
+<p><a href="https://svelte.dev/repl/b4cceba5e8a14e379e1b07f47b792eef?version=3.26.0" rel="nofollow">https://svelte.dev/repl/b4cceba5e8a14e379e1b07f47b792eef?version=3.26.0</a></p>
+<p><code>svelte/motion</code></p>
+<ul><li><code>spring</code> and <code>tweened</code> allow you to create writable stores whose values animate from old to new values</li></ul>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> spring<span class="token punctuation">,</span> tweened <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'svelte/motion'</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> percent <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> tweenedStore <span class="token operator">=</span> <span class="token function">tweened</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>duration<span class="token punctuation">:</span> <span class="token number">1000</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> springStore <span class="token operator">=</span> <span class="token function">spring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>stiffness<span class="token punctuation">:</span> <span class="token number">0.3</span><span class="token punctuation">,</span> damping<span class="token punctuation">:</span> <span class="token number">0.3</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  $<span class="token punctuation">:</span> tweenedValue<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>percent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  $<span class="token punctuation">:</span> springValue<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>percent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">min=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span></span> <span class="token attr-name">max=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token number">100</span><span class="token punctuation">&#125;</span></span> <span class="token attr-name"><span class="token namespace">bind:</span>value=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>percent<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>$tweenedStore<span class="token punctuation">&#125;</span></span> <span class="token language-javascript"><span class="token punctuation">&#123;</span>$springStore<span class="token punctuation">&#125;</span></span></code></pre>
+<p><img title="null" alt="tweened" data-src="4872d6162e49daf5.gif" loading="lazy"></p>
+<p><a href="https://svelte.dev/repl/2625cd905ee24bc0ba462ea6ab61284f?version=3.26.0" rel="nofollow">https://svelte.dev/repl/2625cd905ee24bc0ba462ea6ab61284f?version=3.26.0</a></p>
+<ul><li>custom interpolation function</li></ul>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+	<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>tweened<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'svelte/motion'</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">function</span> <span class="token function">rgbInterpolate</span><span class="token punctuation">(</span><span class="token parameter">fromColor<span class="token punctuation">,</span> toColor</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span>
+		<span class="token keyword">return</span> <span class="token parameter">t</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// ...</span>
+			<span class="token keyword">return</span> <span class="token function">calculateColr</span><span class="token punctuation">(</span>fromColor<span class="token punctuation">,</span> toColor<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">const</span> color <span class="token operator">=</span> <span class="token function">tweened</span><span class="token punctuation">(</span><span class="token string">'#ff0000'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>duration<span class="token punctuation">:</span> <span class="token number">1000</span><span class="token punctuation">,</span> interpolate<span class="token punctuation">:</span> rgbInterpolate<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name"><span class="token namespace">style="color:</span></span> <span class="token attr-name">#</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>$color<span class="token punctuation">&#125;</span></span><span class="token attr-name">"</span><span class="token punctuation">></span></span>Tweened Color: <span class="token language-javascript"><span class="token punctuation">&#123;</span>$color<span class="token punctuation">&#125;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></code></pre>
+<p><a href="https://svelte.dev/repl/073c71dbdd9c4250b2ad5c9343e2e053?version=3.26.0" rel="nofollow">https://svelte.dev/repl/073c71dbdd9c4250b2ad5c9343e2e053?version=3.26.0</a></p>
+<p>transitions</p>
+<ul><li><code>blur</code>, <code>draw</code>, <code>fade</code>, <code>fly</code>, <code>scale</code>, <code>slide</code>, <code>crossfade</code></li>
+<li>using directives, <code>in:</code>, <code>out:</code>, <code>transition:</code></li>
+<li>apply to HTML element</li></ul>
+<p><img title="null" alt="transitions" data-src="18a984f07300b1dc.gif" loading="lazy"></p>
+<p><code>transition:draw</code></p>
+<ul><li>for SVG <code>path</code> element</li></ul>
+<p><img title="null" alt="draw" data-src="7389e6a539dfb96f.gif" loading="lazy"></p>
+<p><a href="https://svelte.dev/repl/149a5c35040343daa9477e0d54412398?version=3.26.0" rel="nofollow">https://svelte.dev/repl/149a5c35040343daa9477e0d54412398?version=3.26.0</a></p>
+<p><code>crossfade</code> transition</p>
+<ul><li>creates <code>send</code> and <code>receive</code> transitions, used to coordinate movement of an element from one parent to another</li></ul>
+<p><img title="null" alt="transition crossfade" data-src="64f5d9a1141a72a3.gif" loading="lazy">
+<a href="https://svelte.dev/repl/5fc4b5dd5dec49d2be3fa160693372ce?version=3.26.0" rel="nofollow">https://svelte.dev/repl/5fc4b5dd5dec49d2be3fa160693372ce?version=3.26.0</a></p>
+<p>Custom transitions</p>
+<ul><li>a function that follows a few basic rules</li>
+<li>take 2 arguments, the DOM node and the options</li>
+<li>return an object whose properties include<ul><li>transition options</li>
+<li>css method, which passed a time value between 0 and 1, and must return a string containing CSS properties to be applied to the DOM node for the time value</li></ul></li>
+<li><a href="https://svelte.dev/repl/082e308f9fe44bcb98621dab346c2e85?version=3.26.0" rel="nofollow">https://svelte.dev/repl/082e308f9fe44bcb98621dab346c2e85?version=3.26.0</a></li></ul>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+	<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>backInOut<span class="token punctuation">,</span> linear<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'svelte/easing'</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">function</span> <span class="token function">spin</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">const</span> <span class="token punctuation">&#123;</span>easing<span class="token punctuation">,</span> times <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">&#125;</span> <span class="token operator">=</span> options<span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+			<span class="token comment">// The value of t passed to the css method</span>
+			<span class="token comment">// varies between zero and one during an "in" transition</span>
+			<span class="token comment">// and between one and zero during an "out" transition.</span>
+			<span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">const</span> degrees <span class="token operator">=</span> <span class="token number">360</span> <span class="token operator">*</span> times<span class="token punctuation">;</span> <span class="token comment">// through which to spin</span>
+				<span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">transform: scale(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>t<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">) rotate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>t <span class="token operator">*</span> degrees<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">deg);</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"center"</span> transition<span class="token punctuation">:</span>spin<span class="token operator">=</span><span class="token punctuation">&#123;</span>options<span class="token punctuation">&#125;</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"content"</span><span class="token operator">></span>Take me <span class="token keyword">for</span> a spin<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
+<p>Transition events</p>
+<ul><li><code>introstart</code> when an &quot;in&quot; transition begins</li>
+<li><code>introend</code> when an &quot;in&quot; transition ends</li>
+<li><code>outrostart</code> when an &quot;out&quot; transition begins</li>
+<li><code>outroend</code> when an &quot;out&quot; transition ends</li></ul>
+<p>Resources</p>
+<ul><li>Slides <a href="https://github.com/mvolkmann/talks/blob/master/svelte-animations.key.pdf" rel="nofollow">https://github.com/mvolkmann/talks/blob/master/svelte-animations.key.pdf</a></li>
+<li>Mark Volkmann&#39;s book, Svelte and Sapper in Action <a href="https://www.manning.com/books/svelte-and-sapper-in-action" rel="nofollow">https://www.manning.com/books/svelte-and-sapper-in-action</a></li></ul></section></article>
+</main><script src="./bdb2593f.js" async></script></div>
+  
+
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
+</body>
+
+</html>
