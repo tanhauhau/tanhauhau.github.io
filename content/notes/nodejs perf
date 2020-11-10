@@ -1,0 +1,20 @@
+
+--allow-read=/tmp        # file system read access to /tmp
+--allow-write            # global fs write access
+--allow-net=google.com   # only network to google.com
+--allow-env              # allow env variable access
+
+
+https://clinicjs.org/doctor/
+
+what are we optimise for?
+- throughput
+- memory
+- latency
+
+logs - metrics - traces
+
+performance != scalability
+
+book "the art of scalability"
+- "scale cube"

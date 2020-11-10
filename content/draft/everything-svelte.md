@@ -11,3 +11,21 @@ Router
 
 vs other frameworks:
 - solid https://github.com/sveltejs/svelte/issues/3898
+
+https://pattern.monster/
+
+---
+
+- scoping
+- context
+- 
+
+if (process.env.BROWSER) {
+  import('sentry').then(() => {})
+}
+
+vs
+
+import 'sentry'; `package.json` multiple main entry point
+
+$$BROWSER / $$SERVER

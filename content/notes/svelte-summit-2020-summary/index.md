@@ -477,3 +477,98 @@ Transition events
 Resources
 - Slides https://github.com/mvolkmann/talks/blob/master/svelte-animations.key.pdf
 - Mark Volkmann's book, Svelte and Sapper in Action https://www.manning.com/books/svelte-and-sapper-in-action
+
+## 1️⃣0️⃣ How to build a cat-themed streaming service with Svelte
+
+[@annietaylorchen](https://twitter.com/annietaylorchen) walked us through how cats build a purr-fect streaming service site with pawscript and Svelte.
+
+Check out these meowflix originals! https://meowflix.annietaylorchen.com/
+
+Some of the plus points using Svelte
+- Reusable components
+- Easy syntax
+- Svelte store manage state easily
+- Simple animations
+
+## 1️⃣1️⃣ REPLicant
+
+power of REPL as a playground
+- lower entry barrier for trying out
+- quickly prototype
+
+There are 3 main components in the code playground
+
+1. main window - where interacts with the code editor
+2. worker thread - for building the code
+3. iframe window - where the result of the code is shown
+
+Here's a high-level overview of how the REPL works
+
+- 1️⃣ (main window) provides a textarea for user to code
+- 2️⃣ (main window) when the code changes, send the code to worker thread via worker.postMessage
+- 3️⃣ (worker thread) receives the message and compiles it
+- 4️⃣ (worker thread) uses the browser version of rollup
+- 5️⃣ (worker thread) custom rollup plugin that hooks into
+  - resolveId - to resolve svelte files from CDN or files from memory
+  - load - to load file content from CDN or in memory
+  - transform - to compile svelte files
+- 6️⃣ (worker thread) when bundling finished, post result back to the main window
+- 7️⃣ (main window) create an iframe to view the output
+- 8️⃣ (main window) postMessage to send the bundled code into iframe
+- 9️⃣ (iframe) receives the bundled code, use `ObjectURL` to create an data-encoded URL and import() it
+- 1️⃣0️⃣ (iframe) mount the imported module as Svelte component
+
+🔗 Check out the code https://github.com/pngwn/REPLicant
+
+
+svelte actions are functions that are executed when an element is mounted
+allow us to share logic across different dom elements
+- reuse non-visual logic
+- extend existing logic
+- library authroing
+
+- autofocus
+  - node.focus
+  - visibility-change event listener to refocus on coming back
+  - https://svelte.dev/repl/8b7d235f5d8d4042943c576107db12a9?version=3.29.0
+- custom step
+  - https://svelte.dev/repl/42c9753e490d455793376947736abd7f?version=3.29.0
+- dynamically update css
+  - https://svelte.dev/repl/ddffbe09e1b94ab990ed3fc61294d96d?version=3.29.0
+- custom flip action
+  - beforeUpdate, afterUpdate
+  - https://svelte.dev/repl/fc3332d390ff4bbda09ce6836733acd5?version=3.29.0
+
+[@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
+- https://www.amazon.com/Svelte-Up-Running-practical-production-ready-ebook/dp/B08D6T6BKS
+- https://withblue.ink/
+
+in memory route, can't share the link
+- cannot go back with browser back button
+- cannot refresh
+- cannot open in new tab
+- cannot share the link with someone else
+
+```svelte
+{#if $view == 'list'}
+  <Books />
+  <span on:click={() => { $view = 'book' }}>Link</span>
+{:else if $view == 'book'}
+  <Book />
+{/if}
+```
+
+Multi-page apps
+- file system does the routing
+- 1 HTML file per route
+
+2 kinds of client-side routing
+- HTML5 History API
+  - history.pushState
+  - introduced with HTML5
+  - clean URLs `foo.com/page/2`
+  - search-engine friendly
+- Hash based routing
+  - based on URL fragments
+  - fragments in URL: `foo.com/index.html#/page/2`
+  - not good for SEO
