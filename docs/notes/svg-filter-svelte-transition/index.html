@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://twitter.com/lihautan" rel="me" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#bd93f9" />
+  <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Note: SVG filter Svelte Transition | Tan Li Hau</title><link href="https://lihautan.com/notes/svg-filter-svelte-transition/assets/blog-base-3554d53c.css" rel="stylesheet" data-svelte="svelte-179iwio"><meta name="image" data-svelte="svelte-179iwio"><meta name="og:image" data-svelte="svelte-179iwio"><meta name="og:title" content="svg-filter-svelte-transition" data-svelte="svelte-179iwio"><meta name="og:type" content="website" data-svelte="svelte-179iwio"><meta name="keywords" content="svelte" data-svelte="svelte-179iwio"><meta name="keywords" content="transition" data-svelte="svelte-179iwio"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-179iwio"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-179iwio"><meta name="twitter:title" content="SVG filter Svelte Transition" data-svelte="svelte-179iwio"><meta name="twitter:image" data-svelte="svelte-179iwio"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fsvg-filter-svelte-transition" data-svelte="svelte-179iwio"><link as="script" rel="preload" href="./953cd993.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./953cd993.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./953cd993.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-186dllz">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-186dllz"><h1>SVG filter Svelte Transition</h1>
+  
+  <span class="svelte-186dllz">svelte</span><span class="svelte-186dllz">transition</span>
+
+  <article class="svelte-186dllz"><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#the-result">The Result</a></li><li><a href="#break-it-down">Break it down</a></li></ul></section>
+<section><h2><a href="#the-result" id="the-result">The Result</a></h2>
+<p><img title="null" alt="the-result" data-src="8424066ea7863d6b.gif" loading="lazy"></p></section>
+<section><h2><a href="#break-it-down" id="break-it-down">Break it down</a></h2>
+<p>I&#39;m using a combination of SVG filters <code>&lt;feTurbulence&gt;</code>, <code>&lt;feDisplacementMap&gt;</code> to achieve this effect.</p>
+<p><a href="https://svelte.dev/repl/fc2c47f30912496eb0b4fe2776345462?version=3.29.4" rel="nofollow">Svelte REPL</a></p>
+<p><img title="null" alt="feTurbulence" data-src="8a5f5d3058085fdd.gif" loading="lazy"></p>
+<p>To use this SVG filter, I first created a Svelte component for the filter.</p>
+<p>The idea is to add this render this filter whenever I want to transition, and update the scale and frequency during the transition</p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">export</span> <span class="token keyword">let</span> baseFrequency <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token keyword">let</span> scale <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token keyword">let</span> id<span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token language-javascript"><span class="token punctuation">&#123;</span>id<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feTurbulence</span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token attr-name">numOctaves</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span>
+      <span class="token language-javascript"><span class="token punctuation">&#123;</span>baseFrequency<span class="token punctuation">&#125;</span></span>
+      <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feDisplacementMap</span>
+      <span class="token attr-name">in2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceGraphic<span class="token punctuation">"</span></span>
+      <span class="token attr-name">xChannelSelector</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>R<span class="token punctuation">"</span></span> <span class="token attr-name">yChannelSelector</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>G<span class="token punctuation">"</span></span>
+      <span class="token language-javascript"><span class="token punctuation">&#123;</span>scale<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre>
+<p>As I&#39;m going to have multiple instance of the SvgFilter, and I don&#39;t want the filter id to be conflict with each other, I generated the <code>id</code> everytime there&#39;s a new instance of <code>SvgFilter</code></p>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">context</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">let</span> _idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// ...</span>
+  <span class="token keyword">export</span> <span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">wave-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>_idx<span class="token operator">++</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>I created the <code>SvgFilter</code> component as the transition starts and remove it as the transition ends</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> SvgFilter <span class="token keyword">from</span> <span class="token string">'./SvgFilter.svelte'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">wavy</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> svgFilter<span class="token punctuation">;</span>
+  		
+  node<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'introstart'</span><span class="token punctuation">,</span> createIntro<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// create SvgFilter</span>
+  <span class="token keyword">function</span> <span class="token function">createIntro</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    svgFilter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SvgFilter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> target<span class="token punctuation">:</span> document<span class="token punctuation">.</span>body <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    node<span class="token punctuation">.</span>style<span class="token punctuation">.</span>filter <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">url(#</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>svgFilter<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">)</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+    node<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'introstart'</span><span class="token punctuation">,</span> createIntro<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    node<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'introend'</span><span class="token punctuation">,</span> cleanup<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">cleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    svgFilter<span class="token punctuation">.</span><span class="token function">$destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    node<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'introend'</span><span class="token punctuation">,</span> cleanup<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>And as the transition ticks by, I set the <code>scale</code> of the SVG filter based on the time, <code>t</code></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">wavy</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> svgFilter<span class="token punctuation">;</span>
+
+  <span class="token comment">// ...</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token operator">...</span>params<span class="token punctuation">,</span>
+    <span class="token function">tick</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// t     0   -> 1</span>
+      <span class="token comment">// scale 100 -> 0</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>svgFilter<span class="token punctuation">)</span> 
+        svgFilter<span class="token punctuation">.</span>$<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+          scale<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> t<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span>
+          baseFrequency<span class="token punctuation">:</span> <span class="token number">0.55</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>Add some fade out using the opacity</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">wavy</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> svgFilter<span class="token punctuation">;</span>
+
+  <span class="token comment">// ...</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token operator">...</span>params<span class="token punctuation">,</span>
+    <span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// only fade out in the last quarter of the time</span>
+      <span class="token comment">// t       1 -> 0.25 -> 0</span>
+      <span class="token comment">// opactiy 1 -> 1    -> 0</span>
+      <span class="token keyword">return</span> t <span class="token operator">&lt;</span> <span class="token number">0.25</span> <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">opacity: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>t <span class="token operator">*</span> <span class="token number">4</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span> <span class="token punctuation">:</span> <span class="token string">'opacity: 1'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">tick</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// t     0   -> 1</span>
+      <span class="token comment">// scale 100 -> 0</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>svgFilter<span class="token punctuation">)</span> 
+        svgFilter<span class="token punctuation">.</span>$<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+          scale<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> t<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span>
+          baseFrequency<span class="token punctuation">:</span> <span class="token number">0.55</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><a href="https://svelte.dev/repl/2f3f9b62e1454f2d94729fe242375d43?version=3.29.4" rel="nofollow">Final REPL</a></p></section></article>
+</main><script src="./953cd993.js" async></script></div>
+  
+
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
+</body>
+
+</html>

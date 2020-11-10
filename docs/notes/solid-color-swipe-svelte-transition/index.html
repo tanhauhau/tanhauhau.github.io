@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://twitter.com/lihautan" rel="me" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#bd93f9" />
+  <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+  <link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 19px;
+      background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --prism-padding: 20px;
+      --margin: 1.62em;
+      --box-shadow-size: 6px;
+      --box-shadow: var(--box-shadow-size) var(--box-shadow-size) var(--primary-color);
+      --box-shadow-hover: 10px 10px var(--primary-color);
+      --easing: 200ms ease-in-out;
+      --primary-color: #bd93f9;
+      --secondary-color: #9547b7;
+      --dark-color: #282936;
+    }
+  </style>
+
+  
+  <title>Note: Solid color swipe Svelte Transition | Tan Li Hau</title><link href="https://lihautan.com/notes/solid-color-swipe-svelte-transition/assets/blog-base-3554d53c.css" rel="stylesheet" data-svelte="svelte-179iwio"><meta name="image" data-svelte="svelte-179iwio"><meta name="og:image" data-svelte="svelte-179iwio"><meta name="og:title" content="solid-color-swipe-svelte-transition" data-svelte="svelte-179iwio"><meta name="og:type" content="website" data-svelte="svelte-179iwio"><meta name="keywords" content="svelte" data-svelte="svelte-179iwio"><meta name="keywords" content="transition" data-svelte="svelte-179iwio"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-179iwio"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-179iwio"><meta name="twitter:title" content="Solid color swipe Svelte Transition" data-svelte="svelte-179iwio"><meta name="twitter:image" data-svelte="svelte-179iwio"><meta itemprop="url" content="https%3A%2F%2Flihautan.com%2Fnotes%2Fsolid-color-swipe-svelte-transition" data-svelte="svelte-179iwio"><link as="script" rel="preload" href="./ca1f35da.js"><link as="style" rel="preload" href="./assets/blog-base-3554d53c.css"><link as="style" rel="preload" href="./ca1f35da.css"><link href="./assets/blog-base-3554d53c.css" rel="stylesheet"><link href="./ca1f35da.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+<a href="#content" class="skip svelte-186dllz">Skip to content</a>
+<header class="svelte-f3e4uo"><nav><ul class="svelte-f3e4uo"><li class="svelte-f3e4uo"><a href="/" class="svelte-f3e4uo">Tan Li Hau</a></li>
+    <li class="svelte-f3e4uo"><a href="/about" class="svelte-f3e4uo">About</a></li>
+    <li class="svelte-f3e4uo"><a href="/blogs" class="svelte-f3e4uo">Writings</a></li>
+    <li class="svelte-f3e4uo"><a href="/talks" class="svelte-f3e4uo">Talks</a></li>
+    <li class="svelte-f3e4uo"><a href="/notes" class="svelte-f3e4uo">Notes</a></li>
+    <li class="svelte-f3e4uo"><a href="/newsletter" class="svelte-f3e4uo">Newsletter</a></li>
+    <li class="social svelte-f3e4uo"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+    10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+    4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+      <a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-f3e4uo"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-f3e4uo"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+    0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+    5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+    5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+    3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav>
+</header>
+
+<main id="content" class="blog svelte-186dllz"><h1>Solid color swipe Svelte Transition</h1>
+  
+  <span class="svelte-186dllz">svelte</span><span class="svelte-186dllz">transition</span>
+
+  <article class="svelte-186dllz"><section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents"><li><a href="#the-result">The Result</a></li><li><a href="#break-it-down-slowly">Break it down slowly</a></li><ul><li><a href="#the-first-thing-is-to-figure-out-the-color-of-the-text">1. The first thing is to figure out the color of the text</a></li><li><a href="#i-tried-using-linear-gradient-to-draw-the-background">2. I tried using linear-gradient to draw the background</a></li><li><a href="#next-i-need-to-hide-reveal-the-text-at-the-right-time">3. Next I need to hide / reveal the text at the right time</a></li><li><a href="#combining-the-both-and-together">4. Combining the both 2. and 3. together</a></li><li><a href="#final-touches-pass-the-duration-delay-and-easing-into-the-returned-object">5. final touches, pass the  duration ,  delay , and  easing  into the returned object</a></li></ul><li><a href="#final-code">Final code</a></li><li><a href="#extra">Extra</a></li></ul></section>
+<section><h2><a href="#the-result" id="the-result">The Result</a></h2>
+<p><img title="null" alt="the-result" data-src="12a1bacee0437b49.gif" loading="lazy"></p></section>
+<section><h2><a href="#break-it-down-slowly" id="break-it-down-slowly">Break it down slowly</a></h2>
+<p><img title="null" alt="breakdown" data-src="2203d1fe5c6300b3.gif" loading="lazy"></p>
+<p>The transition can be broken down into 2 halves:</p>
+<ul><li>1️⃣ a solid color growing from the left covering the whole text area</li>
+<li>2️⃣ as the solid color shrinks, it reveals the text</li></ul></section>
+<section><h3><a href="#the-first-thing-is-to-figure-out-the-color-of-the-text" id="the-first-thing-is-to-figure-out-the-color-of-the-text">1. The first thing is to figure out the color of the text</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">swipeColor</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> color <span class="token punctuation">&#125;</span> <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h3><a href="#i-tried-using-linear-gradient-to-draw-the-background" id="i-tried-using-linear-gradient-to-draw-the-background">2. I tried using linear-gradient to draw the background</a></h3>
+<ul><li>I use the value of <code>t</code> to determine how wide the solid color should be</li></ul>
+<pre class="language-js"><code class="language-js"><span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">></span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// transform t from range [0.5, 1] into percentage [0, 100]</span>
+    <span class="token comment">// t: 0.5 -> 1</span>
+    <span class="token comment">// u: 0 -> 0.5</span>
+    <span class="token keyword">const</span> u <span class="token operator">=</span> t <span class="token operator">-</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+    <span class="token comment">// percentage: 0 -> 100</span>
+    <span class="token keyword">const</span> percentage <span class="token operator">=</span> u <span class="token operator">*</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">background: linear-gradient(to right, transparent 0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%);</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// transform t from range [0, 0.5] into percentage [0, 100]</span>
+    <span class="token comment">// t: 0 -> 0.5</span>
+    <span class="token comment">// percentage: 0 -> 100</span>
+    <span class="token keyword">const</span> percentage <span class="token operator">=</span> t <span class="token operator">*</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">background: linear-gradient(to right, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> 0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%, transparent </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%);</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
+<p><img title="null" alt="breakdown 2" data-src="68ccb6b19e3a26d8.gif" loading="lazy"></p></section>
+<section><h3><a href="#next-i-need-to-hide-reveal-the-text-at-the-right-time" id="next-i-need-to-hide-reveal-the-text-at-the-right-time">3. Next I need to hide / reveal the text at the right time</a></h3>
+<ul><li>I hid the text by setting the text color to transparent</li></ul>
+<pre class="language-js"><code class="language-js"><span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">></span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">color: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">color: transparent</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><img title="null" alt="breakdown 3" data-src="d6a282e8ff5d67b0.gif" loading="lazy"></p></section>
+<section><h3><a href="#combining-the-both-and-together" id="combining-the-both-and-together">4. Combining the both 2. and 3. together</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">></span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// transform t from range [0.5, 1] into percentage [0, 100]</span>
+    <span class="token comment">// t: 0.5 -> 1</span>
+    <span class="token comment">// u: 0 -> 0.5</span>
+    <span class="token keyword">const</span> u <span class="token operator">=</span> t <span class="token operator">-</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+    <span class="token comment">// percentage: 0 -> 100</span>
+    <span class="token keyword">const</span> percentage <span class="token operator">=</span> u <span class="token operator">*</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+      background: linear-gradient(to right, transparent 0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%);
+      color: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;
+    </span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// transform t from range [0, 0.5] into percentage [0, 100]</span>
+    <span class="token comment">// t: 0 -> 0.5</span>
+    <span class="token comment">// percentage: 0 -> 100</span>
+    <span class="token keyword">const</span> percentage <span class="token operator">=</span> t <span class="token operator">*</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+      background: linear-gradient(to right, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> 0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%, transparent </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%);
+      color: transparent;
+    </span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre></section>
+<section><h3><a href="#final-touches-pass-the-duration-delay-and-easing-into-the-returned-object" id="final-touches-pass-the-duration-delay-and-easing-into-the-returned-object">5. final touches, pass the <code>duration</code>, <code>delay</code>, and <code>easing</code> into the returned object</a></h3>
+<pre class="language-svelte"><code class="language-svelte"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">function</span> <span class="token function">swipeColor</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> duration<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> easing <span class="token punctuation">&#125;</span> <span class="token operator">=</span> params <span class="token operator">||</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      duration<span class="token punctuation">,</span>
+      delay<span class="token punctuation">,</span>
+      easing<span class="token punctuation">,</span>
+      <span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/* ... */</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> show<span class="token punctuation">&#125;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">transition:</span>swipeColor</span><span class="token punctuation">></span></span>Hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">transition:</span>swipeColor=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> delay<span class="token punctuation">:</span> <span class="token number">300</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>Hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span></code></pre></section>
+<section><h2><a href="#final-code" id="final-code">Final code</a></h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">swipeColor</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> duration<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> easing <span class="token punctuation">&#125;</span> <span class="token operator">=</span> params <span class="token operator">||</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> color <span class="token punctuation">&#125;</span> <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    duration<span class="token punctuation">,</span>
+    delay<span class="token punctuation">,</span>
+    easing<span class="token punctuation">,</span>
+    <span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">></span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// transform t from range [0.5, 1] into percentage [0, 100]</span>
+        <span class="token comment">// t: 0.5 -> 1</span>
+        <span class="token comment">// u: 0 -> 0.5</span>
+        <span class="token keyword">const</span> u <span class="token operator">=</span> t <span class="token operator">-</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+        <span class="token comment">// percentage: 0 -> 100</span>
+        <span class="token keyword">const</span> percentage <span class="token operator">=</span> u <span class="token operator">*</span> <span class="token number">200</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+          background: linear-gradient(to right, transparent 0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%);
+          color: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;
+        </span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// transform t from range [0, 0.5] into percentage [0, 100]</span>
+        <span class="token comment">// t: 0 -> 0.5</span>
+        <span class="token comment">// percentage: 0 -> 100</span>
+        <span class="token keyword">const</span> percentage <span class="token operator">=</span> t <span class="token operator">*</span> <span class="token number">200</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">
+          background: linear-gradient(to right, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>color<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> 0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%, transparent </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>percentage<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">%);
+          color: transparent;
+        </span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></section>
+<section><h2><a href="#extra" id="extra">Extra</a></h2>
+<p>Svelte has make writing custom transitions simple, with the code above, the transition itself is able to pause / reverse halfway through the transition</p>
+<p><img title="null" alt="reversible" data-src="4f06b1586ebf000c.gif" loading="lazy"></p></section></article>
+</main><script src="./ca1f35da.js" async></script></div>
+  
+
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); }); }</script>
+  <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+  <script>if ('loading' in HTMLImageElement.prototype) { const images = document.querySelectorAll('img[loading="lazy"]'); images.forEach(img => { img.src = img.dataset.src; }); } else { const script = document.createElement('script'); script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js'; document.body.appendChild(script); }</script>
+</body>
+
+</html>
