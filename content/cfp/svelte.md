@@ -114,3 +114,13 @@ It's unbelievably easy to create a cool slick transition in Svelte. Do you ever 
 In this talk, we are going to take a deep dive to look at the transition mechanism, how Svelte coordinates transitions across components, and what make them performant.
 
 At the end of the talk, you will have a deeper appreciation of Svelte transition.
+
+---
+
+# Making an entrance with Svelte Transitions
+
+Transitions are common in user interface. Transitions takes the user from one state to another, giving user a sense of their position or location within the interface.
+
+In this talk, let's take a look how you can use transitions to make your Svelte application pop!
+
+The major key takeaway from this session are, adding transition in Svelte, creating custom transition, and understanding the Svelte transition mechanics
