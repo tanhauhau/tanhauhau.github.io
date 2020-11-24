@@ -416,3 +416,10 @@ console.log('count = ' + count);
 import './a';
 import './b';
 ```
+
+📝 Be careful with circular dependency 🙈
+
+
+### 🔨 Manipulating AST
+📖  [manipulating ast with javascript](https://lihautan.com/manipulating-ast-with-javascript/) (generic)
+📖  [babel plugin handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) (babel)
