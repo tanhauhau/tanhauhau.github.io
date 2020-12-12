@@ -8,14 +8,18 @@
 <svelte:head>
   <meta property="og:title" content="Tan Li Hau">
   <meta property="og:description" content="Frontend Developer at Shopee Singapore.">
-  <meta property="og:image" content={ogImage}>
+  <meta property="og:image" content={'https://lihautan.com/' + ogImage}>
   <meta property="og:url" content="https://lihautan.com">
   <meta property="og:site_name" content="Tan Li Hau">
+  <meta property="og:type" content="profile">
+  <meta property="profile:first_name" content="Li Hau">
+  <meta property="profile:last_name" content="Tan">
+  <meta property="profile:gender" content="male">
   
   <meta name="twitter:title" content="Tan Li Hau">
   <meta name="twitter:description" content="Frontend Developer at Shopee Singapore.">
   <meta name="twitter:site" content="@lihautan">
-  <meta name="twitter:image" content={twitterImage}>
+  <meta name="twitter:image" content={'https://lihautan.com/' + twitterImage}>
   <meta name="twitter:image:alt" content="Tan Li Hau">
   <meta name="twitter:card" content="summary_large_image">
 </svelte:head>

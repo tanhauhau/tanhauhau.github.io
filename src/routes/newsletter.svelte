@@ -1,7 +1,24 @@
 <script>
   import Header from '../layout/Header.svelte';
   import Newsletter from '../layout/Newsletter.svelte';
+  import ogImage from 'file://../../../content/assets/newsletter-og-image.png';
 </script>
+
+<svelte:head>
+  <meta property="og:title" content="Li Hau's Weekly Learning">
+  <meta property="og:description" content="In this weekly newsletter I'm going to share with you what I've learned in this week in the world of web development, with my notes and thoughts.">
+  <meta property="og:image" content={'https://lihautan.com/' + ogImage}>
+  <meta property="og:url" content="https://lihautan.com/newsletter">
+  <meta property="og:site_name" content="Tan Li Hau">
+  <meta property="og:type" content="website">
+  
+  <meta name="twitter:title" content="Li Hau's Weekly Learning">
+  <meta name="twitter:description" content="In this weekly newsletter I'm going to share with you what I've learned in this week in the world of web development, with my notes and thoughts.">
+  <meta name="twitter:site" content="@lihautan">
+  <meta name="twitter:image" content={'https://lihautan.com/' + ogImage}>
+  <meta name="twitter:image:alt" content="Li Hau's Weekly Learning">
+  <meta name="twitter:card" content="summary_large_image">
+</svelte:head>
 
 <Header />
 
