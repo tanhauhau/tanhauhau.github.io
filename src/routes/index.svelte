@@ -1,7 +1,24 @@
 <script>
   import img from 'file://../../../content/assets/profile-pic.png';
+  import ogImage from 'file://../../../content/assets/og-image.jpg';
+  import twitterImage from 'file://../../../content/assets/twitter-card-image.jpg';
   import Links from '../layout/Links.svelte';
 </script>
+
+<svelte:head>
+  <meta property="og:title" content="Tan Li Hau">
+  <meta property="og:description" content="Frontend Developer at Shopee Singapore.">
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:url" content="https://lihautan.com">
+  <meta property="og:site_name" content="Tan Li Hau">
+  
+  <meta name="twitter:title" content="Tan Li Hau">
+  <meta name="twitter:description" content="Frontend Developer at Shopee Singapore.">
+  <meta name="twitter:site" content="@lihautan">
+  <meta name="twitter:image" content={twitterImage}>
+  <meta name="twitter:image:alt" content="Tan Li Hau">
+  <meta name="twitter:card" content="summary_large_image">
+</svelte:head>
 
 <main>
   <div><img src={img} alt="Tan Li Hau" /></div>

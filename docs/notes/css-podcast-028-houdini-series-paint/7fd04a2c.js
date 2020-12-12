@@ -1,4 +1,10 @@
 function noop() { }
+function assign(tar, src) {
+    // @ts-ignore
+    for (const k in src)
+        tar[k] = src[k];
+    return tar;
+}
 function run(fn) {
     return fn();
 }
@@ -13,6 +19,42 @@ function is_function(thing) {
 }
 function safe_not_equal(a, b) {
     return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+}
+function create_slot(definition, ctx, $$scope, fn) {
+    if (definition) {
+        const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+        return definition[0](slot_ctx);
+    }
+}
+function get_slot_context(definition, ctx, $$scope, fn) {
+    return definition[1] && fn
+        ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+        : $$scope.ctx;
+}
+function get_slot_changes(definition, $$scope, dirty, fn) {
+    if (definition[2] && fn) {
+        const lets = definition[2](fn(dirty));
+        if ($$scope.dirty === undefined) {
+            return lets;
+        }
+        if (typeof lets === 'object') {
+            const merged = [];
+            const len = Math.max($$scope.dirty.length, lets.length);
+            for (let i = 0; i < len; i += 1) {
+                merged[i] = $$scope.dirty[i] | lets[i];
+            }
+            return merged;
+        }
+        return $$scope.dirty | lets;
+    }
+    return $$scope.dirty;
+}
+function update_slot(slot, slot_definition, ctx, $$scope, dirty, get_slot_changes_fn, get_slot_context_fn) {
+    const slot_changes = get_slot_changes(slot_definition, $$scope, dirty, get_slot_changes_fn);
+    if (slot_changes) {
+        const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+        slot.p(slot_context, slot_changes);
+    }
 }
 
 function append(target, node) {
@@ -88,6 +130,9 @@ function set_data(text, data) {
     data = '' + data;
     if (text.wholeText !== data)
         text.data = data;
+}
+function query_selector_all(selector, parent = document.body) {
+    return Array.from(parent.querySelectorAll(selector));
 }
 
 let current_component;
@@ -182,84 +227,41 @@ function transition_out(block, local, detach, callback) {
     }
 }
 
-function destroy_block(block, lookup) {
-    block.d(1);
-    lookup.delete(block.key);
-}
-function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block, next, get_context) {
-    let o = old_blocks.length;
-    let n = list.length;
-    let i = o;
-    const old_indexes = {};
-    while (i--)
-        old_indexes[old_blocks[i].key] = i;
-    const new_blocks = [];
-    const new_lookup = new Map();
-    const deltas = new Map();
-    i = n;
+function get_spread_update(levels, updates) {
+    const update = {};
+    const to_null_out = {};
+    const accounted_for = { $$scope: 1 };
+    let i = levels.length;
     while (i--) {
-        const child_ctx = get_context(ctx, list, i);
-        const key = get_key(child_ctx);
-        let block = lookup.get(key);
-        if (!block) {
-            block = create_each_block(key, child_ctx);
-            block.c();
-        }
-        else if (dynamic) {
-            block.p(child_ctx, dirty);
-        }
-        new_lookup.set(key, new_blocks[i] = block);
-        if (key in old_indexes)
-            deltas.set(key, Math.abs(i - old_indexes[key]));
-    }
-    const will_move = new Set();
-    const did_move = new Set();
-    function insert(block) {
-        transition_in(block, 1);
-        block.m(node, next);
-        lookup.set(block.key, block);
-        next = block.first;
-        n--;
-    }
-    while (o && n) {
-        const new_block = new_blocks[n - 1];
-        const old_block = old_blocks[o - 1];
-        const new_key = new_block.key;
-        const old_key = old_block.key;
-        if (new_block === old_block) {
-            // do nothing
-            next = new_block.first;
-            o--;
-            n--;
-        }
-        else if (!new_lookup.has(old_key)) {
-            // remove old block
-            destroy(old_block, lookup);
-            o--;
-        }
-        else if (!lookup.has(new_key) || will_move.has(new_key)) {
-            insert(new_block);
-        }
-        else if (did_move.has(old_key)) {
-            o--;
-        }
-        else if (deltas.get(new_key) > deltas.get(old_key)) {
-            did_move.add(new_key);
-            insert(new_block);
+        const o = levels[i];
+        const n = updates[i];
+        if (n) {
+            for (const key in o) {
+                if (!(key in n))
+                    to_null_out[key] = 1;
+            }
+            for (const key in n) {
+                if (!accounted_for[key]) {
+                    update[key] = n[key];
+                    accounted_for[key] = 1;
+                }
+            }
+            levels[i] = n;
         }
         else {
-            will_move.add(old_key);
-            o--;
+            for (const key in o) {
+                accounted_for[key] = 1;
+            }
         }
     }
-    while (o--) {
-        const old_block = old_blocks[o];
-        if (!new_lookup.has(old_block.key))
-            destroy(old_block, lookup);
+    for (const key in to_null_out) {
+        if (!(key in update))
+            update[key] = undefined;
     }
-    while (n)
-        insert(new_blocks[n - 1]);
-    return new_blocks;
+    return update;
+}
+function get_spread_object(spread_props) {
+    return typeof spread_props === 'object' && spread_props !== null ? spread_props : {};
 }
 function create_component(block) {
     block && block.c();
@@ -667,97 +669,60 @@ class Header extends SvelteComponent {
 	}
 }
 
-/* src/layout/Talks.svelte generated by Svelte v3.24.0 */
+var baseCss = "https://lihautan.com/notes/css-podcast-028-houdini-series-paint/assets/blog-base-3554d53c.css";
 
-function get_each_context_1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i];
-	return child_ctx;
-}
+var image = null;
+
+/* src/layout/note.svelte generated by Svelte v3.24.0 */
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[1] = (list[i].metadata !== undefined ? list[i].metadata : {}).title;
-
-	child_ctx[2] = (list[i].metadata !== undefined ? list[i].metadata : {}).description !== undefined
-	? (list[i].metadata !== undefined ? list[i].metadata : {}).description
-	: "";
-
-	child_ctx[3] = (list[i].metadata !== undefined ? list[i].metadata : {}).tags;
-	child_ctx[4] = list[i].slug;
+	child_ctx[6] = list[i];
 	return child_ctx;
 }
 
-// (16:8) {#if tags}
-function create_if_block(ctx) {
-	let p;
-	let each_value_1 = /*tags*/ ctx[3];
-	let each_blocks = [];
+function get_each_context_1(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[6] = list[i];
+	return child_ctx;
+}
 
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
-	}
+// (25:2) {#each tags as tag}
+function create_each_block_1(ctx) {
+	let meta;
+	let meta_content_value;
 
 	return {
 		c() {
-			p = element("p");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
+			meta = element("meta");
+			this.h();
 		},
 		l(nodes) {
-			p = claim_element(nodes, "P", {});
-			var p_nodes = children(p);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(p_nodes);
-			}
-
-			p_nodes.forEach(detach);
+			meta = claim_element(nodes, "META", { name: true, content: true });
+			this.h();
+		},
+		h() {
+			attr(meta, "name", "keywords");
+			attr(meta, "content", meta_content_value = /*tag*/ ctx[6]);
 		},
 		m(target, anchor) {
-			insert(target, p, anchor);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(p, null);
-			}
+			insert(target, meta, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*data*/ 1) {
-				each_value_1 = /*tags*/ ctx[3];
-				let i;
-
-				for (i = 0; i < each_value_1.length; i += 1) {
-					const child_ctx = get_each_context_1(ctx, each_value_1, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block_1(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(p, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value_1.length;
+			if (dirty & /*tags*/ 4 && meta_content_value !== (meta_content_value = /*tag*/ ctx[6])) {
+				attr(meta, "content", meta_content_value);
 			}
 		},
 		d(detaching) {
-			if (detaching) detach(p);
-			destroy_each(each_blocks, detaching);
+			if (detaching) detach(meta);
 		}
 	};
 }
 
-// (16:21) {#each tags as tag}
-function create_each_block_1(ctx) {
+// (43:2) {#each tags as tag}
+function create_each_block(ctx) {
 	let span;
-	let t_value = /*tag*/ ctx[7] + "";
+	let t_value = /*tag*/ ctx[6] + "";
 	let t;
 
 	return {
@@ -774,14 +739,14 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-17rdosq");
+			attr(span, "class", "svelte-186dllz");
 		},
 		m(target, anchor) {
 			insert(target, span, anchor);
 			append(span, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*data*/ 1 && t_value !== (t_value = /*tag*/ ctx[7] + "")) set_data(t, t_value);
+			if (dirty & /*tags*/ 4 && t_value !== (t_value = /*tag*/ ctx[6] + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(span);
@@ -789,233 +754,416 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (11:2) {#each data as { metadata: { title, description = "", tags }
-function create_each_block(key_1, ctx) {
-	let li;
-	let a;
-	let p0;
-	let t0_value = /*title*/ ctx[1] + "";
-	let t0;
-	let t1;
-	let p1;
-	let t2_value = /*description*/ ctx[2] + "";
-	let t2;
-	let t3;
-	let a_href_value;
-	let t4;
-	let if_block = /*tags*/ ctx[3] && create_if_block(ctx);
-
-	return {
-		key: key_1,
-		first: null,
-		c() {
-			li = element("li");
-			a = element("a");
-			p0 = element("p");
-			t0 = text(t0_value);
-			t1 = space();
-			p1 = element("p");
-			t2 = text(t2_value);
-			t3 = space();
-			if (if_block) if_block.c();
-			t4 = space();
-			this.h();
-		},
-		l(nodes) {
-			li = claim_element(nodes, "LI", { class: true });
-			var li_nodes = children(li);
-			a = claim_element(li_nodes, "A", { href: true, class: true });
-			var a_nodes = children(a);
-			p0 = claim_element(a_nodes, "P", { class: true });
-			var p0_nodes = children(p0);
-			t0 = claim_text(p0_nodes, t0_value);
-			p0_nodes.forEach(detach);
-			t1 = claim_space(a_nodes);
-			p1 = claim_element(a_nodes, "P", {});
-			var p1_nodes = children(p1);
-			t2 = claim_text(p1_nodes, t2_value);
-			p1_nodes.forEach(detach);
-			t3 = claim_space(a_nodes);
-			if (if_block) if_block.l(a_nodes);
-			a_nodes.forEach(detach);
-			t4 = claim_space(li_nodes);
-			li_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(p0, "class", "title svelte-17rdosq");
-			attr(a, "href", a_href_value = "/" + /*slug*/ ctx[4]);
-			attr(a, "class", "svelte-17rdosq");
-			attr(li, "class", "svelte-17rdosq");
-			this.first = li;
-		},
-		m(target, anchor) {
-			insert(target, li, anchor);
-			append(li, a);
-			append(a, p0);
-			append(p0, t0);
-			append(a, t1);
-			append(a, p1);
-			append(p1, t2);
-			append(a, t3);
-			if (if_block) if_block.m(a, null);
-			append(li, t4);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*data*/ 1 && t0_value !== (t0_value = /*title*/ ctx[1] + "")) set_data(t0, t0_value);
-			if (dirty & /*data*/ 1 && t2_value !== (t2_value = /*description*/ ctx[2] + "")) set_data(t2, t2_value);
-
-			if (/*tags*/ ctx[3]) {
-				if (if_block) {
-					if_block.p(ctx, dirty);
-				} else {
-					if_block = create_if_block(ctx);
-					if_block.c();
-					if_block.m(a, null);
-				}
-			} else if (if_block) {
-				if_block.d(1);
-				if_block = null;
-			}
-
-			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = "/" + /*slug*/ ctx[4])) {
-				attr(a, "href", a_href_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(li);
-			if (if_block) if_block.d();
-		}
-	};
-}
-
 function create_fragment$1(ctx) {
-	let header;
+	let title_value;
+	let link;
+	let meta0;
+	let meta1;
+	let meta2;
+	let meta3;
+	let meta4;
+	let meta5;
+	let meta6;
+	let meta7;
+	let meta8;
 	let t0;
+	let a;
+	let t1;
+	let t2;
+	let header;
+	let t3;
 	let main;
 	let h1;
-	let t1;
-	let t2;
-	let ul;
-	let each_blocks = [];
-	let each_1_lookup = new Map();
+	let t4;
+	let t5;
+	let t6;
+	let article;
 	let current;
+	document.title = title_value = "Note: " + /*title*/ ctx[1] + " | Tan Li Hau";
+	let each_value_1 = /*tags*/ ctx[2];
+	let each_blocks_1 = [];
+
+	for (let i = 0; i < each_value_1.length; i += 1) {
+		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+	}
+
 	header = new Header({});
-	let each_value = /*data*/ ctx[0];
-	const get_key = ctx => /*slug*/ ctx[4];
+	let each_value = /*tags*/ ctx[2];
+	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
-		let child_ctx = get_each_context(ctx, each_value, i);
-		let key = get_key(child_ctx);
-		each_1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
+		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
 	}
+
+	const default_slot_template = /*$$slots*/ ctx[4].default;
+	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
 
 	return {
 		c() {
-			create_component(header.$$.fragment);
+			link = element("link");
+			meta0 = element("meta");
+			meta1 = element("meta");
+			meta2 = element("meta");
+			meta3 = element("meta");
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].c();
+			}
+
+			meta4 = element("meta");
+			meta5 = element("meta");
+			meta6 = element("meta");
+			meta7 = element("meta");
+			meta8 = element("meta");
 			t0 = space();
+			a = element("a");
+			t1 = text("Skip to content");
+			t2 = space();
+			create_component(header.$$.fragment);
+			t3 = space();
 			main = element("main");
 			h1 = element("h1");
-			t1 = text("Li Hau's Talks");
-			t2 = space();
-			ul = element("ul");
+			t4 = text(/*title*/ ctx[1]);
+			t5 = space();
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
+			t6 = space();
+			article = element("article");
+			if (default_slot) default_slot.c();
 			this.h();
 		},
 		l(nodes) {
-			claim_component(header.$$.fragment, nodes);
+			const head_nodes = query_selector_all("[data-svelte=\"svelte-179iwio\"]", document.head);
+			link = claim_element(head_nodes, "LINK", { href: true, rel: true });
+			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta3 = claim_element(head_nodes, "META", { name: true, content: true });
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].l(head_nodes);
+			}
+
+			meta4 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta5 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta6 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta7 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta8 = claim_element(head_nodes, "META", { itemprop: true, content: true });
+			head_nodes.forEach(detach);
 			t0 = claim_space(nodes);
-			main = claim_element(nodes, "MAIN", { class: true });
+			a = claim_element(nodes, "A", { href: true, class: true });
+			var a_nodes = children(a);
+			t1 = claim_text(a_nodes, "Skip to content");
+			a_nodes.forEach(detach);
+			t2 = claim_space(nodes);
+			claim_component(header.$$.fragment, nodes);
+			t3 = claim_space(nodes);
+			main = claim_element(nodes, "MAIN", { id: true, class: true });
 			var main_nodes = children(main);
 			h1 = claim_element(main_nodes, "H1", {});
 			var h1_nodes = children(h1);
-			t1 = claim_text(h1_nodes, "Li Hau's Talks");
+			t4 = claim_text(h1_nodes, /*title*/ ctx[1]);
 			h1_nodes.forEach(detach);
-			t2 = claim_space(main_nodes);
-			ul = claim_element(main_nodes, "UL", { class: true });
-			var ul_nodes = children(ul);
+			t5 = claim_space(main_nodes);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(ul_nodes);
+				each_blocks[i].l(main_nodes);
 			}
 
-			ul_nodes.forEach(detach);
+			t6 = claim_space(main_nodes);
+			article = claim_element(main_nodes, "ARTICLE", { class: true });
+			var article_nodes = children(article);
+			if (default_slot) default_slot.l(article_nodes);
+			article_nodes.forEach(detach);
 			main_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(ul, "class", "svelte-17rdosq");
-			attr(main, "class", "blogs svelte-17rdosq");
+			attr(link, "href", baseCss);
+			attr(link, "rel", "stylesheet");
+			attr(meta0, "name", "image");
+			attr(meta0, "content", image);
+			attr(meta1, "name", "og:image");
+			attr(meta1, "content", image);
+			attr(meta2, "name", "og:title");
+			attr(meta2, "content", /*name*/ ctx[0]);
+			attr(meta3, "name", "og:type");
+			attr(meta3, "content", "website");
+			attr(meta4, "name", "twitter:card");
+			attr(meta4, "content", "summary_large_image");
+			attr(meta5, "name", "twitter:creator");
+			attr(meta5, "content", "@lihautan");
+			attr(meta6, "name", "twitter:title");
+			attr(meta6, "content", /*title*/ ctx[1]);
+			attr(meta7, "name", "twitter:image");
+			attr(meta7, "content", image);
+			attr(meta8, "itemprop", "url");
+			attr(meta8, "content", "https%3A%2F%2Flihautan.com%2Fnotes%2Fcss-podcast-028-houdini-series-paint");
+			attr(a, "href", "#content");
+			attr(a, "class", "skip svelte-186dllz");
+			attr(article, "class", "svelte-186dllz");
+			attr(main, "id", "content");
+			attr(main, "class", "blog svelte-186dllz");
 		},
 		m(target, anchor) {
-			mount_component(header, target, anchor);
+			append(document.head, link);
+			append(document.head, meta0);
+			append(document.head, meta1);
+			append(document.head, meta2);
+			append(document.head, meta3);
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].m(document.head, null);
+			}
+
+			append(document.head, meta4);
+			append(document.head, meta5);
+			append(document.head, meta6);
+			append(document.head, meta7);
+			append(document.head, meta8);
 			insert(target, t0, anchor);
+			insert(target, a, anchor);
+			append(a, t1);
+			insert(target, t2, anchor);
+			mount_component(header, target, anchor);
+			insert(target, t3, anchor);
 			insert(target, main, anchor);
 			append(main, h1);
-			append(h1, t1);
-			append(main, t2);
-			append(main, ul);
+			append(h1, t4);
+			append(main, t5);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(ul, null);
+				each_blocks[i].m(main, null);
+			}
+
+			append(main, t6);
+			append(main, article);
+
+			if (default_slot) {
+				default_slot.m(article, null);
 			}
 
 			current = true;
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*data*/ 1) {
-				const each_value = /*data*/ ctx[0];
-				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, destroy_block, create_each_block, null, get_each_context);
+			if ((!current || dirty & /*title*/ 2) && title_value !== (title_value = "Note: " + /*title*/ ctx[1] + " | Tan Li Hau")) {
+				document.title = title_value;
+			}
+
+			if (!current || dirty & /*name*/ 1) {
+				attr(meta2, "content", /*name*/ ctx[0]);
+			}
+
+			if (dirty & /*tags*/ 4) {
+				each_value_1 = /*tags*/ ctx[2];
+				let i;
+
+				for (i = 0; i < each_value_1.length; i += 1) {
+					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+					if (each_blocks_1[i]) {
+						each_blocks_1[i].p(child_ctx, dirty);
+					} else {
+						each_blocks_1[i] = create_each_block_1(child_ctx);
+						each_blocks_1[i].c();
+						each_blocks_1[i].m(meta4.parentNode, meta4);
+					}
+				}
+
+				for (; i < each_blocks_1.length; i += 1) {
+					each_blocks_1[i].d(1);
+				}
+
+				each_blocks_1.length = each_value_1.length;
+			}
+
+			if (!current || dirty & /*title*/ 2) {
+				attr(meta6, "content", /*title*/ ctx[1]);
+			}
+
+			if (!current || dirty & /*title*/ 2) set_data(t4, /*title*/ ctx[1]);
+
+			if (dirty & /*tags*/ 4) {
+				each_value = /*tags*/ ctx[2];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(main, t6);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
+			}
+
+			if (default_slot) {
+				if (default_slot.p && dirty & /*$$scope*/ 8) {
+					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[3], dirty, null, null);
+				}
 			}
 		},
 		i(local) {
 			if (current) return;
 			transition_in(header.$$.fragment, local);
+			transition_in(default_slot, local);
 			current = true;
 		},
 		o(local) {
 			transition_out(header.$$.fragment, local);
+			transition_out(default_slot, local);
 			current = false;
 		},
 		d(detaching) {
-			destroy_component(header, detaching);
+			detach(link);
+			detach(meta0);
+			detach(meta1);
+			detach(meta2);
+			detach(meta3);
+			destroy_each(each_blocks_1, detaching);
+			detach(meta4);
+			detach(meta5);
+			detach(meta6);
+			detach(meta7);
+			detach(meta8);
 			if (detaching) detach(t0);
+			if (detaching) detach(a);
+			if (detaching) detach(t2);
+			destroy_component(header, detaching);
+			if (detaching) detach(t3);
 			if (detaching) detach(main);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].d();
-			}
+			destroy_each(each_blocks, detaching);
+			if (default_slot) default_slot.d(detaching);
 		}
 	};
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { data = [] } = $$props;
+	let { name } = $$props;
+	let { title } = $$props;
+	let { tags = [] } = $$props;
+	let { $$slots = {}, $$scope } = $$props;
 
 	$$self.$set = $$props => {
-		if ("data" in $$props) $$invalidate(0, data = $$props.data);
+		if ("name" in $$props) $$invalidate(0, name = $$props.name);
+		if ("title" in $$props) $$invalidate(1, title = $$props.title);
+		if ("tags" in $$props) $$invalidate(2, tags = $$props.tags);
+		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
 	};
 
-	return [data];
+	return [name, title, tags, $$scope, $$slots];
 }
 
-class Talks extends SvelteComponent {
+class Note extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment$1, safe_not_equal, { data: 0 });
+		init(this, options, instance, create_fragment$1, safe_not_equal, { name: 0, title: 1, tags: 2 });
 	}
 }
 
-var data = [{"metadata":{"title":"Making an entrance with Svelte Transitions","occasion":"Frontend Connect","date":"2020-12-09","layout":"talk","slug":"making-an-entrance-with-svelte-transition","type":"talk"},"slug":"making-an-entrance-with-svelte-transition"},{"metadata":{"title":"Demystifying Transitions","occasion":"Svelte Summit 2020","date":"2020-10-19","layout":"talk","slug":"demystifying-transitions","type":"talk"},"slug":"demystifying-transitions"},{"metadata":{"title":"Looking into the Svelte Compiler","occasion":"CityJS Conf 2020","date":"2020-09-14","layout":"talk","slug":"looking-into-the-svelte-compiler","type":"talk"},"slug":"looking-into-the-svelte-compiler"},{"metadata":{"title":"Third party CSS is not safe","occasion":"talk.css meetup","occasionLink":"https://singaporecss.github.io/54/","videoLink":"https://engineers.sg/video/third-party-css-is-not-safe-talk-css-54--4113","date":"2020-09-02","tags":["css","vulnerability","talk.css"],"layout":"talk","slug":"third-party-css-is-not-safe","type":"talk"},"slug":"third-party-css-is-not-safe"},{"metadata":{"title":"Personalised Development Workspace With Chrome Extension","venue":"Google Singapore","venueLink":"https://www.google.com/maps/place/Google+Singapore/@1.2763254,103.7972592,17z/data=!3m1!4b1!4m5!3m4!1s0x31da1911f12998e9:0x43e454b88753032a!8m2!3d1.2763254!4d103.7994479","occasion":"Chrome Developer Summit Extended (Cancelled)","occasionLink":"https://www.meetup.com/en-AU/gdg-singapore/events/267717354/","video":"","date":"2020-02-08","description":"In this talk, I will be exploring how you can develop your Chrome extension, and how you can use it to improve your development workflow","layout":"talk","slug":"personalised-development-workspace-with-chrome-extension","type":"talk"},"slug":"personalised-development-workspace-with-chrome-extension"},{"metadata":{"title":"Short Stories working on Svelte","occasion":"Shopee React Knowledgeable","occasionLink":"https://github.com/Shopee/shopee-react-knowledgeable/issues/162","venue":"Shopee SG","venueLink":"https://www.google.com/maps/place/Shopee+SG/@1.291278,103.7846628,15z/data=!4m2!3m1!1s0x0:0x7ddf2e854cf6e4e4?ved=2ahUKEwi5jbz6z_vgAhVBP48KHWSEAmMQ_BIwFXoECAEQCA","date":"2019-12-06","description":"Short stories while working on Svelte, and some personal takeaway.","layout":"talk","slug":"short-stories-working-on-svelte","type":"talk"},"slug":"short-stories-working-on-svelte"},{"metadata":{"title":"Git Gudder","venue":"Shopee SG","venueLink":"https://www.google.com.sg/maps/place/Shopee+Building/@1.2923933,103.7860786,19z/data=!3m1!4b1!4m5!3m4!1s0x31da1b803e3bae77:0x154e17d66760912b!8m2!3d1.2923933!4d103.7866258","occasion":"React Knowledgeable Week 41","occasionLink":"https://github.com/Shopee/shopee-react-knowledgeable/issues/129","slides":"https://slides.com/tanhauhau/git-gudder","date":"2019-08-30","layout":"talk","slug":"git-gudder","type":"talk"},"slug":"git-gudder"},{"metadata":{"title":"History of Web Development: JavaScript Modules","venue":"Shopee SG","venueLink":"https://www.google.com/maps/place/Shopee+SG/@1.291278,103.7846628,15z/data=!4m2!3m1!1s0x0:0x7ddf2e854cf6e4e4?ved=2ahUKEwi5jbz6z_vgAhVBP48KHWSEAmMQ_BIwFXoECAEQCA","occasion":"React Knowledgeable Week 25","occasionLink":"https://github.com/Shopee/react-knowledgeable/issues/89","slides":"https://slides.com/tanhauhau/js-module","video":"https://www.youtube.com/watch?v=iRSdPqIHOqg","date":"2019-04-12","series":"History of Web Development","layout":"talk","slug":"javascript-modules","type":"talk"},"slug":"javascript-modules"},{"metadata":{"title":"CSS Code Splitting","occasion":"talk.css meetup","occasionLink":"https://singaporecss.github.io/37/","venue":"Shopee SG","venueLink":"https://www.google.com/maps/place/Shopee+SG/@1.291278,103.7846628,15z/data=!4m2!3m1!1s0x0:0x7ddf2e854cf6e4e4?ved=2ahUKEwi5jbz6z_vgAhVBP48KHWSEAmMQ_BIwFXoECAEQCA","date":"2019-03-27","description":"The motivation of CSS splitting arises when we try to split our CSS styles and lazily load the styles only when we actually need them. CSS code splitting is one of our many efforts where we constantly improve the performance of the application.","slides":"https://slides.com/tanhauhau/css-code-splitting","video":"https://www.engineers.sg/video/css-code-splitting-talk-css--3273","layout":"talk","slug":"css-code-splitting","type":"talk"},"slug":"css-code-splitting"}];
+/* content/notes/@@page-markup.svelte generated by Svelte v3.24.0 */
 
-const app = new Talks({
-  target: document.querySelector('#app'),
-  hydrate: true,
-  props: {
-    data,
-  },
-});
+function create_fragment$2(ctx) {
+	let layout_mdsvex_default;
+	let current;
+	const layout_mdsvex_default_spread_levels = [metadata];
+	let layout_mdsvex_default_props = {};
+
+	for (let i = 0; i < layout_mdsvex_default_spread_levels.length; i += 1) {
+		layout_mdsvex_default_props = assign(layout_mdsvex_default_props, layout_mdsvex_default_spread_levels[i]);
+	}
+
+	layout_mdsvex_default = new Note({ props: layout_mdsvex_default_props });
+
+	return {
+		c() {
+			create_component(layout_mdsvex_default.$$.fragment);
+		},
+		l(nodes) {
+			claim_component(layout_mdsvex_default.$$.fragment, nodes);
+		},
+		m(target, anchor) {
+			mount_component(layout_mdsvex_default, target, anchor);
+			current = true;
+		},
+		p(ctx, [dirty]) {
+			const layout_mdsvex_default_changes = (dirty & /*metadata*/ 0)
+			? get_spread_update(layout_mdsvex_default_spread_levels, [get_spread_object(metadata)])
+			: {};
+
+			if (dirty & /*$$scope*/ 1) {
+				layout_mdsvex_default_changes.$$scope = { dirty, ctx };
+			}
+
+			layout_mdsvex_default.$set(layout_mdsvex_default_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(layout_mdsvex_default.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(layout_mdsvex_default.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(layout_mdsvex_default, detaching);
+		}
+	};
+}
+
+const metadata = {
+	"title": "The CSS Podcast: 028: Houdini Series: Paint",
+	"tags": ["css houdini", "The CSS Podcast"],
+	"slug": "notes/css-podcast-028-houdini-series-paint",
+	"type": "notes",
+	"name": "css-podcast-028-houdini-series-paint",
+	"layout": "note"
+};
+
+class Page_markup extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, null, create_fragment$2, safe_not_equal, {});
+	}
+}
+
+setTimeout(() => {
+  const app = new Page_markup({
+    target: document.querySelector('#app'),
+    hydrate: true,
+  });
+
+  if (document.querySelector('.twitter-tweet')) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://platform.twitter.com/widgets.js';
+    script.charset = 'utf-8';
+    document.body.appendChild(script);
+  }
+
+  // TODO
+  if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.src = img.dataset.src;
+    });
+  } else {
+    const script = document.createElement('script');
+    script.src =
+      'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+    document.body.appendChild(script);
+  }
+}, 3000);
