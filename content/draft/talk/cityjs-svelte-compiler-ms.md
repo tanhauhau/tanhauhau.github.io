@@ -1,3 +1,12 @@
+selamat malam saudara saudari, hari ini saya akan cuba memberi sharing ini dalam bahasa indonesia. walaupun saya berasal dari malaysia, saya tidak pernah memberi ceramah dalam melayu.
+
+inilah kali pertama saya.
+
+jadi saya mempersiapkan skrip, dan menterjermahkan kebanyakan skrip saya ke dalam bahasa indonesia dengan google translate.
+harap maafkan kalau saya terdengar aneh.
+
+---
+
 Dengan modern web framework, kita bisa menulis **UI** kita secara deklaratif, UI kita secara function of a state aplikasi kita
 
 Function ini bisa ditulis secara template, atau sintaks yang macam template, sintaks yang bisa menerangkan bahawa, macam mana UI akan ditampilkan di semua kemungkinan state aplikasi.
@@ -48,240 +57,247 @@ Sebelum kita mula bercakap tentang kompiler, mari kita melihat dulu bagaimana ki
 
 komponen svelte ditulis dalam file dengan ekstensi `.svelte`. ^^ setiap fail menerangkan 1 komponen svelte ^^.
 
-^^ anda boleh menambah 1 tag skrip kepada komponen. ^^ anda boleh menentukan variabel dalam tag skrip, sama dengan macam anda lakukan dalam javascript, ^^ anda dapat mereferensikan variabel dalam templat html anda, dengan kurungan keriting.
+^^ kita boleh menambah 1 tag skrip kepada komponen. ^^ kita boleh menentukan variabel dalam tag skrip macam ini, ^^ lepas itu, kita boleh merujuk variabel ini dalam templat html kita, dengan "curly bracket".
 
-^^ anda boleh gunakan direktif untuk menambah pendengar acara, anda menggunakan arahan `on:`, dan anda boleh mengemas kini pemboleh ubah seperti ini, dan ia akan dikemas kini secara automatik di DOM anda.
+^^ kita boleh gunakan direktif untuk menambah event listener. ^^ kalau kita ubah variabel macam ini, nilainya akan diperbarui di DOM.
 
-^^ anda boleh menambah tag gaya dan menulis beberapa css untuk menggayakan komponen anda. Apa yang menarik mengenainya || adakah itu, css dicakup dalam komponen. jadi apabila saya katakan butang, latar belakang: merah, hanya butang yang ditulis dalam fail komponen ini yang mempunyai latar belakang berwarna merah. bukan komponen anak, bukan komponen induk. hanya komponen ini.
+^^ kita boleh menambah tag style dan menulis CSS dalamnya supaya komponen kita lebih menarik. CSS dalam komponen Svelte hanya mengubah elemen-elemen dalam fail komponen ini sahaja. sebagai contoh, kalau saya tambah `button background: red`, hanya buttun yang ditulis dalam fail komponen ini yang backgroundnya merah. bukan komponen anak, bukan komponen parent. hanya komponen ini.
 
-** sekarang **, berikut adalah salah satu ciri deklarasi reaktif yang paling kuat dan agak kontroversial.
+nah ini adalah salah satu fitur svelte yang paling kontroversial, deklarasi reaktif, ataupun reactive declaration.
 
-di sini anda mempunyai dua = hitung \ * 2, dengan tanda dolar + titik dua di hadapan penyataan. ini bermaksud bahawa pemboleh ubah `double` selalu 2 kali` hitung`, setiap kali nilai `kiraan` telah berubah, nilai` ganda 'akan dikemas kini juga.
+di sini saya tulis double = count kali (*) 2, dengan tanda dolar + titik dua di depan pernyataan. ini berarti variabel `double` selalu 2 kali `count`, setiap kali nilai `count` berubah, nilai `double` juga akan diperbarui.
 
-<! - dalam beberapa bahasa pengaturcaraan, ini disebut pengendali takdir ->
+Ini pasti terasa aneh pada awalnya, tetapi semakin banyak anda menggunakannya, anda akan bertanya pada diri sendiri mengapa kami tidak memiliki ini sebelumnya.
 
-Ini pasti terasa pelik pada mulanya, tetapi semakin banyak anda menggunakannya, anda akan bertanya pada diri sendiri mengapa kami tidak memilikinya lebih awal.
+nah, di sini kita mempunyai 1 butang merah besar, dan teks persamaan perkalian sebagai komponen Svelte.
 
-Jadi, di sini kita mempunyai 1 butang merah besar, dan teks persamaan darab sebagai komponen Svelte.
+Saya akan berhenti sebentar di sini, dan menanyakan soalan ini, **jika anda tidak dibenarkan menggunakan framework apa pun, bagaimana anda akan menulis komponen semacam ini dalam JavaScript sahaja? **
 
-Saya akan berhenti sebentar di sini, dan mengajukan soalan ini kepada anda, ** bagaimana anda akan melaksanakannya, jika anda tidak dibenarkan menggunakan kerangka apa pun dan anda harus menulisnya dalam JavaScript Vanilla? **
+(pause)
 
-(berhenti seketika)
+Bagi saya, pertama-tama saya akan mulai dengan deklarasi variabel.
 
-Oleh itu, pertama kita akan memulakan dengan deklarasi pemboleh ubah.
+Seterusnya saya membuat teks dengan document.createTextNode, dan memasukkannya ke parentnya
 
-Seterusnya kita membuat teks dengan document.createTextNode, dan memasukkannya ke induk
+Seterusnya saya membuat button, ubah teks, tambahkan event listener dan masukkannya ke parentnya.
 
-Seterusnya kami membuat butang, menukar teks, menambahkan pendengar acara dan memasukkannya ke ibu bapa.
+Untuk memperbarui teks button ini, saya menulis fungsi update, dan memperbarui nilai `double` dan merperbarui kandungan teks button.
 
-Untuk mengemas kini teks ketika hitungan diperbarui, kami membuat fungsi pembaruan, di mana kami mengemas kini nilai ganda dan mengemas kini kandungan teks.
+Terakhirnya, saya membuat tag `<style>`, menyalin deklarasi CSS ke dalamnya, dan memasukkannya ke dalam head.
 
-Akhirnya untuk tag gaya, kami membuat tag gaya, menetapkan isi dan memasukkan ke kepala.
+Untuk memastikan bahwa CSS hanya mengubah tampilan tombol yang baru saya buat, saya boleh menambah satu lagi kelas kepada tombol tersebut.
 
-Untuk memastikan bahawa butang hanya mensasarkan butang ini yang baru kami buat, kami menambahkan kelas pada butang tersebut.
+Di sini nama kelas adalah random. saya boleh gunakan hash kode saya untuk mendapat nama kelas yang konsisten.
 
-Di sini nama kelas adalah rawak, tetapi dapat dihasilkan berdasarkan hash kod gaya, sehingga anda mendapat nama kelas yang konsisten.
+(TODO: click to see output js)
 
-(TODO: KLIK UNTUK MELIHAT OUTPUT JS)
+Sebenarnya jika anda melihat output JS yang dihasilkan oleh svelte, ia sangat mirip dengan kod yang baru saja saya tulis.
 
-Sebenarnya jika anda melihat output JS yang dihasilkan oleh svelte, ia sangat serupa dengan kod yang baru saja kita tulis.
+Jadi, ini hanyalah kod yang anda perlukan untuk ** membuat tombol dan teks **. Anda tidak memerlukan library virtual DOM 40KB untuk membuat ulang komponen yang sama.
 
-Jadi, ini hanya kod yang anda perlukan untuk ** membuat butang dan teks **. Anda tidak memerlukan perpustakaan DOM Maya 40KB untuk mencipta komponen yang sama.
+Sudah tentu, anda tidak perlu menulis semuanya sendiri.
 
-Sudah tentu, anda tidak perlu menulis semua ini sendiri.
+Kompiler Svelte akan melakukannya untuk anda. Ia akan menganalisis kod di atas, dan menghasilkan kod di bawah untuk anda.
 
-Penyusun Svelte akan melakukannya untuk anda. Ia akan menganalisis kod di atas, dan menghasilkan kod di bawah untuk anda.
+Dan sekarang, jika anda cuba memilih "SSR" sebagai output yang dihasilkan, anda dapat melihat sekarang Svelte menghasilkan fungsi yang mengembalikan string yang dibuat menggunakan template literal.
 
-Dan sekarang, jika anda cuba memilih "SSR" sebagai output yang dihasilkan, anda dapat melihat sekarang Svelte menghasilkan fungsi yang mengembalikan rentetan yang disusun menggunakan literal templat.
+Ini adalah lebih berefisien berbanding dengan framework yang lain.
 
-Ini adalah beberapa pesanan yang lebih berkesan daripada menghasilkan objek pokok dan menyusunnya menjadi rentetan HTML.
+(dont move)
 
-(JANGAN BERGERAK)
+Jadi, Mari kita ambil beberapa contoh Svelte lagi, dan selama ini, saya harap anda bertanya pada diri sendiri soalan ini, ** "bagaimana cara menulis komponen ini dalama JavaScript sahaja?" **
 
-Oleh itu, Mari kita ambil beberapa lagi contoh sintaks Svelte, dan selama ini, saya harap anda bertanya kepada diri sendiri soalan ini, ** "bagaimana saya menukar ini / menulis ini dalam JavaScript biasa?" **
+dan jangan khawatir, anda boleh mengunakan situs svelte untuk membandingkan input dan output js dan belajar darinya.
 
-dan jangan bimbang, anda boleh mendapatkan jawapan ini di laman web svelte. dan anda boleh membandingkan input dan output js mengikut kehendak anda.
-
-(OKE SEKARANG BERGERAK)
+(okay move now)
 ---
 
-Untuk menyatakan logik dalam templat, Svelte menyediakan blok logik, seperti ** `{#if}` **, ** `{#await}` **, dan ** `{#each}` **.
+Untuk mengekspresikan logik dalam templat, Svelte menyediakan blok logik, seperti ** `{#if}` **, ** `{#await}` **, dan ** `{#each}` **.
 
-Untuk mengurangkan kod pelat boiler untuk mengikat pemboleh ubah ke input, Svelte memberikan arahan `bind: '.
+Untuk mengurangi kode perlu ditulis untuk mengikat variabel ke input, Svelte menyediakan direktif `bind:`.
 
-Untuk menyediakan peralihan bagi elemen yang masuk atau keluar dari DOM, Svelte memberikan arahan `transisi`,` in` dan `out`.
+Untuk memberikan transisi untuk elemen yang masuk atau keluar dari DOM, Svelte menyediakan direktif `transition`,` in` dan `out`.
 
-Untuk menyusun Komponen, Svelte menyediakan slot dan templat yang serupa dengan API Komponen Web.
+Untuk membuat Komponen, Svelte menyediakan slot dan templat yang mirip dengan API Web Components.
 
-Ada banyak yang ingin saya kongsikan di sini, tetapi saya harus memilih penyusun Svelte, kerana itulah topik utama perbincangan hari ini.
-
----
-
-Sekarang, akhirnya, mari kita lihat penyusun Svelte.
-
-Jadi, bagaimana penyusun berfungsi?
-
-Penyusun pertama membaca kod anda, dan memecahnya menjadi beberapa bahagian yang lebih kecil, yang disebut token.
-
-Penyusun kemudian melalui senarai token ini dan menyusunnya ke dalam struktur pokok, mengikut tatabahasa bahasa. Struktur pokok adalah apa yang disebut oleh penyusun "Pohon sintaks abstrak" atau AST.
-
-AST adalah perwakilan pokok kod input.
-
-Dan apa yang kadang-kadang dilakukan penyusun, adalah menganalisis dan menerapkan transformasi ke AST.
-Menggunakan algoritma melintasi pokok, seperti carian pertama yang mendalam
-
-Dan akhirnya, penyusun menghasilkan output kod berdasarkan AST akhir.
-
-Ringkasnya, proses penyusunan generik melibatkan penghuraian kod ke AST, melakukan analisis, pengoptimuman atau transformasi pada AST, dan kemudian menghasilkan kod keluar dari AST.
-<! - Berikut adalah beberapa sumber di web yang biasa saya pelajari mengenai penyusun. ->
+Masih banyak lagi fitur Svelte yang saya ingin kongsikan di sini, tetapi saya harus beralih ke kompiler Svelte, kerana itulah topik utama pembicaraan hari ini.
 
 ---
 
-Akhirnya, mari kita lihat bagaimana penyusun Svelte berfungsi.
+Sekarang, mari kita lihat kompiler Svelte.
 
-Svelte menguraikan kod Svelte ke dalam AST
-Svelte kemudian menganalisis AST, yang akan kami terokai secara terperinci kemudian.
-Dengan analisisnya, Svelte menghasilkan kod JavaScript bergantung pada sasaran kompilasi, sama ada untuk SSR atau untuk penyemak imbas.
-Akhirnya, js dan css dihasilkan, dan boleh ditulis ke dalam fail atau digunakan oleh proses membina anda.
+Jadi, bagaimana cara kerja kompiler?
+
+Tahap pertama, parsing. Kompiler membaca kod anda, dan memecahnya menjadi bagian-bagian yang lebih kecil, yang disebut token.
+
+Tahap kemudian, kompiler menyusun token-token ini ke dalam struktur pohon, mengikuti aturan sintaksnya. Struktur pohon ini disebut "Pohon sintaks abstrak" atau Abstract Syntax Tree (AST).
+
+Tahap kemudian Kemudian, kompiler akan melakukan analisis dan transformasi kepada pohon sintaks abstrak.
+
+Dan tahap akhirnya, kompiler membangkit kod berdasarkan pohon sintaks abstrak terakhir.
+
+Singkatnya, proses kompilasi melibatkan parsing, melakukan analisis, pengoptimalan, atau transformasi pada pohon sintaks abstrak, dan kemudian menghasilkan kod dari pohon sintaks abstrak.
+
+<!- Berikut adalah beberapa sumber di web yang biasa saya pelajari mengenai penyusun. ->
 
 ---
 
-Oleh itu mari kita mulakan dari awal, penghuraian.
+Lalu, mari kita lihat cara kerja kompiler Svelte.
+
+Svelte mem-parse kod Svelte ke dalam pohon sintaks abstrak
+Svelte kemudian menganalisis pohon sintaks abstrak, yang akan kita bahas lebih lanjut nanti.
+Dengan analisisnya, Svelte menghasilkan kod JavaScript bergantung pada target kompilasi, sama ada untuk SSR atau untuk browser.
+Akhirnya, js dan css dihasilkan, dan boleh ditulis ke dalam fail atau digunakan oleh proses build.
 
 ---
 
-Berikut adalah komponen Svelte yang akan kita gunakan sepanjang perbincangan ini.
+Jadi, mari kita mulai dari awal, parsing.
 
-Svelte, || melaksanakan penghurai sendiri
+---
 
-Itu menguraikan sintaks html…
-... serta blok logik, seperti masing-masing, jika, dan menunggu
+Berikut adalah komponen Svelte yang akan kita gunakan sepanjang pembicaraan ini.
 
-Kerana js adalah bahasa yang cukup kompleks, setiap kali bertemu dengan svelte || tag skrip, || atau kurungan keriting, || ia akan menyerahkannya kepada acorn, pengurai JavaScript ringan, untuk menguraikan kandungan JS.
-Perkara yang sama berlaku dengan css juga. svelte menggunakan css-tree untuk menguraikan kandungan CSS di antara tag gaya.
+Svelte, || mengimplementasikan parsernya sendiri
 
-<! - Dalam komponen svelte, Anda hanya dibenarkan memiliki 1 skrip modul, 1 skrip instance, dan 1 tag gaya di tingkat atas. ->
+yang boleh parse sintaks html…
+... dan juga blok logik, seperti each, if, dan await
 
-Oleh itu, melalui proses tersebut, kod svelte dipecah menjadi token, dan disusun ke dalam Svelte AST.
+Kerana js adalah bahasa yang cukup kompleks, setiap kali svelte bertemu dengan || tag skrip, || atau tanda kurung kurawal, || ia akan menyerahkannya kepada acorn, parser JavaScript yang amat ringan, untuk mem-parse-ken kandungan JS.
+Hal yang sama juga terjadi dengan css. svelte menggunakan css-tree untuk mem-parse kandungan CSS di antara tag style.
 
-Sekiranya anda berminat untuk melihat bagaimana Svelte AST, anda boleh melihatnya di ASTExplorer.net.
+<! - Dalam komponen svelte, Anda hanya dibenarkan memiliki 1 skrip modul, 1 skrip instance, dan 1 tag style. ->
 
-Langkah seterusnya adalah menganalisis AST.
+Jadi, melalui proses parsing, kod svelte dipecah menjadi token, dan disusun menjadi pohon sintaks abstrak Svelte.
 
-Di sini, kod kami sudah ada di AST, || TETAPI untuk membantu memvisualisasikan prosesnya, saya akan menunjukkan kod asal.
+Sekiranya anda berminat untuk melihat bagaimana struktur pohon sintaks abstrak Svelte, anda dapat memeriksanya di ASTExplorer.net.
 
-Perkara pertama yang dilakukan Svelte || adalah untuk melintasi skrip AST.
+Langkah selanjutnya adalah menganalisis pohon sintaks abstrak.
 
-Setiap kali menemui pemboleh ubah, dalam kes ini, hitung, ia akan mencatat nama pemboleh ubah.
+Di sini, kod kita sudah menjadi pohon sintaks abstrak, || TAPI untuk membantu memvisualisasikan prosesnya, saya akan menunjukkannya dalam kod asalnya.
 
-di sini kita mencatat nilai || dan berganda.
+Perkara pertama yang dilakukan Svelte || adalah untuk melintasi pohon sintaks abstrak dalam tag skrip.
 
-"berganda" di sini, || dalam kod svelte ini || adalah pemboleh ubah dinyatakan reaktif. tetapi untuk vanilla JavaScript, kami memberikan nilai pada pemboleh ubah "double" ini, yang tidak dinyatakan di mana saja.
+Setiap kali Svelte menemui variabel, dalam kes ini, count, ia akan mencatat nama variabel.
 
-dalam mod ketat, ini adalah kesalahan "tugasan kepada pemboleh ubah yang tidak diisytiharkan".
+di sini kita mencatat values || dan double.
 
-Svelte menandakan pemboleh ubah, "berganda", sebagai "disuntikkan", jadi pengisytiharan pemboleh ubah akan disuntik kemudian. contoh lain dari pemboleh ubah yang disuntik adalah svelte magic global, seperti $$ props, atau $ awalan pemboleh ubah kedai.
+"double" di sini, || dalam kod svelte ini || adalah variabel dideklarasikan reaktif (reactive declared variable). tetapi bagi JavaScript, kami memberikan nilai pada variabel "double" ini, yang tidak pernah di-deklarasikan di mana pun.
 
-di sini kita menemui "hitungan" sekali lagi, kali ini menjadi rujukan, bukannya disandarkan pada nilai, dan ia digunakan untuk menghitung nilai dua kali ganda. || jadi kami menarik hubungan kebergantungan antara kiraan dan dua kali ganda. || jadi berganda bergantung kepada kiraan.
+dalam strict mode, ini adalah error "tugasan kepada pemboleh ubah yang tidak diisytiharkan".
+
+Jadi, Svelte menandai variabel, "double", sebagai "injected", maknanya, deklarasi variabel ini akan disuntikkan nanti. contoh lain varaiable yang ditandai sebagai "injected" adalah svelte magic global, seperti $$props (dua tanda dolar props), atau nilai store yang direferensikan dengan tanda dollar.
+
+di sini kita menemui "count" sekali lagi, kali ini variabel "count" direferensikan untuk menghitung nilai `double`, jadi kita manandainya sebagai "referenced". || dan juga kami menggambar hubungan ketergantungan antara `count` dan `double` || `double` tergantung pada `count`.
 
 Jom sambung.
 
-di sini kita melihat data. data tidak dinyatakan pada skop tahap atas, kerana dalam skop blok kurungan keriting. jadi kami tidak akan merakamnya.
+di sini kita menemui `data`. `data` tidak dinyatakan pada skop tahap teratas, kerana berada dalam skop blok kurung kurawal. jadi kita tidak akan mencatatnya.
 
-perkara yang sama berlaku dengan `i`.
+variabel `i` juga tidak akan dicatat.
 
-di sini kami menemui dua kali ganda, jadi kami menandakannya sebagai rujukan.
+di sini kita menemui `double` lagi, jadi kami menandainya sebagai "referenced".
 
-Math, js global, kita akan mengabaikannya.
+Math, variabel global di JavaScript, kita tidak akan mancatatnya
 
-di sini `nilai` diturunkan.
+di sini, `value` dimutasi.
 
-sekarang kita mencapai akhir skrip, langkah seterusnya adalah melintasi templat AST.
+sekarang kita mencapai akhir skrip, langkah selanjutnya adalah melintasi pohon syntaks abstrak templat.
 
-kita mulakan dari elemen `input`, yang mempunyai` bind: value`.
+kita mulai dari elemen `input`, yang memiliki `bind: value`.
 
-Di sini kita mengikat nilai input ke pemboleh ubah `count '. jadi kami menandakan `count` sebagai dirujuk dari templat dan dimutasi.
+Di sini kita mengikat nilai input ke variabel `count`. jadi kami menandai `count` sebagai `referenced from template and mutated` iaitu, direferensikan dari templat dan akan dimutasi
 
-Sekarang kami menemui setiap blok. Di sini kita melakukan iterasi melalui pembolehubah `nilai 'dan kita menggunakan pemboleh ubah` nilai` untuk setiap item. Jadi templat dalam setiap blok || akan mempunyai skop baru, di mana `nilai` dinyatakan. || Juga, kami menandakan `nilai` sebagai kebergantungan setiap blok. || Ini bermaksud bahawa setiap kali `nilai` berubah, kita akan mengemas kini setiap blok.
+Sekarang kami menemui blok `{#each}`. Di sini kita melakukan iterasi melalui variabel `values` dan kita menggunakan variabel `value` untuk setiap item. Jadi templat dalam blok {#each} || akan memiliki skop baru, di mana `value` dideklarasikan. || Juga, kami menandai `values` sebagai `dependencies` blok `{#each}`. blok `{#each}` bergantung kapada nilai `values` || Artinya setiap kali `values` berubah, kita akan memperbarui blok `{#each}`.
 
 
-... dan, kami menandakan nilai sebagai rujukan juga.
+... dan, kami menandai `values` sebagai `referenced` juga.
 
-seterusnya, kita beralih ke setiap blok dan elemen div. Di sini kita menandakan `value` sebagai dirujuk dari templat, kita menemui` value` lagi || dan kita telah mencapai akhir templat.
+selanjutnya, kita beralih ke dalam blok `{#each}` dan elemen div. Di sini kita menandakan `value` sebagai `referenced from template` referensi dari templat. kita menemui `value` lagi || dan kita telah mencapai akhir templat.
 
-dan Svelte melalui skrip sekali lagi, kali ini terutamanya untuk pengoptimuman. || mencari tahu pemboleh ubah mana yang tidak dirujuk, dan tidak perlu reaktif.
+Lalu, Svelte melintasi pohon sintaks abstrak skrip sekali lagi. kali ini terutamanya untuk pengoptimalan. || contohnya, mencari variable yang mana tidak pernah direferensikan, karena ia tidak perlu ber-reaktif.
 
-Begitu juga, jika ketergantungan deklarasi reaktif tidak akan pernah berubah, || dengan melihat sama ada kebergantungan mereka ditandai sebagai bermutasi, || kita boleh menandakannya sebagai statik, yang lebih cekap, dan lebih kecil dalam ukuran kod.
+Demikian pula, jika dependency deklarasi reaktif tidak akan berubah, || dengan melihat sama ada dependencies-nya mereka ditandai sebagai `mutated`, || kita boleh menandai deklarasi reaktif sebagai deklarasi statik sahaja. jadi kod yang berhasil akan lebih efisien dan lebih kecil.
 
-Seterusnya, Svelte melintasi gaya.
+Seterusnya, Svelte melintasi tag `<style>`.
 
-untuk setiap pemilih, ia akan menentukan sama ada ia akan sesuai dengan elemen dalam templat, || dan jika ya, svelte akan menambahkan nama kelas svelte-hash ke pemilih serta eelement yang sesuai. || Walaupun ini akan meningkatkan kekhususan pemilih, tetapi itu akan menjadikan pemilih hanya terpakai pada komponen svelte semasa.
+Svelte akan melihat setiap deklarasi, setiap selektor, dan menentukan sama ada ia akan diaplikasikan dengan elemen dalam templat. || jika ya, svelte akan menambahkan nama kelas hash svelte ke selektor dan juga elemen yang diaplikasikan. || Walaupun ini akan meningkatkan kekhususan (specifisitas) selektor, namun ini akan membuat selektor hanya mengubah elemen dalam elemen dalam komponen ini sahaja.
 
-Pada akhir langkah ini, Svelte telah mengetahui semua pemboleh ubah yang dinyatakan, tingkah laku dan hubungan mereka.
+Sampai sini, Svelte telah mengetahui semua variable yang dideklarasikan, perilaku dan juga hunbungan antara variabel.
 
 Dengan ini, kita beralih ke fasa rendering.
 
 ---
 
 Langkah ini adalah di mana svelte akan menghasilkan kod javascript.
-Terdapat 2 sasaran kompilasi yang berbeza, 1 adalah DOM, untuk pelanggan, dan yang lain adalah ssr, untuk bahagian pelayan.
 
-Mari pertama-tama kita melihat sasaran dom render.
+Ada  2 target kompilasi yang berbeda, pertama adalah DOM, untuk sisi browser, dan kedua adalah ssr, untuk sisi server.
 
-Di sini kita mempunyai kod sumber. dan berikut adalah garis besar bagaimana rupa output dom.
+Mari pertama-tama kita melihat target dom render.
 
-Inilah yang saya namakan blok serpihan. fungsi create fragment mengembalikan objek, yang bertindak sebagai resipi untuk membuat elemen dalam komponen. setiap kaedah dalam objek resipi, mewakili tahap dalam kitaran hidup komponen, di sini kita mempunyai `c` untuk` create`, `m` untuk` mounting`, `p` for` update`, dan `d` for` destr` .
+Di kiri adalah kod asalnya. dan di kanan adalah rupa kod output ber-target dom.
 
-seterusnya, kita mempunyai fungsi contoh. di sinilah logik keadaan dan komponen masuk.
+Kod output boleh dibagi menjadi 3 bagian.
 
-akhirnya kami mempunyai kelas komponen svelte. jadi setiap komponen svelte disusun menjadi kelas || yang merupakan eksport lalai. dalam konstruktor, seperti yang anda lihat, memanggil fungsi `init` || yang mengambil fungsi `instance` dan` create_fragment`. dan ini adalah bagaimana 3 kepingan komponen svelte yang berbeza || datang bersama.
+Bagian pertama, fungsi create fragment. Fungsi ini mengembalikan satu objek. Objek ini berfungsi sebagai resipi untuk membuat elemen dalam komponen. Setiap metode dalam objek resep mewaikili tahap siklus hidup komponen.
 
-Sekarang, svelte berjalan melalui templat sekali lagi, dan mula memasukkan kod ke dalam output.
+Contohnya, metode `c` untuk `create`, langkah untuk membuat elemen;
+metode `m` untuk `mounting`, memuat elemen kepada dom;
+metode `p` untuk `update`, untuk memperbarui elemen;
+metode `d` untuk `destroy`, untuk menghapuskan elemen dari dom
 
-Mula-mula kita mempunyai elemen input. kami memasukkan arahan untuk membuat elemen input, || memasang elemen ke sasaran, || dan keluarkan elemen dari sasaran.
+bagian seterusnya, fungsi `instance`. di sinilah logik komponen dan state komponen berada.
 
-seterusnya kita mempunyai pengikatan nilai input ke pemboleh ubah `count`. kita memerlukan pengendali input untuk mendengar perubahan input, jadi kita dapat mengemas kini nilai pemboleh ubah `count`. || di sini kita mengeluarkan senarai pemboleh ubah, dan menambahkan `input_handler`.
+bagian akhirnya, kelas komponen svelte.
 
-kami menetapkan nilai input berdasarkan kiraan pemboleh ubah || dan tambahkan pendengar acara untuk perubahan input || yang mana kita harus membuang pendengar peristiwa ketika kita memusnahkan komponen.
+setiap komponen svelte dikompilasi menjadi kelas JavaScript || kelas ini merupakan eksport default. dalam konstruktor, kita memanggil fungsi `init` || `init` mengambil fungsi `instance` dan` create_fragment`. dan beginilah, 3 bagian terpisah digabung dengan fungsi `init`.
 
-dan dalam fasa kemas kini, jika `kiraan` telah berubah, kita perlu mengemas kini nilai input berdasarkan nilai` kiraan`.
+Sekarang, svelte berjalan melalui templat sekali lagi, dan mula memasukkan kod ke dalam metode fungsi create_fragment.
 
-seterusnya kita bergerak ke blok masing-masing.
+Mula-mulanya, kita melihat elemen input. kita memasukkan arahan untuk membuat elemen input, || memasang elemen ke target, || dan menghapus elemen dari target.
 
-kami membuat blok fragmen baru untuk setiap blok, yang mengandungi resipi untuk membuat elemen untuk 1 setiap item. Dan kerana di setiap blok kita memiliki ruang lingkup anak yang menentukan variabel `value`, kita memiliki fungsi` get_each_context` untuk menirunya.
+selanjutnya kita melihat pengikatan nilai input ke variabel `count`. kita memerlukan handler input untuk mendengar perubahan input, untuk memperbarui nilai variabel `count`. || sini kita boleh mencatat variabel `input_handler` untuk nanti.
 
-Di sini kita terus maju melalui langkah-langkah, di mana untuk setiap elemen, kita memasukkan kod bagaimana kita membuat, memasang, mengemas kini dan memusnahkannya. Sekiranya anda berminat untuk mengetahui perinciannya, anda boleh melihat rangkaian blog saya, yang disebut "Compile Svelte in your head".
+nilai input berdasarkan variabel `count` || dan tambahkan pendengar acara kepada input || harus ingat menghapus pendenger acara ketika kita menghancurkan komponen.
 
-Sekarang kita melihat bagaimana Svelte mengisi fungsi instance. Dalam kebanyakan kes, Svelte hanya menyalin apa sahaja yang ditulis dalam tag `<script>`.
+dan dalam fasa update, jika nilai `count` berubah, kita perlu memperbarui nilai input berdasarkan nilai `count`.
 
-Untuk pernyataan reaktif, mereka ditambahkan di dalam fungsi `$$. Update`, || dan untuk setiap pernyataan, kami menambahkan pernyataan if untuk memeriksa apakah ketergantungan mereka telah berubah, berdasarkan hubungan ketergantungan yang telah kami lukis sebelumnya.
+seterusnya kita beralih ke blok `{#each}`
 
-Sekarang kita perlu menyatakan dan menambahkan pemboleh ubah yang disuntikkan.
+kami akan membuat blok fragmen satu lagi untuk blok `{#each}`, untuk mengandungi resipi untuk membuat elemen bagi satu item `{#each}`. Dan kerana blok `{#each}` memiliki skop yang mendefinisikan variabel `value`, kita menulis fungsi `get_each_context` untuk menghasilkan skop ini.
 
-Akhirnya, kami mengembalikan senarai pemboleh ubah yang ** dirujuk oleh templat ** sahaja.
+Di sini kita mempercepat langkah-langkah memasukkan arahan memasang, memperbarui, dan menghapus elemen dalam blok `{#each}`. Sekiranya anda berminat untuk mengetahui perinciannya, anda boleh membaca blog saya, berjudul "Compile Svelte in your head".
 
-Sekarang, untuk menjadikan pemboleh ubah benar-benar reaktif, kami menginstruksikan `$$ validate` setelah setiap pernyataan tugasan, sehingga akan memulakan pusingan pembaruan seterusnya.
+Sekarang kita melihat bagaimana Svelte mengisi fungsi instance. Dalam kebanyakan kes, Svelte hanya menyalin apa sahaja yang tertulis dalam tag `<script>`.
 
-Jadi di sini anda memilikinya, output kompilasi untuk sasaran DOM.
+Bagi pernyataan reaktif, Svelte menambahkannya di dalam fungsi (dua tanda dolar) `$$.update`, || dan untuk setiap pernyataan, kami menambahkan pernyataan if untuk memeriksa apakah dependency mereka telah berubah, berdasarkan hubungan dependency yang telah kami lukis sebelumnya.
 
-Mari kita lihat dengan cepat bagaimana perkara-perkara berjalan untuk menyusun sasaran SSR.
+Sekarang kita perlu mendeelklarasikan dan menambahkan variab yang diinjeksi tadi.
 
-Struktur kod output untuk sasaran SSR jauh lebih mudah. ia adalah fungsi yang mengembalikan rentetan.
+Akhirnya, kami mengembalikan senarai variabel yang ** direferensikan oleh templat (`referenced from template`) ** sahaja.
 
-Kerana tidak perlu ada reaktiviti yang diperlukan di pelayan, kita dapat menyalin kod kata demi kata dari tag skrip. || perkara yang sama berlaku dengan deklarasi reaktif, tentu kita perlu ingat untuk menyatakan pemboleh ubah yang disuntikkan, `double '.
+Sekarang, untuk membuat variabel benar-benar reaktif, kami melengkapi `$$.validate` setelah setiap pernyataan penugasan, untuk memulakan pusingan pembaruan seterusnya.
 
-semasa kita melintasi templat, kita menambahkan rentetan atau ungkapan sisipan ke dalam templat output secara literal. Untuk setiap blok, kami melakukan iterasi melalui pembolehubah `nilai` dan mengembalikan elemen anak sebagai rentetan.
+nah inilah output kompilasi untuk target DOM.
 
-Dan di sana anda pergi, kod output komponen svelte untuk SSR.
+Mari kita lihat target SSR.
+
+Struktur kod output untuk target SSR lebih ringkas. kod output adalah fungsi yang mengembalikan string.
+
+Kerana kita tidak perlu reaktiviti di sisi server, kita dapat menyalin semua kod JavaScript dari tag skrip. || sama juga bagi deklarasi reaktif, harus ingat mengdeklarasikan variabel `injected`, seperti `double`
+
+semasa kita melintasi templat, kita menambahkan string atau ekspresi. bagi blok `{#each}`, kami melakukan iterasi melalui variabel `values` dan mengembalikan elemen anak sebagai string.
+
+Dan beginilah, kod output komponen svelte untuk SSR.
 
 ---
 
-Akhirnya, Svelte mengeluarkan kod dalam JS dan CSS, dengan kod sebagai rentetan dan juga peta sumber.
+Akhirnya, Svelte menghasilkan kod dalam JS dan CSS, dengan kod sebagai rentetan dan juga peta sumber.
 
-Ini boleh ditulis ke dalam sistem fail secara langsung, atau dimakan oleh bundler modul anda, seperti rollup-svelte-plugin dalam rollup atau svelte-loader untuk webpack.
+JS dan CSS dihasilkan boleh ditulis ke dalam sistem fail, atau digunakan oleh bundler modul anda, seperti rollup-svelte-plugin bagi rollup atau svelte-loader untuk webpack.
 
-Oleh itu mari kita kaji semula saluran penyusunan svelte,
-Svelte menguraikan kod menjadi ast, menjalankan serangkaian langkah untuk menganalisis kod, mengesan rujukan dan pergantungan pemboleh ubah. Kemudian svelte menghasilkan kod bergantung pada sasaran kompilasi, sama ada untuk sisi pelanggan atau sisi pelayan.
-Dan output dari langkah render adalah dari segi JS dan CSS, yang dapat ditulis ke dalam file / digunakan oleh alat binaan anda.
+Jadi mari kita kaji semula pipeline kompilasi svelte,
+Svelte menguraikan kod menjadi pohon sintaks abstrak, menganalisis kod, mancatat referensi dan pergantungan variabel. Kemudian svelte menghasilkan kod bergantung pada target kompilasi, sama ada untuk sisi browser atau sisi server.
 
-Terima kasih banyak mendengar. Sekiranya anda ingin mengetahui lebih lanjut mengenai svelte, atau jika anda mempunyai pertanyaan mengenai svelte, anda boleh mengikuti saya di twitter. Saya lihau. semoga anda bersenang-senang dengan perbincangan sepanjang persidangan. jumpa lagi.
+Hasilan kompiler mengandungi JS dan CSS. Ia boleh ditulis ke dalam fail ataupun digunakan oleh bundler modul.
+
+Terima kasih sudah mendengarkan. Jika anda ingin mempelajari lebih lanjut tentang svelte, ataupun mempunyai pertanyaan tentang svelte, anda boleh mengikuti saya di twitter. nama pengguna saya @lihautan. terima kasih

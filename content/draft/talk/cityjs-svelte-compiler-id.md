@@ -106,7 +106,7 @@ dan jangan khawatir, Anda dapat menemukan repl ini di situs web langsing. dan An
 
 Untuk mengekspresikan logika dalam template, Svelte menyediakan blok logika, seperti ** `{#if}` **, ** `{#await}` **, dan ** `{#each}` **.
 
-Untuk mengurangi kode boilerplate untuk mengikat variabel ke input, Svelte menyediakan direktif `bind:`.
+Untuk mengurangi kode perlu ditulis untuk mengikat variabel ke input, Svelte menyediakan direktif `bind:`.
 
 Untuk memberikan transisi untuk elemen yang masuk atau keluar dari DOM, Svelte menyediakan direktif `transisi`,` masuk` dan `keluar`.
 
@@ -136,7 +136,7 @@ Singkatnya, proses kompilasi umum melibatkan penguraian kode ke AST, melakukan a
 
 ---
 
-Terakhir, mari kita lihat cara kerja Svelte compiler.
+Terakhir, mari kita lihat cara kerja kompiler Svelte.
 
 Svelte mem-parsing kode Svelte menjadi AST
 Svelte kemudian menganalisis AST, yang akan kita bahas lebih lanjut nanti.
@@ -177,7 +177,7 @@ di sini kami mencatat nilai || dan ganda.
 
 "ganda" di sini, || dalam kode langsing ini || adalah variabel yang dideklarasikan reaktif. tetapi untuk vanilla JavaScript, kami memberikan nilai ke variabel ini "double", yang tidak dideklarasikan di mana pun.
 
-dalam mode ketat, ini adalah kesalahan "penugasan ke variabel yang tidak dideklarasikan".
+dalam mode ketat, ini adalah kesalahan "assignment to undeclared variable".
 
 Svelte menandai variabel, "double", sebagai "disuntikkan", sehingga deklarasi variabel akan dimasukkan nanti. Contoh lain dari variabel yang diinjeksi adalah svelte magic global, seperti $$ props, atau $ prefix dari variabel store.
 

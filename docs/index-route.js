@@ -325,10 +325,14 @@ function create_fragment(ctx) {
 	let t9;
 	let li5;
 	let a5;
+	let t10;
+	let t11;
+	let li6;
+	let a6;
 	let svg0;
 	let path0;
-	let t10;
-	let a6;
+	let t12;
+	let a7;
 	let svg1;
 	let path1;
 
@@ -345,22 +349,26 @@ function create_fragment(ctx) {
 			t3 = space();
 			li2 = element("li");
 			a2 = element("a");
-			t4 = text("Talks");
+			t4 = text("Videos");
 			t5 = space();
 			li3 = element("li");
 			a3 = element("a");
-			t6 = text("Notes");
+			t6 = text("Talks");
 			t7 = space();
 			li4 = element("li");
 			a4 = element("a");
-			t8 = text("Newsletter");
+			t8 = text("Notes");
 			t9 = space();
 			li5 = element("li");
 			a5 = element("a");
+			t10 = text("Newsletter");
+			t11 = space();
+			li6 = element("li");
+			a6 = element("a");
 			svg0 = svg_element("svg");
 			path0 = svg_element("path");
-			t10 = space();
-			a6 = element("a");
+			t12 = space();
+			a7 = element("a");
 			svg1 = svg_element("svg");
 			path1 = svg_element("path");
 			this.h();
@@ -388,7 +396,7 @@ function create_fragment(ctx) {
 			var li2_nodes = children(li2);
 			a2 = claim_element(li2_nodes, "A", { href: true, class: true });
 			var a2_nodes = children(a2);
-			t4 = claim_text(a2_nodes, "Talks");
+			t4 = claim_text(a2_nodes, "Videos");
 			a2_nodes.forEach(detach);
 			li2_nodes.forEach(detach);
 			t5 = claim_space(ul_nodes);
@@ -396,7 +404,7 @@ function create_fragment(ctx) {
 			var li3_nodes = children(li3);
 			a3 = claim_element(li3_nodes, "A", { href: true, class: true });
 			var a3_nodes = children(a3);
-			t6 = claim_text(a3_nodes, "Notes");
+			t6 = claim_text(a3_nodes, "Talks");
 			a3_nodes.forEach(detach);
 			li3_nodes.forEach(detach);
 			t7 = claim_space(ul_nodes);
@@ -404,23 +412,31 @@ function create_fragment(ctx) {
 			var li4_nodes = children(li4);
 			a4 = claim_element(li4_nodes, "A", { href: true, class: true });
 			var a4_nodes = children(a4);
-			t8 = claim_text(a4_nodes, "Newsletter");
+			t8 = claim_text(a4_nodes, "Notes");
 			a4_nodes.forEach(detach);
 			li4_nodes.forEach(detach);
 			t9 = claim_space(ul_nodes);
 			li5 = claim_element(ul_nodes, "LI", { class: true });
 			var li5_nodes = children(li5);
+			a5 = claim_element(li5_nodes, "A", { href: true, class: true });
+			var a5_nodes = children(a5);
+			t10 = claim_text(a5_nodes, "Newsletter");
+			a5_nodes.forEach(detach);
+			li5_nodes.forEach(detach);
+			t11 = claim_space(ul_nodes);
+			li6 = claim_element(ul_nodes, "LI", { class: true });
+			var li6_nodes = children(li6);
 
-			a5 = claim_element(li5_nodes, "A", {
+			a6 = claim_element(li6_nodes, "A", {
 				"aria-label": true,
 				href: true,
 				class: true
 			});
 
-			var a5_nodes = children(a5);
+			var a6_nodes = children(a6);
 
 			svg0 = claim_element(
-				a5_nodes,
+				a6_nodes,
 				"svg",
 				{
 					viewBox: true,
@@ -435,19 +451,19 @@ function create_fragment(ctx) {
 			path0 = claim_element(svg0_nodes, "path", { d: true }, 1);
 			children(path0).forEach(detach);
 			svg0_nodes.forEach(detach);
-			a5_nodes.forEach(detach);
-			t10 = claim_space(li5_nodes);
+			a6_nodes.forEach(detach);
+			t12 = claim_space(li6_nodes);
 
-			a6 = claim_element(li5_nodes, "A", {
+			a7 = claim_element(li6_nodes, "A", {
 				"aria-label": true,
 				href: true,
 				class: true
 			});
 
-			var a6_nodes = children(a6);
+			var a7_nodes = children(a7);
 
 			svg1 = claim_element(
-				a6_nodes,
+				a7_nodes,
 				"svg",
 				{
 					viewBox: true,
@@ -462,45 +478,48 @@ function create_fragment(ctx) {
 			path1 = claim_element(svg1_nodes, "path", { d: true }, 1);
 			children(path1).forEach(detach);
 			svg1_nodes.forEach(detach);
-			a6_nodes.forEach(detach);
-			li5_nodes.forEach(detach);
+			a7_nodes.forEach(detach);
+			li6_nodes.forEach(detach);
 			ul_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			attr(a0, "href", "/about");
-			attr(a0, "class", "svelte-ch8xpg");
-			attr(li0, "class", "svelte-ch8xpg");
+			attr(a0, "class", "svelte-hjsn8n");
+			attr(li0, "class", "svelte-hjsn8n");
 			attr(a1, "href", "/blogs");
-			attr(a1, "class", "svelte-ch8xpg");
-			attr(li1, "class", "svelte-ch8xpg");
-			attr(a2, "href", "/talks");
-			attr(a2, "class", "svelte-ch8xpg");
-			attr(li2, "class", "svelte-ch8xpg");
-			attr(a3, "href", "/notes");
-			attr(a3, "class", "svelte-ch8xpg");
-			attr(li3, "class", "svelte-ch8xpg");
-			attr(a4, "href", "/newsletter");
-			attr(a4, "class", "svelte-ch8xpg");
-			attr(li4, "class", "svelte-ch8xpg");
+			attr(a1, "class", "svelte-hjsn8n");
+			attr(li1, "class", "svelte-hjsn8n");
+			attr(a2, "href", "/videos");
+			attr(a2, "class", "svelte-hjsn8n");
+			attr(li2, "class", "svelte-hjsn8n");
+			attr(a3, "href", "/talks");
+			attr(a3, "class", "svelte-hjsn8n");
+			attr(li3, "class", "svelte-hjsn8n");
+			attr(a4, "href", "/notes");
+			attr(a4, "class", "svelte-hjsn8n");
+			attr(li4, "class", "svelte-hjsn8n");
+			attr(a5, "href", "/newsletter");
+			attr(a5, "class", "svelte-hjsn8n");
+			attr(li5, "class", "svelte-hjsn8n");
 			attr(path0, "d", "M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66\n  10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5\n  4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z");
 			attr(svg0, "viewBox", "0 0 24 24");
 			attr(svg0, "width", "1em");
 			attr(svg0, "height", "1em");
-			attr(svg0, "class", "svelte-ch8xpg");
-			attr(a5, "aria-label", "Twitter account");
-			attr(a5, "href", "https://twitter.com/lihautan");
-			attr(a5, "class", "svelte-ch8xpg");
+			attr(svg0, "class", "svelte-hjsn8n");
+			attr(a6, "aria-label", "Twitter account");
+			attr(a6, "href", "https://twitter.com/lihautan");
+			attr(a6, "class", "svelte-hjsn8n");
 			attr(path1, "d", "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0\n  0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07\n  5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65\n  5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42\n  3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22");
 			attr(svg1, "viewBox", "0 0 24 24");
 			attr(svg1, "width", "1em");
 			attr(svg1, "height", "1em");
-			attr(svg1, "class", "svelte-ch8xpg");
-			attr(a6, "aria-label", "Github account");
-			attr(a6, "href", "https://github.com/tanhauhau");
-			attr(a6, "class", "svelte-ch8xpg");
-			attr(li5, "class", "social svelte-ch8xpg");
-			attr(ul, "class", "svelte-ch8xpg");
+			attr(svg1, "class", "svelte-hjsn8n");
+			attr(a7, "aria-label", "Github account");
+			attr(a7, "href", "https://github.com/tanhauhau");
+			attr(a7, "class", "svelte-hjsn8n");
+			attr(li6, "class", "social svelte-hjsn8n");
+			attr(ul, "class", "svelte-hjsn8n");
 		},
 		m(target, anchor) {
 			insert(target, ul, anchor);
@@ -526,11 +545,15 @@ function create_fragment(ctx) {
 			append(ul, t9);
 			append(ul, li5);
 			append(li5, a5);
-			append(a5, svg0);
+			append(a5, t10);
+			append(ul, t11);
+			append(ul, li6);
+			append(li6, a6);
+			append(a6, svg0);
 			append(svg0, path0);
-			append(li5, t10);
-			append(li5, a6);
-			append(a6, svg1);
+			append(li6, t12);
+			append(li6, a7);
+			append(a7, svg1);
 			append(svg1, path1);
 		},
 		p: noop,

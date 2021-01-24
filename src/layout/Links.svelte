@@ -2,6 +2,7 @@
 <ul>
   <li><a href="/about">About</a></li>
   <li><a href="/blogs">Writings</a></li>
+  <li><a href="/videos">Videos</a></li>
   <li><a href="/talks">Talks</a></li>
   <li><a href="/notes">Notes</a></li>
   <li><a href="/newsletter">Newsletter</a></li>
@@ -62,6 +63,6 @@
     text-decoration: none;
     display: inline-block;
     transition: 100ms ease;
-    font-weight: 400;
+    font-weight: 500;
   }
 </style>

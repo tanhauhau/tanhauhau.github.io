@@ -48,7 +48,7 @@
     padding: 4px 8px;
     margin-right: 12px;
     font-size: 0.6em;
-    font-weight: 400;
+    font-weight: 500;
     background: white;
     color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
@@ -66,7 +66,7 @@
     top: 0px;
     right: 0;
     font-size: 0.8em;
-    font-weight: 400;
+    font-weight: 500;
     padding: 10px 16px 10px;
     color: var(--secondary-color);
   }

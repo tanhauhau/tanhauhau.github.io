@@ -1,0 +1,1105 @@
+{#if i === 2}<h1 transition:scale={{ easing: bounceOut, duration: 3000, delay: 900 }}> 🚀 Making an entrance with Svelte Transitions</h1>{/if}
+
+{#if i === 1}<button in:scale={{ easing: quadInOut }} out:fly={{ easing: bounceOut, duration: 1200, y: -200 }} on:click={() => i = 2}>Click Me</button>{/if}
+
+<script>
+  import { scale } from 'svelte/transition';
+  import { quadInOut, bounceOut, bounceIn, cubicOut } from 'svelte/easing';
+
+  let i = 0;
+
+  function fly(node, params) {
+    return {
+      delay: params.delay,
+      duration: params.duration,
+      easing: params.easing,
+      css(t, u) {
+        return `transform: translateX(-50%) translateY(${u * params.y}px) scale(${t}) rotate(${t * 720}deg)`;
+      }
+    }
+  }
+
+  export function next() {
+    if (i === 2) return false;
+    i++;
+    return true;
+  }
+  export function prev() {
+    if (i === 0) return false;
+    i--;
+    return true;
+  }
+</script>
+
+<style>
+  h1 {
+    display: grid;
+    place-content: center;
+    height: 100%;
+    margin: 0;
+  }
+  button {
+    background: #308cce;
+    transition: all ease-in-out 500ms;
+    color: white;
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 40px;
+    font-size: 22px;
+    border-radius: 8px;
+    outline: none;
+    border: 0;
+    animation: zoom ease-in-out 2s alternate infinite both;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #5830ce;
+  }
+  @keyframes zoom {
+    0% {
+      transform: translateX(-50%) scale(1);
+      background: #308cce;
+      box-shadow: 2px 8px 15px 4px #ccc;
+    }
+    100% {
+      transform: translateX(-50%) scale(0.9);
+      background: #5830ce;
+      box-shadow: 0px 0px 0px 0px #ccc;
+    }
+  }
+</style>
+
++++
+
+<div class="container">
+  <div>
+    <div class="placeholder">🚴‍♂️  Introduction to transition</div>
+    {#if i >= 1}<div transition:blur class="actual">🚴‍♂️  Introduction to transition</div>{/if}
+  </div>
+  <div>
+    <div class="placeholder">🚗  Writing Custom transition</div>
+    {#if i >= 2}<div transition:slide class="actual">🚗  Writing Custom transition</div>{/if}
+  </div>
+  <div>
+    <div class="placeholder">🚀  Mechanics of a transition</div>
+    {#if i >= 3}<div transition:fly={{y:30}} class="actual">🚀  Mechanics of a transition</div>{/if}
+  </div>
+</div>
+
+<script>
+  import { blur, slide, fly } from 'svelte/transition';
+  let i = 0;
+
+  export function next() {
+    if (i === 3) return false;
+    i++;
+    return true;
+  }
+  export function prev() {
+    if (i === 0) return false;
+    i--;
+    return true;
+  }
+</script>
+
+<style>
+  .container {
+    display: grid;
+    place-content: center;
+    height: 100%;
+  }
+  .container > div {
+    margin: 20px 0;
+    font-size: 42px;
+    position: relative;
+  }
+  .placeholder {
+    opacity: 0;
+  }
+  .actual {
+    position: absolute;
+    top: 0;
+  }
+</style>
+
++++
+
+<script>
+  import profile from 'file://./images/profile-pic.png';
+  import rojak from 'file://./images/penang-rojak.jpg';
+  import ckt from 'file://./images/koay-teow.jpg';
+
+  import yt from 'file://./images/yt.png';
+  import twitter from 'file://./images/twitter.png';
+
+  let index = 0;
+
+  export function next() {
+    if (index === 3) return false;
+    index++;
+    return true;
+  }
+  export function prev() {
+    if (index === 0) return false;
+    index--;
+    return true;
+  }
+</script>
+
+<img src={profile} alt="profile" />
+
+<div class="profile">
+  <img class="logo" src={twitter} alt="twitter" /><span>@lihautan</span>
+  <img class="logo" src={yt} alt="yt" /><span>lihautan</span>
+  <span style="grid-column: 1 / 3; place-self: center;">https://lihautan.com</span>
+</div>
+
+- 👨🏻‍💻 Frontend engineer at Shopee Singapore
+- 🇲🇾 Grew up in Penang, Malaysia
+- 🛠 Svelte Maintainer
+
+<div class="ckt" class:hidden={index < 1 || index >= 3}>
+  <img src={ckt} alt="char koay teow" />
+  <div>Image credit: sidechef.com</div>
+</div>
+<div class="rojak" class:hidden={index < 2 || index >= 3}>
+  <img src={rojak} alt="rojak" />
+  <div>Image credit: tripadvisor.com</div>
+</div>
+
+<style>
+  img {
+    height: 256px;
+    margin-top: 32px;
+  }
+  ul {
+    margin: 40px auto;
+    display: block;
+    width: 520px;
+  }
+  .ckt, .rojak {
+    transition: 200ms ease-in;
+  }
+  .ckt {
+    position: fixed;
+    top: 0;
+    font-size: 10px;
+    z-index: 1;
+  }
+  .ckt img {
+    height: 450px;
+  }
+  .rojak {
+    position: fixed;
+    top: 0;
+    right: 32px;
+    font-size: 10px;
+    z-index: 1;
+  }
+  .rojak img {
+    height: 320px;
+  }
+  .logo {
+    height: 20px;
+    display: inline-block;
+    margin: 0;
+    place-self: center
+  }
+  .profile {
+    display: grid;
+    grid-template-columns: 40px 120px;
+    grid-template-rows: 1fr 1fr;
+    margin: 30px auto;
+    width: 160px;
+  }
+</style>
+
++++
+
+<div>
+
+# 🚴‍♂️ Introduction to transition
+
+</div>
+
+<style>
+  div {
+    display: grid;
+    place-content: center;
+    height: 100%;
+  }
+  h1 {
+    margin: 0;
+  }
+</style>
+
++++
+
+<div class="container">
+  <div class="code" use:prismSvelte={code} />
+  <div>
+    {#if i >= 3 && i < 10}
+      <button on:click={add}>Add</button>
+      <button on:click={remove}>Remove</button>
+      
+      {#each items as item}
+        <div in:customFadeIn out:customFadeOut>{item}</div>
+      {/each}
+    {/if}
+    {#if i >= 10}
+      <label>
+        <input type="checkbox" bind:checked={condition1} />
+        Toggle parent visibility
+      </label>
+
+      <label>
+        <input type="checkbox" bind:checked={condition2} />
+        Toggle child visibility
+      </label>
+
+      <div class:none={i >= 11}>
+        {#if condition1}
+          <div class="parent" transition:fade>
+            Parent
+            {#if condition2}
+              <div class="child" transition:slide>
+                Child
+              </div>
+            {/if}
+          </div>
+        {/if}
+      </div>
+
+      <div class:none={i === 10}>
+        {#if condition1}
+          <div class="parent" transition:fade>
+            Parent
+            {#if condition2}
+              <div class="child" transition:slide|local >
+                Child
+              </div>
+            {/if}
+          </div>
+        {/if}
+      </div>
+    {/if}
+  </div>
+</div>
+
+<script>
+  import { prismSvelte } from './utils/prism';
+  import { fade, fly, slide } from 'svelte/transition';
+  import base from 'raw://./examples/use/base.svelte';
+  import baseIf from 'raw://./examples/use/base-if.svelte';
+  import baseAwait from 'raw://./examples/use/base-await.svelte';
+  import codeImport from 'raw://./examples/use/import.svelte';
+  import codeIn from 'raw://./examples/use/in.svelte';
+  import codeOut from 'raw://./examples/use/out.svelte';
+  import codeTransition from 'raw://./examples/use/transition.svelte';
+  import codeTransitionParam from 'raw://./examples/use/transition-param.svelte';
+  import codeMix from 'raw://./examples/use/mix.svelte';
+  import codeGlobal from 'raw://./examples/use/global.svelte';
+  import codeLocal from 'raw://./examples/use/local.svelte';
+  import codeGlobalLocal from 'raw://./examples/use/global-local.svelte';
+
+  let i = 0;
+
+  let condition1, condition2 = true;
+
+  const CODES = [
+    baseIf,
+    baseAwait,
+    base,
+    base,
+    codeImport,
+    codeTransition, // 5
+    codeTransitionParam,
+    codeIn,
+    codeOut,
+    codeMix,
+    codeGlobal,  // 10
+    codeLocal,
+  ];
+
+  const LENGTH = CODES.length - 1;
+  $: code = replace$$$$(CODES[i], items);
+  $: if (i < 10) {
+    condition1 = false;
+  }
+
+  export function next() {
+    return i < LENGTH && i++ < LENGTH;
+  }
+  export function prev() {
+    return i > 0 && i-- > 0;
+  }
+
+  let items = ['a', 'b'];
+
+  function add() {
+    items = [...items, String.fromCharCode(97 + items.length)];
+  }
+  function remove() {
+    items = items.slice(0, -1);
+  }
+
+  function customFadeIn(node) {
+    return function() {
+      if (i === 5) {
+        return fade(node, {});
+      } else if (i === 6 || i === 7) {
+        return fade(node, { duration: 1000, delay: 500 });
+      } else if (i === 9) {
+        return fly(node, { y: 30, duration: 500 });
+      } else {
+        return { duration: 0 };
+      }
+    }
+  }
+  function customFadeOut(node) {
+    return function() {
+      if (i === 5) {
+        return fade(node, {});
+      } else if (i === 6 || i === 8) {
+        return fade(node, { duration: 1000, delay: 500 });
+      } else if (i === 9) {
+        return fade(node, { duration: 1000 });
+      } else {
+        return { duration: 0 };
+      }
+    }
+  }
+
+  function replace$$$$(str, items) {
+    if (i >= 2 && i <= 9) {
+      return str.replace('$$$$', `[${items.map(_ => `'${_}'`).join(', ')}]`);
+    }
+    return str;
+  }
+</script>
+
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+    margin-top: 170px;
+  }
+  .none {
+    display: none;
+  }
+  .parent, .child {
+		border: 1px solid black;
+		padding: 8px;
+	}
+	.parent {
+		background: #c5e1a5;
+		margin-bottom: 8px;
+	}
+	.child {
+		background: #b2ebf2;
+	}
+</style>
+
++++
+
+<script>
+  import { prismSvelte } from './utils/prism';
+  import { blur, fly, scale, slide } from 'svelte/transition';
+  import codeBlur from 'raw://./examples/builtin/blur.svelte';
+  import codeFly from 'raw://./examples/builtin/fly.svelte';
+  import codeFly2 from 'raw://./examples/builtin/fly-2.svelte';
+  import codeScale from 'raw://./examples/builtin/scale.svelte';
+  import codeScale2 from 'raw://./examples/builtin/scale-2.svelte';
+  import codeSlide from 'raw://./examples/builtin/slide.svelte';
+
+  let i = 0;
+  let checked = false;
+
+  const CODES = [
+    codeSlide,
+    codeBlur,
+    codeFly,
+    codeFly2,
+    codeScale,
+    codeScale2,
+  ];
+
+  const LENGTH = CODES.length - 1;
+  $: code = CODES[i];
+
+  export function next() {
+    return i < LENGTH && i++ < LENGTH;
+  }
+  export function prev() {
+    return i > 0 && i-- > 0;
+  }
+
+  function customTransition(node) {
+    switch(i) {
+      case 0:
+        return slide(node, {});
+      case 1:
+        return blur(node, { amount: 10 });
+      case 2:
+        return fly(node, { x: 50, y: 100 });
+      case 3:
+        return fly(node, { y: -50 });
+      case 4:
+        return scale(node, { start: 0 });
+      case 5:
+        return scale(node, { start: 3 });
+      default:
+        return { duration: 0 }
+    } 
+  }
+</script>
+
+<div class="outer">
+  <div class="container">
+    <div class="code" use:prismSvelte={code} />
+    <div>
+      <label><input type="checkbox" bind:checked /> Show</label>
+      {#if checked}
+        <h2 transition:customTransition>Hello FRONTEND CON 2020</h2>
+      {/if}
+    </div>
+  </div>
+</div>
+
+<style>
+  .outer {
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .container { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 1300px;
+    height: 250px;
+  }
+  label {
+    display: block;
+  }
+</style>
+
++++
+
+<script>
+  import { prismSvelte } from './utils/prism';
+  import { fly } from 'svelte/transition';
+  import { cubicIn, bounceOut, elasticOut } from 'svelte/easing';
+  import codeLinear from 'raw://./examples/builtin-ease/linear.svelte';
+  import codeEaseIn from 'raw://./examples/builtin-ease/easeIn.svelte';
+  import codeBounceIn from 'raw://./examples/builtin-ease/bounceIn.svelte';
+  import codeElasticIn from 'raw://./examples/builtin-ease/elasticIn.svelte';
+
+  let i = 0;
+  let checked = false;
+
+  const CODES = [
+    codeLinear,
+    codeEaseIn,
+    codeBounceIn,
+    codeElasticIn,
+  ];
+
+  const LENGTH = CODES.length - 1;
+  $: code = CODES[i];
+
+  export function next() {
+    return i < LENGTH && i++ < LENGTH;
+  }
+  export function prev() {
+    return i > 0 && i-- > 0;
+  }
+
+  function customTransition(node) {
+    switch(i) {
+      case 0:
+        return fly(node, { duration: 1000, x: 200 });
+      case 1:
+        return fly(node, { duration: 1000, x: 200, easing: cubicIn });
+      case 2:
+        return fly(node, { duration: 1000, x: 200, easing: bounceOut });
+      case 3:
+        return fly(node, { duration: 1000, x: 200, easing: elasticOut });
+      default:
+        return { duration: 0 }
+    } 
+  }
+</script>
+
+<div class="outer">
+  <div class="container">
+    <div class="code" use:prismSvelte={code} />
+    <div>
+      <label><input type="checkbox" bind:checked /> Show</label>
+      {#if checked}
+        <h2 transition:customTransition>Hello FRONTEND CON 2020</h2>
+      {/if}
+    </div>
+  </div>
+</div>
+
+<style>
+  .outer {
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .container { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 1400px;
+    height: 250px;
+  }
+  label {
+    display: block;
+  }
+</style>
+
++++
+
+<div class="container">
+
+<div>
+
+## 📚 References
+
+- https://svelte.dev/docs#svelte_transition
+- https://svelte.dev/docs#svelte_easing
+- https://svelte.dev/tutorial/transition
+
+</div>
+
+</div>
+
+<style>
+  .container {
+    display: grid;
+    height: 100%;
+    align-items: center;
+    font-size: 42px;
+  }
+  ul {
+    margin: 0;
+  }
+  li {
+    margin: 45px 0;
+  }
+</style>
+
++++
+
+<div>
+
+# 🚗 Writing Custom transition
+
+</div>
+
+<style>
+  div {
+    display: grid;
+    place-content: center;
+    height: 100%;
+  }
+  h1 {
+    margin: 0;
+  }
+</style>
+
++++
+
+## The `transition:` contract
+
+<script>
+  import { prismSvelte } from './utils/prism';
+  import code1 from 'raw://./examples/contract/1.svelte';
+  import code2 from 'raw://./examples/contract/2.svelte';
+  import code3 from 'raw://./examples/contract/3.svelte';
+
+  let i = 0;
+
+  const CODES = [
+    code1,
+    code2,
+    code3,
+  ];
+
+  const LENGTH = CODES.length - 1;
+  $: code = CODES[i];
+
+  export function next() {
+    return i < LENGTH && i++ < LENGTH;
+  }
+  export function prev() {
+    return i > 0 && i-- > 0;
+  }
+</script>
+
+<div class="container">
+  <div class="code" use:prismSvelte={code} />
+</div>
+
+<style>
+  .container {
+    height: calc(100% - 188px);
+    display: grid;
+    place-items: center;
+  }
+  .code {
+    width: 860px;
+    height: 500px;
+    white-space: pre-wrap;
+  }
+</style>
+
++++
+
+<Easing {i} />
+
+<script>
+  import Easing from './components/easing.svelte';
+  let i = 0;
+
+  const LENGTH = 12;
+
+  export function next() {
+    return i < LENGTH && i++ < LENGTH;
+  }
+  export function prev() {
+    return i > 0 && i-- > 0;
+  }
+</script>
+
++++
+
+## The `transition:` contract
+
+<script>
+  import { prismSvelte } from './utils/prism';
+  import code from 'raw://./examples/contract/1.svelte';
+</script>
+
+<div class="container">
+  <div class="code" use:prismSvelte={code} />
+</div>
+
+<style>
+  .container {
+    height: calc(100% - 188px);
+    display: grid;
+    place-items: center;
+  }
+  .code {
+    width: 860px;
+    height: 500px;
+    white-space: pre-wrap;
+  }
+</style>
+
++++
+
+<iframe src="https://svelte.dev/repl/c88da2fde68a415cbd43aa738bfcefab?version=3.29.0" />
+
+<style>
+  iframe {
+    height: 100%;
+    width: 100%;
+    outline: 0;
+    border: 0;
+    display: block;
+  }
+</style>
+
++++
+
+<div class="container">
+
+# 🚀 Mechanics of a transition
+
+</div>
+
+<style>
+  .container {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+    text-align: center;
+  }
+  h1 {
+    font-size: 52px;
+  }
+</style>
+
++++
+
+# CSS Transition
+
+```css
+div {
+  opacity: 1;
+  transition: opacity 1s ease 0.5s;
+}
+div.transparent {
+  opacity: 0;
+}
+```
+
+---
+
+<div id="demo" class:transparent={toggled}>TEST</div>
+<button on:click={toggle}>{toggled ? 'Remove' : 'Add'} class</button>
+
+{#if toggled}
+```html
+<div class="transparent">TEST</div>
+```
+{:else}
+```html
+<div>TEST</div>
+```
+{/if}
+
+<style>
+  #demo {
+    opacity: 1;
+    transition: opacity 1s ease 0.5s;
+  }
+  #demo.transparent {
+    opacity: 0;
+  }
+  h1 {
+    margin: 0;
+  }
+</style>
+
+<script>
+  let toggled = false;
+  function toggle() {
+    toggled = !toggled;
+  }
+</script>
+
++++
+
+# CSS Animations
+
+<script>
+  import Prism from 'prismjs';
+  import { prism } from './utils/prism';
+  import code from 'raw://./examples/animation/index.html';
+  import linear from 'raw://./examples/animation/linear.txt';
+  import mixed from 'raw://./examples/animation/mixed.txt';
+  import cubic from 'raw://./examples/animation/cubic.txt';
+
+  const map = { anim1: linear, anim2: mixed, anim3: cubic };
+
+  let animation = 'anim1';
+  let duration = 3000;
+
+  $: html = code.replace('{{rule}}', map[animation]).replace('{{duration}}', (duration / 1000).toFixed(2));
+</script>
+
+<div class="container">
+<div
+  class="code"
+  use:prism={{ code: html, lang: Prism.languages.html }}
+/>
+<div class="demo">
+<label><input bind:group={animation} type="radio" value="anim1" />Linear</label>
+<label><input bind:group={animation} type="radio" value="anim2" />2 Animations</label>
+<label><input bind:group={animation} type="radio" value="anim3" />Cubic Easing</label>
+
+<label>Duration: <input type="range" min="100" max="5000" step="50" bind:value={duration} /></label>
+
+<div style="animation: {animation} {duration}ms linear infinite both">TEXT</div>
+
+</div>
+</div>
+
+<style>
+  @keyframes -global-anim1 {
+    0% { transform: translateX(0px); }
+    10% { transform: translateX(10px); }
+    20% { transform: translateX(20px); }
+    30% { transform: translateX(30px); }
+    40% { transform: translateX(40px); }
+    50% { transform: translateX(50px); }
+    60% { transform: translateX(60px); }
+    70% { transform: translateX(70px); }
+    80% { transform: translateX(80px); }
+    90% { transform: translateX(90px); }
+    100% { transform: translateX(100px); }
+  }
+
+  @keyframes -global-anim2 {
+    0% { transform: translateX(0px); opacity: 0; }
+    10% { transform: translateX(10px); opacity: 0.5; }
+    20% { transform: translateX(20px); opacity: 1; }
+    30% { transform: translateX(30px); opacity: 0.5; }
+    40% { transform: translateX(40px); opacity: 0; }
+    50% { transform: translateX(50px); opacity: 0.5; }
+    60% { transform: translateX(60px); opacity: 1; }
+    70% { transform: translateX(70px); opacity: 0.5; }
+    80% { transform: translateX(80px); opacity: 0; }
+    90% { transform: translateX(90px); opacity: 0.5; }
+    100% { transform: translateX(100px); opacity: 1; }
+  }
+  @keyframes -global-anim3 {
+    0% { transform: translateX(0px); }
+    10% { transform: translateX(0.1px); }
+    20% { transform: translateX(0.8px); }
+    30% { transform: translateX(2.7px); }
+    40% { transform: translateX(6.4px); }
+    50% { transform: translateX(12.5px); }
+    60% { transform: translateX(21.6px); }
+    70% { transform: translateX(34.3px); }
+    80% { transform: translateX(51.2px); }
+    90% { transform: translateX(72.9px); }
+    100% { transform: translateX(100px); }
+  }
+  .container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1.5fr 1fr;
+  }
+  h1 {
+    margin: 0;
+  }
+  .demo {
+    margin-top: 100px;
+  }
+</style>
+
++++
+
+# JS Animations
+
+<div class="code" use:prismJs={code} />
+
+<input type="range" min="100" max="10000" step="50" bind:value={duration} />
+
+<div bind:this={div} />
+
+<script>
+  import { prismJs } from './utils/prism';
+  import jsCode from 'raw://./examples/js-animation/index.js';
+
+  const string = 'Hello World';
+  let duration = 3000;
+
+  $: code = jsCode.replace('{{duration}}', `${duration}; // ${(duration / 1000).toFixed(2)}s`)
+
+  let div;
+  let start = Date.now();
+  function loop() {
+    const now = Date.now();
+    const time = (now - start) / duration;
+    const length = Math.round(time * string.length) % string.length;
+    div.textContent = string.slice(0, length === 0 ? string.length : length);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+</script>
+
+<style>
+  h1 {
+    margin: 0;
+  }
+</style>
+
++++
+
+<script>
+  import { prismSvelte, prismJs, prismJsNoTrim } from './utils/prism';
+  import code from 'raw://./examples/vanilla/transition.svelte';
+
+  let i = 0;
+  $: style = `let style = '';${getStyleContent(i)}`;
+
+  const LENGTH = 23;
+
+  export function next() {
+    return i < LENGTH && i++ < LENGTH;
+  }
+  export function prev() {
+    return i > 0 && i-- > 0;
+  }
+  function getStyleContent(i) {
+    let result = '';
+    if (i >= 5) result += '\n/*';
+    if (i >= 20) result += '\n@keyframes xxx {';
+    if (i >= 5) result += '\n  0% { transform: translateX(0px) }';
+    if (i >= 8) result += '\n  10% { ';
+    if (i >= 9) result += 'transform: translate(0.001px)';
+    if (i >= 10) result += ' }';
+    if (i >= 11) result += '\n  20% { transform: translate(0.008px) }';
+    if (i >= 12) result += '\n  30% { transform: translate(0.027px) }';
+    if (i >= 13) result += '\n  40% { transform: translate(0.064px) }';
+    if (i >= 14) result += '\n  50% { transform: translate(0.125px) }';
+    if (i >= 15) result += '\n  60% { transform: translate(0.216px) }';
+    if (i >= 16) result += '\n  70% { transform: translate(0.343px) }';
+    if (i >= 17) result += '\n  80% { transform: translate(0.512px) }';
+    if (i >= 18) result += '\n  90% { transform: translate(0.729px) }';
+    if (i >= 19) result += '\n  100% { transform: translate(1px) }';
+    if (i >= 20) result += '\n}';
+    if (i >= 5) result += '\n*/';
+    return result;
+  }
+  function getEaseContent(i) {
+    let t = getT(i);
+    let eased = (t * t * t).toFixed(3);
+    return eased;
+  }
+  function getT(i) {
+    if (i >= 19) return 1;
+    let t = 0.1;
+    if (i >= 11) {
+      t += (i - 10) * 0.1;
+    }
+    return t;
+  }
+  function getTString(i) {
+    let t = getT(i);
+    let value = t.toFixed(1);
+    if (value === '0.0') return '0';
+    if (value === '1.0') return '1';
+    return value;
+  }
+  function getSetter(i) {
+    let t = getT(i);
+    let value = (t * t * t).toFixed(3);
+    if (value === '0.000') value = 0;
+    if (value === '1.000') value = 1;
+    return `transform: translateX(${value}px)`;
+  }
+  function getPercentage(i) {
+    let t = 10;
+    if (i >= 11) {
+      t += (i - 10) * 10;
+    }
+    return `${t}%`;
+  }
+</script>
+
+<div class="container">
+  <div class="code" use:prismSvelte={code} />
+  <div class="instruction">
+    <!-- 1 -->
+    <div class="code" class:hidden={i !== 1} class:none={i >= 2} use:prismJs={"swoosh(div, { delay: 3000, duration: 1000, easing: cubicIn })"} />
+    <!-- 2 -->
+    <div class="code" class:none={i < 2} use:prismJs={"const config = swoosh(div, { delay: 3000, duration: 1000 })"} />
+    <!-- 3, 5, 8 -->
+    <div class="code" class:none={i >= 23} class:hidden={i < 3} use:prismJs={style} />
+    <!-- 4, 7 -->
+    <div class:none={i >= 20} class="code" class:hidden={i < 4} use:prismJs={`style += \`0% { \${config.css(0, 1)} }\` // '0% { transform: translate(0px) }'`} />
+    <!-- 6 -->
+    <div class:none={i >= 20} class:hidden={i < 6} style="height: 1em" />
+    <div class="code" class:none={i >= 20} class:hidden={i < 6} use:prismJs={`for (let t=0.1; t<=1; t+= 0.1) { // t = ${getTString(i)}`} />
+    <div class="code" class:none={i >= 20} class:hidden={i < 7} use:prismJsNoTrim={`  const eased = config.easing(t); // ${getEaseContent(i)}`} />
+    <div class="code" class:none={i >= 20} class:hidden={i < 8} use:prismJsNoTrim={`  style += \`\${t * 100}% { \`// '${getPercentage(i)} {'`} />
+    <div class="code" class:none={i >= 20} class:hidden={i < 9} use:prismJsNoTrim={`  style += config.css(eased, 1 - eased); // '${getSetter(i)}'`} />
+    <div class="code" class:none={i >= 20} class:hidden={i < 10} use:prismJsNoTrim={`  style += ' }';`} />
+    <div class="code" class:none={i >= 20} class:hidden={i < 6} use:prismJs={'}'} />
+
+    <div class="code" class:none={i < 20 || i >= 23} class:hidden={i < 20} use:prismJs={"// ..."} />
+    <div class="code" class:none={i < 20 || i >= 23} class:hidden={i < 20} use:prismJs={"style = '@keyframes xxx {' + style + '}';"} />
+    <div class="code" class:none={i < 20 || i >= 23} class:hidden={i < 21} use:prismJs={"const sheet = document.head.appendChild(document.createElement('style')).sheet;"} />
+    <div class="code" class:none={i < 20 || i >= 23} class:hidden={i < 21} use:prismJs={"sheet.insertRule(style);"} />
+
+    <div class="code" class:none={i < 20 || i >= 23} class:hidden={i < 22} style="height: 1em" />
+    <div class="code" class:none={i < 20 || i >= 23} class:hidden={i < 22} use:prismJs={"div.style.animation = `xxx ${config.duration}ms linear ${config.delay}ms 1 both`; // 'xxx 1000ms linear 3000ms 1 both'"} />
+
+    <div class="code" class:none={i < 23} style="height: 1em" />
+    <div class="code" class:none={i < 23} use:prismJs={"// ..."} />
+    <div class="code" class:none={i < 23} use:prismJs={"const start = Date.now();\nfunction loop() {\n  const now = Date.now();\n\n  const t = (now - start) / config.duration;\n  const eased = config.easing(t);\n\n  config.tick(eased, 1 - eased);\n\n  requestAnimationFrame(loop);\n}\n\nrequestAnimationFrame(loop);"} />
+  </div>
+</div>
+
+<style>
+  .container {
+    height: calc(100%);
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  .code {
+    white-space: pre-wrap;
+  }
+  .instruction {
+    width: 920px;
+  }
+  .none {
+    display: none;
+  }
+</style>
+
++++
+
+<div class="container">
+  <div>🚴‍♂️  Introduction to transition</div>
+  <div>🚗  Writing Custom transition</div>
+  <div>🚀  Mechanics of a transition</div>
+</div>
+
+<style>
+  .container {
+    display: grid;
+    place-content: center;
+    height: 100%;
+  }
+  .container div {
+    margin: 20px 0;
+    font-size: 42px;
+  }
+</style>
+
++++
+
+<div class="container">
+<div>
+
+# Thank you
+
+<div class="profile">
+  <img class="logo" src={twitter} alt="twitter" /><span>@lihautan</span>
+  <img class="logo" src={yt} alt="yt" /><span>lihautan</span>
+  <span style="grid-column: 1 / 3; place-self: center;">https://lihautan.com</span>
+</div>
+
+</div>
+</div>
+
+<script>
+  import yt from 'file://./images/yt.png';
+  import twitter from 'file://./images/twitter.png';
+</script>
+
+<style>
+  .container {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+    text-align: center;
+  }
+  .logo {
+    height: 20px;
+    display: inline-block;
+    margin: 0;
+    place-self: center
+  }
+  .profile {
+    display: grid;
+    grid-template-columns: 40px 120px;
+    grid-template-rows: 1fr 1fr;
+    margin: 30px auto;
+    width: 160px;
+  }
+</style>

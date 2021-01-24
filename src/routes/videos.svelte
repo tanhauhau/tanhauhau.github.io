@@ -1,0 +1,119 @@
+<script>
+  import Header from '../layout/Header.svelte';
+
+  const data = [
+		{
+			title: 'Svelte Actions',
+			videos: [
+				{ url: "https://youtu.be/ciaMT_MswzE", title: "🤔 What is Svelte Actions?" },
+        { url: "https://youtu.be/5tyaUOfOFpw", title: "🧐 How Svelte action reacts to parameters change?" },
+        { url: "https://youtu.be/Y19gAgyhU-c", title: "🤨 What if Svelte does not have the use:action feature?" },
+        { url: "https://youtu.be/_IGEl4t1TSM", title: "😙 Reusing event listeners with Svelte actions" },
+        { url: "https://youtu.be/22aIzPaI3Vg", title: "🤓 Creating events with Svelte actions" },
+        { url: "https://youtu.be/Y5IiSdcqdeQ", title: "😜 Integrating UI Library into a Svelte app using Svelte Actions" },
+        { url: "https://youtu.be/3R3PMEesQnM", title: "😲 The order of Svelte actions" },
+        { url: "https://youtu.be/0GqIoo66i0g", title: "🥺 Svelte Action Examples - use:tooltip" },
+        { url: "https://youtu.be/1SKKzdHVvcI", title: "🥺 Svelte Action Examples - use:viewport" },
+        { url: "https://youtu.be/AzE9-6QcwmM", title: "🥺 Svelte Action Examples - use:clickOutside" },
+        { url: "https://youtu.be/CFj4X0bGOvE", title: "🥺 Svelte Action Examples - use:popper with Popper" },
+			]
+		},
+    {
+      title: 'Svelte Transitions',
+      videos: [
+        { url: "https://youtu.be/VDYn_4pTawk", title: "Introduction to Svelte Transition #1 - Adding Transitions" },
+        { url: "https://youtu.be/fTctuCkUT9c", title: "Introduction to Svelte Transition #2 - Coordinating Transitions" },
+        { url: "https://youtu.be/M-LroTSC54E", title: "Introduction to Svelte Transition #3 - Transition Events" },
+        { url: "https://youtu.be/xQc9mwBGJ5Q", title: "Introduction to Svelte Transition #4 - Easing Transitions" },
+        { url: "https://youtu.be/QK_QuRL7nSo", title: "Accessible Svelte Transition" },
+        { url: "https://youtu.be/u13B_D00XMY", title: "Custom Svelte Transitions - Solid Color Swipe" },
+        { url: "https://youtu.be/J0Kk-axA_mA", title: "Custom Svelte Transitions - Flipboard transition" },
+        { url: "https://youtu.be/X6JQzEnw994", title: "Custom Svelte Transitions - using SVG filter feTurbulence" },
+        { url: "https://youtu.be/_Z3KAT29g1Y", title: "Improvements: Building tixy.land with Svelte" },
+      ]
+    },
+    {
+      title: 'Svelte',
+      videos: [
+        { url: "https://youtu.be/jMcONG-IWNg", title: "Using variables within style tag in Svelte" },
+        { url: "https://youtu.be/-i8zg1jbqkU", title: "Drawing Canvas with Svelte using slot and context" },
+        { url: "https://youtu.be/Iin2JvrMOd4", title: "Creating animated graph with Svelte and SVG" },
+        { url: "https://youtu.be/us3_VXjtvu8", title: "Building tixy.land with Svelte" },
+        { url: "https://youtu.be/JXO_DlttJII", title: "Building Flexbox Froggy with Svelte" },
+        { url: "https://youtu.be/yqstN8_wWgQ", title: "Simulating Fibonacci with Svelte motion tweened" },
+        { url: "https://youtu.be/oEratnd190o", title: "Visualising Sorting Algorithm with Svelte animate:flip" },
+      ]
+    },
+    {
+      title: 'UI',
+      videos: [
+        { url: "https://youtu.be/tBn0lVUzUbA", title: "How to implement a tooltip positioning engine" },
+      ]
+    }
+  ];
+</script>
+
+<Header />
+
+<main class="blogs">
+  <h1>Li Hau's Videos</h1>
+  <ul>
+  {#each data as { title, videos }}
+		<li class="list">
+			<p class="title">{title}</p>
+			<ul>
+				{#each videos as { title, url } }
+					<li class="item">
+						<a href={url}>{title}</a>
+					</li>
+				{/each}
+			</ul>
+    </li>
+  {/each}
+  </ul>
+</main>
+
+<style>
+	main {
+    max-width: 675px;
+    margin: auto;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+	li {
+    background: white;
+    margin: 16px 0 24px;
+		border: 4px solid;
+		box-shadow: var(--box-shadow);
+		transition: var(--easing);
+	}
+	li:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--box-shadow-hover);
+  }
+  li:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+	.list {
+		padding: 4px 12px 16px;
+	}
+	.item {
+    margin: 16px 0 0;
+  }
+  a {
+    text-decoration: none;
+    position: relative;
+    padding: 12px;
+    display: block;
+		color: black;
+  }
+	.title {
+    font-weight: 700;
+    font-size: 32px;
+    margin: 10px 0;
+  }
+</style>

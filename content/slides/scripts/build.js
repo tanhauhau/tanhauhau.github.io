@@ -18,7 +18,7 @@ const rollupPluginSvelte = require('rollup-plugin-svelte');
 const rollupPluginCommonJs = require('@rollup/plugin-commonjs');
 const { nodeResolve: rollupPluginNodeResolve } = require('@rollup/plugin-node-resolve');
 const rollupPluginPostCss = require('rollup-plugin-postcss');
-const slide = 'demystifying-transitions';
+const slide = 'making-an-entrance-with-svelte-transitions';
 
 const watchMode = process.argv.includes('--watch');
 
