@@ -506,6 +506,7 @@ div.code-toolbar > .toolbar span:focus {
 .blog th,
 .blog td {
   padding: 10px;
+  white-space: nowrap;
 }
 
 .blog thead {

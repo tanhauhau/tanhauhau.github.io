@@ -605,6 +605,15 @@ We've gone through:
 - How to target a node in AST, and
 - How to create an AST node
 
+> **Manipulating AST with JavaScript using Babel**
+> 
+> If you like what you've read so far, and want to learn how you could do it with Babel. I've created a [video course](https://gum.co/manipulating-ast-with-javascript), showing you step-by-step, how to write a babel plugin and codemod.
+> 
+> In the video course, I detailed tips and tricks, such as how to handle scope, how to use state, and also nested traversals.
+> 
+> **[Sounds interesting, let's take a look at the video course](https://gum.co/manipulating-ast-with-javascript)**
+
+
 ## Further Readings
 
 [Dinesh (@flexdinesh)](https://twitter.com/flexdinesh) [tweeted](https://twitter.com/flexdinesh/status/1196680010343432192) his pocket collection of AST resources:

@@ -407,6 +407,14 @@ If you are interested to learn more, [babel's Github repo](https://github.com/ba
 
 Head down to [https://github.com/babel/babel](https://github.com/babel/babel/tree/master/packages), and look for `babel-plugin-transform-*` or `babel-plugin-proposal-*` folders, they are all babel transformation plugin, where you can find code on how babel [transform the nullish coalescing operator](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-nullish-coalescing-operator), [optional chaining](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-optional-chaining) and many more.
 
+> **Manipulating AST with JavaScript using Babel**
+> 
+> If you like what you've read so far, and want to learn how you could do it with Babel. I've created a [video course](https://gum.co/manipulating-ast-with-javascript), showing you step-by-step, how to write a babel plugin and codemod.
+> 
+> In the video course, I detailed tips and tricks, such as how to handle scope, how to use state, and also nested traversals.
+> 
+> **[Sounds interesting, let's take a look at the video course](https://gum.co/manipulating-ast-with-javascript)**
+
 ## Reference
 
 - [Babel docs](https://babeljs.io/docs/en/) & [Github repo](https://github.com/babel/babel)
