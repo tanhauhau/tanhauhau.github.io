@@ -42,6 +42,9 @@ function text(data) {
 function space() {
     return text(' ');
 }
+function empty() {
+    return text('');
+}
 function attr(node, attribute, value) {
     if (value == null)
         node.removeAttribute(attribute);
@@ -83,6 +86,40 @@ function claim_text(nodes, data) {
 }
 function claim_space(nodes) {
     return claim_text(nodes, ' ');
+}
+function query_selector_all(selector, parent = document.body) {
+    return Array.from(parent.querySelectorAll(selector));
+}
+class HtmlTag {
+    constructor(anchor = null) {
+        this.a = anchor;
+        this.e = this.n = null;
+    }
+    m(html, target, anchor = null) {
+        if (!this.e) {
+            this.e = element(target.nodeName);
+            this.t = target;
+            this.h(html);
+        }
+        this.i(anchor);
+    }
+    h(html) {
+        this.e.innerHTML = html;
+        this.n = Array.from(this.e.childNodes);
+    }
+    i(anchor) {
+        for (let i = 0; i < this.n.length; i += 1) {
+            insert(this.t, this.n[i], anchor);
+        }
+    }
+    p(html) {
+        this.d();
+        this.h(html);
+        this.i(this.a);
+    }
+    d() {
+        this.n.forEach(detach);
+    }
 }
 
 let current_component;
@@ -609,23 +646,57 @@ class Header extends SvelteComponent {
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[1] = list[i].title;
-	child_ctx[5] = list[i].url;
+	child_ctx[3] = list[i].title;
+	child_ctx[7] = list[i].url;
 	return child_ctx;
 }
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[1] = list[i].title;
-	child_ctx[2] = list[i].videos;
+	child_ctx[3] = list[i].title;
+	child_ctx[4] = list[i].videos;
 	return child_ctx;
 }
 
-// (65:4) {#each videos as { title, url }
+function get_each_context_2(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[10] = list[i];
+	return child_ctx;
+}
+
+// (76:2) {#each tags as tag}
+function create_each_block_2(ctx) {
+	let meta;
+	let meta_content_value;
+
+	return {
+		c() {
+			meta = element("meta");
+			this.h();
+		},
+		l(nodes) {
+			meta = claim_element(nodes, "META", { name: true, content: true });
+			this.h();
+		},
+		h() {
+			attr(meta, "name", "keywords");
+			attr(meta, "content", meta_content_value = /*tag*/ ctx[10]);
+		},
+		m(target, anchor) {
+			insert(target, meta, anchor);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(meta);
+		}
+	};
+}
+
+// (117:4) {#each videos as { title, url }
 function create_each_block_1(ctx) {
 	let li;
 	let a;
-	let t0_value = /*title*/ ctx[1] + "";
+	let t0_value = /*title*/ ctx[3] + "";
 	let t0;
 	let a_href_value;
 	let t1;
@@ -650,7 +721,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*url*/ ctx[5]);
+			attr(a, "href", a_href_value = /*url*/ ctx[7]);
 			attr(a, "class", "svelte-1b3yvsj");
 			attr(li, "class", "item svelte-1b3yvsj");
 		},
@@ -667,16 +738,16 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (61:2) {#each data as { title, videos }}
+// (113:2) {#each data as { title, videos }}
 function create_each_block(ctx) {
 	let li;
 	let p;
-	let t0_value = /*title*/ ctx[1] + "";
+	let t0_value = /*title*/ ctx[3] + "";
 	let t0;
 	let t1;
 	let ul;
 	let t2;
-	let each_value_1 = /*videos*/ ctx[2];
+	let each_value_1 = /*videos*/ ctx[4];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -738,7 +809,7 @@ function create_each_block(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*data*/ 1) {
-				each_value_1 = /*videos*/ ctx[2];
+				each_value_1 = /*videos*/ ctx[4];
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -768,14 +839,77 @@ function create_each_block(ctx) {
 }
 
 function create_fragment$1(ctx) {
-	let header;
+	let title_value;
+	let meta0;
+	let meta1;
+	let meta2;
+	let meta3;
+	let meta4;
+	let meta5;
+	let meta6;
+	let meta7;
+	let meta8;
+	let html_tag;
+
+	let raw0_value = `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Article",
+		author: /*jsonLdAuthor*/ ctx[2],
+		copyrightHolder: /*jsonLdAuthor*/ ctx[2],
+		copyrightYear: "2021",
+		creator: /*jsonLdAuthor*/ ctx[2],
+		publisher: /*jsonLdAuthor*/ ctx[2],
+		description,
+		headline: title,
+		name: title,
+		inLanguage: "en"
+	})}</script>` + "";
+
+	let html_anchor;
+	let html_tag_1;
+
+	let raw1_value = `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"description": "Breadcrumbs list",
+		"name": "Breadcrumbs",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"item": {
+					"@id": "https://lihautan.com",
+					"name": "Homepage"
+				},
+				"name": "Homepage",
+				"position": 1
+			},
+			{
+				"@type": "ListItem",
+				"item": { "@id": "https%3A%2F%2Flihautan.com%2Fvideos", "name": title },
+				"name": title,
+				"position": 2
+			}
+		]
+	})}</script>` + "";
+
+	let html_anchor_1;
 	let t0;
+	let header;
+	let t1;
 	let main;
 	let h1;
-	let t1;
 	let t2;
+	let t3;
 	let ul;
 	let current;
+	document.title = title_value = "" + (title + " | Tan Li Hau");
+	let each_value_2 = /*tags*/ ctx[1];
+	let each_blocks_1 = [];
+
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		each_blocks_1[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+	}
+
 	header = new Header({});
 	let each_value = /*data*/ ctx[0];
 	let each_blocks = [];
@@ -786,12 +920,29 @@ function create_fragment$1(ctx) {
 
 	return {
 		c() {
-			create_component(header.$$.fragment);
+			meta0 = element("meta");
+			meta1 = element("meta");
+			meta2 = element("meta");
+			meta3 = element("meta");
+			meta4 = element("meta");
+			meta5 = element("meta");
+			meta6 = element("meta");
+			meta7 = element("meta");
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].c();
+			}
+
+			meta8 = element("meta");
+			html_anchor = empty();
+			html_anchor_1 = empty();
 			t0 = space();
+			create_component(header.$$.fragment);
+			t1 = space();
 			main = element("main");
 			h1 = element("h1");
-			t1 = text("Li Hau's Videos");
-			t2 = space();
+			t2 = text("Li Hau's Videos");
+			t3 = space();
 			ul = element("ul");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -801,15 +952,34 @@ function create_fragment$1(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			claim_component(header.$$.fragment, nodes);
+			const head_nodes = query_selector_all("[data-svelte=\"svelte-15bugv1\"]", document.head);
+			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta3 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta4 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta5 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta6 = claim_element(head_nodes, "META", { name: true, content: true });
+			meta7 = claim_element(head_nodes, "META", { name: true, content: true });
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].l(head_nodes);
+			}
+
+			meta8 = claim_element(head_nodes, "META", { itemprop: true, content: true });
+			html_anchor = empty();
+			html_anchor_1 = empty();
+			head_nodes.forEach(detach);
 			t0 = claim_space(nodes);
+			claim_component(header.$$.fragment, nodes);
+			t1 = claim_space(nodes);
 			main = claim_element(nodes, "MAIN", { class: true });
 			var main_nodes = children(main);
 			h1 = claim_element(main_nodes, "H1", {});
 			var h1_nodes = children(h1);
-			t1 = claim_text(h1_nodes, "Li Hau's Videos");
+			t2 = claim_text(h1_nodes, "Li Hau's Videos");
 			h1_nodes.forEach(detach);
-			t2 = claim_space(main_nodes);
+			t3 = claim_space(main_nodes);
 			ul = claim_element(main_nodes, "UL", { class: true });
 			var ul_nodes = children(ul);
 
@@ -822,16 +992,55 @@ function create_fragment$1(ctx) {
 			this.h();
 		},
 		h() {
+			attr(meta0, "name", "description");
+			attr(meta0, "content", description);
+			attr(meta1, "name", "og:title");
+			attr(meta1, "content", title);
+			attr(meta2, "name", "og:description");
+			attr(meta2, "content", description);
+			attr(meta3, "name", "og:type");
+			attr(meta3, "content", "website");
+			attr(meta4, "name", "twitter:card");
+			attr(meta4, "content", "summary_large_image");
+			attr(meta5, "name", "twitter:creator");
+			attr(meta5, "content", "@lihautan");
+			attr(meta6, "name", "twitter:title");
+			attr(meta6, "content", title);
+			attr(meta7, "name", "twitter:description");
+			attr(meta7, "content", description);
+			attr(meta8, "itemprop", "url");
+			attr(meta8, "content", "https%3A%2F%2Flihautan.com%2Fvideos");
+			html_tag = new HtmlTag(html_anchor);
+			html_tag_1 = new HtmlTag(html_anchor_1);
 			attr(ul, "class", "svelte-1b3yvsj");
 			attr(main, "class", "blogs svelte-1b3yvsj");
 		},
 		m(target, anchor) {
-			mount_component(header, target, anchor);
+			append(document.head, meta0);
+			append(document.head, meta1);
+			append(document.head, meta2);
+			append(document.head, meta3);
+			append(document.head, meta4);
+			append(document.head, meta5);
+			append(document.head, meta6);
+			append(document.head, meta7);
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].m(document.head, null);
+			}
+
+			append(document.head, meta8);
+			html_tag.m(raw0_value, document.head);
+			append(document.head, html_anchor);
+			html_tag_1.m(raw1_value, document.head);
+			append(document.head, html_anchor_1);
 			insert(target, t0, anchor);
+			mount_component(header, target, anchor);
+			insert(target, t1, anchor);
 			insert(target, main, anchor);
 			append(main, h1);
-			append(h1, t1);
-			append(main, t2);
+			append(h1, t2);
+			append(main, t3);
 			append(main, ul);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -841,6 +1050,33 @@ function create_fragment$1(ctx) {
 			current = true;
 		},
 		p(ctx, [dirty]) {
+			if ((!current || dirty & /*title*/ 8) && title_value !== (title_value = "" + (title + " | Tan Li Hau"))) {
+				document.title = title_value;
+			}
+
+			if (dirty & /*tags*/ 2) {
+				each_value_2 = /*tags*/ ctx[1];
+				let i;
+
+				for (i = 0; i < each_value_2.length; i += 1) {
+					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+					if (each_blocks_1[i]) {
+						each_blocks_1[i].p(child_ctx, dirty);
+					} else {
+						each_blocks_1[i] = create_each_block_2(child_ctx);
+						each_blocks_1[i].c();
+						each_blocks_1[i].m(meta8.parentNode, meta8);
+					}
+				}
+
+				for (; i < each_blocks_1.length; i += 1) {
+					each_blocks_1[i].d(1);
+				}
+
+				each_blocks_1.length = each_value_2.length;
+			}
+
 			if (dirty & /*data*/ 1) {
 				each_value = /*data*/ ctx[0];
 				let i;
@@ -874,13 +1110,31 @@ function create_fragment$1(ctx) {
 			current = false;
 		},
 		d(detaching) {
-			destroy_component(header, detaching);
+			detach(meta0);
+			detach(meta1);
+			detach(meta2);
+			detach(meta3);
+			detach(meta4);
+			detach(meta5);
+			detach(meta6);
+			detach(meta7);
+			destroy_each(each_blocks_1, detaching);
+			detach(meta8);
+			detach(html_anchor);
+			if (detaching) html_tag.d();
+			detach(html_anchor_1);
+			if (detaching) html_tag_1.d();
 			if (detaching) detach(t0);
+			destroy_component(header, detaching);
+			if (detaching) detach(t1);
 			if (detaching) detach(main);
 			destroy_each(each_blocks, detaching);
 		}
 	};
 }
+
+const description = "Li Hau's video tutorial";
+const title = "Li Hau's Videos";
 
 function instance($$self) {
 	const data = [
@@ -1018,7 +1272,9 @@ function instance($$self) {
 		}
 	];
 
-	return [data];
+	const tags = ["video", "programming", "tutorials"];
+	const jsonLdAuthor = { ["@type"]: "Person", name: "Tan Li Hau" };
+	return [data, tags, jsonLdAuthor];
 }
 
 class Videos extends SvelteComponent {

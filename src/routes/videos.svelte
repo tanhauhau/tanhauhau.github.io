@@ -51,7 +51,59 @@
       ]
     }
   ];
+  const description = "Li Hau's video tutorial";
+  const title = "Li Hau's Videos";
+  const tags = ['video', 'programming', 'tutorials'];
+  const jsonLdAuthor = {
+    ['@type']: 'Person',
+    name: 'Tan Li Hau',
+  };
 </script>
+
+<svelte:head>
+  <title>{title} | Tan Li Hau</title>
+  <meta name="description" content={description} />
+
+  <meta name="og:title" content={title} />
+  <meta name="og:description" content={description} />
+  <meta name="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@lihautan" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  {#each tags as tag}
+    <meta name="keywords" content={tag} />
+  {/each}
+
+  <meta itemprop="url" content="__$$HOSTNAME$$__" />
+
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    author: jsonLdAuthor,
+    copyrightHolder: jsonLdAuthor,
+    copyrightYear: '2021',
+    creator: jsonLdAuthor,
+    publisher: jsonLdAuthor,
+    description,
+    headline: title,
+    name: title,
+    inLanguage: 'en'
+  })}</script>`}
+
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type":"BreadcrumbList",
+    "description":"Breadcrumbs list",
+    "name":"Breadcrumbs",
+    "itemListElement":[
+      {"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},
+      {"@type":"ListItem","item":{"@id": '__$$HOSTNAME$$__', "name": title},"name": title,"position":2}
+    ]
+  })}</script>`}
+</svelte:head>
 
 <Header />
 
