@@ -2,20 +2,36 @@
   import Header from '../layout/Header.svelte';
 
   const data = [
+    {
+      title: 'Svelte Store',
+      videos: [
+        { url: "https://youtu.be/QjMl4usaKGA", title: "Introduction to Svelte store" },
+        { url: "https://youtu.be/GSCcYal_v40", title: "The writable store" },
+        { url: "https://youtu.be/D9hIVHE6v0U", title: "The readable store" },
+        { url: "https://youtu.be/T3XBiCbm97M", title: "Svelte store contract" },
+        { url: "https://youtu.be/7uCNx764FCs", title: "Custom Svelte Store: Redux store as Svelte store" },
+        { url: "https://youtu.be/1WOcEvUX-hU", title: "Custom Svelte Store: Valtio state as Svelte store" },
+        { url: "https://youtu.be/NIfQsc5XAzU", title: "Custom Svelte Store: XState as Svelte store" },
+        { url: "https://youtu.be/Aq-hZhX2vfU", title: "Custom Svelte Store: DOM Events as Svelte store" },
+        { url: "https://youtu.be/mHqCAEUkiWs", title: "Custom Svelte Store: Immer for Immutable Svelte store" },
+        { url: "https://youtu.be/i6wdD5mRUkc", title: "Custom Svelte Store: derived() Svelte store" },
+        { url: "https://youtu.be/I5dEo7HL1LY", title: "Custom Svelte Store: tweened() Svelte store" },
+      ]
+    },
 		{
 			title: 'Svelte Actions',
 			videos: [
-				{ url: "https://youtu.be/ciaMT_MswzE", title: "🤔 What is Svelte Actions?" },
-        { url: "https://youtu.be/5tyaUOfOFpw", title: "🧐 How Svelte action reacts to parameters change?" },
-        { url: "https://youtu.be/Y19gAgyhU-c", title: "🤨 What if Svelte does not have the use:action feature?" },
-        { url: "https://youtu.be/_IGEl4t1TSM", title: "😙 Reusing event listeners with Svelte actions" },
-        { url: "https://youtu.be/22aIzPaI3Vg", title: "🤓 Creating events with Svelte actions" },
-        { url: "https://youtu.be/Y5IiSdcqdeQ", title: "😜 Integrating UI Library into a Svelte app using Svelte Actions" },
-        { url: "https://youtu.be/3R3PMEesQnM", title: "😲 The order of Svelte actions" },
-        { url: "https://youtu.be/0GqIoo66i0g", title: "🥺 Svelte Action Examples - use:tooltip" },
-        { url: "https://youtu.be/1SKKzdHVvcI", title: "🥺 Svelte Action Examples - use:viewport" },
-        { url: "https://youtu.be/AzE9-6QcwmM", title: "🥺 Svelte Action Examples - use:clickOutside" },
-        { url: "https://youtu.be/CFj4X0bGOvE", title: "🥺 Svelte Action Examples - use:popper with Popper" },
+				{ url: "https://youtu.be/ciaMT_MswzE", title: "Svelte Action - Introduction" },
+        { url: "https://youtu.be/5tyaUOfOFpw", title: "How Svelte action reacts to parameters change?" },
+        { url: "https://youtu.be/Y19gAgyhU-c", title: "What if Svelte does not have the use:action feature?" },
+        { url: "https://youtu.be/_IGEl4t1TSM", title: "Reusing event listeners with Svelte actions" },
+        { url: "https://youtu.be/22aIzPaI3Vg", title: "Creating events with Svelte actions" },
+        { url: "https://youtu.be/Y5IiSdcqdeQ", title: "Integrating UI Library into a Svelte app using Svelte Actions" },
+        { url: "https://youtu.be/3R3PMEesQnM", title: "The order of Svelte actions" },
+        { url: "https://youtu.be/0GqIoo66i0g", title: "Svelte Action Examples - use:tooltip" },
+        { url: "https://youtu.be/1SKKzdHVvcI", title: "Svelte Action Examples - use:viewport" },
+        { url: "https://youtu.be/AzE9-6QcwmM", title: "Svelte Action Examples - use:clickOutside" },
+        { url: "https://youtu.be/CFj4X0bGOvE", title: "Svelte Action Examples - use:popper with Popper" },
 			]
 		},
     {
