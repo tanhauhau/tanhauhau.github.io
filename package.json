@@ -19,7 +19,7 @@
     "mdsvex": "^0.8.2",
     "prettier": "^1.16.4",
     "prism-svelte": "^0.4.6",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.24.0",
     "rehype": "^8.0.0",
     "rollup": "^2.23.0",
     "rollup-plugin-postcss": "^3.1.3",
