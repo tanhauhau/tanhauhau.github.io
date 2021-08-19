@@ -643,7 +643,7 @@ Instead of declaring and creating a new variable to remove each event listener, 
 // instead of
 dispose1 = listen(h1, 'click', /*update*/ ctx[1]);
 dispose2 = listen(h1, 'mousedown', /*update*/ ctx[1]);
-dispose2 = listen(h1, 'touchstart', /*update*/ ctx[1], { passive: true });
+dispose3 = listen(h1, 'touchstart', /*update*/ ctx[1], { passive: true });
 // ...
 dispose1();
 dispose2();
