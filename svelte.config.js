@@ -1,9 +1,9 @@
 import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
-import remarkShikiTwoslash from 'remark-shiki-twoslash';
 import remarkTableOfContents from './plugins/remark-table-of-content.js';
 import remarkImageExternal from './plugins/remark-image-external.js';
 import remarkTwitterOg from './plugins/remark-twitter-og.js';
+import rehypeInlineCode from './plugins/rehype-inline-code.js';
 import adapter from '@sveltejs/adapter-static';
 import customCodeHighlight from './plugins/code-highlight.js';
 import path from 'path';
@@ -19,12 +19,8 @@ const config = {
 		mdsvex({
 			smartypants: false,
 			extensions: ['.svx', '.md'],
-			remarkPlugins: [
-				remarkTableOfContents,
-				remarkImageExternal,
-				remarkTwitterOg,
-				[remarkShikiTwoslash, { theme: 'dark-plus' }]
-			],
+			remarkPlugins: [remarkTableOfContents, remarkImageExternal, remarkTwitterOg],
+			rehypePlugins: [rehypeInlineCode],
 			layout: {
 				talk: './src/lib/TalkLayout.svelte',
 				_: './src/lib/BlogLayout.svelte'

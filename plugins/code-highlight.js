@@ -61,10 +61,16 @@ export default async function highlight(code, lang, meta) {
 		return '';
 	});
 
-	code = parseHighlightComments(code, options);
+	code = parseSpecialComments(code, options);
 
-	// TODO: originalCode should also ignore deleted code from diff
 	let originalCode = code;
+
+	if (options.cutLines > 0) {
+		const cutCode = code.split('\n').slice(options.cutLines).join('\n');
+		if (!options.twoslash) originalCode = code = cutCode;
+		// if twoslash, let `twoslash` cut the code, as uncut code is useful for types
+		else originalCode = cutCode;
+	}
 
 	if (options.diff) {
 		options.lineOptions = options.lineOptions ?? [];
@@ -105,7 +111,8 @@ export default async function highlight(code, lang, meta) {
 				allowJs: true,
 				checkJs: true,
 				target: 'es2021',
-				lib: ['lib.es2020.d.ts', 'lib.dom.d.ts']
+				lib: ['lib.es2020.d.ts', 'lib.dom.d.ts'],
+				types: ['node', 'jest']
 			}
 		});
 		const highlighter = await createShikiHighlighter({ theme: 'css-variables' });
@@ -150,6 +157,7 @@ function escape_svelty(str) {
 
 const HIGHLIGHT_DIRECTIVE = new RegExp(`highlight-(next-line|line|start|end|range)({([^}]+)})?`);
 const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g;
+const cutString = /^\s*\/\/ ---cut---/;
 
 function highlightWrap(code, lineOptions) {
 	// HACK split multiline spans with line separators inside into multiple spans
@@ -337,10 +345,11 @@ function parseHighlightFence(highlightRange) {
 	return toHighlight;
 }
 
-function parseHighlightComments(code, options) {
+function parseSpecialComments(code, options) {
 	let offset = 0;
 	let start = false;
 	let numLinesLeft = 0;
+	let cutLines = 0;
 	const toHighlight = new Set();
 
 	code = code
@@ -367,6 +376,9 @@ function parseHighlightComments(code, options) {
 			} else {
 				numLinesLeft++;
 			}
+			if (cutString.test(line)) {
+				cutLines = index - offset + 1;
+			}
 			return line;
 		})
 		.filter((line) => line !== TO_REMOVE_LINE)
@@ -374,12 +386,18 @@ function parseHighlightComments(code, options) {
 
 	if (toHighlight.size > 0) {
 		options.lineOptions = options.lineOptions ?? [];
+		options.highlight = options.highlight ?? {};
 		for (let i = 0; i < numLinesLeft; i++) {
+			const line = i + 1 - cutLines;
 			options.lineOptions.push({
-				line: i + 1,
+				line,
 				classes: [toHighlight.has(i) ? 'highlight' : 'dim']
 			});
+			if (toHighlight.has(i)) options.highlight[line] = true;
 		}
+	}
+	if (cutLines > 0) {
+		options.cutLines = cutLines;
 	}
 	return code;
 }

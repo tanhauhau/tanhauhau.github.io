@@ -11,6 +11,8 @@
 	--diff-inserted-color: #1fd44b;
 	--diff-deleted-background: #ff000036;
 	--diff-deleted-color: #ff0013;
+	--highlight-background: #38394d;
+	--highlight-border: #ff79c6;
 	--code-filename-color: white;
 	--code-filename-background: var(--secondary-color);
 }
@@ -70,7 +72,7 @@ pre::-webkit-scrollbar-thumb {
 }
 
 /* Inline code */
-:not(pre) > code {
+code.inline {
 	padding: 4px 8px;
 	white-space: normal;
 	color: var(--shiki-color-text);
@@ -101,10 +103,21 @@ pre:hover .line.dim {
 }
 
 pre .line.highlight {
-	background-color: #38394d;
-	margin-left: -1.25em;
-	padding: 3px 1em 4px 0.75em;
-	border-left: 0.5em solid #ff79c6;
+	background-color: var(--highlight-background);
+	padding: 3px var(--prism-padding) 4px 0;
+	position: relative;
+}
+pre .line.highlight::before {
+	content: ' ';
+	position: absolute;
+	left: calc(-1 * var(--prism-padding));
+	width: var(--prism-padding);
+	box-sizing: border-box;
+	border-left: 0.5em solid var(--highlight-border);
+	background-color: var(--highlight-background);
+	/* need to stretch a bit for the additional padding introduced by .highlight */
+	height: 100%;
+	top: 0;
 }
 
 /* ------------------------------------------------ */
