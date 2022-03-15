@@ -37,7 +37,7 @@ A _basic_ module bundler can be broken down into 2 parts:
 In this article, I will be using following files as my input to the bundler:
 
 ```js
-// filename: index.js
+/// filename: index.js
 import squareArea from './square.js';
 import circleArea from './circle.js';
 
@@ -46,7 +46,7 @@ console.log('Area of circle', circleArea(5));
 ```
 
 ```js
-// filename: square.js
+/// filename: square.js
 function area(side) {
   return side * side;
 }
@@ -54,7 +54,7 @@ export default area;
 ```
 
 ```js
-// filename: circle.js
+/// filename: circle.js
 const PI = 3.141;
 function area(radius) {
   return PI * radius * radius;
@@ -197,12 +197,12 @@ _Resolving path to the actual file path_
 Let's talk about resolving. We know that "import"ing `./b.js` in the following examples will result in getting a different file, because when we specify `./`, we are "import"ing relative to the current file.
 
 ```js
-// filename: project/a.js
+/// filename: project/a.js
 import './b.js';
 ```
 
 ```js
-// filename: project/foo/a.js
+/// filename: project/foo/a.js
 import './b.js';
 ```
 
@@ -588,7 +588,7 @@ I played around my module bundler, and I quickly noticed a bug: **Circular Depen
 Here's my input files that I've tweaked:
 
 ```js
-// filename: index.js
+/// filename: index.js
 import squareArea from './square.js';
 import circleArea from './circle.js';
 
@@ -600,7 +600,7 @@ console.log('Area of circle', circleArea(5));
 ```
 
 ```js
-// filename: circle.js
+/// filename: circle.js
 // highlight-start
 // const PI = 3.141;
 import { PI } from './index.js';

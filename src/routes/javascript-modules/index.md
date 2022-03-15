@@ -80,7 +80,7 @@ Let's say we add another file, `utils.js` for all our utility functions.
 ```
 
 ```js
-// filename: utils.js
+/// filename: utils.js
 var pi = 3.142;
 function area(radius) {
   return pi * radius * radius;
@@ -90,7 +90,7 @@ function area(radius) {
 Although you meant to just share the function `area` from `utils.js`, in `app.js`, you would notice that both `pi` and `area` are available.
 
 ```js
-// filename: app.js
+/// filename: app.js
 console.log(area(5)); // 78.55
 
 // pi is available too!
@@ -102,7 +102,7 @@ That is because when you declare a variable or a function within a script, it wi
 The only way to hide it, is to use Immediately Invoked Function Expression (IIFE).
 
 ```js
-// filename: utils.js
+/// filename: utils.js
 var utils = (function() {
   // you hide `pi` within the function scope
   var pi = 3.142;
@@ -114,7 +114,7 @@ var utils = (function() {
 ```
 
 ```js
-// filename: app.js
+/// filename: app.js
 console.log(utils.area(5)); // 78.55
 
 console.log(pi); // Reference error, `pi` is not defined
@@ -248,7 +248,7 @@ CommonJS's `require` statement did not take into consideration of the asynchroni
 AMD uses an asynchronous `require` syntax, that takes a callback that would be called only after the dependency is available.
 
 ```js
-// filename: main.js
+/// filename: main.js
 require(['jquery', 'circle'], function($, circle) {
   // we can use `$` and `circle` now!
 });

@@ -66,7 +66,7 @@ Here is my `manifest.json` for my extension:
 To start, I added an `onload` event, to add my pet into the browser:
 
 ```js
-// filename: content.js
+/// filename: content.js
 function onload() {
   const pet = document.createElement('div');
   updatePosition(100, 100);

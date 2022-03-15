@@ -251,7 +251,7 @@ Anything within `src/runtime/` are helper functions that are referenced from the
 Anyway, `src/runtime/internal/dom.ts` is not where I am looking for, so I tried searching `.options.length`
 
 ```js
-// filename: src/compiler/compile/render_dom/wrappers/Element/Attribute.ts
+/// filename: src/compiler/compile/render_dom/wrappers/Element/Attribute.ts
 
 updater = b`
   for (var ${i} = 0; ${i} < ${element.var}.options.length; ${i} += 1) {
@@ -477,7 +477,7 @@ Runtime test cases are added into `test/runtime/samples/`. Each folder represent
 `_config.js` default exports a object:
 
 ```js
-// filename: _config.js
+/// filename: _config.js
 
 export default {
   // initial props to passed to the component

@@ -67,7 +67,7 @@ You build your app layout in HTML:
 then in JS, you use id selector to query out the dynamic part of your HTML and attach event listeners to respond to user inputs:
 
 ```js
-// filename: script.js
+/// filename: script.js
 let count = 0;
 const span = document.querySelector('#count');
 document.querySelector('#decrement').onclick = () =>
@@ -83,7 +83,7 @@ If you want to have more than 1 counter, the former approach may require you to 
 The alternative would be to build the HTML elements programatically:
 
 ```js
-// filename: script.js
+/// filename: script.js
 function buildCounter(parent) {
   const span = document.createElement('span');
   const decrementBtn = document.createElement('button');
@@ -122,7 +122,7 @@ _I chose to talk about React **just because I am a React developer**, I use Reac
 In React, you can argubly write a much concise and declarative code:
 
 ```js
-// filename: Counter.jsx
+/// filename: Counter.jsx
 function Counter() {
   const [count, setCount] = useState(0);
   return (

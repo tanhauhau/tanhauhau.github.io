@@ -37,7 +37,7 @@ So I decided to add my own [Dark Mode Switch](https://github.com/tanhauhau/tanha
 The Dark Mode Switch was relatively easy. I added a pseudo-element `div#___gatsby::after` to cover over my entire Gatsby blog, so I don't have to create another div element.
 
 ```js
-// filename: theme-mode.css
+/// filename: theme-mode.css
 div#___gatsby::after {
   content: '';
   position: fixed;
@@ -62,7 +62,7 @@ Well, it turns out it's not that hard.
 [Remark](https://github.com/remarkjs/remark) provides a friendly api to tap into the AST and [does transformation](https://github.com/tanhauhau/tanhauhau.github.io/commit/291663d10cc7838d67392acb6a28a04a655603a6#diff-1be49bbded0fd920136646bdb37f5b91). 
 
 ```js
-// filename: remark-emoji.js
+/// filename: remark-emoji.js
 const visit = require('unist-util-visit');
 const emojiRegex = require('emoji-regex');
 

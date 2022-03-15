@@ -114,7 +114,7 @@ const cssFiles = filterCssFiles(webpackManifest);
 ```
 
 ```js
-// filename: webpack.config.js
+/// filename: webpack.config.js
 module.exports = {
   externals: {
     'webpack-manifest': "commonjs2 ./webpack-manifest.json"
@@ -125,7 +125,7 @@ module.exports = {
 What this output is something similar to the following:
 
 ```js
-// filename: bundle.js
+/// filename: bundle.js
 const webpackManifest = require('./webpack-manifest.json');
 const cssFiles = filterCssFiles(webpackManifest);
 // ...
@@ -146,7 +146,7 @@ You can read more about webpack externals from [the webpack documentation](https
 So, the next "intuitive" approach is to [write a custom template plugin](/webpack-plugin-main-template), that adds the webpack manifest on top of the main bundle, an example of the output:
 
 ```js
-// filename: bundle.js
+/// filename: bundle.js
 // added by template plugin
 const CSS_FILES = ['http://cdn/assets/style.xxx.css'];
 // END added by template plugin
@@ -197,7 +197,7 @@ class MyWebpackPlugin {
 Apparently, this does not work at all. The compiled output shows:
 
 ```js
-// filename: bundle.js
+/// filename: bundle.js
 const CSS_FILES = undefined;
 // ...continue with bundle.js
 ```
@@ -334,7 +334,7 @@ The complete code can be found in [this gist](https://gist.github.com/tanhauhau/
 An example of the compiled output:
 
 ```js
-// filename: bundle.js
+/// filename: bundle.js
 // ...
 app.get('/', (req, res) => {
   // ...

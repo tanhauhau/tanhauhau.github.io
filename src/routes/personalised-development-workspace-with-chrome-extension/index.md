@@ -97,7 +97,7 @@ You can declare all the UI elements inside the `manifest.json`. You can also pro
 For example, React Devtools shows a different React logo when the site does not use React, uses development React and uses production React:
 
 ```js
-// filename: background.js
+/// filename: background.js
 const iconPath = getIconBasedOnReactVersion();
 chrome.browserAction.setIcon({ tabId, path: iconPath });
 
@@ -127,7 +127,7 @@ _popup.html is just like any web app, that can be build with any web framework_
 For the devtools page, you need to programmatically add panels to the devtools:
 
 ```js
-// filename: devtools.js
+/// filename: devtools.js
 chrome.devtools.panels.create(
   'My Devtools Panel 1',
   'img_16.png',

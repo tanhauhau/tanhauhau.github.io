@@ -150,7 +150,7 @@ So, here's how it would look like with babel macro:
 And that's all the change you need for babel configuration.
 
 ```js
-// filename: babel.config.js
+/// filename: babel.config.js
 module.exports = {
   // highlight-next-line
   plugins: ['babel-plugin-macros'],
@@ -160,7 +160,7 @@ module.exports = {
 **You write your own macro**
 
 ```js
-// filename: src/utils/idx.macro.js
+/// filename: src/utils/idx.macro.js
 
 const { createMacro } = require('babel-plugin-macros');
 module.exports = createMacro(({ state, references }) => {
@@ -175,7 +175,7 @@ We'll talk about the code later, one thing to take away here is that your filena
 **Use it**
 
 ```js
-// filename: src/index.js
+/// filename: src/index.js
 import idx from './utils/idx.macro';
 
 function getFriends() {
@@ -190,7 +190,7 @@ You don't get the disconnection between the module `idx` and the plugin `babel-p
 Besides, if you want to modify configuration, say for this usage, you can do it easily:
 
 ```js
-// filename: src/index.js
+/// filename: src/index.js
 import idx from './utils/idx.macro';
 
 function getFriends() {
@@ -306,7 +306,7 @@ Implementing mock.macro requires some basic knowledge about Abstract Syntax Tree
 Implementing Babel macros is quite easy, the api from the `babel-plugin-macros` is pretty straightforward, all you need is to provide a default export to your macro file:
 
 ```js
-// filename: mock.macro.js
+/// filename: mock.macro.js
 
 const { createMacro } = require('babel-plugin-macros');
 
@@ -367,7 +367,7 @@ It gives you the current state of the file being traversed.
 So, in this example, I need to transform all the references of `MockResponse`:
 
 ```js
-// filename: mock.macro.js
+/// filename: mock.macro.js
 module.exports = createMacro(function({ references, state, babel }) {
   // highlight-start
   if (references.MockResponse.length > 0) {
@@ -483,7 +483,7 @@ async function fetchUser(...): MockResponse</*...*/, false> {}
 If the 2nd parameter is `false`, we disable the mocking behavior:
 
 ```js
-// filename: mock.macro.js
+/// filename: mock.macro.js
 
 const { createMacro } = require('babel-plugin-macros');
 

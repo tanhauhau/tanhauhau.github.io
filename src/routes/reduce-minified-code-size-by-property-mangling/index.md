@@ -127,7 +127,7 @@ Because property mangling requires certain assumption on your code, therefore it
 If you are a library author, or you wrote a module that will be used by others, and if you mangle the property of the library / module **alone**, all your method name, object property name will be mangled, and therefore all your APIs will be broken!
 
 ```js
-// filename: source.js
+/// filename: source.js
 export function doSomething({ paramA, paramB }) {
   return { sum: paramA + paramB };
 }
@@ -140,7 +140,7 @@ export class Car {
 ```
 
 ```js
-// filename: source.min.js
+/// filename: source.min.js
 export function doSomething({ o: t, t: o }) {
   return { m: t + o };
 }
@@ -157,14 +157,14 @@ Your user that calls `doSomething({ paramA: 1, paramB: 2 })` or `car.drive()` wi
 The same ways goes if you are importing some other library or module, and you mangle your code **alone**, your code will be broken too!
 
 ```js
-// filename: source.js
+/// filename: source.js
 import { doSomething } from 'some-library';
 
 doSomething({ paramA: 1, paramB: 2 });
 ```
 
 ```js
-// filename: source.min.js
+/// filename: source.min.js
 import { doSomething as r } from 'some-library';
 
 r({ m: 1, o: 2 });
@@ -184,7 +184,7 @@ If you have a standalone script that:
 Then you are safe to mangle all your properties. Property or method name across the file will be mangled consistently:
 
 ```js
-// filename: source.js
+/// filename: source.js
 class CarA {
   drive() {}
 }
@@ -198,7 +198,7 @@ foo({ drive: 'bar' });
 ```
 
 ```js
-// filename: source.min.js
+/// filename: source.min.js
 class s {
   s() {}
 }
@@ -257,7 +257,7 @@ Property mangling is not a all-or-nothing option in Terser, there's a few option
 In the following example, the only publicly documented method in the class `Car` is `driveTo()`, so it is okay to mangle other private methods.
 
 ```js
-// filename: source.js
+/// filename: source.js
 class Car {
   driveTo({ destination }) {
     this.destination = destination;
@@ -279,7 +279,7 @@ You can choose to either
 **1. mangle all methods and properties, except a reserved list of names:**
 
 ```js
-// filename: terser_options.js
+/// filename: terser_options.js
 const terserOptions = {
   mangle: {
     properties: {
@@ -292,7 +292,7 @@ const terserOptions = {
 **2. specify a list of names to be mangled with a regex:**
 
 ```js
-// filename: terser_options.js
+/// filename: terser_options.js
 const terserOptions = {
   mangle: {
     properties: {
@@ -305,7 +305,7 @@ const terserOptions = {
 Here, a [unofficial JavaScript naming convention](https://www.robinwieruch.de/javascript-naming-conventions) for private method / properties come in handy. Often times, when a variable name starts with `_`, it is intended to be private.
 
 ```js
-// filename: source.js
+/// filename: source.js
 class Car {
   driveTo({ destination }) {
     this._destination = destination;
@@ -323,7 +323,7 @@ class Car {
 This way, it makes our regex much easier:
 
 ```js
-// filename: terser_options.js
+/// filename: terser_options.js
 const terserOptions = {
   mangle: {
     properties: {
@@ -376,7 +376,7 @@ The name mapping is a manually curated list of names of your public properties a
 Think of it as part of your documentation, which should be updated whenever you change your public API.
 
 ```js
-// filename: babel.config.js
+/// filename: babel.config.js
 const nameMapping = {
   driveTo: 'd', // rename all `.driveTo` to `.d`
 };
@@ -402,7 +402,7 @@ Throughout the article, we mentioned Terser and `terserOptions`, and didnt reall
 For webpack user, you can use [terser-webpack-plugin](https://github.com/webpack-contrib/terser-webpack-plugin/).
 
 ```js
-// filename: webpack.config.js
+/// filename: webpack.config.js
 const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   optimization: {
@@ -425,7 +425,7 @@ module.exports = {
 For rollup user, you can use [rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser)
 
 ```js
-// filename: rollup.config.js
+/// filename: rollup.config.js
 import { terser } from 'rollup-plugin-terser';
 rollup({
   plugins: [

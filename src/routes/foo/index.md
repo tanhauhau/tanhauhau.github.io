@@ -3,7 +3,7 @@ title: foo
 ---
 
 ```js
-// filename: babel.config.js
+/// filename: babel.config.js
 module.exports = {
 	// highlight-next-line
 	plugins: ['babel-plugin-macros']
@@ -19,7 +19,7 @@ npm init svelte@next my-app
 ```
 
 ```js
-/// filename: rollup.config.js
+//// filename: rollup.config.js
 /// copy: true
 export default {
 	plugins: [

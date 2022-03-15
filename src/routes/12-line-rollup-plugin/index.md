@@ -22,7 +22,7 @@ So naturally, I was thinking of having 2 entries for my rollup application: _the
 It works fine, except the fact that the [rollup-plugin-livereload](https://www.npmjs.com/package/rollup-plugin-livereload) injected a livereload script to every output file:
 
 ```js
-// filename: /build/worker.js
+/// filename: /build/worker.js
 (function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.head.appendChild(r) })(window.document);
 
 // worker code ...
@@ -73,7 +73,7 @@ So, I dug into `node_modules/`, and start skimming through the rollup plugins I 
 And I noticed a common pattern:
 
 ```js
-// filename: rollup-plugin-xxx.js
+/// filename: rollup-plugin-xxx.js
 
 module.exports = function(options) {
   // ...
@@ -95,7 +95,7 @@ So I guess, this is the general structure of a rollup plugin:
 OK. I know what I need, I need to copy my `worker.js` when rollup is generating a bundle:
 
 ```js
-// filename: rollup.config.js
+/// filename: rollup.config.js
 export default {
   plugins: [
     // ...

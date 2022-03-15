@@ -109,7 +109,7 @@ So the `bundle.js` is added into the final HTML file like this:
 Code wise, it is quite straightforward to implement this:
 
 ```js
-// filename: index.js
+/// filename: index.js
 function build({ entryFile, outputFolder, htmlTemplatePath }) {
   // ...
   const outputFiles = bundle(graph);
@@ -142,7 +142,7 @@ Every web app has to have CSS in one way or another.
 I added a css file and imported it from `index.js`:
 
 ```js
-// filename: index.js
+/// filename: index.js
 import './style.css';
 ```
 
@@ -173,7 +173,7 @@ That is because I assumed all files are JavaScript files, and Babel would compla
 So, I abstracted out `Module` as a base class, and created `JSModule` and `CSSModule`:
 
 ```js
-// filename: index.js
+/// filename: index.js
 class Module {
   constructor(filePath) {
     this.filePath = filePath;
@@ -193,7 +193,7 @@ class CSSModule extends Module {}
 In the `createModule` function, I need to create different `Module` based on the file extension:
 
 ```js
-// filename: index.js
+/// filename: index.js
 
 // highlight-start
 const MODULE_LOADERS = {
@@ -272,7 +272,7 @@ Yes, not all JavaScript code is executable in a browser if you are using next-ge
 So, I implemented the loader transform in CSSModule with [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals):
 
 ```js
-// filename: index.js
+/// filename: index.js
 class Module {
   constructor(filePath) {
     // ...
@@ -310,7 +310,7 @@ In this post, I will show you how I created a basic dev server using [Express](h
 I abstracted out the `_build` function and supports both `build` and `dev` mode.
 
 ```js
-// filename: index.js
+/// filename: index.js
 
 // highlight-start
 function _build({ entryFile, htmlTemplatePath }) {
@@ -339,7 +339,7 @@ function dev({ entryFile, outputFolder, htmlTemplatePath, devServerOptions }) {
 In `dev` mode, I did not write files to the file system, instead I served them directly through the [Express](https://expressjs.com) server:
 
 ```js
-// filename: index.js
+/// filename: index.js
 function dev({ entryFile, outputFolder, htmlTemplatePath, devServerOptions }) {
   const { outputFiles } = _build({ entryFile, htmlTemplatePath });
 
@@ -376,7 +376,7 @@ And that's it. You have a basic dev server that serves the bundled files!
 I've added [Preact](https://preactjs.com/) and CSS into my app:
 
 ```js
-// filename: main.js
+/// filename: main.js
 import squareArea from './square.js';
 import circleArea from './circle.js';
 

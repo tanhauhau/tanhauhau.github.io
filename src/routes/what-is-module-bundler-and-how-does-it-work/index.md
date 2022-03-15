@@ -88,7 +88,7 @@ Let's illustrate this with an example:
 Say you have 3 files, `circle.js`, `square.js` and `app.js`:
 
 ```js
-// filename: circle.js
+/// filename: circle.js
 const PI = 3.141;
 export default function area(radius) {
   return PI * radius * radius;
@@ -96,14 +96,14 @@ export default function area(radius) {
 ```
 
 ```js
-// filename: square.js
+/// filename: square.js
 export default function area(side) {
   return side * side;
 }
 ```
 
 ```js
-// filename: app.js
+/// filename: app.js
 import squareArea from './square';
 import circleArea from './circle';
 console.log('Area of square: ', squareArea(5));
@@ -115,7 +115,7 @@ console.log('Area of circle', circleArea(5));
 What would be the "webpack way" bundle looks like?
 
 ```js
-// filename: webpack-bundle.js
+/// filename: webpack-bundle.js
 const modules = {
   'circle.js': function(exports, require) {
     const PI = 3.141;
@@ -151,7 +151,7 @@ Secondly, **each module is wrapped by a function**. The function simulates the m
 Thirdly, the application is start via `webpackStart`, which is **a function that glues everything together**. The function itself, often called as the _"runtime"_, is the most important piece of the bundle. It uses the "module map" and the entry module to start the application.
 
 ```js
-// filename: webpack-bundle.js
+/// filename: webpack-bundle.js
 
 function webpackStart({ modules, entry }) {
   const moduleCache = {};
@@ -187,7 +187,7 @@ With "require" defined, starting the application would be just "require"ing the 
 Now you've seen how webpack bundle looked like, let's take a look at the "rollup way" bundle:
 
 ```js
-// filename: rollup-bundle.js
+/// filename: rollup-bundle.js
 const PI = 3.141;
 
 function circle$area(radius) {
@@ -220,7 +220,7 @@ _Is there a drawback of the "rollup way"?_
 Well, sometimes it does not work well with circular dependency. Let's take a look at this contrived example:
 
 ```js
-// filename: shape.js
+/// filename: shape.js
 const circle = require('./circle');
 
 module.exports.PI = 3.141;
@@ -229,7 +229,7 @@ console.log(circle(5));
 ```
 
 ```js
-// filename: circle.js
+/// filename: circle.js
 const PI = require('./shape');
 const _PI = PI * 1
 module.exports = function(radius) {
@@ -241,7 +241,7 @@ _I have made some slight modifications for easier illustration_
 In this example `shape.js` is depending on `circle.js` and `circle.js` is depending on `shape.js`. So, for rollup to sort out which module to come first than another in the output bundle, there's no "correct" answer for it. Either `circle.js` then `shape.js` or `shape.js` then `circle.js` is reasonable. So, you could possibly get the following output bundle:
 
 ```js
-// filename: rollup-bundle.js
+/// filename: rollup-bundle.js
 // cirlce.js first
 const _PI = PI * 1; // throws ReferenceError: PI is not defined
 function circle$Area(radius) {
@@ -262,7 +262,7 @@ A "simple" fix is to not use a circular dependency. Rollup will **throw warnings
 Well, what makes the example "works" is that we have statements that are immediately evaluated within the module. If we change the evaluation of `_PI` to be lazy:
 
 ```js
-// filename: circle.js
+/// filename: circle.js
 const PI = require('./shape');
 const _PI = () => PI * 1; // to be lazily evaluated
 module.exports = function(radius) {
@@ -273,7 +273,7 @@ module.exports = function(radius) {
 the order of modules now does not really matter much:
 
 ```js
-// filename: rollup-bundle.js
+/// filename: rollup-bundle.js
 // cirlce.js first
 const _PI = () => PI * 1;
 function circle$Area(radius) {

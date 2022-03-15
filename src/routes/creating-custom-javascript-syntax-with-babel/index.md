@@ -119,7 +119,7 @@ We've talked about _tokenization_ and _parsing_, now it's clear where to find th
 Let's do a [Test-driven development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development). I find it easier to define the test case then slowly work our way to "fix" it. It is especially true in an unfamiliar codebase, TDD allows you to "easily" point out code places you need to change.
 
 ```js
-// filename: packages/babel-parser/test/curry-function.js
+/// filename: packages/babel-parser/test/curry-function.js
 
 import { parse } from '../lib';
 
@@ -161,7 +161,7 @@ Tracing the stack trace, led us to [`packages/babel-parser/src/parser/expression
 Let us add some `console.log`:
 
 ```js
-// filename: packages/babel-parser/src/parser/expression.js
+/// filename: packages/babel-parser/src/parser/expression.js
 parseIdentifierName(pos: number, liberal?: boolean): string {
   if (this.match(tt.name)) {
     // ...
@@ -204,7 +204,7 @@ Let's first look at where a token type is defined: [packages/babel-parser/src/to
 Here you see a list of tokens, so let's add our new token definition in as well:
 
 ```js
-// filename: packages/babel-parser/src/tokenizer/types.js
+/// filename: packages/babel-parser/src/tokenizer/types.js
 
 export const types: { [name: string]: TokenType } = {
   // ...
@@ -221,7 +221,7 @@ Next, let's find out where the token gets created during _tokenization_. A quick
 Let's create the token `tt.atat` instead of `tt.at` if there's another `@` succeed the current `@`:
 
 ```js
-// filename: packages/babel-parser/src/tokenizer/index.js
+/// filename: packages/babel-parser/src/tokenizer/index.js
 
 getTokenFromCode(code: number): void {
   switch (code) {
@@ -277,7 +277,7 @@ We have a plan now, let's implement it.
 A quick search on _"FunctionDeclaration"_ leads us to a function called `parseFunction` in [packages/babel-parser/src/parser/statement.js](https://github.com/tanhauhau/babel/blob/da0af5fd99a9b747370a2240df3abf2940b9649c/packages/babel-parser/src/parser/statement.js#L1030), and here we find a line that sets the `generator` attribute, let's add one more line:
 
 ```js
-// filename: packages/babel-parser/src/parser/statement.js
+/// filename: packages/babel-parser/src/parser/statement.js
 
 export default class StatementParser extends ExpressionParser {
   // ...
@@ -390,7 +390,7 @@ If you have noticed, in my examples above, I used some utility function, such as
 If you take a look again the parser code we just changed, it's easier to read it in now.
 
 ```js
-// filename: packages/babel-parser/src/parser/statement.js
+/// filename: packages/babel-parser/src/parser/statement.js
 
 export default class StatementParser extends ExpressionParser {
   parseStatementContent(/* ...*/) {
@@ -439,7 +439,7 @@ But maybe before that, you may have some doubts on how are we going to use our c
 Well, fret not. A babel plugin can provide a custom parser, which is [documented on the babel website](https://babeljs.io/docs/en/babel-parser#will-the-babel-parser-support-a-plugin-system)
 
 ```js
-// filename: babel-plugin-transformation-curry-function.js
+/// filename: babel-plugin-transformation-curry-function.js
 import customParser from './custom-parser';
 
 export default function ourBabelPlugin() {
@@ -504,7 +504,7 @@ const foo = currying(function foo(a, b, c) {
 If you have read my [step-by-step guide on babel transformation](/step-by-step-guide-for-writing-a-babel-transformation), writing this transformation should be manageable:
 
 ```js
-// filename: babel-plugin-transformation-curry-function.js
+/// filename: babel-plugin-transformation-curry-function.js
 export default function ourBabelPlugin() {
   return {
     // ...
@@ -550,7 +550,7 @@ You can add a new helper to `@babel/helpers`, which of course you are unlikely t
   
 
 ```js
-// filename: package.json
+/// filename: package.json
 {
   "resolutions": {
     "@babel/helpers": "7.6.0--your-custom-forked-version",

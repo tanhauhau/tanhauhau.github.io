@@ -31,7 +31,7 @@ What is wrong with Terser and our code?
 We used Terser to minify our build code. It was part of our webpack pipeline, installed through `terser-webpack-plugin`. Since terser is throwing an error, so I disabled `terser-webpack-plugin` and build again.
 
 ```js
-// filename: webpackConfig.prod.js
+/// filename: webpackConfig.prod.js
 
 module.exports = {
   plugins: [
