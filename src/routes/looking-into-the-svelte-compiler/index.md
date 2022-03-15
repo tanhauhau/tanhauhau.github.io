@@ -10,11 +10,11 @@ layout: talk
 
 ### CityJS Conference 2020
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sP7dtZm_Wx0?start=6618" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" title="CityJS Conference 2020" src="https://www.youtube.com/embed/sP7dtZm_Wx0?start=6618" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### MMT Tech Meetup - Sept 2020
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tT1altUaaJU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" title="MMT Tech Meetup - Sept 2020" src="https://www.youtube.com/embed/tT1altUaaJU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Slides
 

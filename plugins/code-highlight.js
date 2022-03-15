@@ -71,7 +71,7 @@ export default async function highlight(code, lang, meta) {
 						line: index + 1,
 						classes: [line[0] === '+' ? 'inserted' : 'deleted']
 					});
-					line = line.slice(1);
+					line = ' ' + line.slice(1);
 				}
 				return line;
 			})
@@ -104,11 +104,14 @@ export default async function highlight(code, lang, meta) {
 	} else if (Prism.languages[lang]) {
 		const highlighted = highlightWrap(
 			Prism.highlight(code, Prism.languages[lang], lang),
-			options.highlight
+			options.lineOptions
 		);
-		html = `<pre class="language-${lang}">${highlighted}</pre>`;
+		html = `<pre class="prism language-${lang}"><code>${highlighted}</code></pre>`;
 	} else {
-		html = `<pre class="language-${lang}">${escapeHtml(code)}</pre>`;
+		html = `<pre class="prism language-${lang}"><code>${basicHighlight(
+			code,
+			options
+		)}</code></pre>`;
 	}
 
 	const extras = [];
@@ -152,51 +155,21 @@ const END_DIRECTIVE = /highlight-end/;
 
 const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g;
 
-function highlightWrap(code, highlight) {
-	const toHighlight = parseHighlightFence(highlight);
-	const toHide = new Set();
+function highlightWrap(code, lineOptions) {
+	// HACK split multiline spans with line separators inside into multiple spans
+	// separated by line separator - this fixes line highlighting behaviour for
+	//  - plain-text in jsx,
+	//  - tripple-quoted-string in python,
+	//  - comment in c-like languages (including javascript), etc.
+	code = code.replace(MULTILINE_TOKEN_SPAN, (match, token) =>
+		match.replace(/\n/g, `</span>\n<span class="token ${token}">`)
+	);
 
-	if (HIGHLIGHT_DIRECTIVE.test(code)) {
-		// HACK split multiline spans with line separators inside into multiple spans
-		// separated by line separator - this fixes line highlighting behaviour for
-		//  - plain-text in jsx,
-		//  - tripple-quoted-string in python,
-		//  - comment in c-like languages (including javascript), etc.
-		code = code.replace(MULTILINE_TOKEN_SPAN, (match, token) =>
-			match.replace(/\n/g, `</span>\n<span class="token ${token}">`)
-		);
-	}
+	const getClass = getLineClass(lineOptions);
 	const lines = code.split('\n');
-
-	for (let i = 0; i < lines.length; i++) {
-		if (HIGHLIGHT_DIRECTIVE.test(lines[i])) {
-			const [, directive, directiveRange] = lines[i].match(HIGHLIGHT_DIRECTIVE);
-			switch (directive) {
-				case 'next-line':
-					toHide.add(i);
-					toHighlight.add(i + 1);
-					break;
-				case 'start': {
-					let end = i + 1;
-					while (end < lines.length && !END_DIRECTIVE.test(lines[end])) end++;
-					toHide.add(i);
-					toHide.add(end);
-					for (let j = i + 1; j < end; j++) {
-						toHighlight.add(j);
-					}
-				}
-			}
-		}
-	}
-
-	const getClass =
-		toHighlight.size > 0
-			? (index) => (toHighlight.has(index) ? 'line highlight' : 'line dim')
-			: () => 'line';
 
 	return lines
 		.map((line, index) => `<div class="${getClass(index)}">${line}</div>`)
-		.filter((line, index) => !toHide.has(index))
 		.join('');
 }
 
@@ -415,6 +388,28 @@ function parseHighlightComments(code, options) {
 		}
 	}
 	return code;
+}
+
+function basicHighlight(code, options) {
+	const getClass = getLineClass(options.lineOptions);
+
+	return code
+		.split('\n')
+		.map((line, index) => {
+			return `<span class="${getClass(index)}">${escapeHtml(line)}</span>`;
+		})
+		.join('\n');
+}
+
+function getLineClass(lineOptions) {
+	const classMap = new Map();
+	lineOptions?.forEach?.(({ line, classes }) => {
+		if (!classMap.has(line)) classMap.set(line, new Set());
+		const set = classMap.get(line);
+		classes.forEach((clz) => set.add(clz));
+	});
+
+	return (index) => ['line'].concat(Array.from(classMap.get(index + 1) ?? [])).join(' ');
 }
 
 // shiki higlighter cache

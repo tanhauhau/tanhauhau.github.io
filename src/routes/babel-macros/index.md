@@ -161,7 +161,6 @@ module.exports = {
 
 ```js
 /// filename: src/utils/idx.macro.js
-
 const { createMacro } = require('babel-plugin-macros');
 module.exports = createMacro(({ state, references }) => {
   references.default.forEach(referencePath => {

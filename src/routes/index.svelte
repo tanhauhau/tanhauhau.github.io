@@ -1,5 +1,5 @@
 <script>
-  import img from '$lib/assets/profile-pic.png';
+  import profilePic from '$lib/assets/profile-pic.png';
   import ogImage from '$lib/assets/og-image.jpg';
   import twitterImage from '$lib/assets/twitter-card-image.jpg';
   import Links from '$lib/Links.svelte';
@@ -25,7 +25,7 @@
 </svelte:head>
 
 <main>
-  <div><img src={img} alt="Tan Li Hau" /></div>
+  <div><img src={profilePic} alt="Tan Li Hau" /></div>
   <h1>Tan Li Hau</h1>
   <h2>Frontend Developer at <a href="https://www.linkedin.com/company/shopee/" aria-label="Shopee LinkedIn page">Shopee
       Singapore</a></h2>

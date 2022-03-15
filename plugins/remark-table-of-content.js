@@ -27,19 +27,11 @@ export default function tableOfContents() {
 		tree.children.forEach((node, index) => {
 			if (node.type !== 'heading') return;
 			indexes.push(index);
-			const link = node.children
-				.map((child) => (child.type !== 'html' && child.value ? child.value.toLowerCase() : ''))
-				.filter(Boolean)
-				.join(' ')
-				.replace(/[^a-z]+/g, '-')
-				.replace(/(^-|-$)/g, '');
-			titles.push({
-				title: node.children
-					.map((child) => (child.type !== 'html' && child.value ? child.value : ''))
-					.join(' '),
-				link,
-				depth: node.depth
-			});
+			const { link, title } = getLinkAndTitle(node.children);
+			if (!link || !title) {
+				throw new Error('unable to get link or title');
+			}
+			titles.push({ title, link, depth: node.depth });
 			node.children.unshift({
 				type: 'html',
 				value: `<a href="#${link}" id="${link}">`
@@ -79,4 +71,29 @@ export default function tableOfContents() {
 			});
 		}
 	};
+}
+
+function getLinkAndTitle(children) {
+	function getParts(children) {
+		return children.map((child) => {
+			if (child.type === 'text') {
+				return child.value;
+			} else if (child.children) {
+				return getParts(child.children);
+			} else {
+				return '';
+			}
+		});
+	}
+
+	const parts = getParts(children).flat(Number.POSITIVE_INFINITY).filter(Boolean);
+
+	const link = parts
+		.map((part) => part.toLowerCase())
+		.join(' ')
+		.replace(/[^a-z]+/g, '-')
+		.replace(/(^-|-$)/g, '');
+	const title = parts.join(' ');
+
+	return { link, title };
 }

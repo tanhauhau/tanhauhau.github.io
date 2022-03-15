@@ -2,6 +2,27 @@
 title: foo
 ---
 
+inline `code` from here `a('foo')` what is this?
+
+```aaa diff
+// highlight-next-line
+  afaskdf a;ksdfja;skld f;askj f;aslkdjf ;aslkdjf ;alskdjf aaaaaa;
+  afaskdf a;ksdfja;skld f;askj f;aslkdjf ;aslkdjf ;alskdjf aaaaaa;
++ afaskdf a;ksdfja;skld f;askj f;aslkdjf ;aslkdjf ;alskdjf aaaaaa;
+- afaskdf a;ksdfja;skld f;askj f;aslkdjf ;aslkdjf ;alskdjf aaaaaa;
+  afaskdf a;ksdfja;skld f;askj f;aslkdjf ;aslkdjf ;alskdjf aaaaaa;
+```
+
+```svelte diff
+<script>
+	// highlight-next-line
+	let a = 1;
+- let a = 123;
++ </script>
+
+<div>{a}</div>
+```
+
 ```js
 /// filename: babel.config.js
 module.exports = {
