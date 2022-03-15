@@ -1,8 +1,10 @@
 <script>
 	import { page } from '$app/stores';
-	import Newsletter from './Newsletter.svelte';
-	import CarbonAd from './CarbonAd.svelte';
 	import '$lib/assets/blog-base.css';
+	import '$lib/assets/code-snippet.css';
+
+	import * as copyable from '$lib/code-snippet/copyable';
+
 	import ldJsonScript from '$lib/seo/ldjson';
 	import { getContext } from 'svelte';
 	export let title = '';
@@ -18,6 +20,8 @@
 		['@type']: 'Person',
 		name: 'Tan Li Hau'
 	};
+
+	copyable.init();
 </script>
 
 <svelte:head>
@@ -40,7 +44,7 @@
 		<meta name="keywords" content={tag} />
 	{/each}
 
-	<meta itemprop="url" content="https://lihautan.com{$page.path}" />
+	<meta itemprop="url" content="https://lihautan.com{$page.url.pathname}" />
 	<meta itemprop="image" content={image} />
 
 	{@html ldJsonScript({
@@ -71,7 +75,7 @@
 			},
 			{
 				'@type': 'ListItem',
-				item: { '@id': `https://lihautan.com${$page.path}`, name: title },
+				item: { '@id': `https://lihautan.com${$page.url.pathname}`, name: title },
 				name: title,
 				position: 2
 			}
@@ -79,29 +83,22 @@
 	})}
 </svelte:head>
 
-<main id="content" class="blog">
-	<h1>{title}</h1>
+<h1>{title}</h1>
 
-	{#each tags as tag}
-		<span>{tag}</span>
-	{/each}
+{#each tags as tag}
+	<span>{tag}</span>
+{/each}
 
-	{#if (occasion && occasionLink) || videoLink}
-		<div class="venue">
-			{#if occasion && occasionLink}Talk given at: <a href={occasionLink}>{occasion}</a
-				>{/if}{#if videoLink}<a href={videoLink}>(Video)</a>{/if}
-		</div>
-	{/if}
+{#if (occasion && occasionLink) || videoLink}
+	<div class="venue">
+		{#if occasion && occasionLink}Talk given at: <a href={occasionLink}>{occasion}</a
+			>{/if}{#if videoLink}<a href={videoLink}>(Video)</a>{/if}
+	</div>
+{/if}
 
-	<article>
-		<slot />
-	</article>
-</main>
-
-<footer>
-	<Newsletter />
-	<CarbonAd />
-</footer>
+<article>
+	<slot />
+</article>
 
 <style>
 	span {
@@ -113,18 +110,6 @@
 		color: var(--secondary-color);
 		border: 2px solid var(--secondary-color);
 		box-shadow: 2px 2px var(--secondary-color);
-	}
-	main,
-	footer {
-		max-width: 675px;
-		margin: auto;
-		word-break: break-word;
-	}
-	@media only screen and (max-width: 755px) {
-		main,
-		footer {
-			padding: 0 calc(2 * var(--prism-padding));
-		}
 	}
 
 	:global(.sitemap li:nth-child(n + 2)) {

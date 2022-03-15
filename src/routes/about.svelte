@@ -1,9 +1,3 @@
-<script>
-  // import Newsletter from '../layout/Newsletter.svelte';
-</script>
-
-<!-- <Header /> -->
-
 <main>
   <h1>About Tan Li Hau</h1>
 

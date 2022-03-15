@@ -1,28 +1,25 @@
 <script>
-	import Newsletter from '$lib/Newsletter.svelte';
-	import CarbonAd from '$lib/CarbonAd.svelte';
 	import '$lib/assets/blog-base.css';
+	import '$lib/assets/code-snippet.css';
+
+	import * as copyable from '$lib/code-snippet/copyable';
+
 	export let title;
 	export let tags = [];
+
+	copyable.init();
 	// export let series;
 </script>
 
-<main id="content" class="blog">
-	<h1>{title}</h1>
+<h1>{title}</h1>
 
-	{#each tags as tag}
-		<span>{tag}</span>
-	{/each}
+{#each tags as tag}
+	<span>{tag}</span>
+{/each}
 
-	<article>
-		<slot />
-	</article>
-</main>
-
-<footer>
-	<Newsletter />
-	<CarbonAd />
-</footer>
+<article>
+	<slot />
+</article>
 
 <style>
 	span {
@@ -34,18 +31,6 @@
 		color: var(--secondary-color);
 		border: 2px solid var(--secondary-color);
 		box-shadow: 2px 2px var(--secondary-color);
-	}
-	main,
-	footer {
-		max-width: 675px;
-		margin: auto;
-		word-break: break-word;
-	}
-	@media only screen and (max-width: 755px) {
-		main,
-		footer {
-			padding: 0 calc(2 * var(--prism-padding));
-		}
 	}
 
 	:global(.sitemap li:nth-child(n + 2)) {

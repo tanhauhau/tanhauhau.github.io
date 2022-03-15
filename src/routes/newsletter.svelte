@@ -1,5 +1,4 @@
 <script>
-  import Newsletter from '$lib/Newsletter.svelte';
   import ogImage from '$lib/assets/newsletter-og-image.png';
 </script>
 
@@ -26,7 +25,6 @@
   <p>You can also <a href="https://buttondown.email/lihautan/archive">view my previous issues</a> and <a href="https://buttondown.email/lihautan/rss">subscribe via RSS</a>!</p>
 
   <div />
-  <Newsletter />
 </main>
 
 <style>
