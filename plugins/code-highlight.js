@@ -19,6 +19,8 @@ Prism.languages['diff-js'] = Prism.languages['diff'];
 Prism.languages['diff-svelte'] = Prism.languages['diff'];
 Prism.languages['sh'] = Prism.languages['bash'];
 
+const TO_REMOVE_LINE = {};
+
 const includes = new Map();
 
 const SHIKI_BUNDLED_LANGUAGE = new Set(
@@ -61,6 +63,9 @@ export default async function highlight(code, lang, meta) {
 
 	code = parseHighlightComments(code, options);
 
+	// TODO: originalCode should also ignore deleted code from diff
+	let originalCode = code;
+
 	if (options.diff) {
 		options.lineOptions = options.lineOptions ?? [];
 		code = code
@@ -76,11 +81,18 @@ export default async function highlight(code, lang, meta) {
 				return line;
 			})
 			.join('\n');
-	}
 
-	// TODO: originalCode should also ignore highlight comments
-	// TODO: originalCode should also ignore deleted code from diff
-	const originalCode = code;
+		originalCode = originalCode
+			.split('\n')
+			.map((line) => {
+				// remove the first character / padding
+				if (line[0] === '+' || line[0] === ' ') return line.slice(1);
+				else if (line[0] === '-') return TO_REMOVE_LINE;
+				return line;
+			})
+			.filter((line) => line !== TO_REMOVE_LINE)
+			.join('\n');
+	}
 
 	if (options.twoslash) {
 		code = replaceIncludesInCode(includes, code);
@@ -136,23 +148,7 @@ function escape_svelty(str) {
 
 // inspired from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-prismjs/src/directives.js
 
-const HIGHLIGHTED_JSX_COMMENT_START = `<span class="token punctuation">\\{<\\/span><span class="token comment">\\/\\*`;
-const HIGHLIGHTED_JSX_COMMENT_END = `\\*\\/<\\/span><span class="token punctuation">\\}</span>`;
-const HIGHLIGHTED_HTML_COMMENT_START = `&lt;!--`;
-
-const PRISMJS_COMMENT_OPENING_SPAN_TAG = `(<span\\sclass="token\\scomment">)?`;
-const PRISMJS_COMMENT_CLOSING_SPAN_TAG = `(<\\/span>)?`;
-
-const COMMENT_START = new RegExp(`(#|\\/\\/|\\{\\/\\*|\\/\\*+|${HIGHLIGHTED_HTML_COMMENT_START})`);
-
-const createDirectiveRegExp = (featureSelector) =>
-	new RegExp(`${featureSelector}-(next-line|line|start|end|range)({([^}]+)})?`);
-
-const COMMENT_END = new RegExp(`(-->|\\*\\/\\}|\\*\\/)?`);
-const HIGHLIGHT_DIRECTIVE = createDirectiveRegExp(`highlight`);
-
-const END_DIRECTIVE = /highlight-end/;
-
+const HIGHLIGHT_DIRECTIVE = new RegExp(`highlight-(next-line|line|start|end|range)({([^}]+)})?`);
 const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g;
 
 function highlightWrap(code, lineOptions) {
@@ -168,9 +164,7 @@ function highlightWrap(code, lineOptions) {
 	const getClass = getLineClass(lineOptions);
 	const lines = code.split('\n');
 
-	return lines
-		.map((line, index) => `<div class="${getClass(index)}">${line}</div>`)
-		.join('');
+	return lines.map((line, index) => `<div class="${getClass(index)}">${line}</div>`).join('');
 }
 
 const matchHtmlRegExp = /["'&<>]/;
@@ -348,7 +342,7 @@ function parseHighlightComments(code, options) {
 	let start = false;
 	let numLinesLeft = 0;
 	const toHighlight = new Set();
-	const TO_REMOVE_LINE = {};
+
 	code = code
 		.split('\n')
 		.map((line, index) => {
