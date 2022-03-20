@@ -2,6 +2,6 @@ import { getContent } from './_utils';
 
 export async function get() {
 	return {
-		body: await getContent({ filter: { label: ['blog'] } })
+		body: await getContent({ filter: { label: ['note'] } })
 	};
 }

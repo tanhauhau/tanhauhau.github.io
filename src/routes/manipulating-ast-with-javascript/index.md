@@ -4,10 +4,9 @@ date: '2019-11-22T08:00:00Z'
 description: 'Manipulating AST is not that hard anyway'
 tags: 
   - JavaScript
-  - ast
+  - AST
   - transform
   - depth-first-search
-  - dfs
 series: AST
 label: blog
 ---

@@ -63,14 +63,14 @@ tags:
 
 - Layers panel
   
-  ![](./screenshots/layers-panel.png)
+  ![layers panel](./screenshots/layers-panel.png)
 
 - visbug /zindex plugin
   
-  ![](./screenshots/visbug-zindex.png)
+  ![visbug zindex](./screenshots/visbug-zindex.png)
 - visbug /pesticide plugin
   
-  ![](./screenshots/visbug-pesticide.png)
+  ![visbug pesticide](./screenshots/visbug-pesticide.png)
 
 [visbug extension](https://chrome.google.com/webstore/detail/visbug/cdockenadnadldjbbgcallicgledbeoc?hl=en)
 
@@ -156,4 +156,4 @@ tags:
 ## Links
 
 - [The CSS Podcast: 019: Z-Index and Stacking Context](https://podcasts.google.com/feed/aHR0cHM6Ly90aGVjc3Nwb2RjYXN0LmxpYnN5bi5jb20vcnNz/episode/NmZmNzlmOTgtNmM2NS00MjVhLWE0M2UtNTY1YmY4MjYxODU5?sa=X&ved=2ahUKEwiH-uH7_YzrAhWlGbcAHWJKBHcQkfYCegQIARAF)
-- [Philip Walton: What no one told you about z-index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/) ([My Note](./what-no-one-told-you-about-z-index))
+- [Philip Walton: What no one told you about z-index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/) ([My Note](/notes/what-no-one-told-you-about-z-index))

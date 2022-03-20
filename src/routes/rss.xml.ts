@@ -1,7 +1,7 @@
 import { getContent } from './api/_utils';
 
 export async function get() {
-  const items = await getContent(['blog', 'talk']);
+	const items = await getContent({ filter: { label: ['blog', 'talk'] } });
 	// prettier-ignore
 	const rssXml = [
     '<?xml version="1.0" encoding="UTF-8"?>',

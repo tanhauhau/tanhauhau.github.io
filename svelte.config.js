@@ -50,11 +50,10 @@ const config = {
 
 		prerender: {
 			default: true,
-			entries: ['*', '/rss.xml'],
-			// crawl: true,
+			entries: ['*', '/rss.xml', '/series', '/tags'],
+			crawl: true
 		},
-		routes: (filepath) =>
-			!/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known)|(\/slides\/[^/]+\/_\/))/.test(filepath),
+		routes: (filepath) => !/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known)|(\/_\/))/.test(filepath),
 		vite: {
 			plugins: [
 				imagetools(),
@@ -70,7 +69,8 @@ const config = {
 					strict: false
 				}
 			}
-		}
+		},
+		trailingSlash: 'always'
 	},
 	extensions: ['.svelte', '.md', '.mdx']
 };

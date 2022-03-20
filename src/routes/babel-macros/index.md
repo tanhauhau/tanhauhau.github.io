@@ -5,7 +5,7 @@ series: Intermediate Babel
 tags: 
   - JavaScript
   - babel
-  - ast
+  - AST
   - transform
 description: "Custom JavaScript syntax is hard to maintain, custom babel transform plugin is no better. That's why we need Babel macros."
 ---

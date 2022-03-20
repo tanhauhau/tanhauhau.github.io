@@ -4,7 +4,7 @@ date: '2019-09-12T08:00:00Z'
 tags: 
   - JavaScript
   - babel
-  - ast
+  - AST
   - transform
 description: Writing your first babel plugin
 series: Intermediate Babel

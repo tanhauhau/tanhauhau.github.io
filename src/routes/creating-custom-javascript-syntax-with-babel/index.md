@@ -5,7 +5,7 @@ description: Forking babel parser and creating your custom JavaScript syntax isn
 tags: 
   - JavaScript
   - babel
-  - ast
+  - AST
   - transform
 series: Intermediate Babel
 label: blog

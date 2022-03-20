@@ -9,11 +9,11 @@
 	export let title = '';
 	export let description = '';
 	export let tags = [];
+	export let series;
 
 	const { image = '' } = getContext('blog') || {};
 
 	copyable.init();
-	// export let series;
 </script>
 
 <svelte:head>
@@ -42,8 +42,12 @@
 
 <h1>{title}</h1>
 
+{#if series}
+	<a class="tag series" href="/series/{series}">Series: {series}</a>
+{/if}
+
 {#each tags as tag}
-	<span>{tag}</span>
+	<a class="tag" href="/tags/{tag}">{tag}</a>
 {/each}
 
 <article class="blog">
@@ -51,7 +55,7 @@
 </article>
 
 <style>
-	span {
+	.tag {
 		padding: 4px 8px;
 		margin-right: 12px;
 		font-size: 0.6em;
@@ -60,6 +64,16 @@
 		color: var(--secondary-color);
 		border: 2px solid var(--secondary-color);
 		box-shadow: 2px 2px var(--secondary-color);
+		text-decoration: none;
+		display: inline-block;
+		transition: var(--easing);
+	}
+	.tag:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 5px 5px var(--secondary-color);
+	}
+	.series {
+		--secondary-color: blue;
 	}
 
 	:global(.sitemap li:nth-child(n + 2)) {

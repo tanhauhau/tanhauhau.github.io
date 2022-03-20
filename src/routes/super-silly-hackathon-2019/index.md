@@ -5,7 +5,6 @@ lastUpdated: '2019-12-15T15:19:00Z'
 description: A quick walkthrough on how I created my pet in the browser for the Super Silly Hackathon 2019.
 tags: 
   - JavaScript
-  - blog
   - hackathon
 series: Hackathon Projects
 label: blog

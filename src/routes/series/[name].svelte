@@ -1,21 +1,22 @@
 <script context="module">
-	export async function load({ fetch }) {
-		const response = await fetch('/api/notes.json');
+	export async function load({ params, fetch }) {
+		const response = await fetch(`/api/series/${params.name}.json`);
 		const data = await response.json();
 		return {
-			props: { notes: data }
+			props: { items: data, series: params.name }
 		};
 	}
 </script>
 
 <script>
-	export let notes = [];
+	export let items = [];
+	export let series;
 </script>
 
-<main class="notes">
-	<h1>Li Hau's Notes</h1>
+<main class="items">
+	<h1>{series}</h1>
 	<ul>
-		{#each notes as { title, description = "", tags, url } (url)}
+		{#each items as { title, description = "", tags, url } (url)}
 			<li>
 				<a href={url}>
 					<p class="title">{title}</p>

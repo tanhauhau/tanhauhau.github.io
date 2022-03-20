@@ -3,10 +3,11 @@
 </script>
 
 <ul class="mode-{mode}">
-  {#if mode !== 'home'}<li><a href="/">Tan Li Hau</a></li>{/if}
+	{#if mode !== 'home'}<li><a href="/">Tan Li Hau</a></li>{/if}
 	<li><a href="/about">About</a></li>
 	<li><a href="/blogs">Writings</a></li>
 	<li><a href="/talks">Talks</a></li>
+	<li><a href="/notes">Notes</a></li>
 	<li><a href="/newsletter">Newsletter</a></li>
 	<li class="social">
 		<a aria-label="Twitter account" href="https://twitter.com/lihautan">
@@ -74,11 +75,11 @@
 		font-weight: 500;
 	}
 
-  ul:global(.mode-sidebar) .social {
+	ul:global(.mode-sidebar) .social {
 		margin-top: 2em;
 	}
 
-  @media only screen and (max-width: 1100px) {
+	@media only screen and (max-width: 1100px) {
 		ul:global(.mode-sidebar) {
 			display: block;
 		}
