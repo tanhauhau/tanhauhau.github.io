@@ -3,7 +3,7 @@
 	margin: auto;
 	display: block;
 	box-shadow: var(--box-shadow);
-	border-color: 4px solid var(--shiki-color-background);
+	border: 4px solid var(--shiki-color-background);
 }
 
 .blog p {
@@ -22,13 +22,17 @@
 	margin: 0 calc(-1 * var(--prism-padding));
 	padding: var(--prism-padding);
 	margin-bottom: 1.6em;
-	border-color: 4px solid var(--shiki-color-background);
+	border: 4px solid var(--shiki-color-background);
 	box-shadow: var(--box-shadow);
 	font-style: italic;
 }
 
 .blog blockquote p {
 	margin: 0;
+}
+
+.blog blockquote > blockquote {
+	margin: 0.5em;
 }
 
 .blog a {

@@ -74,7 +74,6 @@ And I noticed a common pattern:
 
 ```js
 /// filename: rollup-plugin-xxx.js
-
 module.exports = function(options) {
   // ...
   return {

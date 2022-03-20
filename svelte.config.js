@@ -9,6 +9,7 @@ import customCodeHighlight from './plugins/code-highlight.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { imagetools } from 'vite-imagetools';
+import viteSlides from './plugins/vite-slides.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -18,11 +19,16 @@ const config = {
 		preprocess(),
 		mdsvex({
 			smartypants: false,
-			extensions: ['.svx', '.md'],
-			remarkPlugins: [remarkTableOfContents, remarkImageExternal, remarkTwitterOg],
+			extensions: ['.svx', '.md', '.mdx'],
+			remarkPlugins: [
+				[remarkTableOfContents, { exclude: /\/slides\// }],
+				remarkImageExternal,
+				[remarkTwitterOg, { exclude: /\/slides\// }]
+			],
 			rehypePlugins: [rehypeInlineCode],
 			layout: {
 				talk: './src/lib/TalkLayout.svelte',
+				slide: './src/lib/SlideLayout.svelte',
 				_: './src/lib/BlogLayout.svelte'
 			},
 			highlight: {
@@ -37,14 +43,25 @@ const config = {
 			pages: 'docs',
 			assets: 'docs',
 			fallback: null,
+			// NOTE? fallback 404 page?
+			// fallback: '404.html',
 			precompress: false
 		}),
 
 		prerender: {
-			entries: ['*', '/rss.xml']
+			default: true,
+			entries: ['*', '/rss.xml'],
+			// crawl: true,
 		},
+		routes: (filepath) =>
+			!/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known)|(\/slides\/[^/]+\/_\/))/.test(filepath),
 		vite: {
-			plugins: [imagetools()],
+			plugins: [
+				imagetools(),
+				viteSlides({
+					includes: [/\/slides\/[^/]+\/index\.mdx$/]
+				})
+			],
 			define: {
 				__PROJECT_ROOT__: JSON.stringify(path.dirname(fileURLToPath(import.meta.url)))
 			},
@@ -55,7 +72,7 @@ const config = {
 			}
 		}
 	},
-	extensions: ['.svelte', '.md']
+	extensions: ['.svelte', '.md', '.mdx']
 };
 
 export default config;

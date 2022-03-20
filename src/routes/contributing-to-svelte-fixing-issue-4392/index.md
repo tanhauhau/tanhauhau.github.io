@@ -252,7 +252,6 @@ Anyway, `src/runtime/internal/dom.ts` is not where I am looking for, so I tried 
 
 ```js
 /// filename: src/compiler/compile/render_dom/wrappers/Element/Attribute.ts
-
 updater = b`
   for (var ${i} = 0; ${i} < ${element.var}.options.length; ${i} += 1) {
     var ${option} = ${element.var}.options[${i}];
@@ -478,7 +477,6 @@ Runtime test cases are added into `test/runtime/samples/`. Each folder represent
 
 ```js
 /// filename: _config.js
-
 export default {
   // initial props to passed to the component
   props: { /*...*/ },

@@ -1,0 +1,11 @@
+.c-event__header p:nth-of-type(2) {
+  position: relative;
+  white-space: nowrap;
+}
+.c-event__header p:nth-of-type(2)::after {
+  content: 'Sep 1, 2020';
+  position: absolute;
+  top: 0;
+  left: 144px;
+  background: var(--bg-color, #fafaff);
+}

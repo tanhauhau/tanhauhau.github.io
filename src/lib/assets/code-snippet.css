@@ -79,6 +79,15 @@ code.inline {
 	background-color: var(--shiki-color-background);
 }
 
+h1 code.inline,
+h2 code.inline,
+h3 code.inline,
+h4 code.inline,
+h5 code.inline {
+	background: transparent;
+	color: inherit;
+}
+
 pre .line {
 	min-height: 1rem;
 	display: inline-block;

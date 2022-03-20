@@ -120,7 +120,6 @@ Let's do a [Test-driven development (TDD)](https://en.wikipedia.org/wiki/Test-dr
 
 ```js
 /// filename: packages/babel-parser/test/curry-function.js
-
 import { parse } from '../lib';
 
 function getParser(code) {
@@ -205,7 +204,6 @@ Here you see a list of tokens, so let's add our new token definition in as well:
 
 ```js
 /// filename: packages/babel-parser/src/tokenizer/types.js
-
 export const types: { [name: string]: TokenType } = {
   // ...
   at: new TokenType('@'),
@@ -222,7 +220,6 @@ Let's create the token `tt.atat` instead of `tt.at` if there's another `@` succe
 
 ```js
 /// filename: packages/babel-parser/src/tokenizer/index.js
-
 getTokenFromCode(code: number): void {
   switch (code) {
     // ...
@@ -278,7 +275,6 @@ A quick search on _"FunctionDeclaration"_ leads us to a function called `parseFu
 
 ```js
 /// filename: packages/babel-parser/src/parser/statement.js
-
 export default class StatementParser extends ExpressionParser {
   // ...
   parseFunction<T: N.NormalFunction>(
@@ -391,7 +387,6 @@ If you take a look again the parser code we just changed, it's easier to read it
 
 ```js
 /// filename: packages/babel-parser/src/parser/statement.js
-
 export default class StatementParser extends ExpressionParser {
   parseStatementContent(/* ...*/) {
     // ...

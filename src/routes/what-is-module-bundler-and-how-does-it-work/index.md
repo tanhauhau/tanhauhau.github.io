@@ -152,7 +152,6 @@ Thirdly, the application is start via `webpackStart`, which is **a function that
 
 ```js
 /// filename: webpack-bundle.js
-
 function webpackStart({ modules, entry }) {
   const moduleCache = {};
   const require = moduleName => {

@@ -1,0 +1,15 @@
+a.c-rsvp::before {
+  content: 'Snap! Failed to fetch content.';
+  margin-right: 16px;
+}
+.c-rsvp span:first-child {
+  color: transparent;
+  position: relative;
+  width: 106px;
+}
+.c-rsvp span:first-child::after {
+  content: 'Refresh';
+  color: #fafaff;
+  left: 12px;
+  position: absolute;
+}

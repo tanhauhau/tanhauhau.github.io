@@ -1,4 +1,4 @@
-export default function tableOfContents() {
+export default function tableOfContents(options) {
 	function toHtml(headings) {
 		const html = [
 			'<section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents">'
@@ -21,7 +21,9 @@ export default function tableOfContents() {
 		return html.join('');
 	}
 
-	return (tree) => {
+	return function (tree, { filename }) {
+		if (options.exclude.test(filename)) return;
+
 		const titles = [];
 		const indexes = [];
 		tree.children.forEach((node, index) => {
@@ -78,6 +80,8 @@ function getLinkAndTitle(children) {
 		return children.map((child) => {
 			if (child.type === 'text') {
 				return child.value;
+			} else if (child.type === 'inlineCode') {
+				return '`' + child.value + '`';
 			} else if (child.children) {
 				return getParts(child.children);
 			} else {

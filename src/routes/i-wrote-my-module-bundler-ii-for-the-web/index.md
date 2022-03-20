@@ -194,7 +194,6 @@ In the `createModule` function, I need to create different `Module` based on the
 
 ```js
 /// filename: index.js
-
 // highlight-start
 const MODULE_LOADERS = {
   '.css': CSSModule,
@@ -311,7 +310,6 @@ I abstracted out the `_build` function and supports both `build` and `dev` mode.
 
 ```js
 /// filename: index.js
-
 // highlight-start
 function _build({ entryFile, htmlTemplatePath }) {
   // build dependency graph

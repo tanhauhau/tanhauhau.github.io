@@ -32,7 +32,6 @@ We used Terser to minify our build code. It was part of our webpack pipeline, in
 
 ```js
 /// filename: webpackConfig.prod.js
-
 module.exports = {
   plugins: [
     // ...

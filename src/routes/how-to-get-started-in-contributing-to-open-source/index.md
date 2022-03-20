@@ -35,7 +35,7 @@ So if you want to start contributing, start with reading `CONTRIBUTING.md`!
 Usually mentioned within `CONTRIBUTING.md`, most popular libraries do label their issues to categorize them. In our case, `"Good First Issue"` is what starters should look out for. When library maintainers labelled their issue as `"Good First Issue"`, they usually expect to guide and give advice to anyone who is willing to work on the issue. By working through the issue, contributors should gain some practical understanding on how things works, and be more confident in fixing the next bug.
 
 Examples of `"Good First Issue"`:
-- [TypeScript](github.com/microsoft/TypeScript/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+- [TypeScript](https://github.com/microsoft/TypeScript/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 - [React](https://github.com/facebook/react/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
 ## 3. It doesn't have to be code

@@ -1,0 +1,11 @@
+li:nth-child(2n + 1) span.item-price-number::before {
+  content: '24';
+}
+
+li:nth-child(3n + 1) span.item-price-number::before {
+  content: '36';
+}
+
+li:nth-child(7n + 1) span.item-price-number::before {
+  content: '75';
+}

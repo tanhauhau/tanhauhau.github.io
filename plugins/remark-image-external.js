@@ -1,7 +1,24 @@
 import { visit } from 'unist-util-visit';
+import path from 'path';
+
+const IMAGE_TYPES = {
+	'.jpg': 'image/jpeg',
+	'.jpeg': 'image/jpeg',
+	'.png': 'image/png',
+	'.gif': 'image/gif'
+};
+
+function canSupportsWebpConversion(url) {
+	// cant generate .webp from .gif
+	return /\.(jpg|png)$/.test(url);
+}
+
+const map = { ["'"]: '&#39;', ['"']: '&#34;' };
+function encodeHtml(str) {
+	return str.replace(/['"]/g, (value) => map[value]);
+}
 
 export default function imageExternal() {
-	const map = { ["'"]: '&#39;', ['"']: '&#34;' };
 	return (tree) => {
 		let i = 0;
 		const imports = [];
@@ -9,32 +26,46 @@ export default function imageExternal() {
 		visit(tree, ['image', 'imageReference'], (node) => {
 			if (/^https?\:\/\//.test(node.url)) return;
 			const { url } = node;
-			imports.push(`import __build_img__${i} from '${node.url}'`);
-			node.url = `{__build_img__${i}}`;
-			if (node.title) {
-				node.title = node.title.replace(/['"]/g, (value) => map[value]);
-			}
-			if (node.alt) {
-				node.alt = node.alt.replace(/['"]/g, (value) => map[value]);
+			const src = `{__build_img__${i}}`;
+			const alt = node.alt ? encodeHtml(node.alt) : '';
+			const title = node.title ? encodeHtml(node.title) : '';
+			const type = IMAGE_TYPES[path.extname(url)];
+			if (!type) {
+				throw new Error(`Unsupported image type ${path.extname(url)}`);
 			}
 
-			// if (/\.(jpg|png)$/.test(url)) {
-			// 	node.type = 'html';
-			// 	node.value = [
-			// 		'<picture>',
-			// 		`<source type="image/webp" srcset="{__build_img_webp__${i}}" />`,
-			// 		`<source type="image/jpeg" srcset="${node.url}" />`,
-			// 		`<img title="${node.title}" alt="${node.alt}" data-src="${node.url}" loading="lazy" />`,
-			// 		'</picture>'
-			// 	].join('');
+			const supportsWebp = canSupportsWebpConversion(url);
+			const query = new URLSearchParams();
+			query.set('w', '675');
+			if (type === 'image/png') {
+				query.set('quality', '80');
+			}
+			imports.push(`import __build_img__${i} from '${url}?${query.toString()}'`);
 
-			// 	imports.push(`import __build_img_webp__${i} from '${url}'`);
-			// } else {
+			const imageTagAttributes = [
+				// TODO: data-src for using lazysizes?
+				`src="${src}"`,
+				`loading="lazy"`
+			];
+			if (alt) imageTagAttributes.push(`alt="${alt}"`);
+			if (title) imageTagAttributes.push(`title="${title}"`);
+			const imgTag = `<img ${imageTagAttributes.join(' ')} />`;
+
+			let html;
+			if (supportsWebp) {
+				imports.push(`import __build_img_webp__${i} from '${url}?format=webp&w=675'`);
+				html = [
+					'<picture>',
+					`<source type="image/webp" srcset="{__build_img_webp__${i}}" />`,
+					`<source type="${type}" srcset="${src}" />`,
+					imgTag,
+					'</picture>'
+				].join('');
+			} else {
+				html = imgTag;
+			}
 			node.type = 'html';
-			// node.value = `<img title="${node.title}" alt="${node.alt}" data-src="${node.url}" loading="lazy" />`;
-			node.value = `<img title="${node.title}" alt="${node.alt}" src="${node.url}" loading="lazy" />`;
-			// }
-
+			node.value = html;
 			i++;
 		});
 

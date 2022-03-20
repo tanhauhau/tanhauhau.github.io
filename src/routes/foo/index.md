@@ -2,6 +2,20 @@
 title: foo
 ---
 
+<script>
+	let a = 1;
+</script>
+
+<div class="a">{a}</div>
+
+```js twoslash
+describe('foo', () => {
+	it('shoud', () => {
+		expect('1').not.toEqual('2');
+	});
+});
+```
+
 inline `code` from here `a('foo')` what is this?
 
 ```aaa diff
@@ -18,16 +32,18 @@ inline `code` from here `a('foo')` what is this?
 	// highlight-next-line
 	let a = 1;
 - let a = 123;
-+ </script>
++
+</script>
 
 <div>{a}</div>
 ```
 
-```js
+```ts twoslash
 /// filename: babel.config.js
+const plugins = ['babel-plugin-macros'] as const;
 module.exports = {
 	// highlight-next-line
-	plugins: ['babel-plugin-macros']
+	plugins
 };
 ```
 
@@ -39,9 +55,12 @@ npm init svelte@next
 npm init svelte@next my-app
 ```
 
-```js
-//// filename: rollup.config.js
+```js twoslash
+/// filename: rollup.config.js
 /// copy: true
+import fs from 'fs';
+import path from 'path';
+// ---cut---
 export default {
 	plugins: [
 		// ...
@@ -55,6 +74,51 @@ export default {
 		// highlight-end
 	]
 };
+```
+
+```js
+/// filename: rollup.config.js
+/// copy: true
+import fs from 'fs';
+import path from 'path';
+// ---cut---
+export default {
+	plugins: [
+		// ...
+		// highlight-start
+		{
+			name: 'copy-worker',
+			generateBundle() {
+				fs.copyFileSync(path.resolve('./src/worker.js'), path.resolve('./public/build/worker.js'));
+			}
+		}
+		// highlight-end
+	]
+};
+```
+
+```js diff
+/// filename: rollup.config.js
+/// copy: true
+ import fs from 'fs';
+ import path from 'path';
+ // ---cut---
+ export default {
+- 	pugins: [
++   plugins: [
+ 		// ...
+ 		// highlight-start
+    {
+-     name: 'xxx-worker',
+-     version: 123,
++     name: 'copy-worker',
+        generateBundle() {
+  			  fs.copyFileSync(path.resolve('./src/worker.js'), path.resolve('./public/build/worker.js'));
+  			}
+  		}
+  		// highlight-end
+  	]
+ };
 ```
 
 ```js diff
@@ -176,3 +240,10 @@ function greet(person: string) {
 }
 greet('Maddison');
 ```
+
+<style>
+	.a {
+		color: green;
+		font-size: 33px;
+	}
+</style>

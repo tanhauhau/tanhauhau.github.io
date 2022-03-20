@@ -51,7 +51,7 @@ To understand how each of them works, let's start with `output.libraryTarget`.
 
 `output.libraryTarget` accepts `string` as value, there are 2 main groups of values that you can provide to the `output.libraryTarget` option:
 
-#### 1. Name of a module system: `"commonjs"`, `"commonjs2"`, `"amd"`, `"umd"`, ...
+### 1. Name of a module system: `"commonjs"`, `"commonjs2"`, `"amd"`, `"umd"`, ...
 
 Webpack allows you to specify the name of the module system that you want to use to expose the exported values of the entry file.
 
@@ -82,7 +82,7 @@ If you look at the bundled code, it is not much different than the one without s
 
 > By the way, if you are curious about the difference between commonjs and commonjs2, you can follow the thread of [this issue](https://github.com/webpack/webpack/issues/1114).
 
-#### 2. Name of a variable: `"var"`, `"this"`, `"self"`, `"window"`, `"global"`
+### 2. Name of a variable: `"var"`, `"this"`, `"self"`, `"window"`, `"global"`
 
 On the other hand, instead of exposing the library content through a module system, you can specify the variable name which the export object is assigned to.
 

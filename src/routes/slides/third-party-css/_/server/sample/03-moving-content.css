@@ -1,0 +1,13 @@
+.c-rsvp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  right: 0;
+  bottom: 0;
+}
+.c-rsvp span:first-child {
+  background: none;
+  color: transparent;
+  box-shadow: none;
+}

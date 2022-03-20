@@ -1,0 +1,11 @@
+p.hotline_number {
+  position: relative;
+}
+
+p.hotline_number::after {
+  content: "(65) 87654321";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #f5f5f5;
+}

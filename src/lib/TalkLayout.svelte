@@ -96,7 +96,7 @@
 	</div>
 {/if}
 
-<article>
+<article class="blog">
 	<slot />
 </article>
 

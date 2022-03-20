@@ -14,7 +14,7 @@
 	</header>
 {/if}
 
-<main id="content" class="blog">
+<main id="content">
 	<slot />
 </main>
 

@@ -1,0 +1,2322 @@
+<script>
+  import Prism from 'prismjs';
+  import { cubicIn, cubicOut, linear } from 'svelte/easing';
+  import { fly, crossfade, fade } from 'svelte/transition';
+
+  let index = -1;
+  let MAX_SLIDES = 12;
+
+  let flyOut = { y: 50, easing: cubicOut, duration: 200 }
+
+  export function next() {
+    if (index === MAX_SLIDES) return false;
+    index++;
+    return true;
+  }
+  export function prev() {
+    if (index === 0) return false;
+    index--;
+    return true;
+  }
+
+  function prism(node, {code, lang}) {
+    code = code.trim();
+    let html = Prism.highlight(code, lang);
+
+    html = html.split('\n').map(
+      line => 
+        line.replace(
+          /^(\s+)/, 
+          (_, m) => '<span class="tab"></span>'.repeat(m.length / 2)
+        )
+      ).join('<br />');
+    node.innerHTML = html;
+  }
+
+  const [send, receive] = crossfade({
+		duration: 500,
+    easing: cubicIn,
+    fallback: fade,
+	});
+</script>
+
+{#if index < 7}
+<div class="container" class:hidden={index < 4} class:moveUp2={index >= 4}>
+  <div class="code" class:moveUp={index === 2}>
+    <span class="original">view</span>
+    <span class:hidden={index >= 6}> = fn(</span>
+    <span class:hidden={index >= 6} class="original">state</span>
+    <span class:hidden={index >= 6}>)</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="code" class:moveUp={index === 2}>
+    <span class:hidden={index < 0} class="original" class:change={index >= 5}>view</span>
+    <span class:hidden={index <= 0 || index >= 6}> = fn(</span>
+    <span class:hidden={index <= 0 || index >= 6} class="original" class:change={index >= 4}>state</span>
+    <span class:hidden={index <= 0 || index >= 6}>)</span>
+  </div>
+</div>
+
+<div class="container">
+  {#if index === 2}
+    <div class="template">
+      <div class="template-header" 
+        in:fly={{ y: 50, easing: cubicIn, duration: 200 }}
+        out:fly={flyOut}
+      >Template</div>
+      <div
+        in:fly={{ y: 50, easing: cubicIn, duration: 200 }}
+        out:fly={flyOut}
+        use:prism={{ code: `
+<div>{count}</div>
+<button on:click="doSomething">Click me</button>
+  `, lang: Prism.languages.html}} />
+      <div
+      in:fly={{ y: 50, easing: cubicIn, duration: 200, delay: 1000 }}
+      out:fly={flyOut}
+      class="template-header">JSX</div>
+        <div
+        in:fly={{ y: 50, easing: cubicIn, duration: 200, delay: 1000 }}
+        out:fly={flyOut}
+        use:prism={{ code: `
+function Component({ count, doSomething }) {
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={doSomething}>Click me</button>
+    </>
+  );
+}`, lang: Prism.languages.javascript}} />
+    </div>
+  {/if}
+</div>
+{:else if index === 7}
+  <div class="container">
+    <div class="code code-2">
+      <span class="original" in:fly={{y: -60, x:-40, opacity: 1, easing: linear, duration: 500}}>view</span>
+      <span in:fade={{ easing: cubicIn, duration: 200, delay: 500 }}> -> </span>
+      <span class="change" in:fly={{x: -145, opacity: 1, easing: linear, duration: 500}}>view</span>
+    </div>
+  </div>
+{:else}
+  <div class="container">
+    <div class="code code-3">
+      <span in:fade={{ duration: 200, easing: cubicIn, delay: 500 }}>framework_magic(</span>
+      <span class="original" in:fly={{x: -101, opacity: 1, easing: linear, duration: 500}}>view</span>
+      <span in:fade={{ duration: 200, easing: cubicIn, delay: 500 }}>, </span>
+      <span class="change" in:fly={{x: -96, opacity: 1, easing: linear, duration: 500}}>view</span>
+      <span in:fade={{ duration: 200, easing: cubicIn, delay: 500 }}>)</span>
+    </div>
+  </div>
+{/if}
+
+<div class="sizes">
+  <div class:hidden={index < 9} class="react">React<div class="size">~40KB</div></div>
+  <div class:hidden={index < 10} class="vue2">Vue 2<div class="size">~23KB</div></div>
+  <div class:hidden={index < 11} class="vue3">Vue 3<div class="size">~10KB</div></div>
+  <div class:hidden={index < 12} class="svelte">Svelte</div>
+  <div class:hidden={index < 9} class="appcode1"></div>
+  <div class:hidden={index < 10} class="appcode2"></div>
+  <div class:hidden={index < 11} class="appcode3"></div>
+</div>
+
+<style>
+  * {
+    transition: 200ms ease-in;
+  }
+  .container {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .code {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    position: relative;
+
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+  .template {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+  .template-header {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  :global(.tab) {
+    width: 1ch;
+    display: inline-block;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  .moveUp {
+    transform: translateY(-200px);
+  }
+  .moveUp2 {
+    transform: translateY(-60px);
+  }
+  .original {
+    color: blue;
+  }
+  .change {
+    color: orange;
+  }
+  .code-2 .original,
+  .code-2 .change,
+  .code-3 .original,
+  .code-3 .change {
+    display: inline-block;
+  }
+
+  .sizes {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0 14px;
+    grid-template-rows: repeat(42, 6.6px);
+    overflow: hidden;
+  }
+  .sizes > div {
+    padding: 6px 12px;
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(calc(var(--shift, 0) * 6.6px));
+    transition-timing-function: linear;
+  }
+  .react {
+    grid-row: 3 / 43;
+    grid-column: 1 / 2;
+    background: #25d6fb;
+    transition-duration: 430ms;
+  }
+  .react.hidden, .appcode1.hidden {
+    --shift: 43;
+  }
+  .vue2 {
+    background: #46b583;
+    grid-row: 20 / 43;
+    grid-column: 2 / 3;
+    transition-duration: 230ms;
+  }
+  .vue2.hidden, .appcode2.hidden {
+    --shift: 23;
+  }
+  .vue3 {
+    background: #46b583;
+    grid-row: 33 / 43;
+    grid-column: 3 / 4;
+    transition-duration: 130ms;
+  }
+  .vue3.hidden, .appcode3.hidden {
+    --shift: 13;
+  }
+  .svelte {
+    background: linear-gradient(to top right, #fc401d, 72%, lightgrey);
+    color: white;
+    grid-row: 39 / 43;
+    grid-column: 4 / 5;
+    transition-duration: 30ms;
+  }
+  .svelte.hidden {
+    --shift: 4;
+  }
+  .appcode1,
+  .appcode2,
+  .appcode3 {
+    background: lightgray;
+  }
+  .appcode1 {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    transition-duration: 430ms;
+  }
+  .appcode2 {
+    grid-row: 18 / 20;
+    grid-column: 2 / 3;
+    transition-duration: 230ms;
+  }
+  .appcode3 {
+    grid-row: 31 / 33;
+    grid-column: 3 / 4;
+    transition-duration: 130ms;
+  }
+</style>
+
++++
+
+# Looking into the Svelte compiler
+
+<style>
+  h1 {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    margin: 0;
+  }
+</style>
+
++++
+
+<script>
+  import profile from './_/images/profile-pic.png';
+  import rojak from './_/images/penang-rojak.jpg';
+  import ckt from './_/images/koay-teow.jpg';
+
+  let index = 0;
+
+  export function next() {
+    if (index === 3) return false;
+    index++;
+    return true;
+  }
+  export function prev() {
+    if (index === 0) return false;
+    index--;
+    return true;
+  }
+</script>
+
+<img src={profile} alt="profile" />
+
+@lihautan
+
+- 👨🏻‍💻 Frontend engineer at Shopee Singapore
+- 🇲🇾 Grew up in Penang, Malaysia
+- 🛠 Svelte Maintainer
+
+<div class="ckt" class:hidden={index < 1 || index >= 3}>
+  <img src={ckt} alt="char koay teow" />
+  <div>Image credit: sidechef.com</div>
+</div>
+<div class="rojak" class:hidden={index < 2 || index >= 3}>
+  <img src={rojak} alt="rojak" />
+  <div>Image credit: tripadvisor.com</div>
+</div>
+
+<style>
+  img {
+    height: 256px;
+    margin-top: 32px;
+  }
+  p {
+    text-align: center;
+  }
+  ul {
+    margin: 40px auto;
+    display: block;
+    width: 520px;
+  }
+  .ckt, .rojak {
+    transition: 200ms ease-in;
+  }
+  .ckt {
+    position: fixed;
+    top: 0;
+    font-size: 10px;
+    z-index: 1;
+  }
+  .ckt img {
+    height: 450px;
+  }
+  .rojak {
+    position: fixed;
+    top: 0;
+    right: 32px;
+    font-size: 10px;
+    z-index: 1;
+  }
+  .rojak img {
+    height: 320px;
+  }
+  .hidden {
+    opacity: 0;
+  }
+</style>
+
++++
+
+<script>
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+
+  import Repl from './_/components/Repl.svelte';
+  import app0 from './_/examples/sample-1/App-0.svelte?raw';
+  import app1 from './_/examples/sample-1/App-1.svelte?raw';
+  import app2 from './_/examples/sample-1/App-2.svelte?raw';
+  import app3 from './_/examples/sample-1/App-3.svelte?raw';
+  import app4 from './_/examples/sample-1/App-4.svelte?raw';
+  import app5 from './_/examples/sample-1/App-5.svelte?raw';
+  import app6 from './_/examples/sample-1/App-6.svelte?raw';
+  import app7 from './_/examples/sample-1/App-7.js?raw';
+  import app8 from './_/examples/sample-1/App-8.js?raw';
+  import app9 from './_/examples/sample-1/App-9.js?raw';
+  import app10 from './_/examples/sample-1/App-10.js?raw';
+  import app11 from './_/examples/sample-1/App-11.js?raw';
+  import app12 from './_/examples/sample-1/App-12.js?raw';
+
+  let index = 0;
+  let components = [
+    [{ name: "App", type: 'svelte', source: '' }],
+    [{ name: "App", type: 'svelte', source: app0 }],
+    [{ name: "App", type: 'svelte', source: app1 }],
+    [{ name: "App", type: 'svelte', source: app2 }],
+    [{ name: "App", type: 'svelte', source: app3 }],
+    [{ name: "App", type: 'svelte', source: app4 }],
+    [{ name: "App", type: 'svelte', source: app5 }],
+    [{ name: "App", type: 'svelte', source: app6 }],
+  ];
+  let js = [
+    app7,
+    app8,
+    app9,
+    app10,
+    app11,
+    app12,
+  ];
+
+  export function next() {
+    if (index < (components.length + js.length) - 1) {
+      index ++;
+      return true;
+    }
+    return false;
+  }
+</script>
+
+<Repl workersUrl="workers" components={components[Math.min(index, components.length - 1)]} />
+
+{#if index >= components.length}
+  <div class="code" use:prism={{ code: js[index - components.length], lang: Prism.languages.js }} />
+{/if}
+
+<style>
+  .code {
+    z-index: 2;
+    position: absolute;
+    left: 70px;
+    font-size: 20px;
+    background: white;
+    padding: 16px;
+    border: 1px solid black;
+    box-shadow: 8px 8px 10px #ddd;
+    max-height: calc(100vh - 32px);
+    top: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+</style>
+
++++
+
+<script>
+  import app from './_/examples/sample-2/App.svelte?raw';
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+
+  let index = 0;
+  export function next() {
+    if (index < 3) {
+      index++;
+      return true;
+    }
+    return false;
+  }
+  export function prev() {
+    if (index > 0) {
+      index--;
+      return true;
+    }
+    return false;
+  }
+
+  let ready = false;
+
+  $: someApi = ready && getRandomDogImage();
+
+  async function getRandomDogImage() {
+    const response = await fetch('https://dog.ceo/api/breeds/image/random/3');
+		
+    const { message } = await response.json();
+    return message
+  }
+</script>
+
+
+<div class="container">
+  <div class="code" use:prism={{ code: app, lang: Prism.languages.svelte }} />
+
+  <div class="rendered">
+    {#if ready}
+      {#await someApi}
+        Loading...
+      {:then list}
+        {#each list as item}
+          <img src={item} alt="dog ceo"/>
+        {/each}
+      {/await}
+    {:else}
+      Are you ready?
+      <button on:click={() => { ready = true; }}>
+        I'm ready
+      </button>
+    {/if}
+  </div>
+</div>
+
+<div
+  class:box={index > 0}
+  class:box1={index === 1}
+  class:box2={index === 2}
+  class:box3={index === 3}
+/>
+
+<style>
+  .code {
+    padding: 16px;
+    background: #f5f5f5;
+    font-size: 20px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .rendered {
+    border: 1px solid black;
+    box-shadow: 8px 8px 10px #ddd;
+    margin: 16px 32px;
+    padding: 16px;
+    overflow: scroll;
+    max-height: calc(100vh - 64px);
+    box-sizing: border-box;
+  }
+  .box {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 10;
+    width: 450px;
+    left: 25px;
+    pointer-events: none;
+    --offset: 34px;
+    --height: 24px;
+  }
+  .box1 {
+    top: calc(var(--offset) + var(--height) * 6);
+    height: calc(var(--height) * 14);
+  }
+  .box2 {
+    top: calc(var(--offset) + var(--height) * 7);
+    height: calc(var(--height) * 7);
+    left: 50px;
+    width: 352px;
+  }
+  .box3 {
+    top: calc(var(--offset) + var(--height) * 10);
+    height: calc(var(--height) * 3);
+    left: 72px;
+    width: 330px;
+  }
+  img {
+		width: 100%;
+	}
+</style>
+
++++
+
+<script>
+  import app from './_/examples/sample-3/App.svelte?raw';
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+
+  let value = '';
+  let users = [
+    'Jon',
+    'Margeret',
+  ];
+</script>
+
+<div class="container">
+  <div class="code" use:prism={{ code: app, lang: Prism.languages.svelte }} />
+
+  <div class="rendered">
+    <input bind:value={value} />
+
+    {value}
+
+    <br />
+
+    {#each users as user}
+      <input bind:value={user} />
+    {/each}
+
+    {users}
+  </div>
+</div>
+
+<style>
+  .code {
+    padding: 16px;
+    background: #f5f5f5;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .rendered {
+    border: 1px solid black;
+    box-shadow: 8px 8px 10px #ddd;
+    margin: 16px 32px;
+    padding: 16px;
+  }
+  input {
+    padding: 8px;
+    margin-right: 8px;
+  }
+</style>
+
++++
+
+<script>
+  import app from './_/examples/sample-4/App.svelte?raw';
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+
+	import { fade, fly, blur } from 'svelte/transition';
+
+	let array = [];
+	
+	function add() {
+		array.push(Math.round(Math.random() * 100));
+		array = array;
+	}
+	function remove() {
+		array = array.slice(0, -1);
+	}
+</script>
+
+<div class="container">
+  <div class="code" use:prism={{ code: app, lang: Prism.languages.svelte }} />
+
+  <div class="rendered">
+    <button on:click={add}>Add</button>
+    <button on:click={remove}>Remove</button>
+
+    <ul>
+      {#each array as item}
+        <li transition:blur>{item}</li>
+        <li in:fade out:fly={{y:30}}>{item}</li>
+      {/each}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .code {
+    padding: 16px;
+    background: #f5f5f5;
+    font-size: 20px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .rendered {
+    border: 1px solid black;
+    box-shadow: 8px 8px 10px #ddd;
+    margin: 16px 32px;
+    padding: 16px;
+  }
+</style>
+
++++
+
+<script>
+  import app from './_/examples/sample-5/App.svelte?raw';
+  import component from './_/examples/sample-5/Component.svelte?raw';
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+</script>
+
+<div class="container">
+  <div class="code1">
+    <p>App.svelte</p>
+    <div class="code" use:prism={{ code: app, lang: Prism.languages.svelte }} />
+  </div>
+  <div class="code2">
+    <p>Component.svelte</p>
+    <div class="code" use:prism={{ code: component, lang: Prism.languages.svelte }} />
+  </div>
+
+  <div class="rendered">
+    Hello World
+  </div>
+</div>
+
+<style>
+  .code {
+    padding: 16px;
+    background: #f5f5f5;
+    font-size: 20px;
+  }
+  .code1 {
+    grid-column: 1 / 2;
+  }
+  .code2 {
+    grid-column: 1 / 2;
+  }
+  .code1, .code2 {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 8px;
+    height: 100%;
+  }
+  .rendered {
+    border: 1px solid black;
+    box-shadow: 8px 8px 10px #ddd;
+    margin: 16px 32px;
+    padding: 16px;
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+  }
+</style>
+
++++
+
+# The Svelte Compiler
+
+<style>
+  h1 {
+    display: grid;
+    height: 100%;
+    margin: 0;
+    place-items: center;
+  }
+</style>
+
++++
+
+<script>
+  let i = -1;
+  export function next() {
+    if (i < 19) {
+      i++;
+      return true;
+    }
+    return false;
+  }
+  export function prev() {
+    if (i >= 0) {
+      i--;
+      return true;
+    }
+    return false;
+  }
+  import ast from './_/images/ast.png';
+  import ast2 from './_/images/ast-2.png';
+  import { fade } from 'svelte/transition';
+  import { cubicIn } from 'svelte/easing';
+
+  const ease = {easing: cubicIn, duration: 200}
+</script>
+
+<h2 class:top={i >= 0}>How does compiler work?</h2>
+
+<div class="container" class:row={i >= 13}>
+  {#if i >= 0}
+    <div in:fade={ease} class="tokens" class:left={i === 13} class:out={i > 13 && i < 16} class:overview1={i >= 16}>
+      <div>
+        <span class:tokenized={i >= 1}  class="token keyword">const</span> 
+        <span class:tokenized={i >= 2} >name</span>
+        <span class:tokenized={i >= 3}  class="token operator">=</span> 
+        <span class:tokenized={i >= 4}  class="token string">'World'</span> 
+      </div>
+      <div>
+        <span class:tokenized={i >= 5} >console</span><span class:tokenized={i >= 6} 
+        class="token punctuation">.</span><span class:tokenized={i >= 7}  
+        class="token function">log</span><span class:tokenized={i >= 8} 
+        class="token punctuation">(</span> 
+        <span class:tokenized={i >= 9}  class="token string">'Hello '</span> 
+        <span class:tokenized={i >= 10}  class="token operator">+</span> 
+        <span class:tokenized={i >= 11} >name</span>
+        <span class:tokenized={i >= 12}  class="token punctuation">)</span>
+      </div>
+    </div>
+  {/if}
+  {#if i >= 13}
+    <img class:right={i === 13} class:left={i === 14} class:out={i > 14 && i < 16} class:overview2={i >= 16} transition:fade={ease} src={ast} alt="." />
+  {/if}
+  {#if i >= 14}
+    <img class:right={i === 14} class:left={i === 15} class:overview3={i >= 16} transition:fade={ease} src={ast2} alt="." />
+  {/if}
+  {#if i >= 15}
+    <div class="tokens" class:right={i===15} transition:fade={ease} class:overview4={i >= 16}>
+      <div>
+        <span>console</span><span
+        class="token punctuation">.</span><span 
+        class="token function">log</span><span
+        class="token punctuation">(</span> 
+        <span class="token string">'Hello World'</span> 
+        <span class="token punctuation">)</span>
+      </div>
+    </div>
+  {/if}
+  {#if i >= 17}
+    <div transition:fade={ease} class="title1">Parsing</div>
+  {/if}
+  {#if i >= 18}
+    <div transition:fade={ease} class="title2">
+      <div>Static Analysis</div>
+      <div>Optimisation</div>
+      <div>Transformation</div>
+    </div>
+  {/if}
+  {#if i >= 19}
+    <div transition:fade={ease} class="title3">Code Generation</div>
+  {/if}
+</div>
+
+<style>
+  h2 {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 200ms ease-in;
+  }
+  h2.top {
+    top: 30px;
+    left: 30px;
+    transform: none;
+  }
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .container {
+    height: 100%;
+  }
+  .tokens {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 200ms ease-in;
+    white-space: nowrap;
+  }
+  .tokens.right {
+    left: 75%;
+  }
+  .tokens.left {
+    left: 25%;
+  }
+  .tokens.out {
+    left: -25%;
+  }
+  img {
+    position: absolute;
+    max-width: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 200ms ease-in;
+  }
+  img.right {
+    left: 75%;
+  }
+  img.left {
+    left: 25%;
+  }
+  img.out {
+    left: -25%;
+  }
+  span {
+    display: inline-block;
+    transition: 200ms ease-in;
+  }
+  span.tokenized {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+  }
+  .overview1 {
+    transform: translate(-50%, -50%) scale(0.6);
+    left: 12.5%;
+  }
+  .overview2 {
+    transform: translate(-50%, -50%) scale(0.65);
+    left: 40.5%;
+  }
+  .overview3 {
+    transform: translate(-50%, -50%) scale(0.65);
+    left: 66.5%;
+  }
+  .overview4 {
+    transform: translate(-50%, -50%) scale(0.65);
+    left: 87.5%;
+  }
+  .title1 {
+    position: absolute;
+    top: 80%;
+    left: 25%;
+    transform: translate(-50%, 0);
+  }
+  .title2 {
+    position: absolute;
+    top: 80%;
+    left: 55%;
+    transform: translate(-50%, 0);
+  }
+  .title3 {
+    position: absolute;
+    top: 80%;
+    left: 75%;
+    transform: translate(-50%, 0);
+  }
+</style>
+
++++
+
+<script>
+  import overview from './_/images/overview.png';
+
+  import { fade } from 'svelte/transition';
+  import { cubicIn } from 'svelte/easing';
+
+  const ease = {easing: cubicIn, duration: 200}
+
+  let i = 0;
+  export function next() {
+    if (i < 5) {
+      i++;
+      return true;
+    }
+    return false;
+  }
+  export function prev() {
+    if (i > 0) {
+      i--;
+      return true;
+    }
+    return false;
+  }
+
+</script>
+
+## How does Svelte compiler work?
+
+<img transition:fade={ease} src={overview} class:hidden={i < 1} class:center={i <= 1} alt="." />
+
+<div class="code">
+{#if i >= 2}
+<div transition:fade={ease} ><span class="token keyword">const</span> source <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'App.svelte'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+
+<div transition:fade={ease} ><span class="token comment">// parse source code into AST</span></div>
+<div transition:fade={ease} ><span class="token keyword">const</span> ast <span class="token operator">=</span> <span class="token function">parse</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+{/if}
+
+{#if i >= 3}
+<div transition:fade={ease} ><span class="token comment">// tracking refrences and dependencies</span></div>
+<div transition:fade={ease} ><span class="token keyword">const</span> component <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Component</span><span class="token punctuation">(</span>ast<span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+{/if}
+
+{#if i >= 4}
+<div transition:fade={ease} ><span class="token comment">// creating code blocks and fragments</span></div>
+<div transition:fade={ease} ><span class="token keyword">const</span> rerender <span class="token operator">=</span> options<span class="token punctuation">.</span>generate <span class="token operator">===</span> <span class="token string">'ssr'</span> <span class="token operator">?</span> <span class="token function">SSRRenderer</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">DomRenderer</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+{/if}
+
+{#if i >= 5}
+<div transition:fade={ease} ><span class="token comment">// generate code</span></div>
+<div transition:fade={ease} ><span class="token keyword">const</span> <span class="token punctuation">{@html '{'}</span> js<span class="token punctuation">,</span> css <span class="token punctuation">}</span> <span class="token operator">=</span> renderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+
+<div transition:fade={ease} >fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'App.js'</span><span class="token punctuation">,</span> js<span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+<div transition:fade={ease} >fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'App.css'</span><span class="token punctuation">,</span> css<span class="token punctuation">)</span><span class="token punctuation">;</span></div>
+{/if}
+
+</div>
+
+{#if i >= 2}
+  <div transition:fade={ease} class="box box{i}"></div>
+{/if}
+
+<style>
+  h2 {
+    margin: 0;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  img.center {
+    transform: translateY(120px);
+  }
+  img {
+    transition: 200ms ease-in;
+  }
+  .code {
+    font-size: 23px;
+    line-height: 1.39;
+    margin-top: 16px;
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  }
+  .box {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    left: 45px;
+    pointer-events: none;
+    transition: 200ms ease-in;
+  }
+  .box2 {
+    top: 92px;
+    left: 8px;
+    height: 219px;
+    width: 390px;
+  }
+  .box3 {
+    top: 92px;
+    left: 172px;
+    height: 219px;
+    width: 530px;
+  }
+  .box4 {
+    top: 92px;
+    left: 474px;
+    height: 219px;
+    width: 500px;
+  }
+  .box5 {
+    top: 92px;
+    left: 834px;
+    height: 219px;
+    width: 431px;
+  }
+</style>
+
++++
+
+# 1. Parsing Svelte code
+
+<style>
+  h1 {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+  }
+</style>
+
++++
+
+<script>
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+  import code from './_/examples/sample-6/App.svelte?raw';
+  import ast from './_/images/svelte-ast.png';
+  import { convertTextToSpan } from '$lib/slides/tokenize';
+  import { cubicIn } from 'svelte/easing';
+  import { fade } from 'svelte/transition';
+
+  let i = 0;
+  let codeContainer;
+  const box = [
+    { n: 4, step: 2 }, 
+    { n: 1, step: 3 }, 
+    { n: 1, step: 5 }, 
+    { n: 3, step: 6 }, 
+    { n: 1, step: 8 }
+  ];
+
+  export function next() {
+    if (i < 10) {
+      i++;
+      return true;
+    }
+    return false;
+  }
+  export function prev() {
+    if (i > 0) {
+      i--;
+      return true;
+    }
+    return false;
+  }
+</script>
+
+<div class="container">
+  <div 
+    class="code"
+    bind:this={codeContainer}
+    use:prism={{code, lang: Prism.languages.svelte}}
+    use:convertTextToSpan={i >= 9}
+  />
+  <div>
+    {#if i < 10}
+      <ul>
+        <li class:hidden={i < 1 || i >= 9} >Svelte implements its own parser
+          <ul>
+            <li class:hidden={i < 2 || i >= 9} >HTML syntax</li>
+            <li class:hidden={i < 3 || i >= 9} >Logic blocks</li>
+          </ul>
+        </li>
+        <li class:hidden={i < 4 || i >= 9} >Svelte uses acorn to parse JavaScript
+          <ul>
+            <li class:hidden={i < 5 || i >= 9} ><span use:prism={{code: '<script>', lang: Prism.languages.html }} /> tag</li>
+            <li class:hidden={i < 6 || i >= 9} >Curly brakcets <span use:prism={{ code: '{ }', lang: Prism.languages.javascript }} /></li>
+          </ul>
+        </li>
+        <li class:hidden={i < 7 || i >= 9} >Svelte uses css-tree to parse CSS
+          <ul>
+            <li class:hidden={i < 8 || i >= 9} ><span use:prism={{code: '<style>', lang: Prism.languages.html }} /> tag</li>
+          </ul>
+        </li>
+      </ul>
+    {:else}
+      <img alt="." src={ast} transition:fade={{ duration: 200, easing: cubicIn }} />
+    {/if}
+  </div>
+</div>
+
+{#each box as { n, step }, k (step)}
+  {#each { length: n } as _, j (j)}
+    <div class="box box-{k}-{j}" class:hidden={i !== step} />
+  {/each}
+{/each}
+
+<style>
+  :global(.tab) {
+    width: 2ch;
+    display: inline-block;
+  }
+  .code {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 22px;
+  }
+  .code :global(span) {
+    transition: 200ms ease-in;
+  }
+  .code :global(span.lex-token) {
+    border: 1px solid black;
+    margin: 2px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+  li {
+    transition: 200ms ease-in;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  .box {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    --line-height: 26px;
+    top: calc(14px + var(--start, 0) * var(--line-height));
+    height: calc(var(--line) * var(--line-height));
+    margin-left: 14px;
+    left: calc(var(--tab) * 1ch);
+    width: calc(var(--char, 27) * 1ch);
+  }
+  .box-0-0 {
+    --start: 0;
+    --line: 13;
+    --tab: 0;
+    --char: 44;
+  }
+  .box-0-1 {
+    --start: 14;
+    --line: 1;
+    --tab: 0;
+  }
+  .box-0-2 {
+    --start: 17;
+    --line: 1;
+    --tab: 2;
+    --char: 44;
+  }
+  .box-0-3 {
+    --start: 20;
+    --line: 5;
+    --tab: 0;
+  }
+  .box-1-0 {
+    --start: 16;
+    --line: 3;
+    --tab: 0;
+    --char: 46;
+  }
+  .box-2-0 {
+    --start: 1;
+    --line: 11;
+    --tab: 2;
+    --char: 42;
+  }
+  .box-3-0 {
+    --start: 14;
+    --line: 1;
+    --tab: 17.6;
+    --char: 4.6;
+  }
+  .box-3-1 {
+    --start: 17;
+    --line: 1;
+    --tab: 17.6;
+    --char: 14;
+  }
+  .box-3-2 {
+    --start: 17;
+    --line: 1;
+    --tab: 34.3;
+    --char: 4.6;
+  }
+  .box-4-0 {
+    --start: 21;
+    --line: 3;
+    --tab: 2;
+  }
+</style>
+
++++
+
+# 2. Static Analysis
+
+<style>
+  h1 {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+  }
+</style>
+
++++
+
+<script>
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+  import code from './_/examples/sample-6/App.svelte?raw';
+  import code2 from './_/examples/sample-6/App-2.svelte?raw';
+  import { cubicIn, cubicInOut, cubicOut, linear } from 'svelte/easing';
+  import { fly, crossfade, fade } from 'svelte/transition';
+  
+  let i = 0;
+
+  export function next() {
+    if (i < 32) {
+      i++;
+      return true;
+    }
+    return false;
+  }
+  export function prev() {
+    if (i > 0) {
+      i--;
+      return true;
+    }
+    return false;
+  }
+
+</script>
+
+<div class="container">
+  <div 
+    class="code"
+    use:prism={{code: i < 32 ? code: code2, lang: Prism.languages.svelte}}
+  />
+  <div>
+    <ol>
+      <li class:hidden={i < 1}>Traverse the script</li>
+      <li class:hidden={i < 19}>Traverse the template</li>
+      <li class:hidden={i < 29}>Traverse the script again (for optimisation)</li>
+      <li class:hidden={i < 30}>Traverse the style
+        <ul>
+          <li class:hidden={i < 31}>Add <span use:prism={{ code: '.svelte-xxx', lang: Prism.languages.css }}/> to selectors</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="vars" class:hidden={i<3}>
+  <div>Variables</div>
+  <ul>
+    {#if i >= 4}<li><span class:relative={i > 4} in:fly={{ x: -610, y: -329, duration: 800, easing: cubicInOut, opacity: 1 }}>count</span>{#if i>=11}<span class="var-prop var-referenced-script">referenced (script)</span>{/if}{#if i>=21}<span class="var-prop var-referenced-template">referenced (template)</span><span class="var-prop var-mutated">mutated</span>{/if}</li>{/if}
+    {#if i >= 6}<li><span class:relative={i > 6} in:fly={{ x: -610, y: -335, duration: 800, easing: cubicInOut, opacity: 1 }}>values</span>{#if i>=18}<span class="var-prop var-mutated">mutated</span>{/if}{#if i>=25}<span class="var-prop var-referenced-template">referenced (template)</span>{/if}</li>{/if}
+    {#if i >= 8}<li><span class:relative={i > 8} in:fly={{ x: -620, y: -315, duration: 800, easing: cubicInOut, opacity: 1 }} >double</span>{#if i>=9}<span class="var-prop var-injected">injected</span>{/if}{#if i>=15}<span class="var-prop var-referenced-script">referenced (script)</span>{/if}</li>{/if}
+
+    {#if i >= 11}
+      <svg style="position: absolute;stroke-width: 2px;stroke: black;fill: none;top: 60px;left: 53px;transform: scaleX(-1) translateX(105%);" width="45px" height="72px">
+        <defs>
+          <marker id="arrowhead" viewBox="0 0 10 10" refX="3" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z"></path>
+          </marker>
+        </defs>
+        <path d="M9,0 C40,0 40,65 9,65" marker-end="url(#arrowhead)"></path>
+        {#if i >= 18}<path d="M9,55 C20,55 20,35 9,35" marker-end="url(#arrowhead)"></path>{/if}
+      </svg>
+    {/if}
+  </ul>
+  <div class:hidden={i < 23} class="scope">
+    <div use:prism={{ code: '{#each}', lang: Prism.languages.svelte }} />
+    <div class="title">Dependencies:</div>
+    <ul>
+      <li>{#if i >= 24}<span in:fly={{ x: -610, y: -101, duration: 800, easing: cubicInOut, opacity: 1 }}>values</span>{/if}</li>
+    </ul>
+    <div class="title">Variables</div>
+    <ul>
+      <li>{#if i >= 24}<span class:relative={i > 24} in:fly={{ x: -487, y: -160, duration: 800, easing: cubicInOut, opacity: 1 }}>value</span>{#if i>=27}<span class="var-prop var-referenced-template">referenced (template)</span>{/if}{/if}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box box-{i}" class:hidden={i < 2 || i === 19 || i > 28} />
+
+<style>
+  :global(.tab) {
+    width: 2ch;
+    display: inline-block;
+  }
+  .code {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 22px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .container li {
+    transition: 200ms ease-in;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  .vars {
+    position: absolute;
+    right: 64px;
+    bottom: 64px;
+    width: 520px;
+    height: 280px;
+    font-size: 20px;
+    border: 1px solid #888;
+    border-radius: 12px;
+    padding: 16px 32px;
+    box-shadow: 8px 8px 10px #ddd;
+  }
+  .vars ul {
+    margin: 0;
+  }
+  .var-prop {
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.8em;
+    margin-left: 4px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+  .var-injected {
+    background: rebeccapurple;
+  }
+  .var-referenced-script {
+    background: orange;
+  }
+  .var-mutated {
+    background: cadetblue;
+  }
+  .var-referenced-template {
+    background: crimson;
+  }
+  .scope {
+    padding: 8px 16px;
+    border: 1px solid #aaa;
+    margin-top: 8px;
+    font-size: 0.9em;
+  }
+  .scope .title {
+    margin-top: 6px;
+  }
+  .vars span {
+    position: absolute;
+  }
+  .vars span.relative,
+  .vars span.var-prop {
+    position: relative;
+  }
+  .box {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    --line-height: 26px;
+    top: calc(14px + var(--start, 0) * var(--line-height));
+    height: var(--line-height);
+    margin-left: 14px;
+    left: calc(var(--tab) * 1ch);
+    width: calc(var(--char, 27) * 1ch);
+  }
+  .box-1, .box-2, .box-3, .box-4 {
+    --start: 1;
+    --tab: 5.5;
+    --char: 5;
+  }
+  .box-5, .box-6 {
+    --start: 2;
+    --tab: 5.5;
+    --char: 5.8;
+  }
+  .box-7, .box-8, .box-9 {
+    --start: 4;
+    --tab: 4.5;
+    --char: 5.8;
+  }
+  .box-10, .box-11 {
+    --start: 4;
+    --tab: 13;
+    --char: 5;
+  }
+  .box-12 {
+    --start: 6;
+    --tab: 9;
+    --char: 4.2;
+  }
+  .box-13 {
+    --start: 7;
+    --tab: 12;
+    --char: 1;
+  }
+  .box-14, .box-15 {
+    --start: 7;
+    --tab: 22;
+    --char: 6;
+  }
+  .box-16 {
+    --start: 8;
+    --tab: 14.6;
+    --char: 4;
+  }
+  .box-17, .box-18, .box-19 {
+    --start: 10;
+    --tab: 3.5;
+    --char: 13.3;
+  }
+  .box-20, .box-21 {
+    --start: 14;
+    --tab: 6.3;
+    --char: 17.3;
+  }
+  .box-22, .box-23, .box-24, .box-25 {
+    --start: 16;
+    --tab: 0;
+    --char: 21.5;
+  }
+  .box-26, .box-27 {
+    --start: 17;
+    --tab: 17.6;
+    --char: 5;
+  }
+  .box-28 {
+    --start: 17;
+    --tab: 34;
+    --char: 5;
+  }
+</style>
+
+
++++
+
+# 3. Rendering
+
+<style>
+  h1 {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+  }
+</style>
+
++++
+
+<div>
+
+## 2 different targets:
+
+- generate: dom
+- generate: ssr
+
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }
+</style>
+
++++
+
+# 3.1. generate: dom
+
+<style>
+  h1 {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+  }
+</style>
+
++++
+
+<script>
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+  import code from './_/examples/sample-6/App-2.svelte?raw';
+  import { cubicIn, cubicInOut, cubicOut, linear } from 'svelte/easing';
+  import { fly, crossfade, fade } from 'svelte/transition';
+
+  import app1 from './_/examples/sample-7/app-1.js?raw';
+  import app2 from './_/examples/sample-7/app-2.js?raw';
+  import app3 from './_/examples/sample-7/app-3.js?raw';
+  import app4 from './_/examples/sample-7/app-4.js?raw';
+  import app5 from './_/examples/sample-7/app-5.js?raw';
+  import app6 from './_/examples/sample-7/app-6.js?raw';
+  import app7 from './_/examples/sample-7/app-7.js?raw';
+  import app8 from './_/examples/sample-7/app-8.js?raw';
+  import app9 from './_/examples/sample-7/app-9.js?raw';
+  import app10 from './_/examples/sample-7/app-10.js?raw';
+  import app11 from './_/examples/sample-7/app-11.js?raw';
+  import app12 from './_/examples/sample-7/app-12.js?raw';
+  import app13 from './_/examples/sample-7/app-13.js?raw';
+  import app14 from './_/examples/sample-7/app-14.js?raw';
+  import app15 from './_/examples/sample-7/app-15.js?raw';
+  import app16 from './_/examples/sample-7/app-16.js?raw';
+  import app17 from './_/examples/sample-7/app-17.js?raw';
+  import app18 from './_/examples/sample-7/app-18.js?raw';
+  import app19 from './_/examples/sample-7/app-19.js?raw';
+  
+  let i = 0;
+
+  const app = [
+    app1,
+    app1,
+    app1,
+    app1,
+    app1,
+    app1,
+    app1,
+    app2,
+    app3,
+    app4,
+    app4,
+    app4,
+    app4,
+    app4,
+    app5,
+    app6,
+    app7,
+    app8,
+    app8,
+    app9,
+    app10,
+    app10,
+    app10,
+    app11,
+    app12,
+    app13,
+    app14,
+    app14,
+    app15,
+    app16,
+    app16,
+    app17,
+    app18,
+    app19,
+  ]
+
+  export function next() {
+    if (i < 34) {
+      i++;
+      return true;
+    }
+    return false;
+  }
+  export function prev() {
+    if (i > 0) {
+      i--;
+      return true;
+    }
+    return false;
+  }
+
+</script>
+
+<div class="container">
+  <div 
+    class="code source"
+    use:prism={{code, lang: Prism.languages.svelte}}
+  />
+  <div class="output">
+    <div
+      class="code"
+      class:hidden={i < 1}
+      use:prism={{code: app[i] || app[app.length - 1], lang: Prism.languages.javascript}}
+    />
+    <div class="box blue box-{i}" class:hidden={i < 2 || (i > 4 && i < 7) || (i > 9 && i < 14) || i === 18 || (i > 21 && i < 25) || i === 30 || i > 33} />
+  </div>
+</div>
+
+<div class="box red box-{i}" class:hidden={i < 6 || i === 24 || i > 27} />
+
+<div class="vars" class:left={i >= 27} class:hidden={i<11 || (i > 12 && i < 21) || (i > 21 && i < 27) || i > 29}>
+  <div>Variables</div>
+  <ul>
+    <li><span>count</span><span class="var-prop var-referenced-script">referenced (script)</span><span class="var-prop var-referenced-template">referenced (template)</span><span class="var-prop var-mutated">mutated</span></li>
+    <li><span>values</span><span class="var-prop var-mutated">mutated</span><span class="var-prop var-referenced-template">referenced (template)</span></li>
+    <li><span>double</span><span class="var-prop var-injected">injected</span><span class="var-prop var-referenced-script">referenced (script)</span></li>
+    {#if i >= 12}<li><span>input_handler</span><span class="var-prop var-injected">injected</span><span class="var-prop var-referenced-template">referenced (template)</span></li>{/if}
+
+    <svg style="position: absolute;stroke-width: 2px;stroke: black;fill: none;top: 60px;left: 53px;transform: scaleX(-1) translateX(105%);" width="45px" height="72px">
+      <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="3" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+        </marker>
+      </defs>
+      <path d="M9,0 C40,0 40,65 9,65" marker-end="url(#arrowhead)"></path>
+      <path d="M9,55 C20,55 20,35 9,35" marker-end="url(#arrowhead)"></path>
+    </svg>
+  </ul>
+  <div class="scope">
+    <div use:prism={{ code: '{#each}', lang: Prism.languages.svelte }} />
+    <div class="title">Dependencies:</div>
+    <ul>
+      <li><span>values</span></li>
+    </ul>
+    <div class="title">Variables</div>
+    <ul>
+      <li><span>value</span><span class="var-prop var-referenced-template">referenced (template)</span></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  :global(.tab) {
+    width: 2ch;
+    display: inline-block;
+  }
+  .code {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 22px;
+  }
+  .source {
+    background: #efefef;
+  }
+  .output {
+    overflow: scroll;
+    height: calc(100vh - 32px);
+    position: relative;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    overflow: hidden;
+    height: calc(100vh - 32px);
+  }
+  .hidden {
+    opacity: 0;
+  }
+  .vars.hidden {
+    transform: translateX(300px);
+  }
+  .vars {
+    z-index: 20;
+    background: white;
+    position: absolute;
+    right: 64px;
+    bottom: 64px;
+    width: 520px;
+    font-size: 20px;
+    border: 1px solid #888;
+    border-radius: 12px;
+    padding: 16px 32px;
+    box-shadow: 8px 8px 10px #ddd;
+    transition: 200ms ease-in;
+  }
+  .vars.left {
+    transform: translateX(-570px);
+  }
+  .vars ul {
+    margin: 0;
+  }
+  .var-prop {
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.8em;
+    margin-left: 4px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+  .var-injected {
+    background: rebeccapurple;
+  }
+  .var-referenced-script {
+    background: orange;
+  }
+  .var-mutated {
+    background: cadetblue;
+  }
+  .var-referenced-template {
+    background: crimson;
+  }
+  .scope {
+    padding: 8px 16px;
+    border: 1px solid #aaa;
+    margin-top: 8px;
+    font-size: 0.9em;
+  }
+  .scope .title {
+    margin-top: 6px;
+  }
+
+  .box {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    --line-height: 26px;
+    top: calc(14px + var(--start, 0) * var(--line-height));
+    height: calc(var(--line) * var(--line-height));
+    margin-left: 14px;
+    left: calc(var(--tab) * 1ch);
+    width: calc(var(--char, 27) * 1ch);
+  }
+  .box.blue {
+    border-color: blue;
+    margin-left: -18px;
+    top: calc(var(--start, 0) * var(--line-height));
+  }
+  .blue.box-2 {
+    --char: 31;
+    --line: 8;
+    margin-left: 0;
+  }
+  .blue.box-3 {
+    --start: 9;
+    --line: 3;
+    --char: 47;
+    margin-left: 0;
+  }
+  .blue.box-4 {
+    --start: 13;
+    --line: 7;
+    --char: 47;
+    margin-left: 0;
+  }
+  .blue.box-7 {
+    --start: 5;
+    --tab: 6.5;
+    --line: 1;
+    --char: 24;
+  }
+  .blue.box-8 {
+    --start: 8;
+    --tab: 6.5;
+    --line: 1;
+    --char: 29;
+  }
+  .blue.box-9 {
+    --start: 12;
+    --tab: 6.5;
+    --line: 1;
+    --char: 28;
+  }
+  .red.box-6,
+  .red.box-7,
+  .red.box-8,
+  .red.box-9 {
+    --start: 14;
+    --line: 1;
+    --tab: 0;
+  }
+  .red.box-10,
+  .red.box-11,
+  .red.box-12,
+  .red.box-13,
+  .red.box-14,
+  .red.box-15,
+  .red.box-16,
+  .red.box-17 {
+    --start: 14;
+    --tab: 6.5;
+    --line: 1;
+    --char: 17;
+  }
+  .blue.box-14 {
+    --line: 1;
+    --start: 9;
+    --tab: 6.5;
+    --char: 32;
+  }
+  .blue.box-15 {
+    --line: 2;
+    --start: 11;
+    --tab: 1;
+    --char: 38;
+  }
+  .blue.box-16 {
+    --line: 1;
+    --start: 17;
+    --tab: 6.5;
+    --char: 11;
+  }
+  .blue.box-17 {
+    --line: 4;
+    --start: 15;
+    --tab: 1.5;
+    --char: 42;
+  }
+  .red.box-18,
+  .red.box-19,
+  .red.box-20,
+  .red.box-21,
+  .red.box-22,
+  .red.box-23 {
+    --line: 4;
+    --start: 16;
+    --tab: 0;
+    --char: 47;
+  }
+  .blue.box-19 {
+    --start: 0;
+    --line: 8;
+    --char: 31;
+    margin-left: 0;
+  }
+  .blue.box-20,
+  .blue.box-21 {
+    --start: 0;
+    --line: 6;
+    --char: 33;
+    margin-left: 0;
+  }
+  .blue.box-25 {
+    --start: 5;
+    --line: 2;
+    --tab: 3;
+    --char: 14;
+  }
+  .red.box-25 {
+    --line: 2;
+    --start: 1;
+    --char: 14;
+  }
+  .blue.box-26,
+  .blue.box-27 {
+    --start: 8;
+    --line: 18;
+    --tab: 3;
+    --char: 43;
+  }
+  .red.box-26,
+  .red.box-27 {
+    --line: 8;
+    --start: 4;
+    --char: 43;
+  }
+  .blue.box-28 {
+    --start: 8;
+    --char: 31;
+    --tab: 3;
+    --line: 3;
+  }
+  .blue.box-29 {
+    --start: 14;
+    --tab: 3;
+    --char: 38;
+    --line: 1;
+  }
+  .blue.box-31 {
+    --start: 10;
+    --line: 1;
+    --char: 28;
+    --tab: 5;
+  }
+  .blue.box-32 {
+    --start: 16;
+    --line: 1;
+    --char: 29;
+    --tab: 7;
+  }
+  .blue.box-33 {
+    --start: 29;
+    --line: 1;
+    --char: 30;
+    --tab: 8.4;
+  }
+</style>
+
++++
+
+# 3.2. generate: ssr
+
+<style>
+  h1 {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+  }
+</style>
+
++++
+
+<script>
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+  import code from './_/examples/sample-6/App-2.svelte?raw';
+  import { cubicIn, cubicInOut, cubicOut, linear } from 'svelte/easing';
+  import { fly, crossfade, fade } from 'svelte/transition';
+
+  import app1 from './_/examples/sample-8/app-1.js?raw';
+  import app2 from './_/examples/sample-8/app-2.js?raw';
+  import app3 from './_/examples/sample-8/app-3.js?raw';
+  import app4 from './_/examples/sample-8/app-4.js?raw';
+  import app5 from './_/examples/sample-8/app-5.js?raw';
+  import app6 from './_/examples/sample-8/app-6.js?raw';
+  import app7 from './_/examples/sample-8/app-7.js?raw';
+  import app8 from './_/examples/sample-8/app-8.js?raw';
+  import app9 from './_/examples/sample-8/app-9.js?raw';
+  import app10 from './_/examples/sample-8/app-10.js?raw';
+  import app11 from './_/examples/sample-8/app-11.js?raw';
+  import app12 from './_/examples/sample-8/app-12.js?raw';
+  import app13 from './_/examples/sample-8/app-13.js?raw';
+
+  let i = 0;
+
+  const app = [
+    app1,
+    app1,
+    app2,
+    app3,
+    app4,
+    app5,
+    app6,
+    app7,
+    app8,
+    app9,
+    app10,
+    app11,
+    app12,
+    app13,
+  ]
+
+  export function next() {
+    if (i < 14) {
+      i++;
+      return true;
+    }
+    return false;
+  }
+  export function prev() {
+    if (i > 0) {
+      i--;
+      return true;
+    }
+    return false;
+  }
+
+</script>
+
+<div class="container">
+  <div 
+    class="code source"
+    use:prism={{code, lang: Prism.languages.svelte}}
+  />
+  <div
+    class="code"
+    class:hidden={i < 1}
+    use:prism={{code: app[i] || app[app.length - 1], lang: Prism.languages.javascript}}
+  />
+</div>
+
+<div class="box red box-{i}" class:hidden={i < 2 || i > 13} />
+<div class="box blue box-{i}" class:hidden={i < 2 || i > 13} />
+
+<div class="vars" class:hidden={true}>
+  <div>Variables</div>
+  <ul>
+    <li><span>count</span><span class="var-prop var-referenced-script">referenced (script)</span><span class="var-prop var-referenced-template">referenced (template)</span><span class="var-prop var-mutated">mutated</span></li>
+    <li><span>values</span><span class="var-prop var-mutated">mutated</span><span class="var-prop var-referenced-template">referenced (template)</span></li>
+    <li><span>double</span><span class="var-prop var-injected">injected</span><span class="var-prop var-referenced-script">referenced (script)</span></li>
+
+    <svg style="position: absolute;stroke-width: 2px;stroke: black;fill: none;top: 60px;left: 53px;transform: scaleX(-1) translateX(105%);" width="45px" height="72px">
+      <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="3" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+        </marker>
+      </defs>
+      <path d="M9,0 C40,0 40,65 9,65" marker-end="url(#arrowhead)"></path>
+      <path d="M9,55 C20,55 20,35 9,35" marker-end="url(#arrowhead)"></path>
+    </svg>
+  </ul>
+  <div class="scope">
+    <div use:prism={{ code: '{#each}', lang: Prism.languages.svelte }} />
+    <div class="title">Dependencies:</div>
+    <ul>
+      <li><span>values</span></li>
+    </ul>
+    <div class="title">Variables</div>
+    <ul>
+      <li><span>value</span><span class="var-prop var-referenced-template">referenced (template)</span></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  :global(.tab) {
+    width: 2ch;
+    display: inline-block;
+  }
+  .code {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 22px;
+  }
+  .source {
+    background: #efefef;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  .vars.hidden {
+    transform: translateX(300px);
+  }
+  .vars {
+    z-index: 20;
+    background: white;
+    position: absolute;
+    right: 64px;
+    bottom: 64px;
+    width: 520px;
+    font-size: 20px;
+    border: 1px solid #888;
+    border-radius: 12px;
+    padding: 16px 32px;
+    box-shadow: 8px 8px 10px #ddd;
+    transition: 200ms ease-in;
+  }
+  .vars.left {
+    transform: translateX(-570px);
+  }
+  .vars ul {
+    margin: 0;
+  }
+  .var-prop {
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.8em;
+    margin-left: 4px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+  .var-injected {
+    background: rebeccapurple;
+  }
+  .var-referenced-script {
+    background: orange;
+  }
+  .var-mutated {
+    background: cadetblue;
+  }
+  .var-referenced-template {
+    background: crimson;
+  }
+  .scope {
+    padding: 8px 16px;
+    border: 1px solid #aaa;
+    margin-top: 8px;
+    font-size: 0.9em;
+  }
+  .scope .title {
+    margin-top: 6px;
+  }
+
+  .box {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    --line-height: 26px;
+    top: calc(14px + var(--start, 0) * var(--line-height));
+    height: calc(var(--line) * var(--line-height));
+    margin-left: 14px;
+    left: calc(var(--tab) * 1ch);
+    width: calc(var(--char, 27) * 1ch);
+  }
+  .box.blue {
+    border-color: blue;
+    margin-left: calc(49%);
+  }
+  .red.box-2 {
+    --line: 2;
+    --start: 1;
+    --char: 14;
+  }
+  .red.box-3 {
+    --line: 8;
+    --start: 4;
+    --char: 43;
+  }
+  .red.box-4 {
+    --line: 1;
+    --start: 14;
+    --char: 27;
+    --tab: 0;
+  }
+  .red.box-5 {
+    --line: 1;
+    --start: 14;
+    --char: 18;
+    --tab: 6;
+  }
+  .red.box-6 {
+    --line: 1;
+    --start: 14;
+    --char: 27;
+    --tab: 0;
+  }
+  .red.box-7 {
+    --line: 4;
+    --start: 16;
+    --char: 47;
+    --tab: 0;
+  }
+  .red.box-8 {
+    --line: 1;
+    --start: 16;
+    --char: 6;
+    --tab: 6.3;
+  }
+  .red.box-9 {
+    --line: 1;
+    --start: 16;
+    --char: 5;
+    --tab: 15.5;
+  }
+  .red.box-10 {
+    --line: 2;
+    --start: 17;
+    --char: 47;
+    --tab: 0;
+  }
+  .red.box-11 {
+    --line: 1;
+    --start: 17;
+    --char: 41;
+    --tab: 6;
+  }
+  .red.box-12 {
+    --line: 1;
+    --start: 18;
+    --char: 6.6;
+    --tab: 4.5;
+  }
+  .red.box-13 {
+    --line: 2;
+    --start: 17;
+    --char: 47;
+    --tab: 0;
+  }
+
+
+  .blue.box-2 {
+    --char: 14;
+    --line: 2;
+    --start: 2;
+    --tab: 5;
+  }
+  .blue.box-3 {
+    --start: 5;
+    --line: 8;
+    --char: 43;
+    --tab: 4.5;
+  }
+  .blue.box-4 {
+    --start: 14;
+    --line: 1;
+    --char: 16;
+    --tab: 5;
+  }
+  .blue.box-5 {
+    --start: 14;
+    --line: 1;
+    --char: 13;
+    --tab: 19;
+  }
+  .blue.box-6 {
+    --start: 14;
+    --line: 1;
+    --char: 38;
+    --tab: 5;
+  }
+  .blue.box-7 {
+    --start: 16;
+    --line: 1;
+    --char: 9;
+    --tab: 5;
+  }
+  .blue.box-8 {
+    --start: 16;
+    --line: 1;
+    --char: 6;
+    --tab: 11.5;
+  }
+  .blue.box-9 {
+    --start: 16;
+    --line: 1;
+    --char: 11;
+    --tab: 18.5;
+  }
+  .blue.box-10 {
+    --start: 16;
+    --line: 1;
+    --char: 5;
+    --tab: 28;
+  }
+  .blue.box-11 {
+    --start: 17;
+    --line: 2;
+    --char: 44;
+    --tab: 1.5;
+  }
+  .blue.box-12 {
+    --start: 18;
+    --line: 1;
+    --char: 8;
+    --tab: 12.5;
+  }
+  .blue.box-13 {
+    --start: 18;
+    --line: 1;
+    --char: 6;
+    --tab: 20;
+  }
+</style>
+
++++
+
+<script>
+  import Prism from 'prismjs';
+  import { prism } from '$lib/slides/prism';
+</script>
+
+<div class="container">
+
+# 4. Output as js + css
+
+<div class="code" use:prism={{ code: `
+{
+  js: {
+    code: string,
+    map: SourceMap,
+  },
+  css: {
+    code: string,
+    map: SourceMap,
+  }
+}`, lang: Prism.languages.javascript }}/>
+
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }
+  h1 {
+    margin-top: 0;
+  }
+</style>
+
++++
+
+<script>
+  import overview from './_/images/overview.png';
+</script>
+
+<div>
+
+# Summary
+
+1. Parsing Svelte code
+2. Static Analysis
+3. Rendering
+
+  3.1. generate: dom
+
+  3.2. generate: ssr
+4. Output as js + css
+
+</div>
+
+<style>
+  h1 {
+    margin: 0;
+  }
+</style>
+
++++
+
+<div class="container">
+<div>
+
+# Thank you
+
+@lihautan
+
+</div>
+</div>
+
+<style>
+  .container {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    margin: 0;
+    text-align: center;
+  }
+</style>

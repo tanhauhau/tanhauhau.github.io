@@ -306,7 +306,6 @@ Implementing Babel macros is quite easy, the api from the `babel-plugin-macros` 
 
 ```js
 /// filename: mock.macro.js
-
 const { createMacro } = require('babel-plugin-macros');
 
 module.exports = createMacro(function({ references, state, babel }) {
@@ -483,7 +482,6 @@ If the 2nd parameter is `false`, we disable the mocking behavior:
 
 ```js
 /// filename: mock.macro.js
-
 const { createMacro } = require('babel-plugin-macros');
 
 module.exports = createMacro(
