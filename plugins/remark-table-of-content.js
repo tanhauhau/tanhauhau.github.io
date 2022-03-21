@@ -24,6 +24,8 @@ export default function tableOfContents(options) {
 	return function (tree, { filename, data }) {
 		if (options.exclude.test(filename)) return;
 
+		if (data?.fm?.toc === false) return;
+
 		const titles = [];
 		const indexes = [];
 		tree.children.forEach((node, index) => {
