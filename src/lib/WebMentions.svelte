@@ -7,6 +7,9 @@
 	let mentions = [];
 	let hasMore = false;
 	let isFetching = false;
+	let loaded = false;
+
+	$: link && (loaded = false);
 
 	type WebMention = {
 		type: 'entry';
@@ -29,11 +32,8 @@
 		};
 	};
 
-	onMount(() => {
-		getWebMentions();
-	});
-
 	async function getWebMentions() {
+		loaded = true;
 		if (isFetching) return;
 		isFetching = true;
 		const response = await fetch(
@@ -58,7 +58,38 @@
 		}
 		return html;
 	}
+
+	let observer: IntersectionObserver;
+	function lazy(element) {
+		if (!observer) {
+			const options = {
+				root: null,
+				rootMargin: '10px',
+				threshold: [0, 0.1, 0.2, 0.3, 0.8, 0.9, 1]
+			};
+			observer = new IntersectionObserver((entries) => {
+				if (entries[0].isIntersecting) {
+					getWebMentions();
+					observer.unobserve(element);
+					unobserved = true;
+				}
+			}, options);
+		}
+		observer.observe(element);
+
+		let unobserved = false;
+
+		return {
+			destroy() {
+				if (!unobserved) observer.unobserve(element);
+			}
+		};
+	}
 </script>
+
+{#if !loaded}
+	<div use:lazy style="height: 1px; width: 100%" />
+{/if}
 
 {#if mentions.length > 0}
 	<hr />
@@ -87,9 +118,7 @@
 					{/if}
 				{:else}
 					{'in '}
-					<a href={mention.url} target="_blank" rel="noreferrer noopener"
-						>{mention.url}</a
-					>
+					<a href={mention.url} target="_blank" rel="noreferrer noopener">{mention.url}</a>
 				{/if}
 				<span class="timestamp">{mention['wm-received'].slice(0, 10)}</span>
 			</li>

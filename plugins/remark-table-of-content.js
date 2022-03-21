@@ -1,26 +1,4 @@
 export default function tableOfContents(options) {
-	function toHtml(headings) {
-		const html = [
-			'<section><ul class="sitemap" id="sitemap" role="navigation" aria-label="Table of Contents">'
-		];
-		let previousDepth = 2;
-		for (const heading of headings) {
-			let { depth } = heading;
-			while (depth > previousDepth) {
-				html.push('<ul>');
-				previousDepth++;
-			}
-			while (depth < previousDepth) {
-				html.push('</ul>');
-				previousDepth--;
-			}
-			html.push(`<li><a href="#${heading.link}">${heading.title}</a></li>`);
-			previousDepth = depth;
-		}
-		html.push('</ul></section>');
-		return html.join('');
-	}
-
 	return function (tree, { filename, data }) {
 		if (options.exclude.test(filename)) return;
 
@@ -28,6 +6,7 @@ export default function tableOfContents(options) {
 
 		const titles = [];
 		const indexes = [];
+		const links = new Set();
 		tree.children.forEach((node, index) => {
 			if (node.type !== 'heading') return;
 			indexes.push(index);
@@ -35,10 +14,11 @@ export default function tableOfContents(options) {
 			if (!link || !title) {
 				throw new Error('unable to get link or title');
 			}
-			titles.push({ title, link, depth: node.depth });
+			const uniqueLink = makeLinkUnique(link, links);
+			titles.push({ title, link: uniqueLink, depth: node.depth });
 			node.children.unshift({
 				type: 'html',
-				value: `<a href="#${link}" id="${link}">`
+				value: `<a href="#${uniqueLink}" id="${uniqueLink}">`
 			});
 			node.children.push({
 				type: 'html',
@@ -99,11 +79,21 @@ function getLinkAndTitle(children) {
 	const link = parts
 		.map((part) => part.toLowerCase())
 		.join(' ')
-		.replace(/[^a-z]+/g, '-')
+		.replace(/[^a-z0-9]+/g, '-')
 		.replace(/(^-|-$)/g, '');
 	const title = parts.join(' ');
 
 	return { link, title };
+}
+
+function makeLinkUnique(link, links) {
+	let i = 1;
+	let unique = link;
+	while (links.has(unique)) {
+		unique = link + '-' + i++;
+	}
+	links.add(unique);
+	return unique;
 }
 
 /**
