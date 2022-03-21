@@ -76,12 +76,12 @@ Interesting to note is that both [the food detail](https://github.com/tanhauhau/
 
 Note that when we transit from Food List page to Food Detail page, we already have the food detail information from the store, therefore there is no need to fetch the food detail anymore.
 
-# Trying it out locally
+## Trying it out locally
 
 Run `yarn start` in the root folder, which will [start a simple express server](https://github.com/tanhauhau/micro-frontend/blob/master/scripts/start-dev-server.js). The express server is used to serve static files based on specific rules.
 
 To build individual micro frontends, you need to go to each folder and run `yarn build`. Alternatively, you can start the watch mode via `yarn dev`.
 
-## Developing the micro frontend individually
+### Developing the micro frontend individually
 
 WIP

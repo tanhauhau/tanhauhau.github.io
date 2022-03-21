@@ -16,7 +16,7 @@ label: blog
 
 ![module bundlers](./images/module-bundlers.png 'Module Bundlers: (left to right) Rollup, FuseBox, webpack, parcel')
 
-Module bundlers are tools frontend developers used to bundle [JavaScript modules](https://lihautan.com/javascript-modules/) into a single JavaScript files that can be executed in the browser.
+Module bundlers are tools frontend developers used to bundle [JavaScript modules](/javascript-modules/) into a single JavaScript files that can be executed in the browser.
 
 Examples of modern module bundlers _(in no particular order)_ are: [webpack](https://webpack.js.org), [rollup](https://rollupjs.org), [fusebox](https://fuse-box.org), [parcel](https://parceljs.org), etc.
 
@@ -63,7 +63,7 @@ All of these can be solved if we know the relationship amongst each files, such 
 - What are the interface exposed from a file? and
 - Which exposed interfaces are being used by another?
 
-These information, granted, can solve the challenges brought up respectively. So, what we need is a declarative method to describe the relationship between files, which led us to the [JavaScript Module System](https://lihautan.com/javascript-modules/).
+These information, granted, can solve the challenges brought up respectively. So, what we need is a declarative method to describe the relationship between files, which led us to the [JavaScript Module System](/javascript-modules/).
 
 [CommonJS](https://requirejs.org/docs/commonjs.html) or [ES6 Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) provides way for us to specify what files we are dependening on, and which of their interface we are using in our file.
 

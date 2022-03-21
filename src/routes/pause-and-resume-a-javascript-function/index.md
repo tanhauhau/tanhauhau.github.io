@@ -8,6 +8,8 @@ tags:
 label: blog
 ---
 
+## Asynchronous JavaScript
+
 In JavaScript, IO (eg Filesystem IO, Network IO) is **asynchronous**. That means when you are calling a function that involves IO, you got to have a callback function passed in to be notified when the IO is done.
 
 ```js

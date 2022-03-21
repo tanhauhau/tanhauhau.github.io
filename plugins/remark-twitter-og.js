@@ -8,6 +8,7 @@ const VARIABLE_NAME = '__twitter_og__';
 export default function twitterOg(options) {
 	return async (tree, vfile) => {
 		if (options.exclude.test(vfile.filename)) return;
+
 		const hasHeroImage = await fileExists(path.join(vfile.filename, '..', HERO_TWITTER));
 		const imgPath = hasHeroImage ? HERO_TWITTER : '$lib/assets/twitter-card-image.jpg';
 		const code = [
@@ -16,17 +17,8 @@ export default function twitterOg(options) {
 			`setContext('blog', { image: ${VARIABLE_NAME} });`
 		].join('\n');
 
-		const nodeToInsert = tree.children.find(
-			(node) => node.type === 'html' && node.value.indexOf('<script>') > -1
-		);
-		if (nodeToInsert) {
-			nodeToInsert.value = nodeToInsert.value.replace('<script>', '<script>' + code + '\n');
-		} else {
-			tree.children.push({
-				type: 'html',
-				value: '<script>' + code + '</script>'
-			});
-		}
+		vfile.data.scripts = vfile.data.scripts ?? [];
+		vfile.data.scripts.push(code);
 	};
 }
 

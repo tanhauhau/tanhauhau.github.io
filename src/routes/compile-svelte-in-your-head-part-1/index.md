@@ -663,17 +663,17 @@ When you write a Svelte component, the Svelte compiler analyses your code and ge
 
 The output can be divided into 3 segments:
 
-#### 1. create_fragment
+### 1. create_fragment
 
 - Returns a fragment, which is an instruction manual on how to build the DOM fragment for the component
 
-#### 2. instance
+### 2. instance
 
 - Most of the code written in the `<script>` tag is in here.
 - Returns a list of instance variables that are referenced in the template
 - `$$invalidate` is inserted after every assignment and mutation of the instance variable
 
-#### 3. class App extends SvelteComponent
+### 3. class App extends SvelteComponent
 
 - Initialise the component with `create_fragment` and `instance` function
 - Sets up the component internals

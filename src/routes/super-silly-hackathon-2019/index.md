@@ -24,15 +24,15 @@ I saw the [tamagotchi](https://github.com/graceavery/tamagotchiTemp) on touchbar
 
 ## What can it do?
 
-#### 1. It runs away from mouse cursor
+### 1. It runs away from mouse cursor
 
 ![evade](./images/evade.gif)
 
-#### 2. It eats whatever you try to type into an input
+### 2. It eats whatever you try to type into an input
 
 ![eat](./images/eat.gif)
 
-#### 3. It annihilates the buttons you hover onto
+### 3. It annihilates the buttons you hover onto
 
 ![annihilate](./images/annihilate.gif)
 

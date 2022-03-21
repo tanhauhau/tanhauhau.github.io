@@ -21,7 +21,7 @@ export default function tableOfContents(options) {
 		return html.join('');
 	}
 
-	return function (tree, { filename }) {
+	return function (tree, { filename, data }) {
 		if (options.exclude.test(filename)) return;
 
 		const titles = [];
@@ -67,9 +67,11 @@ export default function tableOfContents(options) {
 		}
 
 		if (titles.length) {
+			data.scripts = data.scripts ?? [];
+			data.scripts.push(`import RemarkTableOfContent from '$lib/TableOfContent.svelte';`);
 			tree.children.splice(tree.children[0].type === 'yaml' ? 1 : 0, 0, {
 				type: 'html',
-				value: toHtml(titles)
+				value: `<RemarkTableOfContent data={${JSON.stringify(toData(titles))}} />`
 			});
 		}
 	};
@@ -100,4 +102,39 @@ function getLinkAndTitle(children) {
 	const title = parts.join(' ');
 
 	return { link, title };
+}
+
+/**
+ *
+ * @param {Array<{depth: number, link: string, title: string}>} titles
+ */
+function toData(titles) {
+	let previousDepth = titles[0].depth;
+	const stack = [];
+	stack[previousDepth] = [];
+
+	for (const { link, title, depth } of titles) {
+		while (depth < previousDepth) {
+			stack.pop();
+			previousDepth--;
+		}
+		if (depth > previousDepth + 1) {
+			throw new Error(
+				`remark-table-of-contents: heading should not jump depth (${previousDepth}) -> "${title}" (${depth})`
+			);
+		}
+
+		if (!Array.isArray(stack[depth])) {
+			const list = stack[depth - 1];
+			if (!list) {
+				throw new Error(`remark-table-of-contents: "${title}" (${depth})`);
+			}
+			const nested = [];
+			list[list.length - 1].nested = nested;
+			stack.push(nested);
+		}
+		stack[depth].push({ link, title });
+		previousDepth = depth;
+	}
+	return stack[2];
 }

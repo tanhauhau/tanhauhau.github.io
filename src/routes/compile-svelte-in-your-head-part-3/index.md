@@ -338,7 +338,7 @@ Some observations:
 - Svelte adds event handler, `listen(...)`, in the **_m_ount** method.
 - Svelte removes event handler, `dispose()`, in the **_d_estroy** method.
 
-As pointed out in [Part 1 #listen and dispose](https://lihautan.com/compile-svelte-in-your-head-part-1/#listen-and-dispose), to optimise for minification, the `dispose` variable could be a function or an array of functions, depending on having one or many event handlers.
+As pointed out in [Part 1 #listen and dispose](/compile-svelte-in-your-head-part-1/#listen-and-dispose), to optimise for minification, the `dispose` variable could be a function or an array of functions, depending on having one or many event handlers.
 
 We will discuss `remount` in the future, as it is related to remounting elements while reordering items within each block.
 

@@ -14,7 +14,7 @@ layout: talk
 
 ## Motivation
 
-A while ago, I posted an article about [understanding frontend tools](https://lihautan.com/understand-the-frontend-tools/). I mentioned that the way I make sense of all the tools and frameworks out there in the JavaScript world, is to try writing a web application with plain JavaScript, and start asking questions.
+A while ago, I posted an article about [understanding frontend tools](/understand-the-frontend-tools/). I mentioned that the way I make sense of all the tools and frameworks out there in the JavaScript world, is to try writing a web application with plain JavaScript, and start asking questions.
 
 One of the question is:
 

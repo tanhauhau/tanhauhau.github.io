@@ -33,7 +33,7 @@
 		"prismjs": "^1.27.0",
 		"shiki": "0.10.1",
 		"shiki-twoslash": "^3.0.2",
-		"svelte": "^3.44.0",
+		"svelte": "^3.46.4",
 		"svelte-check": "^2.2.6",
 		"svelte-preprocess": "^4.9.4",
 		"tslib": "^2.3.1",

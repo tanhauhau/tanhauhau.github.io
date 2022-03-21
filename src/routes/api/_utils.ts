@@ -25,7 +25,7 @@ export async function getContent(options: {
 					const content = await fs.readFile(filepath, 'utf8');
 					const [, frontmatter] = /---([\s\S]+?)---/m.exec(content);
 					const result = parseFrontmatter(frontmatter.split('\n'));
-					result.url = '/' + url;
+					result.url = trailingSlash('/' + url);
 					return result;
 				} catch {
 					// ignore
@@ -44,7 +44,7 @@ export async function getContent(options: {
 					const [, frontmatter] = /---([\s\S]+?)---/m.exec(content);
 					const result = parseFrontmatter(frontmatter.split('\n'));
 					result.label = 'note';
-					result.url = '/notes/' + url.replace('.md', '');
+					result.url = trailingSlash('/notes/' + url.replace('.md', ''));
 					return result;
 				} catch {
 					// ignore
@@ -132,4 +132,9 @@ function parseFrontmatter(lines: string[]): Frontmatter {
 		}
 	}
 	return result as Frontmatter;
+}
+
+function trailingSlash(url: string) {
+	if (url[url.length - 1] !== '/') url = url + '/';
+	return url;
 }

@@ -5,11 +5,14 @@
 
 	import * as copyable from '$lib/code-snippet/copyable';
 	import { getContext } from 'svelte';
+	import WebMentions from './WebMentions.svelte';
 
 	export let title = '';
 	export let description = '';
 	export let tags = [];
 	export let series;
+
+	$: url = `https://lihautan.com${$page.url.pathname}`;
 
 	const { image = '' } = getContext('blog') || {};
 
@@ -36,7 +39,7 @@
 		<meta name="keywords" content={tag} />
 	{/each}
 
-	<meta itemprop="url" content="https://lihautan.com{$page.url.pathname}" />
+	<meta itemprop="url" content={url} />
 	<meta itemprop="image" content={image} />
 </svelte:head>
 
@@ -54,10 +57,13 @@
 	<slot />
 </article>
 
+<WebMentions link={url} />
+
 <style>
 	.tag {
 		padding: 4px 8px;
 		margin-right: 12px;
+		margin-bottom: 12px;
 		font-size: 0.6em;
 		font-weight: 500;
 		background: white;
@@ -74,9 +80,5 @@
 	}
 	.series {
 		--secondary-color: blue;
-	}
-
-	:global(.sitemap li:nth-child(n + 2)) {
-		margin-top: 8px;
 	}
 </style>

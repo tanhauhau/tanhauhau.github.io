@@ -3,6 +3,7 @@ import { mdsvex } from 'mdsvex';
 import remarkTableOfContents from './plugins/remark-table-of-content.js';
 import remarkImageExternal from './plugins/remark-image-external.js';
 import remarkTwitterOg from './plugins/remark-twitter-og.js';
+import remarkScript from './plugins/remark-script.js';
 import rehypeInlineCode from './plugins/rehype-inline-code.js';
 import adapter from '@sveltejs/adapter-static';
 import customCodeHighlight from './plugins/code-highlight.js';
@@ -23,7 +24,8 @@ const config = {
 			remarkPlugins: [
 				[remarkTableOfContents, { exclude: /\/slides\// }],
 				remarkImageExternal,
-				[remarkTwitterOg, { exclude: /\/slides\// }]
+				[remarkTwitterOg, { exclude: /\/slides\// }],
+				remarkScript
 			],
 			rehypePlugins: [rehypeInlineCode],
 			layout: {

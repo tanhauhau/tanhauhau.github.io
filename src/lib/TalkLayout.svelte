@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import '$lib/assets/blog-base.css';
 	import '$lib/assets/code-snippet.css';
+	import WebMentions from './WebMentions.svelte';
 
 	import * as copyable from '$lib/code-snippet/copyable';
 
@@ -22,6 +23,8 @@
 	};
 
 	copyable.init();
+
+	$: url = `https://lihautan.com${$page.url.pathname}`;
 </script>
 
 <svelte:head>
@@ -44,7 +47,7 @@
 		<meta name="keywords" content={tag} />
 	{/each}
 
-	<meta itemprop="url" content="https://lihautan.com{$page.url.pathname}" />
+	<meta itemprop="url" content={url} />
 	<meta itemprop="image" content={image} />
 
 	{@html ldJsonScript({
@@ -100,10 +103,13 @@
 	<slot />
 </article>
 
+<WebMentions link={url} />
+
 <style>
 	.tag {
 		padding: 4px 8px;
 		margin-right: 12px;
+		margin-bottom: 12px;
 		font-size: 0.6em;
 		font-weight: 500;
 		background: white;
@@ -117,10 +123,6 @@
 	.tag:hover {
 		transform: translate(-2px, -2px);
 		box-shadow: 5px 5px var(--secondary-color);
-	}
-
-	:global(.sitemap li:nth-child(n + 2)) {
-		margin-top: 8px;
 	}
 	.venue {
 		margin-top: 16px;

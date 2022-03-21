@@ -669,7 +669,7 @@ The `$$.update` function gets called **in the same microtask** with the DOM upda
 
 The implication of the above fact is
 
-#### 1. Execution of all reactive declarations and statements are batched
+### 1. Execution of all reactive declarations and statements are batched
 
 Just as how DOM updates are batched, reactive declarations and statements are batched too!
 
@@ -715,7 +715,7 @@ name = 'Li Hau' + ' ' + 'Tan';
 console.log('Li Hau Tan');
 ```
 
-#### 2. The value of reactive variable outside of reactive declarations and statements may not be up to date
+### 2. The value of reactive variable outside of reactive declarations and statements may not be up to date
 
 Because the reactive declarations and statements are batched and executed in the next microtask, you can't expect the value to be updated synchronously.
 
@@ -803,11 +803,11 @@ function instance($$self, $$props, $$invalidate) {
 
 ## Summary
 
-#### 1. Svelte keeps track of which variables are dirty and batched the DOM updates.
+### 1. Svelte keeps track of which variables are dirty and batched the DOM updates.
 
-#### 2. Using bitmask, Svelte able to generate a more compact compiled code.
+### 2. Using bitmask, Svelte able to generate a more compact compiled code.
 
-#### 3. Reactive declarations and statements are executed in batch, just like DOM updates
+### 3. Reactive declarations and statements are executed in batch, just like DOM updates
 
 ## Closing Note
 

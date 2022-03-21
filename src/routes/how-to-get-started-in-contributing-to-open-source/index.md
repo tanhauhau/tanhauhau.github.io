@@ -4,7 +4,7 @@ date: '2019-06-05T08:00:00Z'
 label: blog
 ---
 
-Allow me to start this article with an anecdote, it was a few months ago, where [we were upgrading Flow version](https://dev.wgao19.cc/2019-04-17__making-flow-happy-after-0.85/) and [it led me to a bug in babel](https://lihautan.com/parsing-error-flow-type-parameter-instantiation/). After some googling, I [landed onto an issue reported to babel](https://github.com/babel/babel/issues/9240).
+Allow me to start this article with an anecdote, it was a few months ago, where [we were upgrading Flow version](https://dev.wgao19.cc/2019-04-17__making-flow-happy-after-0.85/) and [it led me to a bug in babel](/parsing-error-flow-type-parameter-instantiation/). After some googling, I [landed onto an issue reported to babel](https://github.com/babel/babel/issues/9240).
 
 I think in most cases, when we ended up onto an open Github issue, there's where all our leads ended. The only one obvious way solution is to wait, wait for the library maintainer to fix it.
 

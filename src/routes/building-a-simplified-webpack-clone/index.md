@@ -422,5 +422,5 @@ import './b';
 
 
 ### 🔨 Manipulating AST
-📖  [manipulating ast with javascript](https://lihautan.com/manipulating-ast-with-javascript/) (generic)
+📖  [manipulating ast with javascript](/manipulating-ast-with-javascript/) (generic)
 📖  [babel plugin handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) (babel)

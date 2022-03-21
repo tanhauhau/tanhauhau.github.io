@@ -85,7 +85,7 @@ function buildUi({ counter }) {
 
 The drawbacks of this method are
 
-#### - Losing element state
+### - Losing element state
 
 We will lose the state of the element, such as:
 - input focus
@@ -95,7 +95,7 @@ We will lose the state of the element, such as:
 
 if we didnt preserve them before destroying them.
 
-#### - Cost of creating DOM elements
+### - Cost of creating DOM elements
 
 It is much costly to recreate all the DOM elements needed instead of reuse and update the existing DOM elements.
 
@@ -186,7 +186,7 @@ function applyChanges(root, changes) {
 }
 ```
 
-### The Component Model
+## The Component Model
 
 TODO:
 

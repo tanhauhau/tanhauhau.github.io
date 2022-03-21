@@ -27,6 +27,9 @@ export async function get() {
   ].join('');
 
 	return {
-		body: rssXml
+		body: rssXml,
+		headers: {
+			'content-type': 'application/xml'
+		}
 	};
 }
