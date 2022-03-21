@@ -1,0 +1,35 @@
+expiry 30 ~ 45 days
+
+sell put option
+delta at -0.10
+
+buy a PUT option at a 1 strike price below
+
+when the trend change, close the position quick
+
+sell far out of the money delta 10 "put credit spread" on uptrending stocks
+at strong support level, on strong stable company - GOOG, AMZN, FB, KO
+
+strike price 15% - 20% below curent price
+
+NKE
+MSFT
+MMM
+JNJ
+FB
+ADSK
+CHWY
+
+LARGE CAP STOCKS (Market cap > 30Billion)
+Options are liquid ()
+High IV (Implied Volatility) Percentile Rank > 35%
+No earnings release due
+history of not dropping more than 15% in 30days
+
+- buying power used should not more than 10 times of the credit collected, ROI = 10%
+
+## trade managmenet
+- close the trade once 90% of the profit is realised. "free up" buying powers
+- close the trade before expiration date
+- close the trade before earnings are released
+- close the trade for a loss once loss is 3x net credit

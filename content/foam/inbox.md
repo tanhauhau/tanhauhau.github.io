@@ -1,0 +1,32 @@
+# Inbox
+- https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/
+- https://staffeng.com/stories/katie-sylor-miller
+- Fast refresh - https://github.com/vadimdemedes/ink/blob/master/src/experimental/renderer.js
+- https://netflixtechblog.com/telltale-netflix-application-monitoring-simplified-5c08bfa780ba
+- https://pentesterlab.com/
+  - https://www.amazon.com/dp/B06XP3GJ7F/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
+- contributing to firefox https://github.com/nt1m/conic-gradient-dissertation/blob/master/dissertation.pdf
+- https://wealthenjoy.com/webinar/tammy-chambless-2020-08-13/
+- [部署速度翻6倍，知乎从0到1实现部署系统演进及优化](https://mp.weixin.qq.com/s/6r1u1ejVZCxce4ADz63hJA)
+- [Bash shell, take control of PS1, PS2, PS3, PS4](https://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/)
+- [react-devtools](https://github.com/facebook/react-devtools/blob/master/agent/Bridge.js)
+- [finding and fixing nodejs memory leak](https://marmelab.com/blog/2018/04/03/how-to-track-and-fix-memory-leak-with-nodejs.html#using-the-heap-dump-npm-package)
+- [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)
+- [Verbal Advantage](https://www.amazon.com/Verbal-Advantage-Steps-Powerful-Vocabulary/dp/0375709320)
+- ScrollTrigger - Highlight Text https://codepen.io/hexagoncircle/full/gOPMwvd
+- ana rodrigues blog https://ohhelloana.blog/ - layout idea for digital gardens
+- Style Stage https://stylestage.dev/
+- https://www.youtube.com/watch?v=llGgO74uXMI
+- SVG filters https://www.sarasoueidan.com/blog/svg-filters/
+- Video games and future of education https://www.youtube.com/watch?v=qWFScmtiC44&feature=youtu.be
+- https://dev.to/arcanis/yarn-2-2-dedupe-faster-lighter-ha5
+- https://github.com/vuejs/vue-devtools/pull/1270
+- https://github.com/escaya/escaya
+- https://palladiummag.com/2020/08/13/the-true-story-of-lee-kuan-yews-singapore/
+- https://a16z.com/2020/09/01/tabletop-games-go-digital/
+- https://www.youtube.com/watch?v=DPNCRgoQr0o&feature=youtu.be
+- https://www.youtube.com/watch?v=qY0UF7jaqfs&t=2s
+- https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/
+- Twitter Summary from 2020 - https://jvns.ca/blog/2020/07/10/twitter-summary-from-2020-so-far/
+- https://mmpractices.com/
+- https://www.codusoperandi.com/posts/increasing-your-luck-surface-area
