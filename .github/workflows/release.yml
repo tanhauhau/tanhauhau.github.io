@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    environment: github actions
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+
+      - name: Setup Environment
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+
+      - name: Install and Build
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+
+      - name: Publish
+        run: node scripts/publish.js
