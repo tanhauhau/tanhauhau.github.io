@@ -1,1 +1,58 @@
-{"name":"Tan Li Hau","short_name":"Tan Li Hau","start_url":"/","background_color":"#faf0fd","theme_color":"#612e77","display":"fullscreen","icons":[{"src":"icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"48x48","type":"image/png"},{"src":"icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"72x72","type":"image/png"},{"src":"icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"96x96","type":"image/png"},{"src":"icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"144x144","type":"image/png"},{"src":"icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"192x192","type":"image/png"},{"src":"icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"256x256","type":"image/png"},{"src":"icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"384x384","type":"image/png"},{"src":"icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0","sizes":"512x512","type":"image/png"}]}
+{
+  "name": "Tan Li Hau",
+  "short_name": "Tan Li Hau",
+  "start_url": "/",
+  "background_color": "#fff",
+  "theme_color": "#bd93f9",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

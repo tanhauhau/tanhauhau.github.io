@@ -1,264 +1,153 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:118.75%/1.58 'Lora',serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.73);font-family:'Lora',serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}ul{margin-left:1.58rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.58rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:0.85rem;line-height:1.58rem;overflow:scroll;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:1rem;line-height:1.58rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0.9875rem;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:1.1487rem;line-height:1.58rem;border-left:0.5925rem solid #134896;color:hsla(0,0%,0%,0.65);font-style:italic;border-left-color:#612e77;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.58rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:0;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.58rem;margin-bottom:calc(1.58rem / 2);margin-top:calc(1.58rem / 2);}li > ul{margin-left:1.58rem;margin-bottom:calc(1.58rem / 2);margin-top:0;}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:0;}code{font-size:0.85rem;line-height:1.58rem;}kbd{font-size:0.85rem;line-height:1.58rem;}samp{font-size:0.85rem;line-height:1.58rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.05333rem;padding-right:1.05333rem;padding-top:0.79rem;padding-bottom:calc(0.79rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#612e77;text-decoration:underline;text-shadow:initial;background-image:initial;font-weight:600;}a:hover,a:active{text-shadow:none;background-image:none;}h1,h2,h3,h4,h5,h6{margin-top:2.37rem;margin-bottom:0.79rem;}li>ol,li>ul{margin-left:20px;margin-bottom:0;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.58rem;color:hsla(0,0%,0%,0.73);font-style:normal;font-weight:400;}blockquote cite:before{content:"— ";}@media only screen and (max-width:480px){html{font-size:106.25%;line-height:28px;}blockquote{border-left:0.29625rem solid #134896;color:hsla(0,0%,0%,0.59);padding-left:0.88875rem;font-style:italic;margin-left:-1.185rem;margin-right:0;}}a.gatsby-resp-image-link{box-shadow:none;}</style><style data-href="/styles.d32f1e7c7d8d283256bd.css">@font-face{font-family:Varela Round;font-style:normal;font-display:swap;font-weight:400;src:local("Varela Round Regular "),local("Varela Round-Regular"),url(/static/varela-round-latin-400-579fc6ff502e1f1e998dacea2e83bf37.woff2) format("woff2"),url(/static/varela-round-latin-400-ed1cf004373cd51bd0fd4c0e3dca9fae.woff) format("woff")}@font-face{font-family:Lora;font-style:normal;font-display:swap;font-weight:400;src:local("Lora Regular "),local("Lora-Regular"),url(/static/lora-latin-400-e4cdb14bf148f2846997a6be7ba648bd.woff2) format("woff2"),url(/static/lora-latin-400-0d78d370987954fb6b9f0efec3065e83.woff) format("woff")}@font-face{font-family:Lora;font-style:italic;font-display:swap;font-weight:400;src:local("Lora Regular italic"),local("Lora-Regularitalic"),url(/static/lora-latin-400italic-2c4801fad2634e6dac678d8826cf417c.woff2) format("woff2"),url(/static/lora-latin-400italic-7beffbacbbde86423a7ee771f31c1626.woff) format("woff")}@font-face{font-family:Lora;font-style:normal;font-display:swap;font-weight:700;src:local("Lora Bold "),local("Lora-Bold"),url(/static/lora-latin-700-ce18d17335e3ef2119d76f5dff177c66.woff2) format("woff2"),url(/static/lora-latin-700-1617380e0dea667b61cf44e86f3d0f10.woff) format("woff")}@font-face{font-family:Lora;font-style:italic;font-display:swap;font-weight:700;src:local("Lora Bold italic"),local("Lora-Bolditalic"),url(/static/lora-latin-700italic-b4bb1fa2335d49d4bc7e7ddd944cee44.woff2) format("woff2"),url(/static/lora-latin-700italic-6ec37b950cf9829a2cad7d02b11810c9.woff) format("woff")}body,div#___gatsby{background:#faf0fd}:root{--bg:#fff;--bg-secondary:#f9fafb;--textLink:#8c1fad;--textNormal:#444;--textTitle:#222;--hr:rgba(0,0,0,0.2);--inlineCode-bg:rgba(140,31,173,0.2);--inlineCode-text:rgba(0,0,0,0.73)}#carbonads{box-sizing:content-box;display:block;overflow:hidden;position:fixed;bottom:16px;left:16px;padding:1em;width:130px;background:#fff;text-align:center;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;line-height:1.5}@media (max-width:1080px){#carbonads{display:none}}#carbonads a{text-decoration:none}#carbonads a,#carbonads a:hover{color:inherit}#carbonads span{display:block;overflow:hidden}.carbon-img{display:block;margin:0 auto 8px;line-height:1}.carbon-text{display:block;margin-bottom:8px}.carbon-poweredby{display:block;text-transform:uppercase;letter-spacing:1px;font-size:10px;line-height:1}.BioImage-module--container--1PFVh{position:relative}.BioImage-module--image1--14nWk{opacity:0;color:green}.BioImage-module--image2--1Blhq{position:absolute!important;left:0;opacity:1}.BioImage-module--image1--14nWk,.BioImage-module--image2--1Blhq{-webkit-transition:opacity .5s ease-in-out;transition:opacity .5s ease-in-out}.BioImage-module--showImage--2hBbU .BioImage-module--image1--14nWk{opacity:1}.BioImage-module--showImage--2hBbU .BioImage-module--image2--1Blhq{opacity:0}.ScrollIndicator-module--container--324ST{top:0;left:0;right:0;height:3px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.ScrollIndicator-module--indicator--2-U_m{width:100%;height:100%;background:#bd93f9;-webkit-transform-origin:left;transform-origin:left;-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transition:all 0s ease-in 0s;transition:all 0s ease-in 0s}.Header-module--header--2skx2{position:fixed;width:100%;background:#faf0fd;z-index:10}.Header-module--nav--2MDt5{border-bottom:1px solid rgba(0,0,0,.2)}.Header-module--list--3FHwz{list-style:none;margin:0;padding:0 1em;width:100%;display:flex;overflow-x:scroll;white-space:nowrap;-ms-overflow-style:none;scrollbar-width:none}.Header-module--list--3FHwz::-webkit-scrollbar{display:none}.Header-module--list--3FHwz li{display:content}.Header-module--link--2Oeqp{text-decoration:none;padding:.5em;display:inline-block}.Header-module--link--2Oeqp.Header-module--active--SWH_Q{border-bottom:2px solid #612e77;padding-bottom:calc(.5em - 2px)}li.Header-module--spacer--fYffy{padding:0;width:100%}.Header-module--icon--2L7Gm{height:1em;width:1em;position:relative;top:2px;fill:#612e77}:root{--prism-padding:20px}pre::-webkit-scrollbar{width:14px}pre::-webkit-scrollbar-track{background-color:#6272a4;border-radius:0}pre::-webkit-scrollbar-thumb{background-color:#bd93f9;border-radius:0}code[class*=language-],pre[class*=language-]{color:#ccc;background:#282936;text-shadow:none;font-family:PT Mono,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background-color:#cacaca}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{background:#282936!important;border-radius:.5em;padding:var(--prism-padding,1em);margin:.5em 0;overflow:auto;height:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282936}:not(pre)>code[class*=language-]{padding:4px 8px;white-space:normal}.limit-300{height:300px!important}.limit-400{height:400px!important}.limit-500{height:500px!important}.limit-600{height:600px!important}.limit-700{height:700px!important}.limit-800{height:800px!important}.token.comment{color:#6272a4}.token.prolog{color:#cfcfc2}.token.tag{color:#dc68aa}.token.entity{color:#8be9fd}.token.atrule{color:#62ef75}.token.url{color:#66d9ef}.token.selector{color:#cfcfc2}.token.string{color:#f1fa8c}.token.property{color:#ffb86c}.token.important{color:#ff79c6;font-weight:700}.token.punctuation{color:#e6db74}.token.number{color:#bd93f9}.token.function{color:#50fa7b}.token.class-name{color:#ffb86c}.token.keyword{color:#ff79c6}.token.boolean{color:#ffb86c}.token.operator{color:#8be9fd}.token.char{color:#ff879d}.token.regex,.token.variable{color:#50fa7b}.token.constant,.token.symbol{color:#ffb86c}.token.builtin{color:#ff79c6}.token.attr-value{color:#7ec699}.token.deleted,.token.namespace{color:#e2777a}.token.bold{font-weight:700}.token.italic{font-style:italic}.token.inserted{color:#1fd44b}.token.deleted{color:#ff0013}.token{color:#ff79c6}.langague-c .token.string,.langague-cpp .token.string{color:#8be9fd}.language-css .token.selector{color:#50fa7b}.language-css .token.property{color:#ffb86c}.language-java .token.class-name,.language-java span.token.class-name{color:#8be9fd}.language-markup .token.attr-value{color:#66d9ef}.language-markup .token.tag{color:#50fa7b}.language-objectivec .token.property{color:#66d9ef}.language-objectivec .token.string{color:#50fa7b}.language-php .token.boolean{color:#8be9fd}.language-php .token.function{color:#ff79c6}.language-php .token.keyword{color:#66d9ef}.language-ruby .token.symbol{color:#8be9fd}.language-ruby .token.class-name{color:#cfcfc2}pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre.line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;top:.3em;right:.2em;-webkit-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out;opacity:0}div.code-toolbar:hover>.toolbar{opacity:1}div.code-toolbar>.toolbar .toolbar-item{display:inline-block;padding-right:20px}div.code-toolbar>.toolbar a{cursor:pointer}div.code-toolbar>.toolbar button{background:none;border:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}div.code-toolbar>.toolbar a,div.code-toolbar>.toolbar button,div.code-toolbar>.toolbar span{color:#ccc;font-size:.8em;padding:.5em;background:#6272a4;border-radius:.5em}div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-toolbar>.toolbar button:focus,div.code-toolbar>.toolbar button:hover,div.code-toolbar>.toolbar span:focus,div.code-toolbar>.toolbar span:hover{color:inherit;text-decoration:none;background-color:var(--verde)}.gatsby-highlight-code-line{background-color:#38394d;display:block;margin-right:-1em;margin-left:-1.25em;padding-right:1em;padding-left:.75em;border-left:.5em solid #ff79c6}:not(pre)>code.language-text{background-color:rgba(227,154,249,.2);color:#612e77;border-radius:10px;font-size:.8em}:not(pre)>code.language-text::selection{background-color:#cc23ff;color:#fff}.gatsby-highlight,p.filename{margin-left:calc(-1*var(--prism-padding));margin-right:calc(-1*var(--prism-padding))}.gatsby-highlight+blockquote,.gatsby-highlight+p:not(.filename){margin-top:1.58em}.index-module--list--3C1Zu{margin-bottom:0;margin-top:0}.index-module--p--4EDuH{margin-bottom:.4rem;margin-top:.4rem}.gatsby-highlight+.caption,figcaption{font-size:.8rem;font-style:italic;font-weight:lighter;color:rgba(0,0,0,.65);text-decoration:underline;margin-bottom:1em}.gatsby-highlight+.caption{margin-top:-.5em}.gatsby-highlight+.caption>code[class*=language-],figcaption>code[class*=language-]{padding:2px 4px;font-size:.8em;background-color:rgba(0,0,0,.65);color:#faf0fd}.filename{font-size:.85em;font-style:italic;margin-bottom:0;padding:8px var(--prism-padding);padding-bottom:0;background:#282936;color:#faf0fd;border-top-left-radius:.5em;border-top-right-radius:.5em;text-decoration:underline}.filename+.gatsby-highlight pre{border-top-left-radius:0;border-top-right-radius:0;margin-top:0;padding-top:2px}</style><meta name="generator" content="Gatsby 2.18.7"/><style type="text/css">
-    .anchor {
-      float: left;
-      padding-right: 4px;
-      margin-left: -20px;
-    }
-    h1 .anchor svg,
-    h2 .anchor svg,
-    h3 .anchor svg,
-    h4 .anchor svg,
-    h5 .anchor svg,
-    h6 .anchor svg {
-      visibility: hidden;
-    }
-    h1:hover .anchor svg,
-    h2:hover .anchor svg,
-    h3:hover .anchor svg,
-    h4:hover .anchor svg,
-    h5:hover .anchor svg,
-    h6:hover .anchor svg,
-    h1 .anchor:focus svg,
-    h2 .anchor:focus svg,
-    h3 .anchor:focus svg,
-    h4 .anchor:focus svg,
-    h5 .anchor:focus svg,
-    h6 .anchor:focus svg {
-      visibility: visible;
-    }
-  </style><script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-      var hash = window.decodeURI(location.hash.replace('#', ''))
-      if (hash !== '') {
-        var element = document.getElementById(hash)
-        if (element) {
-          var offset = element.offsetTop
-          // Wait for the browser to finish rendering before scrolling.
-          setTimeout((function() {
-            window.scrollTo(0, offset - 70)
-          }), 0)
-        }
-      }
-    })
-  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/><link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#612e77"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0"/><title data-react-helmet="true">Git commits went missing after a rebase | Tan Li Hau</title><meta data-react-helmet="true" name="description" content="What happened when you do a rebase"/><meta data-react-helmet="true" name="image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><meta data-react-helmet="true" property="og:image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><meta data-react-helmet="true" property="og:title" content="Git commits went missing after a rebase"/><meta data-react-helmet="true" property="og:description" content="What happened when you do a rebase"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:site" content="@lihautan"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Tan Li Hau"/><meta data-react-helmet="true" name="twitter:title" content="Git commits went missing after a rebase"/><meta data-react-helmet="true" name="twitter:description" content="What happened when you do a rebase"/><meta data-react-helmet="true" name="twitter:image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><meta data-react-helmet="true" name="keywords" content="JavaScript, git, rebase, scm"/><link href="//fonts.googleapis.com/css?family=Varela+Round:400|Lora:400,400i,700" rel="stylesheet" type="text/css"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-e01135db4acd799ac6d1.js"/><link as="script" rel="preload" href="/app-8bd1cc8010cedd8acda1.js"/><link as="script" rel="preload" href="/styles-3b48cb4932382e2c1b1c.js"/><link as="script" rel="preload" href="/commons-3e93bd210d644ed6685c.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-f06013fc6459663c30aa.js"/><link as="fetch" rel="preload" href="/page-data/commit-went-missing-after-rebase/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><header class="Header-module--header--2skx2"><nav class="Header-module--nav--2MDt5"><ul class="Header-module--list--3FHwz"><li><a class="Header-module--link--2Oeqp" href="/">Tan Li Hau</a></li><li><a class="Header-module--link--2Oeqp" href="/blogs/">Writings</a></li><li><a class="Header-module--link--2Oeqp" href="/talks/">Talks</a></li><li><a class="Header-module--link--2Oeqp" href="/projects/">Projects</a></li><li><a class="Header-module--link--2Oeqp" href="/notes/">Notes</a></li><li class="Header-module--spacer--fYffy"></li><li><a class="Header-module--link--2Oeqp" href="https://twitter.com/lihautan"><svg viewBox="0 0 24 24" class="Header-module--icon--2L7Gm"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a></li><li><a class="Header-module--link--2Oeqp" href="https://github.com/tanhauhau"><svg viewBox="0 0 24 24" class="Header-module--icon--2L7Gm"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav><div class="ScrollIndicator-module--container--324ST"><div class="ScrollIndicator-module--indicator--2-U_m"></div></div></header><div style="margin-left:auto;margin-right:auto;max-width:37.92rem;padding:2.37rem 1.185rem"><main><article itemtype="http://schema.org/Article" itemprop="mainEntity"><script type="application/ld+json">{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;Article&quot;,&quot;author&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;copyrightHolder&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;copyrightYear&quot;:&quot;2019&quot;,&quot;creator&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;publisher&quot;:{&quot;@type&quot;:&quot;Organization&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;,&quot;logo&quot;:{&quot;@type&quot;:&quot;ImageObject&quot;,&quot;url&quot;:&quot;/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png&quot;}},&quot;datePublished&quot;:&quot;September 04, 2019&quot;,&quot;dateModified&quot;:&quot;September 04, 2019&quot;,&quot;description&quot;:&quot;What happened when you do a rebase&quot;,&quot;headline&quot;:&quot;Git commits went missing after a rebase&quot;,&quot;inLanguage&quot;:&quot;en&quot;,&quot;url&quot;:&quot;https://lihautan.com/commit-went-missing-after-rebase/&quot;,&quot;name&quot;:&quot;Git commits went missing after a rebase&quot;,&quot;image&quot;:{&quot;@type&quot;:&quot;ImageObject&quot;,&quot;url&quot;:&quot;https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png&quot;},&quot;mainEntityOfPage&quot;:&quot;https://lihautan.com/commit-went-missing-after-rebase/&quot;}</script><script type="application/ld+json">{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;BreadcrumbList&quot;,&quot;description&quot;:&quot;Breadcrumbs list&quot;,&quot;name&quot;:&quot;Breadcrumbs&quot;,&quot;itemListElement&quot;:[{&quot;@type&quot;:&quot;ListItem&quot;,&quot;item&quot;:{&quot;@id&quot;:&quot;https://lihautan.com&quot;,&quot;name&quot;:&quot;Homepage&quot;},&quot;position&quot;:1},{&quot;@type&quot;:&quot;ListItem&quot;,&quot;item&quot;:{&quot;@id&quot;:&quot;https://lihautan.com/commit-went-missing-after-rebase/&quot;,&quot;name&quot;:&quot;Git commits went missing after a rebase&quot;},&quot;position&quot;:2}]}</script><meta itemprop="url" content="https://lihautan.com/commit-went-missing-after-rebase/"/><meta itemprop="image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><h1 itemprop="name headline">Git commits went missing after a rebase</h1><p style="font-size:0.87055rem;line-height:1.58rem;display:block;margin-bottom:1.58rem;margin-top:-0.79rem"><time itemprop="datePublished" dateTime="2019-09-04T08:00:00UTC">September 04, 2019</time></p><div itemprop="articleBody"><p>Last week, I <a href="/git-gudder/">shared about git commands</a> at <a href="https://github.com/Shopee/shopee-react-knowledgeable">Shopee React Knowledgeable</a>. At the end of the talk, one of my colleague approached me and asked me about git rebase. She somehow ended up with a messed up git history with <code class="language-text">git rebase</code>, and she couldn’t comprehend how she ended up there.</p>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+	  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+		<link href="https://twitter.com/lihautan" rel="me" />
+  	<link rel="manifest" href="/manifest.webmanifest" />
+		<meta name="theme-color" content="#bd93f9" />
+		<link rel="apple-touch-icon" sizes="48x48" href="/icon-48x48.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="96x96" href="/icon-96x96.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
+		<link rel="apple-touch-icon" sizes="256x256" href="/icon-256x256.png" />
+		<link rel="apple-touch-icon" sizes="384x384" href="/icon-384x384.png" />
+		<link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
+		<link rel="icon" href="/icon-48x48.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,300&display=swap" as="style"
+			onload="this.rel='stylesheet'">
+		<link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+		<link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+		<link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+		<meta http-equiv="content-security-policy" content=""><title>Git commits went missing after a rebase | Tan Li Hau</title><meta name="description" content="What happened when you do a rebase" data-svelte="svelte-1vzsqtc"><meta name="image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc"><meta name="og:image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc"><meta name="og:title" content="Git commits went missing after a rebase" data-svelte="svelte-1vzsqtc"><meta name="og:description" content="What happened when you do a rebase" data-svelte="svelte-1vzsqtc"><meta name="og:type" content="website" data-svelte="svelte-1vzsqtc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1vzsqtc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1vzsqtc"><meta name="twitter:title" content="Git commits went missing after a rebase" data-svelte="svelte-1vzsqtc"><meta name="twitter:description" content="What happened when you do a rebase" data-svelte="svelte-1vzsqtc"><meta name="twitter:image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc"><meta name="keywords" content="JavaScript" data-svelte="svelte-1vzsqtc"><meta name="keywords" content="git" data-svelte="svelte-1vzsqtc"><meta name="keywords" content="rebase" data-svelte="svelte-1vzsqtc"><meta name="keywords" content="scm" data-svelte="svelte-1vzsqtc"><meta itemprop="url" content="https://lihautan.com/commit-went-missing-after-rebase/" data-svelte="svelte-1vzsqtc"><meta itemprop="image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc">
+	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
+	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
+	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
+	<link rel="modulepreload" href="/_app/start-49a5975a.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
+	<link rel="modulepreload" href="/_app/pages/commit-went-missing-after-rebase/index.md-d1edc200.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<a href="#content" class="skip svelte-70a8h7">Skip to content</a>
+
+	<header class="svelte-70a8h7"><nav><ul class="mode-sidebar svelte-1hc74yu"><li class="svelte-1hc74yu"><a href="/" class="svelte-1hc74yu">Tan Li Hau</a></li>
+	<li class="svelte-1hc74yu"><a href="/about" class="svelte-1hc74yu">About</a></li>
+	<li class="svelte-1hc74yu"><a href="/blogs" class="svelte-1hc74yu">Writings</a></li>
+	<li class="svelte-1hc74yu"><a href="/talks" class="svelte-1hc74yu">Talks</a></li>
+	<li class="svelte-1hc74yu"><a href="/notes" class="svelte-1hc74yu">Notes</a></li>
+	<li class="svelte-1hc74yu"><a href="/newsletter" class="svelte-1hc74yu">Newsletter</a></li>
+	<li class="social svelte-1hc74yu"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-1hc74yu"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-1hc74yu"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+  10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+  4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+		<a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-1hc74yu"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-1hc74yu"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+  0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+  5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+  5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+  3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+		<a aria-label="YouTube account" href="https://youtube.com/c/lihautan" class="svelte-1hc74yu"><svg viewBox="0 0 461.001 461.001" width="1em" height="1em" class="svelte-1hc74yu"><path d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.082z"></path></svg></a></li>
+</ul></nav></header>
+
+<main id="content" class="svelte-70a8h7">
+
+<h1>Git commits went missing after a rebase</h1>
+
+
+
+<a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/git">git</a><a class="tag svelte-muo5sw" href="/tags/rebase">rebase</a><a class="tag svelte-muo5sw" href="/tags/scm">scm</a>
+
+<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#summary">Summary</a></li>
+			</ul>
+</section>
+<p>Last week, I <a href="/git-gudder/">shared about git commands</a> at <a href="https://github.com/Shopee/shopee-react-knowledgeable" rel="nofollow">Shopee React Knowledgeable</a>. At the end of the talk, one of my colleague approached me and asked me about git rebase. She somehow ended up with a messed up git history with <code class="inline">git rebase</code>, and she couldn&#39;t comprehend how she ended up there.</p>
 <p>I found that her scenario was interesting, and decided to write it out here.</p>
 <p>This was what she told me:</p>
-<blockquote>
-<p>I branched out <code class="language-text">feat/a</code> branch from <code class="language-text">master</code> and made a few commits (<code class="language-text">commit #1</code>, <code class="language-text">commit #2</code>).</p>
-<p>I noticed that master branch has new commits, so I pulled <code class="language-text">master</code> branch, and rebased my branch <code class="language-text">feat/a</code> onto master branch.</p>
-<p>Then, instead of <code class="language-text">git push --force</code> my local <code class="language-text">feat/a</code> to remote <code class="language-text">origin</code>, I <code class="language-text">git pull --rebase origin feat/a</code>.</p>
-<p>And, my commits on <code class="language-text">feat/a</code>, eg <code class="language-text">commit #1</code>, <code class="language-text">commit #2</code> were gone!</p>
-</blockquote>
-<p>So, we expected to see <code class="language-text">commit #1</code>, <code class="language-text">commit #2</code> at <code class="language-text">HEAD</code> after rebasing onto <code class="language-text">origin/feat/a</code> after the <code class="language-text">git pull --rebase</code>, yet, the only commits we saw were a bunch of commits from the <code class="language-text">master</code> branch.</p>
+<blockquote><p>I branched out <code class="inline">feat/a</code> branch from <code class="inline">master</code> and made a few commits (<code class="inline">commit #1</code>, <code class="inline">commit #2</code>).</p>
+<p>I noticed that master branch has new commits, so I pulled <code class="inline">master</code> branch, and rebased my branch <code class="inline">feat/a</code> onto master branch.</p>
+<p>Then, instead of <code class="inline">git push --force</code> my local <code class="inline">feat/a</code> to remote <code class="inline">origin</code>, I <code class="inline">git pull --rebase origin feat/a</code>.</p>
+<p>And, my commits on <code class="inline">feat/a</code>, eg <code class="inline">commit #1</code>, <code class="inline">commit #2</code> were gone!</p></blockquote>
+<p>So, we expected to see <code class="inline">commit #1</code>, <code class="inline">commit #2</code> at <code class="inline">HEAD</code> after rebasing onto <code class="inline">origin/feat/a</code> after the <code class="inline">git pull --rebase</code>, yet, the only commits we saw were a bunch of commits from the <code class="inline">master</code> branch.</p>
 <p>To understand what happened, I decided to draw diagrams to visualize what had happened:</p>
-<p><figure class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 375px;">
-      <a class="gatsby-resp-image-link" href="/static/1870ed5c6b42a8627c166d090343062e/1a013/initial.png" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 126.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAACXBIWXMAAA9hAAAPYQGoP6dpAAAEYUlEQVQ4y42UDUxTVxTHX1/btCCgaFC+DRAGCG0ZHxYrhuoSamkt5VOEQotUwySNSac4V7UCVgYFipCCsDAK3RSWTT5c5rYIy7ItcUtlI4wFZcrY0AydU7KwOBmc3fuwpjLc3ktO7rnn3fd75/zPeY8gaFzr13g5XTJ4vW9ctF+oMMwnMBHZVmxRfiHYT/LguHnQ4RHFIoXTXdNdXPnb3dqP4bZpcHG6+sOlqbODSzM1VxY+07fBrsjEbbSAxyTqZ8Brr9vuQ89PMGUaXPju5IXFsVO9f0P3xJP79VchXZCSRAu4h7+D4QS+W3Lm8XzzlzBZ1QcTFR/AjcpL8KBhGBxv2OGVyMTt1Kn+/n4SABijo6OkK6goScbAcbgF5K0zAzjEFL8UL8lLSFVok5UyVOIplVCaqxKmpe2O3pbuv87H+1/ZIAAlviiMT668Fx8cuTJWumpJpaWlur6+vony8nKjazx8Y1CUTXP6i3aV4RMWyQxyvYcyLOnSVNw7kVZiwZkjGZhsJotBcLnciJGREcDXzMwMBAYGljEJQoAOhVpy9V/hBsA7N6FK8SquOXSjpzcPrTs/f619Ed6/Q+mHmiHDLzkkzmHiNWBoaOgRBjocjideXl5ZLAapRfEQU/qhi2AbB2i/DuUSdQuKbQr03hSGVsHlMsuv0DMNY8Ze2B4mEGFQYZJsWRKxWJxSW1vbrVAolHjv7uYejpZgZGyDdH8DGpsq5HNcS04KiRG+maHrzt+6O4/S/kdYnoT5+XnGKrJGMggGb2XQ08uXKqkgNvm55nxT7yBdGkoQer2eRE1hKZVKlhOILMrlmWefFIfNJaPj9jqB7sioZ7Iyzq6WGOEMRrBYnDjsiET7tXr98MOioo4htF3nPCgQpEt1uit3S0oufLt2rR+WiIiNzVgVSpAki8lmu+1CruTw4U/nmpr+gJaWBUhI2HsexV7Gsh88+N6k1foXdHYCZGbW4DjR0wPMF35uCIDL8iwsfOtqY+MjMBiuQ0yMNPNpiZzs7HqbxfI7VFf/DGJxWemydMPkC4ESyTGn6yOXG4+i7GQrjnDi43M7+fw9Brzp6AAWl+vJ+M+fwoYNIc8daG7+c2UGeP42/+/fxcPDBwlMjSTh7x/DKC62M5OTtWy837IlVZadXTeAmmTft896GdmAWv22XSY7eSkggBdO0L2UShM1HqmpR4/jRrS1ATQ2zsG5c3PQ1QVgNs8CjydLpg1EWVFAqfR4ud0O0Nq6ABUVE1BZeQNsNgDcIKSniDYQNYUaCT5frsrPb72p1fZc02i6xpGNHTjQ+3VGRvUPwcFxPNrAxMQ8J1CrVnc+KCsbRNCLMwj2i0730WROTsNsUFBsHG1gTk49VbJCUXnEan2M52+prm4WrdNQV3cPTKbbIBSq6Jcsl59+2pQjBovlIRiN30NNzR0EmqKG22gcB/Tp7aANRKVSMxgRsTMlK8ts1WhsNQUF580qVZsZ6Viblnaiydc3cvM/F+24OMfw6ykAAAAASUVORK5CYII=&#x27;); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="initil" title="Before rebasing" src="/static/1870ed5c6b42a8627c166d090343062e/1a013/initial.png" srcset="/static/1870ed5c6b42a8627c166d090343062e/00d96/initial.png 148w, /static/1870ed5c6b42a8627c166d090343062e/0b23c/initial.png 295w, /static/1870ed5c6b42a8627c166d090343062e/1a013/initial.png 375w" sizes="(max-width: 375px) 100vw, 375px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
-  </a>
-    <figcaption>Before rebasing</figcaption></figure></p>
-<p>So, the first thing she did was to <code class="language-text">git rebase</code> <code class="language-text">feat/a</code> on top of <code class="language-text">master</code>:</p>
-<p><figure class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 580px;">
-      <a class="gatsby-resp-image-link" href="/static/d090a782dcfc7453ab4ef2d721699496/2c164/rebase-1.png" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 69.82758620689656%; position: relative; bottom: 0; left: 0; background-image: url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA9hAAAPYQGoP6dpAAACqUlEQVQ4y2NgwALSbAMZQXS4iZvUlMiyik1ZfSUbs/qKFyc1VWfZh5jD1Pn5NYVnZKyrysxcX5SevqbK1jbNFSyRlZXFGBQUBDewN6SABUQ3+qbb/599/v+f6Sf/v+rZ/f//yof/FyY2tkKVMVZUnLiyfPn//x0dT/6vW/f/f1zcnBUMly9fBrvm////YEX1fmmMCJcGaW/PnXTkcOmcg3sKp+8/Wjb3ZHNAdhRUmikhYWEf0NBTeXnb99fUnD/u7V1XCNPLi+ZrbpDhSHxFIDZH4vMhsVmB2BPOa2xsdLl+/fqHZUuX9QG57L5GDmaX61c+3Zk/ZSWQzw/EogdLZm0/W730qQwDg1Js/PzyqspTX/38muNA+pOSlrQCXfk7Kmq6D9jAzs7OGKB3/2/csHEjyBU+hnYhXyYd/g/05mUgH2gGg+q5mqV3XvXu/S/NwGARn7hkxsQJH/4HBnbUgRyQmrpyxeTJX/9HR09PhbsSGCFmqmpqHECmCBALRJm6awojectaUVfSS8lYGcSW5BfltLFNhXufg4OX28YmxQwtiKChzMSkAKQEQeyQ8GQNuAQ7A5tXSJwyunpubmEmDEN4eHgY4uLimEFsFRUtYZAXZ0xft/bcmdf/M9LLk4F8tqlTVu26cP7d/4L8Bl+QusLCyaxyckZg/UZGwQyenpVMvLzimAkamnQ4+vsWT9u86ey3pKQCUOJkmzRx+fytW87/LCpqtgcp6OlewARVSxIQRmKDfOAD41y5/JkkgxiRbGfu7V00c83qIwcWLdy5Z+mSvYfzcuvCQBIN9ZOYCJrk6xMBpqWl5GCGMq9ZffTF7Vu//p898+r/3Tt//3e0z2kBScycsZ6FgQzAWFPTlz516urm6dPWVk+cuKw1Pi7HGiSRn1fHiE0DAOXKBHP1zC0GAAAAAElFTkSuQmCC&#x27;); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="first rebase" title="Rebase feat/a on top of &#x60;master&#x60;" src="/static/d090a782dcfc7453ab4ef2d721699496/2c164/rebase-1.png" srcset="/static/d090a782dcfc7453ab4ef2d721699496/00d96/rebase-1.png 148w, /static/d090a782dcfc7453ab4ef2d721699496/0b23c/rebase-1.png 295w, /static/d090a782dcfc7453ab4ef2d721699496/2c164/rebase-1.png 580w" sizes="(max-width: 580px) 100vw, 580px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
-  </a>
-    <figcaption>Rebase feat/a on top of `master`</figcaption></figure></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/initial-2c90aa61.webp"><source type="image/png" srcset="/_app/assets/initial-10c66478.png"><img src="/_app/assets/initial-10c66478.png" loading="lazy" alt="initil" title="Before rebasing"></picture></p>
+<p>So, the first thing she did was to <code class="inline">git rebase</code> <code class="inline">feat/a</code> on top of <code class="inline">master</code>:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-1-40f0861a.webp"><source type="image/png" srcset="/_app/assets/rebase-1-f933f1f4.png"><img src="/_app/assets/rebase-1-f933f1f4.png" loading="lazy" alt="first rebase" title="Rebase feat/a on top of `master`"></picture></p>
 <p>So far, everything looked normal. The next command was the tricky one.</p>
-<p>She rebased <code class="language-text">feat/a</code> on top of <code class="language-text">origin/feat/a</code>, she ran:</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ git checkout feat/a
-$ git rebase origin/feat/a</code></pre></div>
-<p>The most important thing on <code class="language-text">git rebase</code> is the 3 reference points of rebasing:</p>
-<p><figure class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 580px;">
-      <a class="gatsby-resp-image-link" href="/static/cb52f6fc1066f742317ba56f189f327e/2c164/rebase-2.png" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 69.82758620689656%; position: relative; bottom: 0; left: 0; background-image: url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA9hAAAPYQGoP6dpAAADP0lEQVQ4y5VTe0hTYRS/1ymUPSiMIDMrpQyiQnsYmQWZPTRX2ywfpWnapnck5Uxtjum0yKKtrG3q2tT5bF2dU8qZa/lIS8sUmUQoPYQyKyoLpVp6T/dOZyv8oz44nPu75/f9zosPQaY5bF8GSvmQDbucpWHJqbWYJKkGk/BKjmWmYduDva08Oj0zJC5Oy4+Pr07kcCr5vr5sf0sAwzCUyWROCYqDT9pTXhTE2Q7Xu2EstwPeXzIAaAZAHS06N0lDU1PbeysqALKzX4NWCxAZqbyBmEwmSzUAYCGl09no70qZq/UnrrbeP61svnsqt7EtWdWRdYAbPhm2i4pSS0jRRwkJ+kaBoPthYKDwlPXu3L+6nkWJ2+DlpHnbYFu+A2l7p1BmRsbOp8+eDRdqqy+ScAbLN2Bzrwh/25Aox0k8n7SFzTyF/kla2RsXBHGLOFqYwj/zaHQ/PTOSSsqJLc1O5j8eYxwvCbAInr98+TCYzWASCttIuG6Nw4KAd2dvQxNX2k7ieaS5dgnKn78XG2ExgmyOjC7Ny7nyBeiMCwLqPiNCI1ecG4QzmxIwa5FogI/PWvD0DCeMxm5CX/fgpUL1bbi84ik03uuEslIOyZlzaM3WlRTZw2mR43of9sY+V4fZoKv27xNLwrqjuMUQdUQ4rirYgUBPz8RSRCL3TxqN4adKVTVWWKB5kXOtZ1ytroWiooNUPCzs2Aqb5SHACl411tJihvp6AhrqPxIGgxl0usGJtmNi7CerpVEzE8u0SmPLK9gdgjGon3LpTcPjro/ATsmeGD6A3YDkih3weEu+C9OXjhyPdwcMcyNCQ10QkMksHNWePSiZnRJ0zJGU5N2q7fwRF5tIVTfjYr5O2SuvhIZlHiyK+xVBZhIT2/2v42TzTSXaDyWFKuho/0TU1Q2B8e47qKn5DEbjK8LPz4UiEVwubToh1DonSkgsLs6vwlubFUV36vv1HaPPS/EmkF1LGlcXp4Ncng5qdQp4ec2xTCIo6E+loH2hFr/Y2dUqSqvE24b6+8zQ1fkBekwjwBNIk6argnx3/9Q2KhBIODIZnpUrr0yTXq04Hx+buI0KPJEqHCAvjwY4ToMtWyY3z0J+AV2hfmWOOBCnAAAAAElFTkSuQmCC&#x27;); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="3 reference points" title="The 3 reference points" src="/static/cb52f6fc1066f742317ba56f189f327e/2c164/rebase-2.png" srcset="/static/cb52f6fc1066f742317ba56f189f327e/00d96/rebase-2.png 148w, /static/cb52f6fc1066f742317ba56f189f327e/0b23c/rebase-2.png 295w, /static/cb52f6fc1066f742317ba56f189f327e/2c164/rebase-2.png 580w" sizes="(max-width: 580px) 100vw, 580px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
-  </a>
-    <figcaption>The 3 reference points</figcaption></figure></p>
+<p>She rebased <code class="inline">feat/a</code> on top of <code class="inline">origin/feat/a</code>, she ran:</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git checkout feat/a</span>
+<span class="line">$ git rebase origin/feat/a</span></code></pre><!-- HTML_TAG_END --></div>
+<p>The most important thing on <code class="inline">git rebase</code> is the 3 reference points of rebasing:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-2-4a2b213b.webp"><source type="image/png" srcset="/_app/assets/rebase-2-19f84297.png"><img src="/_app/assets/rebase-2-19f84297.png" loading="lazy" alt="3 reference points" title="The 3 reference points"></picture></p>
 <p>So, when she typed </p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ git rebase origin/feat/a</code></pre></div>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git rebase origin/feat/a</span></code></pre><!-- HTML_TAG_END --></div>
 <p>, it meant:</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ git rebase --onto origin/feat/a origin/feat/a feat/a</code></pre></div>
-<ul>
-<li><code class="language-text">new base</code>: <code class="language-text">origin/feat/a</code></li>
-<li><code class="language-text">upstream</code>: <code class="language-text">origin/feat/a</code></li>
-<li><code class="language-text">branch</code>: <code class="language-text">feat/a</code></li>
-</ul>
-<p>So what happened was all the commits in master after branching out <code class="language-text">feat/a</code> all the way to the newly rebased commits in <code class="language-text">feat/a</code> were rebased onto <code class="language-text">origin/feat/a</code>:</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/3e8f06873f4e88760cd20b84fd11653d/11d19/rebase-4.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 50.625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA9hAAAPYQGoP6dpAAACdUlEQVQoz2NoampiaGpsYmQAAg8dSxitXOud7NESkOmc5RDiLissxQ4Sd9E0Z1BWtmaQkdFngAF//xaGpKTFDBkZ6xgCA9vh4gxKCopM18uWgtlhJi4mUyLL0iaEFyU3+qalKvPxsoHEdWQ1GGHq5eWNGbACY2NjTgtzC2EQW0pIjE2Ii08AxOZgZRPnYuOwBbH5+SWFpCS1mEBsQUFZQSDFhGQEI5TPBGYfPHhw4pnTp78COeqptoGebUG5GSCzAw2dHPvCitI52blNvb2q8w30vF3YOfh0A/2bCo0NA3VgpmVnby6orb3wsaXl7qvc3O09DCtWrLDZuWNHClBO2UXTRC1CV1sRZJubhpF4jL6+Cg8bG5+sbogOyJ1yonK84johWgxsSlwwA/PydsSVlx8/WVl56mRe3vZyZN9LCgupCLWnr/MIsk0V9rZOF2xOXuHDwCDEvi653mB5crMFSNH6tDbHOSGZyo6+7erxcXO9QWLa2h72OjpeIWBT+vv7mV7d+s0M8r+rcZjPhpbb/5M8q8JTvGrCtrY/+C8oZmx3unLBoTNVi88D1YhfrFv1Z1d6c19QworeivJjv4FiwsXFB3bV1Jy/jIhhKW0wPTF3K2OKd63J/PLjIAv4jNXsI0Hidd7Jik1+GSogdoNvul6fX5KQvXeLkK9PvR5IzMenQd7bu1YDJbZlxVQZrLQ9wMnCWsdLeVHV6dtLqs89mlaw5xKTbAgrSLzSr4gJPZU4OeXDxYBhCWHEu0PCMtA2DWag4uySQ4cWVZ4+05e9aU+kQzoPSDw6eB7DpIgypilB6QyOfh0MYaF9YMOCg7sZQ0P7wHoBeyW0FHxD6iAAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="rebase again"
-        title="rebase again"
-        src="/static/3e8f06873f4e88760cd20b84fd11653d/799d3/rebase-4.png"
-        srcset="/static/3e8f06873f4e88760cd20b84fd11653d/00d96/rebase-4.png 148w,
-/static/3e8f06873f4e88760cd20b84fd11653d/0b23c/rebase-4.png 295w,
-/static/3e8f06873f4e88760cd20b84fd11653d/799d3/rebase-4.png 590w,
-/static/3e8f06873f4e88760cd20b84fd11653d/11d19/rebase-4.png 800w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>However, if you look at the history right now, the commit <code class="language-text">commit #1</code> and <code class="language-text">commit #2</code> was written twice, first the original commit, second the rebased commit. In cases like this, git would not rewrote the commits again, if git could figure out whether it was a duplicate:</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/af50e5e634451222707106152a133619/799d3/rebase-5.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 68.64406779661016%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA9hAAAPYQGoP6dpAAAC0UlEQVQ4y2NgwALUxOXAtLyQhLCrprlropWvRQIQBxk6OmpIKKiB5IzlNRkZcIGsrCzGoKAgON9ezYgJRJspaquvTGtP35jVkzApoiTnbM3i2AADB3eQXIpNAFgNP78Eg5SUNgMjIzNE8+XLl8E2/f//H0QxWqroMSJcKi+XbhcUW+YeF5rnFB5e6ZkQbqmsZw6S8zEHGwhXC9UPB7xojhYAYjYkvj4Qu0DZIIMEkeQYUfiNjY0u169f/7Bs2bJeIJdLWVpeZ0J4cWSWQ4gfkC8GxFIlbjGBbYHZsewMDMp6+n4Ofn6NaUpKFlZAOT4DgwA3P7+mVHV1Bx2wgZ2dnTFA5/7fuGHDBiDXRlFCxmVzTn9MhUdCLJCvAsQ6HUE5kctS2xKABlroGwYFREZMKlRVsQFZKG1iEh4WEz2tQEfbwxLuSmCEmKmrq3MAmcIgLCcoJgtyLUyej51DhIWBQRLEluAT5mLll5ODhw0XPzcDj5QM1thmZmJWgIYfQ4BNmiZMXEJUjd3POkUNxvfVNpc3lNMQhTtI30ZFkl+UD8zh4eFhiIuLA8e5ooQWyIWq3Rlr1+zpff0/3r08GRQ5HWmrdu3vf/c/0C47TJGf1/JJ5/b/R8vm3gL5JtnaP/Lr5CP/dxdM24HhQmjUczQnLZ62pOrstyjnAlDiZGtNWT5/Wc35X8EOOR6S3Bx61xvXPNlfNHM3yDeJNsGeN5vWf9uWN3k+AwEgjBwaIJ8i8fmBmBWJ74Uc5uiAESmRMjcmLpo5t+zIgSn5O/dML9xzJMW7JgIm6e1dG1RUuPdoYcHu3eVlRw8kJS2Zi2KSmwlErYSQHMxQ5rllR1+cmPbr/+6eV/9PTf/7vyZ2TgtMPdCA6hUr/v/v7n7xf/Hi//9ray9+JORtxsLQvvSOtNXNXelrq1tTlrWGO+ZYwyQdHXPMExMXtaUD5dLTVzcFB3dnAwC1VuGP4Yc54gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="actual rebase again result"
-        title="actual rebase again result"
-        src="/static/af50e5e634451222707106152a133619/799d3/rebase-5.png"
-        srcset="/static/af50e5e634451222707106152a133619/00d96/rebase-5.png 148w,
-/static/af50e5e634451222707106152a133619/0b23c/rebase-5.png 295w,
-/static/af50e5e634451222707106152a133619/799d3/rebase-5.png 590w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>It was as though both commit <code class="language-text">commit #1</code> and <code class="language-text">commit #2</code> were gone, and left with commits from <code class="language-text">master</code> branch, because git did not rewrote them when rebasing <code class="language-text">feat/a</code>. And actually the changes made in <code class="language-text">commit #1</code> and <code class="language-text">commit #2</code> were still available.</p>
-<blockquote>
-<p>You can read more about this behaviour in <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase">git’s documentation</a></p>
-</blockquote>
-<p>So, what she should have done if she wanted to actually rebased the local <code class="language-text">feat/a</code> on top of <code class="language-text">origin/feat/a</code>, especially after she made another commit, <code class="language-text">commit #0</code>?</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/4c17da8443526eb60e47444221fa85b6/f70c5/rebase-6.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 58.273381294964025%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAACiklEQVQoz2NgQAOWSrqMINpEXlMq2cbfqdAlyrLUPdbGU8fKEKZGiJufYe7c/2B1ISE9LsXFB7uLivY1FxTsrmFYsGAB44kTJ5gnTZwEVpxg7csMor11rY1mxVaXTIooyVuX2ZVd4BIVBRRm////P1jdnDn/2UB0Rsa6mStW/P8/ceLn/9Om/fqP4rrnZ2/C2QayaiKxFl56etIq7r769pbOSupyMDmYoSAQGtprmJi4KNXFpbAgN3d7CENvb6/G2rVrWzva2sVBCiLM3EzCTFyMYRqsVQzCFXk4pSJyDgimp61uB3pRASSemroyNylpKcjVDC4uRdr+/i39YA1Aw6qANv7PycmpBHJNZ8XXxPeFFScD2bpyQuKO2/Knpkfrmno4uJRUz5zx739wcDdInXJDw9X/ZWVHHwPZomlpq1ZNnfrjP9CVDgzp6enCkydP9lBTVRUBSsrbKGvL8APDHWSZpJAcm7aIAMhFnDb2OdwhIb3ednYZ/CC5oKBOG6CrDEBsD48KmeDgLk8gkxk5CJmAWCEzchlbXnCvdaxLPis40AM6DFN9m+SQFR45ggjDzs6njCgR0djYyLBw4UJmoK9BEsIFwd1dJ6f/+R/rVpII5Gtv63zyf1bJwWMgtbd3/GcJ8qoBG5CTs4UpLW01yBEMsbGzGfPzdzGLiiojDP5/FmJromeVWX/2psmh9llg2cKQ3t784K4gEPvEtF9MDKSAc7NQkhFTW8oKj3DHnIzcoM74vKAuS7DFj/4z6ClZEjbs/2eIYe6mkbCAlV7dcO3/kcnf/l+Y8///lPyde6BpkNHbIo54V4oLysKYfA0JCye0p66c35W+dml+cHcW2MAn/xnMNFxw6gcAQAHm/D0bxksAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="adding one more commit"
-        title="adding one more commit"
-        src="/static/4c17da8443526eb60e47444221fa85b6/799d3/rebase-6.png"
-        srcset="/static/4c17da8443526eb60e47444221fa85b6/00d96/rebase-6.png 148w,
-/static/4c17da8443526eb60e47444221fa85b6/0b23c/rebase-6.png 295w,
-/static/4c17da8443526eb60e47444221fa85b6/799d3/rebase-6.png 590w,
-/static/4c17da8443526eb60e47444221fa85b6/f70c5/rebase-6.png 695w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Well, she should specify the <code class="language-text">&lt;upstream&gt;</code> reference point:</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/c3b852c3e96d69241192dc4fef4ce3a7/8551f/rebase-7.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 57.04225352112676%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA9hAAAPYQGoP6dpAAACoklEQVQoz2NgQAMZ9sFg2lvX2rDELdaxwDnSPsshxFFRREoYJG6prMcQEzOTEcT29KwyLC4+OLm4+EB3dvamiR4eFVIMFy5cYPz//z+zu4cHWNH/L//BdK5TeND6rJ60OXE16YuTGtPMVE3VQOJcDAyMdXWXWEHsiIjJKfPn///f1/fu/8SJn/5HRk41ZsAFXDXNxU0UtHQleQV9ooxdFLGp8fdtFI4In+SipeEcHxbU6WJtlcjHsGzZMs/jx49v8fTy0gCqEa72TvYOMXY2AbJZA/VsDSPsQ4KAbO7Cot1TsnM3tQLZTBlZawsLC/csA7I5Q8LbLVMz1+3XL1shBLZl06ZNJQ8fPPjv4uoaAuSazE1sSEyxDfYFsiVCHEI9TvhnlRsyMBhmZu07m5m8eRdIT0rC+nk1Nee/AJliFlZ1ib0FR/7PZlDxgLmcCYgFQbZxcHCLA2lmZG+VAw3+v3bVsrdbtz78uHbt1f9HDh//snzZfqAU2/+9u6P+Hdh/7eWCBc/+b1j/+N/mzZlwjVKi8gIgV00t2B00MWdrB0isLXa2SW/F6Z4LXdNy/i+Yk/5/+oz0n5MnF/yfNi0WJP+tr9/0/8KF+f/nzon/u2hxzv9JE80YnJycGAIDAxn/v/kPcilXT+b6AwsrTv4HspXzo2dWX+18+j+CQUcPPUK6W2YxMeADdXFzwbS7aaRAtEuRHFSY2Y+BIe7/vMkT/2/YsPvf0qXb/y9fvu//4sWLQTYCkxvj//Pnmf8fOsT8/8IF5v8HDjCiGGqj6w0XKA6b4LOw4sTd2RWnTl+ece7/i/nLFv5fs6r276rVnf8WLy75D1X3f+ZM7C5sSFgApiflbmcB0aURkyOXVJ/7D/T+j8l5Bz4C84gMup7/paUY5gAAdhIMYyW9p1QAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="reference points"
-        title="reference points"
-        src="/static/c3b852c3e96d69241192dc4fef4ce3a7/799d3/rebase-7.png"
-        srcset="/static/c3b852c3e96d69241192dc4fef4ce3a7/00d96/rebase-7.png 148w,
-/static/c3b852c3e96d69241192dc4fef4ce3a7/0b23c/rebase-7.png 295w,
-/static/c3b852c3e96d69241192dc4fef4ce3a7/799d3/rebase-7.png 590w,
-/static/c3b852c3e96d69241192dc4fef4ce3a7/8551f/rebase-7.png 710w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ git rebase --onto origin/feat/a master feat/a</code></pre></div>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git rebase --onto origin/feat/a origin/feat/a feat/a</span></code></pre><!-- HTML_TAG_END --></div>
+<ul><li><code class="inline">new base</code>: <code class="inline">origin/feat/a</code></li>
+<li><code class="inline">upstream</code>: <code class="inline">origin/feat/a</code></li>
+<li><code class="inline">branch</code>: <code class="inline">feat/a</code></li></ul>
+<p>So what happened was all the commits in master after branching out <code class="inline">feat/a</code> all the way to the newly rebased commits in <code class="inline">feat/a</code> were rebased onto <code class="inline">origin/feat/a</code>:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-4-e157042f.webp"><source type="image/png" srcset="/_app/assets/rebase-4-7d785640.png"><img src="/_app/assets/rebase-4-7d785640.png" loading="lazy" alt="rebase again"></picture></p>
+<p>However, if you look at the history right now, the commit <code class="inline">commit #1</code> and <code class="inline">commit #2</code> was written twice, first the original commit, second the rebased commit. In cases like this, git would not rewrote the commits again, if git could figure out whether it was a duplicate:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-5-55df8c39.webp"><source type="image/png" srcset="/_app/assets/rebase-5-72869795.png"><img src="/_app/assets/rebase-5-72869795.png" loading="lazy" alt="actual rebase again result"></picture></p>
+<p>It was as though both commit <code class="inline">commit #1</code> and <code class="inline">commit #2</code> were gone, and left with commits from <code class="inline">master</code> branch, because git did not rewrote them when rebasing <code class="inline">feat/a</code>. And actually the changes made in <code class="inline">commit #1</code> and <code class="inline">commit #2</code> were still available.</p>
+<blockquote><p>You can read more about this behaviour in <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase" rel="nofollow">git&#39;s documentation</a></p></blockquote>
+<p>So, what she should have done if she wanted to actually rebased the local <code class="inline">feat/a</code> on top of <code class="inline">origin/feat/a</code>, especially after she made another commit, <code class="inline">commit #0</code>?</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-6-8029d9dc.webp"><source type="image/png" srcset="/_app/assets/rebase-6-d40f3bf0.png"><img src="/_app/assets/rebase-6-d40f3bf0.png" loading="lazy" alt="adding one more commit"></picture></p>
+<p>Well, she should specify the <code class="inline">&lt;upstream&gt;</code> reference point:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-7-ffedc41d.webp"><source type="image/png" srcset="/_app/assets/rebase-7-88ce0e5a.png"><img src="/_app/assets/rebase-7-88ce0e5a.png" loading="lazy" alt="reference points"></picture></p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git rebase --onto origin/feat/a master feat/a</span></code></pre><!-- HTML_TAG_END --></div>
 <p>And you would get:</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/f8300411e8f165f4ed2d7e721e99cfc2/cd281/rebase-8.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 60.902255639097746%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAAClUlEQVQoz2NgQANmCtpgWldaRTjWwsu5yCXKssQt1ibI0NEcKMwKkpPgE2bACaZOncq4e/duls6ODjA/3NSNGUTbqxmpT40qL50eXZG7Mq09u9k/IwkozA+SE2BiYNDT82U0MQljBPElJbUYzM2jGRUVzVENz4lLZYSxNSUVBKPNPYwtlHRc3bUt7YONHDXhvjAJYcTpwpaWFqVly5ZVdrS1i4D4/gb2uoEGDsYweQNZdT8NCXmwYdpabhYKCmZSILaamp2qhoazETgIJDS5tLTcLGVk9MUY1qxZU/0fCEpLSuqBckYTo0rj5sTVJoPYvOxc1msyulLqvJPDGJg4PPx869J0db2DQGZbWMRG+vk1RIMcLCKi5BQQ0JKioeHkyFBaWiq5cOHCaBtrG2mgpJKHjqWSnYKSPMhmJhYudld1fXULWQVxBgYWDhVlK12gMA9ITk7OSEFJyUILyGTk55fkUla2MpSQ0BBE8T4TE5MiiA52LFCz03ZhArEdTeOkPC1TxKFKGN3dyzRANM4wbGxsZFy/fj0z0NcgRWKpPnWlhyZ+/l8Q0lMICp7FVac/zys79hTIFoyPm9fa1/f2f1hYfwhIb1jYBBYQLSKiyODsnM+ooGCKMPj/h/9gOsq5wG5awZ5tab4NdmALExdNb0xc3AliB/g1OyYnL93v59cMCh4GT89qJgZ8AOhKVNcnLlK30HLztdX1ds2LmqZvaZ1sKS9vEurpWWWso+MJThX6+v74DbPR9WaCsnkWVZ1+dnDip/+7Op/+n1l/9X/fpM//e3te/Z869ef/yMipYSBF8fHzmfG6khER3uwTcrbOm116+MDckoM7G7I37SqrPLWrrOzIzoqKEwf8/JpswBEY3I3ibQCDuMHaazBpRwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="result"
-        title="result"
-        src="/static/f8300411e8f165f4ed2d7e721e99cfc2/799d3/rebase-8.png"
-        srcset="/static/f8300411e8f165f4ed2d7e721e99cfc2/00d96/rebase-8.png 148w,
-/static/f8300411e8f165f4ed2d7e721e99cfc2/0b23c/rebase-8.png 295w,
-/static/f8300411e8f165f4ed2d7e721e99cfc2/799d3/rebase-8.png 590w,
-/static/f8300411e8f165f4ed2d7e721e99cfc2/cd281/rebase-8.png 665w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Here again, git is smart enough not to rewrite <code class="language-text">commit #1</code> and <code class="language-text">commit #2</code>.</p>
-<h1 id="summary"><a href="#summary" aria-label="summary permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Summary</h1>
-<p>When using <code class="language-text">git rebase</code>, always remember the 3 reference points of rebase, the <code class="language-text">new base</code>, <code class="language-text">upstream</code> and <code class="language-text">branch</code>.</p></div></article><hr style="margin-bottom:1.58rem"/><p>Thank you for your time reading through this article.<br/>It means a lot to me.</p><p> I would appreciate if you <a href="https://twitter.com/intent/tweet?text=Insightful%20article%20from%20%40lihautan&amp;url=https://lihautan.com/commit-went-missing-after-rebase/">tweet about it.</a></p><hr style="margin-bottom:1.58rem"/><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/what-is-module-bundler-and-how-does-it-work/">← <!-- -->What is module bundler and how does it work?</a></li><li><a rel="next" href="/step-by-step-guide-for-writing-a-babel-transformation/">Step-by-step guide for writing a custom babel transformation<!-- --> →</a></li></ul></main><footer style="margin-top:3.16rem">Built with <span role="img" class="emoji">💻</span> and <span role="img" class="emoji">❤️</span></footer></div></div></div><script>
-  
-  
-  if(true) {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  }
-  if (typeof ga === "function") {
-    ga('create', 'UA-135921142-1', 'auto', {});
-      
-      
-      
-      
-      
-      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/commit-went-missing-after-rebase/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-8bd1cc8010cedd8acda1.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5efb7b8fb8a6286e0a5c.js"],"component---src-templates-note-post-js":["/component---src-templates-note-post-js-f59fa8cce9012e7ea455.js"],"component---src-templates-talk-post-js":["/component---src-templates-talk-post-js-4d1e0e4a3b0202bcc81e.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-f06013fc6459663c30aa.js"],"component---src-pages-404-js":["/component---src-pages-404-js-055b71ea0a4fd9dcbccc.js"],"component---src-pages-blogs-js":["/component---src-pages-blogs-js-9270d348e0caf96d536a.js"],"component---src-pages-index-js":["/component---src-pages-index-js-4ebc6c75084ea2b15307.js"],"component---src-pages-notes-js":["/component---src-pages-notes-js-f8c84f6f470347a722e0.js"],"component---src-pages-projects-js":["/component---src-pages-projects-js-30e64bddf6d9ab4282e1.js"],"component---src-pages-talks-js":["/component---src-pages-talks-js-c6d25163507a15c56cf7.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-f06013fc6459663c30aa.js" async=""></script><script src="/commons-3e93bd210d644ed6685c.js" async=""></script><script src="/styles-3b48cb4932382e2c1b1c.js" async=""></script><script src="/app-8bd1cc8010cedd8acda1.js" async=""></script><script src="/webpack-runtime-e01135db4acd799ac6d1.js" async=""></script></body></html>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-8-b80ea902.webp"><source type="image/png" srcset="/_app/assets/rebase-8-88b84e97.png"><img src="/_app/assets/rebase-8-88b84e97.png" loading="lazy" alt="result"></picture></p>
+<p>Here again, git is smart enough not to rewrite <code class="inline">commit #1</code> and <code class="inline">commit #2</code>.</p>
+<section><h2><a href="#summary" id="summary">Summary</a></h2>
+<p>When using <code class="inline">git rebase</code>, always remember the 3 reference points of rebase, the <code class="inline">new base</code>, <code class="inline">upstream</code> and <code class="inline">branch</code>.</p></section></article>
+
+</main>
+
+<footer class="svelte-70a8h7">
+</footer>
+
+
+		<script type="module" data-hydrate="t7zc0y">
+		import { start } from "/_app/start-49a5975a.js";
+		start({
+			target: document.querySelector('[data-hydrate="t7zc0y"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
+						import("/_app/pages/commit-went-missing-after-rebase/index.md-d1edc200.js")
+				],
+				params: {}
+			}
+		});
+	</script></div>
+		<script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+	</body>
+</html>

@@ -1,312 +1,153 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:118.75%/1.58 'Lora',serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.73);font-family:'Lora',serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}ul{margin-left:1.58rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.58rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:0.85rem;line-height:1.58rem;overflow:scroll;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:1rem;line-height:1.58rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0.9875rem;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:1.1487rem;line-height:1.58rem;border-left:0.5925rem solid #134896;color:hsla(0,0%,0%,0.65);font-style:italic;border-left-color:#612e77;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.58rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:0;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.58rem;margin-bottom:calc(1.58rem / 2);margin-top:calc(1.58rem / 2);}li > ul{margin-left:1.58rem;margin-bottom:calc(1.58rem / 2);margin-top:0;}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:0;}code{font-size:0.85rem;line-height:1.58rem;}kbd{font-size:0.85rem;line-height:1.58rem;}samp{font-size:0.85rem;line-height:1.58rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.05333rem;padding-right:1.05333rem;padding-top:0.79rem;padding-bottom:calc(0.79rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#612e77;text-decoration:underline;text-shadow:initial;background-image:initial;font-weight:600;}a:hover,a:active{text-shadow:none;background-image:none;}h1,h2,h3,h4,h5,h6{margin-top:2.37rem;margin-bottom:0.79rem;}li>ol,li>ul{margin-left:20px;margin-bottom:0;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.58rem;color:hsla(0,0%,0%,0.73);font-style:normal;font-weight:400;}blockquote cite:before{content:"— ";}@media only screen and (max-width:480px){html{font-size:106.25%;line-height:28px;}blockquote{border-left:0.29625rem solid #134896;color:hsla(0,0%,0%,0.59);padding-left:0.88875rem;font-style:italic;margin-left:-1.185rem;margin-right:0;}}a.gatsby-resp-image-link{box-shadow:none;}</style><style data-href="/styles.d32f1e7c7d8d283256bd.css">@font-face{font-family:Varela Round;font-style:normal;font-display:swap;font-weight:400;src:local("Varela Round Regular "),local("Varela Round-Regular"),url(/static/varela-round-latin-400-579fc6ff502e1f1e998dacea2e83bf37.woff2) format("woff2"),url(/static/varela-round-latin-400-ed1cf004373cd51bd0fd4c0e3dca9fae.woff) format("woff")}@font-face{font-family:Lora;font-style:normal;font-display:swap;font-weight:400;src:local("Lora Regular "),local("Lora-Regular"),url(/static/lora-latin-400-e4cdb14bf148f2846997a6be7ba648bd.woff2) format("woff2"),url(/static/lora-latin-400-0d78d370987954fb6b9f0efec3065e83.woff) format("woff")}@font-face{font-family:Lora;font-style:italic;font-display:swap;font-weight:400;src:local("Lora Regular italic"),local("Lora-Regularitalic"),url(/static/lora-latin-400italic-2c4801fad2634e6dac678d8826cf417c.woff2) format("woff2"),url(/static/lora-latin-400italic-7beffbacbbde86423a7ee771f31c1626.woff) format("woff")}@font-face{font-family:Lora;font-style:normal;font-display:swap;font-weight:700;src:local("Lora Bold "),local("Lora-Bold"),url(/static/lora-latin-700-ce18d17335e3ef2119d76f5dff177c66.woff2) format("woff2"),url(/static/lora-latin-700-1617380e0dea667b61cf44e86f3d0f10.woff) format("woff")}@font-face{font-family:Lora;font-style:italic;font-display:swap;font-weight:700;src:local("Lora Bold italic"),local("Lora-Bolditalic"),url(/static/lora-latin-700italic-b4bb1fa2335d49d4bc7e7ddd944cee44.woff2) format("woff2"),url(/static/lora-latin-700italic-6ec37b950cf9829a2cad7d02b11810c9.woff) format("woff")}body,div#___gatsby{background:#faf0fd}:root{--bg:#fff;--bg-secondary:#f9fafb;--textLink:#8c1fad;--textNormal:#444;--textTitle:#222;--hr:rgba(0,0,0,0.2);--inlineCode-bg:rgba(140,31,173,0.2);--inlineCode-text:rgba(0,0,0,0.73)}#carbonads{box-sizing:content-box;display:block;overflow:hidden;position:fixed;bottom:16px;left:16px;padding:1em;width:130px;background:#fff;text-align:center;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;line-height:1.5}@media (max-width:1080px){#carbonads{display:none}}#carbonads a{text-decoration:none}#carbonads a,#carbonads a:hover{color:inherit}#carbonads span{display:block;overflow:hidden}.carbon-img{display:block;margin:0 auto 8px;line-height:1}.carbon-text{display:block;margin-bottom:8px}.carbon-poweredby{display:block;text-transform:uppercase;letter-spacing:1px;font-size:10px;line-height:1}.BioImage-module--container--1PFVh{position:relative}.BioImage-module--image1--14nWk{opacity:0;color:green}.BioImage-module--image2--1Blhq{position:absolute!important;left:0;opacity:1}.BioImage-module--image1--14nWk,.BioImage-module--image2--1Blhq{-webkit-transition:opacity .5s ease-in-out;transition:opacity .5s ease-in-out}.BioImage-module--showImage--2hBbU .BioImage-module--image1--14nWk{opacity:1}.BioImage-module--showImage--2hBbU .BioImage-module--image2--1Blhq{opacity:0}.ScrollIndicator-module--container--324ST{top:0;left:0;right:0;height:3px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.ScrollIndicator-module--indicator--2-U_m{width:100%;height:100%;background:#bd93f9;-webkit-transform-origin:left;transform-origin:left;-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transition:all 0s ease-in 0s;transition:all 0s ease-in 0s}.Header-module--header--2skx2{position:fixed;width:100%;background:#faf0fd;z-index:10}.Header-module--nav--2MDt5{border-bottom:1px solid rgba(0,0,0,.2)}.Header-module--list--3FHwz{list-style:none;margin:0;padding:0 1em;width:100%;display:flex;overflow-x:scroll;white-space:nowrap;-ms-overflow-style:none;scrollbar-width:none}.Header-module--list--3FHwz::-webkit-scrollbar{display:none}.Header-module--list--3FHwz li{display:content}.Header-module--link--2Oeqp{text-decoration:none;padding:.5em;display:inline-block}.Header-module--link--2Oeqp.Header-module--active--SWH_Q{border-bottom:2px solid #612e77;padding-bottom:calc(.5em - 2px)}li.Header-module--spacer--fYffy{padding:0;width:100%}.Header-module--icon--2L7Gm{height:1em;width:1em;position:relative;top:2px;fill:#612e77}:root{--prism-padding:20px}pre::-webkit-scrollbar{width:14px}pre::-webkit-scrollbar-track{background-color:#6272a4;border-radius:0}pre::-webkit-scrollbar-thumb{background-color:#bd93f9;border-radius:0}code[class*=language-],pre[class*=language-]{color:#ccc;background:#282936;text-shadow:none;font-family:PT Mono,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background-color:#cacaca}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{background:#282936!important;border-radius:.5em;padding:var(--prism-padding,1em);margin:.5em 0;overflow:auto;height:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282936}:not(pre)>code[class*=language-]{padding:4px 8px;white-space:normal}.limit-300{height:300px!important}.limit-400{height:400px!important}.limit-500{height:500px!important}.limit-600{height:600px!important}.limit-700{height:700px!important}.limit-800{height:800px!important}.token.comment{color:#6272a4}.token.prolog{color:#cfcfc2}.token.tag{color:#dc68aa}.token.entity{color:#8be9fd}.token.atrule{color:#62ef75}.token.url{color:#66d9ef}.token.selector{color:#cfcfc2}.token.string{color:#f1fa8c}.token.property{color:#ffb86c}.token.important{color:#ff79c6;font-weight:700}.token.punctuation{color:#e6db74}.token.number{color:#bd93f9}.token.function{color:#50fa7b}.token.class-name{color:#ffb86c}.token.keyword{color:#ff79c6}.token.boolean{color:#ffb86c}.token.operator{color:#8be9fd}.token.char{color:#ff879d}.token.regex,.token.variable{color:#50fa7b}.token.constant,.token.symbol{color:#ffb86c}.token.builtin{color:#ff79c6}.token.attr-value{color:#7ec699}.token.deleted,.token.namespace{color:#e2777a}.token.bold{font-weight:700}.token.italic{font-style:italic}.token.inserted{color:#1fd44b}.token.deleted{color:#ff0013}.token{color:#ff79c6}.langague-c .token.string,.langague-cpp .token.string{color:#8be9fd}.language-css .token.selector{color:#50fa7b}.language-css .token.property{color:#ffb86c}.language-java .token.class-name,.language-java span.token.class-name{color:#8be9fd}.language-markup .token.attr-value{color:#66d9ef}.language-markup .token.tag{color:#50fa7b}.language-objectivec .token.property{color:#66d9ef}.language-objectivec .token.string{color:#50fa7b}.language-php .token.boolean{color:#8be9fd}.language-php .token.function{color:#ff79c6}.language-php .token.keyword{color:#66d9ef}.language-ruby .token.symbol{color:#8be9fd}.language-ruby .token.class-name{color:#cfcfc2}pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre.line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;top:.3em;right:.2em;-webkit-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out;opacity:0}div.code-toolbar:hover>.toolbar{opacity:1}div.code-toolbar>.toolbar .toolbar-item{display:inline-block;padding-right:20px}div.code-toolbar>.toolbar a{cursor:pointer}div.code-toolbar>.toolbar button{background:none;border:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}div.code-toolbar>.toolbar a,div.code-toolbar>.toolbar button,div.code-toolbar>.toolbar span{color:#ccc;font-size:.8em;padding:.5em;background:#6272a4;border-radius:.5em}div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-toolbar>.toolbar button:focus,div.code-toolbar>.toolbar button:hover,div.code-toolbar>.toolbar span:focus,div.code-toolbar>.toolbar span:hover{color:inherit;text-decoration:none;background-color:var(--verde)}.gatsby-highlight-code-line{background-color:#38394d;display:block;margin-right:-1em;margin-left:-1.25em;padding-right:1em;padding-left:.75em;border-left:.5em solid #ff79c6}:not(pre)>code.language-text{background-color:rgba(227,154,249,.2);color:#612e77;border-radius:10px;font-size:.8em}:not(pre)>code.language-text::selection{background-color:#cc23ff;color:#fff}.gatsby-highlight,p.filename{margin-left:calc(-1*var(--prism-padding));margin-right:calc(-1*var(--prism-padding))}.gatsby-highlight+blockquote,.gatsby-highlight+p:not(.filename){margin-top:1.58em}.index-module--list--3C1Zu{margin-bottom:0;margin-top:0}.index-module--p--4EDuH{margin-bottom:.4rem;margin-top:.4rem}.gatsby-highlight+.caption,figcaption{font-size:.8rem;font-style:italic;font-weight:lighter;color:rgba(0,0,0,.65);text-decoration:underline;margin-bottom:1em}.gatsby-highlight+.caption{margin-top:-.5em}.gatsby-highlight+.caption>code[class*=language-],figcaption>code[class*=language-]{padding:2px 4px;font-size:.8em;background-color:rgba(0,0,0,.65);color:#faf0fd}.filename{font-size:.85em;font-style:italic;margin-bottom:0;padding:8px var(--prism-padding);padding-bottom:0;background:#282936;color:#faf0fd;border-top-left-radius:.5em;border-top-right-radius:.5em;text-decoration:underline}.filename+.gatsby-highlight pre{border-top-left-radius:0;border-top-right-radius:0;margin-top:0;padding-top:2px}</style><meta name="generator" content="Gatsby 2.18.7"/><style type="text/css">
-    .anchor {
-      float: left;
-      padding-right: 4px;
-      margin-left: -20px;
-    }
-    h1 .anchor svg,
-    h2 .anchor svg,
-    h3 .anchor svg,
-    h4 .anchor svg,
-    h5 .anchor svg,
-    h6 .anchor svg {
-      visibility: hidden;
-    }
-    h1:hover .anchor svg,
-    h2:hover .anchor svg,
-    h3:hover .anchor svg,
-    h4:hover .anchor svg,
-    h5:hover .anchor svg,
-    h6:hover .anchor svg,
-    h1 .anchor:focus svg,
-    h2 .anchor:focus svg,
-    h3 .anchor:focus svg,
-    h4 .anchor:focus svg,
-    h5 .anchor:focus svg,
-    h6 .anchor:focus svg {
-      visibility: visible;
-    }
-  </style><script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-      var hash = window.decodeURI(location.hash.replace('#', ''))
-      if (hash !== '') {
-        var element = document.getElementById(hash)
-        if (element) {
-          var offset = element.offsetTop
-          // Wait for the browser to finish rendering before scrolling.
-          setTimeout((function() {
-            window.scrollTo(0, offset - 70)
-          }), 0)
-        }
-      }
-    })
-  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/><link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#612e77"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0"/><title data-react-helmet="true">The `ascii_only` option in uglify-js | Tan Li Hau</title><meta data-react-helmet="true" name="description" content="that get my emoji showing in my chrome extension"/><meta data-react-helmet="true" name="image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><meta data-react-helmet="true" property="og:image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><meta data-react-helmet="true" property="og:title" content="The `ascii_only` option in uglify-js"/><meta data-react-helmet="true" property="og:description" content="that get my emoji showing in my chrome extension"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:site" content="@lihautan"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Tan Li Hau"/><meta data-react-helmet="true" name="twitter:title" content="The `ascii_only` option in uglify-js"/><meta data-react-helmet="true" name="twitter:description" content="that get my emoji showing in my chrome extension"/><meta data-react-helmet="true" name="twitter:image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><link href="//fonts.googleapis.com/css?family=Varela+Round:400|Lora:400,400i,700" rel="stylesheet" type="text/css"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-e01135db4acd799ac6d1.js"/><link as="script" rel="preload" href="/app-8bd1cc8010cedd8acda1.js"/><link as="script" rel="preload" href="/styles-3b48cb4932382e2c1b1c.js"/><link as="script" rel="preload" href="/commons-3e93bd210d644ed6685c.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-f06013fc6459663c30aa.js"/><link as="fetch" rel="preload" href="/page-data/uglify-ascii-only/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><header class="Header-module--header--2skx2"><nav class="Header-module--nav--2MDt5"><ul class="Header-module--list--3FHwz"><li><a class="Header-module--link--2Oeqp" href="/">Tan Li Hau</a></li><li><a class="Header-module--link--2Oeqp" href="/blogs/">Writings</a></li><li><a class="Header-module--link--2Oeqp" href="/talks/">Talks</a></li><li><a class="Header-module--link--2Oeqp" href="/projects/">Projects</a></li><li><a class="Header-module--link--2Oeqp" href="/notes/">Notes</a></li><li class="Header-module--spacer--fYffy"></li><li><a class="Header-module--link--2Oeqp" href="https://twitter.com/lihautan"><svg viewBox="0 0 24 24" class="Header-module--icon--2L7Gm"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a></li><li><a class="Header-module--link--2Oeqp" href="https://github.com/tanhauhau"><svg viewBox="0 0 24 24" class="Header-module--icon--2L7Gm"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav><div class="ScrollIndicator-module--container--324ST"><div class="ScrollIndicator-module--indicator--2-U_m"></div></div></header><div style="margin-left:auto;margin-right:auto;max-width:37.92rem;padding:2.37rem 1.185rem"><main><article itemtype="http://schema.org/Article" itemprop="mainEntity"><script type="application/ld+json">{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;Article&quot;,&quot;author&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;copyrightHolder&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;copyrightYear&quot;:&quot;2019&quot;,&quot;creator&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;publisher&quot;:{&quot;@type&quot;:&quot;Organization&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;,&quot;logo&quot;:{&quot;@type&quot;:&quot;ImageObject&quot;,&quot;url&quot;:&quot;/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png&quot;}},&quot;datePublished&quot;:&quot;October 27, 2018&quot;,&quot;dateModified&quot;:&quot;October 27, 2018&quot;,&quot;description&quot;:&quot;that get my emoji showing in my chrome extension&quot;,&quot;headline&quot;:&quot;The `ascii_only` option in uglify-js&quot;,&quot;inLanguage&quot;:&quot;en&quot;,&quot;url&quot;:&quot;https://lihautan.com/uglify-ascii-only/&quot;,&quot;name&quot;:&quot;The `ascii_only` option in uglify-js&quot;,&quot;image&quot;:{&quot;@type&quot;:&quot;ImageObject&quot;,&quot;url&quot;:&quot;https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png&quot;},&quot;mainEntityOfPage&quot;:&quot;https://lihautan.com/uglify-ascii-only/&quot;}</script><script type="application/ld+json">{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;BreadcrumbList&quot;,&quot;description&quot;:&quot;Breadcrumbs list&quot;,&quot;name&quot;:&quot;Breadcrumbs&quot;,&quot;itemListElement&quot;:[{&quot;@type&quot;:&quot;ListItem&quot;,&quot;item&quot;:{&quot;@id&quot;:&quot;https://lihautan.com&quot;,&quot;name&quot;:&quot;Homepage&quot;},&quot;position&quot;:1},{&quot;@type&quot;:&quot;ListItem&quot;,&quot;item&quot;:{&quot;@id&quot;:&quot;https://lihautan.com/uglify-ascii-only/&quot;,&quot;name&quot;:&quot;The `ascii_only` option in uglify-js&quot;},&quot;position&quot;:2}]}</script><meta itemprop="url" content="https://lihautan.com/uglify-ascii-only/"/><meta itemprop="image" content="https://lihautan.com/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png"/><h1 itemprop="name headline">The `ascii_only` option in uglify-js</h1><p style="font-size:0.87055rem;line-height:1.58rem;display:block;margin-bottom:1.58rem;margin-top:-0.79rem"><time itemprop="datePublished" dateTime="2018-10-27T08:00:00UTC">October 27, 2018</time></p><div itemprop="articleBody"><p>The background story</p>
-<p>I was working on a chrome extension, and trying to add some emojis <span class="emoji">😍</span><span class="emoji">😀</span><span class="emoji">😎</span> into the extension, however I realised the <span class="emoji">😍</span><span class="emoji">😀</span><span class="emoji">😎</span> are not rendered correctly!</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/ff2b81e03b2f2d9068a97743adcb69c8/9adaa/problem.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 66.32911392405065%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAAAZElEQVQoz+2NwQqAIAyGff837FBIJJubmrm8ZuvQPfIWfbCf8Y+PGe89eppmN4zWLrA4h4hElFICgBgjM4cQmFh3ANTUq6aWpta65rwV0Smyi4g27RmmdXDJx80buevzL39fPgFFRwLqWPWYuwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="The 😍😍😀😀isn’t rendered correctly in chrome extension"
-        title="The 😍😍😀😀isn’t rendered correctly in chrome extension"
-        src="/static/ff2b81e03b2f2d9068a97743adcb69c8/799d3/problem.png"
-        srcset="/static/ff2b81e03b2f2d9068a97743adcb69c8/00d96/problem.png 148w,
-/static/ff2b81e03b2f2d9068a97743adcb69c8/0b23c/problem.png 295w,
-/static/ff2b81e03b2f2d9068a97743adcb69c8/799d3/problem.png 590w,
-/static/ff2b81e03b2f2d9068a97743adcb69c8/2a3d6/problem.png 885w,
-/static/ff2b81e03b2f2d9068a97743adcb69c8/ae92f/problem.png 1180w,
-/static/ff2b81e03b2f2d9068a97743adcb69c8/9adaa/problem.png 1580w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+	  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+		<link href="https://twitter.com/lihautan" rel="me" />
+  	<link rel="manifest" href="/manifest.webmanifest" />
+		<meta name="theme-color" content="#bd93f9" />
+		<link rel="apple-touch-icon" sizes="48x48" href="/icon-48x48.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="96x96" href="/icon-96x96.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
+		<link rel="apple-touch-icon" sizes="256x256" href="/icon-256x256.png" />
+		<link rel="apple-touch-icon" sizes="384x384" href="/icon-384x384.png" />
+		<link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
+		<link rel="icon" href="/icon-48x48.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,300&display=swap" as="style"
+			onload="this.rel='stylesheet'">
+		<link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+		<link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+		<link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+		<meta http-equiv="content-security-policy" content=""><title>The `ascii_only` option in uglify-js | Tan Li Hau</title><meta name="description" content="that get my emoji showing in my chrome extension" data-svelte="svelte-1vzsqtc"><meta name="image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc"><meta name="og:image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc"><meta name="og:title" content="The `ascii_only` option in uglify-js" data-svelte="svelte-1vzsqtc"><meta name="og:description" content="that get my emoji showing in my chrome extension" data-svelte="svelte-1vzsqtc"><meta name="og:type" content="website" data-svelte="svelte-1vzsqtc"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1vzsqtc"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1vzsqtc"><meta name="twitter:title" content="The `ascii_only` option in uglify-js" data-svelte="svelte-1vzsqtc"><meta name="twitter:description" content="that get my emoji showing in my chrome extension" data-svelte="svelte-1vzsqtc"><meta name="twitter:image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc"><meta itemprop="url" content="https://lihautan.com/uglify-ascii-only/" data-svelte="svelte-1vzsqtc"><meta itemprop="image" content="/_app/assets/twitter-card-image-fec9b660.jpg" data-svelte="svelte-1vzsqtc">
+	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
+	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
+	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
+	<link rel="modulepreload" href="/_app/start-49a5975a.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
+	<link rel="modulepreload" href="/_app/pages/uglify-ascii-only/index.md-ce9921fd.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<a href="#content" class="skip svelte-70a8h7">Skip to content</a>
+
+	<header class="svelte-70a8h7"><nav><ul class="mode-sidebar svelte-1hc74yu"><li class="svelte-1hc74yu"><a href="/" class="svelte-1hc74yu">Tan Li Hau</a></li>
+	<li class="svelte-1hc74yu"><a href="/about" class="svelte-1hc74yu">About</a></li>
+	<li class="svelte-1hc74yu"><a href="/blogs" class="svelte-1hc74yu">Writings</a></li>
+	<li class="svelte-1hc74yu"><a href="/talks" class="svelte-1hc74yu">Talks</a></li>
+	<li class="svelte-1hc74yu"><a href="/notes" class="svelte-1hc74yu">Notes</a></li>
+	<li class="svelte-1hc74yu"><a href="/newsletter" class="svelte-1hc74yu">Newsletter</a></li>
+	<li class="social svelte-1hc74yu"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-1hc74yu"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-1hc74yu"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+  10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+  4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+		<a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-1hc74yu"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-1hc74yu"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+  0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+  5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+  5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+  3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+		<a aria-label="YouTube account" href="https://youtube.com/c/lihautan" class="svelte-1hc74yu"><svg viewBox="0 0 461.001 461.001" width="1em" height="1em" class="svelte-1hc74yu"><path d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.082z"></path></svg></a></li>
+</ul></nav></header>
+
+<main id="content" class="svelte-70a8h7">
+
+<h1>The `ascii_only` option in uglify-js</h1>
+
+
+
+
+
+<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#til-uglifyjs-ascii-only-option-use-it-when-you-want-to-escape-unicode-characters">TIL: UglifyJs ascii_only option, use it when you want to escape Unicode characters.</a></li>
+			</ul>
+</section>
+<p>The background story</p>
+<p>I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the 😍😀😎 are not rendered correctly!</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/problem-a5b4b5e3.webp"><source type="image/png" srcset="/_app/assets/problem-662a8224.png"><img src="/_app/assets/problem-662a8224.png" loading="lazy" alt="The 😍😍😀😀isn’t rendered correctly in chrome extension"></picture></p>
 <p>And so I inspect the source code loaded into the chrome extension, it wasn’t loaded correctly as well!</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1d6b5e9c1ff4877c011da49ac7779e01/2bb9f/problem-2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 52.05158264947245%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYUlEQVQoz+3MuxJAMBSE4bz/CyqMwi0Rl8E5J8sEwQOg0Sh8xXb/qrZu8rTMCh3FidGm0rq3lrvOiYAZ507XiEh5753DSATAi8zDuBCtzJvDJrwCIYT9htpfUA/Hf/yp+AB7gVDwv+I1sAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="problem with the source too"
-        title="problem with the source too"
-        src="/static/1d6b5e9c1ff4877c011da49ac7779e01/799d3/problem-2.png"
-        srcset="/static/1d6b5e9c1ff4877c011da49ac7779e01/00d96/problem-2.png 148w,
-/static/1d6b5e9c1ff4877c011da49ac7779e01/0b23c/problem-2.png 295w,
-/static/1d6b5e9c1ff4877c011da49ac7779e01/799d3/problem-2.png 590w,
-/static/1d6b5e9c1ff4877c011da49ac7779e01/2a3d6/problem-2.png 885w,
-/static/1d6b5e9c1ff4877c011da49ac7779e01/ae92f/problem-2.png 1180w,
-/static/1d6b5e9c1ff4877c011da49ac7779e01/2bb9f/problem-2.png 1706w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/problem-2-abc15427.webp"><source type="image/png" srcset="/_app/assets/problem-2-28ca7497.png"><img src="/_app/assets/problem-2-28ca7497.png" loading="lazy" alt="problem with the source too"></picture></p>
 <p>And so I think, probably the encoding issue was caused by the webpack compilation, but, my compiled code looks exactly fine!</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/2601fef3b9c18ade62977ec25a16beda/f9f20/source.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.95688456189152%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAAA/UlEQVQoz+WLwU6EMBRF+QAZpQwOhcwApS1QYSptYQCFAAsTXbhxYVyZ+Amz8PstM8bErVuTk5dzb941nuaP95fP18fj0L8h0WMxxmIkcsJyInImp5vIiUpdjnE5RrcjXh4WjDDmCJecdoLfp1zRRMj9mNEay4bUd1h1advT/U0hc5SyACGWYT9ElhsAGBhX7vbC8XZJUdRDXvWim0U7R7TM64pViimlhiYTgjdVfqjaA39+KLkqnYDBiBnACy8daMHA9mOg8ZDlofUWAw/b/oIFY33B2X2ygtrJ9Y5qlrFpu6u1a9obzUq77Zpgc46n5pd/R7DwM4Z/4D+OvwBmxkQr7YPD0AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="The compiled code seems okay!"
-        title="The compiled code seems okay!"
-        src="/static/2601fef3b9c18ade62977ec25a16beda/799d3/source.png"
-        srcset="/static/2601fef3b9c18ade62977ec25a16beda/00d96/source.png 148w,
-/static/2601fef3b9c18ade62977ec25a16beda/0b23c/source.png 295w,
-/static/2601fef3b9c18ade62977ec25a16beda/799d3/source.png 590w,
-/static/2601fef3b9c18ade62977ec25a16beda/2a3d6/source.png 885w,
-/static/2601fef3b9c18ade62977ec25a16beda/ae92f/source.png 1180w,
-/static/2601fef3b9c18ade62977ec25a16beda/f9f20/source.png 1438w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>So, most likely is a decoding issue when the emoji code get loaded into chrome extension. So I manually changed the emoji in the compiled code to <code class="language-text">\ud83d\ude0d</code> (unicode for <span class="emoji">😍</span>). Guess what? The emoji is showing correctly in the chrome extension!</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/c3d91cd8d55265438e63eb08b5570a4d/a98b0/expectation.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 53.37423312883436%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAAAWklEQVQoz+2LOw6AIBBEuf/9tFESFcIi+6OxsAHhBiaWMsVLZibPxBgdnLPdpsWu+0HM3ntR7RTpr3NZNYTQKgAgYkqpjzkbIkJmFm28L62l1Ncx9UOG/A/5AYJKiv/XIO9rAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="😍!"
-        title="😍!"
-        src="/static/c3d91cd8d55265438e63eb08b5570a4d/799d3/expectation.png"
-        srcset="/static/c3d91cd8d55265438e63eb08b5570a4d/00d96/expectation.png 148w,
-/static/c3d91cd8d55265438e63eb08b5570a4d/0b23c/expectation.png 295w,
-/static/c3d91cd8d55265438e63eb08b5570a4d/799d3/expectation.png 590w,
-/static/c3d91cd8d55265438e63eb08b5570a4d/2a3d6/expectation.png 885w,
-/static/c3d91cd8d55265438e63eb08b5570a4d/ae92f/expectation.png 1180w,
-/static/c3d91cd8d55265438e63eb08b5570a4d/a98b0/expectation.png 1304w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>So I changed my source code to manually type in the unicode, and compiled it using webpack. To my surprise, the unicode was compiled back into the emoji (<span class="emoji">😍</span>) it represents!</p>
-<p>I googled around and I found <a href="https://github.com/babel/babel/pull/4478">this fix for babel-generator</a>:</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/89e01cd1223b85be658c2ea05cfbd0ab/75d76/babel-issue.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 41.375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABBklEQVQY031Ry07EMAzM/38IEgf+AQ7ADQkEFM50d1W1TdPEcd4p0+3CcmFHqWNHGo89Fe/P7cfrbtbaGGPZEjFZNkRmjcfEGO+9Y7xbZi6lLD8QT7fdy0NHRM45BpuDtsH5YDjOBApeXa11+YO61BxjzVmwNzhENoR4jAHtoYGSV6rLpWQAiqVuyCWzmpK14ubquu/HUc6DVFJpOc1rVFoT+5hdSLhQzppciH0/4Jz0axXBe/RNKSHWWlKM5+Hqed4ta5rmq223EhSBzPuw2x8mpeEQO7/8D6wjJ4X5t+YrGevtD90wTpb9ZTJk8F+geXIbH3y6u398az7XbaW6QIZ/cPS3/AZH589NEecGCQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="babel issue"
-        title="babel issue"
-        src="/static/89e01cd1223b85be658c2ea05cfbd0ab/799d3/babel-issue.png"
-        srcset="/static/89e01cd1223b85be658c2ea05cfbd0ab/00d96/babel-issue.png 148w,
-/static/89e01cd1223b85be658c2ea05cfbd0ab/0b23c/babel-issue.png 295w,
-/static/89e01cd1223b85be658c2ea05cfbd0ab/799d3/babel-issue.png 590w,
-/static/89e01cd1223b85be658c2ea05cfbd0ab/2a3d6/babel-issue.png 885w,
-/static/89e01cd1223b85be658c2ea05cfbd0ab/ae92f/babel-issue.png 1180w,
-/static/89e01cd1223b85be658c2ea05cfbd0ab/75d76/babel-issue.png 1600w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/source-ae091af1.webp"><source type="image/png" srcset="/_app/assets/source-4da711b4.png"><img src="/_app/assets/source-4da711b4.png" loading="lazy" alt="The compiled code seems okay!"></picture></p>
+<p>So, most likely is a decoding issue when the emoji code get loaded into chrome extension. So I manually changed the emoji in the compiled code to <code class="inline">\ud83d\ude0d</code> (unicode for 😍). Guess what? The emoji is showing correctly in the chrome extension!</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/expectation-e308aa72.webp"><source type="image/png" srcset="/_app/assets/expectation-21749d2f.png"><img src="/_app/assets/expectation-21749d2f.png" loading="lazy" alt="😍!"></picture></p>
+<p>So I changed my source code to manually type in the unicode, and compiled it using webpack. To my surprise, the unicode was compiled back into the emoji (😍) it represents!</p>
+<p>I googled around and I found <a href="https://github.com/babel/babel/pull/4478" rel="nofollow">this fix for babel-generator</a>:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/babel-issue-c88fbf8f.webp"><source type="image/png" srcset="/_app/assets/babel-issue-9475e314.png"><img src="/_app/assets/babel-issue-9475e314.png" loading="lazy" alt="babel issue"></picture></p>
 <p>I checked my babel version, and it had included this fix. So what went wrong?</p>
 <hr>
 <p>My colleague reminded me that during webpack compilation, there are 2 phases, the <strong>transpilation</strong> (via babel) and the <strong>minification</strong> (via uglify plugin).</p>
-<p>So I disabled the optimisation in webpack config, and noticed that my compiled code contains the original unicode string (<code class="language-text">\ud83d\ude0d</code>), instead of the emoji (<span class="emoji">😍</span>) string. So the unicode string was converted to emoji string during minification!</p>
-<p>So I went to my favourite <a href="https://skalman.github.io/UglifyJS-online/">Online JavaScript Minifier</a> (by <a href="https://github.com/skalman">skalman</a>) to try it out.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/3c362481f7109a36963627eb1ab37cf3/a75c3/uglify.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 21.19521912350598%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAkklEQVQI12OYvGb95NXr5u/aO3PT1nk7d8/YuGXmxq1ztu4EMtacPrvmxIk1R4+uO3Fi3cmTa48d23T27PbLl7ddugRBDG8+f//248evv3//////D4yArL//gPT/+28+3Hr69O+vn79+gwCQ/PPnz18kwPDl5x+INmTwD6z54ZsPj96+hXMxAcPnH79xaX5ASDMA2CDb/Ms6D0sAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="online javasript minifier"
-        title="online javasript minifier"
-        src="/static/3c362481f7109a36963627eb1ab37cf3/799d3/uglify.png"
-        srcset="/static/3c362481f7109a36963627eb1ab37cf3/00d96/uglify.png 148w,
-/static/3c362481f7109a36963627eb1ab37cf3/0b23c/uglify.png 295w,
-/static/3c362481f7109a36963627eb1ab37cf3/799d3/uglify.png 590w,
-/static/3c362481f7109a36963627eb1ab37cf3/2a3d6/uglify.png 885w,
-/static/3c362481f7109a36963627eb1ab37cf3/ae92f/uglify.png 1180w,
-/static/3c362481f7109a36963627eb1ab37cf3/a75c3/uglify.png 2510w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>After some googling, I <a href="https://github.com/mishoo/UglifyJS2/issues/490">found this issue</a> which described my scenario perfectly.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/7080b1d2cff0afacdf72b3196c9d5a13/f5539/babel-issue-2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 42.30396902226525%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABKElEQVQY031Qu1LDMBD0/38IDRVDT0dBQQNDSWCw4jixLVnW86STzDrJwNBws9KcpF3t3TVS634c21b0/VGI/TCMXXcATqcTjoe+33fdV9sO4AhhrF3X9ejHm929cH0z7D7Fy5uc5GKM1ou1zhhwEM46F2L0wTvnich7z8wQR6YPI3wOjXl8Gm7vQAEPAVJKiSLFEC/Uf6J5eH59HxR85sXMeoOxnjJT4kg5UAqUkfhAPpLzHnXVWq/i46SVNlIqqeaMgB2XUtdSK3bQuFRc8Pk+hLAsBslVjIU3pZdJzTBXs56kQg7IWUulHUxTjgn/FrSdUv4tGytzPgvt1aEUEDfwtuOISgBUgclhNn/EeIcDrFD/pPQ4SrSXmLfOt+bzBSnDGWOlH/E3Ub3LvmAYyTcAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="why uglifyjs always compress unicode characters to utf8"
-        title="why uglifyjs always compress unicode characters to utf8"
-        src="/static/7080b1d2cff0afacdf72b3196c9d5a13/799d3/babel-issue-2.png"
-        srcset="/static/7080b1d2cff0afacdf72b3196c9d5a13/00d96/babel-issue-2.png 148w,
-/static/7080b1d2cff0afacdf72b3196c9d5a13/0b23c/babel-issue-2.png 295w,
-/static/7080b1d2cff0afacdf72b3196c9d5a13/799d3/babel-issue-2.png 590w,
-/static/7080b1d2cff0afacdf72b3196c9d5a13/2a3d6/babel-issue-2.png 885w,
-/static/7080b1d2cff0afacdf72b3196c9d5a13/ae92f/babel-issue-2.png 1180w,
-/static/7080b1d2cff0afacdf72b3196c9d5a13/f5539/babel-issue-2.png 2066w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Turned out there is a <code class="language-text">ascii_only</code> for <a href="https://github.com/mishoo/UglifyJS2#output-options">output options</a>, and it is default to <code class="language-text">false</code>. So I set <code class="language-text">ascii_only</code> to <code class="language-text">true</code>, ran webpack, and checked my compiled code, it contained the unicode string (<code class="language-text">\ud83d\ude0d</code>)! And even when I wrote emoji string (<span class="emoji">😍</span>) in my source code, it got compiled to unicode as well.</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> UglifyJsPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'uglifyjs-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>So I disabled the optimisation in webpack config, and noticed that my compiled code contains the original unicode string (<code class="inline">\ud83d\ude0d</code>), instead of the emoji (😍) string. So the unicode string was converted to emoji string during minification!</p>
+<p>So I went to my favourite <a href="https://skalman.github.io/UglifyJS-online/" rel="nofollow">Online JavaScript Minifier</a> (by <a href="https://github.com/skalman" rel="nofollow">skalman</a>) to try it out.</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/uglify-2a0d29b2.webp"><source type="image/png" srcset="/_app/assets/uglify-31e985f1.png"><img src="/_app/assets/uglify-31e985f1.png" loading="lazy" alt="online javasript minifier"></picture></p>
+<p>After some googling, I <a href="https://github.com/mishoo/UglifyJS2/issues/490" rel="nofollow">found this issue</a> which described my scenario perfectly.</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/babel-issue-2-4b70ccf8.webp"><source type="image/png" srcset="/_app/assets/babel-issue-2-e0456ec1.png"><img src="/_app/assets/babel-issue-2-e0456ec1.png" loading="lazy" alt="why uglifyjs always compress unicode characters to utf8"></picture></p>
+<p>Turned out there is a <code class="inline">ascii_only</code> for <a href="https://github.com/mishoo/UglifyJS2#output-options" rel="nofollow">output options</a>, and it is default to <code class="inline">false</code>. So I set <code class="inline">ascii_only</code> to <code class="inline">true</code>, ran webpack, and checked my compiled code, it contained the unicode string (<code class="inline">\ud83d\ude0d</code>)! And even when I wrote emoji string (😍) in my source code, it got compiled to unicode as well.</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">UglifyJsPlugin</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">require</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;uglifyjs-webpack-plugin&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
+<span class="line dim"></span>
+<span class="line dim"><span style="color: var(--shiki-token-constant)">module</span><span style="color: var(--shiki-color-text)">.</span><span style="color: var(--shiki-token-constant)">exports</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-comment)">//...</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">  optimization</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">    minimizer</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">new</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">UglifyJsPlugin</span><span style="color: var(--shiki-color-text)">(&#123;</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">      uglifyOptions</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
+<span class="line highlight"><span style="color: var(--shiki-color-text)">        output</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
+<span class="line highlight"><span style="color: var(--shiki-color-text)">          </span><span style="color: var(--shiki-token-comment)">// true for &#96;ascii_only&#96;</span></span>
+<span class="line highlight"><span style="color: var(--shiki-color-text)">          ascii_only</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">true</span></span>
+<span class="line highlight"><span style="color: var(--shiki-color-text)">        &#125;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">      &#125;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">    &#125;)</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">  &#125;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
+<span class="line dim"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<hr>
+<section><h2><a href="#til-uglifyjs-ascii-only-option-use-it-when-you-want-to-escape-unicode-characters" id="til-uglifyjs-ascii-only-option-use-it-when-you-want-to-escape-unicode-characters">TIL: UglifyJs ascii_only option, use it when you want to escape Unicode characters.</a></h2>
+<hr>
+<p>Why is there a <code class="inline">ascii_only</code> option?</p>
+<p>My guess is that it takes less space for a unicode character (16–17bit) than the escaped ascii characters (6 <em>8 bit — 12 </em> bit), that’s why using unicode character is the default option (<code class="inline">ascii_only=false</code>).</p></section></article>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token comment">//...</span>
-  optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    minimizer<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">UglifyJsPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      uglifyOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-<span class="gatsby-highlight-code-line">        output<span class="token punctuation">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">          <span class="token comment">// true for `ascii_only`</span></span><span class="gatsby-highlight-code-line">          ascii_only<span class="token punctuation">:</span> <span class="token boolean">true</span></span><span class="gatsby-highlight-code-line">        <span class="token punctuation">}</span><span class="token punctuation">,</span></span>      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span></code></pre></div>
-<hr>
-<h2 id="til-uglifyjs-ascii_only-option-use-it-when-you-want-to-escape-unicode-characters"><a href="#til-uglifyjs-ascii_only-option-use-it-when-you-want-to-escape-unicode-characters" aria-label="til uglifyjs ascii_only option use it when you want to escape unicode characters permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIL: UglifyJs ascii_only option, use it when you want to escape Unicode characters.</h2>
-<hr>
-<p>Why is there a <code class="language-text">ascii_only</code> option?</p>
-<p>My guess is that it takes less space for a unicode character (16–17bit) than the escaped ascii characters (6 * 8 bit — 12 * bit), that’s why using unicode character is the default option (<code class="language-text">ascii_only=false</code>).</p></div></article><hr style="margin-bottom:1.58rem"/><p>Thank you for your time reading through this article.<br/>It means a lot to me.</p><p> I would appreciate if you <a href="https://twitter.com/intent/tweet?text=Insightful%20article%20from%20%40lihautan&amp;url=https://lihautan.com/uglify-ascii-only/">tweet about it.</a></p><hr style="margin-bottom:1.58rem"/><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/dead-code-elimination/">← <!-- -->Dead-code elimination</a></li><li><a rel="next" href="/eslint-for-flow-explicit-type-argument-syntax/">My eslint doesn’t work with for flow 0.85’s explicit type argument syntax<!-- --> →</a></li></ul></main><footer style="margin-top:3.16rem">Built with <span role="img" class="emoji">💻</span> and <span role="img" class="emoji">❤️</span></footer></div></div></div><script>
-  
-  
-  if(true) {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  }
-  if (typeof ga === "function") {
-    ga('create', 'UA-135921142-1', 'auto', {});
-      
-      
-      
-      
-      
-      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/uglify-ascii-only/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-8bd1cc8010cedd8acda1.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5efb7b8fb8a6286e0a5c.js"],"component---src-templates-note-post-js":["/component---src-templates-note-post-js-f59fa8cce9012e7ea455.js"],"component---src-templates-talk-post-js":["/component---src-templates-talk-post-js-4d1e0e4a3b0202bcc81e.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-f06013fc6459663c30aa.js"],"component---src-pages-404-js":["/component---src-pages-404-js-055b71ea0a4fd9dcbccc.js"],"component---src-pages-blogs-js":["/component---src-pages-blogs-js-9270d348e0caf96d536a.js"],"component---src-pages-index-js":["/component---src-pages-index-js-4ebc6c75084ea2b15307.js"],"component---src-pages-notes-js":["/component---src-pages-notes-js-f8c84f6f470347a722e0.js"],"component---src-pages-projects-js":["/component---src-pages-projects-js-30e64bddf6d9ab4282e1.js"],"component---src-pages-talks-js":["/component---src-pages-talks-js-c6d25163507a15c56cf7.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-f06013fc6459663c30aa.js" async=""></script><script src="/commons-3e93bd210d644ed6685c.js" async=""></script><script src="/styles-3b48cb4932382e2c1b1c.js" async=""></script><script src="/app-8bd1cc8010cedd8acda1.js" async=""></script><script src="/webpack-runtime-e01135db4acd799ac6d1.js" async=""></script></body></html>
+</main>
+
+<footer class="svelte-70a8h7">
+</footer>
+
+
+		<script type="module" data-hydrate="fnyius">
+		import { start } from "/_app/start-49a5975a.js";
+		start({
+			target: document.querySelector('[data-hydrate="fnyius"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
+						import("/_app/pages/uglify-ascii-only/index.md-ce9921fd.js")
+				],
+				params: {}
+			}
+		});
+	</script></div>
+		<script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+	</body>
+</html>

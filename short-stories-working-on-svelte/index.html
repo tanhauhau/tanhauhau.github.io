@@ -1,452 +1,342 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:118.75%/1.58 'Lora',serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.73);font-family:'Lora',serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;color:hsla(0,0%,0%,0.9);font-family:'Varela Round',sans-serif;font-weight:400;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}ul{margin-left:1.58rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.58rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:0.85rem;line-height:1.58rem;overflow:scroll;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:1rem;line-height:1.58rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0.9875rem;padding-right:0;padding-top:0;margin-bottom:1.58rem;font-size:1.1487rem;line-height:1.58rem;border-left:0.5925rem solid #134896;color:hsla(0,0%,0%,0.65);font-style:italic;border-left-color:#612e77;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.58rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.58rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:0;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.58rem;margin-bottom:calc(1.58rem / 2);margin-top:calc(1.58rem / 2);}li > ul{margin-left:1.58rem;margin-bottom:calc(1.58rem / 2);margin-top:0;}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:0;}code{font-size:0.85rem;line-height:1.58rem;}kbd{font-size:0.85rem;line-height:1.58rem;}samp{font-size:0.85rem;line-height:1.58rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.05333rem;padding-right:1.05333rem;padding-top:0.79rem;padding-bottom:calc(0.79rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#612e77;text-decoration:underline;text-shadow:initial;background-image:initial;font-weight:600;}a:hover,a:active{text-shadow:none;background-image:none;}h1,h2,h3,h4,h5,h6{margin-top:2.37rem;margin-bottom:0.79rem;}li>ol,li>ul{margin-left:20px;margin-bottom:0;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.58rem;color:hsla(0,0%,0%,0.73);font-style:normal;font-weight:400;}blockquote cite:before{content:"— ";}@media only screen and (max-width:480px){html{font-size:106.25%;line-height:28px;}blockquote{border-left:0.29625rem solid #134896;color:hsla(0,0%,0%,0.59);padding-left:0.88875rem;font-style:italic;margin-left:-1.185rem;margin-right:0;}}a.gatsby-resp-image-link{box-shadow:none;}</style><style data-href="/styles.d32f1e7c7d8d283256bd.css">@font-face{font-family:Varela Round;font-style:normal;font-display:swap;font-weight:400;src:local("Varela Round Regular "),local("Varela Round-Regular"),url(/static/varela-round-latin-400-579fc6ff502e1f1e998dacea2e83bf37.woff2) format("woff2"),url(/static/varela-round-latin-400-ed1cf004373cd51bd0fd4c0e3dca9fae.woff) format("woff")}@font-face{font-family:Lora;font-style:normal;font-display:swap;font-weight:400;src:local("Lora Regular "),local("Lora-Regular"),url(/static/lora-latin-400-e4cdb14bf148f2846997a6be7ba648bd.woff2) format("woff2"),url(/static/lora-latin-400-0d78d370987954fb6b9f0efec3065e83.woff) format("woff")}@font-face{font-family:Lora;font-style:italic;font-display:swap;font-weight:400;src:local("Lora Regular italic"),local("Lora-Regularitalic"),url(/static/lora-latin-400italic-2c4801fad2634e6dac678d8826cf417c.woff2) format("woff2"),url(/static/lora-latin-400italic-7beffbacbbde86423a7ee771f31c1626.woff) format("woff")}@font-face{font-family:Lora;font-style:normal;font-display:swap;font-weight:700;src:local("Lora Bold "),local("Lora-Bold"),url(/static/lora-latin-700-ce18d17335e3ef2119d76f5dff177c66.woff2) format("woff2"),url(/static/lora-latin-700-1617380e0dea667b61cf44e86f3d0f10.woff) format("woff")}@font-face{font-family:Lora;font-style:italic;font-display:swap;font-weight:700;src:local("Lora Bold italic"),local("Lora-Bolditalic"),url(/static/lora-latin-700italic-b4bb1fa2335d49d4bc7e7ddd944cee44.woff2) format("woff2"),url(/static/lora-latin-700italic-6ec37b950cf9829a2cad7d02b11810c9.woff) format("woff")}body,div#___gatsby{background:#faf0fd}:root{--bg:#fff;--bg-secondary:#f9fafb;--textLink:#8c1fad;--textNormal:#444;--textTitle:#222;--hr:rgba(0,0,0,0.2);--inlineCode-bg:rgba(140,31,173,0.2);--inlineCode-text:rgba(0,0,0,0.73)}#carbonads{box-sizing:content-box;display:block;overflow:hidden;position:fixed;bottom:16px;left:16px;padding:1em;width:130px;background:#fff;text-align:center;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;line-height:1.5}@media (max-width:1080px){#carbonads{display:none}}#carbonads a{text-decoration:none}#carbonads a,#carbonads a:hover{color:inherit}#carbonads span{display:block;overflow:hidden}.carbon-img{display:block;margin:0 auto 8px;line-height:1}.carbon-text{display:block;margin-bottom:8px}.carbon-poweredby{display:block;text-transform:uppercase;letter-spacing:1px;font-size:10px;line-height:1}.BioImage-module--container--1PFVh{position:relative}.BioImage-module--image1--14nWk{opacity:0;color:green}.BioImage-module--image2--1Blhq{position:absolute!important;left:0;opacity:1}.BioImage-module--image1--14nWk,.BioImage-module--image2--1Blhq{-webkit-transition:opacity .5s ease-in-out;transition:opacity .5s ease-in-out}.BioImage-module--showImage--2hBbU .BioImage-module--image1--14nWk{opacity:1}.BioImage-module--showImage--2hBbU .BioImage-module--image2--1Blhq{opacity:0}.ScrollIndicator-module--container--324ST{top:0;left:0;right:0;height:3px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.ScrollIndicator-module--indicator--2-U_m{width:100%;height:100%;background:#bd93f9;-webkit-transform-origin:left;transform-origin:left;-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transition:all 0s ease-in 0s;transition:all 0s ease-in 0s}.Header-module--header--2skx2{position:fixed;width:100%;background:#faf0fd;z-index:10}.Header-module--nav--2MDt5{border-bottom:1px solid rgba(0,0,0,.2)}.Header-module--list--3FHwz{list-style:none;margin:0;padding:0 1em;width:100%;display:flex;overflow-x:scroll;white-space:nowrap;-ms-overflow-style:none;scrollbar-width:none}.Header-module--list--3FHwz::-webkit-scrollbar{display:none}.Header-module--list--3FHwz li{display:content}.Header-module--link--2Oeqp{text-decoration:none;padding:.5em;display:inline-block}.Header-module--link--2Oeqp.Header-module--active--SWH_Q{border-bottom:2px solid #612e77;padding-bottom:calc(.5em - 2px)}li.Header-module--spacer--fYffy{padding:0;width:100%}.Header-module--icon--2L7Gm{height:1em;width:1em;position:relative;top:2px;fill:#612e77}:root{--prism-padding:20px}pre::-webkit-scrollbar{width:14px}pre::-webkit-scrollbar-track{background-color:#6272a4;border-radius:0}pre::-webkit-scrollbar-thumb{background-color:#bd93f9;border-radius:0}code[class*=language-],pre[class*=language-]{color:#ccc;background:#282936;text-shadow:none;font-family:PT Mono,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background-color:#cacaca}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{background:#282936!important;border-radius:.5em;padding:var(--prism-padding,1em);margin:.5em 0;overflow:auto;height:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282936}:not(pre)>code[class*=language-]{padding:4px 8px;white-space:normal}.limit-300{height:300px!important}.limit-400{height:400px!important}.limit-500{height:500px!important}.limit-600{height:600px!important}.limit-700{height:700px!important}.limit-800{height:800px!important}.token.comment{color:#6272a4}.token.prolog{color:#cfcfc2}.token.tag{color:#dc68aa}.token.entity{color:#8be9fd}.token.atrule{color:#62ef75}.token.url{color:#66d9ef}.token.selector{color:#cfcfc2}.token.string{color:#f1fa8c}.token.property{color:#ffb86c}.token.important{color:#ff79c6;font-weight:700}.token.punctuation{color:#e6db74}.token.number{color:#bd93f9}.token.function{color:#50fa7b}.token.class-name{color:#ffb86c}.token.keyword{color:#ff79c6}.token.boolean{color:#ffb86c}.token.operator{color:#8be9fd}.token.char{color:#ff879d}.token.regex,.token.variable{color:#50fa7b}.token.constant,.token.symbol{color:#ffb86c}.token.builtin{color:#ff79c6}.token.attr-value{color:#7ec699}.token.deleted,.token.namespace{color:#e2777a}.token.bold{font-weight:700}.token.italic{font-style:italic}.token.inserted{color:#1fd44b}.token.deleted{color:#ff0013}.token{color:#ff79c6}.langague-c .token.string,.langague-cpp .token.string{color:#8be9fd}.language-css .token.selector{color:#50fa7b}.language-css .token.property{color:#ffb86c}.language-java .token.class-name,.language-java span.token.class-name{color:#8be9fd}.language-markup .token.attr-value{color:#66d9ef}.language-markup .token.tag{color:#50fa7b}.language-objectivec .token.property{color:#66d9ef}.language-objectivec .token.string{color:#50fa7b}.language-php .token.boolean{color:#8be9fd}.language-php .token.function{color:#ff79c6}.language-php .token.keyword{color:#66d9ef}.language-ruby .token.symbol{color:#8be9fd}.language-ruby .token.class-name{color:#cfcfc2}pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre.line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;top:.3em;right:.2em;-webkit-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out;opacity:0}div.code-toolbar:hover>.toolbar{opacity:1}div.code-toolbar>.toolbar .toolbar-item{display:inline-block;padding-right:20px}div.code-toolbar>.toolbar a{cursor:pointer}div.code-toolbar>.toolbar button{background:none;border:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}div.code-toolbar>.toolbar a,div.code-toolbar>.toolbar button,div.code-toolbar>.toolbar span{color:#ccc;font-size:.8em;padding:.5em;background:#6272a4;border-radius:.5em}div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-toolbar>.toolbar button:focus,div.code-toolbar>.toolbar button:hover,div.code-toolbar>.toolbar span:focus,div.code-toolbar>.toolbar span:hover{color:inherit;text-decoration:none;background-color:var(--verde)}.gatsby-highlight-code-line{background-color:#38394d;display:block;margin-right:-1em;margin-left:-1.25em;padding-right:1em;padding-left:.75em;border-left:.5em solid #ff79c6}:not(pre)>code.language-text{background-color:rgba(227,154,249,.2);color:#612e77;border-radius:10px;font-size:.8em}:not(pre)>code.language-text::selection{background-color:#cc23ff;color:#fff}.gatsby-highlight,p.filename{margin-left:calc(-1*var(--prism-padding));margin-right:calc(-1*var(--prism-padding))}.gatsby-highlight+blockquote,.gatsby-highlight+p:not(.filename){margin-top:1.58em}.index-module--list--3C1Zu{margin-bottom:0;margin-top:0}.index-module--p--4EDuH{margin-bottom:.4rem;margin-top:.4rem}.gatsby-highlight+.caption,figcaption{font-size:.8rem;font-style:italic;font-weight:lighter;color:rgba(0,0,0,.65);text-decoration:underline;margin-bottom:1em}.gatsby-highlight+.caption{margin-top:-.5em}.gatsby-highlight+.caption>code[class*=language-],figcaption>code[class*=language-]{padding:2px 4px;font-size:.8em;background-color:rgba(0,0,0,.65);color:#faf0fd}.filename{font-size:.85em;font-style:italic;margin-bottom:0;padding:8px var(--prism-padding);padding-bottom:0;background:#282936;color:#faf0fd;border-top-left-radius:.5em;border-top-right-radius:.5em;text-decoration:underline}.filename+.gatsby-highlight pre{border-top-left-radius:0;border-top-right-radius:0;margin-top:0;padding-top:2px}</style><meta name="generator" content="Gatsby 2.18.7"/><style type="text/css">
-    .anchor {
-      float: left;
-      padding-right: 4px;
-      margin-left: -20px;
-    }
-    h1 .anchor svg,
-    h2 .anchor svg,
-    h3 .anchor svg,
-    h4 .anchor svg,
-    h5 .anchor svg,
-    h6 .anchor svg {
-      visibility: hidden;
-    }
-    h1:hover .anchor svg,
-    h2:hover .anchor svg,
-    h3:hover .anchor svg,
-    h4:hover .anchor svg,
-    h5:hover .anchor svg,
-    h6:hover .anchor svg,
-    h1 .anchor:focus svg,
-    h2 .anchor:focus svg,
-    h3 .anchor:focus svg,
-    h4 .anchor:focus svg,
-    h5 .anchor:focus svg,
-    h6 .anchor:focus svg {
-      visibility: visible;
-    }
-  </style><script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-      var hash = window.decodeURI(location.hash.replace('#', ''))
-      if (hash !== '') {
-        var element = document.getElementById(hash)
-        if (element) {
-          var offset = element.offsetTop
-          // Wait for the browser to finish rendering before scrolling.
-          setTimeout((function() {
-            window.scrollTo(0, offset - 70)
-          }), 0)
-        }
-      }
-    })
-  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/><link rel="icon" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#612e77"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8d2ab22a78631a892833a1e109f6aba0"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8d2ab22a78631a892833a1e109f6aba0"/><title data-react-helmet="true">Short Stories working on Svelte | Tan Li Hau</title><meta data-react-helmet="true" name="description" content="Short stories while working on Svelte, and some personal takeaway."/><meta data-react-helmet="true" name="image" content="https://lihautan.com/static/hero-twitter-07a502feee78695adb79bb4ecd381a68.jpg"/><meta data-react-helmet="true" property="og:image" content="https://lihautan.com/static/hero-twitter-07a502feee78695adb79bb4ecd381a68.jpg"/><meta data-react-helmet="true" property="og:title" content="Short Stories working on Svelte"/><meta data-react-helmet="true" property="og:description" content="Short stories while working on Svelte, and some personal takeaway."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:site" content="@lihautan"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="Tan Li Hau"/><meta data-react-helmet="true" name="twitter:title" content="Short Stories working on Svelte"/><meta data-react-helmet="true" name="twitter:description" content="Short stories while working on Svelte, and some personal takeaway."/><meta data-react-helmet="true" name="twitter:image" content="https://lihautan.com/static/hero-twitter-07a502feee78695adb79bb4ecd381a68.jpg"/><link href="//fonts.googleapis.com/css?family=Varela+Round:400|Lora:400,400i,700" rel="stylesheet" type="text/css"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-e01135db4acd799ac6d1.js"/><link as="script" rel="preload" href="/app-8bd1cc8010cedd8acda1.js"/><link as="script" rel="preload" href="/styles-3b48cb4932382e2c1b1c.js"/><link as="script" rel="preload" href="/commons-3e93bd210d644ed6685c.js"/><link as="script" rel="preload" href="/component---src-templates-talk-post-js-4d1e0e4a3b0202bcc81e.js"/><link as="fetch" rel="preload" href="/page-data/short-stories-working-on-svelte/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><header class="Header-module--header--2skx2"><nav class="Header-module--nav--2MDt5"><ul class="Header-module--list--3FHwz"><li><a class="Header-module--link--2Oeqp" href="/">Tan Li Hau</a></li><li><a class="Header-module--link--2Oeqp" href="/blogs/">Writings</a></li><li><a class="Header-module--link--2Oeqp" href="/talks/">Talks</a></li><li><a class="Header-module--link--2Oeqp" href="/projects/">Projects</a></li><li><a class="Header-module--link--2Oeqp" href="/notes/">Notes</a></li><li class="Header-module--spacer--fYffy"></li><li><a class="Header-module--link--2Oeqp" href="https://twitter.com/lihautan"><svg viewBox="0 0 24 24" class="Header-module--icon--2L7Gm"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a></li><li><a class="Header-module--link--2Oeqp" href="https://github.com/tanhauhau"><svg viewBox="0 0 24 24" class="Header-module--icon--2L7Gm"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li></ul></nav><div class="ScrollIndicator-module--container--324ST"><div class="ScrollIndicator-module--indicator--2-U_m"></div></div></header><div style="margin-left:auto;margin-right:auto;max-width:37.92rem;padding:2.37rem 1.185rem"><main><script type="application/ld+json">{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;Article&quot;,&quot;author&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;copyrightHolder&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;copyrightYear&quot;:&quot;2019&quot;,&quot;creator&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;},&quot;publisher&quot;:{&quot;@type&quot;:&quot;Organization&quot;,&quot;name&quot;:&quot;Tan Li Hau&quot;,&quot;logo&quot;:{&quot;@type&quot;:&quot;ImageObject&quot;,&quot;url&quot;:&quot;/static/profile-pic-65797d16af424cddbffebd0e19ab2f56.png&quot;}},&quot;datePublished&quot;:&quot;December 06, 2019&quot;,&quot;dateModified&quot;:&quot;December 06, 2019&quot;,&quot;description&quot;:&quot;Short stories while working on Svelte, and some personal takeaway.&quot;,&quot;headline&quot;:&quot;Short Stories working on Svelte&quot;,&quot;inLanguage&quot;:&quot;en&quot;,&quot;url&quot;:&quot;https://lihautan.com/short-stories-working-on-svelte/&quot;,&quot;name&quot;:&quot;Short Stories working on Svelte&quot;,&quot;image&quot;:{&quot;@type&quot;:&quot;ImageObject&quot;,&quot;url&quot;:&quot;https://lihautan.com/static/hero-twitter-07a502feee78695adb79bb4ecd381a68.jpg&quot;},&quot;mainEntityOfPage&quot;:&quot;https://lihautan.com/short-stories-working-on-svelte/&quot;}</script><script type="application/ld+json">{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;BreadcrumbList&quot;,&quot;description&quot;:&quot;Breadcrumbs list&quot;,&quot;name&quot;:&quot;Breadcrumbs&quot;,&quot;itemListElement&quot;:[{&quot;@type&quot;:&quot;ListItem&quot;,&quot;item&quot;:{&quot;@id&quot;:&quot;https://lihautan.com&quot;,&quot;name&quot;:&quot;Homepage&quot;},&quot;position&quot;:1},{&quot;@type&quot;:&quot;ListItem&quot;,&quot;item&quot;:{&quot;@id&quot;:&quot;https://lihautan.com/short-stories-working-on-svelte/&quot;,&quot;name&quot;:&quot;Short Stories working on Svelte&quot;},&quot;position&quot;:2}]}</script><meta itemprop="url" content="https://lihautan.com/short-stories-working-on-svelte/"/><meta itemprop="image" content="https://lihautan.com/static/hero-twitter-07a502feee78695adb79bb4ecd381a68.jpg"/><h1>Short Stories working on Svelte</h1><p style="font-size:0.87055rem;line-height:1.58rem;display:block"><p style="margin:0"><span role="img" aria-label="venue" style="margin-right:4px">📍</span><a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Shopee+SG/@1.291278,103.7846628,15z/data=!4m2!3m1!1s0x0:0x7ddf2e854cf6e4e4?ved=2ahUKEwi5jbz6z_vgAhVBP48KHWSEAmMQ_BIwFXoECAEQCA">Shopee SG</a></p><p style="margin:0"><span role="img" aria-label="group" style="margin-right:4px">👥</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/Shopee/shopee-react-knowledgeable/issues/162">Shopee React Knowledgeable</a></p><p style="margin:0"><span role="img" aria-label="date" style="margin-right:4px">🗓</span>December 06, 2019</p><p style="margin:0"></p><p style="margin:0"></p><blockquote style="margin-top:1.58rem">Short stories while working on Svelte, and some personal takeaway.</blockquote></p><div><p>It’s Friday evening, so I’ve decided to go light and easy, and share with y’all 2 interesting anecdote while I was working on Svelte.</p>
-<h2 id="first-story"><a href="#first-story" aria-label="first story permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>First Story</h2>
-<p>The first story started with <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/bf4fc1509893246019ea4e6f2c07f7e5/0b54c/hacktoberfest.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 35.100286532951294%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAAB2klEQVQozz2RS28SYRiFWWs0SovlMjMfjEBnuIy2pFBpKoYOMCAzQIVaCA20pg3aNl42xkRd6KK6abwujDUmtT/AhQt3mvgH/EePAxoXT87unPe8x6OLBknRRHfRFIdZ4RBT6kSFjRqxEaKGIiykcJWAKBFUKwRcZiZY+FzOR8p4XXwXK3jSokU65GCE6iSVBrqr45C4VEP1m8S1NtFkh7CoIusdplw9q5Q4LUxOqUXOxYuEtQqSVmbaDfEYQZt8dhdr+zOZ1AZGtMOy84xC9z2L5iPM4QmVna9cWTuks3FEfbnNINticKnHXnqTg+Q+T3K3iM2vMBUZXxisk7s8ovH8N+XeJ5zdb1j9Y1bv/qK89gVn6yeV9RNG1z/yXXvDkf6UH7EP3E/s8y76gpfKAfFIizMRkwvjygnZJhPrU6q/pWQdUrRes5h/SDb7ALN4m26zTat5lTvaiEpgk2vSFn3pMSuhIUtSn0y4i1ctTcx848rjvxlyk5TskJJsEu7vEqEaeqBKWnXD8uvMLXRQkz2CiZvIszcIyAX8c0O8uR28ojAZZlot/zWMKTZj4v9IKE0MZdUNaaGHO0iZe8jGCHlhDzG/jZweEPMXCdqvmOkd4w8uuetW/xv+AWGp87xdE97tAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="hacktoberfest"
-        title="hacktoberfest"
-        src="/static/bf4fc1509893246019ea4e6f2c07f7e5/799d3/hacktoberfest.png"
-        srcset="/static/bf4fc1509893246019ea4e6f2c07f7e5/00d96/hacktoberfest.png 148w,
-/static/bf4fc1509893246019ea4e6f2c07f7e5/0b23c/hacktoberfest.png 295w,
-/static/bf4fc1509893246019ea4e6f2c07f7e5/799d3/hacktoberfest.png 590w,
-/static/bf4fc1509893246019ea4e6f2c07f7e5/2a3d6/hacktoberfest.png 885w,
-/static/bf4fc1509893246019ea4e6f2c07f7e5/ae92f/hacktoberfest.png 1180w,
-/static/bf4fc1509893246019ea4e6f2c07f7e5/0b54c/hacktoberfest.png 1396w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
+	  <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+		<link href="https://twitter.com/lihautan" rel="me" />
+  	<link rel="manifest" href="/manifest.webmanifest" />
+		<meta name="theme-color" content="#bd93f9" />
+		<link rel="apple-touch-icon" sizes="48x48" href="/icon-48x48.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="96x96" href="/icon-96x96.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
+		<link rel="apple-touch-icon" sizes="256x256" href="/icon-256x256.png" />
+		<link rel="apple-touch-icon" sizes="384x384" href="/icon-384x384.png" />
+		<link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
+		<link rel="icon" href="/icon-48x48.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,300&display=swap" as="style"
+			onload="this.rel='stylesheet'">
+		<link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+		<link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
+		<link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+		<meta http-equiv="content-security-policy" content=""><title>Short Stories working on Svelte | Tan Li Hau</title><meta name="description" content="Short stories while working on Svelte, and some personal takeaway." data-svelte="svelte-1at4kuz"><meta name="image" content="/_app/assets/hero-twitter-55d43980.jpg" data-svelte="svelte-1at4kuz"><meta name="og:image" content="/_app/assets/hero-twitter-55d43980.jpg" data-svelte="svelte-1at4kuz"><meta name="og:title" content="Short Stories working on Svelte" data-svelte="svelte-1at4kuz"><meta name="og:description" content="Short stories while working on Svelte, and some personal takeaway." data-svelte="svelte-1at4kuz"><meta name="og:type" content="website" data-svelte="svelte-1at4kuz"><meta name="twitter:card" content="summary_large_image" data-svelte="svelte-1at4kuz"><meta name="twitter:creator" content="@lihautan" data-svelte="svelte-1at4kuz"><meta name="twitter:title" content="Short Stories working on Svelte" data-svelte="svelte-1at4kuz"><meta name="twitter:description" content="Short stories while working on Svelte, and some personal takeaway." data-svelte="svelte-1at4kuz"><meta name="twitter:image" content="/_app/assets/hero-twitter-55d43980.jpg" data-svelte="svelte-1at4kuz"><meta itemprop="url" content="https://lihautan.com/short-stories-working-on-svelte/" data-svelte="svelte-1at4kuz"><meta itemprop="image" content="/_app/assets/hero-twitter-55d43980.jpg" data-svelte="svelte-1at4kuz"><!-- HTML_TAG_START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2020","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Short stories while working on Svelte, and some personal takeaway.","headline":"Short Stories working on Svelte","name":"Short Stories working on Svelte","inLanguage":"en"}</script><!-- HTML_TAG_END --><!-- HTML_TAG_START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https://lihautan.com/short-stories-working-on-svelte/","name":"Short Stories working on Svelte"},"name":"Short Stories working on Svelte","position":2}]}</script><!-- HTML_TAG_END -->
+	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
+	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/TalkLayout-340d543e.css">
+	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
+	<link rel="modulepreload" href="/_app/start-49a5975a.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
+	<link rel="modulepreload" href="/_app/pages/short-stories-working-on-svelte/index.md-19647acd.js">
+	<link rel="modulepreload" href="/_app/chunks/TalkLayout-d182c6b1.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<a href="#content" class="skip svelte-70a8h7">Skip to content</a>
+
+	<header class="svelte-70a8h7"><nav><ul class="mode-sidebar svelte-1hc74yu"><li class="svelte-1hc74yu"><a href="/" class="svelte-1hc74yu">Tan Li Hau</a></li>
+	<li class="svelte-1hc74yu"><a href="/about" class="svelte-1hc74yu">About</a></li>
+	<li class="svelte-1hc74yu"><a href="/blogs" class="svelte-1hc74yu">Writings</a></li>
+	<li class="svelte-1hc74yu"><a href="/talks" class="svelte-1hc74yu">Talks</a></li>
+	<li class="svelte-1hc74yu"><a href="/notes" class="svelte-1hc74yu">Notes</a></li>
+	<li class="svelte-1hc74yu"><a href="/newsletter" class="svelte-1hc74yu">Newsletter</a></li>
+	<li class="social svelte-1hc74yu"><a aria-label="Twitter account" href="https://twitter.com/lihautan" class="svelte-1hc74yu"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-1hc74yu"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66
+  10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5
+  4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+		<a aria-label="Github account" href="https://github.com/tanhauhau" class="svelte-1hc74yu"><svg viewBox="0 0 24 24" width="1em" height="1em" class="svelte-1hc74yu"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0
+  0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07
+  5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65
+  5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42
+  3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+		<a aria-label="YouTube account" href="https://youtube.com/c/lihautan" class="svelte-1hc74yu"><svg viewBox="0 0 461.001 461.001" width="1em" height="1em" class="svelte-1hc74yu"><path d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.082z"></path></svg></a></li>
+</ul></nav></header>
+
+<main id="content" class="svelte-70a8h7">
+
+<h1>Short Stories working on Svelte</h1>
+
+
+
+<div class="venue svelte-1rhvskq">Talk given at: <a href="https://github.com/Shopee/shopee-react-knowledgeable/issues/162" class="svelte-1rhvskq">Shopee React Knowledgeable</a></div>
+
+<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#first-story">First Story</a></li>
+			<li class="svelte-13pn6e2"><a href="#second-story">Second Story</a></li>
+			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#css-custom-properties-aka-css-variables">CSS Custom Properties aka CSS Variables</a></li>
+						<li class="svelte-13pn6e2"><a href="#please-do-sharing-more-often">Please do sharing more often.</a></li>
+						<li class="svelte-13pn6e2"><a href="#please-do-participate-in-rk-more-often">Please do participate in RK more often</a></li>
+						
+				</ul></ul>
+</section>
+<p>It&#39;s Friday evening, so I&#39;ve decided to go light and easy, and share with y&#39;all 2 interesting anecdote while I was working on Svelte.</p>
+<section><h2><a href="#first-story" id="first-story">First Story</a></h2>
+<p>The first story started with <a href="https://hacktoberfest.digitalocean.com/" rel="nofollow">Hacktoberfest</a>.</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/hacktoberfest-6071d2e6.webp"><source type="image/png" srcset="/_app/assets/hacktoberfest-7d91a004.png"><img src="/_app/assets/hacktoberfest-7d91a004.png" loading="lazy" alt="hacktoberfest"></picture></p>
 <p>Anyone knows about Hacktoberfest? Anyone finished Hacktoberfest?</p>
-<p>So for to benefit of those who don’t know about Hacktoberfest, Hacktoberfest is an annual event organised by <a href="https://www.digitalocean.com/">DigitalOcean</a>, and this year they partnered with <a href="http://dev.to/">dev.to</a>.</p>
-<p>So during the month of October, if you managed to make 4 PRs to any public <a href="http://github.com/">Github</a> repository, you will get a free T-shirts and swags.</p>
-<p><figure class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;">
-      <a class="gatsby-resp-image-link" href="/static/c9699300d1784b15af3b132d3fa3dcf3/3a96a/hacktober-swags.jpg" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 100.0834028356964%; position: relative; bottom: 0; left: 0; background-image: url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMCBAH/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAAB5reztmwp6MAUwj//xAAcEAABBQADAAAAAAAAAAAAAAAAAQIREiEDEyL/2gAIAQEAAQUCSCuLhWBU8ad73N5HS2x//8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQMBAT8BI//EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAECAQE/AWP/xAAeEAACAQMFAAAAAAAAAAAAAAAAARACERIhMWGRof/aAAgBAQAGPwLmU8GjLw26NbFMf//EABwQAAMBAAIDAAAAAAAAAAAAAAABESExQWFx0f/aAAgBAQABPyFWSCpl0Q0o+E013DucbxuWR/tSQsPQ1ZyQrwf/2gAMAwEAAgADAAAAEBMQAv/EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QiazBamRH/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAREP/aAAgBAgEBPxACWwGnP//EAB0QAQEAAgMAAwAAAAAAAAAAAAERACExQXFhkcH/2gAIAQEAAT8QWBHbTiIMRak3MIE1nOc9LWoXz9ySkRMm2eY7qnqgPvErbk1HXuBnSmHxMJhINBOM/9k=&#x27;); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="hacktoberfest swags" title="Hacktoberfest T-shirt and swags" src="/static/c9699300d1784b15af3b132d3fa3dcf3/88218/hacktober-swags.jpg" srcset="/static/c9699300d1784b15af3b132d3fa3dcf3/7237a/hacktober-swags.jpg 148w, /static/c9699300d1784b15af3b132d3fa3dcf3/0cfdf/hacktober-swags.jpg 295w, /static/c9699300d1784b15af3b132d3fa3dcf3/88218/hacktober-swags.jpg 590w, /static/c9699300d1784b15af3b132d3fa3dcf3/77d57/hacktober-swags.jpg 885w, /static/c9699300d1784b15af3b132d3fa3dcf3/5a917/hacktober-swags.jpg 1180w, /static/c9699300d1784b15af3b132d3fa3dcf3/3a96a/hacktober-swags.jpg 1199w" sizes="(max-width: 590px) 100vw, 590px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
-  </a>
-    <figcaption>Hacktoberfest T-shirt and swags</figcaption></figure></p>
-<p>So this year Hacktoberfest, I was working on this frontend framework called <a href="https://svelte.dev/">Svelte</a>.</p>
-<p>If you never heard about Svelte, I recommend you to watch Rich Harris talk on <a href="https://www.youtube.com/watch?v=AdNJ3fydeao">“Rethinking Reactivity”</a>.</p>
+<p>So for to benefit of those who don&#39;t know about Hacktoberfest, Hacktoberfest is an annual event organised by <a href="https://www.digitalocean.com/" rel="nofollow">DigitalOcean</a>, and this year they partnered with <a href="http://dev.to/" rel="nofollow">dev.to</a>.</p>
+<p>So during the month of October, if you managed to make 4 PRs to any public <a href="http://github.com/" rel="nofollow">Github</a> repository, you will get a free T-shirts and swags.</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/hacktober-swags-7607b596.webp"><source type="image/jpeg" srcset="/_app/assets/hacktober-swags-4edcd88b.jpeg"><img src="/_app/assets/hacktober-swags-4edcd88b.jpeg" loading="lazy" alt="hacktoberfest swags" title="Hacktoberfest T-shirt and swags"></picture></p>
+<p>So this year Hacktoberfest, I was working on this frontend framework called <a href="https://svelte.dev/" rel="nofollow">Svelte</a>.</p>
+<p>If you never heard about Svelte, I recommend you to watch Rich Harris talk on <a href="https://www.youtube.com/watch?v=AdNJ3fydeao" rel="nofollow">&quot;Rethinking Reactivity&quot;</a>.</p>
 <p>So what so special about this new frontend framework?</p>
 <p>Well, firstly, a svelte component is a single file component, just like Vue. You have your script, styles and HTML elements all in one place:</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-  <span class="token selector">div</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
- <span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello world!'</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>{greeting}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> &#123; </span><span style="color: var(--shiki-token-constant)">color</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">blue</span><span style="color: var(--shiki-color-text)">; &#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">let</span><span style="color: var(--shiki-color-text)"> greeting </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Hello world!&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;&#123;greeting&#125;&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>Secondly, Svelte is a compiler. It compiles the single file component into simple JavaScript statements like these:</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello world!'</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> text <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createTextNode</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-target<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span><span class="token punctuation">;</span>
-div<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">let</span><span style="color: var(--shiki-color-text)"> greeting </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Hello world!&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createElement</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;div&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">text</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createTextNode</span><span style="color: var(--shiki-color-text)">(greeting);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">target</span><span style="color: var(--shiki-token-function)">.appendChild</span><span style="color: var(--shiki-color-text)">(div);</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">div</span><span style="color: var(--shiki-token-function)">.appendChild</span><span style="color: var(--shiki-color-text)">(text);</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>It is the simplest way of creating DOM nodes, not much overhead code, no work loop like React, nothing.</p>
 <p>The benefit of doing this is that the bundle size can be very small, and it can run without much runtime overheads.</p>
 <p>However, if you look at a slightly more complex component like the one below:</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
- <span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello world!'</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Header<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Lorem ipsum<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>{greeting}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">let</span><span style="color: var(--shiki-color-text)"> greeting </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Hello world!&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)"> &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;Header&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)"> &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">   &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;Lorem ipsum&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">   &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;&#123;greeting&#125;&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)"> &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>it gets compiled into more code:</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello world'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> div1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> div2 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-div2<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Header'</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> div3 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> div4 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-div4<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">'Lorem ipsum'</span>
-<span class="token keyword">const</span> div5 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> text <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createTextNode</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-target<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-div1<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-div3<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div4<span class="token punctuation">)</span><span class="token punctuation">;</span>
-div4<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-div1<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div3<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">let</span><span style="color: var(--shiki-color-text)"> greeting </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Hello world&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">div1</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createElement</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;div&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">div2</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createElement</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;div&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">div2</span><span style="color: var(--shiki-color-text)">.textContent </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Header&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">div3</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createElement</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;div&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">div4</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createElement</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;div&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">div4</span><span style="color: var(--shiki-color-text)">.textContent </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Lorem ipsum&#39;</span></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">div5</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createElement</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;div&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
+<span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">text</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.createTextNode</span><span style="color: var(--shiki-color-text)">(greeting);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">target</span><span style="color: var(--shiki-token-function)">.appendChild</span><span style="color: var(--shiki-color-text)">(div1);</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">div1</span><span style="color: var(--shiki-token-function)">.appendChild</span><span style="color: var(--shiki-color-text)">(div2);</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">div3</span><span style="color: var(--shiki-token-function)">.appendChild</span><span style="color: var(--shiki-color-text)">(div4);</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">div4</span><span style="color: var(--shiki-token-function)">.appendChild</span><span style="color: var(--shiki-color-text)">(div5);</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">div1</span><span style="color: var(--shiki-token-function)">.appendChild</span><span style="color: var(--shiki-color-text)">(div3);</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>Which is natural right?</p>
-<p>But, when I was fiddling the <a href="http://svelte.dev/repl">Svelte REPL</a>, I was looking at the code, thinking to myself, in this component, greeting has never changed, so there’s no need for any reactivity, so why should we still build element one by one, why not just use <code class="language-text">innerHTML</code>?</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello world'</span><span class="token punctuation">;</span>
-
-target<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
- &lt;div>
-   &lt;div>Header&lt;/div>
-   &lt;div>
-     &lt;div>Lorem ipsum&lt;/div>
-     &lt;div></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>greeting<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/div>
-   &lt;/div>
- &lt;/div></span><span class="token template-punctuation string">`</span></span></code></pre></div>
-<p>So, that was what I did, and I <a href="https://github.com/sveltejs/svelte/pull/3808">submitted an PR</a>.</p>
-<p>I was ecstatic when it got merged, and <a href="https://github.com/sveltejs/svelte/pull/3808#issuecomment-546704569">Rich commented “Damn, this is nice!”</a>.</p>
-<p>But little did I know a few days later, someone commented on the PR <a href="https://github.com/sveltejs/svelte/pull/3808#issuecomment-546723297">about opening up to XSS risk</a>.</p>
+<p>But, when I was fiddling the <a href="http://svelte.dev/repl" rel="nofollow">Svelte REPL</a>, I was looking at the code, thinking to myself, in this component, greeting has never changed, so there&#39;s no need for any reactivity, so why should we still build element one by one, why not just use <code class="inline">innerHTML</code>?</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">let</span><span style="color: var(--shiki-color-text)"> greeting </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Hello world&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">target</span><span style="color: var(--shiki-color-text)">.innerHTML </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#96;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)"> &lt;div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">   &lt;div&gt;Header&lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">   &lt;div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">     &lt;div&gt;Lorem ipsum&lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">     &lt;div&gt;</span><span style="color: var(--shiki-token-keyword)">$&#123;</span><span style="color: var(--shiki-color-text)">greeting</span><span style="color: var(--shiki-token-keyword)">&#125;</span><span style="color: var(--shiki-token-string-expression)">&lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">   &lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)"> &lt;/div&gt;&#96;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p>So, that was what I did, and I <a href="https://github.com/sveltejs/svelte/pull/3808" rel="nofollow">submitted an PR</a>.</p>
+<p>I was ecstatic when it got merged, and <a href="https://github.com/sveltejs/svelte/pull/3808#issuecomment-546704569" rel="nofollow">Rich commented &quot;Damn, this is nice!&quot;</a>.</p>
+<p>But little did I know a few days later, someone commented on the PR <a href="https://github.com/sveltejs/svelte/pull/3808#issuecomment-546723297" rel="nofollow">about opening up to XSS risk</a>.</p>
 <p>XSS (Cross-Site Scripting)? What?!</p>
 <p>So imagine instead of a friendly greeting, someone with a malicious intent changed it to something else:</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'&lt;div onclick="alert(&amp;quot;oh no&amp;quot;);">click me&lt;/div>'</span><span class="token punctuation">;</span>
-
-target<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
- &lt;div>
-   &lt;div>Header&lt;/div>
-   &lt;div>
-     &lt;div>Lorem ipsum&lt;/div>
-     &lt;div></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>greeting<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/div>
-   &lt;/div>
- &lt;/div></span><span class="token template-punctuation string">`</span></span></code></pre></div>
-<p>Then you would have a malicious click me button on the screen! <span class="emoji">😱</span></p>
-<p>So I googled, and I found this <a href="https://github.com/OWASP/CheatSheetSeries">Open Web Application Security Project (OWASP)</a>, which they have a long list of <a href="https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets">cheatsheets about and how to prevent web vulnerability</a>.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/63a822277374f88594938dae122a98ca/75d76/owasp.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 77.125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAACjUlEQVQoz3WS6U4TURTHeQmjTyKvY6IvYIyf+GJCDBEVglGjIIUI2tqKLZYC3WxBA5SlQLHTlU6npQu0M52ZO/vdnEGwbpwPJ3f73f+5/3sG6J9hmgbfaVKsI1PBSDeaHNElSiyKLUrwX4cH+kNnD0tCe+vbF0o0ewFaChSaFKkUAQoB1HsYo79hbGgEqhQqFCs66CBD7LSqPs98IXdINQFW8jZp6b1MeksDXUpMennFAKFUa9Ux33TUNME0RGyB+/fuDt4cfPnmFd3f7g4NSRPjUjJKKLarI0ijlkyRfqFsaAqBAJ/V5adPQDxsasLs9OTD4QfJtSg1JWF8jB8ZMdhChc0/Ghne292kFCFLvYChZVlEtw52zOUlKRHF0hnERiG7b2m87SBqcwbfIsR48WzsxrXrd27fshEEzQuY2Ds6wIbYnZ6SXFMY2Y/XCDagCRTx1OZVuWMoPDTEUMAXWPBQpPUNI45paCe1vvTJHVvw7O9uZDM7e9tf45FQNBJKxleDAW9qI5mMr6wnwuXC4bkc6Svb2b/gLZULk6+fr4YCa4lYJBx5PDrqcrkmxsc++72JWOjtzGR4OeDzzDla+BLG2Pn9WDTy0fsuGFz0eL1z790ffL5gMHiQyaxEIv7FwMysy+2eX132H+ylfun1m8S0rE6zhXo9pX7SK5VArYZVleg66nbl42NQqSCex9CE51b902GOiQi02x2OEzlOajR0WT6t1eRGA5ycSPag1aLn1V4BU1rluKNs9ohhCuUyLwjFUuk7w2Tz+WOWVRT1Zxv/HwayLEuSk0RRAUAURWCHLIs9J+ypqqpXKrMsWywWc7kcwzBcpbKdSqXT6Xq9vrG5ybHsUSZTrVZ/P/8D93UklgnW+RIAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="OWASP"
-        title="OWASP"
-        src="/static/63a822277374f88594938dae122a98ca/799d3/owasp.png"
-        srcset="/static/63a822277374f88594938dae122a98ca/00d96/owasp.png 148w,
-/static/63a822277374f88594938dae122a98ca/0b23c/owasp.png 295w,
-/static/63a822277374f88594938dae122a98ca/799d3/owasp.png 590w,
-/static/63a822277374f88594938dae122a98ca/2a3d6/owasp.png 885w,
-/static/63a822277374f88594938dae122a98ca/ae92f/owasp.png 1180w,
-/static/63a822277374f88594938dae122a98ca/75d76/owasp.png 1600w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>I read up on them and got to learn more about methods to prevent XSS, and so I <a href="https://github.com/sveltejs/svelte/pull/3816">made another PR</a>.</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">let</span><span style="color: var(--shiki-color-text)"> greeting </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;&lt;div onclick=&quot;alert(&amp;quot;oh no&amp;quot;);&quot;&gt;click me&lt;/div&gt;&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">target</span><span style="color: var(--shiki-color-text)">.innerHTML </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#96;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)"> &lt;div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">   &lt;div&gt;Header&lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">   &lt;div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">     &lt;div&gt;Lorem ipsum&lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">     &lt;div&gt;</span><span style="color: var(--shiki-token-keyword)">$&#123;</span><span style="color: var(--shiki-color-text)">greeting</span><span style="color: var(--shiki-token-keyword)">&#125;</span><span style="color: var(--shiki-token-string-expression)">&lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">   &lt;/div&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)"> &lt;/div&gt;&#96;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p>Then you would have a malicious click me button on the screen! 😱</p>
+<p>So I googled, and I found this <a href="https://github.com/OWASP/CheatSheetSeries" rel="nofollow">Open Web Application Security Project (OWASP)</a>, which they have a long list of <a href="https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets" rel="nofollow">cheatsheets about and how to prevent web vulnerability</a>.</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/owasp-c0fc47b4.webp"><source type="image/png" srcset="/_app/assets/owasp-1025fe5c.png"><img src="/_app/assets/owasp-1025fe5c.png" loading="lazy" alt="OWASP"></picture></p>
+<p>I read up on them and got to learn more about methods to prevent XSS, and so I <a href="https://github.com/sveltejs/svelte/pull/3816" rel="nofollow">made another PR</a>.</p>
 <p>And it got fixed! Finally!</p>
-<p>Or is it? <span class="emoji">🤔</span></p>
-<p>Well in my new PR, I did not revert all the changes I made previously, I still attempt to have some optimisation with static content. So instead of using <code class="language-text">innerHTML</code>, I used <code class="language-text">textContent</code>, which is safe for XSS attacks.</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// instead of this,</span>
-$<span class="token number">0.</span>innerHTML <span class="token operator">=</span> <span class="token string">'&amp;amp;&amp;gt;'</span>
-<span class="token comment">// it is now this:</span>
-$<span class="token number">0.</span>textContent <span class="token operator">=</span> <span class="token string">'&amp;amp;&amp;gt;'</span></code></pre></div>
+<p>Or is it? 🤔</p>
+<p>Well in my new PR, I did not revert all the changes I made previously, I still attempt to have some optimisation with static content. So instead of using <code class="inline">innerHTML</code>, I used <code class="inline">textContent</code>, which is safe for XSS attacks.</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">// instead of this,</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">$0</span><span style="color: var(--shiki-color-text)">.innerHTML </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;&amp;amp;&amp;gt;&#39;</span></span>
+<span class="line"><span style="color: var(--shiki-token-comment)">// it is now this:</span></span>
+<span class="line"><span style="color: var(--shiki-token-constant)">$0</span><span style="color: var(--shiki-color-text)">.textContent </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;&amp;amp;&amp;gt;&#39;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>So, although they looked similar, but when it got executed, they are different:</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- with innerHTML --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&amp;><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!-- with textContent --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token entity" title="&amp;">&amp;amp;</span><span class="token entity" title="&gt;">&amp;gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<p><code class="language-text">textContent</code> will not unescape the string content.</p>
-<p>Someone found it and raised an issue, so I <a href="https://github.com/sveltejs/svelte/pull/3916">made another PR</a>.</p>
-<p>So, that’s my first story, of how I innocently trying to optimise the bundle, ending up creating a XSS risk, and how I made multiple PRs to fixed them.</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">&lt;!-- with innerHTML --&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;&amp;&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-comment)">&lt;!-- with textContent --&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;&amp;amp;&amp;gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p><code class="inline">textContent</code> will not unescape the string content.</p>
+<p>Someone found it and raised an issue, so I <a href="https://github.com/sveltejs/svelte/pull/3916" rel="nofollow">made another PR</a>.</p>
+<p>So, that&#39;s my first story, of how I innocently trying to optimise the bundle, ending up creating a XSS risk, and how I made multiple PRs to fixed them.</p>
 <p>Before I moved on to the 2nd story, I have a few takeaways I would like to share:</p>
-<ul>
-<li>As a React developer, I have been so used to have React taking care of the XSS vulnerability for me. As long as i dont use <code class="language-text">dangeourslySetInnerHtml</code>, I’m all good. Therefore, it has never occur to me that it is still a potential threat.</li>
-<li>I find it interesting to work on technologies/stack that we don’t use it at work during free time. Having to work on 1 tech stack full time during the day, I felt like I’ve been trapped inside my own bubble, with no idea what is happening outside. So while working on Svelte, I learned a lot of things that I could never got it from work.</li>
-</ul>
-<h2 id="second-story"><a href="#second-story" aria-label="second story permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Second Story</h2>
+<ul><li><p>As a React developer, I have been so used to have React taking care of the XSS vulnerability for me. As long as i dont use <code class="inline">dangeourslySetInnerHtml</code>, I&#39;m all good. Therefore, it has never occur to me that it is still a potential threat.</p></li>
+<li><p>I find it interesting to work on technologies/stack that we don&#39;t use it at work during free time. Having to work on 1 tech stack full time during the day, I felt like I&#39;ve been trapped inside my own bubble, with no idea what is happening outside. So while working on Svelte, I learned a lot of things that I could never got it from work.</p></li></ul></section>
+<section><h2><a href="#second-story" id="second-story">Second Story</a></h2>
 <p>The second story, is about connecting the dots.</p>
 <p>In Svelte, CSS is scoped in the component that you are writing. In this example:</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-  <span class="token selector">div</span> <span class="token punctuation">{</span>
-    <span class="token property">padding</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Component</span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<p>the <code class="language-text">padding: 5px</code> will only apply to the all the <code class="language-text">&lt;div&gt;</code>s written in this component file. Any <code class="language-text">&lt;div&gt;</code> inside <code class="language-text">&lt;Component /&gt;</code> will not be affected.</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">padding</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">5</span><span style="color: var(--shiki-token-keyword)">px</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">Component</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p>the <code class="inline">padding: 5px</code> will only apply to the all the <code class="inline">&lt;div&gt;</code>s written in this component file. Any <code class="inline">&lt;div&gt;</code> inside <code class="inline">&lt;Component /&gt;</code> will not be affected.</p>
 <p>This is great, but it has its shortcoming too.</p>
-<p>The problem with this is that, there’s no idiomatic way to override styles in the <code class="language-text">&lt;Component /&gt;</code>.</p>
-<p>To achieve scoped CSS, when Svelte compiles the style tags, it converts all the CSS selectors into a hashed version, and replacted it on the element. And there’s no way you can access the hashed CSS selector, let alone passing it into <code class="language-text">&lt;Component /&gt;</code> as class name.</p>
-<p>To override the styles inside <code class="language-text">&lt;Component /&gt;</code>, a common solution would be to use the <code class="language-text">:global</code> selector:</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-  <span class="token selector">:global(div)</span> <span class="token punctuation">{</span>
-    <span class="token property">padding</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Component</span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<p>The problem with this is that, there’s no idiomatic way to override styles in the <code class="inline">&lt;Component /&gt;</code>.</p>
+<p>To achieve scoped CSS, when Svelte compiles the style tags, it converts all the CSS selectors into a hashed version, and replacted it on the element. And there&#39;s no way you can access the hashed CSS selector, let alone passing it into <code class="inline">&lt;Component /&gt;</code> as class name.</p>
+<p>To override the styles inside <code class="inline">&lt;Component /&gt;</code>, a common solution would be to use the <code class="inline">:global</code> selector:</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  :global(</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">) &#123;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">padding</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">5</span><span style="color: var(--shiki-token-keyword)">px</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">Component</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>Which basically forego the benefit of scoped css, and applied it to all inner divs in this component.</p>
-<p>One thing I wanted to point out is that, the <code class="language-text">&lt;Component /&gt;</code> should have control on what styles can be modified and what cannot be changed.</p>
-<p>In React, when we passing in a <code class="language-text">className</code>, we kind of have to understand the DOM structure of the <code class="language-text">&lt;Component /&gt;</code>, which should be well encapsulated and private to the user.</p>
-<p>And secondly, any styles you pass in through the <code class="language-text">className</code>, could potentially break things unwantedly. The <code class="language-text">&lt;Component /&gt;</code> has no control of what could be changed by the user.</p>
-<h3 id="css-custom-properties-aka-css-variables"><a href="#css-custom-properties-aka-css-variables" aria-label="css custom properties aka css variables permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS Custom Properties aka CSS Variables</h3>
+<p>One thing I wanted to point out is that, the <code class="inline">&lt;Component /&gt;</code> should have control on what styles can be modified and what cannot be changed.</p>
+<p>In React, when we passing in a <code class="inline">className</code>, we kind of have to understand the DOM structure of the <code class="inline">&lt;Component /&gt;</code>, which should be well encapsulated and private to the user.</p>
+<p>And secondly, any styles you pass in through the <code class="inline">className</code>, could potentially break things unwantedly. The <code class="inline">&lt;Component /&gt;</code> has no control of what could be changed by the user.</p></section>
+<section><h3><a href="#css-custom-properties-aka-css-variables" id="css-custom-properties-aka-css-variables">CSS Custom Properties aka CSS Variables</a></h3>
 <p>So a better solution that has been proposed, is to use CSS Variables:</p>
-<p class="filename">Component.svelte</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-  <span class="token selector">.header</span> <span class="token punctuation">{</span>
-    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--header-padding<span class="token punctuation">,</span> 5px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Lorem ipsum<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Lorem ipsum<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">&lt;!-- filename: Component.svelte --&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-function)">.header</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">padding</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">var</span><span style="color: var(--shiki-token-constant)">(--header-padding</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-constant)"> 5</span><span style="color: var(--shiki-token-keyword)">px</span><span style="color: var(--shiki-token-constant)">)</span><span style="color: var(--shiki-color-text)">;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">style</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;header&quot;</span><span style="color: var(--shiki-color-text)">&gt;Lorem ipsum&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;Lorem ipsum&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>You can expose the CSS custom properties you allow to modify, without having to leak out the DOM structure of your component.</p>
 <p>You can expose the CSS custom properties as meaningful css variable names, and when you are using it, you can have a fallback if the CSS custom property is not presentavailable, you can have a fallback.</p>
-<p>So the user of the <code class="language-text">Component</code> can set the custom properties like this:</p>
-<p class="filename">index.svelte</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">styles</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>--header-padding: 5px;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Component</span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<p>So there is a <a href="https://github.com/sveltejs/rfcs/blob/52e20b91ef5b301bd4b3f2a9461b929ac05aca0c/text/0000-style-properties.md">RFC proposed</a> along with a sugar syntax to have custom attributes for Svelte components:</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Slider</span>
-  <span class="token attr-name"><span class="token namespace">bind:</span>value</span>
-  <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation">=</span>{0}</span>
-  <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation">=</span>{100}</span>
-  <span class="token attr-name">--rail-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>black<span class="token punctuation">"</span></span>
-  <span class="token attr-name">--track-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span>
-<span class="token punctuation">/></span></span>
-<span class="token comment">&lt;!-- desugars into --></span>
-<span class="token comment">&lt;!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓ --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span>
-<span class="token attr-value">  <span class="token property">--rail-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span></span>
-<span class="token attr-value">  <span class="token property">--track-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></span>
-<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Slider</span>
-      <span class="token attr-name"><span class="token namespace">bind:</span>value</span>
-      <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation">=</span>{0}</span>
-      <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation">=</span>{100}</span>
-    <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<p>But the very problem of this is to have another <code class="language-text">&lt;div&gt;</code> element that wasn’t there in the first place, which could break the layout.</p>
-<p>So Rich was asking in the <a href="https://svelte.dev/chat">Svelte Discord chat</a> whether is there anyway to have the divs disappear in terms of layout:</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/b0751db051b0a36011e1fdf61feb3d61/1bcd6/discord-chat1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 23.117338003502624%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA10lEQVQY022Q23LCMAxE/U0dWnKzk5ALLZeGOOCQQuG5//8BW62G5qHDwxmtbEteyUSxwzIuYPP2QaN5lJQK9evS4S3Kn/L/zvzc7kilyXC6IJxv6PoRZbVRqmYHV6xhXYPU1jOZq5FklUaaSKxo6UFtum5CbFtsdx69n7DvAg7+rLD55yHgGK4a+SF1P0yzgdP4DX/80ny7H2BeFqmMVsyPCJuN013PvMAYpHCQwrxcK5yA7vPyXfQHVvVGHDcw3BHhKLT8Nw61K1p9RLjbJFvpzp6xeMRfWnu09xc1W8UAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="discord chat 1"
-        title="discord chat 1"
-        src="/static/b0751db051b0a36011e1fdf61feb3d61/799d3/discord-chat1.png"
-        srcset="/static/b0751db051b0a36011e1fdf61feb3d61/00d96/discord-chat1.png 148w,
-/static/b0751db051b0a36011e1fdf61feb3d61/0b23c/discord-chat1.png 295w,
-/static/b0751db051b0a36011e1fdf61feb3d61/799d3/discord-chat1.png 590w,
-/static/b0751db051b0a36011e1fdf61feb3d61/2a3d6/discord-chat1.png 885w,
-/static/b0751db051b0a36011e1fdf61feb3d61/1bcd6/discord-chat1.png 1142w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>That brings me to another dot of my story… which was more than 1 year ago in Shopee, long before RK, where we had weekly sharings in a small meeting room.</p>
-<p>It was when <a href="https://twitter.com/wgao19">Gao Wei</a> did her sharing.</p>
+<p>So the user of the <code class="inline">Component</code> can set the custom properties like this:</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">&lt;!-- filename: index.svelte --&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">styles</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;--header-padding: 5px;&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">   &lt;</span><span style="color: var(--shiki-token-string-expression)">Component</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p>So there is a <a href="https://github.com/sveltejs/rfcs/blob/52e20b91ef5b301bd4b3f2a9461b929ac05aca0c/text/0000-style-properties.md" rel="nofollow">RFC proposed</a> along with a sugar syntax to have custom attributes for Svelte components:</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">Slider</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-function)">bind:value</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-function)">min</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string)">&#123;0&#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-function)">max</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string)">&#123;100&#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-function)">--rail-color</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;black&quot;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-function)">--track-color</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;red&quot;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">/&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-comment)">&lt;!-- desugars into --&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-token-comment)">&lt;!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓ --&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">style</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">  --rail-color: black;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">  --track-color: red;</span></span>
+<span class="line"><span style="color: var(--shiki-token-string-expression)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">Slider</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-function)">bind:value</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-function)">min</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string)">&#123;0&#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-function)">max</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string)">&#123;100&#125;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    /&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p>But the very problem of this is to have another <code class="inline">&lt;div&gt;</code> element that wasn&#39;t there in the first place, which could break the layout.</p>
+<p>So Rich was asking in the <a href="https://svelte.dev/chat" rel="nofollow">Svelte Discord chat</a> whether is there anyway to have the divs disappear in terms of layout:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/discord-chat1-5d0d40c4.webp"><source type="image/png" srcset="/_app/assets/discord-chat1-b9c54eab.png"><img src="/_app/assets/discord-chat1-b9c54eab.png" loading="lazy" alt="discord chat 1"></picture></p>
+<p>That brings me to another dot of my story... which was more than 1 year ago in Shopee, long before RK, where we had weekly sharings in a small meeting room.</p>
+<p>It was when <a href="https://twitter.com/wgao19" rel="nofollow">Gao Wei</a> did her sharing.</p>
 <p>So this is a normal Jira board:</p>
-<p><figure class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;">
-      <a class="gatsby-resp-image-link" href="/static/e931a7e91bdb18b31ffaf3bbdad1465d/7917a/scrum_active.png" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 60.395150426582845%; position: relative; bottom: 0; left: 0; background-image: url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB10lEQVQoz21Sa3PbIBDU//9nnX5pp00niR3bcay3hGXB8ZBA2wPFjqc1mh3QgfZ2V2THqkMvBjTdAOtmhAWY/YIQF4/GsiTEB7g/wxWuZ00r4JyDsY4JPeY5wPB8PRCJV464Doki4JPrs75ipc2qRqAbNJqzRS9DgqAFRalxHiQkKUzTzI18Uh+IoM8Cymi4aUp7E+85Z6DEO7L2rLB7e8J2+wfP5YJNteC1CnjNgW1Z4K36BaWJP+Y4kPKAHHv8PH7DWUZ3HtpYdmgxWYmsExfktcDhVKO/aGgbQBNg6hZd36IUeTqcbLFlxYSNkjg1e4xqhNaWewSE2UK2G2TE7IeiwPux5G7TLWA4i1NXYN8+saXpK0PeuugRL+UPzlqljGM9BM+N1UpYdT1qznKUBEUa3BDmcgQpDWNYlTKQvB4ZcT0qhaLLU77eh9TMeY+a1SbCfV5gd8hB2vABnzpqrUEUSdYmilZSIsfZDfh9+o4LDelWrD9mTg5Xwo8Cm91HujrXIVlFJLkikl3nmJtl5UQ2vd8jEdZC8BUZ09WIFqLCqI7uCO9BOhLRrck9MhntsL2ZJX8Fv/CmSlb/VbDaNg/rSWHPypyfbtldEUdUG1X/B+8f1xl/AYilohHqbK6sAAAAAElFTkSuQmCC&#x27;); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="Jira board" title="Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html&#x22;" src="/static/e931a7e91bdb18b31ffaf3bbdad1465d/799d3/scrum_active.png" srcset="/static/e931a7e91bdb18b31ffaf3bbdad1465d/00d96/scrum_active.png 148w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/0b23c/scrum_active.png 295w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/799d3/scrum_active.png 590w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/2a3d6/scrum_active.png 885w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/ae92f/scrum_active.png 1180w, /static/e931a7e91bdb18b31ffaf3bbdad1465d/7917a/scrum_active.png 2227w" sizes="(max-width: 590px) 100vw, 590px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
-  </a>
-    <figcaption>Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html"</figcaption></figure></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/scrum_active-e4d927d1.webp"><source type="image/png" srcset="/_app/assets/scrum_active-5876f59c.png"><img src="/_app/assets/scrum_active-5876f59c.png" loading="lazy" alt="Jira board" title="Image from https://confluence.atlassian.com/jirasoftwareserver081/using-active-sprints-970611214.html&quot;"></picture></p>
 <p>But it is not cool enough for cool kids for Wei, so she tried to customise it with CSS.</p>
-<p>One of the issue with the Jira board is that the columns are fixed width, it doesn’t stretch/resize when the ticket title is long.</p>
+<p>One of the issue with the Jira board is that the columns are fixed width, it doesn&#39;t stretch/resize when the ticket title is long.</p>
 <p>But it is not an easy feat to resize the width with CSS, where she explained how the complexity of the DOM structure aggravate the problem.</p>
-<p>In the Jira board, the header and the swimlane sections are made up of different <code class="language-text">div</code> container.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/572ea580417db44cb12c9a53cd0dd40c/ca8c1/jira-layout-1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 59.394703656998736%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAAB+klEQVQoz21Ta4+jMAzk//+50+2H7W53CyxQnoWQFwkEmHNC79TqGsmycOKxPWOivLnhdhvQdAyTmbFuOxa3YV037Lu3Hdv24Mm83/btKf73LirLBlXVoOsZgfZgI0fd9pBKgjEGziXGcYSQx7dQCgMboaQGp7dSHvdSqvA2SrMS50uKr5R81iMpOS5XhtNnizj5QV5laNo2gHkgXpUokxh5XaCqK/T9gJYa6ZorquxEHTYD4vgDSfKJ7xa4dIfFNVnTIOneYec5UBAOUcLVgFP5C3LiNOqOeXFwy0w2IbpWLYpmRFZRB1xT8grjdtjuBjZQ5bGDsfbgaV0hKLmVAu1Q0fgSejJw6w5nJeSQIWJcICkKxGlBohhq4U6yVci7Al/1G+xiQ4eOAFdKHhTDufoNZQScO+LOOQLXiHriJcmvSDOqSEQbY/1UsKKAVtSx2aG0IZGmYFpbDILhUn9AaOHrh7OQ2j11G3lVr0R60w0ERjy4NXToV+gA0pB6+geqCJDJET/thQBl4G+el+CtnRF55b7THO/nNCT543dL0XqoB6AAdvfTNFNx93R3mPYdEsFsCAHP07GsCHvlE17ZRLT8H7dBoKilv6RjfVByvZPrvZ4mcKGCjbSwj17I13EupBeFB3UMKexBgqdRLRXQWtN4fuxnf8TNy/gff/6ZE/HuAJcAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="jira layout 1"
-        title="jira layout 1"
-        src="/static/572ea580417db44cb12c9a53cd0dd40c/799d3/jira-layout-1.png"
-        srcset="/static/572ea580417db44cb12c9a53cd0dd40c/00d96/jira-layout-1.png 148w,
-/static/572ea580417db44cb12c9a53cd0dd40c/0b23c/jira-layout-1.png 295w,
-/static/572ea580417db44cb12c9a53cd0dd40c/799d3/jira-layout-1.png 590w,
-/static/572ea580417db44cb12c9a53cd0dd40c/2a3d6/jira-layout-1.png 885w,
-/static/572ea580417db44cb12c9a53cd0dd40c/ae92f/jira-layout-1.png 1180w,
-/static/572ea580417db44cb12c9a53cd0dd40c/ca8c1/jira-layout-1.png 1586w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>And after a few nested <code class="language-text">div</code>s, you get <code class="language-text">div</code> for each column:</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/7d5c7e7644055faae07329a8bfb577c8/98e8b/jira-layout-2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 59.442332065906214%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACTElEQVQoz32S2Y7bMAxF/f+fVBRogT60QGeazJKZbM7qOPEmL7It76e00wH60logaInk1eWlrNMtQCUKXymqtqFnoB16xsV/bPjHmeWcfXZzH2edcHpXXLcpR/HhUXNdJgT7HM9OxWtu2wR/l0850bHA22ZT3m2Tipe8ncay7QvzLweevzs8/Qh5e0x5fYh5/Bow+3RiPTtizzycRYzzluD+vLL+vGM5O7N5cDkvFPavgNOLy/rbC9bZidi8vnNy1tgh7EZTYDuwmHvs1YKmEymGgenrB2Gc8O7O0HXCeNp2Hd3QYJS5t7wXyo6fEqclVd1hugHjRlxXiiiLqKqarhdV+47UtJy2OYHyyXJNURiatqdrC9TuhKWijPXyzO54piwrGIZpIG1WsHpyWN3mcklF1/UTk7YZcEXT1WVOVia0Ata2wrBvSf0SK/Bjlq8XDo5LpguMqaY2SuUQ7QsBG8iFhc5LdCGWVbjSkX19Jy0SPpRopep6rbCiSKZ68AlVjJHWxtt6eTZ52hBsKgEpJrA8NwIsXgugTPfo7ciKjLppqetGdG7JwwYr9EXgZ4fl9jDpMciV48qSnHAvAOUfdiOoxDPROdrXmLK973U5mS5L1MWMDDMuMmldFqLDnd34pbEIvzEUlZiAjsCFMRPTEXD0436MTSZ5qS8te7cIZ6swuqYpO+q8ozEdWWjwNgVxlKP8nDiUKQby78kDXsl5cN9P52NcCYFDIQzjlFSKdCQ3SPDD53FFKkValSRSqOWNjT6b4vf8v8+nOsH5DQSpj+SZgIgYAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="jira layout 2"
-        title="jira layout 2"
-        src="/static/7d5c7e7644055faae07329a8bfb577c8/799d3/jira-layout-2.png"
-        srcset="/static/7d5c7e7644055faae07329a8bfb577c8/00d96/jira-layout-2.png 148w,
-/static/7d5c7e7644055faae07329a8bfb577c8/0b23c/jira-layout-2.png 295w,
-/static/7d5c7e7644055faae07329a8bfb577c8/799d3/jira-layout-2.png 590w,
-/static/7d5c7e7644055faae07329a8bfb577c8/2a3d6/jira-layout-2.png 885w,
-/static/7d5c7e7644055faae07329a8bfb577c8/ae92f/jira-layout-2.png 1180w,
-/static/7d5c7e7644055faae07329a8bfb577c8/98e8b/jira-layout-2.png 1578w"
-        sizes="(max-width: 590px) 100vw, 590px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
+<p>In the Jira board, the header and the swimlane sections are made up of different <code class="inline">div</code> container.</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/jira-layout-1-4772bd0b.webp"><source type="image/png" srcset="/_app/assets/jira-layout-1-f4d673c9.png"><img src="/_app/assets/jira-layout-1-f4d673c9.png" loading="lazy" alt="jira layout 1"></picture></p>
+<p>And after a few nested <code class="inline">div</code>s, you get <code class="inline">div</code> for each column:</p>
+<p><picture><source type="image/webp" srcset="/_app/assets/jira-layout-2-9b68c580.webp"><source type="image/png" srcset="/_app/assets/jira-layout-2-355eb8b1.png"><img src="/_app/assets/jira-layout-2-355eb8b1.png" loading="lazy" alt="jira layout 2"></picture></p>
 <p>So, in the end, it looks something like this in the DOM tree structure:</p>
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>header-group<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>headers<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Header 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Header 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Header 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>swimlane<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>swimlane header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>columns<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Content 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Content 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Content 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<p>So how are you going to automatically resize both <code class="language-text">Content 1</code> and <code class="language-text">Header 1</code> based on their content, and maintain the same width for both of them?</p>
-<p>You can do it with <a href="https://css-tricks.com/complete-guide-table-element/"><code class="language-text">display: table-column</code></a>, but there’s too many intermediate DOM elements between the cells and the whole container.</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;header-group&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">ul</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;headers&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;Header 1&lt;/</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;Header 2&lt;/</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;Header 3&lt;/</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">ul</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;swimlane&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;swimlane header&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">ul</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;columns&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;Content 1&lt;/</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;Content 2&lt;/</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;Content 3&lt;/</span><span style="color: var(--shiki-token-string-expression)">li</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">ul</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p>So how are you going to automatically resize both <code class="inline">Content 1</code> and <code class="inline">Header 1</code> based on their content, and maintain the same width for both of them?</p>
+<p>You can do it with <a href="https://css-tricks.com/complete-guide-table-element/" rel="nofollow"><code class="inline">display: table-column</code></a>, but there&#39;s too many intermediate DOM elements between the cells and the whole container.</p>
 <p>What she needs is a magical CSS values to make the intermediate DOM elements disappear in terms of layout.</p>
 <p>And she revealed her magic secret:</p>
-<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> contents
-<span class="token punctuation">}</span></code></pre></div>
-<p>In the same example, say if you apply a <code class="language-text">display: flex</code> to the <code class="language-text">.header-group</code>, the <code class="language-text">.header-group</code> only got 1 flex item right? If you put <code class="language-text">display: contents</code> to the <code class="language-text">.headers</code>, it will disappear in terms of layout, and now, to <code class="language-text">.header-group</code>, it has 3 flex items, the 3 header <code class="language-text">li</code>s.</p>
-<p>The <code class="language-text">display: contents</code> was so magical, that somehow it etched into me since.</p>
-<p>So I proposed it to Rich in the chat, and now it is part of the proposed solution in the <a href="https://github.com/sveltejs/rfcs/blob/52e20b91ef5b301bd4b3f2a9461b929ac05aca0c/text/0000-style-properties.md">RFC</a>.</p>
+<div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">display</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">contents</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
+<p>In the same example, say if you apply a <code class="inline">display: flex</code> to the <code class="inline">.header-group</code>, the <code class="inline">.header-group</code> only got 1 flex item right? If you put <code class="inline">display: contents</code> to the <code class="inline">.headers</code>, it will disappear in terms of layout, and now, to <code class="inline">.header-group</code>, it has 3 flex items, the 3 header <code class="inline">li</code>s.</p>
+<p>The <code class="inline">display: contents</code> was so magical, that somehow it etched into me since.</p>
+<p>So I proposed it to Rich in the chat, and now it is part of the proposed solution in the <a href="https://github.com/sveltejs/rfcs/blob/52e20b91ef5b301bd4b3f2a9461b929ac05aca0c/text/0000-style-properties.md" rel="nofollow">RFC</a>.</p>
 <p>So I would like to end my stories with one of my favourite quote, from Steve Jobs,</p>
-<blockquote>
-<p>You can’t connect the dots looking forward, you can only connect them looking backwards.</p>
-<p>So you have to trust that the dots will somehow connect in your future.</p>
-</blockquote>
-<p>So I would like to end the sharing with 2 shoutouts:</p>
-<h3 id="please-do-sharing-more-often"><a href="#please-do-sharing-more-often" aria-label="please do sharing more often permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Please do sharing more often.</strong></h3>
+<blockquote><p>You can&#39;t connect the dots looking forward, you can only connect them looking backwards.</p>
+<p>So you have to trust that the dots will somehow connect in your future.</p></blockquote>
+<p>So I would like to end the sharing with 2 shoutouts:</p></section>
+<section><h3><a href="#please-do-sharing-more-often" id="please-do-sharing-more-often">Please do sharing more often.</a></h3>
 <p>What you have learned or tried, ever small or simple, it maybe useful for someone in the audience in ways you can never imagine.</p>
-<p><em>You can’t connect the dots looking forward.</em></p>
-<h3 id="please-do-participate-in-rk-more-often"><a href="#please-do-participate-in-rk-more-often" aria-label="please do participate in rk more often permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Please do participate in RK more often</strong></h3>
-<p>Our weekly internal RK is not mandatory. But still, make an effort to join us every week. You never know what you’ve just learned may be useful to you some day in the future.</p>
-<p><em>You got to trust the dots will somehow connect in your future</em>.</p></div><hr style="margin-bottom:1.58rem"/><p>Thank you for your time reading through this article.<br/>It means a lot to me.</p><p> I would appreciate if you <a href="https://twitter.com/intent/tweet?text=Insightful%20article%20from%20%40lihautan&amp;url=https://lihautan.com/short-stories-working-on-svelte/">tweet about it.</a></p><hr style="margin-bottom:1.58rem"/><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/git-gudder/">← <!-- -->Git Gudder</a></li><li><a rel="next" href="/personalised-development-workspace-with-chrome-extension/">Personalised Development Workspace With Chrome Extension<!-- --> →</a></li></ul></main><footer style="margin-top:3.16rem">Built with <span role="img" class="emoji">💻</span> and <span role="img" class="emoji">❤️</span></footer></div></div></div><script>
-  
-  
-  if(true) {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  }
-  if (typeof ga === "function") {
-    ga('create', 'UA-135921142-1', 'auto', {});
-      
-      
-      
-      
-      
-      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/short-stories-working-on-svelte/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-8bd1cc8010cedd8acda1.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5efb7b8fb8a6286e0a5c.js"],"component---src-templates-note-post-js":["/component---src-templates-note-post-js-f59fa8cce9012e7ea455.js"],"component---src-templates-talk-post-js":["/component---src-templates-talk-post-js-4d1e0e4a3b0202bcc81e.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-f06013fc6459663c30aa.js"],"component---src-pages-404-js":["/component---src-pages-404-js-055b71ea0a4fd9dcbccc.js"],"component---src-pages-blogs-js":["/component---src-pages-blogs-js-9270d348e0caf96d536a.js"],"component---src-pages-index-js":["/component---src-pages-index-js-4ebc6c75084ea2b15307.js"],"component---src-pages-notes-js":["/component---src-pages-notes-js-f8c84f6f470347a722e0.js"],"component---src-pages-projects-js":["/component---src-pages-projects-js-30e64bddf6d9ab4282e1.js"],"component---src-pages-talks-js":["/component---src-pages-talks-js-c6d25163507a15c56cf7.js"]};/*]]>*/</script><script src="/component---src-templates-talk-post-js-4d1e0e4a3b0202bcc81e.js" async=""></script><script src="/commons-3e93bd210d644ed6685c.js" async=""></script><script src="/styles-3b48cb4932382e2c1b1c.js" async=""></script><script src="/app-8bd1cc8010cedd8acda1.js" async=""></script><script src="/webpack-runtime-e01135db4acd799ac6d1.js" async=""></script></body></html>
+<p><em>You can&#39;t connect the dots looking forward.</em></p></section>
+<section><h3><a href="#please-do-participate-in-rk-more-often" id="please-do-participate-in-rk-more-often">Please do participate in RK more often</a></h3>
+<p>Our weekly internal RK is not mandatory. But still, make an effort to join us every week. You never know what you&#39;ve just learned may be useful to you some day in the future.</p>
+<p><em>You got to trust the dots will somehow connect in your future</em>.</p></section></article>
+
+</main>
+
+<footer class="svelte-70a8h7">
+</footer>
+
+
+		<script type="module" data-hydrate="h971rz">
+		import { start } from "/_app/start-49a5975a.js";
+		start({
+			target: document.querySelector('[data-hydrate="h971rz"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
+						import("/_app/pages/short-stories-working-on-svelte/index.md-19647acd.js")
+				],
+				params: {}
+			}
+		});
+	</script></div>
+		<script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
+	</body>
+</html>
