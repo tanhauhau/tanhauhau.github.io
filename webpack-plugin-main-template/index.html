@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/webpack-plugin-main-template/index.md-31018f8b.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/webpack-plugin-main-template/index.md-bf0ed9f1.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,13 +77,18 @@
 
 
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#webpack-s-output-library-options">Webpack&#39;s output.library *  options</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#name-of-a-module-system-commonjs-commonjs-amd-umd">1. Name of a module system:  `&quot;commonjs&quot;` ,  `&quot;commonjs2&quot;` ,  `&quot;amd&quot;` ,  `&quot;umd&quot;` , ...</a></li>
-						<li class="svelte-13pn6e2"><a href="#name-of-a-variable-var-this-self-window-global">2. Name of a variable:  `&quot;var&quot;` ,  `&quot;this&quot;` ,  `&quot;self&quot;` ,  `&quot;window&quot;` ,  `&quot;global&quot;`</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#writing-a-webpack-plugin">Writing a webpack plugin</a></li>
-			<li class="svelte-13pn6e2"><a href="#closing-note">Closing Note</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#webpack-s-output-library-options" class="svelte-j01zi8">Webpack&#39;s output.library *  options</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-name-of-a-module-system-commonjs-commonjs2-amd-umd" class="svelte-j01zi8">1. Name of a module system:  `&quot;commonjs&quot;` ,  `&quot;commonjs2&quot;` ,  `&quot;amd&quot;` ,  `&quot;umd&quot;` , ...</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-name-of-a-variable-var-this-self-window-global" class="svelte-j01zi8">2. Name of a variable:  `&quot;var&quot;` ,  `&quot;this&quot;` ,  `&quot;self&quot;` ,  `&quot;window&quot;` ,  `&quot;global&quot;`</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#writing-a-webpack-plugin" class="svelte-j01zi8">Writing a webpack plugin</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#closing-note" class="svelte-j01zi8">Closing Note</a>
+				
+			</li></ol>
 </section>
 <p>If you are using webpack to bundle your library, you most likely will export something in your entry file:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">// weback.config.js</span></span>
@@ -114,7 +119,7 @@
 <section><h2><a href="#webpack-s-output-library-options" id="webpack-s-output-library-options">Webpack&#39;s output.library* options</a></h2>
 <p>To understand how each of them works, let&#39;s start with <code class="inline">output.libraryTarget</code>.</p>
 <p><code class="inline">output.libraryTarget</code> accepts <code class="inline">string</code> as value, there are 2 main groups of values that you can provide to the <code class="inline">output.libraryTarget</code> option:</p></section>
-<section><h3><a href="#name-of-a-module-system-commonjs-commonjs-amd-umd" id="name-of-a-module-system-commonjs-commonjs-amd-umd">1. Name of a module system: <code class="inline">&quot;commonjs&quot;</code>, <code class="inline">&quot;commonjs2&quot;</code>, <code class="inline">&quot;amd&quot;</code>, <code class="inline">&quot;umd&quot;</code>, ...</a></h3>
+<section><h3><a href="#1-name-of-a-module-system-commonjs-commonjs2-amd-umd" id="1-name-of-a-module-system-commonjs-commonjs2-amd-umd">1. Name of a module system: <code class="inline">&quot;commonjs&quot;</code>, <code class="inline">&quot;commonjs2&quot;</code>, <code class="inline">&quot;amd&quot;</code>, <code class="inline">&quot;umd&quot;</code>, ...</a></h3>
 <p>Webpack allows you to specify the name of the module system that you want to use to expose the exported values of the entry file.</p>
 <p>You can specify a module system that is different from the one that you are using in your library.</p>
 <p>Let&#39;s try <code class="inline">commonjs2</code> as an example:</p>
@@ -134,7 +139,7 @@
 <p><code class="inline">commonjs2</code> uses <code class="inline">module.exports</code> to export values from a module. In this example, webpack assigns the return value of the IIFE to <code class="inline">module.exports</code>.</p>
 <p>If you look at the bundled code, it is not much different than the one without specifying <code class="inline">output.libraryTarget</code>. The only difference is that the bundled code is prefixed with <code class="inline">module.exports =</code>;</p>
 <blockquote><p>By the way, if you are curious about the difference between commonjs and commonjs2, you can follow the thread of <a href="https://github.com/webpack/webpack/issues/1114" rel="nofollow">this issue</a>.</p></blockquote></section>
-<section><h3><a href="#name-of-a-variable-var-this-self-window-global" id="name-of-a-variable-var-this-self-window-global">2. Name of a variable: <code class="inline">&quot;var&quot;</code>, <code class="inline">&quot;this&quot;</code>, <code class="inline">&quot;self&quot;</code>, <code class="inline">&quot;window&quot;</code>, <code class="inline">&quot;global&quot;</code></a></h3>
+<section><h3><a href="#2-name-of-a-variable-var-this-self-window-global" id="2-name-of-a-variable-var-this-self-window-global">2. Name of a variable: <code class="inline">&quot;var&quot;</code>, <code class="inline">&quot;this&quot;</code>, <code class="inline">&quot;self&quot;</code>, <code class="inline">&quot;window&quot;</code>, <code class="inline">&quot;global&quot;</code></a></h3>
 <p>On the other hand, instead of exposing the library content through a module system, you can specify the variable name which the export object is assigned to.</p>
 <p>Let&#39;s take <code class="inline">self</code> as an example:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-comment)">// webpack.config.js</span></span>
@@ -292,16 +297,18 @@
 <p>Writing a webpack plugin is not impossible. It will especially be easier if you have a good understanding how webpack as a bundler works.</p>
 <p><em>(Plug: if you want to know more, you can read my <a href="/what-is-module-bundler-and-how-does-it-work/">&quot;What is module bundler and how does it work?&quot;</a>)</em></p></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="dipwkh">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="1va1dfe">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="dipwkh"]').parentNode,
+			target: document.querySelector('[data-hydrate="1va1dfe"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -311,8 +318,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/webpack-plugin-main-template/index.md-31018f8b.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/webpack-plugin-main-template/index.md-bf0ed9f1.js")
 				],
 				params: {}
 			}

@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/compile-svelte-in-your-head-part-3/index.md-52a1a1ce.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/compile-svelte-in-your-head-part-3/index.md-3fc3f829.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,29 +76,46 @@
 
 <a class="tag svelte-muo5sw" href="/tags/Svelte">Svelte</a><a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#the-on-bind-and-use">The  `on:` ,  `bind:`  and  `use:`</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#on-event-handlers">`on:`  event handlers</a></li>
-						<li class="svelte-13pn6e2"><a href="#bind-bindings">`bind:`  bindings</a></li>
-						<li class="svelte-13pn6e2"><a href="#use-actions">`use:`  actions</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#the-vanilla-js">The Vanilla JS</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#event-handler">Event handler</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#event-preventdefault">event.preventDefault</a></li>
-									<li class="svelte-13pn6e2"><a href="#event-stoppropagation">event.stopPropagation</a></li>
-									
-							</ul><li class="svelte-13pn6e2"><a href="#bindings">Bindings</a></li>
-						<li class="svelte-13pn6e2"><a href="#actions">Actions</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#the-compiled-js">The Compiled JS</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#on-directive">`on:`  directive</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#event-modifiers">Event modifiers</a></li>
-									
-							</ul><li class="svelte-13pn6e2"><a href="#bind-directive">`bind:`  directive</a></li>
-						<li class="svelte-13pn6e2"><a href="#use-directive">`use:`  directive</a></li>
-						<li class="svelte-13pn6e2"><a href="#the-order-of-directives">The order of directives</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#closing-note">Closing Note</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#the-on-bind-and-use" class="svelte-j01zi8">The  `on:` ,  `bind:`  and  `use:`</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#on-event-handlers" class="svelte-j01zi8">`on:`  event handlers</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#bind-bindings" class="svelte-j01zi8">`bind:`  bindings</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#use-actions" class="svelte-j01zi8">`use:`  actions</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#the-vanilla-js" class="svelte-j01zi8">The Vanilla JS</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#event-handler" class="svelte-j01zi8">Event handler</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#event-preventdefault" class="svelte-j01zi8">event.preventDefault</a>
+												
+											</li><li class="svelte-j01zi8"><a href="#event-stoppropagation" class="svelte-j01zi8">event.stopPropagation</a>
+												
+											</li>
+									</ol>
+							</li><li class="svelte-j01zi8"><a href="#bindings" class="svelte-j01zi8">Bindings</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#actions" class="svelte-j01zi8">Actions</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#the-compiled-js" class="svelte-j01zi8">The Compiled JS</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#on-directive" class="svelte-j01zi8">`on:`  directive</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#event-modifiers" class="svelte-j01zi8">Event modifiers</a>
+												
+											</li>
+									</ol>
+							</li><li class="svelte-j01zi8"><a href="#bind-directive" class="svelte-j01zi8">`bind:`  directive</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#use-directive" class="svelte-j01zi8">`use:`  directive</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#the-order-of-directives" class="svelte-j01zi8">The order of directives</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#closing-note" class="svelte-j01zi8">Closing Note</a>
+				
+			</li></ol>
 </section>
 <p><strong>⬅ ⬅  Previously in <a href="/compile-svelte-in-your-head-part-2/">Part 2</a>.</strong></p>
 <p><a href="/compile-svelte-in-your-head-part-2/">Previously</a>, I detailed how <code class="inline">$$invalidate</code> works, described how bitmask was used in <code class="inline">$$invalidate</code>, and explained how reactive declarations work as well.</p>
@@ -404,16 +421,18 @@
 <p>I&#39;ll post it on Twitter when the next part is ready, where I&#39;ll be covering <a href="https://svelte.dev/tutorial/if-blocks" rel="nofollow">logic blocks</a>, <a href="https://svelte.dev/tutorial/slots" rel="nofollow">slots</a>, <a href="https://svelte.dev/tutorial/context-api" rel="nofollow">context</a>, and many others.</p>
 <p><strong>⬅ ⬅  Previously in <a href="/compile-svelte-in-your-head-part-2/">Part 2</a>.</strong></p></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="abl4jl">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="1u56q17">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="abl4jl"]').parentNode,
+			target: document.querySelector('[data-hydrate="1u56q17"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -423,8 +442,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/compile-svelte-in-your-head-part-3/index.md-52a1a1ce.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/compile-svelte-in-your-head-part-3/index.md-3fc3f829.js")
 				],
 				params: {}
 			}

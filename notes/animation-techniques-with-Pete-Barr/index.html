@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/notes/animation-techniques-with-Pete-Barr.md-f319c1ae.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/notes/animation-techniques-with-Pete-Barr.md-484b67f8.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,12 +77,17 @@
 
 <a class="tag svelte-muo5sw" href="/tags/greensock">greensock</a><a class="tag svelte-muo5sw" href="/tags/web animation">web animation</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#split-text-from-phrase-to-animate-character-individually">Split text from phrase to animate character individually</a></li>
-			<li class="svelte-13pn6e2"><a href="#cylinder-rotation-effect">Cylinder Rotation Effect</a></li>
-			<li class="svelte-13pn6e2"><a href="#create-custom-easing-function-using-greensock-ease-visualiser">Create custom easing function using GreenSock Ease Visualiser</a></li>
-			<li class="svelte-13pn6e2"><a href="#infinite-looping">Infinite looping</a></li>
-			<li class="svelte-13pn6e2"><a href="#masking-using-svg-mask">Masking using svg mask</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#split-text-from-phrase-to-animate-character-individually" class="svelte-j01zi8">Split text from phrase to animate character individually</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#cylinder-rotation-effect" class="svelte-j01zi8">Cylinder Rotation Effect</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#create-custom-easing-function-using-greensock-ease-visualiser" class="svelte-j01zi8">Create custom easing function using GreenSock Ease Visualiser</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#infinite-looping" class="svelte-j01zi8">Infinite looping</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#masking-using-svg-mask" class="svelte-j01zi8">Masking using svg mask</a>
+				
+			</li></ol>
 </section>
 <p>Link: <a href="https://frontend.horse/articles/amazing-animation-techniques-with-gsap/" rel="nofollow">https://frontend.horse/articles/amazing-animation-techniques-with-gsap/</a></p>
 <section><h2><a href="#split-text-from-phrase-to-animate-character-individually" id="split-text-from-phrase-to-animate-character-individually">Split text from phrase to animate character individually</a></h2>
@@ -127,16 +132,18 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">rect</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;stage&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">width</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;716&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">height</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;1020&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">fill</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;red&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">mask</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;url(#jm-mask)&quot;</span><span style="color: var(--shiki-color-text)">/&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">svg</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="1f84b86">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="uxxeco">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="1f84b86"]').parentNode,
+			target: document.querySelector('[data-hydrate="uxxeco"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -146,8 +153,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/notes/animation-techniques-with-Pete-Barr.md-f319c1ae.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/notes/animation-techniques-with-Pete-Barr.md-484b67f8.js")
 				],
 				params: {}
 			}

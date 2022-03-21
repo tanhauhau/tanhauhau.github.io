@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/notes/solid-color-swipe-svelte-transition/index.md-5b2f1be0.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/notes/solid-color-swipe-svelte-transition/index.md-ceb8fb68.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,17 +77,26 @@
 
 <a class="tag svelte-muo5sw" href="/tags/svelte">svelte</a><a class="tag svelte-muo5sw" href="/tags/transition">transition</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#the-result">The Result</a></li>
-			<li class="svelte-13pn6e2"><a href="#break-it-down-slowly">Break it down slowly</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#the-first-thing-is-to-figure-out-the-color-of-the-text">1. The first thing is to figure out the color of the text</a></li>
-						<li class="svelte-13pn6e2"><a href="#i-tried-using-linear-gradient-to-draw-the-background">2. I tried using linear-gradient to draw the background</a></li>
-						<li class="svelte-13pn6e2"><a href="#next-i-need-to-hide-reveal-the-text-at-the-right-time">3. Next I need to hide / reveal the text at the right time</a></li>
-						<li class="svelte-13pn6e2"><a href="#combining-the-both-and-together">4. Combining the both 2. and 3. together</a></li>
-						<li class="svelte-13pn6e2"><a href="#final-touches-pass-the-duration-delay-and-easing-into-the-returned-object">5. final touches, pass the  `duration` ,  `delay` , and  `easing`  into the returned object</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#final-code">Final code</a></li>
-			<li class="svelte-13pn6e2"><a href="#extra">Extra</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#the-result" class="svelte-j01zi8">The Result</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#break-it-down-slowly" class="svelte-j01zi8">Break it down slowly</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-the-first-thing-is-to-figure-out-the-color-of-the-text" class="svelte-j01zi8">1. The first thing is to figure out the color of the text</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-i-tried-using-linear-gradient-to-draw-the-background" class="svelte-j01zi8">2. I tried using linear-gradient to draw the background</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#3-next-i-need-to-hide-reveal-the-text-at-the-right-time" class="svelte-j01zi8">3. Next I need to hide / reveal the text at the right time</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#4-combining-the-both-2-and-3-together" class="svelte-j01zi8">4. Combining the both 2. and 3. together</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#5-final-touches-pass-the-duration-delay-and-easing-into-the-returned-object" class="svelte-j01zi8">5. final touches, pass the  `duration` ,  `delay` , and  `easing`  into the returned object</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#final-code" class="svelte-j01zi8">Final code</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#extra" class="svelte-j01zi8">Extra</a>
+				
+			</li></ol>
 </section>
 <section><h2><a href="#the-result" id="the-result">The Result</a></h2>
 <p><img src="/_app/assets/custom-solid-swipe-2928e887.gif" loading="lazy" alt="the-result"></p></section>
@@ -96,11 +105,11 @@
 <p>The transition can be broken down into 2 halves:</p>
 <ul><li>1️⃣ a solid color growing from the left covering the whole text area</li>
 <li>2️⃣ as the solid color shrinks, it reveals the text</li></ul></section>
-<section><h3><a href="#the-first-thing-is-to-figure-out-the-color-of-the-text" id="the-first-thing-is-to-figure-out-the-color-of-the-text">1. The first thing is to figure out the color of the text</a></h3>
+<section><h3><a href="#1-the-first-thing-is-to-figure-out-the-color-of-the-text" id="1-the-first-thing-is-to-figure-out-the-color-of-the-text">1. The first thing is to figure out the color of the text</a></h3>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">swipeColor</span><span style="color: var(--shiki-color-text)">(node</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> params) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> &#123; </span><span style="color: var(--shiki-token-constant)">color</span><span style="color: var(--shiki-color-text)"> &#125; </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">window</span><span style="color: var(--shiki-token-function)">.getComputedStyle</span><span style="color: var(--shiki-color-text)">(node);</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div></section>
-<section><h3><a href="#i-tried-using-linear-gradient-to-draw-the-background" id="i-tried-using-linear-gradient-to-draw-the-background">2. I tried using linear-gradient to draw the background</a></h3>
+<section><h3><a href="#2-i-tried-using-linear-gradient-to-draw-the-background" id="2-i-tried-using-linear-gradient-to-draw-the-background">2. I tried using linear-gradient to draw the background</a></h3>
 <ul><li>I use the value of <code class="inline">t</code> to determine how wide the solid color should be</li></ul>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-function)">css</span><span style="color: var(--shiki-color-text)">(t) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">if</span><span style="color: var(--shiki-color-text)"> (t </span><span style="color: var(--shiki-token-keyword)">&gt;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0.5</span><span style="color: var(--shiki-color-text)">) &#123;</span></span>
@@ -120,7 +129,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  &#125;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span><span style="color: var(--shiki-token-punctuation)">,</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p><img src="/_app/assets/breakdown-2-cc798dd4.gif" loading="lazy" alt="breakdown 2"></p></section>
-<section><h3><a href="#next-i-need-to-hide-reveal-the-text-at-the-right-time" id="next-i-need-to-hide-reveal-the-text-at-the-right-time">3. Next I need to hide / reveal the text at the right time</a></h3>
+<section><h3><a href="#3-next-i-need-to-hide-reveal-the-text-at-the-right-time" id="3-next-i-need-to-hide-reveal-the-text-at-the-right-time">3. Next I need to hide / reveal the text at the right time</a></h3>
 <ul><li>I hid the text by setting the text color to transparent</li></ul>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-function)">css</span><span style="color: var(--shiki-color-text)">(t) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">if</span><span style="color: var(--shiki-color-text)"> (t </span><span style="color: var(--shiki-token-keyword)">&gt;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0.5</span><span style="color: var(--shiki-color-text)">) &#123;</span></span>
@@ -130,7 +139,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  &#125;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p><img src="/_app/assets/breakdown-3-c2c821c3.gif" loading="lazy" alt="breakdown 3"></p></section>
-<section><h3><a href="#combining-the-both-and-together" id="combining-the-both-and-together">4. Combining the both 2. and 3. together</a></h3>
+<section><h3><a href="#4-combining-the-both-2-and-3-together" id="4-combining-the-both-2-and-3-together">4. Combining the both 2. and 3. together</a></h3>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-function)">css</span><span style="color: var(--shiki-color-text)">(t) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">if</span><span style="color: var(--shiki-color-text)"> (t </span><span style="color: var(--shiki-token-keyword)">&gt;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0.5</span><span style="color: var(--shiki-color-text)">) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-comment)">// transform t from range [0.5, 1] into percentage [0, 100]</span></span>
@@ -154,7 +163,7 @@
 <span class="line"><span style="color: var(--shiki-token-string-expression)">    &#96;</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &#125;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span><span style="color: var(--shiki-token-punctuation)">,</span></span></code></pre><!-- HTML_TAG_END --></div></section>
-<section><h3><a href="#final-touches-pass-the-duration-delay-and-easing-into-the-returned-object" id="final-touches-pass-the-duration-delay-and-easing-into-the-returned-object">5. final touches, pass the <code class="inline">duration</code>, <code class="inline">delay</code>, and <code class="inline">easing</code> into the returned object</a></h3>
+<section><h3><a href="#5-final-touches-pass-the-duration-delay-and-easing-into-the-returned-object" id="5-final-touches-pass-the-duration-delay-and-easing-into-the-returned-object">5. final touches, pass the <code class="inline">duration</code>, <code class="inline">delay</code>, and <code class="inline">easing</code> into the returned object</a></h3>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">  <span class="token keyword">function</span> <span class="token function">swipeColor</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></div><div class="line">    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> duration<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> easing <span class="token punctuation">&#125;</span> <span class="token operator">=</span> params <span class="token operator">||</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></div><div class="line">    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></div><div class="line">      duration<span class="token punctuation">,</span></div><div class="line">      delay<span class="token punctuation">,</span></div><div class="line">      easing<span class="token punctuation">,</span></div><div class="line">      <span class="token function">css</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/* ... */</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></div><div class="line">    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></div><div class="line">  <span class="token punctuation">&#125;</span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div><div class="line"></div><div class="line"><span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> show<span class="token punctuation">&#125;</span></span></div><div class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">transition:</span>swipeColor</span><span class="token punctuation">></span></span>Hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></div><div class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">transition:</span>swipeColor=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">delay</span><span class="token operator">:</span> <span class="token number">300</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>Hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></div><div class="line"><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span></div></code></pre><!-- HTML_TAG_END --></div></section>
 <section><h2><a href="#final-code" id="final-code">Final code</a></h2>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">swipeColor</span><span style="color: var(--shiki-color-text)">(node</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> params) &#123;</span></span>
@@ -193,16 +202,18 @@
 <p>Svelte has make writing custom transitions simple, with the code above, the transition itself is able to pause / reverse halfway through the transition</p>
 <p><img src="/_app/assets/reversible-25a43b02.gif" loading="lazy" alt="reversible"></p></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="yga2gq">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="9kdn1g">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="yga2gq"]').parentNode,
+			target: document.querySelector('[data-hydrate="9kdn1g"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -212,8 +223,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/notes/solid-color-swipe-svelte-transition/index.md-5b2f1be0.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/notes/solid-color-swipe-svelte-transition/index.md-ceb8fb68.js")
 				],
 				params: {}
 			}

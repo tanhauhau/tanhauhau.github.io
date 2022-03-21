@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/webpack-additional-compilation-pass/index.md-c7855797.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/webpack-additional-compilation-pass/index.md-a58c3e13.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,18 +77,26 @@
 
 
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#the-problem">The problem</a></li>
-			<li class="svelte-13pn6e2"><a href="#the-st-approach">The 1st approach</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#updated-feb">Updated Feb 27, 2020</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#the-nd-approach">The 2nd approach</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#updated-feb">Updated Feb 27, 2020</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#the-rd-approach">The 3rd approach</a></li>
-			<li class="svelte-13pn6e2"><a href="#closing-notes">Closing Notes</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#updated-feb">Updated Feb 27, 2020</a></li>
-						
-				</ul></ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#the-problem" class="svelte-j01zi8">The problem</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#the-1st-approach" class="svelte-j01zi8">The 1st approach</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#updated-feb-27-2020" class="svelte-j01zi8">Updated Feb 27, 2020</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#the-2nd-approach" class="svelte-j01zi8">The 2nd approach</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#updated-feb-27-2020-1" class="svelte-j01zi8">Updated Feb 27, 2020</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#the-3rd-approach" class="svelte-j01zi8">The 3rd approach</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#closing-notes" class="svelte-j01zi8">Closing Notes</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#updated-feb-27-2020-2" class="svelte-j01zi8">Updated Feb 27, 2020</a>
+								
+							</li>
+					</ol>
+			</li></ol>
 </section>
 <p>Recently, I was working on a server-side rendering application, and encounter a scenario that I think it requires &quot;double compilation&quot; with webpack.</p>
 <section><h2><a href="#the-problem" id="the-problem">The problem</a></h2>
@@ -122,7 +130,7 @@
 <p>Now, the problem is, how do I get the list of CSS files?</p>
 <p>The list of CSS files produced by the build is only available after I compile the application, but I need the information to be part of compiled code.</p>
 <p>The compiled code being part of the compilation, needs to contain information of the compilation.</p></section>
-<section><h2><a href="#the-st-approach" id="the-st-approach">The 1st approach</a></h2>
+<section><h2><a href="#the-1st-approach" id="the-1st-approach">The 1st approach</a></h2>
 <p>A naive solution at first is to use <a href="https://www.npmjs.com/package/webpack-manifest-plugin" rel="nofollow">Webpack Manifest Plugin</a> to get the compilation manifest, and in the code, import the manifest as json and consumes it:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">// ...</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> webpackManifest </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;./dist/webpack-manifest.json&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -154,7 +162,7 @@
 <span class="line">├── webpack-manifest.json</span>
 <span class="line">└── bundle.js  // &lt;-- the main output bundle</span></code></pre><!-- HTML_TAG_END --></div>
 <p>One can safely argue that, the approach above works and let&#39;s move on the next task. But, curiosity drives me to seek deeper for a more &quot;elegant&quot; solution, where one don&#39;t need <code class="inline">require(&#39;webpack-manifest.json&#39;)</code> in runtime, but that information is compiled into the code.</p></section>
-<section><h3><a href="#updated-feb" id="updated-feb">[Updated Feb 27, 2020]</a></h3>
+<section><h3><a href="#updated-feb-27-2020" id="updated-feb-27-2020">[Updated Feb 27, 2020]</a></h3>
 <p>Thanks to <a href="https://twitter.com/wSokra" rel="nofollow">@wSokra</a>&#39;s <a href="https://twitter.com/wSokra/status/1230448421351444482" rel="nofollow">suggestion</a>, instead of using <code class="inline">__non_webpack_require__()</code>, you can use a normal import and declaring the manifest file as an external:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">// ...</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> webpackManifest </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;webpack-manifest&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -174,7 +182,7 @@
 <span class="line">├── bundle.js  // &lt;-- the main output bundle</span>
 <span class="line">└── webpack-manifest.json // &lt;-- relative to bundle.js</span></code></pre><!-- HTML_TAG_END --></div>
 <p>You can read more about webpack externals from <a href="https://webpack.js.org/configuration/externals/" rel="nofollow">the webpack documentation</a>.</p></section>
-<section><h2><a href="#the-nd-approach" id="the-nd-approach">The 2nd approach</a></h2>
+<section><h2><a href="#the-2nd-approach" id="the-2nd-approach">The 2nd approach</a></h2>
 <p>So, the next &quot;intuitive&quot; approach is to <a href="/webpack-plugin-main-template">write a custom template plugin</a>, that adds the webpack manifest on top of the main bundle, an example of the output:</p>
 <div class="code-section"><!-- HTML_TAG_START --><div class="filename">bundle.js</div><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">// added by template plugin</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">CSS_FILES</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> [</span><span style="color: var(--shiki-token-string-expression)">&#39;http://cdn/assets/style.xxx.css&#39;</span><span style="color: var(--shiki-color-text)">];</span></span>
@@ -259,10 +267,10 @@
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>Apparently that works, but I wonder whether is it a good practice to modifying the source of an asset during the <code class="inline">emit</code> phase? 🤔</p>
 <p>And, if you noticed, I need to append the <code class="inline">const CSS_FILES = [...]</code> to every file, that&#39;s because I have no idea in which file <code class="inline">CSS_FILES</code> is referenced. And because I declared it using <code class="inline">const</code>, it only exists within the file&#39;s scope, so I have to redeclare it all the other files.</p></section>
-<section><h3><a href="#updated-feb" id="updated-feb">[Updated Feb 27, 2020]</a></h3>
+<section><h3><a href="#updated-feb-27-2020-1" id="updated-feb-27-2020-1">[Updated Feb 27, 2020]</a></h3>
 <p>According to <a href="https://twitter.com/evilebottnawi" rel="nofollow">@evilebottnawi</a> that this is not appropriate</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">A lot of plugin uses `compiler.hooks.emit` for emitting new assets, it is invalid. Ideally plugins should use `compilation.hooks.additionalAssets` for adding new assets.</p>— evilebottnawi (@evilebottnawi) <a href="https://twitter.com/evilebottnawi/status/1230417598677954560?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote></section>
-<section><h2><a href="#the-rd-approach" id="the-rd-approach">The 3rd approach</a></h2>
+<section><h2><a href="#the-3rd-approach" id="the-3rd-approach">The 3rd approach</a></h2>
 <p>I was still not convinced that this is the best I could do, so I continued looking around webpack&#39;s doc. I found a particular compilation hooks, <a href="https://webpack.js.org/api/compilation-hooks/#needadditionalpass" rel="nofollow"><code class="inline">needAdditionalPass</code></a>, which seems useful. It says, <em>&quot;Called to determine if an asset needs to be processed further after being emitted.&quot;</em>.</p>
 <p>So, if I return <code class="inline">true</code> in the <code class="inline">needAdditionalPass</code>, webpack will re<code class="inline">compile</code> the asset again:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">class</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">MyWebpackPlugin</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
@@ -324,9 +332,11 @@
 <section><h2><a href="#closing-notes" id="closing-notes">Closing Notes</a></h2>
 <p>The compile output for the 3rd approach seemed to be better (more precise?) than the other, yet I am not entirely sure using a <code class="inline">needAdditionalPass</code> is the right way of going about it.</p>
 <p>So, <a href="https://twitter.com/lihautan" rel="nofollow">let me know</a> if you have any thoughts or suggestions, yea?</p></section>
-<section><h3><a href="#updated-feb" id="updated-feb">[Updated Feb 27, 2020]</a></h3>
+<section><h3><a href="#updated-feb-27-2020-2" id="updated-feb-27-2020-2">[Updated Feb 27, 2020]</a></h3>
 <p>You can read <a href="https://twitter.com/lihautan/status/1230301241533583360" rel="nofollow">the discussions that&#39;s happening on Twitter</a>:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Need some suggestions and inputs from <a href="https://twitter.com/webpack?ref_src=twsrc%5Etfw">@webpack</a> masters, I&#39;ve written the problem and approaches that I&#39;ve taken over here: <a href="https://t.co/gLsPG9Joeq">https://t.co/gLsPG9Joeq</a>, still I&#39;m not sure I am doing it right 🙈<a href="https://twitter.com/wSokra?ref_src=twsrc%5Etfw">@wSokra</a> <a href="https://twitter.com/evilebottnawi?ref_src=twsrc%5Etfw">@evilebottnawi</a></p>— Tan Li Hau (@lihautan) <a href="https://twitter.com/lihautan/status/1230301241533583360?ref_src=twsrc%5Etfw">February 20, 2020</a></blockquote></section></article>
+
+<div style="height: 1px; width: 100%"></div>
 
 </main>
 
@@ -334,10 +344,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1uvcot2">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="1qbkazb">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="1uvcot2"]').parentNode,
+			target: document.querySelector('[data-hydrate="1qbkazb"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -347,8 +357,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/webpack-additional-compilation-pass/index.md-c7855797.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/webpack-additional-compilation-pass/index.md-a58c3e13.js")
 				],
 				params: {}
 			}

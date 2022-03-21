@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/TalkLayout-340d543e.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/third-party-css-is-not-safe/index.md-7f7f8be5.js">
-	<link rel="modulepreload" href="/_app/chunks/TalkLayout-d182c6b1.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/third-party-css-is-not-safe/index.md-9b9f3c43.js">
+	<link rel="modulepreload" href="/_app/chunks/TalkLayout-2ed807d6.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,49 +76,64 @@
 
 <div class="venue svelte-1rhvskq">Talk given at: <a href="https://singaporecss.github.io/54/" class="svelte-1rhvskq">talk.css meetup</a><a href="https://engineers.sg/video/third-party-css-is-not-safe-talk-css-54--4113" class="svelte-1rhvskq">(Video)</a></div>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#rd-party">3rd party</a></li>
-			<li class="svelte-13pn6e2"><a href="#where-does-rd-party-css-come-from">Where does 3rd party CSS come from?</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#css-frameworks">1. CSS Frameworks</a></li>
-						<li class="svelte-13pn6e2"><a href="#third-party-scripts">2. Third party scripts</a></li>
-						<li class="svelte-13pn6e2"><a href="#browser-extensions">3. Browser extensions</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#how-rd-party-css-can-be-unsafe">How 3rd party CSS can be unsafe?</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#disappearing-content">Disappearing content</a></li>
-						<li class="svelte-13pn6e2"><a href="#adding-content">Adding content</a></li>
-						<li class="svelte-13pn6e2"><a href="#moving-content">Moving content</a></li>
-						<li class="svelte-13pn6e2"><a href="#reading-attributes">Reading attributes</a></li>
-						<li class="svelte-13pn6e2"><a href="#monitoring-attributes">Monitoring attributes</a></li>
-						<li class="svelte-13pn6e2"><a href="#reading-text">Reading text</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#content-security-policy">Content Security Policy</a></li>
-			<li class="svelte-13pn6e2"><a href="#summary">Summary</a></li>
-			<li class="svelte-13pn6e2"><a href="#further-reading">Further reading</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#3rd-party" class="svelte-j01zi8">3rd party</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#where-does-3rd-party-css-come-from" class="svelte-j01zi8">Where does 3rd party CSS come from?</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-css-frameworks" class="svelte-j01zi8">1. CSS Frameworks</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-third-party-scripts" class="svelte-j01zi8">2. Third party scripts</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#3-browser-extensions" class="svelte-j01zi8">3. Browser extensions</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#how-3rd-party-css-can-be-unsafe" class="svelte-j01zi8">How 3rd party CSS can be unsafe?</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#disappearing-content" class="svelte-j01zi8">Disappearing content</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#adding-content" class="svelte-j01zi8">Adding content</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#moving-content" class="svelte-j01zi8">Moving content</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#reading-attributes" class="svelte-j01zi8">Reading attributes</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#monitoring-attributes" class="svelte-j01zi8">Monitoring attributes</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#reading-text" class="svelte-j01zi8">Reading text</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#content-security-policy" class="svelte-j01zi8">Content Security Policy</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#summary" class="svelte-j01zi8">Summary</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#further-reading" class="svelte-j01zi8">Further reading</a>
+				
+			</li></ol>
 </section>
 <p>Recently, I read <a href="https://jakearchibald.com/2018/third-party-css-is-not-safe/" rel="nofollow">Jake Archibald&#39;s &quot;Third party CSS is not safe&quot;</a>, and it has a lot to say about why 3rd party CSS is not safe. You should give it a read, but if you are lazy, here I am going to read it along with you.</p>
-<section><h2><a href="#rd-party" id="rd-party">3rd party</a></h2>
+<section><h2><a href="#3rd-party" id="3rd-party">3rd party</a></h2>
 <p>If you use assets or APIs from sources that are not provided by yourself, you are using it from a 3rd party. Generally, in a context of a website, this means loading resources that is not from the same domain.</p>
 <p>Jake then gave examples of how 3rd party images and 3rd party scripts could be harmful.</p>
 <p>But, today&#39;s main focus is on 3rd party CSS. So let&#39;s scroll down and see what harm can 3rd party CSS bring.</p></section>
-<section><h2><a href="#where-does-rd-party-css-come-from" id="where-does-rd-party-css-come-from">Where does 3rd party CSS come from?</a></h2>
+<section><h2><a href="#where-does-3rd-party-css-come-from" id="where-does-3rd-party-css-come-from">Where does 3rd party CSS come from?</a></h2>
 <p>Before we dive into what harm can it bring, let&#39;s pause for a moment and think, how does 3rd party CSS get into our web page?</p></section>
-<section><h3><a href="#css-frameworks" id="css-frameworks">1. CSS Frameworks</a></h3>
+<section><h3><a href="#1-css-frameworks" id="1-css-frameworks">1. CSS Frameworks</a></h3>
 <p>Well, if you use frameworks like Bootstrap (I have nothing against using Bootstrap, it&#39;s a great CSS framework), one of the options to adding it to your website is to use one of their CDN links.</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/bootstrap-cdn-b6a7c682.webp"><source type="image/png" srcset="/_app/assets/bootstrap-cdn-127fb246.png"><img src="/_app/assets/bootstrap-cdn-127fb246.png" loading="lazy" alt="bootstrap cdn"></picture></p>
 <p>This means that you are going to trust the CSS content return from the Bootstrap CDN.</p>
 <p><em>Have you ever take a look at what is contained in the <code class="inline">bootstrap.min.css</code> from CDN?</em></p></section>
-<section><h3><a href="#third-party-scripts" id="third-party-scripts">2. Third party scripts</a></h3>
+<section><h3><a href="#2-third-party-scripts" id="2-third-party-scripts">2. Third party scripts</a></h3>
 <p>It&#39;s pretty lame for the 3rd party scripts to do something malicious through a 3rd party CSS, because the scope of influence of a 3rd party scripts is much more than a 3rd party CSS. But nonetheless, it&#39;s worth noting that it is entirely possible that a 3rd party CSS comes from a 3rd party script.</p>
 <p>This begs the question of, where does the 3rd party script come from?</p>
 <p>Well, if you visit any <strong>well-intentioned</strong> <em>*cough*</em> site that tracks your behavior, and if you leave the site halfway through their funnel, they try remind you to through a network of advertisement elsewhere, such as in your search engine, or embedded in your social media, they achieve this through embedding third party scripts.</p>
 <p>Here is a screenshot of list of 3rd party scripts loaded from <a href="https://shopee.sg/" rel="nofollow">https://shopee.sg</a> (an ecommerce site based in South East Asia):</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/shopee-ads-dc504ac0.webp"><source type="image/png" srcset="/_app/assets/shopee-ads-61da4884.png"><img src="/_app/assets/shopee-ads-61da4884.png" loading="lazy" alt="ads in shopee"></picture></p>
 <p><strong>Disclaimer:</strong> I work for Shopee, I <em>have nothing</em> against all these 3rd party ads, they are what helped us remind buyers to come back and complete their purchase. 🙈</p></section>
-<section><h3><a href="#browser-extensions" id="browser-extensions">3. Browser extensions</a></h3>
+<section><h3><a href="#3-browser-extensions" id="3-browser-extensions">3. Browser extensions</a></h3>
 <p>If you are someone who likes to decorate your browser, have a custom theme for all the website you visit, probably you are one of the users of a browser extension!</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/browser-extension-9dc7a3dc.webp"><source type="image/png" srcset="/_app/assets/browser-extension-e48b4c06.png"><img src="/_app/assets/browser-extension-e48b4c06.png" loading="lazy" alt="browser extension"></picture></p>
 <p>How a browser extension adds a custom theme to any website you visit is to inject a CSS to style them.</p></section>
-<section><h2><a href="#how-rd-party-css-can-be-unsafe" id="how-rd-party-css-can-be-unsafe">How 3rd party CSS can be unsafe?</a></h2>
+<section><h2><a href="#how-3rd-party-css-can-be-unsafe" id="how-3rd-party-css-can-be-unsafe">How 3rd party CSS can be unsafe?</a></h2>
 <p>Let&#39;s take a look some examples from Jake&#39;s article and try it out ourselves.</p></section>
 <section><h3><a href="#disappearing-content" id="disappearing-content">Disappearing content</a></h3>
 <p>A 3rd party CSS can easily hide content of your website using <code class="inline">display: none</code>, and your website will break without you knowing it.</p>
@@ -254,16 +269,18 @@
 <li><a href="https://www.youtube.com/watch?v=eb3suf4REyI" rel="nofollow">https://www.youtube.com/watch?v=eb3suf4REyI</a></li>
 <li><a href="https://www.nds.ruhr-uni-bochum.de/media/emma/veroeffentlichungen/2012/08/16/scriptlessAttacks-ccs2012.pdf" rel="nofollow">https://www.nds.ruhr-uni-bochum.de/media/emma/veroeffentlichungen/2012/08/16/scriptlessAttacks-ccs2012.pdf</a></li></ul></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="14hjlrz">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="rx2k7a">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="14hjlrz"]').parentNode,
+			target: document.querySelector('[data-hydrate="rx2k7a"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -273,8 +290,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/third-party-css-is-not-safe/index.md-7f7f8be5.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/third-party-css-is-not-safe/index.md-9b9f3c43.js")
 				],
 				params: {}
 			}

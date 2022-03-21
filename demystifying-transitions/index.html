@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/TalkLayout-340d543e.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/demystifying-transitions/index.md-088c8b4e.js">
-	<link rel="modulepreload" href="/_app/chunks/TalkLayout-d182c6b1.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/demystifying-transitions/index.md-96f82e3a.js">
+	<link rel="modulepreload" href="/_app/chunks/TalkLayout-2ed807d6.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,18 +76,28 @@
 
 
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#slides">Slides</a></li>
-			<li class="svelte-13pn6e2"><a href="#script">Script</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#who-am-i">Who am I</a></li>
-						<li class="svelte-13pn6e2"><a href="#level-using-transition">Level 1. Using  `transition:` .</a></li>
-						<li class="svelte-13pn6e2"><a href="#level-the-transition-contract">Level 2. The  `transition:`  contract.</a></li>
-						<li class="svelte-13pn6e2"><a href="#easing">Easing</a></li>
-						<li class="svelte-13pn6e2"><a href="#level-compile-transition-in-your-head">Level 3, compile transition in your head.</a></li>
-						<li class="svelte-13pn6e2"><a href="#live-coding">Live Coding</a></li>
-						<li class="svelte-13pn6e2"><a href="#transition-in-compiled-js">`transition:`  in compiled JS</a></li>
-						<li class="svelte-13pn6e2"><a href="#recap">Recap</a></li>
-						
-				</ul></ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#slides" class="svelte-j01zi8">Slides</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#script" class="svelte-j01zi8">Script</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#who-am-i" class="svelte-j01zi8">Who am I</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#level-1-using-transition" class="svelte-j01zi8">Level 1. Using  `transition:` .</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#level-2-the-transition-contract" class="svelte-j01zi8">Level 2. The  `transition:`  contract.</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#easing" class="svelte-j01zi8">Easing</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#level-3-compile-transition-in-your-head" class="svelte-j01zi8">Level 3, compile transition in your head.</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#live-coding" class="svelte-j01zi8">Live Coding</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#transition-in-compiled-js" class="svelte-j01zi8">`transition:`  in compiled JS</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#recap" class="svelte-j01zi8">Recap</a>
+								
+							</li>
+					</ol>
+			</li></ol>
 </section>
 <section><h2><a href="#slides" id="slides">Slides</a></h2>
 <p>[<a href="/slides/demystifying-transitions/">Link to slides</a>] (Left arrow and right arrow to navigate)</p></section>
@@ -104,14 +114,14 @@ At the 3rd level, we go deeper and take a look at how Svelte compiles and handle
 <p>My name is Tan Li Hau, I am a software engineer at Shopee. Shopee is a e-commerce platform in South east asia that is based in Singapore. </p>
 <p>I grew up in a lovely town called penang in malaysia, which has the best street food in malaysia, such as char koay teow, stir-fry flat rice noodles; rojak, a eclectic fruit salad with palm sugar, peanuts and chilli dressing, and well, these are just one of the many great street foods that i hope to try again when I can go back after this coronavirus pandemic is over.</p>
 <p>last but not the least, im one of the maintainers of svelte</p></section>
-<section><h3><a href="#level-using-transition" id="level-using-transition">Level 1. Using <code class="inline">transition:</code>.</a></h3>
+<section><h3><a href="#level-1-using-transition" id="level-1-using-transition">Level 1. Using <code class="inline">transition:</code>.</a></h3>
 <p>Here, we have a list of items, rendered using the <code class="inline">{#each}</code> block. When we add or remove an item, the item appears and disappears in an instant. we have no idea where the item is coming from, or disappear into.</p>
 <p>To add transition for the items, firstly, we import a transition from <code class="inline">svelte/transtion</code>. here we import fade. to add an entrance transition for the item, we add <code class="inline">in</code> colon <code class="inline">fade</code>.</p>
 <p>Now the item fades into existence.</p>
 <p>To customise the transition, we can add parameters. such as duration, or delay. For exit transition, we use <code class="inline">out</code> colon <code class="inline">fade</code>.</p>
 <p>If you want both entrance and exit transtion, you can use <code class="inline">transition</code> colon <code class="inline">transition name</code>.</p>
 <p>There are multiple built-in transitions in svelte, such as <code class="inline">fly</code>, <code class="inline">slide</code>, <code class="inline">scale</code>, <code class="inline">blur</code> and more. this list is not exhaustive, which i recommend you to check them out in the docs as well as the tutorials.</p></section>
-<section><h3><a href="#level-the-transition-contract" id="level-the-transition-contract">Level 2. The <code class="inline">transition:</code> contract.</a></h3>
+<section><h3><a href="#level-2-the-transition-contract" id="level-2-the-transition-contract">Level 2. The <code class="inline">transition:</code> contract.</a></h3>
 <p>Not sure if you&#39;ve heard about the store contract in svelte, which states that, if any object follows the store contract, that object can be used like a store, where you can subscribe to it and read the value like a store using the <code class="inline">$</code>-prefix.</p>
 <p>The same thing goes with the <code class="inline">transition</code>. A transition has a contract. Any function that follows the transition contract, can be used together with the <code class="inline">in:</code>, <code class="inline">out:</code> or <code class="inline">transition:</code> directives.</p>
 <p>Here is how the transition function should look like. It&#39;s a function that takes in 2 parameters, the element node that the transition is applied to, and the parameter that is passed into the transition.</p>
@@ -148,7 +158,7 @@ At the 3rd level, we go deeper and take a look at how Svelte compiles and handle
 <p>Well, 40% of time is debatable depending on the easing function, in this case we are using linear easing, so it is exactly 40%.</p>
 <p>As you can see, you don&#39;t have to limit your css transition to just CSS transform, or having to interpolate the value of <code class="inline">t</code>. <strong>the sky is the limit.</strong></p>
 <p>Likewise, the text stays at &#39;coming soon&#39; at the 1st 40% of time, before changing back to the original text.</p></section>
-<section><h3><a href="#level-compile-transition-in-your-head" id="level-compile-transition-in-your-head">Level 3, compile transition in your head.</a></h3>
+<section><h3><a href="#level-3-compile-transition-in-your-head" id="level-3-compile-transition-in-your-head">Level 3, compile transition in your head.</a></h3>
 <p>This is a reference to the series of blogs i&#39;ve written, &quot;compile svelte in your head&quot;. be sure to check them out.</p>
 <p>As, how we usually start with a compile svelte in your head article, we are going to explore how we can write a transition in vanilla javascript.</p>
 <p>There are a few technologies at our hands we can make use of, the 1st is CSS Transition.</p>
@@ -361,16 +371,18 @@ and we call the 1st <code class="inline">tick</code> function.</p>
 <p>Once again, I&#39;m <a href="https://twitter.com/lihautan" rel="nofollow">@lihautan</a> on twitter, follow me where i post cool and fun knowledge about svelte.</p>
 <p>Thank you and enjoy the Svelte summit!</p></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="eap2lz">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="z280dw">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="eap2lz"]').parentNode,
+			target: document.querySelector('[data-hydrate="z280dw"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -380,8 +392,8 @@ and we call the 1st <code class="inline">tick</code> function.</p>
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/demystifying-transitions/index.md-088c8b4e.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/demystifying-transitions/index.md-96f82e3a.js")
 				],
 				params: {}
 			}

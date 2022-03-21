@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/compile-svelte-in-your-head-part-2/index.md-b2adf5c4.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/compile-svelte-in-your-head-part-2/index.md-4cd6e7b2.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,35 +76,57 @@
 
 <a class="tag svelte-muo5sw" href="/tags/Svelte">Svelte</a><a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#pre-v">Pre v3.16.0</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#ctx">$$.ctx</a></li>
-						<li class="svelte-13pn6e2"><a href="#dirty">$$.dirty</a></li>
-						<li class="svelte-13pn6e2"><a href="#invalidate">$$invalidate</a></li>
-						<li class="svelte-13pn6e2"><a href="#schedule-update">schedule_update</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#tl-dr">tl/dr:</a></li>
-									
-							</ul>
-				</ul><li class="svelte-13pn6e2"><a href="#v">v3.16.0</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#bitmask">Bitmask</a></li>
-						<li class="svelte-13pn6e2"><a href="#bitmask-in-svelte">Bitmask in Svelte</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#destructuring-dirty">Destructuring  $$.dirty</a></li>
-									<li class="svelte-13pn6e2"><a href="#tl-dr">tl/dr:</a></li>
-									
-							</ul>
-				</ul><li class="svelte-13pn6e2"><a href="#reactive-declaration">Reactive Declaration</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#execution-of-all-reactive-declarations-and-statements-are-batched">1. Execution of all reactive declarations and statements are batched</a></li>
-						<li class="svelte-13pn6e2"><a href="#the-value-of-reactive-variable-outside-of-reactive-declarations-and-statements-may-not-be-up-to-date">2. The value of reactive variable outside of reactive declarations and statements may not be up to date</a></li>
-						<li class="svelte-13pn6e2"><a href="#sorting-of-reactive-declarations-and-statements">Sorting of reactive declarations and statements</a></li>
-						<li class="svelte-13pn6e2"><a href="#reactive-variable-that-is-not-reactive">Reactive variable that is not reactive</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#summary">Summary</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#svelte-keeps-track-of-which-variables-are-dirty-and-batched-the-dom-updates">1. Svelte keeps track of which variables are dirty and batched the DOM updates.</a></li>
-						<li class="svelte-13pn6e2"><a href="#using-bitmask-svelte-able-to-generate-a-more-compact-compiled-code">2. Using bitmask, Svelte able to generate a more compact compiled code.</a></li>
-						<li class="svelte-13pn6e2"><a href="#reactive-declarations-and-statements-are-executed-in-batch-just-like-dom-updates">3. Reactive declarations and statements are executed in batch, just like DOM updates</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#closing-note">Closing Note</a></li>
-			<li class="svelte-13pn6e2"><a href="#further-resources">Further Resources</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#pre-v3-16-0" class="svelte-j01zi8">Pre v3.16.0</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#ctx" class="svelte-j01zi8">$$.ctx</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#dirty" class="svelte-j01zi8">$$.dirty</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#invalidate" class="svelte-j01zi8">$$invalidate</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#schedule-update" class="svelte-j01zi8">schedule_update</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#tl-dr" class="svelte-j01zi8">tl/dr:</a>
+												
+											</li>
+									</ol>
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#v3-16-0" class="svelte-j01zi8">v3.16.0</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#bitmask" class="svelte-j01zi8">Bitmask</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#bitmask-in-svelte" class="svelte-j01zi8">Bitmask in Svelte</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#destructuring-dirty" class="svelte-j01zi8">Destructuring  $$.dirty</a>
+												
+											</li><li class="svelte-j01zi8"><a href="#tl-dr-1" class="svelte-j01zi8">tl/dr:</a>
+												
+											</li>
+									</ol>
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#reactive-declaration" class="svelte-j01zi8">Reactive Declaration</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-execution-of-all-reactive-declarations-and-statements-are-batched" class="svelte-j01zi8">1. Execution of all reactive declarations and statements are batched</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-the-value-of-reactive-variable-outside-of-reactive-declarations-and-statements-may-not-be-up-to-date" class="svelte-j01zi8">2. The value of reactive variable outside of reactive declarations and statements may not be up to date</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#sorting-of-reactive-declarations-and-statements" class="svelte-j01zi8">Sorting of reactive declarations and statements</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#reactive-variable-that-is-not-reactive" class="svelte-j01zi8">Reactive variable that is not reactive</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#summary" class="svelte-j01zi8">Summary</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-svelte-keeps-track-of-which-variables-are-dirty-and-batched-the-dom-updates" class="svelte-j01zi8">1. Svelte keeps track of which variables are dirty and batched the DOM updates.</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-using-bitmask-svelte-able-to-generate-a-more-compact-compiled-code" class="svelte-j01zi8">2. Using bitmask, Svelte able to generate a more compact compiled code.</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#3-reactive-declarations-and-statements-are-executed-in-batch-just-like-dom-updates" class="svelte-j01zi8">3. Reactive declarations and statements are executed in batch, just like DOM updates</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#closing-note" class="svelte-j01zi8">Closing Note</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#further-resources" class="svelte-j01zi8">Further Resources</a>
+				
+			</li></ol>
 </section>
 <p><strong>⬅ ⬅  Previously in <a href="/compile-svelte-in-your-head-part-1/">Part 1</a>.</strong></p>
 <p><a href="/compile-svelte-in-your-head-part-1/">Previously</a>, when I mentioned the <code class="inline">$$invalidate</code> function, I explained that the <code class="inline">$$invalidate</code> function works conceptually like the following:</p>
@@ -131,7 +153,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>but that&#39;s not the exact implementation of the <code class="inline">$$invaldiate</code> function. So in this article, we are going to look at how <code class="inline">$$invalidate</code> is implemented in Svelte.</p>
 <p>At the point of writing, Svelte is at <a href="https://github.com/sveltejs/svelte/blob/v3.20.1/CHANGELOG.md#3201" rel="nofollow">v3.20.1</a>.</p>
-<section><h2><a href="#pre-v" id="pre-v">Pre v3.16.0</a></h2>
+<section><h2><a href="#pre-v3-16-0" id="pre-v3-16-0">Pre v3.16.0</a></h2>
 <p>There&#39;s a big optimisation that changes the underlying implementation of the <code class="inline">$$invalidate</code> function in <a href="https://github.com/sveltejs/svelte/blob/master/CHANGELOG.md#3160" rel="nofollow">v3.16.0</a>, namely in <a href="https://github.com/sveltejs/svelte/pull/3945" rel="nofollow">#3945</a>. The underlying concept doesn&#39;t change, but it&#39;ll be much easier to understand about <code class="inline">$$invalidate</code> prior the change and learn about the optimisation change separately.</p>
 <p>Let&#39;s explain some of the variables that you are going to see, some of which was introduced in <a href="/compile-svelte-in-your-head-part-1">Part 1</a>:</p></section>
 <section><h3><a href="#ctx" id="ctx">$$.ctx</a></h3>
@@ -328,7 +350,7 @@
 <li>The acutal DOM update is batched into the next microtask queue.</li>
 <li>To update the DOM for each component, the component <code class="inline">$$.fragment.p($$.diry, $$.ctx)</code> is called.</li>
 <li>After the DOM update, the <code class="inline">$$.dirty</code> is reset to <code class="inline">null</code>.</li></ul></section>
-<section><h2><a href="#v" id="v">v3.16.0</a></h2>
+<section><h2><a href="#v3-16-0" id="v3-16-0">v3.16.0</a></h2>
 <p>One big change in v3.16.0 is the PR <a href="https://github.com/sveltejs/svelte/pull/3945" rel="nofollow">#3945</a>, namely <strong>bitmask-based change tracking</strong>.</p>
 <p>Instead of marking the variable dirty using an object:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-constant)">$$</span><span style="color: var(--shiki-color-text)">.diry </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> &#123; givenName</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> familyName</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)"> &#125;;</span></span></code></pre><!-- HTML_TAG_END --></div>
@@ -424,7 +446,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">if</span><span style="color: var(--shiki-color-text)"> (dirty[</span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)">] </span><span style="color: var(--shiki-token-keyword)">&amp;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">1</span><span style="color: var(--shiki-color-text)">) &#123; </span><span style="color: var(--shiki-token-comment)">/* ... */</span><span style="color: var(--shiki-color-text)"> &#125;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">if</span><span style="color: var(--shiki-color-text)"> (dirty[</span><span style="color: var(--shiki-token-constant)">1</span><span style="color: var(--shiki-color-text)">] </span><span style="color: var(--shiki-token-keyword)">&amp;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">3</span><span style="color: var(--shiki-color-text)">) &#123; </span><span style="color: var(--shiki-token-comment)">/* ... */</span><span style="color: var(--shiki-color-text)"> &#125;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div></section>
-<section><h4><a href="#tl-dr" id="tl-dr">tl/dr:</a></h4>
+<section><h4><a href="#tl-dr-1" id="tl-dr-1">tl/dr:</a></h4>
 <ul><li>The underlying mechanism for <code class="inline">$$invalidate</code> and <code class="inline">schedule_update</code> does not change</li>
 <li>Using bitmask, the compiled code is much compact</li></ul></section>
 <section><h2><a href="#reactive-declaration" id="reactive-declaration">Reactive Declaration</a></h2>
@@ -498,7 +520,7 @@
 <span class="line dim"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>The <code class="inline">$$.update</code> function gets called <strong>in the same microtask</strong> with the DOM update, right before we called the <code class="inline">$$.fragment.p()</code> to update the DOM.</p>
 <p>The implication of the above fact is</p></section>
-<section><h3><a href="#execution-of-all-reactive-declarations-and-statements-are-batched" id="execution-of-all-reactive-declarations-and-statements-are-batched">1. Execution of all reactive declarations and statements are batched</a></h3>
+<section><h3><a href="#1-execution-of-all-reactive-declarations-and-statements-are-batched" id="1-execution-of-all-reactive-declarations-and-statements-are-batched">1. Execution of all reactive declarations and statements are batched</a></h3>
 <p>Just as how DOM updates are batched, reactive declarations and statements are batched too!</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">  <span class="token keyword">let</span> givenName <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> familyName <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span></div><div class="line">  <span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></div><div class="line">    givenName <span class="token operator">=</span> <span class="token string">'Li Hau'</span><span class="token punctuation">;</span></div><div class="line">    familyName <span class="token operator">=</span> <span class="token string">'Tan'</span><span class="token punctuation">;</span></div><div class="line">  <span class="token punctuation">&#125;</span></div><div class="line">  <span class="token literal-property property">$</span><span class="token operator">:</span> name <span class="token operator">=</span> givenName <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> familyName<span class="token punctuation">;</span></div><div class="line">  <span class="token literal-property property">$</span><span class="token operator">:</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div></code></pre><!-- HTML_TAG_END --></div>
 <p><a href="https://svelte.dev/repl/941195f1cd5248e9bd14613f9513ad1d?version=3.20.1" rel="nofollow">Svelte REPL</a></p>
@@ -524,7 +546,7 @@
 <span class="line"><span style="color: var(--shiki-token-comment)">// #2 &#96;familyName = &#39;Tan&#39;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">name </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Li Hau&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39; &#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Tan&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-token-constant)">console</span><span style="color: var(--shiki-token-function)">.log</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;Li Hau Tan&#39;</span><span style="color: var(--shiki-color-text)">);</span></span></code></pre><!-- HTML_TAG_END --></div></section>
-<section><h3><a href="#the-value-of-reactive-variable-outside-of-reactive-declarations-and-statements-may-not-be-up-to-date" id="the-value-of-reactive-variable-outside-of-reactive-declarations-and-statements-may-not-be-up-to-date">2. The value of reactive variable outside of reactive declarations and statements may not be up to date</a></h3>
+<section><h3><a href="#2-the-value-of-reactive-variable-outside-of-reactive-declarations-and-statements-may-not-be-up-to-date" id="2-the-value-of-reactive-variable-outside-of-reactive-declarations-and-statements-may-not-be-up-to-date">2. The value of reactive variable outside of reactive declarations and statements may not be up to date</a></h3>
 <p>Because the reactive declarations and statements are batched and executed in the next microtask, you can&#39;t expect the value to be updated synchronously.</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line dim"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line dim">  <span class="token keyword">let</span> givenName <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> familyName <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span></div><div class="line dim">  <span class="token keyword">function</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></div><div class="line dim">    givenName <span class="token operator">=</span> <span class="token string">'Li Hau'</span><span class="token punctuation">;</span></div><div class="line dim">    familyName <span class="token operator">=</span> <span class="token string">'Tan'</span><span class="token punctuation">;</span></div><div class="line highlight">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Logs ''</span></div><div class="line dim">  <span class="token punctuation">&#125;</span></div><div class="line dim">  <span class="token literal-property property">$</span><span class="token operator">:</span> name <span class="token operator">=</span> givenName <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> familyName<span class="token punctuation">;</span></div><div class="line dim"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div></code></pre><!-- HTML_TAG_END --></div>
 <p><a href="https://svelte.dev/repl/437548d5c7044cb59bfd0c8a0f4c725d?version=3.20.1" rel="nofollow">Svelte REPL</a></p>
@@ -561,9 +583,9 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">return</span><span style="color: var(--shiki-color-text)"> [doubled];</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div></section>
 <section><h2><a href="#summary" id="summary">Summary</a></h2></section>
-<section><h3><a href="#svelte-keeps-track-of-which-variables-are-dirty-and-batched-the-dom-updates" id="svelte-keeps-track-of-which-variables-are-dirty-and-batched-the-dom-updates">1. Svelte keeps track of which variables are dirty and batched the DOM updates.</a></h3></section>
-<section><h3><a href="#using-bitmask-svelte-able-to-generate-a-more-compact-compiled-code" id="using-bitmask-svelte-able-to-generate-a-more-compact-compiled-code">2. Using bitmask, Svelte able to generate a more compact compiled code.</a></h3></section>
-<section><h3><a href="#reactive-declarations-and-statements-are-executed-in-batch-just-like-dom-updates" id="reactive-declarations-and-statements-are-executed-in-batch-just-like-dom-updates">3. Reactive declarations and statements are executed in batch, just like DOM updates</a></h3></section>
+<section><h3><a href="#1-svelte-keeps-track-of-which-variables-are-dirty-and-batched-the-dom-updates" id="1-svelte-keeps-track-of-which-variables-are-dirty-and-batched-the-dom-updates">1. Svelte keeps track of which variables are dirty and batched the DOM updates.</a></h3></section>
+<section><h3><a href="#2-using-bitmask-svelte-able-to-generate-a-more-compact-compiled-code" id="2-using-bitmask-svelte-able-to-generate-a-more-compact-compiled-code">2. Using bitmask, Svelte able to generate a more compact compiled code.</a></h3></section>
+<section><h3><a href="#3-reactive-declarations-and-statements-are-executed-in-batch-just-like-dom-updates" id="3-reactive-declarations-and-statements-are-executed-in-batch-just-like-dom-updates">3. Reactive declarations and statements are executed in batch, just like DOM updates</a></h3></section>
 <section><h2><a href="#closing-note" id="closing-note">Closing Note</a></h2>
 <p>If you wish to know more, <a href="https://twitter.com/lihautan" rel="nofollow">follow me on Twitter</a>.</p>
 <p>I&#39;ll post it on Twitter when the next part is ready, where I&#39;ll be covering <a href="https://svelte.dev/tutorial/if-blocks" rel="nofollow">logic blocks</a>, <a href="https://svelte.dev/tutorial/slots" rel="nofollow">slots</a>, <a href="https://svelte.dev/tutorial/context-api" rel="nofollow">context</a>, and many others.</p>
@@ -577,16 +599,18 @@
 <li><a href="https://dev.to/somedood/bitmasks-a-very-esoteric-and-impractical-way-of-managing-booleans-1hlf" rel="nofollow">Bitmasks: A very esoteric (and impractical) way of managing booleans</a> by Basti Ortiz</li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators" rel="nofollow">MDN: Bitwise Operators</a></li></ul></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="uvqyka">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="9f12z">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="uvqyka"]').parentNode,
+			target: document.querySelector('[data-hydrate="9f12z"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -596,8 +620,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/compile-svelte-in-your-head-part-2/index.md-b2adf5c4.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/compile-svelte-in-your-head-part-2/index.md-4cd6e7b2.js")
 				],
 				params: {}
 			}

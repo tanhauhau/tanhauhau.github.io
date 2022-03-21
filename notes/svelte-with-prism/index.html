@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/notes/svelte-with-prism/index.md-19d840f6.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/notes/svelte-with-prism/index.md-172f3a3b.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,13 +76,18 @@
 
 <a class="tag svelte-muo5sw" href="/tags/svelte">svelte</a><a class="tag svelte-muo5sw" href="/tags/prism">prism</a><a class="tag svelte-muo5sw" href="/tags/syntax highlighting">syntax highlighting</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#tl-dr">tl;dr</a></li>
-			<li class="svelte-13pn6e2"><a href="#snippet">Snippet</a></li>
-			<li class="svelte-13pn6e2"><a href="#highlighting-with-prism">Highlighting with Prism</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#with-prism-svelte">With  `prism-svelte`</a></li>
-						<li class="svelte-13pn6e2"><a href="#with-diff-highlight">With  `diff-highlight`</a></li>
-						
-				</ul></ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#tl-dr" class="svelte-j01zi8">tl;dr</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#snippet" class="svelte-j01zi8">Snippet</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#highlighting-with-prism" class="svelte-j01zi8">Highlighting with Prism</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#with-prism-svelte" class="svelte-j01zi8">With  `prism-svelte`</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#with-diff-highlight" class="svelte-j01zi8">With  `diff-highlight`</a>
+								
+							</li>
+					</ol>
+			</li></ol>
 </section>
 <p>I&#39;ve been using Svelte to show code snippets, such as <a href="https://svelte.dev/repl/30153d68324d475189d34afa26a3186f?version=3.29.0" rel="nofollow">this</a> and <a href="https://svelte.dev/repl/51e813279e2247809426f40d88faf84e?version=3.29.0" rel="nofollow">this</a>, in which the code are dynamically generated and highlighted in the browser. In these examples, I used <a href="https://prismjs.com/" rel="nofollow">Prism</a> to do syntax highlighting.</p>
 <section><h2><a href="#tl-dr" id="tl-dr">tl;dr</a></h2>
@@ -119,16 +124,18 @@
 <section><h3><a href="#with-diff-highlight" id="with-diff-highlight">With <code class="inline">diff-highlight</code></a></h3>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">	<span class="token keyword">import</span> Prism <span class="token keyword">from</span> <span class="token string">'prismjs'</span><span class="token punctuation">;</span></div><div class="line">	<span class="token keyword">import</span> <span class="token string">'prismjs/components/prism-diff'</span><span class="token punctuation">;</span></div><div class="line">	<span class="token keyword">import</span> <span class="token string">'prismjs/plugins/diff-highlight/prism-diff-highlight'</span><span class="token punctuation">;</span></div><div class="line"></div><div class="line">	<span class="token keyword">let</span> code <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string"></span></div><div class="line"><span class="token string">+ console.log('a');</span></div><div class="line"><span class="token string">- console.log('b');</span></div><div class="line"><span class="token string">  console.log('c');</span></div><div class="line"><span class="token string"></span><span class="token template-punctuation string">&#96;</span></span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div><div class="line"></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></div><div class="line">	<span class="token language-javascript"><span class="token punctuation">&#123;</span>@html Prism<span class="token punctuation">.</span><span class="token function">highlight</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> Prism<span class="token punctuation">.</span>languages<span class="token punctuation">[</span><span class="token string">'diff'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'diff-javascript'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></div></code></pre><!-- HTML_TAG_END --></div></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="7ccvmp">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="w17c2z">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="7ccvmp"]').parentNode,
+			target: document.querySelector('[data-hydrate="w17c2z"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -138,8 +145,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/notes/svelte-with-prism/index.md-19d840f6.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/notes/svelte-with-prism/index.md-172f3a3b.js")
 				],
 				params: {}
 			}

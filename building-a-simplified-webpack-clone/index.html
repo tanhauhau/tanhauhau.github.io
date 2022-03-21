@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/building-a-simplified-webpack-clone/index.md-757b614c.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/building-a-simplified-webpack-clone/index.md-ffc21877.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,25 +77,40 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/webpack">webpack</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#background">Background</a></li>
-			<li class="svelte-13pn6e2"><a href="#prior-art">Prior Art</a></li>
-			<li class="svelte-13pn6e2"><a href="#week-resolving">Week 1 - Resolving</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#why-module-bundler">Why module bundler?</a></li>
-						<li class="svelte-13pn6e2"><a href="#we-start-from-an-entry-file">1. We start from an entry file.</a></li>
-						<li class="svelte-13pn6e2"><a href="#we-read-the-file-and-determine-what-is-being-imported-into-this-file">2. We read the file and determine what is being imported into this file</a></li>
-						<li class="svelte-13pn6e2"><a href="#now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path">3. Now knowing what are the names you are importing from, you need to figure out their actual file path</a></li>
-						<li class="svelte-13pn6e2"><a href="#after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-until-no-more-new-files-to-be-found">4️⃣ After you figured the file path you&#39;re importing from, for each of the file, 🔁 repeat step 2️⃣ until no more new files to be found.</a></li>
-						<li class="svelte-13pn6e2"><a href="#assignment">Assignment</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#week-bundling">Week 2 - Bundling</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#observation-bundle-using-webpack">🔭 Observation: Bundle using webpack</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#observation-bundle-using-rollup">🔭 Observation: Bundle using rollup</a></li>
-									
-							</ul><li class="svelte-13pn6e2"><a href="#output-target-of-bundling">📤 Output target of bundling</a></li>
-						<li class="svelte-13pn6e2"><a href="#assignment">Assignment</a></li>
-						<li class="svelte-13pn6e2"><a href="#manipulating-ast">🔨 Manipulating AST</a></li>
-						
-				</ul></ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#background" class="svelte-j01zi8">Background</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#prior-art" class="svelte-j01zi8">Prior Art</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#week-1-resolving" class="svelte-j01zi8">Week 1 - Resolving</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#why-module-bundler" class="svelte-j01zi8">Why module bundler?</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#1-we-start-from-an-entry-file" class="svelte-j01zi8">1. We start from an entry file.</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-we-read-the-file-and-determine-what-is-being-imported-into-this-file" class="svelte-j01zi8">2. We read the file and determine what is being imported into this file</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#3-now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path" class="svelte-j01zi8">3. Now knowing what are the names you are importing from, you need to figure out their actual file path</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#4-after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-2-until-no-more-new-files-to-be-found" class="svelte-j01zi8">4️⃣ After you figured the file path you&#39;re importing from, for each of the file, 🔁 repeat step 2️⃣ until no more new files to be found.</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#assignment" class="svelte-j01zi8">Assignment</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#week-2-bundling" class="svelte-j01zi8">Week 2 - Bundling</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#observation-bundle-using-webpack" class="svelte-j01zi8">🔭 Observation: Bundle using webpack</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#observation-bundle-using-rollup" class="svelte-j01zi8">🔭 Observation: Bundle using rollup</a>
+												
+											</li>
+									</ol>
+							</li><li class="svelte-j01zi8"><a href="#output-target-of-bundling" class="svelte-j01zi8">📤 Output target of bundling</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#assignment-1" class="svelte-j01zi8">Assignment</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#manipulating-ast" class="svelte-j01zi8">🔨 Manipulating AST</a>
+								
+							</li>
+					</ol>
+			</li></ol>
 </section>
 <section><h2><a href="#background" id="background">Background</a></h2>
 <p>We are trying out a new form of our weekly sharing, which is interest group-based.</p>
@@ -104,7 +119,7 @@
 <ul><li>📺 <a href="https://twitter.com/wSokra" rel="nofollow">Tobias Koppers</a> - bundling live by hand - <a href="https://youtube.com/watch?v=UNMkLHzofQI" rel="nofollow">https://youtube.com/watch?v=UNMkLHzofQI</a></li>
 <li>📺 <a href="https://twitter.com/ronenamiel" rel="nofollow">Ronen Amiel</a> - build your own webpack - <a href="https://youtube.com/watch?v=Gc9-7PBqOC8" rel="nofollow">https://youtube.com/watch?v=Gc9-7PBqOC8</a></li>
 <li>📖 adam kelly - <a href="https://freecodecamp.org/news/lets-learn-how-module-bundlers-work-and-then-write-one-ourselves-b2e3fe6c88ae/" rel="nofollow">https://freecodecamp.org/news/lets-learn-how-module-bundlers-work-and-then-write-one-ourselves-b2e3fe6c88ae/</a></li></ul></section>
-<section><h2><a href="#week-resolving" id="week-resolving">Week 1 - Resolving</a></h2></section>
+<section><h2><a href="#week-1-resolving" id="week-1-resolving">Week 1 - Resolving</a></h2></section>
 <section><h3><a href="#why-module-bundler" id="why-module-bundler">Why module bundler?</a></h3>
 <p>We love writing small modular JS files, but that shouldn&#39;t impact the users.</p>
 <p>Traditionally with limit on number of request connection, 🐌 slow internet speed, we want to combine all the code into 1 file -&gt; 1 network request</p>
@@ -117,9 +132,9 @@
 <p>💡 That&#39;s why we need a module system to define the relationship among the JS modules</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/relationship-c145c69f.webp"><source type="image/png" srcset="/_app/assets/relationship-fe442a09.png"><img src="/_app/assets/relationship-fe442a09.png" loading="lazy" alt="relationship within a bundle"></picture></p>
 <p>So now, let&#39;s take a look how we can start building a module dependency graph</p></section>
-<section><h3><a href="#we-start-from-an-entry-file" id="we-start-from-an-entry-file">1. We start from an entry file.</a></h3>
+<section><h3><a href="#1-we-start-from-an-entry-file" id="1-we-start-from-an-entry-file">1. We start from an entry file.</a></h3>
 <p>This is the starting point of the application</p></section>
-<section><h3><a href="#we-read-the-file-and-determine-what-is-being-imported-into-this-file" id="we-read-the-file-and-determine-what-is-being-imported-into-this-file">2. We read the file and determine what is being imported into this file</a></h3>
+<section><h3><a href="#2-we-read-the-file-and-determine-what-is-being-imported-into-this-file" id="2-we-read-the-file-and-determine-what-is-being-imported-into-this-file">2. We read the file and determine what is being imported into this file</a></h3>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> calculate </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;./calculate&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> &#123; measure</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> UNITS &#125; </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;../measurements&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> formula </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;formulas&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -186,7 +201,7 @@
 <li>The JS AST Specification<ul><li><a href="https://github.com/estree/estree" rel="nofollow">https://github.com/estree/estree</a></li></ul></li>
 <li>Guide on parsing, traversing AST<ul><li><a href="https://lihautan.com/manipulating-ast-with-javascript" rel="nofollow">https://lihautan.com/manipulating-ast-with-javascript</a></li>
 <li><a href="https://lihautan.com/json-parser-with-javascript" rel="nofollow">https://lihautan.com/json-parser-with-javascript</a></li></ul></li></ul></section>
-<section><h3><a href="#now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path" id="now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path">3. Now knowing what are the names you are importing from, you need to figure out their actual file path</a></h3>
+<section><h3><a href="#3-now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path" id="3-now-knowing-what-are-the-names-you-are-importing-from-you-need-to-figure-out-their-actual-file-path">3. Now knowing what are the names you are importing from, you need to figure out their actual file path</a></h3>
 <p>that depends on</p>
 <ul><li>the current file path</li>
 <li>the name you are importing from</li></ul>
@@ -206,7 +221,7 @@
 <p>Some other module resolution:</p>
 <ul><li>webpack uses <a href="https://github.com/webpack/enhanced-resolve" rel="nofollow"><code class="inline">enhanced-resolve</code></a> which is a highly configurable resolver</li>
 <li>Typescript implements its own resolver, <a href="https://typescriptlang.org/docs/handbook/module-resolution.html" rel="nofollow">see how TS resolving works</a></li></ul></section>
-<section><h3><a href="#after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-until-no-more-new-files-to-be-found" id="after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-until-no-more-new-files-to-be-found">4️⃣ After you figured the file path you&#39;re importing from, for each of the file, 🔁 repeat step 2️⃣ until no more new files to be found.</a></h3></section>
+<section><h3><a href="#4-after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-2-until-no-more-new-files-to-be-found" id="4-after-you-figured-the-file-path-you-re-importing-from-for-each-of-the-file-repeat-step-2-until-no-more-new-files-to-be-found">4️⃣ After you figured the file path you&#39;re importing from, for each of the file, 🔁 repeat step 2️⃣ until no more new files to be found.</a></h3></section>
 <section><h3><a href="#assignment" id="assignment">Assignment</a></h3>
 <p><a href="https://github.com/tanhauhau/rk-webpack-clone" rel="nofollow">Test cases</a></p>
 <p>For each test cases, we provide the entry file, and we expect</p>
@@ -220,7 +235,7 @@
 <p>📝 If 2 module are importing the same module, both should be referring to the same module instance</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">moduleCFromModuleA </span><span style="color: var(--shiki-token-keyword)">===</span><span style="color: var(--shiki-color-text)"> moduleCFromModuleB;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>📝 Be careful with circular dependency 🙈</p></section>
-<section><h2><a href="#week-bundling" id="week-bundling">Week 2 - Bundling</a></h2>
+<section><h2><a href="#week-2-bundling" id="week-2-bundling">Week 2 - Bundling</a></h2>
 <p>🤔 How do you bundle modules into 1 file?</p>
 <p>After studying the 2 most popular bundlers, webpack and rollup, i found that the way they bundle are very different.</p>
 <p>Both of them come a long way, I believe both has its own pros and cons</p>
@@ -292,7 +307,7 @@
 <li><p>CJS, ESM, UMD, AMD, ... (we want to bundle a library, exports of entry file is exported in selected module format)</p></li>
 <li><p>🔗 <a href="https://webpack.js.org/configuration/output/#outputlibrarytarget" rel="nofollow">https://webpack.js.org/configuration/output/#outputlibrarytarget</a></p></li>
 <li><p>🔗 <a href="https://rollupjs.org/guide/en/#configuration-files" rel="nofollow">https://rollupjs.org/guide/en/#configuration-files</a></p></li></ul></section>
-<section><h3><a href="#assignment" id="assignment">Assignment</a></h3>
+<section><h3><a href="#assignment-1" id="assignment-1">Assignment</a></h3>
 <p><a href="https://github.com/tanhauhau/rk-webpack-clone" rel="nofollow">Test cases</a></p>
 <p>Here are some of the the interesting test cases:</p>
 <p>🧪 Able to handle re-export nicely</p>
@@ -400,16 +415,18 @@
 <p>📖  <a href="/manipulating-ast-with-javascript/">manipulating ast with javascript</a> (generic)
 📖  <a href="https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md" rel="nofollow">babel plugin handbook</a> (babel)</p></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="1ic1p93">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="1hth6xc">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="1ic1p93"]').parentNode,
+			target: document.querySelector('[data-hydrate="1hth6xc"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -419,8 +436,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/building-a-simplified-webpack-clone/index.md-757b614c.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/building-a-simplified-webpack-clone/index.md-ffc21877.js")
 				],
 				params: {}
 			}

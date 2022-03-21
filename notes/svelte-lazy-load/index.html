@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/notes/svelte-lazy-load.md-95e093a6.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/notes/svelte-lazy-load.md-ca8626f1.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,11 +77,14 @@
 
 <a class="tag svelte-muo5sw" href="/tags/lazy load">lazy load</a><a class="tag svelte-muo5sw" href="/tags/svelte">svelte</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#lazy-loading-svelte-component">Lazy Loading Svelte component</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#notes">Notes</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#dynamic-lazy-component">Dynamic Lazy Component</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#lazy-loading-svelte-component" class="svelte-j01zi8">Lazy Loading Svelte component</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#notes" class="svelte-j01zi8">Notes</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#dynamic-lazy-component" class="svelte-j01zi8">Dynamic Lazy Component</a>
+				
+			</li></ol>
 </section>
 <section><h2><a href="#lazy-loading-svelte-component" id="lazy-loading-svelte-component">Lazy Loading Svelte component</a></h2>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">	<span class="token keyword">let</span> lazyComponent<span class="token punctuation">;</span></div><div class="line"></div><div class="line">	<span class="token keyword">function</span> <span class="token function">load</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></div><div class="line">		lazyComponent <span class="token operator">=</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">./LazyComponent.svelte</span><span class="token template-punctuation string">&#96;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></div><div class="line">	<span class="token punctuation">&#125;</span></div><div class="line">	<span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div><div class="line"></div><div class="line"><span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> lazyComponent<span class="token punctuation">&#125;</span></span></div><div class="line">	<span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">await</span> lazyComponent then <span class="token punctuation">&#123;</span> <span class="token keyword">default</span><span class="token operator">:</span> LazyComponent <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span></div><div class="line">		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>LazyComponent</span> <span class="token language-javascript"><span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span></div><div class="line">	<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">await</span><span class="token punctuation">&#125;</span></span></div><div class="line"><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>load<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>Load<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> count <span class="token operator">++</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>Increment<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></div></code></pre><!-- HTML_TAG_END --></div>
@@ -97,16 +100,18 @@
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">	<span class="token keyword">import</span> LazyComponent <span class="token keyword">from</span> <span class="token string">'./LazyComponent.svelte'</span><span class="token punctuation">;</span></div><div class="line">	<span class="token keyword">let</span> load <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div><div class="line"></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>LazyComponent</span> </div><div class="line">	<span class="token attr-name">when=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span>load<span class="token punctuation">&#125;</span></span></div><div class="line">	<span class="token attr-name">component=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./LoadMeLikeLazy.svelte'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span></div><div class="line"></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click=</span><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> load <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span>Load<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></div></code></pre><!-- HTML_TAG_END --></div>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token comment">&lt;!-- filename: LazyComponent.svelte --></span></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">	<span class="token keyword">export</span> <span class="token keyword">let</span> when <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></div><div class="line">	<span class="token keyword">export</span> <span class="token keyword">let</span> component<span class="token punctuation">;</span></div><div class="line"></div><div class="line">	<span class="token keyword">let</span> loading<span class="token punctuation">;</span></div><div class="line"></div><div class="line">	<span class="token literal-property property">$</span><span class="token operator">:</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>when<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></div><div class="line">		<span class="token function">load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></div><div class="line">	<span class="token punctuation">&#125;</span></div><div class="line"></div><div class="line">	<span class="token keyword">function</span> <span class="token function">load</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></div><div class="line">		loading <span class="token operator">=</span> <span class="token function">component</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></div><div class="line">	<span class="token punctuation">&#125;</span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div><div class="line"><span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">if</span> when<span class="token punctuation">&#125;</span></span></div><div class="line">	<span class="token language-javascript"><span class="token punctuation">&#123;</span>#<span class="token keyword">await</span> loading then <span class="token punctuation">&#123;</span> <span class="token keyword">default</span><span class="token operator">:</span> Component <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span></div><div class="line">		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Component</span> <span class="token punctuation">/></span></span></div><div class="line">	<span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">await</span><span class="token punctuation">&#125;</span></span></div><div class="line"><span class="token language-javascript"><span class="token punctuation">&#123;</span><span class="token operator">/</span><span class="token keyword">if</span><span class="token punctuation">&#125;</span></span></div></code></pre><!-- HTML_TAG_END --></div></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="1hjvx20">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="11nvtob">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="1hjvx20"]').parentNode,
+			target: document.querySelector('[data-hydrate="11nvtob"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -116,8 +121,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/notes/svelte-lazy-load.md-95e093a6.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/notes/svelte-lazy-load.md-ca8626f1.js")
 				],
 				params: {}
 			}

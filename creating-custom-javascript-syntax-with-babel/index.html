@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-0b41edb6.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-6dc82403.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,25 +76,39 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/babel">babel</a><a class="tag svelte-muo5sw" href="/tags/AST">AST</a><a class="tag svelte-muo5sw" href="/tags/transform">transform</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#overview">Overview</a></li>
-			<li class="svelte-13pn6e2"><a href="#fork-the-babel">Fork the babel</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#crash-course-on-parsing-code-to-ast">Crash Course on Parsing Code to AST</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#our-custom-babel-parser">Our custom babel parser</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#a-new-token">A new token: &#39;@@&#39;</a></li>
-						<li class="svelte-13pn6e2"><a href="#the-new-parser">The new parser</a></li>
-						<li class="svelte-13pn6e2"><a href="#how-parsing-works">How parsing works</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#this-eat-this-match-this-next">this.eat, this.match, this.next</a></li>
-									
-							</ul>
-				</ul><li class="svelte-13pn6e2"><a href="#our-babel-plugin">Our babel plugin</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#assume-currying-has-been-declared-in-the-global-scope">1. Assume  `currying`  has been declared in the global scope.</a></li>
-						<li class="svelte-13pn6e2"><a href="#use-the-babel-helpers">2. Use the  `@babel/helpers`</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#closing-note">Closing Note</a></li>
-			<li class="svelte-13pn6e2"><a href="#editor-s-note">Editor&#39;s Note</a></li>
-			<li class="svelte-13pn6e2"><a href="#further-reading">Further Reading</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#overview" class="svelte-j01zi8">Overview</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#fork-the-babel" class="svelte-j01zi8">Fork the babel</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#crash-course-on-parsing-code-to-ast" class="svelte-j01zi8">Crash Course on Parsing Code to AST</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#our-custom-babel-parser" class="svelte-j01zi8">Our custom babel parser</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#a-new-token" class="svelte-j01zi8">A new token: &#39;@@&#39;</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#the-new-parser" class="svelte-j01zi8">The new parser</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#how-parsing-works" class="svelte-j01zi8">How parsing works</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#this-eat-this-match-this-next" class="svelte-j01zi8">this.eat, this.match, this.next</a>
+												
+											</li>
+									</ol>
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#our-babel-plugin" class="svelte-j01zi8">Our babel plugin</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-assume-currying-has-been-declared-in-the-global-scope" class="svelte-j01zi8">1. Assume  `currying`  has been declared in the global scope.</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-use-the-babel-helpers" class="svelte-j01zi8">2. Use the  `@babel/helpers`</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#closing-note" class="svelte-j01zi8">Closing Note</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#editor-s-note" class="svelte-j01zi8">Editor&#39;s Note</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#further-reading" class="svelte-j01zi8">Further Reading</a>
+				
+			</li></ol>
 </section>
 <p>Following my previous post on <a href="/step-by-step-guide-for-writing-a-babel-transformation">writing a custom babel transformation</a>, today I am going to show you how you can create a custom JavaScript syntax with Babel.</p>
 <section><h2><a href="#overview" id="overview">Overview</a></h2>
@@ -420,11 +434,11 @@
 <span class="line dim"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>The question is how do we provide the <code class="inline">currying</code> function?</p>
 <p>There are 2 ways:</p></section>
-<section><h3><a href="#assume-currying-has-been-declared-in-the-global-scope" id="assume-currying-has-been-declared-in-the-global-scope">1. Assume <code class="inline">currying</code> has been declared in the global scope.</a></h3>
+<section><h3><a href="#1-assume-currying-has-been-declared-in-the-global-scope" id="1-assume-currying-has-been-declared-in-the-global-scope">1. Assume <code class="inline">currying</code> has been declared in the global scope.</a></h3>
 <p>Basically, your job is done here. </p>
 <p>If <code class="inline">currying</code> is not defined, then when executing the compiled code, the runtime will scream out <em>&quot;currying is not defined&quot;</em>, just like the <a href="https://www.google.com/search?q=regeneratorRuntime+is+not+defined" rel="nofollow">&quot;regeneratorRuntime is not defined&quot;</a>.</p>
 <p>So probably you have to educate the users to install <code class="inline">currying</code> polyfills in order to use your <code class="inline">babel-plugin-transformation-curry-function</code>.</p></section>
-<section><h3><a href="#use-the-babel-helpers" id="use-the-babel-helpers">2. Use the <code class="inline">@babel/helpers</code></a></h3>
+<section><h3><a href="#2-use-the-babel-helpers" id="2-use-the-babel-helpers">2. Use the <code class="inline">@babel/helpers</code></a></h3>
 <p>You can add a new helper to <code class="inline">@babel/helpers</code>, which of course you are unlikely to merge that into the official <code class="inline">@babel/helpers</code>, so you would have to figure a way to make <code class="inline">@babel/core</code> to resolve to your <code class="inline">@babel/helpers</code>:</p>
 <div class="code-section"><!-- HTML_TAG_START --><div class="filename">package.json</div><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-string-expression)">&quot;resolutions&quot;</span><span style="color: var(--shiki-color-text)">: &#123;</span></span>
@@ -485,16 +499,18 @@
 <li><a href="https://github.com/tc39/proposals" rel="nofollow">TC39 Proposals</a></li>
 <li><a href="https://tc39.es/process-document/" rel="nofollow">TC39 Process Document</a></li></ul></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="1ve9r38">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="eijytg">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="1ve9r38"]').parentNode,
+			target: document.querySelector('[data-hydrate="eijytg"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -504,8 +520,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-0b41edb6.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-6dc82403.js")
 				],
 				params: {}
 			}

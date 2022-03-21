@@ -34,16 +34,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/step-by-step-guide-for-writing-a-babel-transformation/index.md-9f2c39e9.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/step-by-step-guide-for-writing-a-babel-transformation/index.md-0426c05a.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,22 +76,34 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/babel">babel</a><a class="tag svelte-muo5sw" href="/tags/AST">AST</a><a class="tag svelte-muo5sw" href="/tags/transform">transform</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#what-is-babel">What is babel?</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#what-is-abstract-syntax-tree-ast">What is Abstract Syntax Tree (AST)?</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#how-to-use-babel-to-transform-code">How to use babel to transform code</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#have-in-mind-what-you-want-to-transform-from-and-transform-into">1. Have in mind what you want to transform from and transform into</a></li>
-						<li class="svelte-13pn6e2"><a href="#know-what-to-target-on-the-ast">2. Know what to target on the AST</a></li>
-						<li class="svelte-13pn6e2"><a href="#know-how-the-transformed-ast-looks-like">3. Know how the transformed AST looks like</a></li>
-						<li class="svelte-13pn6e2"><a href="#write-code">4. Write code</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#transforming-variable-name">Transforming variable name</a></li>
-									<li class="svelte-13pn6e2"><a href="#transforming-strings">Transforming strings</a></li>
-									
-							</ul>
-				</ul><li class="svelte-13pn6e2"><a href="#summary">Summary</a></li>
-			<li class="svelte-13pn6e2"><a href="#further-resources">Further resources</a></li>
-			<li class="svelte-13pn6e2"><a href="#reference">Reference</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#what-is-babel" class="svelte-j01zi8">What is babel?</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#what-is-abstract-syntax-tree-ast" class="svelte-j01zi8">What is Abstract Syntax Tree (AST)?</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#how-to-use-babel-to-transform-code" class="svelte-j01zi8">How to use babel to transform code</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-have-in-mind-what-you-want-to-transform-from-and-transform-into" class="svelte-j01zi8">1. Have in mind what you want to transform from and transform into</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-know-what-to-target-on-the-ast" class="svelte-j01zi8">2. Know what to target on the AST</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#3-know-how-the-transformed-ast-looks-like" class="svelte-j01zi8">3. Know how the transformed AST looks like</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#4-write-code" class="svelte-j01zi8">4. Write code</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#transforming-variable-name" class="svelte-j01zi8">Transforming variable name</a>
+												
+											</li><li class="svelte-j01zi8"><a href="#transforming-strings" class="svelte-j01zi8">Transforming strings</a>
+												
+											</li>
+									</ol>
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#summary" class="svelte-j01zi8">Summary</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#further-resources" class="svelte-j01zi8">Further resources</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#reference" class="svelte-j01zi8">Reference</a>
+				
+			</li></ol>
 </section>
 <p>Today, I will share a step-by-step guide for writing a custom <a href="https://babeljs.io/docs/en/babel-core" rel="nofollow">babel</a> transformation. You can use this technique to write your own automated code modifications, refactoring and code generation.</p>
 <section><h2><a href="#what-is-babel" id="what-is-babel">What is babel?</a></h2>
@@ -162,7 +174,7 @@
 <blockquote><p>Extract out the function <code class="inline">myCustomPlugin</code> to a new file and export it. <a href="https://medium.com/@bretcameron/how-to-publish-your-first-npm-package-b224296fc57b" rel="nofollow">Package and publish your file as a npm package</a> and you can proudly say you have published a babel plugin! 🎉🎉</p></blockquote>
 <p>At this point, you must have thought: <em>&quot;Yes I&#39;ve just written a babel plugin, but I have no idea how it works...&quot;</em>, so fret not, let&#39;s dive in on how you can write the babel transformation plugin yourself!</p>
 <p>So, here is the step-by-step guide to do it:</p></section>
-<section><h3><a href="#have-in-mind-what-you-want-to-transform-from-and-transform-into" id="have-in-mind-what-you-want-to-transform-from-and-transform-into">1. Have in mind what you want to transform from and transform into</a></h3>
+<section><h3><a href="#1-have-in-mind-what-you-want-to-transform-from-and-transform-into" id="1-have-in-mind-what-you-want-to-transform-from-and-transform-into">1. Have in mind what you want to transform from and transform into</a></h3>
 <p>In this example, I want to prank my colleague by creating a babel plugin that will:</p>
 <ul><li>reverse all the variables&#39; and functions&#39; names</li>
 <li>split out string into individual characters</li></ul>
@@ -178,19 +190,19 @@
 <span class="line"></span>
 <span class="line"><span style="color: var(--shiki-token-constant)">console</span><span style="color: var(--shiki-token-function)">.log</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-function)">teerg</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;t&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;a&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;n&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;h&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;a&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;u&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;h&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;a&#39;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">+</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;u&#39;</span><span style="color: var(--shiki-color-text)">)); </span><span style="color: var(--shiki-token-comment)">// Hello tanhauhau</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>Well, we have to keep the <code class="inline">console.log</code>, so that even the code is hardly readable, it is still working fine. <em>(I wouldn&#39;t want to break the production code!)</em></p></section>
-<section><h3><a href="#know-what-to-target-on-the-ast" id="know-what-to-target-on-the-ast">2. Know what to target on the AST</a></h3>
+<section><h3><a href="#2-know-what-to-target-on-the-ast" id="2-know-what-to-target-on-the-ast">2. Know what to target on the AST</a></h3>
 <p>Head down to a <a href="https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uIGdyZWV0KG5hbWUpIHtcbiAgcmV0dXJuICdIZWxsbyAnICsgbmFtZTtcbn1cblxuY29uc29sZS5sb2coZ3JlZXQoJ3RhbmhhdWhhdScpKTsgLy8gSGVsbG8gdGFuaGF1aGF1In0=" rel="nofollow">babel AST explorer</a>, click on different parts of the code and see where / how it is represented on the AST:</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/targeting-908f9668.webp"><source type="image/png" srcset="/_app/assets/targeting-25308288.png"><img src="/_app/assets/targeting-25308288.png" loading="lazy" alt="targeting" title="Selecting the code on the left and see the corresponding part of the AST light up on the right"></picture></p>
 <p>If this is your first time seeing the AST, play around with it for a little while and get the sense of how is it look like, and get to know the names of the node on the AST with respect to your code.</p>
 <p>So, now we know that we need to target:</p>
 <ul><li><strong>Identifier</strong> for variable and function names</li>
 <li><strong>StringLiteral</strong> for the string.</li></ul></section>
-<section><h3><a href="#know-how-the-transformed-ast-looks-like" id="know-how-the-transformed-ast-looks-like">3. Know how the transformed AST looks like</a></h3>
+<section><h3><a href="#3-know-how-the-transformed-ast-looks-like" id="3-know-how-the-transformed-ast-looks-like">3. Know how the transformed AST looks like</a></h3>
 <p>Head down to the <a href="https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlLCJoaWRlQ29tbWVudHMiOnRydWV9LCJjb2RlIjoiZnVuY3Rpb24gdGVlcmcoZW1hbikge1xuICByZXR1cm4gXCJIXCIgKyBcImVcIiArIFwibFwiICsgXCJsXCIgKyBcIm9cIiArIFwiIFwiICsgZW1hbjtcbn1cblxuY29uc29sZS5sb2codGVlcmcoXCJ0XCIgKyBcImFcIiArIFwiblwiICsgXCJoXCIgKyBcImFcIiArIFwidVwiICsgXCJoXCIgKyBcImFcIiArIFwidVwiKSk7IC8vIEhlbGxvIHRhbmhhdWhhdVxuIn0=" rel="nofollow">babel AST explorer</a> again, but this time around with the output code you want to generate.</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/output-563200b8.webp"><source type="image/png" srcset="/_app/assets/output-7756fc06.png"><img src="/_app/assets/output-7756fc06.png" loading="lazy" alt="output" title="You can see that what used to be a `StringLiteral` is now a nested `BinaryExpression`"></picture></p>
 <p>Play around and think how you can transform from the previous AST to the current AST.</p>
 <p>For example, you can see that <code class="inline">&#39;H&#39; + &#39;e&#39; + &#39;l&#39; + &#39;l&#39; + &#39;o&#39; + &#39; &#39; + eman</code> is formed by nested <code class="inline">BinaryExpression</code> with <code class="inline">StringLiteral</code>.</p></section>
-<section><h3><a href="#write-code" id="write-code">4. Write code</a></h3>
+<section><h3><a href="#4-write-code" id="4-write-code">4. Write code</a></h3>
 <p>Now look at our code again:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">myCustomPlugin</span><span style="color: var(--shiki-color-text)">() &#123;</span></span>
 <span class="line dim"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">return</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
@@ -369,16 +381,18 @@
 <li><a href="https://github.com/jamiebuilds/babel-handbook" rel="nofollow">Babel Handbook</a> by <a href="https://jamie.build/" rel="nofollow">Jamie Kyle</a></li>
 <li><a href="https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff" rel="nofollow">Leveling Up One’s Parsing Game With ASTs</a> by <a href="https://twitter.com/vaidehijoshi" rel="nofollow">Vaidehi Joshi</a></li></ul></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="gg8ffk">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="1rnunve">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="gg8ffk"]').parentNode,
+			target: document.querySelector('[data-hydrate="1rnunve"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -388,8 +402,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/step-by-step-guide-for-writing-a-babel-transformation/index.md-9f2c39e9.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/step-by-step-guide-for-writing-a-babel-transformation/index.md-0426c05a.js")
 				],
 				params: {}
 			}

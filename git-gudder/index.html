@@ -35,16 +35,16 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/TalkLayout-340d543e.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/git-gudder/index.md-2213f16f.js">
-	<link rel="modulepreload" href="/_app/chunks/TalkLayout-d182c6b1.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/git-gudder/index.md-d4d66ef3.js">
+	<link rel="modulepreload" href="/_app/chunks/TalkLayout-2ed807d6.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -78,38 +78,65 @@
 
 <div class="venue svelte-1rhvskq">Talk given at: <a href="https://github.com/Shopee/shopee-react-knowledgeable/issues/129" class="svelte-1rhvskq">React Knowledgeable Week 41</a></div>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#disclaimer">Disclaimer</a></li>
-			<li class="svelte-13pn6e2"><a href="#git-merge">git merge</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#fast-forward-merge">Fast-forward merge</a></li>
-						<li class="svelte-13pn6e2"><a href="#non-fast-forward-merge">Non Fast-forward merge</a></li>
-						<li class="svelte-13pn6e2"><a href="#git-pull">git pull</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#git-reset">git reset</a></li>
-			<li class="svelte-13pn6e2"><a href="#git-cherry-pick">git cherry-pick</a></li>
-			<li class="svelte-13pn6e2"><a href="#git-revert">git revert</a></li>
-			<li class="svelte-13pn6e2"><a href="#git-rebase">git rebase</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#git-rebase-interactive">git rebase --interactive</a></li>
-						<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#pick">pick</a></li>
-									<li class="svelte-13pn6e2"><a href="#drop">drop</a></li>
-									<li class="svelte-13pn6e2"><a href="#squash-fixup">squash &amp; fixup</a></li>
-									<li class="svelte-13pn6e2"><a href="#break">break</a></li>
-									<li class="svelte-13pn6e2"><a href="#edit">edit</a></li>
-									
-							</ul><li class="svelte-13pn6e2"><a href="#git-pull-rebase">git pull --rebase</a></li>
-						<li class="svelte-13pn6e2"><a href="#git-rebase-a-shared-branch">git rebase a shared branch</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#git-log">git log</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#since-after-until-before">--since, --after, --until, --before</a></li>
-						<li class="svelte-13pn6e2"><a href="#grep">--grep</a></li>
-						<li class="svelte-13pn6e2"><a href="#invert-grep">--invert-grep</a></li>
-						<li class="svelte-13pn6e2"><a href="#all-match">--all-match</a></li>
-						<li class="svelte-13pn6e2"><a href="#min-parents-max-parents-merges-no-merges">--min-parents, --max-parents, --merges, --no-merges</a></li>
-						<li class="svelte-13pn6e2"><a href="#first-parent">--first-parent</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#git-reflog">git reflog</a></li>
-			<li class="svelte-13pn6e2"><a href="#git-bisect">git bisect</a></li>
-			<li class="svelte-13pn6e2"><a href="#summary">Summary</a></li>
-			</ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#disclaimer" class="svelte-j01zi8">Disclaimer</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#git-merge" class="svelte-j01zi8">git merge</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#fast-forward-merge" class="svelte-j01zi8">Fast-forward merge</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#non-fast-forward-merge" class="svelte-j01zi8">Non Fast-forward merge</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#git-pull" class="svelte-j01zi8">git pull</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#git-reset" class="svelte-j01zi8">git reset</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#git-cherry-pick" class="svelte-j01zi8">git cherry-pick</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#git-revert" class="svelte-j01zi8">git revert</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#git-rebase" class="svelte-j01zi8">git rebase</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#git-rebase-interactive" class="svelte-j01zi8">git rebase --interactive</a>
+								<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#pick" class="svelte-j01zi8">pick</a>
+												
+											</li><li class="svelte-j01zi8"><a href="#drop" class="svelte-j01zi8">drop</a>
+												
+											</li><li class="svelte-j01zi8"><a href="#squash-fixup" class="svelte-j01zi8">squash &amp; fixup</a>
+												
+											</li><li class="svelte-j01zi8"><a href="#break" class="svelte-j01zi8">break</a>
+												
+											</li><li class="svelte-j01zi8"><a href="#edit" class="svelte-j01zi8">edit</a>
+												
+											</li>
+									</ol>
+							</li><li class="svelte-j01zi8"><a href="#git-pull-rebase" class="svelte-j01zi8">git pull --rebase</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#git-rebase-a-shared-branch" class="svelte-j01zi8">git rebase a shared branch</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#git-log" class="svelte-j01zi8">git log</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#since-after-until-before" class="svelte-j01zi8">--since, --after, --until, --before</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#grep" class="svelte-j01zi8">--grep</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#invert-grep" class="svelte-j01zi8">--invert-grep</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#all-match" class="svelte-j01zi8">--all-match</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#min-parents-max-parents-merges-no-merges" class="svelte-j01zi8">--min-parents, --max-parents, --merges, --no-merges</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#first-parent" class="svelte-j01zi8">--first-parent</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#git-reflog" class="svelte-j01zi8">git reflog</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#git-bisect" class="svelte-j01zi8">git bisect</a>
+				
+			</li><li class="svelte-j01zi8"><a href="#summary" class="svelte-j01zi8">Summary</a>
+				
+			</li></ol>
 </section>
 <p>This week in React Knowledgeable, I did a sharing on Git commands.</p>
 <p>The title of the talk was called <strong>&quot;Git Gudder&quot;</strong>, because almost a year ago I did a lightning sharing on &quot;Git Gud&quot;, <em>(Get Good)</em>, this follow up sharing used the comparative of &quot;Git Gud&quot;, therefore, &quot;Git Gudder&quot;.</p>
@@ -301,16 +328,18 @@
 <hr>
 <p>Related topic: <a href="/commit-went-missing-after-rebase/">Git commits went missing after a rebase</a></p></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="j4ezf8">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="wrh203">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="j4ezf8"]').parentNode,
+			target: document.querySelector('[data-hydrate="wrh203"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -320,8 +349,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/git-gudder/index.md-2213f16f.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/git-gudder/index.md-d4d66ef3.js")
 				],
 				params: {}
 			}

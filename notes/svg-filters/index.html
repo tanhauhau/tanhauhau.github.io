@@ -34,20 +34,20 @@
 	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="stylesheet" href="/_app/assets/TableOfContent-35413da3.css">
+	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
 	<link rel="stylesheet" href="/_app/assets/pages/notes/svg-filters/components/Morphology.svelte-951df8a9.css">
 	<link rel="stylesheet" href="/_app/assets/pages/notes/svg-filters/components/KnockoutText.svelte-acf40592.css">
-	<link rel="modulepreload" href="/_app/start-01a7265b.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-6bf294e3.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-b1c6e0d6.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-e20b7872.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-e3964c8c.js">
-	<link rel="modulepreload" href="/_app/pages/notes/svg-filters/index.md-d3f95c06.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-152f599b.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-745413ea.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-1b9e4572.js">
-	<link rel="modulepreload" href="/_app/pages/notes/svg-filters/components/Morphology.svelte-a3f0458e.js">
-	<link rel="modulepreload" href="/_app/pages/notes/svg-filters/components/KnockoutText.svelte-72889527.js">
+	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
+	<link rel="modulepreload" href="/_app/pages/notes/svg-filters/index.md-bc1a0fb9.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/pages/notes/svg-filters/components/Morphology.svelte-209d381a.js">
+	<link rel="modulepreload" href="/_app/pages/notes/svg-filters/components/KnockoutText.svelte-222630e4.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -80,26 +80,40 @@
 
 <a class="tag svelte-muo5sw" href="/tags/svg filters">svg filters</a><a class="tag svelte-muo5sw" href="/tags/filters">filters</a><a class="tag svelte-muo5sw" href="/tags/svg">svg</a>
 
-<article class="blog"><section class="svelte-13pn6e2"><ul role="navigation" aria-label="Table of Contents" class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#svg-filters">SVG Filters 101</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#filter-primitives">filter primitives</a></li>
-						<li class="svelte-13pn6e2"><a href="#filter-region">Filter region</a></li>
-						<li class="svelte-13pn6e2"><a href="#create-a-drop-shadow">Create a drop shadow</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#finessing-fecolormatrix">Finessing  `feColorMatrix`</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#colorizing">1. Colorizing</a></li>
-						<li class="svelte-13pn6e2"><a href="#alpha-values">2. Alpha values</a></li>
-						<li class="svelte-13pn6e2"><a href="#blowing-out-channels">3. Blowing out channels</a></li>
-						<li class="svelte-13pn6e2"><a href="#change-color">4. Change color</a></li>
-						<li class="svelte-13pn6e2"><a href="#lighten-or-darken">5. Lighten or darken</a></li>
-						<li class="svelte-13pn6e2"><a href="#grayscale">6. Grayscale</a></li>
-						
-				</ul><li class="svelte-13pn6e2"><a href="#outline-text-with-lt-femorphology-gt">Outline Text with  `&amp;lt;feMorphology&amp;gt;`</a></li>
-			<ul class="svelte-13pn6e2"><li class="svelte-13pn6e2"><a href="#adding-colored-outline-to-text-with-lt-femorphology-gt">Adding Colored Outline to Text with  `&amp;lt;feMorphology /&amp;gt;`</a></li>
-						<li class="svelte-13pn6e2"><a href="#knockout-text-with-lt-femorphology-gt">Knockout text with  `&amp;lt;feMorphology /&amp;gt;`</a></li>
-						
-				</ul></ul>
+<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#svg-filters-101" class="svelte-j01zi8">SVG Filters 101</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#filter-primitives" class="svelte-j01zi8">filter primitives</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#filter-region" class="svelte-j01zi8">Filter region</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#create-a-drop-shadow" class="svelte-j01zi8">Create a drop shadow</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#finessing-fecolormatrix" class="svelte-j01zi8">Finessing  `feColorMatrix`</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#1-colorizing" class="svelte-j01zi8">1. Colorizing</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#2-alpha-values" class="svelte-j01zi8">2. Alpha values</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#3-blowing-out-channels" class="svelte-j01zi8">3. Blowing out channels</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#4-change-color" class="svelte-j01zi8">4. Change color</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#5-lighten-or-darken" class="svelte-j01zi8">5. Lighten or darken</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#6-grayscale" class="svelte-j01zi8">6. Grayscale</a>
+								
+							</li>
+					</ol>
+			</li><li class="svelte-j01zi8"><a href="#outline-text-with-lt-femorphology-gt" class="svelte-j01zi8">Outline Text with  `&amp;lt;feMorphology&amp;gt;`</a>
+				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#adding-colored-outline-to-text-with-lt-femorphology-gt" class="svelte-j01zi8">Adding Colored Outline to Text with  `&amp;lt;feMorphology /&amp;gt;`</a>
+								
+							</li><li class="svelte-j01zi8"><a href="#knockout-text-with-lt-femorphology-gt" class="svelte-j01zi8">Knockout text with  `&amp;lt;feMorphology /&amp;gt;`</a>
+								
+							</li>
+					</ol>
+			</li></ol>
 </section>
-<section><h2><a href="#svg-filters" id="svg-filters">SVG Filters 101</a></h2>
+<section><h2><a href="#svg-filters-101" id="svg-filters-101">SVG Filters 101</a></h2>
 <p>[ <a href="https://tympanus.net/codrops/2019/01/15/svg-filters-101/" rel="nofollow">Source</a> ]</p>
 <ul><li>defined in <code class="inline">&lt;filter&gt;</code> element</li>
 <li>define a series of one or more filter primitives</li>
@@ -203,14 +217,14 @@
 <span class="line"><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">1</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-comment)">// B = 0*R + 0*G + 1*B + 0*A + 0</span></span>
 <span class="line"><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">1</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">0</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-comment)">// A = 0*R + 0*G + 0*B + 1*A + 0</span></span></code></pre><!-- HTML_TAG_END --></div>
 <ul><li><a href="https://svelte.dev/repl/1fa3e758ef2442d1bcc1eba37a2bdd58" rel="nofollow">color matrix playground</a></li></ul></section>
-<section><h3><a href="#colorizing" id="colorizing">1. Colorizing</a></h3>
+<section><h3><a href="#1-colorizing" id="1-colorizing">1. Colorizing</a></h3>
 <p><picture><source type="image/webp" srcset="/_app/assets/default-0df15f3a.webp"><source type="image/png" srcset="/_app/assets/default-9232d8ad.png"><img src="/_app/assets/default-9232d8ad.png" loading="lazy" alt="colorise default"></picture></p>
 <ul><li>Removing other color to colorise image into the remaining color</li>
 <li>colorise red -&gt; remove blue &amp; green
 <picture><source type="image/webp" srcset="/_app/assets/colorise-red-8acd3f2d.webp"><source type="image/png" srcset="/_app/assets/colorise-red-804127f6.png"><img src="/_app/assets/colorise-red-804127f6.png" loading="lazy" alt="colorise red"></picture></li>
 <li>colorise yellow -&gt; remove blue (red + green = yellow)
 <picture><source type="image/webp" srcset="/_app/assets/colorise-yellow-d49b23ef.webp"><source type="image/png" srcset="/_app/assets/colorise-yellow-4a79cc53.png"><img src="/_app/assets/colorise-yellow-4a79cc53.png" loading="lazy" alt="colorise yellow"></picture></li></ul></section>
-<section><h3><a href="#alpha-values" id="alpha-values">2. Alpha values</a></h3>
+<section><h3><a href="#2-alpha-values" id="2-alpha-values">2. Alpha values</a></h3>
 <ul><li><p>add opacity level to the red channel</p>
 <ul><li>any red remaining red</li>
 <li>green -&gt; yellow (red + green = yellow)</li>
@@ -239,18 +253,18 @@
 <span class="line"><span style="color: var(--shiki-token-string-expression)">            0  0  0  0  0</span></span>
 <span class="line"><span style="color: var(--shiki-token-string-expression)">            0  0  0  1  0 &quot;</span><span style="color: var(--shiki-color-text)">/&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">filter</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div></section>
-<section><h3><a href="#blowing-out-channels" id="blowing-out-channels">3. Blowing out channels</a></h3>
+<section><h3><a href="#3-blowing-out-channels" id="3-blowing-out-channels">3. Blowing out channels</a></h3>
 <ul><li>turn 1 color to white</li>
 <li>set the alpha channel to <code class="inline">-2</code>
 <picture><source type="image/webp" srcset="/_app/assets/blow-out-channel-bcacf82f.webp"><source type="image/png" srcset="/_app/assets/blow-out-channel-134f68f6.png"><img src="/_app/assets/blow-out-channel-134f68f6.png" loading="lazy" alt="blow-out-green"></picture></li></ul></section>
-<section><h3><a href="#change-color" id="change-color">4. Change color</a></h3>
+<section><h3><a href="#4-change-color" id="4-change-color">4. Change color</a></h3>
 <ul><li>No more green, any green looks like magenta now. (luminosity of green is lost)
 <picture><source type="image/webp" srcset="/_app/assets/change-color-2044cbfe.webp"><source type="image/png" srcset="/_app/assets/change-color-1027cbd1.png"><img src="/_app/assets/change-color-1027cbd1.png" loading="lazy" alt="change-color"></picture></li></ul></section>
-<section><h3><a href="#lighten-or-darken" id="lighten-or-darken">5. Lighten or darken</a></h3>
+<section><h3><a href="#5-lighten-or-darken" id="5-lighten-or-darken">5. Lighten or darken</a></h3>
 <ul><li>increase intensity to lighten, decrease to darken
 <picture><source type="image/webp" srcset="/_app/assets/lighten-82ea2978.webp"><source type="image/png" srcset="/_app/assets/lighten-f877ce5b.png"><img src="/_app/assets/lighten-f877ce5b.png" loading="lazy" alt="lighten"></picture>
 <picture><source type="image/webp" srcset="/_app/assets/darken-17dacf86.webp"><source type="image/png" srcset="/_app/assets/darken-fa35296c.png"><img src="/_app/assets/darken-fa35296c.png" loading="lazy" alt="darken"></picture></li></ul></section>
-<section><h3><a href="#grayscale" id="grayscale">6. Grayscale</a></h3>
+<section><h3><a href="#6-grayscale" id="6-grayscale">6. Grayscale</a></h3>
 <ul><li>make sure red, green, blue have the same value
 <picture><source type="image/webp" srcset="/_app/assets/grayscale-0dce859e.webp"><source type="image/png" srcset="/_app/assets/grayscale-29649c6a.png"><img src="/_app/assets/grayscale-29649c6a.png" loading="lazy" alt="grayscale"></picture></li></ul></section>
 <section><h2><a href="#outline-text-with-lt-femorphology-gt" id="outline-text-with-lt-femorphology-gt">Outline Text with <code class="inline">&lt;feMorphology&gt;</code></a></h2>
@@ -316,16 +330,18 @@
 <svg height="0" class="svelte-1foi548"><filter id="outline"><feMorphology result="THICK" operator="dilate" radius="4"></feMorphology><feComposite operator="out" in="THICK" in2="SourceGraphic"></feComposite></filter></svg>
 <p><a href="https://svelte.dev/repl/30153d68324d475189d34afa26a3186f?version=3.29.0" rel="nofollow">REPL</a> to visualise the build up the knock-out text.</p></section></article>
 
+<div style="height: 1px; width: 100%"></div>
+
 </main>
 
 <footer class="svelte-70a8h7">
 </footer>
 
 
-		<script type="module" data-hydrate="t3wa8h">
-		import { start } from "/_app/start-01a7265b.js";
+		<script type="module" data-hydrate="1tjndr0">
+		import { start } from "/_app/start-c227dcfe.js";
 		start({
-			target: document.querySelector('[data-hydrate="t3wa8h"]').parentNode,
+			target: document.querySelector('[data-hydrate="1tjndr0"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -335,8 +351,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-b1c6e0d6.js"),
-						import("/_app/pages/notes/svg-filters/index.md-d3f95c06.js")
+					import("/_app/pages/__layout.svelte-7b655bdf.js"),
+						import("/_app/pages/notes/svg-filters/index.md-bc1a0fb9.js")
 				],
 				params: {}
 			}
