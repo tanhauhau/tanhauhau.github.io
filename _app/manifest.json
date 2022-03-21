@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-49a5975a.js",
+    "file": "start-01a7265b.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -556,7 +556,7 @@
     ]
   },
   "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md": {
-    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-695e6f3a.js",
+    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-aa274f75.js",
     "src": "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1311,7 +1311,7 @@
     ]
   },
   "src/routes/javascript-modules/index.md": {
-    "file": "pages/javascript-modules/index.md-b11a165e.js",
+    "file": "pages/javascript-modules/index.md-20e41064.js",
     "src": "src/routes/javascript-modules/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1450,7 +1450,7 @@
       "_vendor-6bf294e3.js"
     ],
     "css": [
-      "assets/pages/series/index.svelte-7c0d0136.css"
+      "assets/pages/tags/index.svelte-86af5cd7.css"
     ]
   },
   "src/routes/series/[name].svelte": {
@@ -1581,7 +1581,7 @@
       "_vendor-6bf294e3.js"
     ],
     "css": [
-      "assets/pages/talks.svelte-8a64996f.css"
+      "assets/pages/blogs.svelte-15b10821.css"
     ]
   },
   "src/routes/notes/index.svelte": {
@@ -2609,7 +2609,7 @@
       "_vendor-6bf294e3.js"
     ],
     "css": [
-      "assets/pages/talks.svelte-8a64996f.css"
+      "assets/pages/blogs.svelte-15b10821.css"
     ]
   },
   "src/routes/tags/index.svelte": {
@@ -2621,7 +2621,7 @@
       "_vendor-6bf294e3.js"
     ],
     "css": [
-      "assets/pages/series/index.svelte-7c0d0136.css"
+      "assets/pages/tags/index.svelte-86af5cd7.css"
     ]
   },
   "src/routes/tags/[name].svelte": {
