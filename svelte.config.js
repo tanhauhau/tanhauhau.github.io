@@ -4,6 +4,7 @@ import remarkTableOfContents from './plugins/remark-table-of-content.js';
 import remarkImageExternal from './plugins/remark-image-external.js';
 import remarkTwitterOg from './plugins/remark-twitter-og.js';
 import remarkScript from './plugins/remark-script.js';
+import remarkDescription from './plugins/remark-description.js';
 import rehypeInlineCode from './plugins/rehype-inline-code.js';
 import adapter from '@sveltejs/adapter-static';
 import customCodeHighlight from './plugins/code-highlight.js';
@@ -22,6 +23,7 @@ const config = {
 			smartypants: false,
 			extensions: ['.svx', '.md', '.mdx'],
 			remarkPlugins: [
+				remarkDescription,
 				[remarkTableOfContents, { exclude: /\/slides\// }],
 				remarkImageExternal,
 				[remarkTwitterOg, { exclude: /\/slides\// }],
