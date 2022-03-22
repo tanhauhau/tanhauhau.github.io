@@ -1,0 +1,68 @@
+diff --git a/node_modules/shiki-twoslash/dist/index.js b/node_modules/shiki-twoslash/dist/index.js
+index 3fa7358..32dbaf1 100644
+--- a/node_modules/shiki-twoslash/dist/index.js
++++ b/node_modules/shiki-twoslash/dist/index.js
+@@ -1,8 +1,8 @@
+ 
+ 'use strict'
+ 
+-if (process.env.NODE_ENV === 'production') {
+-  module.exports = require('./shiki-twoslash.cjs.production.min.js')
+-} else {
++// if (process.env.NODE_ENV === 'production') {
++  // module.exports = require('./shiki-twoslash.cjs.production.min.js')
++// } else {
+   module.exports = require('./shiki-twoslash.cjs.development.js')
+-}
++// }
+diff --git a/node_modules/shiki-twoslash/dist/shiki-twoslash.cjs.development.js b/node_modules/shiki-twoslash/dist/shiki-twoslash.cjs.development.js
+index e6d85ef..996d2fe 100644
+--- a/node_modules/shiki-twoslash/dist/shiki-twoslash.cjs.development.js
++++ b/node_modules/shiki-twoslash/dist/shiki-twoslash.cjs.development.js
+@@ -161,7 +161,6 @@ function createHighlightedString(ranges, text, targetedWord) {
+ 
+   var data = JSON.parse(JSON.stringify(ranges));
+   var html = nest(data) + text.substring(cursor); // nested + leftover texts
+-
+   return htmlAttrUnReplacer(replaceTripleArrow(stripHTML(html)));
+ } // HTML attributes have different rules,
+ 
+@@ -232,6 +231,13 @@ var shouldHighlightLine = function shouldHighlightLine(highlight) {
+   };
+ };
+ 
++var shouldHideLine = function shouldHideLine(hidden) {
++  const set = new Set(hidden);
++  return function (line) {
++    return set.has(line);
++  }
++}
++
+ /** A func for setting a consistent <pre> */
+ 
+ var preOpenerFromRenderingOptsWithExtras = function preOpenerFromRenderingOptsWithExtras(opts, meta, classes) {
+@@ -291,6 +297,7 @@ function twoslashRenderer(lines, options, twoslash, meta) {
+   var html = "";
+   var hasHighlight = meta.highlight && shouldBeHighlightable(meta.highlight);
+   var hl = shouldHighlightLine(meta.highlight);
++  var toHide = shouldHideLine(meta.hidden);
+   if (twoslash.tags && twoslash.tags.length) html += "<div class='tag-container'>";
+   html += preOpenerFromRenderingOptsWithExtras(options, meta, ["twoslash", "lsp"]);
+ 
+@@ -329,8 +336,15 @@ function twoslashRenderer(lines, options, twoslash, meta) {
+     var tags = tagsGroupedByLine.get(i) || [];
+     var hiClass = hasHighlight ? hl(i + 1) ? " highlight" : " dim" : "";
+     var prefix = "<div class='line" + hiClass + "'>";
++    var hide = toHide(i + 1);
+ 
+-    if (l.length === 0 && i === 0) {
++    if (hide) {
++      // Skip the line
++      l.forEach(token => {
++        filePos += token.content.length;
++      });
++      filePos += 1;
++    } else if (l.length === 0 && i === 0) {
+       // Skip the first newline if it's blank
+       filePos += 1;
+     } else if (l.length === 0) {

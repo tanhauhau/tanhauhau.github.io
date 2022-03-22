@@ -39,10 +39,7 @@ export default async function highlight(code, lang, meta) {
 	lang = lang ?? '';
 	meta = meta ?? '';
 	if (lang === 'twoslash') {
-		let match = meta.match(/^include (.+)$/);
-		if (match) {
-			addIncludes(includes, match[1], code);
-		}
+		addIncludesIfMatchMeta(meta, code);
 		return '';
 	}
 	if (lang.startsWith('diff-') && SHIKI_BUNDLED_LANGUAGE.has(lang.slice(5))) {
@@ -64,6 +61,7 @@ export default async function highlight(code, lang, meta) {
 	code = parseSpecialComments(code, options);
 
 	let originalCode = code;
+	addIncludesIfMatchMeta(meta, code);
 
 	if (options.cutLines > 0) {
 		const cutCode = code.split('\n').slice(options.cutLines).join('\n');
@@ -112,7 +110,8 @@ export default async function highlight(code, lang, meta) {
 				checkJs: true,
 				target: 'es2021',
 				lib: ['lib.es2020.d.ts', 'lib.dom.d.ts'],
-				types: ['node', 'jest']
+				types: ['node', 'jest'],
+				noImplicitAny: false
 			}
 		});
 		const highlighter = await createShikiHighlighter({ theme: 'css-variables' });
@@ -224,6 +223,12 @@ function escapeHtml(string) {
 
 // includes system
 // copied from https://github.com/shikijs/twoslash/blob/main/packages/remark-shiki-twoslash/src/includes.ts
+function addIncludesIfMatchMeta(meta, code) {
+	let match = meta.match(/(?:^|\s)include (.+)$/);
+	if (match) {
+		addIncludes(includes, match[1], code);
+	}
+}
 /**
  *
  * @param {Map<string, string>} map
@@ -350,7 +355,9 @@ function parseSpecialComments(code, options) {
 	let start = false;
 	let numLinesLeft = 0;
 	let cutLines = 0;
+	let startJsdoc = -1;
 	const toHighlight = new Set();
+	const jsDocRanges = new Set();
 
 	code = code
 		.split('\n')
@@ -379,6 +386,31 @@ function parseSpecialComments(code, options) {
 			if (cutString.test(line)) {
 				cutLines = index - offset + 1;
 			}
+			// twoslash special comments
+			// TODO: list out all possible comments
+			if (line.startsWith('// @')) {
+				offset++;
+				if (!options.twoslash) return TO_REMOVE_LINE;
+			}
+			if (options.hideJsdoc) {
+				if (/^\s*\/\*\*/.test(line)) {
+					if (/\*\//.test(line)) {
+						jsDocRanges.add(index - offset);
+					} else {
+						startJsdoc = index - offset;
+					}
+					if (!options.twoslash) return TO_REMOVE_LINE;
+				} else if (startJsdoc > -1) {
+					if (/\*\//.test(line)) {
+						const endJsdoc = index - offset;
+						for (let i = startJsdoc; i <= endJsdoc; i++) {
+							jsDocRanges.add(i);
+						}
+						startJsdoc = -1;
+					}
+					if (!options.twoslash) return TO_REMOVE_LINE;
+				}
+			}
 			return line;
 		})
 		.filter((line) => line !== TO_REMOVE_LINE)
@@ -399,6 +431,7 @@ function parseSpecialComments(code, options) {
 	if (cutLines > 0) {
 		options.cutLines = cutLines;
 	}
+	options.hidden = Array.from(jsDocRanges).map(line => line + 1 - cutLines);
 	return code;
 }
 

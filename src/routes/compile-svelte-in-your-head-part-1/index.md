@@ -22,7 +22,7 @@ Lets refresh ourselves with how we write web app without any framework:
 
 ### Creating an element
 
-```js
+```js twoslash include h1
 // create a h1 element
 const h1 = document.createElement('h1');
 h1.textContent = 'Hello World';
@@ -32,21 +32,25 @@ document.body.appendChild(h1);
 
 ### Updating an element
 
-```js
+```js twoslash
+// @include: h1
+// ---cut---
 // update the text of the h1 element
 h1.textContent = 'Bye World';
 ```
 
 ### Removing an element
 
-```js
+```js twoslash
+// @include: h1
+// ---cut---
 // finally, we remove the h1 element
 document.body.removeChild(h1);
 ```
 
 ### Adding style to an element
 
-```js
+```js twoslash
 const h1 = document.createElement('h1');
 h1.textContent = 'Hello World';
 // highlight-start
@@ -62,7 +66,7 @@ document.body.appendChild(h1);
 
 ### Listen for click events on an element
 
-```js
+```js twoslash
 const button = document.createElement('button');
 button.textContent = 'Click Me!';
 // highlight-start
@@ -164,18 +168,31 @@ The first example that we are going to see is:
 
 The output code:
 
-```js
+```js twoslash
+/// hideJsdoc: true
+// @noErrors
+import { SvelteComponent, safe_not_equal, element, insert, detach, init } from 'svelte/internal';
+// ---cut---
 function create_fragment(ctx) {
+  /** @type {HTMLHeadingElement} */
   let h1;
 
   return {
     c() {
+      // highlight-next-line
       h1 = element('h1');
       h1.textContent = 'Hello world';
     },
+    /** 
+     * @param {HTMLElement} target
+     * @param {HTMLElement} anchor
+     */
     m(target, anchor) {
       insert(target, h1, anchor);
     },
+    /** 
+     * @param {boolean} detaching
+     */
     d(detaching) {
       if (detaching) detach(h1);
     },
@@ -195,6 +212,12 @@ You can break down the output code into 2 sections:
 - `create_fragment`
 - `class App extends SvelteComponent`
 
+```twoslash include svelte
+// @noErrors
+/** @type {HTMLHeadingElement} */
+let h1;
+```
+
 ### create_fragment
 
 Svelte components are the building blocks of a Svelte application. Each Svelte component focuses on building its piece or fragment of the final DOM.
@@ -211,7 +234,10 @@ Contains instructions to create all the elements in the fragment.
 
 In this example, it contains instructions to create the `h1` element
 
-```js
+```ts twoslash
+import { element } from 'svelte/internal';
+let h1: HTMLHeadingElement;
+// ---cut---
 h1 = element('h1');
 h1.textContent = 'Hello World';
 ```
@@ -224,10 +250,22 @@ Contains instructions to mount the elements into the target.
 
 In this example, it contains instructions to insert the `h1` element into the `target`.
 
-```js
+```js twoslash
+/// hideJsdoc: true
+// @include: svelte
+/** @type {HTMLElement} */
+let target;
+/** @type {HTMLElement} */
+let anchor;
+// ---cut---
 insert(target, h1, anchor);
 
 // http://github.com/sveltejs/svelte/tree/master/src/runtime/internal/dom.ts
+/**
+ * @param {Node} target 
+ * @param {Node} node 
+ * @param {Node=} anchor 
+ */
 export function insert(target, node, anchor) {
   target.insertBefore(node, anchor || null);
 }
@@ -241,10 +279,16 @@ Contains instructions to remove the elements from the target.
 
 In this example, we detach the `h1` element from the DOM
 
-```js
+```js twoslash
+/// hideJsdoc: true
+// @include: svelte
+// ---cut---
 detach(h1);
 
 // http://github.com/sveltejs/svelte/tree/master/src/runtime/internal/dom.ts
+/**
+ * @param {Node} node
+ */
 function detach(node) {
   node.parentNode.removeChild(node);
 }
