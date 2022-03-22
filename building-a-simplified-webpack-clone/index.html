@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -123,7 +123,7 @@
 <section><h3><a href="#why-module-bundler" id="why-module-bundler">Why module bundler?</a></h3>
 <p>We love writing small modular JS files, but that shouldn&#39;t impact the users.</p>
 <p>Traditionally with limit on number of request connection, 🐌 slow internet speed, we want to combine all the code into 1 file -&gt; 1 network request</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/why-bundling-5208ef38.webp"><source type="image/png" srcset="/_app/assets/why-bundling-7bcbaa8f.png"><img src="/_app/assets/why-bundling-7bcbaa8f.png" loading="lazy" alt="why bundling"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/why-bundling-604eeac3.webp"><source type="image/png" srcset="/_app/assets/why-bundling-ec0a8239.png"><img src="/_app/assets/why-bundling-ec0a8239.png" loading="lazy" alt="why bundling"></picture></p>
 <p>🕰 Traditionally, we concatenate the source files into 1 big output file.</p>
 <p>But that begs the question</p>
 <ul><li>❓ what should be the order of concatenation (files may depend on each other) ?</li>
@@ -150,7 +150,7 @@
 <p>in AST, import statement is represented by a node with:</p>
 <ul><li><code class="inline">type</code> = &quot;ImportDeclaration&quot;</li>
 <li><code class="inline">source.value</code> = the filename it&#39;s trying to import</li></ul>
-<p><picture><source type="image/webp" srcset="/_app/assets/ast-explorer-7f652ebd.webp"><source type="image/jpeg" srcset="/_app/assets/ast-explorer-295c3117.jpeg"><img src="/_app/assets/ast-explorer-295c3117.jpeg" loading="lazy" alt="ast explorer"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/ast-explorer-238b7db6.webp"><source type="image/jpeg" srcset="/_app/assets/ast-explorer-f43b9e05.jpeg"><img src="/_app/assets/ast-explorer-f43b9e05.jpeg" loading="lazy" alt="ast explorer"></picture></p>
 <p>There are various JavaScript parser out there, here are some of them</p>
 <ul><li>🔗 <a href="https://babeljs.io/docs/en/babel-core" rel="nofollow">babel</a></li>
 <li>🔗 <a href="https://github.com/acornjs/acorn" rel="nofollow">acorn</a></li>
@@ -217,7 +217,7 @@
 <ul><li>load as file</li>
 <li>load as directory</li>
 <li>load as node_modules</li></ul>
-<p><picture><source type="image/webp" srcset="/_app/assets/resolution-38a93b01.webp"><source type="image/png" srcset="/_app/assets/resolution-ae1270e0.png"><img src="/_app/assets/resolution-ae1270e0.png" loading="lazy" alt="node js module resolution algorithm"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/resolution-9852c085.webp"><source type="image/png" srcset="/_app/assets/resolution-24fc7ecb.png"><img src="/_app/assets/resolution-24fc7ecb.png" loading="lazy" alt="node js module resolution algorithm"></picture></p>
 <p>Some other module resolution:</p>
 <ul><li>webpack uses <a href="https://github.com/webpack/enhanced-resolve" rel="nofollow"><code class="inline">enhanced-resolve</code></a> which is a highly configurable resolver</li>
 <li>Typescript implements its own resolver, <a href="https://typescriptlang.org/docs/handbook/module-resolution.html" rel="nofollow">see how TS resolving works</a></li></ul></section>
@@ -423,10 +423,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1hth6xc">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="2zp240">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="1hth6xc"]').parentNode,
+			target: document.querySelector('[data-hydrate="2zp240"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,

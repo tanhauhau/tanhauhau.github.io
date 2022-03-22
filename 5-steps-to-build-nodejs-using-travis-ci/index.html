@@ -35,12 +35,12 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
 	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/5-steps-to-build-nodejs-using-travis-ci/index.md-53c153ca.js">
+	<link rel="modulepreload" href="/_app/pages/5-steps-to-build-nodejs-using-travis-ci/index.md-e910f3a4.js">
 	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
 	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
 	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
@@ -96,11 +96,11 @@
 <section><h2><a href="#2-how-do-i-use-travis-ci" id="2-how-do-i-use-travis-ci">2. How do I use Travis CI</a></h2>
 <p>Go to <a href="https://travis-ci.org" rel="nofollow">Travis CI</a>. Sign in using your GitHub account. You will be prompted to authorise Travis CI to your GitHub account. Approved that.</p>
 <p>When you see something like this:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/travis-194c0849.webp"><source type="image/png" srcset="/_app/assets/travis-3985319d.png"><img src="/_app/assets/travis-3985319d.png" loading="lazy" alt="travis"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/travis-e138309d.webp"><source type="image/png" srcset="/_app/assets/travis-02ddf925.png"><img src="/_app/assets/travis-02ddf925.png" loading="lazy" alt="travis"></picture></p>
 <p>Voila. You have created a Travis CI account.</p>
 <p>Next thing you are going to do is to click the <code class="inline">(+)</code> button beside the <em>“My Repositories”</em> on the left.</p>
 <p>You will then see a list of projects on your GitHub.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/travis-2-8d71e816.webp"><source type="image/png" srcset="/_app/assets/travis-2-5cd51042.png"><img src="/_app/assets/travis-2-5cd51042.png" loading="lazy" alt="travis"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/travis-2-7ef94ede.webp"><source type="image/png" srcset="/_app/assets/travis-2-a38b407b.png"><img src="/_app/assets/travis-2-a38b407b.png" loading="lazy" alt="travis"></picture></p>
 <p>If the list of repositories is empty, click “Sync account” to fetch all your repositories.</p>
 <p>Turn on one of your project for Continuous Integration!</p>
 <p>That’s all.</p></section>
@@ -115,24 +115,24 @@
 <p>The version of Node.js I am using is 4.2 at the time of writing this article. To be safe, you can run “node — version” on your command line to determine which version of Node.js you are running.</p>
 <blockquote><p>Make sure that you have all your dependencies persists to the package.json as Travis CI will install all the dependencies from it by calling npm install.</p></blockquote>
 <p>Another thing to take note is that if you wanna run your test script, make sure to include it in the <code class="inline">package.json</code>.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/package-json-415cc567.webp"><source type="image/png" srcset="/_app/assets/package-json-648c4a68.png"><img src="/_app/assets/package-json-648c4a68.png" loading="lazy" alt="packagejson"></picture></p></section>
+<p><picture><source type="image/webp" srcset="/_app/assets/package-json-f4a28706.webp"><source type="image/png" srcset="/_app/assets/package-json-f83700cf.png"><img src="/_app/assets/package-json-f83700cf.png" loading="lazy" alt="packagejson"></picture></p></section>
 <section><h2><a href="#4-how-do-i-use-bower-and-install-bower-dependencies" id="4-how-do-i-use-bower-and-install-bower-dependencies">4. How do I use bower and install bower dependencies</a></h2>
 <p>If you are using bower, add a before_script for .travis.yml</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-yml"><code><div class="line"><span class="token key atrule">language</span><span class="token punctuation">:</span> node_js</div><div class="line"><span class="token key atrule">node_js</span><span class="token punctuation">:</span></div><div class="line">  <span class="token punctuation">-</span> <span class="token number">4.2</span></div><div class="line"><span class="token key atrule">before_script</span><span class="token punctuation">:</span></div><div class="line">  <span class="token punctuation">-</span> npm install <span class="token punctuation">-</span>g bower</div><div class="line">  <span class="token punctuation">-</span> bower install</div></code></pre><!-- HTML_TAG_END --></div>
 <p>Or likewise if you are lazy, copy and paste this to your command line.</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">curl https://gist.githubusercontent.com/tanhauhau/71998bf221810186f046db94cda10c4e/raw/d1e8aee0981a96c20f94de6db386da048face423/.travis.yml </span><span style="color: var(--shiki-token-keyword)">&gt;</span><span style="color: var(--shiki-color-text)"> .travis.yml</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>One thing to take note for bower is that when there is dependency conflict, bower will ask you to choose which version of the dependency to be installed interactively. In the case for Travis CI, Travis CI will not know which version to install it for you where you will see an error like this:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/bower-f803caa5.webp"><source type="image/png" srcset="/_app/assets/bower-95922dd7.png"><img src="/_app/assets/bower-95922dd7.png" loading="lazy" alt="bower"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/bower-699520d6.webp"><source type="image/png" srcset="/_app/assets/bower-e49b4c75.png"><img src="/_app/assets/bower-e49b4c75.png" loading="lazy" alt="bower"></picture></p>
 <blockquote><p>Therefore, you will have to <a href="https://jaketrent.com/post/bower-resolutions/" rel="nofollow">persists the resolution to bower.json</a> to avoid the build error.</p></blockquote></section>
 <section><h2><a href="#5-include-a-travis-ci-badge" id="5-include-a-travis-ci-badge">5. Include a Travis CI badge</a></h2>
 <p>To summarise, you have set up your Travis CI, copied and pasted the <code class="inline">.travis.yml</code> to your project, commited and pushed your project to GitHub, and Travis CI had built and tested your project.</p>
 <p>Now, it’s time to add a badge to your GitHub repository!</p>
 <p>Simply clicked the badge in Travis CI and choose for Markdown.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/badge-79cd4ff1.webp"><source type="image/png" srcset="/_app/assets/badge-68934a0c.png"><img src="/_app/assets/badge-68934a0c.png" loading="lazy" alt="badge"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/badge-c9855de1.webp"><source type="image/png" srcset="/_app/assets/badge-9a045561.png"><img src="/_app/assets/badge-9a045561.png" loading="lazy" alt="badge"></picture></p>
 <p>Copy and paste the line into your README.md.</p>
 <p>Commit and Push.</p>
 <p>And now you have a Travis CI badge on your repo!</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/badge-2-75b77580.webp"><source type="image/png" srcset="/_app/assets/badge-2-31a9fcfd.png"><img src="/_app/assets/badge-2-31a9fcfd.png" loading="lazy" alt="badge"></picture></p></section></article>
+<p><picture><source type="image/webp" srcset="/_app/assets/badge-2-59e83f54.webp"><source type="image/png" srcset="/_app/assets/badge-2-8781344a.png"><img src="/_app/assets/badge-2-8781344a.png" loading="lazy" alt="badge"></picture></p></section></article>
 
 <div style="height: 1px; width: 100%"></div>
 
@@ -142,10 +142,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1okse2t">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="xq6c7l">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="1okse2t"]').parentNode,
+			target: document.querySelector('[data-hydrate="xq6c7l"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -156,7 +156,7 @@
 				error: null,
 				nodes: [
 					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/5-steps-to-build-nodejs-using-travis-ci/index.md-53c153ca.js")
+						import("/_app/pages/5-steps-to-build-nodejs-using-travis-ci/index.md-e910f3a4.js")
 				],
 				params: {}
 			}

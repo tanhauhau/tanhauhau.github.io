@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -114,7 +114,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  mix</span><span style="color: var(--shiki-token-keyword)">-</span><span style="color: var(--shiki-color-text)">blend</span><span style="color: var(--shiki-token-keyword)">-</span><span style="color: var(--shiki-color-text)">mode</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> difference;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>It&#39;s easy and it looks great, except, all my images and emojis are inverted. 😢</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/inverted_emojis-4957b0b6.webp"><source type="image/png" srcset="/_app/assets/inverted_emojis-a711de5a.png"><img src="/_app/assets/inverted_emojis-a711de5a.png" loading="lazy" alt="inverted emojis" title="It looked like emojis going through X-Rays.. 😢"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/inverted_emojis-4957b0b6.webp"><source type="image/png" srcset="/_app/assets/inverted_emojis-d65cf6e1.png"><img src="/_app/assets/inverted_emojis-d65cf6e1.png" loading="lazy" alt="inverted emojis" title="It looked like emojis going through X-Rays.. 😢"></picture></p>
 <p>I need to wrap all my emojis around a <code class="inline">&lt;span&gt;</code> so I can apply some css like <code class="inline">isolation: isolate</code> to exclude them from being blended. <a href="https://www.chenhuijing.com/blog/friends-dont-let-friends-implement-dark-mode-alone/#%F0%9F%92%BB" rel="nofollow">Inspiration credits to huijing 👏👏</a>. But I am lazy to wrap all my emojis with <code class="inline">&lt;span&gt;</code>, I want to use them anytime I want, without bothering much of the <code class="inline">&lt;span&gt;</code>, so I decided to write a gatsby remark plugin to do that for me. 😎</p>
 <p>Well, it turns out it&#39;s not that hard.</p>
 <p><a href="https://github.com/remarkjs/remark" rel="nofollow">Remark</a> provides a friendly api to tap into the AST and <a href="https://github.com/tanhauhau/tanhauhau.github.io/commit/291663d10cc7838d67392acb6a28a04a655603a6#diff-1be49bbded0fd920136646bdb37f5b91" rel="nofollow">does transformation</a>. </p>
@@ -149,10 +149,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="a1f9c9">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="39zaeh">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="a1f9c9"]').parentNode,
+			target: document.querySelector('[data-hydrate="39zaeh"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,

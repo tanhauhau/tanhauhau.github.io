@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -95,7 +95,7 @@
 <span class="line"></span>
 <span class="line"><span style="color: var(--shiki-token-comment)">// worker code ...</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>The livereload script includes a reference to <code class="inline">window</code>, which is not available to the worker script:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/window-reference-error-6bc12ec2.webp"><source type="image/png" srcset="/_app/assets/window-reference-error-6a8a2b10.png"><img src="/_app/assets/window-reference-error-6a8a2b10.png" loading="lazy" alt="window reference error" title="window is not defined"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/window-reference-error-6bc12ec2.webp"><source type="image/png" srcset="/_app/assets/window-reference-error-69625f9c.png"><img src="/_app/assets/window-reference-error-69625f9c.png" loading="lazy" alt="window reference error" title="window is not defined"></picture></p>
 <p>I looked into <a href="https://www.npmjs.com/package/rollup-plugin-livereload" rel="nofollow">the docs of the rollup-plugin-livereload</a>, it doesn&#39;t seemed to have a option to exclude files from adding the <em>livereload script</em>.</p>
 <p>At this point, I was thinking to myself, <em>&quot;I just need to copy the worker.js into the &#39;build/&#39; folder, I don&#39;t need anything else, how hard can that be?&quot;</em></p>
 <p>It turns out harder than I imagined. 🤮</p></section>
@@ -190,10 +190,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1jspsco">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="18dvuvc">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="1jspsco"]').parentNode,
+			target: document.querySelector('[data-hydrate="18dvuvc"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,

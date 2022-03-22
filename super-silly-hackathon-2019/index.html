@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -125,16 +125,16 @@
 <p>I just came back from the <a href="https://supersillyhackathon.sg/" rel="nofollow">Super Silly Hackathon 2019</a>. It was my second time to participate in this Super Silly Hackathon.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hello everybody we are ready for this year, are you?? <a href="https://t.co/lem52qHO6Q">pic.twitter.com/lem52qHO6Q</a></p>— Super Silly Hackathon — 14 Dec 2019 (@supersillyhack) <a href="https://twitter.com/supersillyhack/status/1205671402432450563?ref_src=twsrc%5Etfw">December 14, 2019</a></blockquote>
 <p>This year, my silly hackathon idea is to build <a href="https://github.com/tanhauhau/browser-pet" rel="nofollow">a little pet in the browser</a>!</p>
-<p><img src="/_app/assets/rest-f9f39938.gif" loading="lazy" alt="rest"></p>
+<p><img src="/_app/assets/rest-209c2a25.gif" loading="lazy" alt="rest"></p>
 <section><h2><a href="#inspiration" id="inspiration">Inspiration?</a></h2>
 <p>I saw the <a href="https://github.com/graceavery/tamagotchiTemp" rel="nofollow">tamagotchi</a> on touchbar a while ago, I don&#39;t have a touchbar, but I have a browser. So why not create a pet in the browser through Chrome Extension?</p></section>
 <section><h2><a href="#what-can-it-do" id="what-can-it-do">What can it do?</a></h2></section>
 <section><h3><a href="#1-it-runs-away-from-mouse-cursor" id="1-it-runs-away-from-mouse-cursor">1. It runs away from mouse cursor</a></h3>
-<p><img src="/_app/assets/evade-b00633db.gif" loading="lazy" alt="evade"></p></section>
+<p><img src="/_app/assets/evade-17865bae.gif" loading="lazy" alt="evade"></p></section>
 <section><h3><a href="#2-it-eats-whatever-you-try-to-type-into-an-input" id="2-it-eats-whatever-you-try-to-type-into-an-input">2. It eats whatever you try to type into an input</a></h3>
 <p><img src="/_app/assets/eat-3f80164a.gif" loading="lazy" alt="eat"></p></section>
 <section><h3><a href="#3-it-annihilates-the-buttons-you-hover-onto" id="3-it-annihilates-the-buttons-you-hover-onto">3. It annihilates the buttons you hover onto</a></h3>
-<p><img src="/_app/assets/annihilate-06f9fae6.gif" loading="lazy" alt="annihilate"></p></section>
+<p><img src="/_app/assets/annihilate-558f6241.gif" loading="lazy" alt="annihilate"></p></section>
 <section><h2><a href="#implementation" id="implementation">Implementation</a></h2></section>
 <section><h3><a href="#chrome-extension" id="chrome-extension">Chrome Extension</a></h3>
 <p>Firstly, it is a Chrome Extension. I used <a href="https://developer.chrome.com/extensions/content_scripts" rel="nofollow">Content Scripts</a>, so that I have access to the DOM of the pages I am visiting.</p>
@@ -391,7 +391,7 @@ So I googled and pasted the code snippet to improve it:</p>
 <p>The padding of the input is important. It brings the pet closer to the character it is going to eat. 🤤</p></section>
 <section><h3><a href="#annihilate-the-buttons" id="annihilate-the-buttons">Annihilate the buttons</a></h3>
 <p>Pet don&#39;t like buttons because buttons take away your concentration from your pet.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/hate-7cdd16bc.webp"><source type="image/png" srcset="/_app/assets/hate-1ca7c6ad.png"><img src="/_app/assets/hate-1ca7c6ad.png" loading="lazy" alt="Eys full of hatred"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/hate-7cdd16bc.webp"><source type="image/png" srcset="/_app/assets/hate-98e9d0be.png"><img src="/_app/assets/hate-98e9d0be.png" loading="lazy" alt="Eys full of hatred"></picture></p>
 <p>To get a list of buttons, I use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll" rel="nofollow">document.querySelectorAll()</a>:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">buttons</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">document</span><span style="color: var(--shiki-token-function)">.querySelectorAll</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;button, input[type=&quot;submit&quot;], [role=&quot;button&quot;]&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
 <span class="line"><span style="color: var(--shiki-token-constant)">buttons</span><span style="color: var(--shiki-token-function)">.forEach</span><span style="color: var(--shiki-color-text)">(button </span><span style="color: var(--shiki-token-keyword)">=&gt;</span></span>
@@ -505,10 +505,10 @@ There&#39;s an heuristic to choose which one to do, when both get scheduled at t
 </footer>
 
 
-		<script type="module" data-hydrate="1hutoi8">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="ddrft2">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="1hutoi8"]').parentNode,
+			target: document.querySelector('[data-hydrate="ddrft2"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,

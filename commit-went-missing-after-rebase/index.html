@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -109,13 +109,13 @@
 <p>So what happened was all the commits in master after branching out <code class="inline">feat/a</code> all the way to the newly rebased commits in <code class="inline">feat/a</code> were rebased onto <code class="inline">origin/feat/a</code>:</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/rebase-4-e157042f.webp"><source type="image/png" srcset="/_app/assets/rebase-4-7d785640.png"><img src="/_app/assets/rebase-4-7d785640.png" loading="lazy" alt="rebase again"></picture></p>
 <p>However, if you look at the history right now, the commit <code class="inline">commit #1</code> and <code class="inline">commit #2</code> was written twice, first the original commit, second the rebased commit. In cases like this, git would not rewrote the commits again, if git could figure out whether it was a duplicate:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-5-55df8c39.webp"><source type="image/png" srcset="/_app/assets/rebase-5-72869795.png"><img src="/_app/assets/rebase-5-72869795.png" loading="lazy" alt="actual rebase again result"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-5-55df8c39.webp"><source type="image/png" srcset="/_app/assets/rebase-5-ee2580ce.png"><img src="/_app/assets/rebase-5-ee2580ce.png" loading="lazy" alt="actual rebase again result"></picture></p>
 <p>It was as though both commit <code class="inline">commit #1</code> and <code class="inline">commit #2</code> were gone, and left with commits from <code class="inline">master</code> branch, because git did not rewrote them when rebasing <code class="inline">feat/a</code>. And actually the changes made in <code class="inline">commit #1</code> and <code class="inline">commit #2</code> were still available.</p>
 <blockquote><p>You can read more about this behaviour in <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase" rel="nofollow">git&#39;s documentation</a></p></blockquote>
 <p>So, what she should have done if she wanted to actually rebased the local <code class="inline">feat/a</code> on top of <code class="inline">origin/feat/a</code>, especially after she made another commit, <code class="inline">commit #0</code>?</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-6-8029d9dc.webp"><source type="image/png" srcset="/_app/assets/rebase-6-d40f3bf0.png"><img src="/_app/assets/rebase-6-d40f3bf0.png" loading="lazy" alt="adding one more commit"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-6-8029d9dc.webp"><source type="image/png" srcset="/_app/assets/rebase-6-5321deff.png"><img src="/_app/assets/rebase-6-5321deff.png" loading="lazy" alt="adding one more commit"></picture></p>
 <p>Well, she should specify the <code class="inline">&lt;upstream&gt;</code> reference point:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-7-ffedc41d.webp"><source type="image/png" srcset="/_app/assets/rebase-7-88ce0e5a.png"><img src="/_app/assets/rebase-7-88ce0e5a.png" loading="lazy" alt="reference points"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/rebase-7-ffedc41d.webp"><source type="image/png" srcset="/_app/assets/rebase-7-eac6bb98.png"><img src="/_app/assets/rebase-7-eac6bb98.png" loading="lazy" alt="reference points"></picture></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git rebase --onto origin/feat/a master feat/a</span></code></pre><!-- HTML_TAG_END --></div>
 <p>And you would get:</p>
 <p><picture><source type="image/webp" srcset="/_app/assets/rebase-8-b80ea902.webp"><source type="image/png" srcset="/_app/assets/rebase-8-88b84e97.png"><img src="/_app/assets/rebase-8-88b84e97.png" loading="lazy" alt="result"></picture></p>
@@ -131,10 +131,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="doxmzg">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="11uur4s">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="doxmzg"]').parentNode,
+			target: document.querySelector('[data-hydrate="11uur4s"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,

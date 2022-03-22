@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/TalkLayout-340d543e.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -119,7 +119,7 @@
 <p>Before we dive into what harm can it bring, let&#39;s pause for a moment and think, how does 3rd party CSS get into our web page?</p></section>
 <section><h3><a href="#1-css-frameworks" id="1-css-frameworks">1. CSS Frameworks</a></h3>
 <p>Well, if you use frameworks like Bootstrap (I have nothing against using Bootstrap, it&#39;s a great CSS framework), one of the options to adding it to your website is to use one of their CDN links.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/bootstrap-cdn-b6a7c682.webp"><source type="image/png" srcset="/_app/assets/bootstrap-cdn-127fb246.png"><img src="/_app/assets/bootstrap-cdn-127fb246.png" loading="lazy" alt="bootstrap cdn"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/bootstrap-cdn-b6a7c682.webp"><source type="image/png" srcset="/_app/assets/bootstrap-cdn-594fd394.png"><img src="/_app/assets/bootstrap-cdn-594fd394.png" loading="lazy" alt="bootstrap cdn"></picture></p>
 <p>This means that you are going to trust the CSS content return from the Bootstrap CDN.</p>
 <p><em>Have you ever take a look at what is contained in the <code class="inline">bootstrap.min.css</code> from CDN?</em></p></section>
 <section><h3><a href="#2-third-party-scripts" id="2-third-party-scripts">2. Third party scripts</a></h3>
@@ -127,11 +127,11 @@
 <p>This begs the question of, where does the 3rd party script come from?</p>
 <p>Well, if you visit any <strong>well-intentioned</strong> <em>*cough*</em> site that tracks your behavior, and if you leave the site halfway through their funnel, they try remind you to through a network of advertisement elsewhere, such as in your search engine, or embedded in your social media, they achieve this through embedding third party scripts.</p>
 <p>Here is a screenshot of list of 3rd party scripts loaded from <a href="https://shopee.sg/" rel="nofollow">https://shopee.sg</a> (an ecommerce site based in South East Asia):</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/shopee-ads-dc504ac0.webp"><source type="image/png" srcset="/_app/assets/shopee-ads-61da4884.png"><img src="/_app/assets/shopee-ads-61da4884.png" loading="lazy" alt="ads in shopee"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/shopee-ads-dc504ac0.webp"><source type="image/png" srcset="/_app/assets/shopee-ads-651352a6.png"><img src="/_app/assets/shopee-ads-651352a6.png" loading="lazy" alt="ads in shopee"></picture></p>
 <p><strong>Disclaimer:</strong> I work for Shopee, I <em>have nothing</em> against all these 3rd party ads, they are what helped us remind buyers to come back and complete their purchase. 🙈</p></section>
 <section><h3><a href="#3-browser-extensions" id="3-browser-extensions">3. Browser extensions</a></h3>
 <p>If you are someone who likes to decorate your browser, have a custom theme for all the website you visit, probably you are one of the users of a browser extension!</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/browser-extension-9dc7a3dc.webp"><source type="image/png" srcset="/_app/assets/browser-extension-e48b4c06.png"><img src="/_app/assets/browser-extension-e48b4c06.png" loading="lazy" alt="browser extension"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/browser-extension-9dc7a3dc.webp"><source type="image/png" srcset="/_app/assets/browser-extension-6128ec2f.png"><img src="/_app/assets/browser-extension-6128ec2f.png" loading="lazy" alt="browser extension"></picture></p>
 <p>How a browser extension adds a custom theme to any website you visit is to inject a CSS to style them.</p></section>
 <section><h2><a href="#how-3rd-party-css-can-be-unsafe" id="how-3rd-party-css-can-be-unsafe">How 3rd party CSS can be unsafe?</a></h2>
 <p>Let&#39;s take a look some examples from Jake&#39;s article and try it out ourselves.</p></section>
@@ -141,7 +141,7 @@
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-string-expression)">a</span><span style="color: var(--shiki-token-function)">.c-rsvp</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">display</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">none</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
-<p><picture><source type="image/webp" srcset="/_app/assets/disappearing-content-4f0da805.webp"><source type="image/png" srcset="/_app/assets/disappearing-content-686c2197.png"><img src="/_app/assets/disappearing-content-686c2197.png" loading="lazy" alt="disappearing content"></picture></p></section>
+<p><picture><source type="image/webp" srcset="/_app/assets/disappearing-content-a98dc771.webp"><source type="image/png" srcset="/_app/assets/disappearing-content-48532f60.png"><img src="/_app/assets/disappearing-content-48532f60.png" loading="lazy" alt="disappearing content"></picture></p></section>
 <section><h3><a href="#adding-content" id="adding-content">Adding content</a></h3>
 <p>Instead of removing content, a 3rd party CSS can add new content to your website, unpleasant content or confusing content that could drive your visitor away!</p>
 <p>One example would be hiding the text by setting the color to <code class="inline">transparent</code>, and replace it with a background image instead!</p>
@@ -152,7 +152,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">background-size</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">contain</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">height</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">200</span><span style="color: var(--shiki-token-keyword)">px</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
-<p><picture><source type="image/webp" srcset="/_app/assets/adding-content-1-a1b891fb.webp"><source type="image/png" srcset="/_app/assets/adding-content-1-fbd1662b.png"><img src="/_app/assets/adding-content-1-fbd1662b.png" loading="lazy" alt="adding content"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/adding-content-1-a1b891fb.webp"><source type="image/png" srcset="/_app/assets/adding-content-1-ff4fe1d7.png"><img src="/_app/assets/adding-content-1-ff4fe1d7.png" loading="lazy" alt="adding content"></picture></p>
 <p>Another technique to adding new content is to use the <code class="inline">::before</code> or <code class="inline">::after</code> psuedo element, as you can add new text via the <code class="inline">content</code> property.</p>
 <p>Let&#39;s do a combination of hiding and adding content through CSS:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-string-expression)">a</span><span style="color: var(--shiki-token-function)">.c-rsvp::before</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
@@ -171,7 +171,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">position</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">absolute</span><span style="color: var(--shiki-color-text)">;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>Here we hide the event details, change the button text from <strong>&quot;RSVP&quot;</strong> to <strong>&quot;Refresh&quot;</strong>, and somehow we got more people attending the meetup!</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/adding-content-2-3c4eccab.webp"><source type="image/png" srcset="/_app/assets/adding-content-2-d13bc0ad.png"><img src="/_app/assets/adding-content-2-d13bc0ad.png" loading="lazy" alt="adding content 2"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/adding-content-2-3c4eccab.webp"><source type="image/png" srcset="/_app/assets/adding-content-2-e2258023.png"><img src="/_app/assets/adding-content-2-e2258023.png" loading="lazy" alt="adding content 2"></picture></p>
 <p>A more malicious example would be overlapping a different phone number on top of the hotline number of a bank</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-string-expression)">p</span><span style="color: var(--shiki-token-function)">.hotline_number</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">position</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">relative</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -277,10 +277,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="rx2k7a">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="10qpuy">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="rx2k7a"]').parentNode,
+			target: document.querySelector('[data-hydrate="10qpuy"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,

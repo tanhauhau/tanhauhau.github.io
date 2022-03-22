@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -83,24 +83,24 @@
 </section>
 <p>The background story</p>
 <p>I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the 😍😀😎 are not rendered correctly!</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/problem-a5b4b5e3.webp"><source type="image/png" srcset="/_app/assets/problem-662a8224.png"><img src="/_app/assets/problem-662a8224.png" loading="lazy" alt="The 😍😍😀😀isn’t rendered correctly in chrome extension"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/problem-9beda3ff.webp"><source type="image/png" srcset="/_app/assets/problem-1ec44af8.png"><img src="/_app/assets/problem-1ec44af8.png" loading="lazy" alt="The 😍😍😀😀isn’t rendered correctly in chrome extension"></picture></p>
 <p>And so I inspect the source code loaded into the chrome extension, it wasn’t loaded correctly as well!</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/problem-2-abc15427.webp"><source type="image/png" srcset="/_app/assets/problem-2-28ca7497.png"><img src="/_app/assets/problem-2-28ca7497.png" loading="lazy" alt="problem with the source too"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/problem-2-f563111e.webp"><source type="image/png" srcset="/_app/assets/problem-2-5c771710.png"><img src="/_app/assets/problem-2-5c771710.png" loading="lazy" alt="problem with the source too"></picture></p>
 <p>And so I think, probably the encoding issue was caused by the webpack compilation, but, my compiled code looks exactly fine!</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/source-ae091af1.webp"><source type="image/png" srcset="/_app/assets/source-4da711b4.png"><img src="/_app/assets/source-4da711b4.png" loading="lazy" alt="The compiled code seems okay!"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/source-8cd0b7bf.webp"><source type="image/png" srcset="/_app/assets/source-888ed129.png"><img src="/_app/assets/source-888ed129.png" loading="lazy" alt="The compiled code seems okay!"></picture></p>
 <p>So, most likely is a decoding issue when the emoji code get loaded into chrome extension. So I manually changed the emoji in the compiled code to <code class="inline">\ud83d\ude0d</code> (unicode for 😍). Guess what? The emoji is showing correctly in the chrome extension!</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/expectation-e308aa72.webp"><source type="image/png" srcset="/_app/assets/expectation-21749d2f.png"><img src="/_app/assets/expectation-21749d2f.png" loading="lazy" alt="😍!"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/expectation-375c56a9.webp"><source type="image/png" srcset="/_app/assets/expectation-1f247bc2.png"><img src="/_app/assets/expectation-1f247bc2.png" loading="lazy" alt="😍!"></picture></p>
 <p>So I changed my source code to manually type in the unicode, and compiled it using webpack. To my surprise, the unicode was compiled back into the emoji (😍) it represents!</p>
 <p>I googled around and I found <a href="https://github.com/babel/babel/pull/4478" rel="nofollow">this fix for babel-generator</a>:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/babel-issue-c88fbf8f.webp"><source type="image/png" srcset="/_app/assets/babel-issue-9475e314.png"><img src="/_app/assets/babel-issue-9475e314.png" loading="lazy" alt="babel issue"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/babel-issue-e40d7ec3.webp"><source type="image/png" srcset="/_app/assets/babel-issue-6ad1c988.png"><img src="/_app/assets/babel-issue-6ad1c988.png" loading="lazy" alt="babel issue"></picture></p>
 <p>I checked my babel version, and it had included this fix. So what went wrong?</p>
 <hr>
 <p>My colleague reminded me that during webpack compilation, there are 2 phases, the <strong>transpilation</strong> (via babel) and the <strong>minification</strong> (via uglify plugin).</p>
 <p>So I disabled the optimisation in webpack config, and noticed that my compiled code contains the original unicode string (<code class="inline">\ud83d\ude0d</code>), instead of the emoji (😍) string. So the unicode string was converted to emoji string during minification!</p>
 <p>So I went to my favourite <a href="https://skalman.github.io/UglifyJS-online/" rel="nofollow">Online JavaScript Minifier</a> (by <a href="https://github.com/skalman" rel="nofollow">skalman</a>) to try it out.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/uglify-2a0d29b2.webp"><source type="image/png" srcset="/_app/assets/uglify-31e985f1.png"><img src="/_app/assets/uglify-31e985f1.png" loading="lazy" alt="online javasript minifier"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/uglify-eeaa6295.webp"><source type="image/png" srcset="/_app/assets/uglify-5d74504f.png"><img src="/_app/assets/uglify-5d74504f.png" loading="lazy" alt="online javasript minifier"></picture></p>
 <p>After some googling, I <a href="https://github.com/mishoo/UglifyJS2/issues/490" rel="nofollow">found this issue</a> which described my scenario perfectly.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/babel-issue-2-4b70ccf8.webp"><source type="image/png" srcset="/_app/assets/babel-issue-2-e0456ec1.png"><img src="/_app/assets/babel-issue-2-e0456ec1.png" loading="lazy" alt="why uglifyjs always compress unicode characters to utf8"></picture></p>
+<p><picture><source type="image/webp" srcset="/_app/assets/babel-issue-2-e0a0088b.webp"><source type="image/png" srcset="/_app/assets/babel-issue-2-a0416736.png"><img src="/_app/assets/babel-issue-2-a0416736.png" loading="lazy" alt="why uglifyjs always compress unicode characters to utf8"></picture></p>
 <p>Turned out there is a <code class="inline">ascii_only</code> for <a href="https://github.com/mishoo/UglifyJS2#output-options" rel="nofollow">output options</a>, and it is default to <code class="inline">false</code>. So I set <code class="inline">ascii_only</code> to <code class="inline">true</code>, ran webpack, and checked my compiled code, it contained the unicode string (<code class="inline">\ud83d\ude0d</code>)! And even when I wrote emoji string (😍) in my source code, it got compiled to unicode as well.</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">UglifyJsPlugin</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">require</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;uglifyjs-webpack-plugin&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
 <span class="line dim"></span>
@@ -131,10 +131,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="ewog8a">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="1wto64l">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="ewog8a"]').parentNode,
+			target: document.querySelector('[data-hydrate="1wto64l"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,

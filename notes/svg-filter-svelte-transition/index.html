@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-c227dcfe.js">
+	<link rel="modulepreload" href="/_app/start-cb554b88.js">
 	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
 	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
 	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
@@ -84,11 +84,11 @@
 			</li></ol>
 </section>
 <section><h2><a href="#the-result" id="the-result">The Result</a></h2>
-<p><img src="/_app/assets/final-a5ca77b5.gif" loading="lazy" alt="the-result"></p></section>
+<p><img src="/_app/assets/final-aeda1495.gif" loading="lazy" alt="the-result"></p></section>
 <section><h2><a href="#break-it-down" id="break-it-down">Break it down</a></h2>
 <p>I&#39;m using a combination of SVG filters <code class="inline">&lt;feTurbulence&gt;</code>, <code class="inline">&lt;feDisplacementMap&gt;</code> to achieve this effect.</p>
 <p><a href="https://svelte.dev/repl/fc2c47f30912496eb0b4fe2776345462?version=3.29.4" rel="nofollow">Svelte REPL</a></p>
-<p><img src="/_app/assets/feturbulence-7289ce64.gif" loading="lazy" alt="feTurbulence"></p>
+<p><img src="/_app/assets/feturbulence-011259a0.gif" loading="lazy" alt="feTurbulence"></p>
 <p>To use this SVG filter, I first created a Svelte component for the filter.</p>
 <p>The idea is to add this render this filter whenever I want to transition, and update the scale and frequency during the transition</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">  <span class="token keyword">export</span> <span class="token keyword">let</span> baseFrequency <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></div><div class="line">  <span class="token keyword">export</span> <span class="token keyword">let</span> scale <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></div><div class="line">  <span class="token keyword">export</span> <span class="token keyword">let</span> id<span class="token punctuation">;</span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div><div class="line"></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></div><div class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token language-javascript"><span class="token punctuation">&#123;</span>id<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span></div><div class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feTurbulence</span></div><div class="line">      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token attr-name">numOctaves</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span></div><div class="line">      <span class="token language-javascript"><span class="token punctuation">&#123;</span>baseFrequency<span class="token punctuation">&#125;</span></span></div><div class="line">      <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></div><div class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feDisplacementMap</span></div><div class="line">      <span class="token attr-name">in2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceGraphic<span class="token punctuation">"</span></span></div><div class="line">      <span class="token attr-name">xChannelSelector</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>R<span class="token punctuation">"</span></span> <span class="token attr-name">yChannelSelector</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>G<span class="token punctuation">"</span></span></div><div class="line">      <span class="token language-javascript"><span class="token punctuation">&#123;</span>scale<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span></div><div class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></div></code></pre><!-- HTML_TAG_END --></div>
@@ -168,10 +168,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1an5ops">
-		import { start } from "/_app/start-c227dcfe.js";
+		<script type="module" data-hydrate="1a3f74m">
+		import { start } from "/_app/start-cb554b88.js";
 		start({
-			target: document.querySelector('[data-hydrate="1an5ops"]').parentNode,
+			target: document.querySelector('[data-hydrate="1a3f74m"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
