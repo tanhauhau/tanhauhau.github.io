@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-cb554b88.js",
+    "file": "start-8aeda239.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -555,7 +555,7 @@
     ]
   },
   "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md": {
-    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-e910f3a4.js",
+    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-53c153ca.js",
     "src": "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1310,7 +1310,7 @@
     ]
   },
   "src/routes/javascript-modules/index.md": {
-    "file": "pages/javascript-modules/index.md-cb5a9a09.js",
+    "file": "pages/javascript-modules/index.md-f29d1be3.js",
     "src": "src/routes/javascript-modules/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1449,7 +1449,7 @@
       "_vendor-ea160616.js"
     ],
     "css": [
-      "assets/pages/tags/index.svelte-86af5cd7.css"
+      "assets/pages/series/index.svelte-7c0d0136.css"
     ]
   },
   "src/routes/series/[name].svelte": {
@@ -1461,7 +1461,7 @@
       "_vendor-ea160616.js"
     ],
     "css": [
-      "assets/pages/notes/index.svelte-a1a448cf.css"
+      "assets/pages/tags/_name_.svelte-bf2b9065.css"
     ]
   },
   "src/routes/slides/__layout.reset.svelte": {
@@ -1580,7 +1580,7 @@
       "_vendor-ea160616.js"
     ],
     "css": [
-      "assets/pages/talks.svelte-8a64996f.css"
+      "assets/pages/blogs.svelte-15b10821.css"
     ]
   },
   "src/routes/notes/index.svelte": {
@@ -1592,7 +1592,7 @@
       "_vendor-ea160616.js"
     ],
     "css": [
-      "assets/pages/notes/index.svelte-a1a448cf.css"
+      "assets/pages/tags/_name_.svelte-bf2b9065.css"
     ]
   },
   "src/routes/notes/css-podcast-026-houdini-series-properties-values.md": {
@@ -2608,7 +2608,7 @@
       "_vendor-ea160616.js"
     ],
     "css": [
-      "assets/pages/talks.svelte-8a64996f.css"
+      "assets/pages/blogs.svelte-15b10821.css"
     ]
   },
   "src/routes/tags/index.svelte": {
@@ -2620,7 +2620,7 @@
       "_vendor-ea160616.js"
     ],
     "css": [
-      "assets/pages/tags/index.svelte-86af5cd7.css"
+      "assets/pages/series/index.svelte-7c0d0136.css"
     ]
   },
   "src/routes/tags/[name].svelte": {
@@ -2632,7 +2632,7 @@
       "_vendor-ea160616.js"
     ],
     "css": [
-      "assets/pages/notes/index.svelte-a1a448cf.css"
+      "assets/pages/tags/_name_.svelte-bf2b9065.css"
     ]
   },
   "_vendor-ea160616.js": {
