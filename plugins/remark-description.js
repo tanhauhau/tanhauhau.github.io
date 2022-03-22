@@ -6,6 +6,8 @@ const CHARACTERS = 200;
 // generate frontmatter `description` as an excerpt from the content
 export default function description() {
 	return async (tree, vfile) => {
+		vfile.data.fm = vfile.data.fm ?? {};
+
 		if (vfile.data.fm.description) return;
 		vfile.data.fm.description = getExcerpt(tree.children, CHARACTERS);
 	};
