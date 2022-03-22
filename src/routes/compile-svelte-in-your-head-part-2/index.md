@@ -627,6 +627,7 @@ Some observations:
 - Svelte uses `$$invalidate` to update the value of a reactive variable too.
 - Svelte sorts the reactive declarations and statements, based on the dependency relationship between the declarations and statements
   - `quadrupled` depends on `doubled`, so `quadrupled` is evaluated and `$$invalidate`d after `doubled`.
+- You may have noticed that the order of the variables in the array returned `[doubled, tripled, quadrupled, count]` may be different from the output in the latest Svelte version, but that's beyond the scope of this article.
 
 Since all reactive declarations and statements are grouped into the `$$.update` method, and also the fact that Svelte will sort the declarations and statements according to their dependency relationship, it is irrelevant of the location or the order you declared them.
 

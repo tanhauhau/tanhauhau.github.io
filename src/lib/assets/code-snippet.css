@@ -15,6 +15,8 @@
 	--highlight-border: #ff79c6;
 	--code-filename-color: white;
 	--code-filename-background: var(--secondary-color);
+	--inline-code-background: #bd93f9bf;
+	--inline-code-color: black;
 }
 
 pre::-webkit-scrollbar {
@@ -75,8 +77,8 @@ pre::-webkit-scrollbar-thumb {
 code.inline {
 	padding: 4px 8px;
 	white-space: normal;
-	color: var(--shiki-color-text);
-	background-color: var(--shiki-color-background);
+	color: var(--inline-code-color);
+	background-color: var(--inline-code-background);
 }
 
 h1 code.inline,
