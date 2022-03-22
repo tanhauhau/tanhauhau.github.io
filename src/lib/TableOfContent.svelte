@@ -2,8 +2,8 @@
 	export let data;
 </script>
 
-<section>
-	<ol role="navigation" aria-label="Table of Contents">
+<section role="navigation" aria-label="Table of Contents">
+	<ol>
 		{#each data as { link, title, nested: n1 }}
 			<li>
 				<a href="#{link}">{title}</a>
