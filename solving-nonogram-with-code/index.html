@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/solving-nonogram-with-code/index.md-13f7eec5.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/solving-nonogram-with-code/index.md-0f7c4d19.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,7 +76,7 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/nonogram">nonogram</a><a class="tag svelte-muo5sw" href="/tags/algorithm">algorithm</a>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#background" class="svelte-j01zi8">Background</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#background" class="svelte-j01zi8">Background</a>
 				
 			</li><li class="svelte-j01zi8"><a href="#the-nonogram" class="svelte-j01zi8">The nonogram</a>
 				
@@ -100,7 +100,7 @@
 <p>I am a frontend developer, so, I can&#39;t resist the temptation to treat everything as if it were a nail with my frontend hammer.</p>
 <p>So the first thing I did was to <code class="inline">create-react-app</code> and get a plain <code class="inline">React</code> application started.</p>
 <p>Next, I had to create the nonogram grids. Initially, I was playing around with <code class="inline">display: inline-block</code> of divs, until I realised, <em>hey, this is a good case for <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" rel="nofollow">CSS Grids</a></em>!</p>
-<p><img src="/_app/assets/size-05fe0c54.gif" loading="lazy" alt="resizing nonogram"></p>
+<p><span style="display: block; position: relative; padding-top: 94.429%; width: 100%;"><img src="/_app/assets/size-05fe0c54.gif" srcset="/_app/assets/size-05fe0c54.gif, /_app/assets/size-d217b5a2.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="resizing nonogram"></span></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">// dynamically generate grid template</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">div</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-function)">style</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&#123;&#123;</span></span>
@@ -126,7 +126,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>One thing cool about CSS grid is that I was no longer limited by the order of the elements within the grid layout, I can position in whichever grid I want by specifying <code class="inline">grid-column</code> and <code class="inline">grid-row</code>. So here you see that I can build the <code class="inline">labels</code> first then the <code class="inline">grids</code>, freeing myself from building html structure in terms of rows and columns.</p>
 <p>The next thing, naturally, was to allow user (just me) to key in the constraints of the nonogram. To make sure what I keyed in is making sense, I added validation to the inputs:</p>
-<p><img src="/_app/assets/constraint-ba5f8b9f.gif" loading="lazy" alt="validating the inputs"></p>
+<p><span style="display: block; position: relative; padding-top: 91.429%; width: 100%;"><img src="/_app/assets/constraint-ba5f8b9f.gif" srcset="/_app/assets/constraint-ba5f8b9f.gif, /_app/assets/constraint-93859eac.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="validating the inputs"></span></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">getError</span><span style="color: var(--shiki-color-text)">(text</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> max) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">if</span><span style="color: var(--shiki-color-text)"> (</span><span style="color: var(--shiki-token-keyword)">!</span><span style="color: var(--shiki-token-string-expression)">/</span><span style="color: var(--shiki-token-keyword)">^</span><span style="color: var(--shiki-token-string-expression)">[0-9 ]</span><span style="color: var(--shiki-token-keyword)">*$</span><span style="color: var(--shiki-token-string-expression)">/</span><span style="color: var(--shiki-token-function)">.test</span><span style="color: var(--shiki-color-text)">(text)) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">return</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Invalid characters&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -169,7 +169,7 @@
 <li>If I leave the cell blank, I should not make the current line-group shorter than necessary</li>
 <li>When I finished a row / column, I need to make sure the current row / column requirements are all met</li></ul>
 <p>I don&#39;t want to bore you with the full code over here, you can read it on <a href="https://github.com/tanhauhau/nonogram/blob/dev/src/utils.js#L25-L78" rel="nofollow">my Github repo</a> if you curious enough.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/solution-13f3a0c5.webp"><source type="image/png" srcset="/_app/assets/solution-ca570c42.png"><img src="/_app/assets/solution-ca570c42.png" loading="lazy" alt="solution" title="Nonogram solution"></picture></p></section>
+<p><span style="display: block; position: relative; padding-top: 101.189%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/solution-13f3a0c5.webp, /_app/assets/solution-1c272be9.webp 2x"><img src="/_app/assets/solution-ca570c42.png" srcset="/_app/assets/solution-ca570c42.png, /_app/assets/solution-54ba0765.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="solution" title="Nonogram solution"></picture></span></p></section>
 <section><h2><a href="#the-animation" id="the-animation">The animation</a></h2>
 <p>I built and published <a href="https://lihautan.com/nonogram/" rel="nofollow">my nonogram solver</a> and brag about it with my colleagues.</p>
 <p>A few days later, another thought came in to my mind, how about showing the nonogram solving steps on the UI. That would be cooler than just solving it!</p>
@@ -178,7 +178,7 @@
 <li>Record the action taken at each step, replay the actions to build the animation</li></ul>
 <p>The 2nd approach sounded like <code class="inline">redux</code>, by replaying the actions, you can time travel to any state of your UI.</p>
 <p>I heeded the 2nd approach, and the results is pretty rad:</p>
-<p><img src="/_app/assets/solution-with-animation-342042dd.gif" loading="lazy" alt="animated solution"></p>
+<p><span style="display: block; position: relative; padding-top: 102.429%; width: 100%;"><img src="/_app/assets/solution-with-animation-342042dd.gif" srcset="/_app/assets/solution-with-animation-342042dd.gif, /_app/assets/solution-with-animation-5c4dca3f.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="animated solution"></span></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-comment)">// recording the steps</span></span>
 <span class="line highlight"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">steps</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> [];</span></span>
 <span class="line dim"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">findSolution</span><span style="color: var(--shiki-color-text)">(i</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> j) &#123;</span></span>
@@ -229,10 +229,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1n5wyw0">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="bqt14z">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="1n5wyw0"]').parentNode,
+			target: document.querySelector('[data-hydrate="bqt14z"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -242,8 +242,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/solving-nonogram-with-code/index.md-13f7eec5.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/solving-nonogram-with-code/index.md-0f7c4d19.js")
 				],
 				params: {}
 			}

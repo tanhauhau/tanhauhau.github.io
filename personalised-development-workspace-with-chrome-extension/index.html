@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/TalkLayout-340d543e.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/personalised-development-workspace-with-chrome-extension/index.md-f3afc892.js">
-	<link rel="modulepreload" href="/_app/chunks/TalkLayout-2ed807d6.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/personalised-development-workspace-with-chrome-extension/index.md-c7b1ea63.js">
+	<link rel="modulepreload" href="/_app/chunks/TalkLayout-cd724f5b.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,7 +76,7 @@
 
 <div class="venue svelte-1rhvskq">Talk given at: <a href="https://www.meetup.com/en-AU/gdg-singapore/events/267717354/" class="svelte-1rhvskq">Chrome Developer Summit Extended (Cancelled)</a></div>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#abstract" class="svelte-j01zi8">Abstract</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#abstract" class="svelte-j01zi8">Abstract</a>
 				
 			</li><li class="svelte-j01zi8"><a href="#overview" class="svelte-j01zi8">Overview</a>
 				
@@ -122,7 +122,7 @@
 <li><a href="https://developer.chrome.com/extensions/user_interface#context_menu" rel="nofollow">context menu</a> <em>(yes, you can customise your right-click context menu)</em></li>
 <li><a href="https://developer.chrome.com/extensions/devtools" rel="nofollow">devtools panel</a> <em>(a new panel in the devtools)</em></li>
 <li><a href="https://developer.chrome.com/extensions/user_interface#override" rel="nofollow">custom pages</a> <em>(Overriding the History, New Tab, or Bookmarks page)</em></li></ul>
-<p><picture><source type="image/webp" srcset="/_app/assets/ui-elements-7e3befb6.webp"><source type="image/png" srcset="/_app/assets/ui-elements-6dc69b7a.png"><img src="/_app/assets/ui-elements-6dc69b7a.png" loading="lazy" alt="ui elements on extension"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 60.125%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/ui-elements-7e3befb6.webp, /_app/assets/ui-elements-39f453e1.webp 2x"><img src="/_app/assets/ui-elements-6dc69b7a.png" srcset="/_app/assets/ui-elements-6dc69b7a.png, /_app/assets/ui-elements-c684dfd0.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="ui elements on extension"></picture></span></p>
 <p>Now you know the different components of a Chrome extension, let&#39;s look at the most important file in every extension, the <code class="inline">manifest.json</code>.</p></section>
 <section><h2><a href="#manifest-json" id="manifest-json">manifest.json</a></h2>
 <p><code class="inline">manifest.json</code> is where you declare everything about the chrome extension:</p>
@@ -204,7 +204,7 @@
 <ul><li>All the extension components (eg: popup, content script, devtools) maintained a long-lived connection with the background script</li>
 <li>The background script act as a central controller that receives messages from each component and dispatches them out to the relevant components</li>
 <li>Each component is like an actor in the <a href="https://en.wikipedia.org/wiki/Actor_model" rel="nofollow">actor model</a>, where it acts on the messages received and sends out messages to the other actors where needed.</li></ul>
-<p><picture><source type="image/webp" srcset="/_app/assets/communication-ee3566db.webp"><source type="image/png" srcset="/_app/assets/communication-2a4ca5fd.png"><img src="/_app/assets/communication-2a4ca5fd.png" loading="lazy" alt="communication between components"></picture></p></section>
+<p><span style="display: block; position: relative; padding-top: 51.186%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/communication-ee3566db.webp, /_app/assets/communication-b75ba073.webp 2x"><img src="/_app/assets/communication-2a4ca5fd.png" srcset="/_app/assets/communication-2a4ca5fd.png, /_app/assets/communication-f12d69e6.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="communication between components"></picture></span></p></section>
 <section><h3><a href="#communicating-between-the-content-script-and-the-web-page" id="communicating-between-the-content-script-and-the-web-page">Communicating between the Content script and the web page</a></h3>
 <p>The content script runs in the context of the web page, which means it can interact with the DOM, such as manipulating the DOM structure and adding event listeners to the DOM elements.</p>
 <p>Besides, the content script can access the page history, cookies, local storage and other browsers&#39; APIs in the context of the web page.</p>
@@ -356,7 +356,7 @@
 <p>Depending on your web app setup, switching environments, language or feature toggles may require you to mock it, or manually editing cookie / local storage (if your flags are persisted there).</p>
 <p>Think about how you would need to educate every new developer / QA / PM on how to manually switching environments, language, or feature toggles.</p>
 <p>What if instead, you have a Chrome extension that provides an intuitive UI that allows you to do that?</p>
-<p><img src="/_app/assets/toggles-2aea5feb.gif" loading="lazy" alt="switching feature toggles with chrome extension"></p>
+<p><span style="display: block; position: relative; padding-top: 70.143%; width: 100%;"><img src="/_app/assets/toggles-2aea5feb.gif" srcset="/_app/assets/toggles-2aea5feb.gif, /_app/assets/toggles-30a9f438.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="switching feature toggles with chrome extension"></span></p>
 <p>You can have the extension write into cookie / local storage. You can subscribe to events from extension and make changes appropriately in your web app.</p>
 <p>Do it however you like, it&#39;s your Chrome extension.</p>
 <p><a href="https://github.com/tanhauhau/chrome-extension-demo/tree/master/feature-toggles" rel="nofollow">Code for demo</a></p></section>
@@ -366,7 +366,7 @@
 <p>You can pass along information that is unique to your development setup, such as Redux store / <a href="https://vuex.vuejs.org/guide/" rel="nofollow">Vuex</a> store / <a href="https://svelte.dev/tutorial/writable-stores" rel="nofollow">Svelte store</a> state and actions history, feature toggles, request ids...</p>
 <p>And you can integrate with your bug tracking system, be it <a href="https://www.atlassian.com/software/jira" rel="nofollow">Jira</a>, <a href="http://trello.com/" rel="nofollow">Trello</a>, <a href="http://sheets.google.com/" rel="nofollow">Google Sheets</a>, email or some in-house systems.</p>
 <p>The idea is that your extension can be personalised to your development workspace setup.</p>
-<p><img src="/_app/assets/bug-reporter-c5bb7cb2.gif" loading="lazy" alt="bug reporter"></p>
+<p><span style="display: block; position: relative; padding-top: 117.714%; width: 100%;"><img src="/_app/assets/bug-reporter-c5bb7cb2.gif" srcset="/_app/assets/bug-reporter-c5bb7cb2.gif, /_app/assets/bug-reporter-274325db.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="bug reporter"></span></p>
 <p><a href="https://github.com/tanhauhau/chrome-extension-demo/tree/master/bug-recording" rel="nofollow">Code for demo</a></p></section>
 <section><h3><a href="#debugging-events-and-analytics" id="debugging-events-and-analytics">Debugging events and analytics</a></h3>
 <p>Debugging and testing log and analytic events is usually a hassle.</p>
@@ -382,7 +382,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-comment)">// proceed with sending the event to backend server</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &#125;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span></code></pre><!-- HTML_TAG_END --></div>
-<p><img src="/_app/assets/events_analytics-b770558b.gif" loading="lazy" alt="events analytics"></p>
+<p><span style="display: block; position: relative; padding-top: 116.714%; width: 100%;"><img src="/_app/assets/events_analytics-b770558b.gif" srcset="/_app/assets/events_analytics-b770558b.gif, /_app/assets/events_analytics-8592969f.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="events analytics"></span></p>
 <p><a href="https://github.com/tanhauhau/chrome-extension-demo/tree/master/events-analytics" rel="nofollow">Code for demo</a></p></section>
 <section><h2><a href="#closing-note" id="closing-note">Closing Note</a></h2>
 <p>I&#39;ve shown you how you can create your Chrome extension, and also provided some extension ideas you can have. It&#39;s your turn to write your Chrome extension and create your personalised development workspace.</p>
@@ -406,10 +406,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="ktsy3v">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="6k03z6">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="ktsy3v"]').parentNode,
+			target: document.querySelector('[data-hydrate="6k03z6"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -419,8 +419,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/personalised-development-workspace-with-chrome-extension/index.md-f3afc892.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/personalised-development-workspace-with-chrome-extension/index.md-c7b1ea63.js")
 				],
 				params: {}
 			}

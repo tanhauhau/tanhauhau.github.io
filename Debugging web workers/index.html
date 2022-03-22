@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/Debugging web workers/index.md-a7bc0b2c.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/Debugging web workers/index.md-e011a14a.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,7 +77,7 @@
 
 
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#chrome" class="svelte-j01zi8">Chrome</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#chrome" class="svelte-j01zi8">Chrome</a>
 				
 			</li><li class="svelte-j01zi8"><a href="#firefox" class="svelte-j01zi8">Firefox</a>
 				
@@ -90,21 +90,21 @@
 <p>Here&#39;s how you would do it for various major browsers:</p>
 <section><h2><a href="#chrome" id="chrome">Chrome</a></h2>
 <p>If you are debugging service worker or worker, you can head down to the console. There&#39;s a dropdown menu, if you haven&#39;t noticed previously, that says &quot;JavaScript context&quot;.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/chrome-console-bf4aa172.webp"><source type="image/png" srcset="/_app/assets/chrome-console-a6389f70.png"><img src="/_app/assets/chrome-console-a6389f70.png" loading="lazy" alt="chrome console"></picture></p>
-<p><picture><source type="image/webp" srcset="/_app/assets/chrome-console-context-ce111b78.webp"><source type="image/png" srcset="/_app/assets/chrome-console-context-453338cb.png"><img src="/_app/assets/chrome-console-context-453338cb.png" loading="lazy" alt="chrome console context"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 46.033%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/chrome-console-bf4aa172.webp, /_app/assets/chrome-console-2f355457.webp 2x"><img src="/_app/assets/chrome-console-a6389f70.png" srcset="/_app/assets/chrome-console-a6389f70.png, /_app/assets/chrome-console-588dca4a.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="chrome console"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 36.313%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/chrome-console-context-ce111b78.webp, /_app/assets/chrome-console-context-b40a1c4c.webp 2x"><img src="/_app/assets/chrome-console-context-453338cb.png" srcset="/_app/assets/chrome-console-context-453338cb.png, /_app/assets/chrome-console-context-3e43ff20.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="chrome console context"></picture></span></p>
 <p>For worker context, you would see a cog logo beside the name.</p>
 <p>After you choose the worker context, you can type <code class="inline">self</code> into the console, and you should see <code class="inline">self</code> is an instance of <code class="inline">DedicatedWorkerGlobalScope</code> instead of <code class="inline">window</code>. </p>
-<p><picture><source type="image/webp" srcset="/_app/assets/chrome-worker-context-9e48eebb.webp"><source type="image/png" srcset="/_app/assets/chrome-worker-context-9af5924c.png"><img src="/_app/assets/chrome-worker-context-9af5924c.png" loading="lazy" alt="chrome worker context"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 33.981%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/chrome-worker-context-9e48eebb.webp, /_app/assets/chrome-worker-context-29a132bc.webp 2x"><img src="/_app/assets/chrome-worker-context-9af5924c.png" srcset="/_app/assets/chrome-worker-context-9af5924c.png, /_app/assets/chrome-worker-context-f6ab9fd1.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="chrome worker context"></picture></span></p>
 <p>For shared worker, you would need to go to <a href="chrome://inspect/#workers">chrome://inspect/#workers</a>. Select &quot;Shared workers&quot; on the left panel.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/chrome-shared-worker-b25591fe.webp"><source type="image/png" srcset="/_app/assets/chrome-shared-worker-6aa863de.png"><img src="/_app/assets/chrome-shared-worker-6aa863de.png" loading="lazy" alt="chrome shared worker"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 79.926%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/chrome-shared-worker-b25591fe.webp, /_app/assets/chrome-shared-worker-e8ee7320.webp 2x"><img src="/_app/assets/chrome-shared-worker-6aa863de.png" srcset="/_app/assets/chrome-shared-worker-6aa863de.png, /_app/assets/chrome-shared-worker-35b32fa4.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="chrome shared worker"></picture></span></p>
 <p>You would be able to see a list of shared workers if you have any running.</p>
 <p>You can click &quot;inspect&quot;, which will open a new console for you to debug.</p></section>
 <section><h2><a href="#firefox" id="firefox">Firefox</a></h2>
 <p>For Firefox, you could go to <a href="about:debugging#workers">about:debugging#workers</a>. You will be able to see a list of service workers, and shared workers registered to the browser.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/firefox-shared-worker-cee5b6a0.webp"><source type="image/png" srcset="/_app/assets/firefox-shared-worker-0b7fd443.png"><img src="/_app/assets/firefox-shared-worker-0b7fd443.png" loading="lazy" alt="firefox shared worker"></picture></p></section>
+<p><span style="display: block; position: relative; padding-top: 79.451%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/firefox-shared-worker-cee5b6a0.webp, /_app/assets/firefox-shared-worker-a6706529.webp 2x"><img src="/_app/assets/firefox-shared-worker-0b7fd443.png" srcset="/_app/assets/firefox-shared-worker-0b7fd443.png, /_app/assets/firefox-shared-worker-292b9a75.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="firefox shared worker"></picture></span></p></section>
 <section><h2><a href="#safari" id="safari">Safari</a></h2>
 <p>For Safari, you could find the JavaScript context dropdown at the bottom right corner of your console.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/safari-console-context-42ce6da1.webp"><source type="image/png" srcset="/_app/assets/safari-console-context-8909ad46.png"><img src="/_app/assets/safari-console-context-8909ad46.png" loading="lazy" alt="safari console context"></picture></p></section></article>
+<p><span style="display: block; position: relative; padding-top: 83.396%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/safari-console-context-42ce6da1.webp, /_app/assets/safari-console-context-ddba86ad.webp 2x"><img src="/_app/assets/safari-console-context-8909ad46.png" srcset="/_app/assets/safari-console-context-8909ad46.png, /_app/assets/safari-console-context-f08a749e.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="safari console context"></picture></span></p></section></article>
 
 <div style="height: 1px; width: 100%"></div>
 
@@ -114,10 +114,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="o77yx2">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="1ts9wxu">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="o77yx2"]').parentNode,
+			target: document.querySelector('[data-hydrate="1ts9wxu"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -127,8 +127,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/Debugging web workers/index.md-a7bc0b2c.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/Debugging web workers/index.md-e011a14a.js")
 				],
 				params: {}
 			}

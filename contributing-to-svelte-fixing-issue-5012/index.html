@@ -32,19 +32,19 @@
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
 	<link rel="stylesheet" href="/_app/assets/pages/contributing-to-svelte-fixing-issue-5012/index.md-b16b9abb.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/contributing-to-svelte-fixing-issue-5012/index.md-7452c977.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/contributing-to-svelte-fixing-issue-5012/index.md-4c5bb961.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -77,7 +77,7 @@
 
 <a class="tag svelte-muo5sw" href="/tags/Svelte">Svelte</a><a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/Open Source">Open Source</a>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#background" class="svelte-j01zi8">Background</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#background" class="svelte-j01zi8">Background</a>
 				
 			</li><li class="svelte-j01zi8"><a href="#the-bug" class="svelte-j01zi8">The bug</a>
 				
@@ -112,13 +112,13 @@
 <p>I clicked into the REPL and tried to understand about the bug.</p>
 <p>Initially, you see 2 lines of text, &quot;Another first line&quot;, &quot;This line should be last.&quot;.</p>
 <p>But as soon as I updated the <code class="inline">{@html content}</code>, the <code class="inline">{@html content}</code> moved to be after the &quot;This line should be last.&quot; and stayed there.</p>
-<p><img src="/_app/assets/bug-423b948d.gif" loading="lazy" alt="screen recording of the bug behavior"></p>
+<p><span style="display: block; position: relative; padding-top: 44.643%; width: 100%;"><img src="/_app/assets/bug-423b948d.gif" srcset="/_app/assets/bug-423b948d.gif, /_app/assets/bug-d131fc8e.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="screen recording of the bug behavior"></span></p>
 <p>Yup. This is indeed a bug! 🐛</p></section>
 <section><h2><a href="#investigating-the-bug" id="investigating-the-bug">Investigating the bug</a></h2>
 <p>It&#39;s amazing that the issue author tracked down the regression behavior of this issue, stating that it started happening since 3.7. Probably because the author just upgraded Svelte from <!-- HTML_TAG_START --><<!-- HTML_TAG_END --> 3.7, or maybe he tried every versions to figure out whether it is regression bug or an undiscovered bug. Anyway, kudos to the issue author! 💪 💪</p>
 <p>Most open source projects maintain a change log file, usually named <code class="inline">CHANGELOG.md</code> located at the root of the project folder, so that you can figured out what&#39;s added / removed / updated in each version.</p>
 <p>You can find Svelte&#39;s <a href="https://github.com/sveltejs/svelte/blob/master/CHANGELOG.md" rel="nofollow"><code class="inline">CHANGELOG.md</code> here</a>.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/changelog-0f7c76de.webp"><source type="image/png" srcset="/_app/assets/changelog-d8bd0288.png"><img src="/_app/assets/changelog-d8bd0288.png" loading="lazy" alt="changelog"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 33.380%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/changelog-0f7c76de.webp, /_app/assets/changelog-afd4ad06.webp 2x"><img src="/_app/assets/changelog-d8bd0288.png" srcset="/_app/assets/changelog-d8bd0288.png, /_app/assets/changelog-c0dfd240.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="changelog"></picture></span></p>
 <p>From the changelog, the most relevant commits seemed to be <strong>&quot;Remount HTML tags correctly (<a href="https://github.com/sveltejs/svelte/pull/3329" rel="nofollow">#3329</a>)&quot;</strong></p>
 <p>Reading through the PR, it seemed that <a href="https://github.com/sveltejs/svelte/pull/3329" rel="nofollow">#3329</a> was when <code class="inline">HtmlTag</code> is first introduced!</p></section>
 <section><h3><a href="#htmltag" id="htmltag">HtmlTag</a></h3>
@@ -273,10 +273,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1oazncy">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="nlwzhb">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="1oazncy"]').parentNode,
+			target: document.querySelector('[data-hydrate="nlwzhb"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -286,8 +286,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/contributing-to-svelte-fixing-issue-5012/index.md-7452c977.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/contributing-to-svelte-fixing-issue-5012/index.md-4c5bb961.js")
 				],
 				params: {}
 			}

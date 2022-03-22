@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/commit-went-missing-after-rebase/index.md-d75a8fd1.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/commit-went-missing-after-rebase/index.md-74263f1f.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -77,7 +77,7 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/git">git</a><a class="tag svelte-muo5sw" href="/tags/rebase">rebase</a><a class="tag svelte-muo5sw" href="/tags/scm">scm</a>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#summary" class="svelte-j01zi8">Summary</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#summary" class="svelte-j01zi8">Summary</a>
 				
 			</li></ol>
 </section>
@@ -90,15 +90,15 @@
 <p>And, my commits on <code class="inline">feat/a</code>, eg <code class="inline">commit #1</code>, <code class="inline">commit #2</code> were gone!</p></blockquote>
 <p>So, we expected to see <code class="inline">commit #1</code>, <code class="inline">commit #2</code> at <code class="inline">HEAD</code> after rebasing onto <code class="inline">origin/feat/a</code> after the <code class="inline">git pull --rebase</code>, yet, the only commits we saw were a bunch of commits from the <code class="inline">master</code> branch.</p>
 <p>To understand what happened, I decided to draw diagrams to visualize what had happened:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/initial-2c90aa61.webp"><source type="image/png" srcset="/_app/assets/initial-10c66478.png"><img src="/_app/assets/initial-10c66478.png" loading="lazy" alt="initil" title="Before rebasing"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 126.667%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/initial-2c90aa61.webp, /_app/assets/initial-0ec1a64d.webp 2x"><img src="/_app/assets/initial-10c66478.png" srcset="/_app/assets/initial-10c66478.png, /_app/assets/initial-a59ef99b.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="initil" title="Before rebasing"></picture></span></p>
 <p>So, the first thing she did was to <code class="inline">git rebase</code> <code class="inline">feat/a</code> on top of <code class="inline">master</code>:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-1-40f0861a.webp"><source type="image/png" srcset="/_app/assets/rebase-1-f933f1f4.png"><img src="/_app/assets/rebase-1-f933f1f4.png" loading="lazy" alt="first rebase" title="Rebase feat/a on top of `master`"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 69.828%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/rebase-1-40f0861a.webp, /_app/assets/rebase-1-075b929c.webp 2x"><img src="/_app/assets/rebase-1-f933f1f4.png" srcset="/_app/assets/rebase-1-f933f1f4.png, /_app/assets/rebase-1-e0472352.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="first rebase" title="Rebase feat/a on top of `master`"></picture></span></p>
 <p>So far, everything looked normal. The next command was the tricky one.</p>
 <p>She rebased <code class="inline">feat/a</code> on top of <code class="inline">origin/feat/a</code>, she ran:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git checkout feat/a</span>
 <span class="line">$ git rebase origin/feat/a</span></code></pre><!-- HTML_TAG_END --></div>
 <p>The most important thing on <code class="inline">git rebase</code> is the 3 reference points of rebasing:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-2-4a2b213b.webp"><source type="image/png" srcset="/_app/assets/rebase-2-19f84297.png"><img src="/_app/assets/rebase-2-19f84297.png" loading="lazy" alt="3 reference points" title="The 3 reference points"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 69.828%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/rebase-2-4a2b213b.webp, /_app/assets/rebase-2-4299e81b.webp 2x"><img src="/_app/assets/rebase-2-19f84297.png" srcset="/_app/assets/rebase-2-19f84297.png, /_app/assets/rebase-2-a6fc79e5.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="3 reference points" title="The 3 reference points"></picture></span></p>
 <p>So, when she typed </p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git rebase origin/feat/a</span></code></pre><!-- HTML_TAG_END --></div>
 <p>, it meant:</p>
@@ -107,18 +107,18 @@
 <li><code class="inline">upstream</code>: <code class="inline">origin/feat/a</code></li>
 <li><code class="inline">branch</code>: <code class="inline">feat/a</code></li></ul>
 <p>So what happened was all the commits in master after branching out <code class="inline">feat/a</code> all the way to the newly rebased commits in <code class="inline">feat/a</code> were rebased onto <code class="inline">origin/feat/a</code>:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-4-e157042f.webp"><source type="image/png" srcset="/_app/assets/rebase-4-7d785640.png"><img src="/_app/assets/rebase-4-7d785640.png" loading="lazy" alt="rebase again"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 50.625%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/rebase-4-e157042f.webp, /_app/assets/rebase-4-3daaa09c.webp 2x"><img src="/_app/assets/rebase-4-7d785640.png" srcset="/_app/assets/rebase-4-7d785640.png, /_app/assets/rebase-4-7c3c65eb.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="rebase again"></picture></span></p>
 <p>However, if you look at the history right now, the commit <code class="inline">commit #1</code> and <code class="inline">commit #2</code> was written twice, first the original commit, second the rebased commit. In cases like this, git would not rewrote the commits again, if git could figure out whether it was a duplicate:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-5-55df8c39.webp"><source type="image/png" srcset="/_app/assets/rebase-5-ee2580ce.png"><img src="/_app/assets/rebase-5-ee2580ce.png" loading="lazy" alt="actual rebase again result"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 68.644%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/rebase-5-55df8c39.webp, /_app/assets/rebase-5-6bae71e3.webp 2x"><img src="/_app/assets/rebase-5-ee2580ce.png" srcset="/_app/assets/rebase-5-ee2580ce.png, /_app/assets/rebase-5-694c0460.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="actual rebase again result"></picture></span></p>
 <p>It was as though both commit <code class="inline">commit #1</code> and <code class="inline">commit #2</code> were gone, and left with commits from <code class="inline">master</code> branch, because git did not rewrote them when rebasing <code class="inline">feat/a</code>. And actually the changes made in <code class="inline">commit #1</code> and <code class="inline">commit #2</code> were still available.</p>
 <blockquote><p>You can read more about this behaviour in <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_rebase" rel="nofollow">git&#39;s documentation</a></p></blockquote>
 <p>So, what she should have done if she wanted to actually rebased the local <code class="inline">feat/a</code> on top of <code class="inline">origin/feat/a</code>, especially after she made another commit, <code class="inline">commit #0</code>?</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-6-8029d9dc.webp"><source type="image/png" srcset="/_app/assets/rebase-6-5321deff.png"><img src="/_app/assets/rebase-6-5321deff.png" loading="lazy" alt="adding one more commit"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 58.273%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/rebase-6-8029d9dc.webp, /_app/assets/rebase-6-a71cdbc5.webp 2x"><img src="/_app/assets/rebase-6-5321deff.png" srcset="/_app/assets/rebase-6-5321deff.png, /_app/assets/rebase-6-08e3ba6c.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="adding one more commit"></picture></span></p>
 <p>Well, she should specify the <code class="inline">&lt;upstream&gt;</code> reference point:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-7-ffedc41d.webp"><source type="image/png" srcset="/_app/assets/rebase-7-eac6bb98.png"><img src="/_app/assets/rebase-7-eac6bb98.png" loading="lazy" alt="reference points"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 57.042%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/rebase-7-ffedc41d.webp, /_app/assets/rebase-7-4db5ca10.webp 2x"><img src="/_app/assets/rebase-7-eac6bb98.png" srcset="/_app/assets/rebase-7-eac6bb98.png, /_app/assets/rebase-7-b16bf653.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="reference points"></picture></span></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-"><code><span class="line">$ git rebase --onto origin/feat/a master feat/a</span></code></pre><!-- HTML_TAG_END --></div>
 <p>And you would get:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/rebase-8-b80ea902.webp"><source type="image/png" srcset="/_app/assets/rebase-8-88b84e97.png"><img src="/_app/assets/rebase-8-88b84e97.png" loading="lazy" alt="result"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 60.902%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/rebase-8-b80ea902.webp, /_app/assets/rebase-8-9ae9ebcb.webp 2x"><img src="/_app/assets/rebase-8-88b84e97.png" srcset="/_app/assets/rebase-8-88b84e97.png, /_app/assets/rebase-8-f711bbd3.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="result"></picture></span></p>
 <p>Here again, git is smart enough not to rewrite <code class="inline">commit #1</code> and <code class="inline">commit #2</code>.</p>
 <section><h2><a href="#summary" id="summary">Summary</a></h2>
 <p>When using <code class="inline">git rebase</code>, always remember the 3 reference points of rebase, the <code class="inline">new base</code>, <code class="inline">upstream</code> and <code class="inline">branch</code>.</p></section></article>
@@ -131,10 +131,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="11uur4s">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="rne8fm">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="11uur4s"]').parentNode,
+			target: document.querySelector('[data-hydrate="rne8fm"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -144,8 +144,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/commit-went-missing-after-rebase/index.md-d75a8fd1.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/commit-went-missing-after-rebase/index.md-74263f1f.js")
 				],
 				params: {}
 			}

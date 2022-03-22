@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-6dc82403.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-70586e43.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,7 +76,7 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/babel">babel</a><a class="tag svelte-muo5sw" href="/tags/AST">AST</a><a class="tag svelte-muo5sw" href="/tags/transform">transform</a>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#overview" class="svelte-j01zi8">Overview</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#overview" class="svelte-j01zi8">Overview</a>
 				
 			</li><li class="svelte-j01zi8"><a href="#fork-the-babel" class="svelte-j01zi8">Fork the babel</a>
 				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#crash-course-on-parsing-code-to-ast" class="svelte-j01zi8">Crash Course on Parsing Code to AST</a>
@@ -132,7 +132,7 @@
 <p>Don&#39;t worry, I will guide you through every step. Hopefully, at the end of this article, you will be the babel master amongst your peers. 🤠</p></section>
 <section><h2><a href="#fork-the-babel" id="fork-the-babel">Fork the babel</a></h2>
 <p>Head over to <a href="https://github.com/babel/babel" rel="nofollow">babel&#39;s Github repo</a>, click the &quot;Fork&quot; button located at the top left of the page.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/forking-de059522.webp"><source type="image/png" srcset="/_app/assets/forking-2f29a6a7.png"><img src="/_app/assets/forking-2f29a6a7.png" loading="lazy" alt="forking babel" title="Forking babel"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 54.570%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/forking-de059522.webp, /_app/assets/forking-d6a0339f.webp 2x"><img src="/_app/assets/forking-2f29a6a7.png" srcset="/_app/assets/forking-2f29a6a7.png, /_app/assets/forking-8e66bc96.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="forking babel" title="Forking babel"></picture></span></p>
 <p>If this is your first time forking a popular open-source project, congratulations! 🎉</p>
 <p>Clone your forked babel to your local workspace and <a href="https://github.com/tanhauhau/babel/blob/master/CONTRIBUTING.md#setup" rel="nofollow">set it up</a>:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">$ git clone https://github.com/tanhauhau/babel.git</span></span>
@@ -255,10 +255,10 @@
 <p>Yeah! It looks good and lets move on. <span style="transform:scaleX(-1);display:inline-block;">🏃‍</span></p></section>
 <section><h3><a href="#the-new-parser" id="the-new-parser">The new parser</a></h3>
 <p>Before we move on, let&#39;s inspect how <a href="https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjYuMCJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImZ1bmN0aW9uICogZm9vKCkge30ifQ==" rel="nofollow">generator functions are represented in AST</a>:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/generator-function-4f1730da.webp"><source type="image/png" srcset="/_app/assets/generator-function-a2553bf5.png"><img src="/_app/assets/generator-function-a2553bf5.png" loading="lazy" alt="AST for generator function" title="AST for generator function"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 37.422%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/generator-function-4f1730da.webp, /_app/assets/generator-function-2beb2653.webp 2x"><img src="/_app/assets/generator-function-a2553bf5.png" srcset="/_app/assets/generator-function-a2553bf5.png, /_app/assets/generator-function-9056969f.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="AST for generator function" title="AST for generator function"></picture></span></p>
 <p>As you can see, a generator function is represented by the <code class="inline">generator: true</code> attribute of a <code class="inline">FunctionDeclaration</code>.</p>
 <p>Similarly, we can add a <code class="inline">curry: true</code> attribute of the <code class="inline">FunctionDeclaration</code> too if it is a curry function:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/curry-function-8da89c90.webp"><source type="image/png" srcset="/_app/assets/curry-function-40bd348b.png"><img src="/_app/assets/curry-function-40bd348b.png" loading="lazy" alt="AST for curry function" title="AST for curry function"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 39.297%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/curry-function-8da89c90.webp, /_app/assets/curry-function-80c5079a.webp 2x"><img src="/_app/assets/curry-function-40bd348b.png" srcset="/_app/assets/curry-function-40bd348b.png, /_app/assets/curry-function-7763bc7d.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="AST for curry function" title="AST for curry function"></picture></span></p>
 <p>We have a plan now, let&#39;s implement it.</p>
 <p>A quick search on <em>&quot;FunctionDeclaration&quot;</em> leads us to a function called <code class="inline">parseFunction</code> in <a href="https://github.com/tanhauhau/babel/blob/da0af5fd99a9b747370a2240df3abf2940b9649c/packages/babel-parser/src/parser/statement.js#L1030" rel="nofollow">packages/babel-parser/src/parser/statement.js</a>, and here we find a line that sets the <code class="inline">generator</code> attribute, let&#39;s add one more line:</p>
 <div class="code-section"><!-- HTML_TAG_START --><div class="filename">packages/babel-parser/src/parser/statement.js</div><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-keyword)">export</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">default</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">class</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">StatementParser</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">extends</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">ExpressionParser</span><span style="color: var(--shiki-color-text)"> &#123;</span></span>
@@ -360,7 +360,7 @@
 <p><strong>Side Note</strong>: You might be curious how am I able to visualize the custom syntax in the Babel AST Explorer, where I showed you the new &quot;curry&quot; attribute in the AST.</p>
 <p>That&#39;s because I&#39;ve added a new feature in the Babel AST Explorer where you can upload your custom parser!</p>
 <p>If you go to <code class="inline">packages/babel-parser/lib</code>, you would find the compiled version of your parser and the source map. Open the drawer of the Babel AST Explorer, you will see a button to upload a custom parser. Drag the <code class="inline">packages/babel-parser/lib/index.js</code> in and you will be visualizing the AST generated via your custom parser!</p>
-<p><img src="/_app/assets/custom-parser-8dacdaf1.gif" loading="lazy" alt="Uploading custom parser"></p>
+<p><span style="display: block; position: relative; padding-top: 54.000%; width: 100%;"><img src="/_app/assets/custom-parser-8dacdaf1.gif" srcset="/_app/assets/custom-parser-8dacdaf1.gif, /_app/assets/custom-parser-335207f7.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Uploading custom parser"></span></p>
 <hr></section>
 <section><h2><a href="#our-babel-plugin" id="our-babel-plugin">Our babel plugin</a></h2>
 <p>With our custom babel parser done, let&#39;s move on to write our babel plugin.</p>
@@ -507,10 +507,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="eijytg">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="o6huq">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="eijytg"]').parentNode,
+			target: document.querySelector('[data-hydrate="o6huq"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -520,8 +520,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-6dc82403.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/creating-custom-javascript-syntax-with-babel/index.md-70586e43.js")
 				],
 				params: {}
 			}

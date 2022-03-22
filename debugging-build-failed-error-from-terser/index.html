@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/debugging-build-failed-error-from-terser/index.md-8a96e219.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/debugging-build-failed-error-from-terser/index.md-6f5bea5d.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,7 +76,7 @@
 
 <a class="tag svelte-muo5sw" href="/tags/debugging">debugging</a>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#act-i-the-first-attempt" class="svelte-j01zi8">Act I - The First Attempt</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#act-i-the-first-attempt" class="svelte-j01zi8">Act I - The First Attempt</a>
 				
 			</li><li class="svelte-j01zi8"><a href="#act-ii-terser-webpack-plugin" class="svelte-j01zi8">Act II - terser-webpack-plugin</a>
 				
@@ -240,7 +240,7 @@
 <p>The Terser in the codebase was one major version behind the latest Terser version, so, I was more reserved to upgrade to the latest version.</p>
 <p>The git blame for the line of code was for some code refactoring, so I went to Github to trace the blame.</p>
 <p><strong>Tip:</strong> Github blame has this very useful button, that allows you to view blame prior to the change.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/github-blame-3d247017.webp"><source type="image/png" srcset="/_app/assets/github-blame-9ffecede.png"><img src="/_app/assets/github-blame-9ffecede.png" loading="lazy" alt="Github: view blame prior to the change"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 29.585%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/github-blame-3d247017.webp, /_app/assets/github-blame-a7918c88.webp 2x"><img src="/_app/assets/github-blame-9ffecede.png" srcset="/_app/assets/github-blame-9ffecede.png, /_app/assets/github-blame-8703c3f9.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Github: view blame prior to the change"></picture></span></p>
 <p>A few blame traces later, I ended up with a commit that fixed the bug:</p>
 <blockquote><p><a href="https://github.com/terser/terser/pull/286" rel="nofollow">fix node.key crashing lib/compress by hytromo · Pull Request #286 · terser/terser</a></p></blockquote>
 <p>By looking at the MR merged date, I found that the commit was landed in between <a href="https://github.com/terser/terser/compare/v3.16.0...v3.17.0" rel="nofollow">v3.16.0 and v3.17.0</a>.</p>
@@ -265,10 +265,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="mnep3o">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="1ppy0cb">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="mnep3o"]').parentNode,
+			target: document.querySelector('[data-hydrate="1ppy0cb"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -278,8 +278,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/debugging-build-failed-error-from-terser/index.md-8a96e219.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/debugging-build-failed-error-from-terser/index.md-6f5bea5d.js")
 				],
 				params: {}
 			}

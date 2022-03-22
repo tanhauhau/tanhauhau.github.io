@@ -31,17 +31,17 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-71b3935d.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-d53903ee.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
 	<link rel="modulepreload" href="/_app/chunks/twitter-card-image-a57df29d.js">
 	</head>
 	<body>
@@ -85,7 +85,7 @@
 <p>To confirm with my hypothesis, I opened up my favourite tool for inspecting <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" rel="nofollow">AST</a>: <a href="https://astexplorer.net/" rel="nofollow">astexplorer.net</a></p>
 <hr>
 <p>You can paste your code into <a href="https://astexplorer.net/" rel="nofollow">astexplorer.net</a> and see how different parser “sees” your code in terms of a AST (Abstract Syntax Tree).</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/ast-explorer-bfbe6c09.webp"><source type="image/png" srcset="/_app/assets/ast-explorer-632b492a.png"><img src="/_app/assets/ast-explorer-632b492a.png" loading="lazy" alt="You can choose different a parser!"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 57.183%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/ast-explorer-bfbe6c09.webp, /_app/assets/ast-explorer-b5f52f19.webp 2x"><img src="/_app/assets/ast-explorer-632b492a.png" srcset="/_app/assets/ast-explorer-632b492a.png, /_app/assets/ast-explorer-02655949.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="You can choose different a parser!"></picture></span></p>
 <p>As you can see from the picture above, you can choose from different parsers:</p>
 <ul><li><strong>acorn</strong> — the parser used by webpack after the loaders, webpack uses acorn’s AST to find <code class="inline">import</code> and <code class="inline">require()</code> syntax to know generate the dependency tree of your project, as well as provide an entry for plugins like <a href="https://webpack.js.org/plugins/define-plugin/" rel="nofollow">DefinePlugin</a> to transform the transpiled code.</li>
 <li><strong>babylon</strong>— the <a href="https://github.com/babel/babel/" rel="nofollow">babel</a> parser, now it’s called <a href="https://babeljs.io/docs/en/babel-parser" rel="nofollow">@babel/parser</a>.</li>
@@ -94,9 +94,9 @@
 <li><strong>babel-eslint</strong> — a wrapper of babel parser for eslint, which is also the one we used, because we have a ton of babel plugins configured, so by using babel-eslint we don’t have to reconfigure the same plugins for eslint.</li></ul>
 <hr>
 <p>So I copied our code into astexplorer, and selected the “flow” parser:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/babel-eslint-9-ast-992c0e30.webp"><source type="image/png" srcset="/_app/assets/babel-eslint-9-ast-f8804806.png"><img src="/_app/assets/babel-eslint-9-ast-f8804806.png" loading="lazy" alt="flow ast"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 28.927%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/babel-eslint-9-ast-992c0e30.webp, /_app/assets/babel-eslint-9-ast-21afad35.webp 2x"><img src="/_app/assets/babel-eslint-9-ast-f8804806.png" srcset="/_app/assets/babel-eslint-9-ast-f8804806.png, /_app/assets/babel-eslint-9-ast-8720bf87.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="flow ast"></picture></span></p>
 <p>I can see the type annotation is being parsed as “TypeParameterInstantiation”, however when I changed the parser to “babel-eslint8”,</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/babel-eslint-8-ast-3af978b3.webp"><source type="image/png" srcset="/_app/assets/babel-eslint-8-ast-6f58363a.png"><img src="/_app/assets/babel-eslint-8-ast-6f58363a.png" loading="lazy" alt="babel eslint 8 ast"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 39.444%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/babel-eslint-8-ast-3af978b3.webp, /_app/assets/babel-eslint-8-ast-eb60e602.webp 2x"><img src="/_app/assets/babel-eslint-8-ast-6f58363a.png" srcset="/_app/assets/babel-eslint-8-ast-6f58363a.png, /_app/assets/babel-eslint-8-ast-c031afda.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel eslint 8 ast"></picture></span></p>
 <p>I get a Binary Expression and a SequenceExpression!</p>
 <hr>
 <p><strong>Binary Expression</strong> is a way to express logical expression and mathematical expression, eg: <code class="inline">a + b</code> , <code class="inline">a &amp;&amp; b</code> , <code class="inline">a &lt;= b</code>, etc.</p>
@@ -104,7 +104,7 @@
 <hr>
 <p>Now this explains why prettier will try to add space in between <code class="inline">&lt;</code> and <code class="inline">&gt;</code> .</p>
 <p>I saw that there’s a babel-eslint9, and I gave it a try, and…</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/babel-eslint-9-ast-992c0e30.webp"><source type="image/png" srcset="/_app/assets/babel-eslint-9-ast-f8804806.png"><img src="/_app/assets/babel-eslint-9-ast-f8804806.png" loading="lazy" alt="babel eslint 9 ast"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 28.927%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/babel-eslint-9-ast-992c0e30.webp, /_app/assets/babel-eslint-9-ast-21afad35.webp 2x"><img src="/_app/assets/babel-eslint-9-ast-f8804806.png" srcset="/_app/assets/babel-eslint-9-ast-f8804806.png, /_app/assets/babel-eslint-9-ast-8720bf87.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel eslint 9 ast"></picture></span></p>
 <p>It seems like the bug was fixed on <code class="inline">babel-eslint9</code>, so I plowed through the release notes of babel-eslint, and I found this <a href="https://github.com/babel/babel-eslint/pull/444" rel="nofollow">merge commit</a>. So it seems like upgrading babel-eslint to v9 will solve the issue! 🎉</p></article>
 
 <div style="height: 1px; width: 100%"></div>
@@ -115,10 +115,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="w8o5dx">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="1j2t9aw">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="w8o5dx"]').parentNode,
+			target: document.querySelector('[data-hydrate="1j2t9aw"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -128,8 +128,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-71b3935d.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-d53903ee.js")
 				],
 				params: {}
 			}

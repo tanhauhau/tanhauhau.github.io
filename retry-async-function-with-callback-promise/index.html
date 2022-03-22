@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/retry-async-function-with-callback-promise/index.md-c830447b.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/retry-async-function-with-callback-promise/index.md-0129520a.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,7 +76,7 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/Asynchronous">Asynchronous</a><a class="tag svelte-muo5sw" href="/tags/Problem Solving">Problem Solving</a>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#the-callback-pattern" class="svelte-j01zi8">The callback pattern</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#the-callback-pattern" class="svelte-j01zi8">The callback pattern</a>
 				
 			</li><li class="svelte-j01zi8"><a href="#the-promise-chain" class="svelte-j01zi8">The promise chain</a>
 				
@@ -204,7 +204,7 @@
 <span class="line dim"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>The function keeps going forever, until it reaches <code class="inline">n</code> attempt.</p>
 <p>If you stare at the code hard enough, you would notice that the code starts to repeat itself:</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/recursive-78d11ada.webp"><source type="image/png" srcset="/_app/assets/recursive-4f6ef114.png"><img src="/_app/assets/recursive-4f6ef114.png" loading="lazy" alt="recursive pattern"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 118.716%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/recursive-78d11ada.webp, /_app/assets/recursive-4fb6e38d.webp 2x"><img src="/_app/assets/recursive-4f6ef114.png" srcset="/_app/assets/recursive-4f6ef114.png, /_app/assets/recursive-aea82d56.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="recursive pattern"></picture></span></p>
 <p>Note that the code within the outer red square is the same as the code within the inner red square, which is the same as the inner inner red square ...</p>
 <p>So, let&#39;s extract the code within the red square out into a function and replace the red squares with the function:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">retry</span><span style="color: var(--shiki-color-text)">(fn</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> n</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> cb) &#123;</span></span>
@@ -600,10 +600,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="ymbbvv">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="qn0mbh">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="ymbbvv"]').parentNode,
+			target: document.querySelector('[data-hydrate="qn0mbh"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -613,8 +613,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/retry-async-function-with-callback-promise/index.md-c830447b.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/retry-async-function-with-callback-promise/index.md-0129520a.js")
 				],
 				params: {}
 			}

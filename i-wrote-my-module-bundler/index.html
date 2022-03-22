@@ -31,19 +31,19 @@
 	<link rel="stylesheet" href="/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-68f4428f.css">
 	<link rel="stylesheet" href="/_app/assets/Links-80fbd6f2.css">
-	<link rel="stylesheet" href="/_app/assets/code-snippet-cab0fa0d.css">
+	<link rel="stylesheet" href="/_app/assets/code-snippet-f592027d.css">
 	<link rel="stylesheet" href="/_app/assets/BlogLayout-3d74e761.css">
 	<link rel="stylesheet" href="/_app/assets/WebMentions-97df5d68.css">
 	<link rel="stylesheet" href="/_app/assets/TableOfContent-9d27b0ce.css">
-	<link rel="modulepreload" href="/_app/start-8aeda239.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-ea160616.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7b655bdf.js">
-	<link rel="modulepreload" href="/_app/chunks/stores-7d7fda0c.js">
-	<link rel="modulepreload" href="/_app/chunks/Links-f10f5527.js">
-	<link rel="modulepreload" href="/_app/pages/i-wrote-my-module-bundler/index.md-a46b150b.js">
-	<link rel="modulepreload" href="/_app/chunks/BlogLayout-1be3dc1e.js">
-	<link rel="modulepreload" href="/_app/chunks/WebMentions-d768a574.js">
-	<link rel="modulepreload" href="/_app/chunks/TableOfContent-c4f5cb6e.js">
+	<link rel="modulepreload" href="/_app/start-51123d14.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-569a3c5c.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-9b1df45b.js">
+	<link rel="modulepreload" href="/_app/chunks/stores-ee936cd4.js">
+	<link rel="modulepreload" href="/_app/chunks/Links-7bd4e938.js">
+	<link rel="modulepreload" href="/_app/pages/i-wrote-my-module-bundler/index.md-c7477a4b.js">
+	<link rel="modulepreload" href="/_app/chunks/BlogLayout-17b76cb2.js">
+	<link rel="modulepreload" href="/_app/chunks/WebMentions-968cc380.js">
+	<link rel="modulepreload" href="/_app/chunks/TableOfContent-dbc18cb8.js">
 	</head>
 	<body>
 		<div id="svelte">
@@ -76,7 +76,7 @@
 
 <a class="tag svelte-muo5sw" href="/tags/JavaScript">JavaScript</a><a class="tag svelte-muo5sw" href="/tags/module bundler">module bundler</a><a class="tag svelte-muo5sw" href="/tags/dev tool">dev tool</a><a class="tag svelte-muo5sw" href="/tags/webpack">webpack</a>
 
-<article class="blog"><section class="svelte-j01zi8"><ol role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#getting-started" class="svelte-j01zi8">Getting Started</a>
+<article class="blog"><section role="navigation" aria-label="Table of Contents" class="svelte-j01zi8"><ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#getting-started" class="svelte-j01zi8">Getting Started</a>
 				<ol class="svelte-j01zi8"><li class="svelte-j01zi8"><a href="#the-input" class="svelte-j01zi8">The Input</a>
 								
 							</li>
@@ -196,7 +196,7 @@
 <p>So, how can I know what are the dependencies of this module?</p>
 <p>I can look for the <code class="inline">import</code> statement from the AST with the help of the
 <a href="https://lihautan.com/babel-ast-explorer/#?eyJiYWJlbFNldHRpbmdzIjp7InZlcnNpb24iOiI3LjQuNSJ9LCJ0cmVlU2V0dGluZ3MiOnsiaGlkZUVtcHR5Ijp0cnVlLCJoaWRlTG9jYXRpb24iOnRydWUsImhpZGVUeXBlIjp0cnVlfSwiY29kZSI6ImltcG9ydCBzcXVhcmVBcmVhIGZyb20gJy4vc3F1YXJlLmpzJztcbmltcG9ydCBjaXJjbGVBcmVhIGZyb20gJy4vY2lyY2xlLmpzJztcblxuY29uc29sZS5sb2coJ0FyZWEgb2Ygc3F1YXJlOiAnLCBzcXVhcmVBcmVhKDUpKTtcbmNvbnNvbGUubG9nKCdBcmVhIG9mIGNpcmNsZScsIGNpcmNsZUFyZWEoNSkpO1xuIn0=" rel="nofollow">babel-ast-explorer</a>.</p>
-<p><picture><source type="image/webp" srcset="/_app/assets/ast-import-1b4b97d2.webp"><source type="image/png" srcset="/_app/assets/ast-import-9eb42f5d.png"><img src="/_app/assets/ast-import-9eb42f5d.png" loading="lazy" alt="babel-ast-explorer" title="Visualizing AST through babel-ast-explorer"></picture></p>
+<p><span style="display: block; position: relative; padding-top: 38.672%; width: 100%;"><picture><source type="image/webp" srcset="/_app/assets/ast-import-1b4b97d2.webp, /_app/assets/ast-import-0512f895.webp 2x"><img src="/_app/assets/ast-import-9eb42f5d.png" srcset="/_app/assets/ast-import-9eb42f5d.png, /_app/assets/ast-import-ef9368ff.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel-ast-explorer" title="Visualizing AST through babel-ast-explorer"></picture></span></p>
 <p>I found out that the <code class="inline">import</code> statement in the AST is called the <code class="inline">ImportDeclaration</code>. It has <code class="inline">specifiers</code> and <code class="inline">source</code>, which the <code class="inline">source.value</code> tells us what this module is importing from:</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-function)">findDependencies</span><span style="color: var(--shiki-color-text)">() &#123;</span></span>
 <span class="line highlight"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">return</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">this</span><span style="color: var(--shiki-color-text)">.</span><span style="color: var(--shiki-token-constant)">ast</span><span style="color: var(--shiki-color-text)">.</span><span style="color: var(--shiki-token-constant)">program</span><span style="color: var(--shiki-color-text)">.body</span></span>
@@ -621,10 +621,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1ev8mxf">
-		import { start } from "/_app/start-8aeda239.js";
+		<script type="module" data-hydrate="hua7s2">
+		import { start } from "/_app/start-51123d14.js";
 		start({
-			target: document.querySelector('[data-hydrate="1ev8mxf"]').parentNode,
+			target: document.querySelector('[data-hydrate="hua7s2"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -634,8 +634,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-7b655bdf.js"),
-						import("/_app/pages/i-wrote-my-module-bundler/index.md-a46b150b.js")
+					import("/_app/pages/__layout.svelte-9b1df45b.js"),
+						import("/_app/pages/i-wrote-my-module-bundler/index.md-c7477a4b.js")
 				],
 				params: {}
 			}
