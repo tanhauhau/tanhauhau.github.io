@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-1be5608a.js",
+    "file": "start-a7ad3b52.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -158,7 +158,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-6f01a6a6.js",
+    "file": "pages/__layout.svelte-6b949870.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -168,7 +168,7 @@
       "_Links-05f4c4db.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-11316bc4.css"
+      "assets/pages/__layout.svelte-b5830581.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
@@ -214,7 +214,7 @@
     ]
   },
   "src/routes/personalised-development-workspace-with-chrome-extension/index.md": {
-    "file": "pages/personalised-development-workspace-with-chrome-extension/index.md-b59d39d6.js",
+    "file": "pages/personalised-development-workspace-with-chrome-extension/index.md-acffd4de.js",
     "src": "src/routes/personalised-development-workspace-with-chrome-extension/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -300,7 +300,7 @@
     ]
   },
   "src/routes/eslint-for-flow-explicit-type-argument-syntax/index.md": {
-    "file": "pages/eslint-for-flow-explicit-type-argument-syntax/index.md-cdb33076.js",
+    "file": "pages/eslint-for-flow-explicit-type-argument-syntax/index.md-3fa4d4c2.js",
     "src": "src/routes/eslint-for-flow-explicit-type-argument-syntax/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -332,7 +332,7 @@
     ]
   },
   "src/routes/creating-custom-javascript-syntax-with-babel/index.md": {
-    "file": "pages/creating-custom-javascript-syntax-with-babel/index.md-9e1e23be.js",
+    "file": "pages/creating-custom-javascript-syntax-with-babel/index.md-2cb2060f.js",
     "src": "src/routes/creating-custom-javascript-syntax-with-babel/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -366,7 +366,7 @@
     ]
   },
   "src/routes/random-stuff-i-learned-from-browser-console/index.md": {
-    "file": "pages/random-stuff-i-learned-from-browser-console/index.md-5b748369.js",
+    "file": "pages/random-stuff-i-learned-from-browser-console/index.md-6e8b0bc6.js",
     "src": "src/routes/random-stuff-i-learned-from-browser-console/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -416,7 +416,7 @@
     ]
   },
   "src/routes/retry-async-function-with-callback-promise/index.md": {
-    "file": "pages/retry-async-function-with-callback-promise/index.md-a65e8ef3.js",
+    "file": "pages/retry-async-function-with-callback-promise/index.md-0251944e.js",
     "src": "src/routes/retry-async-function-with-callback-promise/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -468,7 +468,7 @@
     ]
   },
   "src/routes/contributing-to-svelte-fixing-issue-5012/index.md": {
-    "file": "pages/contributing-to-svelte-fixing-issue-5012/index.md-400cae64.js",
+    "file": "pages/contributing-to-svelte-fixing-issue-5012/index.md-b4803b68.js",
     "src": "src/routes/contributing-to-svelte-fixing-issue-5012/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -521,7 +521,7 @@
     ]
   },
   "src/routes/i-wrote-my-module-bundler-ii-for-the-web/index.md": {
-    "file": "pages/i-wrote-my-module-bundler-ii-for-the-web/index.md-94827839.js",
+    "file": "pages/i-wrote-my-module-bundler-ii-for-the-web/index.md-d832a45a.js",
     "src": "src/routes/i-wrote-my-module-bundler-ii-for-the-web/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -539,7 +539,7 @@
     ]
   },
   "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md": {
-    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-94e048de.js",
+    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-347c49be.js",
     "src": "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -635,7 +635,7 @@
     ]
   },
   "src/routes/building-a-simplified-webpack-clone/index.md": {
-    "file": "pages/building-a-simplified-webpack-clone/index.md-c13807cd.js",
+    "file": "pages/building-a-simplified-webpack-clone/index.md-5c856a75.js",
     "src": "src/routes/building-a-simplified-webpack-clone/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -809,7 +809,7 @@
     ]
   },
   "src/routes/short-stories-working-on-svelte/index.md": {
-    "file": "pages/short-stories-working-on-svelte/index.md-debb92bf.js",
+    "file": "pages/short-stories-working-on-svelte/index.md-f18f4ab7.js",
     "src": "src/routes/short-stories-working-on-svelte/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -891,7 +891,7 @@
     ]
   },
   "src/routes/the-svelte-compiler-handbook/index.md": {
-    "file": "pages/the-svelte-compiler-handbook/index.md-0cab7450.js",
+    "file": "pages/the-svelte-compiler-handbook/index.md-a87010fa.js",
     "src": "src/routes/the-svelte-compiler-handbook/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -961,7 +961,7 @@
     ]
   },
   "src/routes/third-party-css-is-not-safe/index.md": {
-    "file": "pages/third-party-css-is-not-safe/index.md-f7d80a52.js",
+    "file": "pages/third-party-css-is-not-safe/index.md-7012a9d9.js",
     "src": "src/routes/third-party-css-is-not-safe/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -979,7 +979,7 @@
     ]
   },
   "src/routes/solving-nonogram-with-code/index.md": {
-    "file": "pages/solving-nonogram-with-code/index.md-73d41bf8.js",
+    "file": "pages/solving-nonogram-with-code/index.md-8ee811e8.js",
     "src": "src/routes/solving-nonogram-with-code/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -997,7 +997,7 @@
     ]
   },
   "src/routes/super-silly-hackathon-2019/index.md": {
-    "file": "pages/super-silly-hackathon-2019/index.md-ba003d86.js",
+    "file": "pages/super-silly-hackathon-2019/index.md-22c94661.js",
     "src": "src/routes/super-silly-hackathon-2019/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1029,7 +1029,7 @@
     ]
   },
   "src/routes/i-wrote-my-module-bundler/index.md": {
-    "file": "pages/i-wrote-my-module-bundler/index.md-d0981924.js",
+    "file": "pages/i-wrote-my-module-bundler/index.md-633c2c76.js",
     "src": "src/routes/i-wrote-my-module-bundler/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1147,7 +1147,7 @@
     ]
   },
   "src/routes/Debugging web workers/index.md": {
-    "file": "pages/Debugging web workers/index.md-f66761f0.js",
+    "file": "pages/Debugging web workers/index.md-c5c55e80.js",
     "src": "src/routes/Debugging web workers/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1259,7 +1259,7 @@
     ]
   },
   "src/routes/javascript-modules/index.md": {
-    "file": "pages/javascript-modules/index.md-5aa28bd4.js",
+    "file": "pages/javascript-modules/index.md-c3c7f3f3.js",
     "src": "src/routes/javascript-modules/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1275,7 +1275,7 @@
     ]
   },
   "src/routes/uglify-ascii-only/index.md": {
-    "file": "pages/uglify-ascii-only/index.md-9a8715b1.js",
+    "file": "pages/uglify-ascii-only/index.md-aaf2d57e.js",
     "src": "src/routes/uglify-ascii-only/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1341,7 +1341,7 @@
     ]
   },
   "src/routes/git-gudder/index.md": {
-    "file": "pages/git-gudder/index.md-503262ef.js",
+    "file": "pages/git-gudder/index.md-c2622b44.js",
     "src": "src/routes/git-gudder/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1393,7 +1393,7 @@
       "_vendor-9710682b.js"
     ],
     "css": [
-      "assets/pages/tags/index.svelte-86af5cd7.css"
+      "assets/pages/series/index.svelte-7c0d0136.css"
     ]
   },
   "src/routes/series/[name].svelte": {
@@ -1780,7 +1780,7 @@
     ]
   },
   "src/routes/notes/svelte-summit-2020-summary/index.md": {
-    "file": "pages/notes/svelte-summit-2020-summary/index.md-8a6d9787.js",
+    "file": "pages/notes/svelte-summit-2020-summary/index.md-548f874b.js",
     "src": "src/routes/notes/svelte-summit-2020-summary/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1892,7 +1892,7 @@
     ]
   },
   "src/routes/notes/css-podcast-019-z-index.md": {
-    "file": "pages/notes/css-podcast-019-z-index.md-79be9d28.js",
+    "file": "pages/notes/css-podcast-019-z-index.md-51b99cd6.js",
     "src": "src/routes/notes/css-podcast-019-z-index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1908,7 +1908,7 @@
     ]
   },
   "src/routes/notes/css-podcast-023-filters.md": {
-    "file": "pages/notes/css-podcast-023-filters.md-e822b724.js",
+    "file": "pages/notes/css-podcast-023-filters.md-13bd373d.js",
     "src": "src/routes/notes/css-podcast-023-filters.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -2101,7 +2101,7 @@
     ]
   },
   "src/routes/notes/svelte-with-prism/index.md": {
-    "file": "pages/notes/svelte-with-prism/index.md-fbba0f36.js",
+    "file": "pages/notes/svelte-with-prism/index.md-20e510d5.js",
     "src": "src/routes/notes/svelte-with-prism/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -2343,7 +2343,7 @@
     ]
   },
   "src/routes/notes/svg-filters/index.md": {
-    "file": "pages/notes/svg-filters/index.md-b0e0effc.js",
+    "file": "pages/notes/svg-filters/index.md-d9dbabd6.js",
     "src": "src/routes/notes/svg-filters/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -2535,7 +2535,7 @@
       "_vendor-9710682b.js"
     ],
     "css": [
-      "assets/pages/tags/index.svelte-86af5cd7.css"
+      "assets/pages/series/index.svelte-7c0d0136.css"
     ]
   },
   "src/routes/tags/[name].svelte": {
