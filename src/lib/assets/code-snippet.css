@@ -199,6 +199,26 @@ pre .line.deleted {
 	z-index: 100;
 }
 
+.twoslash .popover {
+	margin-bottom: 10px;
+	border: 1px solid var(--shiki-color-text);
+	display: inline-block;
+	padding: 0 0.5rem 0.3rem;
+	margin-top: 10px;
+	border-radius: 3px;
+}
+.twoslash .arrow {
+	background-color: var(--shiki-color-background);
+	position: relative;
+	top: -7px;
+	margin-left: 0.1rem;
+	border-left: 1px solid var(--shiki-color-text);
+	border-top: 1px solid var(--shiki-color-text);
+	transform: translateY(25%) rotate(45deg);
+	height: 8px;
+	width: 8px;
+}
+
 /* ------------------------------------------------ */
 /* -------------- end of twoslash ----------------- */
 

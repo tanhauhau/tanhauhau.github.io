@@ -5,12 +5,14 @@
 
 	import * as copyable from '$lib/code-snippet/copyable';
 	import { getContext } from 'svelte';
-	import WebMentions from './WebMentions.svelte';
+	import WebMentions from '$lib/WebMentions.svelte';
+	import RemarkTableOfContent from '$lib/TableOfContent.svelte';
 
 	export let title = '';
 	export let description = '';
 	export let tags = [];
 	export let series;
+	export let tableOfContents;
 
 	$: url = `https://lihautan.com${$page.url.pathname}`;
 
@@ -54,6 +56,7 @@
 {/each}
 
 <article class="blog">
+	{#if tableOfContents}<RemarkTableOfContent {tableOfContents} />{/if}
 	<slot />
 </article>
 

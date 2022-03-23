@@ -1,8 +1,27 @@
 <script>
+	import { setContext } from 'svelte';
 	import CarbonAd from '$lib/CarbonAd.svelte';
 	import { page } from '$app/stores';
 	import Links from '$lib/Links.svelte';
+	import Sidebar from '$lib/Sidebar.svelte';
+	import { navigating } from '$app/stores';
+	import PreloadingIndicator from '$lib/PreloadingIndicator.svelte';
+
+	let tableOfContents = [];
+
+	setContext('toc', {
+		set(toc) {
+			tableOfContents = toc;
+		},
+		reset() {
+			tableOfContents = [];
+		}
+	});
 </script>
+
+{#if $navigating}
+	<PreloadingIndicator />
+{/if}
 
 {#if $page.url.pathname !== '/'}
 	<a href="#content" class="skip">Skip to content</a>
@@ -12,6 +31,8 @@
 			<Links mode="sidebar" />
 		</nav>
 	</header>
+
+	<Sidebar {tableOfContents} />
 {/if}
 
 <main id="content">
@@ -43,7 +64,12 @@
 		font-family: 'Lato', sans-serif;
 		font-weight: 400;
 		font-size: 19px;
-		background: linear-gradient(0deg, transparent, #bd93f917, transparent);
+		background: linear-gradient(
+			0deg,
+			var(--background-color-1),
+			var(--background-color-2),
+			var(--background-color-1)
+		);
 	}
 
 	:global(html),
@@ -61,6 +87,9 @@
 		--easing: 200ms ease-in-out;
 		--primary-color: #bd93f9;
 		--secondary-color: #9547b7;
+		--background-color-1: white;
+		--background-color-2: #bd93f917;
+		--header-link-color: #4e1e86;
 	}
 
 	.skip {

@@ -4,11 +4,11 @@
 
 <ul class="mode-{mode}">
 	{#if mode !== 'home'}<li><a href="/">Tan Li Hau</a></li>{/if}
-	<li><a href="/about">About</a></li>
-	<li><a href="/blogs">Writings</a></li>
-	<li><a href="/talks">Talks</a></li>
-	<li><a href="/notes">Notes</a></li>
-	<li><a href="/newsletter">Newsletter</a></li>
+	<li class="desktop"><a sveltekit:prefetch href="/about">About</a></li>
+	<li class="desktop"><a sveltekit:prefetch href="/blogs">Writings</a></li>
+	<li class="desktop"><a sveltekit:prefetch href="/talks">Talks</a></li>
+	<li class="desktop"><a sveltekit:prefetch href="/notes">Notes</a></li>
+	<li class="desktop"><a sveltekit:prefetch href="/newsletter">Newsletter</a></li>
 	<li class="social">
 		<a aria-label="Twitter account" href="https://twitter.com/lihautan">
 			<svg viewBox="0 0 24 24" width="1em" height="1em">
@@ -80,6 +80,7 @@
 		display: inline-block;
 		transition: 100ms ease;
 		font-weight: 500;
+		color: var(--header-link-color);
 	}
 
 	ul:global(.mode-sidebar) .social {
@@ -95,6 +96,16 @@
 		}
 		ul:global(.mode-sidebar) .social {
 			margin-top: 0;
+		}
+	}
+	@media only screen and (max-width: 769px) {
+		ul:global(.mode-sidebar) .desktop {
+			display: none;
+		}
+	}
+	@media only screen and (max-width: 425px) {
+		ul:global(.mode-sidebar) .social {
+			display: none;
 		}
 	}
 </style>

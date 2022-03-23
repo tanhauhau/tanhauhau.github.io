@@ -2,7 +2,8 @@
 	import { page } from '$app/stores';
 	import '$lib/assets/blog-base.css';
 	import '$lib/assets/code-snippet.css';
-	import WebMentions from './WebMentions.svelte';
+	import WebMentions from '$lib/WebMentions.svelte';
+	import RemarkTableOfContent from '$lib/TableOfContent.svelte';
 
 	import * as copyable from '$lib/code-snippet/copyable';
 
@@ -14,6 +15,7 @@
 	export let occasion;
 	export let occasionLink;
 	export let videoLink;
+	export let tableOfContents;
 
 	const { image = '' } = getContext('blog') || {};
 
@@ -100,6 +102,7 @@
 {/if}
 
 <article class="blog">
+	{#if tableOfContents}<RemarkTableOfContent {tableOfContents} />{/if}
 	<slot />
 </article>
 

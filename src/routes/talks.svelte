@@ -18,7 +18,7 @@
   <ul>
   {#each talks as { title, description = "", tags, url } (url)}
     <li>
-      <a href="{url}">
+      <a sveltekit:prefetch href="{url}">
         <p class="title">{title}</p>
         <p>{description}</p>
         {#if tags}<p>{#each tags as tag}<span>{tag}</span>{/each}</p>{/if}

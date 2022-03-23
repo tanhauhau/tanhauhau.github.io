@@ -1,10 +1,19 @@
 <script>
-	export let data;
+	import { getContext, onDestroy } from 'svelte';
+
+	export let tableOfContents;
+	const toc = getContext('toc');
+
+	$: toc.set(tableOfContents);
+
+	onDestroy(() => {
+		toc.reset();
+	});
 </script>
 
 <section role="navigation" aria-label="Table of Contents">
 	<ol>
-		{#each data as { link, title, nested: n1 }}
+		{#each tableOfContents as { link, title, nested: n1 }}
 			<li>
 				<a href="#{link}">{title}</a>
 				{#if n1}
@@ -74,5 +83,11 @@
 		box-shadow: var(--box-shadow);
 		padding: 1.6em 2.6em 1.6em 1.1em;
 		margin: 1em 0;
+	}
+
+	@media only screen and (max-width: 769px) {
+		section {
+			display: none;
+		}
 	}
 </style>

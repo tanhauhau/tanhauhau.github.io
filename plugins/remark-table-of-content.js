@@ -49,12 +49,8 @@ export default function tableOfContents(options) {
 		}
 
 		if (titles.length) {
-			data.scripts = data.scripts ?? [];
-			data.scripts.push(`import RemarkTableOfContent from '$lib/TableOfContent.svelte';`);
-			tree.children.splice(tree.children[0].type === 'yaml' ? 1 : 0, 0, {
-				type: 'html',
-				value: `<RemarkTableOfContent data={${JSON.stringify(toData(titles))}} />`
-			});
+			data.fm = data.fm ?? {};
+			data.fm.tableOfContents = toData(titles);
 		}
 	};
 }
