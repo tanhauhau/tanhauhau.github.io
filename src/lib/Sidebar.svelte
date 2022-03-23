@@ -160,7 +160,10 @@
 		left: 0;
 		max-width: 85vw;
 		width: 600px;
-		height: 100vh;
+		height: 100%;
+		height: -moz-available; /* WebKit-based browsers will ignore this. */
+		height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+		height: fill-available;
 		background-color: var(--background-color-1);
 		z-index: 1;
 		padding-top: 16px;
@@ -201,18 +204,18 @@
 	}
 	.toc {
 		text-align: center;
-    margin-bottom: 16px;
+		margin-bottom: 16px;
 	}
-  ol li:nth-child(n + 2),
+	ol li:nth-child(n + 2),
 	ol ol li {
 		margin-top: 8px;
 	}
-  ol li:nth-child(n + 2) a,
+	ol li:nth-child(n + 2) a,
 	ol ol li a {
 		padding-top: 8px;
 	}
 
-  ol {
+	ol {
 		margin: 0;
 		padding-left: 1.5em;
 		list-style: disc;
