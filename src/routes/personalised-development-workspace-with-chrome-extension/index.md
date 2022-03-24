@@ -4,7 +4,6 @@ venue: Google Singapore
 venueLink: https://www.google.com/maps/place/Google+Singapore/@1.2763254,103.7972592,17z/data=!3m1!4b1!4m5!3m4!1s0x31da1911f12998e9:0x43e454b88753032a!8m2!3d1.2763254!4d103.7994479
 occasion: Chrome Developer Summit Extended (Cancelled)
 occasionLink: 'https://www.meetup.com/en-AU/gdg-singapore/events/267717354/'
-video: ''
 date: '2020-02-08'
 description: 'In this talk, I will be exploring how you can develop your Chrome extension, and how you can use it to improve your development workflow'
 label: talk

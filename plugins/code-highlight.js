@@ -61,7 +61,7 @@ export default async function highlight(code, lang, meta) {
 	code = parseSpecialComments(code, options);
 
 	let originalCode = code;
-	addIncludesIfMatchMeta(meta, code);
+	if (addIncludesIfMatchMeta(meta, code, options)) return '';
 
 	if (options.cutLines > 0) {
 		const cutCode = code.split('\n').slice(options.cutLines).join('\n');
@@ -103,7 +103,7 @@ export default async function highlight(code, lang, meta) {
 	}
 
 	let html;
-	if ((lang === 'js' || lang === 'ts') && options.twoslash) {
+	if ((lang === 'js' || lang === 'ts' || lang === 'tsx' || lang === 'jsx') && options.twoslash) {
 		const twoSlash = runTwoSlash(code, lang, {
 			defaultCompilerOptions: {
 				allowJs: true,
@@ -115,7 +115,7 @@ export default async function highlight(code, lang, meta) {
 			}
 		});
 		const highlighter = await createShikiHighlighter({ theme: 'css-variables' });
-		html = renderCodeToHTML(twoSlash.code, 'ts', options, {}, highlighter, twoSlash);
+		html = renderCodeToHTML(twoSlash.code, lang, options, {}, highlighter, twoSlash);
 	} else if (SHIKI_BUNDLED_LANGUAGE.has(lang)) {
 		const highlighter = await getShikiHighlighter(lang);
 		html = highlighter.codeToHtml(code, options);
@@ -223,10 +223,15 @@ function escapeHtml(string) {
 
 // includes system
 // copied from https://github.com/shikijs/twoslash/blob/main/packages/remark-shiki-twoslash/src/includes.ts
-function addIncludesIfMatchMeta(meta, code) {
+function addIncludesIfMatchMeta(meta, code, options) {
 	let match = meta.match(/(?:^|\s)include (.+)$/);
 	if (match) {
 		addIncludes(includes, match[1], code);
+		return true;
+	}
+	if (typeof options?.include === 'string') {
+		addIncludes(includes, options.include, code);
+		return true;
 	}
 }
 /**
@@ -431,7 +436,7 @@ function parseSpecialComments(code, options) {
 	if (cutLines > 0) {
 		options.cutLines = cutLines;
 	}
-	options.hidden = Array.from(jsDocRanges).map(line => line + 1 - cutLines);
+	options.hidden = Array.from(jsDocRanges).map((line) => line + 1 - cutLines);
 	return code;
 }
 

@@ -5,7 +5,7 @@ venueLink: https://www.google.com/maps/place/Shopee+SG/@1.291278,103.7846628,15z
 occasion: React Knowledgeable Week 25
 occasionLink: 'https://github.com/Shopee/react-knowledgeable/issues/89'
 slides: https://slides.com/tanhauhau/js-module
-video: https://www.youtube.com/watch?v=iRSdPqIHOqg
+videoLink: https://www.youtube.com/watch?v=iRSdPqIHOqg
 date: '2019-04-12'
 series: History of Web Development
 label: talk

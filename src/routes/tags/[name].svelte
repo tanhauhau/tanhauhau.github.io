@@ -14,7 +14,7 @@
 </script>
 
 <main class="items">
-	<h1>{tag}</h1>
+	<h1>Tag: {tag}</h1>
 	<ul>
 		{#each items as { title, description = "", tags, url } (url)}
 			<li>

@@ -2,20 +2,25 @@
 	import { page } from '$app/stores';
 	import '$lib/assets/blog-base.css';
 	import '$lib/assets/code-snippet.css';
-	import WebMentions from '$lib/WebMentions.svelte';
-	import RemarkTableOfContent from '$lib/TableOfContent.svelte';
 
 	import * as copyable from '$lib/code-snippet/copyable';
-
-	import ldJsonScript from '$lib/seo/ldjson';
 	import { getContext } from 'svelte';
+	import WebMentions from '$lib/WebMentions.svelte';
+	import RemarkTableOfContent from '$lib/TableOfContent.svelte';
+	import { formatDate } from '$lib/utils/date';
+	import ldJsonScript from '$lib/seo/ldjson';
+
 	export let title = '';
 	export let description = '';
 	export let tags = [];
 	export let occasion;
 	export let occasionLink;
 	export let videoLink;
+	export let venue;
+	export let venueLink;
 	export let tableOfContents;
+	export let date;
+	export let lastUpdated;
 
 	const { image = '' } = getContext('blog') || {};
 
@@ -27,6 +32,9 @@
 	copyable.init();
 
 	$: url = `https://lihautan.com${$page.url.pathname}`;
+	$: dateString =
+		(date ? formatDate(date) : '') +
+		(lastUpdated && lastUpdated !== date ? ` (Last updated ${formatDate(lastUpdated)})` : '');
 </script>
 
 <svelte:head>
@@ -57,7 +65,7 @@
 		'@type': 'Article',
 		author: jsonLdAuthor,
 		copyrightHolder: jsonLdAuthor,
-		copyrightYear: '2020',
+		copyrightYear: '2022',
 		creator: jsonLdAuthor,
 		publisher: jsonLdAuthor,
 		description,
@@ -90,25 +98,47 @@
 
 <h1>{title}</h1>
 
+<ul>
+	<li><span class="icon">🗓</span>{dateString}</li>
+	{#if occasion && occasionLink}
+		<li>
+			<span class="icon">👥</span><a href={occasionLink}>{occasion}</a>
+		</li>
+	{/if}
+	{#if venue}
+		<li class="venue">
+			<span class="icon">📍</span>{#if venueLink}<a href={venueLink}>{venue}</a>{:else}{venue}{/if}
+		</li>
+	{/if}
+	{#if videoLink}
+		<li class="video"><span class="icon">📹</span><a href={videoLink}>Video</a></li>
+	{/if}
+</ul>
+
 {#each tags as tag}
 	<a class="tag" href="/tags/{tag}">{tag}</a>
 {/each}
 
-{#if (occasion && occasionLink) || videoLink}
-	<div class="venue">
-		{#if occasion && occasionLink}Talk given at: <a href={occasionLink}>{occasion}</a
-			>{/if}{#if videoLink}<a href={videoLink}>(Video)</a>{/if}
-	</div>
-{/if}
+{#if tableOfContents}<RemarkTableOfContent {tableOfContents} />{/if}
 
 <article class="blog">
-	{#if tableOfContents}<RemarkTableOfContent {tableOfContents} />{/if}
 	<slot />
 </article>
 
 <WebMentions link={url} />
 
 <style>
+	li {
+		margin-bottom: 0.2em;
+	}
+	ul {
+		list-style: none;
+		padding-left: 0;
+	}
+	.icon {
+		margin-right: 0.4em;
+	}
+
 	.tag {
 		padding: 4px 8px;
 		margin-right: 12px;
@@ -126,11 +156,5 @@
 	.tag:hover {
 		transform: translate(-2px, -2px);
 		box-shadow: 5px 5px var(--secondary-color);
-	}
-	.venue {
-		margin-top: 16px;
-	}
-	.venue a + a {
-		margin-left: 4px;
 	}
 </style>

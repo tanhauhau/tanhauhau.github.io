@@ -7,7 +7,7 @@ venueLink: https://www.google.com/maps/place/Shopee+SG/@1.291278,103.7846628,15z
 date: "2019-03-27"
 description: "The motivation of CSS splitting arises when we try to split our CSS styles and lazily load the styles only when we actually need them. CSS code splitting is one of our many efforts where we constantly improve the performance of the application."
 slides: https://slides.com/tanhauhau/css-code-splitting
-video: https://www.engineers.sg/video/css-code-splitting-talk-css--3273
+videoLink: https://www.engineers.sg/video/css-code-splitting-talk-css--3273
 label: talk
 layout: talk
 ---
