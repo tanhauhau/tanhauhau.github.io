@@ -1,2 +1,0 @@
-import{ar as i}from"./vendor-9710682b.js";function g(r,{code:t,lang:a}){return e(r,t,a),{update({code:s,lang:n}){e(r,s,n)}}}function e(r,t,a){t=t.trim();let s=i.highlight(t,a);s=s.split(`
-`).map(n=>n.replace(/^(\s+)/,(m,l)=>'<span class="tab"></span>'.repeat(l.length/2))).join("<br />"),r.innerHTML=s}function p(r){return function(a,s){return e(a,s,r),{update(n){e(a,n,r)}}}}p(i.languages.html);const c=p(i.languages.javascript),o=p(i.languages.svelte);export{c as a,g as b,o as p};
