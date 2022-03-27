@@ -30,6 +30,7 @@
 		"fs-extra": "^10.0.1",
 		"image-size": "^1.0.1",
 		"mdsvex": "^0.9.8",
+		"memoizee": "^0.4.15",
 		"patch-package": "^6.4.7",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",

@@ -11,8 +11,8 @@
 	margin-bottom: var(--margin);
 	line-height: var(--margin);
 }
-.blog pre + p,
-.blog pre + blockquote,
+.blog .code-section + p,
+.blog .code-section + blockquote,
 .blog table + p {
 	margin-top: var(--margin);
 }

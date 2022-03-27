@@ -71,6 +71,7 @@ pre::-webkit-scrollbar-thumb {
 	white-space: pre;
 	display: inline-block;
 	min-width: 100%;
+	position: relative;
 }
 
 /* Inline code */
@@ -239,22 +240,31 @@ pre .line.deleted {
 .twoslash .error {
 	position: absolute;
 	background-color: #fee;
-	border-left: 2px solid #bf1818;
 	display: flex;
 	align-items: center;
 	color: #000;
 }
+.twoslash .error::before {
+	content: ' ';
+	position: absolute;
+	left: calc(-1 * var(--prism-padding));
+	width: var(--prism-padding);
+	box-sizing: border-box;
+	border-left: 4px solid #bf1818;
+	background-color: #fee;
+	/* need to stretch a bit for the additional padding introduced by .highlight */
+	height: 100%;
+	top: 0;
+}
 
 .twoslash .error,
 .twoslash .error-behind {
-	margin-left: -14px;
-	margin-top: 8px;
-	margin-bottom: 4px;
-	padding: 6px 6px 6px 14px;
-	width: calc(100% - 19px);
 	white-space: pre-wrap;
-	display: block;
-	box-sizing: border-box;
+	display: inline-block;
+	min-width: 100%;
+	box-sizing: content-box;
+	padding: 6px calc(var(--prism-padding) / 2) 6px 0;
+	margin-top: 4px;
 }
 
 .twoslash .error-behind {
@@ -282,8 +292,12 @@ pre .line.deleted {
 	color: white;
 	top: 0;
 	right: 0;
+	height: 1.21em;
 	cursor: pointer;
 	padding: var(--prism-padding, 1em);
+	z-index: 1;
+	display: flex;
+	align-items: center;
 }
 .code-section .filename + .copy {
 	padding: var(--filename-padding) var(--prism-padding, 1em);
@@ -292,7 +306,7 @@ pre .line.deleted {
 .code-section .copy:hover:before {
 	content: 'Copy';
 	position: absolute;
-	transform: translateY(1rem);
+	transform: translateY(1.5rem);
 	background-color: #3f3f3f;
 	right: 0;
 	color: #fff;

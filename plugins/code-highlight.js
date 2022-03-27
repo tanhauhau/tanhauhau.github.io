@@ -14,6 +14,7 @@ import 'prismjs/components/prism-diff.js';
 import 'prismjs/plugins/diff-highlight/prism-diff-highlight.js';
 import { createShikiHighlighter, renderCodeToHTML, runTwoSlash } from 'shiki-twoslash';
 import * as shiki from 'shiki';
+import memoizee from 'memoizee';
 
 Prism.languages['diff-js'] = Prism.languages['diff'];
 Prism.languages['diff-svelte'] = Prism.languages['diff'];
@@ -35,7 +36,7 @@ SHIKI_BUNDLED_LANGUAGE.delete('svelte');
  * @param {string} lang
  * @returns {string}
  */
-export default async function highlight(code, lang, meta) {
+async function highlight(code, lang, meta) {
 	lang = lang ?? '';
 	meta = meta ?? '';
 	if (lang === 'twoslash') {
@@ -100,6 +101,14 @@ export default async function highlight(code, lang, meta) {
 
 	if (options.twoslash) {
 		code = replaceIncludesInCode(includes, code);
+		originalCode = originalCode
+			.split('\n')
+			.map((line) => {
+				if (/^\/\/\s*\^\?/.test(line)) return TO_REMOVE_LINE;
+				return line;
+			})
+			.filter((line) => line !== TO_REMOVE_LINE)
+			.join('\n');
 	}
 
 	let html;
@@ -134,11 +143,11 @@ export default async function highlight(code, lang, meta) {
 
 	const extras = [];
 	if (options.filename) {
-		extras.push(`<div class="filename">${options.filename}</div>`);
+		extras.push(`<div class="filename">${escapeHtml(options.filename)}</div>`);
 	}
 	if (options.copy) {
 		extras.push(
-			`<div class="copy" data-copy="${originalCode}"><svg viewBox="64 64 896 896" focusable="false" data-icon="copy" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"></path></svg></div>`
+			`<div class="copy" data-copy="${escapeHtml(originalCode)}"><svg viewBox="64 64 896 896" focusable="false" data-icon="copy" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"></path></svg></div>`
 		);
 	}
 
@@ -225,12 +234,12 @@ function escapeHtml(string) {
 // copied from https://github.com/shikijs/twoslash/blob/main/packages/remark-shiki-twoslash/src/includes.ts
 function addIncludesIfMatchMeta(meta, code, options) {
 	let match = meta.match(/(?:^|\s)include (.+)$/);
-	if (match) {
-		addIncludes(includes, match[1], code);
-		return true;
-	}
-	if (typeof options?.include === 'string') {
-		addIncludes(includes, options.include, code);
+	const include =
+		match?.[1] ?? (typeof options?.include === 'string' ? options.include : undefined);
+
+	if (include) {
+		addIncludes(includes, include, code);
+		memoized.clear();
 		return true;
 	}
 }
@@ -475,3 +484,6 @@ function getShikiHighlighter(lang) {
 	}
 	return shikiCache.get(lang);
 }
+
+const memoized = memoizee(highlight, { promise: true });
+export default memoized;
