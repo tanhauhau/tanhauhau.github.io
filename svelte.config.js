@@ -57,6 +57,9 @@ const config = {
 			entries: ['*', '/rss.xml', '/series', '/tags'],
 			crawl: true
 		},
+		paths: {
+			assets: 'https://lihautan.com'
+		},
 		routes: (filepath) => !/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known)|(\/_\/))/.test(filepath),
 		vite: {
 			plugins: [
