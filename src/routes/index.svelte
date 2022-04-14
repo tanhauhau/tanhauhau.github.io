@@ -35,7 +35,7 @@
 			<img src={profilePic} alt="Tan Li Hau" width="230" height="230" />
 		</picture>
 	</div>
-	<h1>Tan Li Hau</h1>
+	<h1>Tan Li Hau <span>陈立豪</span></h1>
 	<h2>
 		Frontend Developer at <a
 			href="https://www.linkedin.com/company/shopee/"
@@ -71,5 +71,9 @@
 
 	h2 {
 		margin-bottom: var(--margin);
+	}
+	span {
+		font-family: 'Noto Sans SC', sans-serif;
+		font-size: 0.9em;
 	}
 </style>
