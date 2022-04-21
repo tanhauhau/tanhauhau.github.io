@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge" />
-  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://twitter.com/lihautan" rel="me" />
-  	<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="manifest" href="/manifest.webmanifest" />
 		<meta name="theme-color" content="#bd93f9" />
 		<link rel="apple-touch-icon" sizes="48x48" href="/icon-48x48.png" />
 		<link rel="apple-touch-icon" sizes="72x72" href="/icon-72x72.png" />
@@ -27,12 +27,23 @@
 		<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 		<link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
 		<link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6Y89Q69VY"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-Z6Y89Q69VY');
+		</script>
 		<meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/vendor-cb7fd1e3.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/pages/__layout.svelte-b5830581.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/Links-79a96fb3.css">
-	<link rel="stylesheet" href="https://lihautan.com/_app/assets/pages/series/_name_.svelte-d814dc0d.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-d3db8563.js">
+	<link rel="stylesheet" href="https://lihautan.com/_app/assets/pages/tags/_name_.svelte-bf2b9065.css">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-61439942.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
@@ -88,7 +99,7 @@
 
 
 		<script type="module" data-hydrate="1pu85rf">
-		import { start } from "https://lihautan.com/_app/start-d3db8563.js";
+		import { start } from "https://lihautan.com/_app/start-61439942.js";
 		start({
 			target: document.querySelector('[data-hydrate="1pu85rf"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
@@ -107,6 +118,5 @@
 			}
 		});
 	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/api/tags/dev tool.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"[{\"title\":\"I wrote my module bundler II\",\"date\":\"2019-10-16T08:00:00Z\",\"tags\":[\"JavaScript\",\"module bundler\",\"dev tool\",\"webpack\"],\"description\":\"We've built a simple bundler to bundle javascript code. Let's add CSS, HTML and serve it in the browser!\",\"series\":\"Write a module bundler\",\"label\":\"blog\",\"url\":\"/i-wrote-my-module-bundler-ii-for-the-web/\"},{\"title\":\"I wrote my module bundler\",\"date\":\"2019-09-18T08:00:00Z\",\"tags\":[\"JavaScript\",\"module bundler\",\"dev tool\",\"webpack\"],\"description\":\"In my previous article, I explained how module bundler works. In this article, I am going to show you how I wrote my module bundler...\",\"series\":\"Write a module bundler\",\"label\":\"blog\",\"url\":\"/i-wrote-my-module-bundler/\"},{\"title\":\"What is module bundler and how does it work?\",\"date\":\"2019-08-30T08:00:00Z\",\"lastUpdated\":\"2019-08-30T15:05:00Z\",\"description\":\"understand how module bundler works\",\"tags\":[\"JavaScript\",\"module bundler\",\"dev tool\",\"webpack\"],\"series\":\"Write a module bundler\",\"label\":\"blog\",\"url\":\"/what-is-module-bundler-and-how-does-it-work/\"}]"}</script></div>
-		<script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); if (typeof ga === "function") { ga('create', 'UA-135921142-1', 'auto', {}); }</script>
 	</body>
 </html>
