@@ -16,7 +16,7 @@
 	<h1>Tags</h1>
 	<ul>
 		{#each tags as tag (tag)}
-			<li><a href="/tags/{tag}">{tag}</a></li>
+			<li><a href="/tags/{tag}/">{tag}</a></li>
 		{/each}
 	</ul>
 </main>

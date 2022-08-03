@@ -98,11 +98,11 @@
 <div class="date">{dateString}</div>
 
 {#if series}
-	<a class="tag series" href="/series/{series}">Series: {series}</a>
+	<a class="tag series" href="/series/{series}/">Series: {series}</a>
 {/if}
 
 {#each tags as tag}
-	<a class="tag" href="/tags/{tag}">{tag}</a>
+	<a class="tag" href="/tags/{tag}/">{tag}</a>
 {/each}
 
 {#if tableOfContents}<RemarkTableOfContent {tableOfContents} />{/if}

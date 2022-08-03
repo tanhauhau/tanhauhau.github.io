@@ -116,7 +116,7 @@
 </ul>
 
 {#each tags as tag}
-	<a class="tag" href="/tags/{tag}">{tag}</a>
+	<a class="tag" href="/tags/{tag}/">{tag}</a>
 {/each}
 
 {#if tableOfContents}<RemarkTableOfContent {tableOfContents} />{/if}
