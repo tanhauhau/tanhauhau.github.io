@@ -1,8 +1,7 @@
 ---
+title: 'About Tan Li Hau'
 toc: false
 ---
-
-# About Tan Li Hau
 
 ## Fun Facts ✌️
 
@@ -11,6 +10,12 @@ toc: false
 3. 🗣 I speak multiple languages: Chinese, English, [Malay](https://en.wikipedia.org/wiki/Malay_language) and [Hokkien](https://en.wikipedia.org/wiki/Hokkien)
 4. 💻 I am a core maintainer of [Svelte](https://github.com/sveltejs/svelte). _You can [watch me fixing Svelte issues on YouTube](https://www.youtube.com/playlist?list=PLoKaNN3BjQX06FAR__iQoM_oglmNd7wav)!_
 5. 🎹 I play piano and played [pipa](https://en.wikipedia.org/wiki/Pipa) in a Chinese Orchestra during highschool.
+
+<script>
+  import RichResult from './_RichResult.svelte';
+</script>
+
+<RichResult />
 
 <style>
   ol {

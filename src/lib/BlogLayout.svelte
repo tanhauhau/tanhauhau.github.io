@@ -27,7 +27,8 @@
 
 	const jsonLdAuthor = {
 		['@type']: 'Person',
-		name: 'Tan Li Hau'
+		name: 'Tan Li Hau',
+		url: 'https://lihautan.com/about/'
 	};
 
 	copyable.init();
