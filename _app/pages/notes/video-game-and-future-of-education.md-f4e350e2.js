@@ -1,0 +1,14 @@
+import{S as F,i as G,s as H,C as B,w as L,x as Y,y as D,z as I,A as j,q as J,o as K,B as M,r as N,Y as z,e as _,t as d,k as w,c as g,a as v,h as b,d as s,m as $,g as c,H as y}from"../../chunks/vendor-da4388d4.js";import{B as O}from"../../chunks/BlogLayout-14cfab6f.js";import{_ as Q}from"../../chunks/twitter-card-image-a57df29d.js";import"../../chunks/stores-1fad7c36.js";import"../../chunks/ldjson-b0805387.js";/* empty css                                */function R(f){let t,n,r,l,a,i,u,k,h,m,E,x,p,P;return{c(){t=_("p"),n=d("language is not strictly superior"),r=w(),l=_("p"),a=d(`mimicry is effective sometimes, language is effective sometimes
+a fusion is superior to either alone`),i=w(),u=_("p"),k=d(`when you have language,
+starts to be able to describe very hypothetical situation, -> stories
+stories can be educational`),h=w(),m=_("p"),E=d(`spoken language -> written language
+can be recorded, text can be kept unchanging -> law
+text allow us to express exact, specific ideas,`),x=w(),p=_("p"),P=d("the same knowledge at the core, but learning and practice become a different flavour")},l(e){t=g(e,"P",{});var o=v(t);n=b(o,"language is not strictly superior"),o.forEach(s),r=$(e),l=g(e,"P",{});var C=v(l);a=b(C,`mimicry is effective sometimes, language is effective sometimes
+a fusion is superior to either alone`),C.forEach(s),i=$(e),u=g(e,"P",{});var q=v(u);k=b(q,`when you have language,
+starts to be able to describe very hypothetical situation, -> stories
+stories can be educational`),q.forEach(s),h=$(e),m=g(e,"P",{});var S=v(m);E=b(S,`spoken language -> written language
+can be recorded, text can be kept unchanging -> law
+text allow us to express exact, specific ideas,`),S.forEach(s),x=$(e),p=g(e,"P",{});var V=v(p);P=b(V,"the same knowledge at the core, but learning and practice become a different flavour"),V.forEach(s)},m(e,o){c(e,t,o),y(t,n),c(e,r,o),c(e,l,o),y(l,a),c(e,i,o),c(e,u,o),y(u,k),c(e,h,o),c(e,m,o),y(m,E),c(e,x,o),c(e,p,o),y(p,P)},d(e){e&&s(t),e&&s(r),e&&s(l),e&&s(i),e&&s(u),e&&s(h),e&&s(m),e&&s(x),e&&s(p)}}}function T(f){let t,n;const r=[f[0],A];let l={$$slots:{default:[R]},$$scope:{ctx:f}};for(let a=0;a<r.length;a+=1)l=B(l,r[a]);return t=new O({props:l}),{c(){L(t.$$.fragment)},l(a){Y(t.$$.fragment,a)},m(a,i){D(t,a,i),n=!0},p(a,[i]){const u=i&1?I(r,[i&1&&j(a[0]),i&0&&j(A)]):{};i&2&&(u.$$scope={dirty:i,ctx:a}),t.$set(u)},i(a){n||(J(t.$$.fragment,a),n=!0)},o(a){K(t.$$.fragment,a),n=!1},d(a){M(t,a)}}}const A={title:"Video Game and the Future of Education",description:`language is not strictly superiormimicry is effective sometimes, language is effective sometimes
+a fusion is superior to either alonewhen you have language,
+starts to be able to describe very hypothetical situation, -> stories
+stories can be educational...`};function U(f,t,n){return N("blog",{image:Q}),f.$$set=r=>{n(0,t=B(B({},t),z(r)))},t=z(t),[t]}class se extends F{constructor(t){super();G(this,t,U,T,H,{})}}export{se as default,A as metadata};
