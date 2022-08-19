@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-4a79b183.js",
+    "file": "start-99fe4979.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -199,7 +199,7 @@
     ]
   },
   "src/routes/extract-parameters-type-from-string-literal-types-with-typescript/index.md": {
-    "file": "pages/extract-parameters-type-from-string-literal-types-with-typescript/index.md-d57bf563.js",
+    "file": "pages/extract-parameters-type-from-string-literal-types-with-typescript/index.md-bdc5e7d4.js",
     "src": "src/routes/extract-parameters-type-from-string-literal-types-with-typescript/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -231,7 +231,7 @@
     ]
   },
   "src/routes/personalised-development-workspace-with-chrome-extension/index.md": {
-    "file": "pages/personalised-development-workspace-with-chrome-extension/index.md-4f075b25.js",
+    "file": "pages/personalised-development-workspace-with-chrome-extension/index.md-6cb94e39.js",
     "src": "src/routes/personalised-development-workspace-with-chrome-extension/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -249,7 +249,7 @@
     ]
   },
   "src/routes/step-by-step-guide-for-writing-a-babel-transformation/index.md": {
-    "file": "pages/step-by-step-guide-for-writing-a-babel-transformation/index.md-49cae39d.js",
+    "file": "pages/step-by-step-guide-for-writing-a-babel-transformation/index.md-7abc4269.js",
     "src": "src/routes/step-by-step-guide-for-writing-a-babel-transformation/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -317,7 +317,7 @@
     ]
   },
   "src/routes/eslint-for-flow-explicit-type-argument-syntax/index.md": {
-    "file": "pages/eslint-for-flow-explicit-type-argument-syntax/index.md-e3035ea2.js",
+    "file": "pages/eslint-for-flow-explicit-type-argument-syntax/index.md-cc46a3d7.js",
     "src": "src/routes/eslint-for-flow-explicit-type-argument-syntax/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -349,7 +349,7 @@
     ]
   },
   "src/routes/creating-custom-javascript-syntax-with-babel/index.md": {
-    "file": "pages/creating-custom-javascript-syntax-with-babel/index.md-fa1e7445.js",
+    "file": "pages/creating-custom-javascript-syntax-with-babel/index.md-d3d8b8c7.js",
     "src": "src/routes/creating-custom-javascript-syntax-with-babel/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -383,7 +383,7 @@
     ]
   },
   "src/routes/random-stuff-i-learned-from-browser-console/index.md": {
-    "file": "pages/random-stuff-i-learned-from-browser-console/index.md-e731ecd2.js",
+    "file": "pages/random-stuff-i-learned-from-browser-console/index.md-8a51aaae.js",
     "src": "src/routes/random-stuff-i-learned-from-browser-console/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -433,7 +433,7 @@
     ]
   },
   "src/routes/retry-async-function-with-callback-promise/index.md": {
-    "file": "pages/retry-async-function-with-callback-promise/index.md-0d0aa46a.js",
+    "file": "pages/retry-async-function-with-callback-promise/index.md-66ed807e.js",
     "src": "src/routes/retry-async-function-with-callback-promise/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -485,7 +485,7 @@
     ]
   },
   "src/routes/contributing-to-svelte-fixing-issue-5012/index.md": {
-    "file": "pages/contributing-to-svelte-fixing-issue-5012/index.md-a04351fb.js",
+    "file": "pages/contributing-to-svelte-fixing-issue-5012/index.md-0c4ddd9b.js",
     "src": "src/routes/contributing-to-svelte-fixing-issue-5012/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -520,7 +520,7 @@
     ]
   },
   "src/routes/debugging-build-failed-error-from-terser/index.md": {
-    "file": "pages/debugging-build-failed-error-from-terser/index.md-844e1343.js",
+    "file": "pages/debugging-build-failed-error-from-terser/index.md-7a36dc91.js",
     "src": "src/routes/debugging-build-failed-error-from-terser/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -538,7 +538,7 @@
     ]
   },
   "src/routes/i-wrote-my-module-bundler-ii-for-the-web/index.md": {
-    "file": "pages/i-wrote-my-module-bundler-ii-for-the-web/index.md-170ad12c.js",
+    "file": "pages/i-wrote-my-module-bundler-ii-for-the-web/index.md-59d668f7.js",
     "src": "src/routes/i-wrote-my-module-bundler-ii-for-the-web/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -556,7 +556,7 @@
     ]
   },
   "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md": {
-    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-11fe3fd5.js",
+    "file": "pages/5-steps-to-build-nodejs-using-travis-ci/index.md-1f657875.js",
     "src": "src/routes/5-steps-to-build-nodejs-using-travis-ci/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -652,7 +652,7 @@
     ]
   },
   "src/routes/building-a-simplified-webpack-clone/index.md": {
-    "file": "pages/building-a-simplified-webpack-clone/index.md-2238f05a.js",
+    "file": "pages/building-a-simplified-webpack-clone/index.md-60c85146.js",
     "src": "src/routes/building-a-simplified-webpack-clone/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -774,7 +774,7 @@
     ]
   },
   "src/routes/commit-went-missing-after-rebase/index.md": {
-    "file": "pages/commit-went-missing-after-rebase/index.md-0d8ec5af.js",
+    "file": "pages/commit-went-missing-after-rebase/index.md-5970903a.js",
     "src": "src/routes/commit-went-missing-after-rebase/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -808,7 +808,7 @@
     ]
   },
   "src/routes/manipulating-ast-with-javascript/index.md": {
-    "file": "pages/manipulating-ast-with-javascript/index.md-686ed7df.js",
+    "file": "pages/manipulating-ast-with-javascript/index.md-f7d69253.js",
     "src": "src/routes/manipulating-ast-with-javascript/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -826,7 +826,7 @@
     ]
   },
   "src/routes/short-stories-working-on-svelte/index.md": {
-    "file": "pages/short-stories-working-on-svelte/index.md-d96a51bc.js",
+    "file": "pages/short-stories-working-on-svelte/index.md-85c39bf5.js",
     "src": "src/routes/short-stories-working-on-svelte/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -908,7 +908,7 @@
     ]
   },
   "src/routes/the-svelte-compiler-handbook/index.md": {
-    "file": "pages/the-svelte-compiler-handbook/index.md-c2c29f5b.js",
+    "file": "pages/the-svelte-compiler-handbook/index.md-c8e5b295.js",
     "src": "src/routes/the-svelte-compiler-handbook/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -978,7 +978,7 @@
     ]
   },
   "src/routes/third-party-css-is-not-safe/index.md": {
-    "file": "pages/third-party-css-is-not-safe/index.md-599432b6.js",
+    "file": "pages/third-party-css-is-not-safe/index.md-1d376b7d.js",
     "src": "src/routes/third-party-css-is-not-safe/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -996,7 +996,7 @@
     ]
   },
   "src/routes/solving-nonogram-with-code/index.md": {
-    "file": "pages/solving-nonogram-with-code/index.md-15f7adac.js",
+    "file": "pages/solving-nonogram-with-code/index.md-fbd8695f.js",
     "src": "src/routes/solving-nonogram-with-code/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1014,7 +1014,7 @@
     ]
   },
   "src/routes/super-silly-hackathon-2019/index.md": {
-    "file": "pages/super-silly-hackathon-2019/index.md-4ab19188.js",
+    "file": "pages/super-silly-hackathon-2019/index.md-30d11cf8.js",
     "src": "src/routes/super-silly-hackathon-2019/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1098,7 +1098,7 @@
     ]
   },
   "src/routes/building-my-gatsby-site/index.md": {
-    "file": "pages/building-my-gatsby-site/index.md-312a962e.js",
+    "file": "pages/building-my-gatsby-site/index.md-0cc3ea09.js",
     "src": "src/routes/building-my-gatsby-site/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1146,7 +1146,7 @@
     ]
   },
   "src/routes/12-line-rollup-plugin/index.md": {
-    "file": "pages/12-line-rollup-plugin/index.md-227b7ff4.js",
+    "file": "pages/12-line-rollup-plugin/index.md-395eca00.js",
     "src": "src/routes/12-line-rollup-plugin/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1164,7 +1164,7 @@
     ]
   },
   "src/routes/Debugging web workers/index.md": {
-    "file": "pages/Debugging web workers/index.md-eaeb1c25.js",
+    "file": "pages/Debugging web workers/index.md-ed6e7fb3.js",
     "src": "src/routes/Debugging web workers/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1276,7 +1276,7 @@
     ]
   },
   "src/routes/javascript-modules/index.md": {
-    "file": "pages/javascript-modules/index.md-63f7722e.js",
+    "file": "pages/javascript-modules/index.md-f3d7f804.js",
     "src": "src/routes/javascript-modules/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1292,7 +1292,7 @@
     ]
   },
   "src/routes/uglify-ascii-only/index.md": {
-    "file": "pages/uglify-ascii-only/index.md-14da5879.js",
+    "file": "pages/uglify-ascii-only/index.md-7e075793.js",
     "src": "src/routes/uglify-ascii-only/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1358,7 +1358,7 @@
     ]
   },
   "src/routes/git-gudder/index.md": {
-    "file": "pages/git-gudder/index.md-65fba74e.js",
+    "file": "pages/git-gudder/index.md-720f7535.js",
     "src": "src/routes/git-gudder/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1422,7 +1422,7 @@
       "_vendor-da4388d4.js"
     ],
     "css": [
-      "assets/pages/series/_name_.svelte-d814dc0d.css"
+      "assets/pages/tags/_name_.svelte-bf2b9065.css"
     ]
   },
   "src/routes/slides/__layout.reset.svelte": {
@@ -1541,7 +1541,7 @@
       "_vendor-da4388d4.js"
     ],
     "css": [
-      "assets/pages/series/_name_.svelte-d814dc0d.css"
+      "assets/pages/tags/_name_.svelte-bf2b9065.css"
     ]
   },
   "src/routes/notes/index.svelte": {
@@ -1553,7 +1553,7 @@
       "_vendor-da4388d4.js"
     ],
     "css": [
-      "assets/pages/series/_name_.svelte-d814dc0d.css"
+      "assets/pages/tags/_name_.svelte-bf2b9065.css"
     ]
   },
   "src/routes/notes/css-podcast-026-houdini-series-properties-values.md": {
@@ -1653,7 +1653,7 @@
     ]
   },
   "src/routes/notes/solid-color-swipe-svelte-transition/index.md": {
-    "file": "pages/notes/solid-color-swipe-svelte-transition/index.md-724344db.js",
+    "file": "pages/notes/solid-color-swipe-svelte-transition/index.md-e08733c0.js",
     "src": "src/routes/notes/solid-color-swipe-svelte-transition/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1797,7 +1797,7 @@
     ]
   },
   "src/routes/notes/svelte-summit-2020-summary/index.md": {
-    "file": "pages/notes/svelte-summit-2020-summary/index.md-1adcd6ec.js",
+    "file": "pages/notes/svelte-summit-2020-summary/index.md-02b059a4.js",
     "src": "src/routes/notes/svelte-summit-2020-summary/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -1909,7 +1909,7 @@
     ]
   },
   "src/routes/notes/css-podcast-019-z-index.md": {
-    "file": "pages/notes/css-podcast-019-z-index.md-eb9be542.js",
+    "file": "pages/notes/css-podcast-019-z-index.md-a12c580d.js",
     "src": "src/routes/notes/css-podcast-019-z-index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -2118,7 +2118,7 @@
     ]
   },
   "src/routes/notes/svelte-with-prism/index.md": {
-    "file": "pages/notes/svelte-with-prism/index.md-1ce1cda7.js",
+    "file": "pages/notes/svelte-with-prism/index.md-8032a6c6.js",
     "src": "src/routes/notes/svelte-with-prism/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -2360,7 +2360,7 @@
     ]
   },
   "src/routes/notes/svg-filters/index.md": {
-    "file": "pages/notes/svg-filters/index.md-eefe504e.js",
+    "file": "pages/notes/svg-filters/index.md-9079df43.js",
     "src": "src/routes/notes/svg-filters/index.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -2564,7 +2564,7 @@
       "_vendor-da4388d4.js"
     ],
     "css": [
-      "assets/pages/series/_name_.svelte-d814dc0d.css"
+      "assets/pages/tags/_name_.svelte-bf2b9065.css"
     ]
   },
   "_vendor-da4388d4.js": {
