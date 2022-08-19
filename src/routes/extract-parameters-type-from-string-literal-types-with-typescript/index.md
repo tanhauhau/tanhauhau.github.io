@@ -863,3 +863,4 @@ function Route<Path extends string>({}: {
 	- [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
 - [String Literal Types in TypeScript](https://mariusschulz.com/blog/string-literal-types-in-typescript)
 - [Index Signatures in TypeScript](https://dmitripavlutin.com/typescript-index-signatures/)
+- [PR in DefinitelyTyped: infering route parameters using template literal types](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/51262)
