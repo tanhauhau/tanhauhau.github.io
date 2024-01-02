@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/notes/svg-filter-svelte-transition/index.md-04414db4.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/notes/svg-filter-svelte-transition/index.md-c5569bd2.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/twitter-card-image-a57df29d.js">
@@ -101,11 +101,11 @@
 </section>
 
 <article class="blog"><section><h2><a href="#the-result" id="the-result">The Result</a></h2>
-<p><span style="display: block; position: relative; padding-top: 61.571%; width: 100%;"><img src="https://lihautan.com/_app/assets/final-aeda1495.gif" srcset="https://lihautan.com/_app/assets/final-aeda1495.gif, https://lihautan.com/_app/assets/final-12c57f3e.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="the-result"></span></p></section>
+<p><span style="display: block; position: relative; padding-top: 61.571%; width: 100%;"><img src="https://lihautan.com/_app/assets/final-a5ca77b5.gif" srcset="https://lihautan.com/_app/assets/final-a5ca77b5.gif, https://lihautan.com/_app/assets/final-12c57f3e.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="the-result"></span></p></section>
 <section><h2><a href="#break-it-down" id="break-it-down">Break it down</a></h2>
 <p>I&#39;m using a combination of SVG filters <code class="inline">&lt;feTurbulence&gt;</code>, <code class="inline">&lt;feDisplacementMap&gt;</code> to achieve this effect.</p>
 <p><a href="https://svelte.dev/repl/fc2c47f30912496eb0b4fe2776345462?version=3.29.4" rel="nofollow">Svelte REPL</a></p>
-<p><span style="display: block; position: relative; padding-top: 65.500%; width: 100%;"><img src="https://lihautan.com/_app/assets/feturbulence-011259a0.gif" srcset="https://lihautan.com/_app/assets/feturbulence-011259a0.gif, https://lihautan.com/_app/assets/feturbulence-a2b6a5da.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="feTurbulence"></span></p>
+<p><span style="display: block; position: relative; padding-top: 65.500%; width: 100%;"><img src="https://lihautan.com/_app/assets/feturbulence-7289ce64.gif" srcset="https://lihautan.com/_app/assets/feturbulence-7289ce64.gif, https://lihautan.com/_app/assets/feturbulence-f7615c5c.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="feTurbulence"></span></p>
 <p>To use this SVG filter, I first created a Svelte component for the filter.</p>
 <p>The idea is to add this render this filter whenever I want to transition, and update the scale and frequency during the transition</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="prism language-svelte"><code><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></div><div class="line">  <span class="token keyword">export</span> <span class="token keyword">let</span> baseFrequency <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></div><div class="line">  <span class="token keyword">export</span> <span class="token keyword">let</span> scale <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></div><div class="line">  <span class="token keyword">export</span> <span class="token keyword">let</span> id<span class="token punctuation">;</span></div><div class="line"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></div><div class="line"></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></div><div class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token language-javascript"><span class="token punctuation">&#123;</span>id<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span></div><div class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feTurbulence</span></div><div class="line">      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token attr-name">numOctaves</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span></div><div class="line">      <span class="token language-javascript"><span class="token punctuation">&#123;</span>baseFrequency<span class="token punctuation">&#125;</span></span></div><div class="line">      <span class="token attr-name">result</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></div><div class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feDisplacementMap</span></div><div class="line">      <span class="token attr-name">in2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>turbulence<span class="token punctuation">"</span></span> <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SourceGraphic<span class="token punctuation">"</span></span></div><div class="line">      <span class="token attr-name">xChannelSelector</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>R<span class="token punctuation">"</span></span> <span class="token attr-name">yChannelSelector</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>G<span class="token punctuation">"</span></span></div><div class="line">      <span class="token language-javascript"><span class="token punctuation">&#123;</span>scale<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span></div><div class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span></div><div class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></div></code></pre><!-- HTML_TAG_END --></div>
@@ -185,10 +185,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1evlutq">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="8padke">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="1evlutq"]').parentNode,
+			target: document.querySelector('[data-hydrate="8padke"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -199,7 +199,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/notes/svg-filter-svelte-transition/index.md-04414db4.js")
+						import("https://lihautan.com/_app/pages/notes/svg-filter-svelte-transition/index.md-c5569bd2.js")
 				],
 				params: {}
 			}

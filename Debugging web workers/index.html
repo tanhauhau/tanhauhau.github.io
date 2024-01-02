@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/Debugging web workers/index.md-ed6e7fb3.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/Debugging web workers/index.md-b0d773c6.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/twitter-card-image-a57df29d.js">
@@ -107,7 +107,7 @@
 <p>Here&#39;s how you would do it for various major browsers:</p>
 <section><h2><a href="#chrome" id="chrome">Chrome</a></h2>
 <p>If you are debugging service worker or worker, you can head down to the console. There&#39;s a dropdown menu, if you haven&#39;t noticed previously, that says &quot;JavaScript context&quot;.</p>
-<p><span style="display: block; position: relative; padding-top: 46.033%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/chrome-console-bf4aa172.webp, https://lihautan.com/_app/assets/chrome-console-2f355457.webp 2x"><img src="https://lihautan.com/_app/assets/chrome-console-a6389f70.png" srcset="https://lihautan.com/_app/assets/chrome-console-a6389f70.png, https://lihautan.com/_app/assets/chrome-console-588dca4a.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="chrome console"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 46.033%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/chrome-console-bf4aa172.webp, https://lihautan.com/_app/assets/chrome-console-2f355457.webp 2x"><img src="https://lihautan.com/_app/assets/chrome-console-a6389f70.png" srcset="https://lihautan.com/_app/assets/chrome-console-a6389f70.png, https://lihautan.com/_app/assets/chrome-console-6a79fdcf.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="chrome console"></picture></span></p>
 <p><span style="display: block; position: relative; padding-top: 36.313%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/chrome-console-context-ce111b78.webp, https://lihautan.com/_app/assets/chrome-console-context-b40a1c4c.webp 2x"><img src="https://lihautan.com/_app/assets/chrome-console-context-453338cb.png" srcset="https://lihautan.com/_app/assets/chrome-console-context-453338cb.png, https://lihautan.com/_app/assets/chrome-console-context-3e43ff20.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="chrome console context"></picture></span></p>
 <p>For worker context, you would see a cog logo beside the name.</p>
 <p>After you choose the worker context, you can type <code class="inline">self</code> into the console, and you should see <code class="inline">self</code> is an instance of <code class="inline">DedicatedWorkerGlobalScope</code> instead of <code class="inline">window</code>. </p>
@@ -118,10 +118,10 @@
 <p>You can click &quot;inspect&quot;, which will open a new console for you to debug.</p></section>
 <section><h2><a href="#firefox" id="firefox">Firefox</a></h2>
 <p>For Firefox, you could go to <a href="about:debugging#workers">about:debugging#workers</a>. You will be able to see a list of service workers, and shared workers registered to the browser.</p>
-<p><span style="display: block; position: relative; padding-top: 79.451%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/firefox-shared-worker-cee5b6a0.webp, https://lihautan.com/_app/assets/firefox-shared-worker-a6706529.webp 2x"><img src="https://lihautan.com/_app/assets/firefox-shared-worker-0b7fd443.png" srcset="https://lihautan.com/_app/assets/firefox-shared-worker-0b7fd443.png, https://lihautan.com/_app/assets/firefox-shared-worker-292b9a75.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="firefox shared worker"></picture></span></p></section>
+<p><span style="display: block; position: relative; padding-top: 79.451%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/firefox-shared-worker-cee5b6a0.webp, https://lihautan.com/_app/assets/firefox-shared-worker-a6706529.webp 2x"><img src="https://lihautan.com/_app/assets/firefox-shared-worker-0b7fd443.png" srcset="https://lihautan.com/_app/assets/firefox-shared-worker-0b7fd443.png, https://lihautan.com/_app/assets/firefox-shared-worker-31ba248d.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="firefox shared worker"></picture></span></p></section>
 <section><h2><a href="#safari" id="safari">Safari</a></h2>
 <p>For Safari, you could find the JavaScript context dropdown at the bottom right corner of your console.</p>
-<p><span style="display: block; position: relative; padding-top: 83.396%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/safari-console-context-42ce6da1.webp, https://lihautan.com/_app/assets/safari-console-context-ddba86ad.webp 2x"><img src="https://lihautan.com/_app/assets/safari-console-context-8909ad46.png" srcset="https://lihautan.com/_app/assets/safari-console-context-8909ad46.png, https://lihautan.com/_app/assets/safari-console-context-f08a749e.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="safari console context"></picture></span></p></section></article>
+<p><span style="display: block; position: relative; padding-top: 83.396%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/safari-console-context-42ce6da1.webp, https://lihautan.com/_app/assets/safari-console-context-ddba86ad.webp 2x"><img src="https://lihautan.com/_app/assets/safari-console-context-8909ad46.png" srcset="https://lihautan.com/_app/assets/safari-console-context-8909ad46.png, https://lihautan.com/_app/assets/safari-console-context-d57d8af0.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="safari console context"></picture></span></p></section></article>
 
 <div style="height: 1px; width: 100%"></div>
 
@@ -131,10 +131,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="2pe7y0">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="1oxr3zb">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="2pe7y0"]').parentNode,
+			target: document.querySelector('[data-hydrate="1oxr3zb"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -145,7 +145,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/Debugging web workers/index.md-ed6e7fb3.js")
+						import("https://lihautan.com/_app/pages/Debugging web workers/index.md-b0d773c6.js")
 				],
 				params: {}
 			}

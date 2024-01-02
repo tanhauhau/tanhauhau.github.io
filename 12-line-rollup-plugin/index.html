@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/12-line-rollup-plugin/index.md-395eca00.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/12-line-rollup-plugin/index.md-75351b3e.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	</head>
@@ -112,18 +112,18 @@
 <span class="line"></span>
 <span class="line"><span style="color: var(--shiki-token-comment)">// worker code ...</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>The livereload script includes a reference to <code class="inline">window</code>, which is not available to the worker script:</p>
-<p><span style="display: block; position: relative; padding-top: 10.306%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/window-reference-error-6bc12ec2.webp, https://lihautan.com/_app/assets/window-reference-error-e6ae4618.webp 2x"><img src="https://lihautan.com/_app/assets/window-reference-error-69625f9c.png" srcset="https://lihautan.com/_app/assets/window-reference-error-69625f9c.png, https://lihautan.com/_app/assets/window-reference-error-01ef33d0.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="window reference error" title="window is not defined"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 10.306%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/window-reference-error-6bc12ec2.webp, https://lihautan.com/_app/assets/window-reference-error-e6ae4618.webp 2x"><img src="https://lihautan.com/_app/assets/window-reference-error-6a8a2b10.png" srcset="https://lihautan.com/_app/assets/window-reference-error-6a8a2b10.png, https://lihautan.com/_app/assets/window-reference-error-d6db5778.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="window reference error" title="window is not defined"></picture></span></p>
 <p>I looked into <a href="https://www.npmjs.com/package/rollup-plugin-livereload" rel="nofollow">the docs of the rollup-plugin-livereload</a>, it doesn&#39;t seemed to have a option to exclude files from adding the <em>livereload script</em>.</p>
 <p>At this point, I was thinking to myself, <em>&quot;I just need to copy the worker.js into the &#39;build/&#39; folder, I don&#39;t need anything else, how hard can that be?&quot;</em></p>
 <p>It turns out harder than I imagined. 🤮</p></section>
 <section><h2><a href="#need-something-install-a-plugin" id="need-something-install-a-plugin">Need something? Install a plugin!</a></h2>
 <p>In todays JavaScript landscape, there&#39;s a <em>&quot;node_module&quot;</em> for everything.</p>
 <p>So I <a href="https://www.google.com/search?q=rollup+plugin+copy+files" rel="nofollow">googled</a> <em>&quot;rollup plugin copy files&quot;</em>, without a suprise, there are multiple rollup plugins published to npm:</p>
-<p><span style="display: block; position: relative; padding-top: 76.068%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/google-search-4b643dd7.webp, https://lihautan.com/_app/assets/google-search-292b3432.webp 2x"><img src="https://lihautan.com/_app/assets/google-search-4357d1f5.png" srcset="https://lihautan.com/_app/assets/google-search-4357d1f5.png, https://lihautan.com/_app/assets/google-search-81a5a53a.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="google search" title="Google result for &quot;rollup plugin copy files&quot;"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 76.068%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/google-search-4b643dd7.webp, https://lihautan.com/_app/assets/google-search-292b3432.webp 2x"><img src="https://lihautan.com/_app/assets/google-search-4357d1f5.png" srcset="https://lihautan.com/_app/assets/google-search-4357d1f5.png, https://lihautan.com/_app/assets/google-search-187c98e9.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="google search" title="Google result for &quot;rollup plugin copy files&quot;"></picture></span></p>
 <p>So I decided to install the first plugin, because it has the highest weekly downloads:</p>
-<p><span style="display: block; position: relative; padding-top: 132.234%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/rollup-plugin-copy-usage-a2ee5817.webp, https://lihautan.com/_app/assets/rollup-plugin-copy-usage-7126a1d5.webp 2x"><img src="https://lihautan.com/_app/assets/rollup-plugin-copy-usage-8a013c03.png" srcset="https://lihautan.com/_app/assets/rollup-plugin-copy-usage-8a013c03.png, https://lihautan.com/_app/assets/rollup-plugin-copy-usage-c45f8a36.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="rollup-plugin-copy weekly downloads" title="17K weekly downloads"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 132.234%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/rollup-plugin-copy-usage-a2ee5817.webp, https://lihautan.com/_app/assets/rollup-plugin-copy-usage-7126a1d5.webp 2x"><img src="https://lihautan.com/_app/assets/rollup-plugin-copy-usage-8a013c03.png" srcset="https://lihautan.com/_app/assets/rollup-plugin-copy-usage-8a013c03.png, https://lihautan.com/_app/assets/rollup-plugin-copy-usage-0a412bb5.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="rollup-plugin-copy weekly downloads" title="17K weekly downloads"></picture></span></p>
 <p>When I installed the plugin, I realise I was installing much more than I needed:</p>
-<p><span style="display: block; position: relative; padding-top: 161.983%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/dependencies-ea99ca83.webp, https://lihautan.com/_app/assets/dependencies-122095c0.webp 2x"><img src="https://lihautan.com/_app/assets/dependencies-fd8db9f4.png" srcset="https://lihautan.com/_app/assets/dependencies-fd8db9f4.png, https://lihautan.com/_app/assets/dependencies-67af14bb.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="rollup-plugin-copy dependencies"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 161.983%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/dependencies-ea99ca83.webp, https://lihautan.com/_app/assets/dependencies-122095c0.webp 2x"><img src="https://lihautan.com/_app/assets/dependencies-fd8db9f4.png" srcset="https://lihautan.com/_app/assets/dependencies-fd8db9f4.png, https://lihautan.com/_app/assets/dependencies-4b61fe34.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="rollup-plugin-copy dependencies"></picture></span></p>
 <p>Remember, my use case is simple:</p>
 <blockquote><p><strong>I just need to copy the worker.js into the &#39;build/&#39; folder.</strong></p></blockquote>
 <p>I <em>don&#39;t need any bells and whistles</em> this plugin is providing me. 🙈</p>
@@ -207,10 +207,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="39krrv">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="1w2066q">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="39krrv"]').parentNode,
+			target: document.querySelector('[data-hydrate="1w2066q"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -221,7 +221,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/12-line-rollup-plugin/index.md-395eca00.js")
+						import("https://lihautan.com/_app/pages/12-line-rollup-plugin/index.md-75351b3e.js")
 				],
 				params: {}
 			}

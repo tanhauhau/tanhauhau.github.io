@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/the-svelte-compiler-handbook/index.md-c8e5b295.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/the-svelte-compiler-handbook/index.md-7b65b366.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	</head>
@@ -141,7 +141,7 @@
 <ul><li>is interested in the Svelte compilation process</li>
 <li>wants to get started in reading Svelte source code</li></ul></section>
 <section><h2><a href="#overview" id="overview">Overview</a></h2>
-<p><span style="display: block; position: relative; padding-top: 17.512%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/overview-9793d290.webp, https://lihautan.com/_app/assets/overview-3e214559.webp 2x"><img src="https://lihautan.com/_app/assets/overview-22f28dba.png" srcset="https://lihautan.com/_app/assets/overview-22f28dba.png, https://lihautan.com/_app/assets/overview-e7425ff1.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Overview"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 17.512%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/overview-9793d290.webp, https://lihautan.com/_app/assets/overview-3e214559.webp 2x"><img src="https://lihautan.com/_app/assets/overview-6ca5bb24.png" srcset="https://lihautan.com/_app/assets/overview-6ca5bb24.png, https://lihautan.com/_app/assets/overview-e7425ff1.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Overview"></picture></span></p>
 <p>The Svelte compilation process can be broken down into 4-steps</p>
 <ul><li>Parsing source code into Abstract Syntax Tree (AST)</li>
 <li>Tracking references and dependencies</li>
@@ -166,7 +166,7 @@
 <span class="line"><span style="color: var(--shiki-token-constant)">fs</span><span style="color: var(--shiki-token-function)">.writeFileSync</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;App.js&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> js);</span></span>
 <span class="line"><span style="color: var(--shiki-token-constant)">fs</span><span style="color: var(--shiki-token-function)">.writeFileSync</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;App.css&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> css);</span></span></code></pre><!-- HTML_TAG_END --></div></section>
 <section><h2><a href="#1-parsing-source-code-into-ast" id="1-parsing-source-code-into-ast">1. Parsing source code into AST</a></h2>
-<p><span style="display: block; position: relative; padding-top: 45.065%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/step-1-61461261.webp, https://lihautan.com/_app/assets/step-1-1881d02d.webp 2x"><img src="https://lihautan.com/_app/assets/step-1-e3e542b8.png" srcset="https://lihautan.com/_app/assets/step-1-e3e542b8.png, https://lihautan.com/_app/assets/step-1-f3360fc2.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Step 1"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 45.065%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/step-1-61461261.webp, https://lihautan.com/_app/assets/step-1-1881d02d.webp 2x"><img src="https://lihautan.com/_app/assets/step-1-d9984fea.png" srcset="https://lihautan.com/_app/assets/step-1-d9984fea.png, https://lihautan.com/_app/assets/step-1-f3360fc2.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Step 1"></picture></span></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-comment)">// parse source code into AST</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">ast</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">parse</span><span style="color: var(--shiki-color-text)">(source);</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>The Svelte syntax is a superset of HTML. Svelte implements its own parser for the Svelte syntax, which handles:</p>
@@ -270,10 +270,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1r8ow5c">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="twlqm8">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="1r8ow5c"]').parentNode,
+			target: document.querySelector('[data-hydrate="twlqm8"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -284,7 +284,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/the-svelte-compiler-handbook/index.md-c8e5b295.js")
+						import("https://lihautan.com/_app/pages/the-svelte-compiler-handbook/index.md-7b65b366.js")
 				],
 				params: {}
 			}

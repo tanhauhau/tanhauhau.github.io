@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/solving-nonogram-with-code/index.md-fbd8695f.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/solving-nonogram-with-code/index.md-c1904e5f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	</head>
@@ -143,7 +143,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>One thing cool about CSS grid is that I was no longer limited by the order of the elements within the grid layout, I can position in whichever grid I want by specifying <code class="inline">grid-column</code> and <code class="inline">grid-row</code>. So here you see that I can build the <code class="inline">labels</code> first then the <code class="inline">grids</code>, freeing myself from building html structure in terms of rows and columns.</p>
 <p>The next thing, naturally, was to allow user (just me) to key in the constraints of the nonogram. To make sure what I keyed in is making sense, I added validation to the inputs:</p>
-<p><span style="display: block; position: relative; padding-top: 91.429%; width: 100%;"><img src="https://lihautan.com/_app/assets/constraint-ba5f8b9f.gif" srcset="https://lihautan.com/_app/assets/constraint-ba5f8b9f.gif, https://lihautan.com/_app/assets/constraint-93859eac.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="validating the inputs"></span></p>
+<p><span style="display: block; position: relative; padding-top: 91.429%; width: 100%;"><img src="https://lihautan.com/_app/assets/constraint-f6002e58.gif" srcset="https://lihautan.com/_app/assets/constraint-f6002e58.gif, https://lihautan.com/_app/assets/constraint-1039f7a1.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="validating the inputs"></span></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">getError</span><span style="color: var(--shiki-color-text)">(text</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> max) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">if</span><span style="color: var(--shiki-color-text)"> (</span><span style="color: var(--shiki-token-keyword)">!</span><span style="color: var(--shiki-token-string-expression)">/</span><span style="color: var(--shiki-token-keyword)">^</span><span style="color: var(--shiki-token-string-expression)">[0-9 ]</span><span style="color: var(--shiki-token-keyword)">*$</span><span style="color: var(--shiki-token-string-expression)">/</span><span style="color: var(--shiki-token-function)">.test</span><span style="color: var(--shiki-color-text)">(text)) &#123;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-keyword)">return</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;Invalid characters&#39;</span><span style="color: var(--shiki-color-text)">;</span></span>
@@ -186,7 +186,7 @@
 <li>If I leave the cell blank, I should not make the current line-group shorter than necessary</li>
 <li>When I finished a row / column, I need to make sure the current row / column requirements are all met</li></ul>
 <p>I don&#39;t want to bore you with the full code over here, you can read it on <a href="https://github.com/tanhauhau/nonogram/blob/dev/src/utils.js#L25-L78" rel="nofollow">my Github repo</a> if you curious enough.</p>
-<p><span style="display: block; position: relative; padding-top: 101.189%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/solution-13f3a0c5.webp, https://lihautan.com/_app/assets/solution-1c272be9.webp 2x"><img src="https://lihautan.com/_app/assets/solution-ca570c42.png" srcset="https://lihautan.com/_app/assets/solution-ca570c42.png, https://lihautan.com/_app/assets/solution-54ba0765.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="solution" title="Nonogram solution"></picture></span></p></section>
+<p><span style="display: block; position: relative; padding-top: 101.189%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/solution-13f3a0c5.webp, https://lihautan.com/_app/assets/solution-1c272be9.webp 2x"><img src="https://lihautan.com/_app/assets/solution-2d95d7fa.png" srcset="https://lihautan.com/_app/assets/solution-2d95d7fa.png, https://lihautan.com/_app/assets/solution-54ba0765.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="solution" title="Nonogram solution"></picture></span></p></section>
 <section><h2><a href="#the-animation" id="the-animation">The animation</a></h2>
 <p>I built and published <a href="https://lihautan.com/nonogram/" rel="nofollow">my nonogram solver</a> and brag about it with my colleagues.</p>
 <p>A few days later, another thought came in to my mind, how about showing the nonogram solving steps on the UI. That would be cooler than just solving it!</p>
@@ -195,7 +195,7 @@
 <li>Record the action taken at each step, replay the actions to build the animation</li></ul>
 <p>The 2nd approach sounded like <code class="inline">redux</code>, by replaying the actions, you can time travel to any state of your UI.</p>
 <p>I heeded the 2nd approach, and the results is pretty rad:</p>
-<p><span style="display: block; position: relative; padding-top: 102.429%; width: 100%;"><img src="https://lihautan.com/_app/assets/solution-with-animation-342042dd.gif" srcset="https://lihautan.com/_app/assets/solution-with-animation-342042dd.gif, https://lihautan.com/_app/assets/solution-with-animation-5c4dca3f.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="animated solution"></span></p>
+<p><span style="display: block; position: relative; padding-top: 102.429%; width: 100%;"><img src="https://lihautan.com/_app/assets/solution-with-animation-0dba31d0.gif" srcset="https://lihautan.com/_app/assets/solution-with-animation-0dba31d0.gif, https://lihautan.com/_app/assets/solution-with-animation-36ca5233.gif 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="animated solution"></span></p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-comment)">// recording the steps</span></span>
 <span class="line highlight"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">steps</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> [];</span></span>
 <span class="line dim"><span style="color: var(--shiki-token-keyword)">function</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">findSolution</span><span style="color: var(--shiki-color-text)">(i</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-color-text)"> j) &#123;</span></span>
@@ -246,10 +246,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="1lfa1w3">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="1o2fikx">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="1lfa1w3"]').parentNode,
+			target: document.querySelector('[data-hydrate="1o2fikx"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -260,7 +260,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/solving-nonogram-with-code/index.md-fbd8695f.js")
+						import("https://lihautan.com/_app/pages/solving-nonogram-with-code/index.md-c1904e5f.js")
 				],
 				params: {}
 			}

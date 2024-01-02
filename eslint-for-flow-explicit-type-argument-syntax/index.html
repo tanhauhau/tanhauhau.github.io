@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-cc46a3d7.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-af761491.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/twitter-card-image-a57df29d.js">
@@ -105,7 +105,7 @@
 <p>To confirm with my hypothesis, I opened up my favourite tool for inspecting <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" rel="nofollow">AST</a>: <a href="https://astexplorer.net/" rel="nofollow">astexplorer.net</a></p>
 <hr>
 <p>You can paste your code into <a href="https://astexplorer.net/" rel="nofollow">astexplorer.net</a> and see how different parser “sees” your code in terms of a AST (Abstract Syntax Tree).</p>
-<p><span style="display: block; position: relative; padding-top: 57.183%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/ast-explorer-bfbe6c09.webp, https://lihautan.com/_app/assets/ast-explorer-b5f52f19.webp 2x"><img src="https://lihautan.com/_app/assets/ast-explorer-632b492a.png" srcset="https://lihautan.com/_app/assets/ast-explorer-632b492a.png, https://lihautan.com/_app/assets/ast-explorer-02655949.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="You can choose different a parser!"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 57.183%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/ast-explorer-27c5a8f2.webp, https://lihautan.com/_app/assets/ast-explorer-b5f52f19.webp 2x"><img src="https://lihautan.com/_app/assets/ast-explorer-b619d23f.png" srcset="https://lihautan.com/_app/assets/ast-explorer-b619d23f.png, https://lihautan.com/_app/assets/ast-explorer-02655949.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="You can choose different a parser!"></picture></span></p>
 <p>As you can see from the picture above, you can choose from different parsers:</p>
 <ul><li><strong>acorn</strong> — the parser used by webpack after the loaders, webpack uses acorn’s AST to find <code class="inline">import</code> and <code class="inline">require()</code> syntax to know generate the dependency tree of your project, as well as provide an entry for plugins like <a href="https://webpack.js.org/plugins/define-plugin/" rel="nofollow">DefinePlugin</a> to transform the transpiled code.</li>
 <li><strong>babylon</strong>— the <a href="https://github.com/babel/babel/" rel="nofollow">babel</a> parser, now it’s called <a href="https://babeljs.io/docs/en/babel-parser" rel="nofollow">@babel/parser</a>.</li>
@@ -114,9 +114,9 @@
 <li><strong>babel-eslint</strong> — a wrapper of babel parser for eslint, which is also the one we used, because we have a ton of babel plugins configured, so by using babel-eslint we don’t have to reconfigure the same plugins for eslint.</li></ul>
 <hr>
 <p>So I copied our code into astexplorer, and selected the “flow” parser:</p>
-<p><span style="display: block; position: relative; padding-top: 28.927%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-992c0e30.webp, https://lihautan.com/_app/assets/babel-eslint-9-ast-21afad35.webp 2x"><img src="https://lihautan.com/_app/assets/babel-eslint-9-ast-f8804806.png" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-f8804806.png, https://lihautan.com/_app/assets/babel-eslint-9-ast-8720bf87.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="flow ast"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 28.927%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-9ed9db4f.webp, https://lihautan.com/_app/assets/babel-eslint-9-ast-21afad35.webp 2x"><img src="https://lihautan.com/_app/assets/babel-eslint-9-ast-056d4c20.png" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-056d4c20.png, https://lihautan.com/_app/assets/babel-eslint-9-ast-8720bf87.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="flow ast"></picture></span></p>
 <p>I can see the type annotation is being parsed as “TypeParameterInstantiation”, however when I changed the parser to “babel-eslint8”,</p>
-<p><span style="display: block; position: relative; padding-top: 39.444%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-eslint-8-ast-3af978b3.webp, https://lihautan.com/_app/assets/babel-eslint-8-ast-eb60e602.webp 2x"><img src="https://lihautan.com/_app/assets/babel-eslint-8-ast-6f58363a.png" srcset="https://lihautan.com/_app/assets/babel-eslint-8-ast-6f58363a.png, https://lihautan.com/_app/assets/babel-eslint-8-ast-c031afda.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel eslint 8 ast"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 39.444%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-eslint-8-ast-eb30145e.webp, https://lihautan.com/_app/assets/babel-eslint-8-ast-eb60e602.webp 2x"><img src="https://lihautan.com/_app/assets/babel-eslint-8-ast-26a0b8ad.png" srcset="https://lihautan.com/_app/assets/babel-eslint-8-ast-26a0b8ad.png, https://lihautan.com/_app/assets/babel-eslint-8-ast-c031afda.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel eslint 8 ast"></picture></span></p>
 <p>I get a Binary Expression and a SequenceExpression!</p>
 <hr>
 <p><strong>Binary Expression</strong> is a way to express logical expression and mathematical expression, eg: <code class="inline">a + b</code> , <code class="inline">a &amp;&amp; b</code> , <code class="inline">a &lt;= b</code>, etc.</p>
@@ -124,7 +124,7 @@
 <hr>
 <p>Now this explains why prettier will try to add space in between <code class="inline">&lt;</code> and <code class="inline">&gt;</code> .</p>
 <p>I saw that there’s a babel-eslint9, and I gave it a try, and…</p>
-<p><span style="display: block; position: relative; padding-top: 28.927%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-992c0e30.webp, https://lihautan.com/_app/assets/babel-eslint-9-ast-21afad35.webp 2x"><img src="https://lihautan.com/_app/assets/babel-eslint-9-ast-f8804806.png" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-f8804806.png, https://lihautan.com/_app/assets/babel-eslint-9-ast-8720bf87.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel eslint 9 ast"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 28.927%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-9ed9db4f.webp, https://lihautan.com/_app/assets/babel-eslint-9-ast-21afad35.webp 2x"><img src="https://lihautan.com/_app/assets/babel-eslint-9-ast-056d4c20.png" srcset="https://lihautan.com/_app/assets/babel-eslint-9-ast-056d4c20.png, https://lihautan.com/_app/assets/babel-eslint-9-ast-8720bf87.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel eslint 9 ast"></picture></span></p>
 <p>It seems like the bug was fixed on <code class="inline">babel-eslint9</code>, so I plowed through the release notes of babel-eslint, and I found this <a href="https://github.com/babel/babel-eslint/pull/444" rel="nofollow">merge commit</a>. So it seems like upgrading babel-eslint to v9 will solve the issue! 🎉</p></article>
 
 <div style="height: 1px; width: 100%"></div>
@@ -135,10 +135,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="4bjkwx">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="1s0k0jm">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="4bjkwx"]').parentNode,
+			target: document.querySelector('[data-hydrate="1s0k0jm"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -149,7 +149,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-cc46a3d7.js")
+						import("https://lihautan.com/_app/pages/eslint-for-flow-explicit-type-argument-syntax/index.md-af761491.js")
 				],
 				params: {}
 			}

@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/building-my-gatsby-site/index.md-0cc3ea09.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/building-my-gatsby-site/index.md-02257b38.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/twitter-card-image-a57df29d.js">
@@ -131,7 +131,7 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  mix</span><span style="color: var(--shiki-token-keyword)">-</span><span style="color: var(--shiki-color-text)">blend</span><span style="color: var(--shiki-token-keyword)">-</span><span style="color: var(--shiki-color-text)">mode</span><span style="color: var(--shiki-token-punctuation)">:</span><span style="color: var(--shiki-color-text)"> difference;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&#125;</span></span></code></pre><!-- HTML_TAG_END --></div>
 <p>It&#39;s easy and it looks great, except, all my images and emojis are inverted. 😢</p>
-<p><span style="display: block; position: relative; padding-top: 55.677%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/inverted_emojis-4957b0b6.webp, https://lihautan.com/_app/assets/inverted_emojis-da2061e8.webp 2x"><img src="https://lihautan.com/_app/assets/inverted_emojis-d65cf6e1.png" srcset="https://lihautan.com/_app/assets/inverted_emojis-d65cf6e1.png, https://lihautan.com/_app/assets/inverted_emojis-a39d7f6d.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="inverted emojis" title="It looked like emojis going through X-Rays.. 😢"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 55.677%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/inverted_emojis-4957b0b6.webp, https://lihautan.com/_app/assets/inverted_emojis-da2061e8.webp 2x"><img src="https://lihautan.com/_app/assets/inverted_emojis-a711de5a.png" srcset="https://lihautan.com/_app/assets/inverted_emojis-a711de5a.png, https://lihautan.com/_app/assets/inverted_emojis-5e73b135.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="inverted emojis" title="It looked like emojis going through X-Rays.. 😢"></picture></span></p>
 <p>I need to wrap all my emojis around a <code class="inline">&lt;span&gt;</code> so I can apply some css like <code class="inline">isolation: isolate</code> to exclude them from being blended. <a href="https://www.chenhuijing.com/blog/friends-dont-let-friends-implement-dark-mode-alone/#%F0%9F%92%BB" rel="nofollow">Inspiration credits to huijing 👏👏</a>. But I am lazy to wrap all my emojis with <code class="inline">&lt;span&gt;</code>, I want to use them anytime I want, without bothering much of the <code class="inline">&lt;span&gt;</code>, so I decided to write a gatsby remark plugin to do that for me. 😎</p>
 <p>Well, it turns out it&#39;s not that hard.</p>
 <p><a href="https://github.com/remarkjs/remark" rel="nofollow">Remark</a> provides a friendly api to tap into the AST and <a href="https://github.com/tanhauhau/tanhauhau.github.io/commit/291663d10cc7838d67392acb6a28a04a655603a6#diff-1be49bbded0fd920136646bdb37f5b91" rel="nofollow">does transformation</a>. </p>
@@ -166,10 +166,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="gaefpm">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="fa56xz">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="gaefpm"]').parentNode,
+			target: document.querySelector('[data-hydrate="fa56xz"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -180,7 +180,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/building-my-gatsby-site/index.md-0cc3ea09.js")
+						import("https://lihautan.com/_app/pages/building-my-gatsby-site/index.md-02257b38.js")
 				],
 				params: {}
 			}

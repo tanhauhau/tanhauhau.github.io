@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/debugging-build-failed-error-from-terser/index.md-7a36dc91.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/debugging-build-failed-error-from-terser/index.md-844e1343.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	</head>
@@ -257,7 +257,7 @@
 <p>The Terser in the codebase was one major version behind the latest Terser version, so, I was more reserved to upgrade to the latest version.</p>
 <p>The git blame for the line of code was for some code refactoring, so I went to Github to trace the blame.</p>
 <p><strong>Tip:</strong> Github blame has this very useful button, that allows you to view blame prior to the change.</p>
-<p><span style="display: block; position: relative; padding-top: 29.585%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/github-blame-3d247017.webp, https://lihautan.com/_app/assets/github-blame-a7918c88.webp 2x"><img src="https://lihautan.com/_app/assets/github-blame-9ffecede.png" srcset="https://lihautan.com/_app/assets/github-blame-9ffecede.png, https://lihautan.com/_app/assets/github-blame-8703c3f9.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Github: view blame prior to the change"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 29.585%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/github-blame-3d247017.webp, https://lihautan.com/_app/assets/github-blame-a7918c88.webp 2x"><img src="https://lihautan.com/_app/assets/github-blame-9514ce69.png" srcset="https://lihautan.com/_app/assets/github-blame-9514ce69.png, https://lihautan.com/_app/assets/github-blame-8703c3f9.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="Github: view blame prior to the change"></picture></span></p>
 <p>A few blame traces later, I ended up with a commit that fixed the bug:</p>
 <blockquote><p><a href="https://github.com/terser/terser/pull/286" rel="nofollow">fix node.key crashing lib/compress by hytromo · Pull Request #286 · terser/terser</a></p></blockquote>
 <p>By looking at the MR merged date, I found that the commit was landed in between <a href="https://github.com/terser/terser/compare/v3.16.0...v3.17.0" rel="nofollow">v3.16.0 and v3.17.0</a>.</p>
@@ -282,10 +282,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="5yfjw5">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="funmid">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="5yfjw5"]').parentNode,
+			target: document.querySelector('[data-hydrate="funmid"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -296,7 +296,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/debugging-build-failed-error-from-terser/index.md-7a36dc91.js")
+						import("https://lihautan.com/_app/pages/debugging-build-failed-error-from-terser/index.md-844e1343.js")
 				],
 				params: {}
 			}

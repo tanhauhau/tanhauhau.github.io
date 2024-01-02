@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/building-a-simplified-webpack-clone/index.md-60c85146.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/building-a-simplified-webpack-clone/index.md-efa6e8d3.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/twitter-card-image-a57df29d.js">
@@ -140,14 +140,14 @@
 <section><h3><a href="#why-module-bundler" id="why-module-bundler">Why module bundler?</a></h3>
 <p>We love writing small modular JS files, but that shouldn&#39;t impact the users.</p>
 <p>Traditionally with limit on number of request connection, 🐌 slow internet speed, we want to combine all the code into 1 file -&gt; 1 network request</p>
-<p><span style="display: block; position: relative; padding-top: 35.100%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/why-bundling-604eeac3.webp, https://lihautan.com/_app/assets/why-bundling-4ca6805a.webp 2x"><img src="https://lihautan.com/_app/assets/why-bundling-ec0a8239.png" srcset="https://lihautan.com/_app/assets/why-bundling-ec0a8239.png, https://lihautan.com/_app/assets/why-bundling-c892a37b.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="why bundling"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 35.100%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/why-bundling-5208ef38.webp, https://lihautan.com/_app/assets/why-bundling-4ca6805a.webp 2x"><img src="https://lihautan.com/_app/assets/why-bundling-7bcbaa8f.png" srcset="https://lihautan.com/_app/assets/why-bundling-7bcbaa8f.png, https://lihautan.com/_app/assets/why-bundling-c892a37b.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="why bundling"></picture></span></p>
 <p>🕰 Traditionally, we concatenate the source files into 1 big output file.</p>
 <p>But that begs the question</p>
 <ul><li>❓ what should be the order of concatenation (files may depend on each other) ?</li>
 <li>❓ what if there&#39;s var naming conflict across files?</li>
 <li>❓ what if there&#39;s unused file?</li></ul>
 <p>💡 That&#39;s why we need a module system to define the relationship among the JS modules</p>
-<p><span style="display: block; position: relative; padding-top: 90.868%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/relationship-c145c69f.webp, https://lihautan.com/_app/assets/relationship-89cf5e96.webp 2x"><img src="https://lihautan.com/_app/assets/relationship-fe442a09.png" srcset="https://lihautan.com/_app/assets/relationship-fe442a09.png, https://lihautan.com/_app/assets/relationship-216c3ca7.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="relationship within a bundle"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 90.868%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/relationship-c145c69f.webp, https://lihautan.com/_app/assets/relationship-89cf5e96.webp 2x"><img src="https://lihautan.com/_app/assets/relationship-fe442a09.png" srcset="https://lihautan.com/_app/assets/relationship-fe442a09.png, https://lihautan.com/_app/assets/relationship-3e0150b8.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="relationship within a bundle"></picture></span></p>
 <p>So now, let&#39;s take a look how we can start building a module dependency graph</p></section>
 <section><h3><a href="#1-we-start-from-an-entry-file" id="1-we-start-from-an-entry-file">1. We start from an entry file.</a></h3>
 <p>This is the starting point of the application</p></section>
@@ -167,7 +167,7 @@
 <p>in AST, import statement is represented by a node with:</p>
 <ul><li><code class="inline">type</code> = &quot;ImportDeclaration&quot;</li>
 <li><code class="inline">source.value</code> = the filename it&#39;s trying to import</li></ul>
-<p><span style="display: block; position: relative; padding-top: 48.359%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/ast-explorer-238b7db6.webp, https://lihautan.com/_app/assets/ast-explorer-32fc0f90.webp 2x"><img src="https://lihautan.com/_app/assets/ast-explorer-f43b9e05.jpeg" srcset="https://lihautan.com/_app/assets/ast-explorer-f43b9e05.jpeg, https://lihautan.com/_app/assets/ast-explorer-3ca973fa.jpeg 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="ast explorer"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 48.359%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/ast-explorer-7f652ebd.webp, https://lihautan.com/_app/assets/ast-explorer-4ac2506a.webp 2x"><img src="https://lihautan.com/_app/assets/ast-explorer-295c3117.jpeg" srcset="https://lihautan.com/_app/assets/ast-explorer-295c3117.jpeg, https://lihautan.com/_app/assets/ast-explorer-4d3bcaff.jpeg 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="ast explorer"></picture></span></p>
 <p>There are various JavaScript parser out there, here are some of them</p>
 <ul><li>🔗 <a href="https://babeljs.io/docs/en/babel-core" rel="nofollow">babel</a></li>
 <li>🔗 <a href="https://github.com/acornjs/acorn" rel="nofollow">acorn</a></li>
@@ -234,7 +234,7 @@
 <ul><li>load as file</li>
 <li>load as directory</li>
 <li>load as node_modules</li></ul>
-<p><span style="display: block; position: relative; padding-top: 38.000%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/resolution-9852c085.webp, https://lihautan.com/_app/assets/resolution-2200871a.webp 2x"><img src="https://lihautan.com/_app/assets/resolution-24fc7ecb.png" srcset="https://lihautan.com/_app/assets/resolution-24fc7ecb.png, https://lihautan.com/_app/assets/resolution-186eb573.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="node js module resolution algorithm"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 38.000%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/resolution-38a93b01.webp, https://lihautan.com/_app/assets/resolution-2200871a.webp 2x"><img src="https://lihautan.com/_app/assets/resolution-ae1270e0.png" srcset="https://lihautan.com/_app/assets/resolution-ae1270e0.png, https://lihautan.com/_app/assets/resolution-186eb573.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="node js module resolution algorithm"></picture></span></p>
 <p>Some other module resolution:</p>
 <ul><li>webpack uses <a href="https://github.com/webpack/enhanced-resolve" rel="nofollow"><code class="inline">enhanced-resolve</code></a> which is a highly configurable resolver</li>
 <li>Typescript implements its own resolver, <a href="https://typescriptlang.org/docs/handbook/module-resolution.html" rel="nofollow">see how TS resolving works</a></li></ul></section>
@@ -440,10 +440,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="xm03m">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="i4mt4v">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="xm03m"]').parentNode,
+			target: document.querySelector('[data-hydrate="i4mt4v"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -454,7 +454,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/building-a-simplified-webpack-clone/index.md-60c85146.js")
+						import("https://lihautan.com/_app/pages/building-a-simplified-webpack-clone/index.md-efa6e8d3.js")
 				],
 				params: {}
 			}

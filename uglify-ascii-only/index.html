@@ -45,12 +45,12 @@
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/code-snippet-c7c00025.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/BlogLayout-115058b0.css">
 	<link rel="stylesheet" href="https://lihautan.com/_app/assets/ldjson-f7523d2e.css">
-	<link rel="modulepreload" href="https://lihautan.com/_app/start-99fe4979.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/start-c7a2dfb9.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/vendor-da4388d4.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/stores-1fad7c36.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/Links-79c47f65.js">
-	<link rel="modulepreload" href="https://lihautan.com/_app/pages/uglify-ascii-only/index.md-7e075793.js">
+	<link rel="modulepreload" href="https://lihautan.com/_app/pages/uglify-ascii-only/index.md-4b24b665.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/BlogLayout-14cfab6f.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/ldjson-b0805387.js">
 	<link rel="modulepreload" href="https://lihautan.com/_app/chunks/twitter-card-image-a57df29d.js">
@@ -100,24 +100,24 @@
 
 <article class="blog"><p>The background story</p>
 <p>I was working on a chrome extension, and trying to add some emojis 😍😀😎 into the extension, however I realised the 😍😀😎 are not rendered correctly!</p>
-<p><span style="display: block; position: relative; padding-top: 66.329%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/problem-9beda3ff.webp, https://lihautan.com/_app/assets/problem-1270b588.webp 2x"><img src="https://lihautan.com/_app/assets/problem-1ec44af8.png" srcset="https://lihautan.com/_app/assets/problem-1ec44af8.png, https://lihautan.com/_app/assets/problem-2aec1260.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="The 😍😍😀😀isn’t rendered correctly in chrome extension"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 66.329%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/problem-a5b4b5e3.webp, https://lihautan.com/_app/assets/problem-d06925c4.webp 2x"><img src="https://lihautan.com/_app/assets/problem-662a8224.png" srcset="https://lihautan.com/_app/assets/problem-662a8224.png, https://lihautan.com/_app/assets/problem-ba0d0e50.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="The 😍😍😀😀isn’t rendered correctly in chrome extension"></picture></span></p>
 <p>And so I inspect the source code loaded into the chrome extension, it wasn’t loaded correctly as well!</p>
-<p><span style="display: block; position: relative; padding-top: 52.052%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/problem-2-f563111e.webp, https://lihautan.com/_app/assets/problem-2-a1901487.webp 2x"><img src="https://lihautan.com/_app/assets/problem-2-5c771710.png" srcset="https://lihautan.com/_app/assets/problem-2-5c771710.png, https://lihautan.com/_app/assets/problem-2-f1cac61a.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="problem with the source too"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 52.052%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/problem-2-abc15427.webp, https://lihautan.com/_app/assets/problem-2-1ca08133.webp 2x"><img src="https://lihautan.com/_app/assets/problem-2-28ca7497.png" srcset="https://lihautan.com/_app/assets/problem-2-28ca7497.png, https://lihautan.com/_app/assets/problem-2-a6facc15.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="problem with the source too"></picture></span></p>
 <p>And so I think, probably the encoding issue was caused by the webpack compilation, but, my compiled code looks exactly fine!</p>
-<p><span style="display: block; position: relative; padding-top: 48.957%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/source-8cd0b7bf.webp, https://lihautan.com/_app/assets/source-9835157f.webp 2x"><img src="https://lihautan.com/_app/assets/source-888ed129.png" srcset="https://lihautan.com/_app/assets/source-888ed129.png, https://lihautan.com/_app/assets/source-6c16af20.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="The compiled code seems okay!"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 48.957%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/source-ae091af1.webp, https://lihautan.com/_app/assets/source-2558f070.webp 2x"><img src="https://lihautan.com/_app/assets/source-4da711b4.png" srcset="https://lihautan.com/_app/assets/source-4da711b4.png, https://lihautan.com/_app/assets/source-c2234f92.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="The compiled code seems okay!"></picture></span></p>
 <p>So, most likely is a decoding issue when the emoji code get loaded into chrome extension. So I manually changed the emoji in the compiled code to <code class="inline">\ud83d\ude0d</code> (unicode for 😍). Guess what? The emoji is showing correctly in the chrome extension!</p>
-<p><span style="display: block; position: relative; padding-top: 53.374%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/expectation-375c56a9.webp, https://lihautan.com/_app/assets/expectation-88a7a8f0.webp 2x"><img src="https://lihautan.com/_app/assets/expectation-1f247bc2.png" srcset="https://lihautan.com/_app/assets/expectation-1f247bc2.png, https://lihautan.com/_app/assets/expectation-67c15629.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="😍!"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 53.374%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/expectation-e308aa72.webp, https://lihautan.com/_app/assets/expectation-88a7a8f0.webp 2x"><img src="https://lihautan.com/_app/assets/expectation-21749d2f.png" srcset="https://lihautan.com/_app/assets/expectation-21749d2f.png, https://lihautan.com/_app/assets/expectation-67c15629.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="😍!"></picture></span></p>
 <p>So I changed my source code to manually type in the unicode, and compiled it using webpack. To my surprise, the unicode was compiled back into the emoji (😍) it represents!</p>
 <p>I googled around and I found <a href="https://github.com/babel/babel/pull/4478" rel="nofollow">this fix for babel-generator</a>:</p>
-<p><span style="display: block; position: relative; padding-top: 41.375%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-issue-e40d7ec3.webp, https://lihautan.com/_app/assets/babel-issue-58dcecf9.webp 2x"><img src="https://lihautan.com/_app/assets/babel-issue-6ad1c988.png" srcset="https://lihautan.com/_app/assets/babel-issue-6ad1c988.png, https://lihautan.com/_app/assets/babel-issue-0d1993b5.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel issue"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 41.375%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-issue-c88fbf8f.webp, https://lihautan.com/_app/assets/babel-issue-032b2a9b.webp 2x"><img src="https://lihautan.com/_app/assets/babel-issue-9475e314.png" srcset="https://lihautan.com/_app/assets/babel-issue-9475e314.png, https://lihautan.com/_app/assets/babel-issue-289b7151.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="babel issue"></picture></span></p>
 <p>I checked my babel version, and it had included this fix. So what went wrong?</p>
 <hr>
 <p>My colleague reminded me that during webpack compilation, there are 2 phases, the <strong>transpilation</strong> (via babel) and the <strong>minification</strong> (via uglify plugin).</p>
 <p>So I disabled the optimisation in webpack config, and noticed that my compiled code contains the original unicode string (<code class="inline">\ud83d\ude0d</code>), instead of the emoji (😍) string. So the unicode string was converted to emoji string during minification!</p>
 <p>So I went to my favourite <a href="https://skalman.github.io/UglifyJS-online/" rel="nofollow">Online JavaScript Minifier</a> (by <a href="https://github.com/skalman" rel="nofollow">skalman</a>) to try it out.</p>
-<p><span style="display: block; position: relative; padding-top: 21.195%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/uglify-eeaa6295.webp, https://lihautan.com/_app/assets/uglify-0c13d940.webp 2x"><img src="https://lihautan.com/_app/assets/uglify-5d74504f.png" srcset="https://lihautan.com/_app/assets/uglify-5d74504f.png, https://lihautan.com/_app/assets/uglify-9a0169e9.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="online javasript minifier"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 21.195%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/uglify-2a0d29b2.webp, https://lihautan.com/_app/assets/uglify-65d97cc1.webp 2x"><img src="https://lihautan.com/_app/assets/uglify-31e985f1.png" srcset="https://lihautan.com/_app/assets/uglify-31e985f1.png, https://lihautan.com/_app/assets/uglify-083899e4.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="online javasript minifier"></picture></span></p>
 <p>After some googling, I <a href="https://github.com/mishoo/UglifyJS2/issues/490" rel="nofollow">found this issue</a> which described my scenario perfectly.</p>
-<p><span style="display: block; position: relative; padding-top: 42.304%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-issue-2-e0a0088b.webp, https://lihautan.com/_app/assets/babel-issue-2-023f9c00.webp 2x"><img src="https://lihautan.com/_app/assets/babel-issue-2-a0416736.png" srcset="https://lihautan.com/_app/assets/babel-issue-2-a0416736.png, https://lihautan.com/_app/assets/babel-issue-2-3de090ec.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="why uglifyjs always compress unicode characters to utf8"></picture></span></p>
+<p><span style="display: block; position: relative; padding-top: 42.304%; width: 100%;"><picture><source type="image/webp" srcset="https://lihautan.com/_app/assets/babel-issue-2-4b70ccf8.webp, https://lihautan.com/_app/assets/babel-issue-2-2367fe8f.webp 2x"><img src="https://lihautan.com/_app/assets/babel-issue-2-e0456ec1.png" srcset="https://lihautan.com/_app/assets/babel-issue-2-e0456ec1.png, https://lihautan.com/_app/assets/babel-issue-2-cf4a4141.png 2x" loading="lazy" style="position: absolute; top: 0; width: 100%; height: 100%" alt="why uglifyjs always compress unicode characters to utf8"></picture></span></p>
 <p>Turned out there is a <code class="inline">ascii_only</code> for <a href="https://github.com/mishoo/UglifyJS2#output-options" rel="nofollow">output options</a>, and it is default to <code class="inline">false</code>. So I set <code class="inline">ascii_only</code> to <code class="inline">true</code>, ran webpack, and checked my compiled code, it contained the unicode string (<code class="inline">\ud83d\ude0d</code>)! And even when I wrote emoji string (😍) in my source code, it got compiled to unicode as well.</p>
 <div class="code-section"><!-- HTML_TAG_START --><pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line dim"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">UglifyJsPlugin</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">require</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;uglifyjs-webpack-plugin&#39;</span><span style="color: var(--shiki-color-text)">);</span></span>
 <span class="line dim"></span>
@@ -148,10 +148,10 @@
 </footer>
 
 
-		<script type="module" data-hydrate="vkz3wv">
-		import { start } from "https://lihautan.com/_app/start-99fe4979.js";
+		<script type="module" data-hydrate="1vl7eca">
+		import { start } from "https://lihautan.com/_app/start-c7a2dfb9.js";
 		start({
-			target: document.querySelector('[data-hydrate="vkz3wv"]').parentNode,
+			target: document.querySelector('[data-hydrate="1vl7eca"]').parentNode,
 			paths: {"base":"","assets":"https://lihautan.com"},
 			session: {},
 			route: true,
@@ -162,7 +162,7 @@
 				error: null,
 				nodes: [
 					import("https://lihautan.com/_app/pages/__layout.svelte-c3db4d7b.js"),
-						import("https://lihautan.com/_app/pages/uglify-ascii-only/index.md-7e075793.js")
+						import("https://lihautan.com/_app/pages/uglify-ascii-only/index.md-4b24b665.js")
 				],
 				params: {}
 			}
