@@ -8,7 +8,7 @@
 	<li class="desktop"><a sveltekit:prefetch href="/blogs">Writings</a></li>
 	<li class="desktop"><a sveltekit:prefetch href="/talks">Talks</a></li>
 	<li class="desktop"><a sveltekit:prefetch href="/notes">Notes</a></li>
-	<li class="desktop"><a sveltekit:prefetch href="/newsletter">Newsletter</a></li>
+	<li class="desktop"><a sveltekit:prefetch href="/books">Books</a></li>
 	<li class="social">
 		<a aria-label="Twitter account" href="https://twitter.com/lihautan">
 			<svg viewBox="0 0 24 24" width="1em" height="1em">

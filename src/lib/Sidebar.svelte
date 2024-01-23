@@ -38,7 +38,7 @@
 				<li><a on:click={hide} href="/blogs">Writings</a></li>
 				<li><a on:click={hide} href="/talks">Talks</a></li>
 				<li><a on:click={hide} href="/notes">Notes</a></li>
-				<li><a on:click={hide} href="/newsletter">Newsletter</a></li>
+				<li><a on:click={hide} href="/books">Books</a></li>
 				<li class="social">
 					<a aria-label="Twitter account" href="https://twitter.com/lihautan">
 						<svg viewBox="0 0 24 24" width="1em" height="1em">
