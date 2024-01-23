@@ -9,7 +9,7 @@ const GIT_URL = 'git@github.com:tanhauhau/tanhauhau.github.io.git';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 (async function () {
-	const cacheFolder = path.join(homedir(), '.cache/tanlihau');
+	const cacheFolder = path.join(__dirname, '../.publish/tanlihau');
 	const outputFolder = path.join(__dirname, '../docs');
 	if (!(await fs.exists(cacheFolder))) {
 		await fs.mkdirp(cacheFolder);
@@ -27,7 +27,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 	exec('git fetch origin master');
 	exec('git reset --hard origin/master');
 
-	exec('git rm -r .');
+	exec('git rm -rf .');
 
 	const files = await fs.readdir(outputFolder);
 	for (const file of files) {
