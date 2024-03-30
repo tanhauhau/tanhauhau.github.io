@@ -30,15 +30,16 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
+          set -ex
           mkdir -p ~/.ssh
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
 
-      - name: Install and Build
-        run: |
-          pnpm install --frozen-lockfile
-          pnpm build
+      # - name: Install and Build
+      #   run: |
+      #     pnpm install --frozen-lockfile
+      #     pnpm build
 
       - name: Publish
         run: node scripts/publish.js
