@@ -17,8 +17,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-          cache: yarn
+          node-version: 18.x
+          cache: pnpm
 
       - name: Setup Environment
         shell: bash
@@ -32,8 +32,8 @@ jobs:
 
       - name: Install and Build
         run: |
-          yarn install --frozen-lockfile
-          yarn build
+          pnpm install --frozen-lockfile
+          pnpm build
 
       - name: Publish
         run: node scripts/publish.js
