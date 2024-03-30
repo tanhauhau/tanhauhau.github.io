@@ -42,6 +42,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 	function exec(cmd) {
 		console.log(chalk.dim(cmd));
-		execSync(cmd, { cwd: cacheFolder });
+		execSync(cmd, { cwd: cacheFolder, encoding: 'utf-8' });
 	}
 })();
