@@ -16,12 +16,12 @@ export async function getContent(options: {
 	if (process.env.LIHAUTAN_BUILD && BUILD_CACHE) {
 		result = BUILD_CACHE;
 	} else {
-		const folder = path.join(__PROJECT_ROOT__, 'src/routes');
+		const folder = path.join(__PROJECT_ROOT__, 'src/routes/(blog)');
 		const folders = await fs.readdir(folder);
 		const blogs = await Promise.all(
 			folders.map(async (url) => {
 				try {
-					const filepath = path.join(folder, url, 'index.md');
+					const filepath = path.join(folder, url, '+page.md');
 					const content = await fs.readFile(filepath, 'utf8');
 					const [, frontmatter] = /---([\s\S]+?)---/m.exec(content);
 					const result = parseFrontmatter(frontmatter.split('\n'));
@@ -32,14 +32,14 @@ export async function getContent(options: {
 				}
 			})
 		);
-		const noteFolder = path.join(__PROJECT_ROOT__, 'src/routes/notes');
+		const noteFolder = path.join(__PROJECT_ROOT__, 'src/routes/(blog)/notes');
 		const noteFolders = await fs.readdir(noteFolder);
 		const notes = await Promise.all(
 			noteFolders.map(async (url) => {
 				try {
 					const filepath = url.endsWith('.md')
 						? path.join(noteFolder, url)
-						: path.join(noteFolder, url, 'index.md');
+						: path.join(noteFolder, url, '+page.md');
 					const content = await fs.readFile(filepath, 'utf8');
 					const [, frontmatter] = /---([\s\S]+?)---/m.exec(content);
 					const result = parseFrontmatter(frontmatter.split('\n'));

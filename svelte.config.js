@@ -1,4 +1,4 @@
-import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import remarkTableOfContents from './plugins/remark-table-of-content.js';
 import remarkImageExternal from './plugins/remark-image-external.js';
@@ -9,16 +9,13 @@ import rehypeInlineCode from './plugins/rehype-inline-code.js';
 import adapter from '@sveltejs/adapter-static';
 import customCodeHighlight from './plugins/code-highlight.js';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { imagetools } from 'vite-imagetools';
-import viteSlides from './plugins/vite-slides.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: [
-		preprocess(),
+		vitePreprocess(),
 		mdsvex({
 			smartypants: false,
 			extensions: ['.svx', '.md', '.mdx'],
@@ -53,31 +50,14 @@ const config = {
 		}),
 
 		prerender: {
-			default: true,
 			entries: ['*', '/rss.xml', '/series', '/tags'],
-			crawl: true
+			handleMissingId: 'warn',
 		},
 		paths: {
 			assets: 'https://lihautan.com'
-		},
-		routes: (filepath) => !/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known)|(\/_\/))/.test(filepath),
-		vite: {
-			plugins: [
-				imagetools(),
-				viteSlides({
-					includes: [/\/slides\/[^/]+\/index\.mdx$/]
-				})
-			],
-			define: {
-				__PROJECT_ROOT__: JSON.stringify(path.dirname(fileURLToPath(import.meta.url)))
-			},
-			server: {
-				fs: {
-					strict: false
-				}
-			}
-		},
-		trailingSlash: 'always'
+		}
+		// routes: (filepath) => !/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known)|(\/_\/))/.test(filepath),
+		// trailingSlash: 'always'
 	},
 	extensions: ['.svelte', '.md', '.mdx']
 };

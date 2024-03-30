@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	export let slides = [];
 
 	let slideInstances = [];

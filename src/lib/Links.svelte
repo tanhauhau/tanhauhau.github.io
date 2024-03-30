@@ -4,11 +4,11 @@
 
 <ul class="mode-{mode}">
 	{#if mode !== 'home'}<li><a href="/">Tan Li Hau</a></li>{/if}
-	<li class="desktop"><a sveltekit:prefetch href="/about">About</a></li>
-	<li class="desktop"><a sveltekit:prefetch href="/blogs">Writings</a></li>
-	<li class="desktop"><a sveltekit:prefetch href="/talks">Talks</a></li>
-	<li class="desktop"><a sveltekit:prefetch href="/notes">Notes</a></li>
-	<li class="desktop"><a sveltekit:prefetch href="/books">Books</a></li>
+	<li class="desktop"><a data-sveltekit-preload-data href="/about">About</a></li>
+	<li class="desktop"><a data-sveltekit-preload-data href="/blogs">Writings</a></li>
+	<li class="desktop"><a data-sveltekit-preload-data href="/talks">Talks</a></li>
+	<li class="desktop"><a data-sveltekit-preload-data href="/notes">Notes</a></li>
+	<li class="desktop"><a data-sveltekit-preload-data href="/books">Books</a></li>
 	<li class="social">
 		<a aria-label="Twitter account" href="https://twitter.com/lihautan">
 			<svg viewBox="0 0 24 24" width="1em" height="1em">

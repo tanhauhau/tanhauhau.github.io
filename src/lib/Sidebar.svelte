@@ -1,5 +1,5 @@
 <script>
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	import { fade } from 'svelte/transition';
 	export let tableOfContents = [];
@@ -115,8 +115,12 @@
 				</ol>
 			{/if}
 		</div>
+		<!--svelte-ignore a11y-no-static-element-interactions -->
+		<!--svelte-ignore a11y-click-events-have-key-events -->
 		<div class="backdrop" on:click={() => (show = false)} transition:fade />
 	{:else}
+		<!--svelte-ignore a11y-no-static-element-interactions -->
+		<!--svelte-ignore a11y-click-events-have-key-events -->
 		<div class="float" on:click={() => (show = true)} transition:slide>
 			<svg viewBox="0 0 30 50" width="30" height="50">
 				<circle fill="currentColor" cy="15" cx="15" r="3" />

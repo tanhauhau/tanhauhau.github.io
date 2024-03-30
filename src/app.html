@@ -5,8 +5,8 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://twitter.com/lihautan" rel="me" />
 		<link rel="manifest" href="/manifest.webmanifest" />
 		<meta name="theme-color" content="#bd93f9" />
@@ -20,11 +20,19 @@
 		<link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
 		<link rel="icon" href="/icon-48x48.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="preload"
-			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,300&family=Noto+Sans+SC:wght@500&display=swap" as="style"
-			onload="this.rel='stylesheet'">
-		<link rel="alternate" type="application/rss+xml" title="Tan Li Hau&#x27;s RSS Feed" href="/rss.xml"/>
-		<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+		<link
+			rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,300&family=Noto+Sans+SC:wght@500&display=swap"
+			as="style"
+			onload="this.rel='stylesheet'"
+		/>
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Tan Li Hau&#x27;s RSS Feed"
+			href="/rss.xml"
+		/>
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 		<link rel="webmention" href="https://webmention.io/lihautan.com/webmention" />
 		<link rel="pingback" href="https://webmention.io/lihautan.com/xmlrpc" />
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -38,9 +46,9 @@
 
 			gtag('config', 'G-Z6Y89Q69VY');
 		</script>
-		%svelte.head%
+		%sveltekit.head%
 	</head>
-	<body>
-		<div id="svelte">%svelte.body%</div>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

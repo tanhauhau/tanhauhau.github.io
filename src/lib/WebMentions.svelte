@@ -124,6 +124,8 @@
 			</li>
 		{/each}
 
+		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		{#if hasMore}{#if isFetching}Fetching...{:else}<li class="more" on:click={getWebMentions}>
 					Fetch More
 				</li>{/if}{/if}
