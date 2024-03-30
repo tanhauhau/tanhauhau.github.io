@@ -36,9 +36,9 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
 
-      # - name: Install and Build
-      #   run: |
-      #     pnpm install --frozen-lockfile
+      - name: Install and Build
+        run: |
+          pnpm install --frozen-lockfile
       #     pnpm build
 
       - name: Publish
