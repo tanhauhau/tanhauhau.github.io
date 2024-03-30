@@ -41,7 +41,7 @@ jobs:
       - name: Install and Build
         run: |
           pnpm install --frozen-lockfile
-      #     pnpm build
+          pnpm build
 
       - name: Publish
         run: node scripts/publish.js
