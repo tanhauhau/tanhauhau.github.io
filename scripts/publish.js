@@ -40,8 +40,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 	// exec(`git commit -m "Built on ${String(new Date())}"`);
 	// exec('git push origin master');
 
-	// function exec(cmd) {
-	// 	console.log(chalk.dim(cmd));
-	// 	execSync(cmd, { cwd: cacheFolder });
-	// }
+	function exec(cmd) {
+		console.log(chalk.dim(cmd));
+		execSync(cmd, { cwd: cacheFolder });
+	}
 })();
