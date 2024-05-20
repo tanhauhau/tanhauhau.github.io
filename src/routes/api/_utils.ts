@@ -135,6 +135,6 @@ function parseFrontmatter(lines: string[]): Frontmatter {
 }
 
 function trailingSlash(url: string) {
-	if (url[url.length - 1] !== '/') url = url + '/';
+	if (url.at(-1) === '/') url = url.slice(0, -1);
 	return url;
 }
