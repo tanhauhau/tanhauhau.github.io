@@ -1,0 +1,79 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+deleted file mode 100644
+index 26e11ec64cf12699e1847b4eb350ae7204dd658a..0000000000000000000000000000000000000000
+diff --git a/dist/index.js b/dist/index.js
+index 3fa7358aee8d5ea6ed6c4b7e3a0176027f27f913..6df065c1611302d70a8bf6dfcac757721dff2646 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -1,8 +1,8 @@
+ 
+ 'use strict'
+ 
+-if (process.env.NODE_ENV === 'production') {
+-  module.exports = require('./shiki-twoslash.cjs.production.min.js')
+-} else {
++// if (process.env.NODE_ENV === 'production') {
++//   module.exports = require('./shiki-twoslash.cjs.production.min.js')
++// } else {
+   module.exports = require('./shiki-twoslash.cjs.development.js')
+-}
++// }
+diff --git a/dist/shiki-twoslash.cjs.development.js b/dist/shiki-twoslash.cjs.development.js
+index da11f12c72ffdd4d7b53fc5a1a04d5d71a5af2ed..dcd823b4097c0741bc2b9c0a052b2850df3cb82a 100644
+--- a/dist/shiki-twoslash.cjs.development.js
++++ b/dist/shiki-twoslash.cjs.development.js
+@@ -232,6 +232,13 @@ var shouldHighlightLine = function shouldHighlightLine(highlight) {
+   };
+ };
+ 
++var shouldHideLine = function shouldHideLine(hidden) {
++  const set = new Set(hidden);
++  return function (line) {
++    return set.has(line);
++  }
++}
++
+ /** A func for setting a consistent <pre> */
+ 
+ var preOpenerFromRenderingOptsWithExtras = function preOpenerFromRenderingOptsWithExtras(opts, meta, classes) {
+@@ -291,6 +298,7 @@ function twoslashRenderer(lines, options, twoslash, meta) {
+   var html = "";
+   var hasHighlight = meta.highlight && shouldBeHighlightable(meta.highlight);
+   var hl = shouldHighlightLine(meta.highlight);
++  var toHide = shouldHideLine(meta.hidden);
+   if (twoslash.tags && twoslash.tags.length) html += "<div class='tag-container'>";
+   html += preOpenerFromRenderingOptsWithExtras(options, meta, ["twoslash", "lsp"]);
+ 
+@@ -329,8 +337,15 @@ function twoslashRenderer(lines, options, twoslash, meta) {
+     var tags = tagsGroupedByLine.get(i) || [];
+     var hiClass = hasHighlight ? hl(i + 1) ? " highlight" : " dim" : "";
+     var prefix = "<div class='line" + hiClass + "'>";
++    var hide = toHide(i + 1);
+ 
+-    if (l.length === 0 && i === 0) {
++    if (hide) {
++      // Skip the line
++      l.forEach(token => {
++        filePos += token.content.length;
++      });
++      filePos += 1;
++    } else if (l.length === 0 && i === 0) {
+       // Skip the first newline if it's blank
+       filePos += 1;
+     } else if (l.length === 0) {
+@@ -351,8 +366,14 @@ function twoslashRenderer(lines, options, twoslash, meta) {
+             return start <= e.character && start + token.content.length >= e.character + e.length;
+           };
+         };
++        var findErrorTokenFunc = function findTokenFunc(start) {
++          return function (e) {
++            return (start >= e.character && start + token.content.length <= e.character + e.length) || 
++            (start <= e.character && start + token.content.length >= e.character + e.length);
++          };
++        };
+ 
+-        var errorsInToken = errors.filter(findTokenFunc(tokenPos));
++        var errorsInToken = errors.filter(findErrorTokenFunc(tokenPos));
+         var lspResponsesInToken = lspValues.filter(findTokenFunc(tokenPos));
+         var queriesInToken = queries.filter(findTokenFunc(tokenPos)); // Does this line have a word targeted by a query?
+ 

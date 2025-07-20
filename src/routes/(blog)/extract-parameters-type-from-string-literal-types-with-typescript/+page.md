@@ -6,7 +6,6 @@ tags:
   - typescript
   - template literal type
   - conditional type
-series: Compile Svelte in your head
 label: blog
 ---
 
@@ -593,7 +592,7 @@ const params: Params = { a: 1, b: 3, shopid: 2 };
 However, in our case, the key type is not totally unknown, but it is dynamic. We use [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) which has a similar syntax as the index signature:
 
 ```ts twoslash
-// @errors: 2322
+// @errors: 2353
 type Params<Keys extends string> = {
   [Key in Keys]: any;
 };

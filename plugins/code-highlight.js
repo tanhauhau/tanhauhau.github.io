@@ -100,7 +100,7 @@ async function highlight(code, lang, meta) {
 	}
 
 	if (options.twoslash) {
-		code = replaceIncludesInCode(includes, code);
+		code = replaceIncludesInCode(includes, code, options);
 		originalCode = originalCode
 			.split('\n')
 			.map((line) => {
@@ -123,6 +123,11 @@ async function highlight(code, lang, meta) {
 				noImplicitAny: false
 			}
 		});
+		if (options.moduleName) {
+			twoSlash.errors.forEach((error) => {
+				error.line = error.line + options.moduleIndex - 1;
+			});
+		}
 		const highlighter = await createShikiHighlighter({ theme: 'css-variables' });
 		html = renderCodeToHTML(twoSlash.code, lang, options, {}, highlighter, twoSlash);
 	} else if (SHIKI_BUNDLED_LANGUAGE.has(lang)) {
@@ -147,7 +152,9 @@ async function highlight(code, lang, meta) {
 	}
 	if (options.copy) {
 		extras.push(
-			`<div class="copy" data-copy="${escapeHtml(originalCode)}"><svg viewBox="64 64 896 896" focusable="false" data-icon="copy" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"></path></svg></div>`
+			`<div class="copy" data-copy="${escapeHtml(
+				originalCode
+			)}"><svg viewBox="64 64 896 896" focusable="false" data-icon="copy" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"></path></svg></div>`
 		);
 	}
 
@@ -272,7 +279,7 @@ function addIncludes(map, name, code) {
  * @param {string} code
  * @returns
  */
-function replaceIncludesInCode(_map, code) {
+function replaceIncludesInCode(_map, code, options) {
 	const includes = /\/\/ @include: (.*)$/gm;
 
 	// Basically run a regex over the code replacing any // @include: thing with
@@ -298,6 +305,9 @@ function replaceIncludesInCode(_map, code) {
 		}
 
 		toReplace.push([match.index, match[0].length, replaceWith]);
+		if (options.moduleName) {
+			options.moduleIndex += replaceWith.split('\n').length - 1;
+		}
 	}
 
 	let newCode = code.toString();
@@ -404,7 +414,12 @@ function parseSpecialComments(code, options) {
 			// TODO: list out all possible comments
 			if (line.startsWith('// @')) {
 				offset++;
-				if (!options.twoslash) return TO_REMOVE_LINE;
+				if (!(options.twoslash || options.include)) return TO_REMOVE_LINE;
+				const match = line.match(/@filename\:\s*(\S+)/);
+				if (match) {
+					options.moduleName = match[1];
+					options.moduleIndex = index;
+				}
 			}
 			if (options.hideJsdoc) {
 				if (/^\s*\/\*\*/.test(line)) {
