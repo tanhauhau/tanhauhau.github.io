@@ -30,6 +30,10 @@ h1.textContent = 'Hello World';
 document.body.appendChild(h1);
 ```
 
+```js twoslash
+// @include: h1
+```
+
 ### Updating an element
 
 ```js twoslash
