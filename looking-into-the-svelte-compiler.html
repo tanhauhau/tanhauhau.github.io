@@ -53,21 +53,21 @@
 		<link href="https://lihautan.com/_app/immutable/assets/code-snippet.Ch6n4AYw.css" rel="stylesheet">
 		<link href="https://lihautan.com/_app/immutable/assets/TalkLayout.CQwcANoI.css" rel="stylesheet">
 		<link href="https://lihautan.com/_app/immutable/assets/ldjson.CQpH2WJc.css" rel="stylesheet">
-		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/entry/start.CyotWUpU.js">
-		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/entry.BwMwXSCa.js">
+		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/entry/start.CVysmP4c.js">
+		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/entry.NOq9Kj6o.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/scheduler.D6VJxl8L.js">
-		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/entry/app.C-5HKA51.js">
+		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/entry/app.Bk7PW2KV.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/index.CLAVN-Y5.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/nodes/0.DLHgrcY7.js">
-		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/nodes/2.CwqJRTJf.js">
-		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/stores.B4AsTG0_.js">
+		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/nodes/2.CwhX-zvu.js">
+		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/stores.CLeQvcbJ.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/Links.C4jMQkMc.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/each.DI7TeU31.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/index.DueORT-9.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/PreloadingIndicator.6QGaXoVk.js">
-		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/nodes/48.BaPW3vDl.js">
+		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/nodes/48.BdDDYa4W.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/code-snippet.Gym6WUAG.js">
-		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/TalkLayout.nmFs06ic.js">
+		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/TalkLayout.CxVPQLTc.js">
 		<link rel="modulepreload" href="https://lihautan.com/_app/immutable/chunks/ldjson.BehsK3rr.js"><title>Looking into the Svelte Compiler | Tan Li Hau</title><!-- HEAD_svelte-1jsbgzp_START --><meta name="description" content="Recorded talkCityJS Conference 2020MMT Tech Meetup - Sept 2020Slides[Link to slides] (Left arrow and right arrow to navigate)ScriptModern web frameworks allow us to describe our UI declaratively, as a function of state, of the application. ..."><meta name="image" content="https://lihautan.com/_app/immutable/assets/hero-twitter.CufgB557.jpg"><meta name="og:image" content="https://lihautan.com/_app/immutable/assets/hero-twitter.CufgB557.jpg"><meta name="og:title" content="Looking into the Svelte Compiler"><meta name="og:description" content="Recorded talkCityJS Conference 2020MMT Tech Meetup - Sept 2020Slides[Link to slides] (Left arrow and right arrow to navigate)ScriptModern web frameworks allow us to describe our UI declaratively, as a function of state, of the application. ..."><meta name="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@lihautan"><meta name="twitter:title" content="Looking into the Svelte Compiler"><meta name="twitter:description" content="Recorded talkCityJS Conference 2020MMT Tech Meetup - Sept 2020Slides[Link to slides] (Left arrow and right arrow to navigate)ScriptModern web frameworks allow us to describe our UI declaratively, as a function of state, of the application. ..."><meta name="twitter:image" content="https://lihautan.com/_app/immutable/assets/hero-twitter.CufgB557.jpg"><meta itemprop="url" content="https://lihautan.com/looking-into-the-svelte-compiler"><meta itemprop="image" content="https://lihautan.com/_app/immutable/assets/hero-twitter.CufgB557.jpg"><!-- HTML_TAG_START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Tan Li Hau"},"copyrightHolder":{"@type":"Person","name":"Tan Li Hau"},"copyrightYear":"2022","creator":{"@type":"Person","name":"Tan Li Hau"},"publisher":{"@type":"Person","name":"Tan Li Hau"},"description":"Recorded talkCityJS Conference 2020MMT Tech Meetup - Sept 2020Slides[Link to slides] (Left arrow and right arrow to navigate)ScriptModern web frameworks allow us to describe our UI declaratively, as a function of state, of the application. ...","headline":"Looking into the Svelte Compiler","name":"Looking into the Svelte Compiler","inLanguage":"en"}</script><!-- HTML_TAG_END --><!-- HTML_TAG_START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","description":"Breadcrumbs list","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","item":{"@id":"https://lihautan.com","name":"Homepage"},"name":"Homepage","position":1},{"@type":"ListItem","item":{"@id":"https://lihautan.com/looking-into-the-svelte-compiler","name":"Looking into the Svelte Compiler"},"name":"Looking into the Svelte Compiler","position":2}]}</script><!-- HTML_TAG_END --><!-- HEAD_svelte-1jsbgzp_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
@@ -87,7 +87,7 @@ And the output of the render step is in terms of JS and CSS, which can be writte
 			
 			<script>
 				{
-					__sveltekit_1d8ob9s = {
+					__sveltekit_lzgyl9 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "https://lihautan.com"
 					};
@@ -97,8 +97,8 @@ And the output of the render step is in terms of JS and CSS, which can be writte
 					const data = [null,null,null];
 
 					Promise.all([
-						import("https://lihautan.com/_app/immutable/entry/start.CyotWUpU.js"),
-						import("https://lihautan.com/_app/immutable/entry/app.C-5HKA51.js")
+						import("https://lihautan.com/_app/immutable/entry/start.CVysmP4c.js"),
+						import("https://lihautan.com/_app/immutable/entry/app.Bk7PW2KV.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2, 48],
