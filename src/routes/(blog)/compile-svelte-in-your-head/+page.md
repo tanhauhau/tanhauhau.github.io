@@ -8,6 +8,8 @@ series: Compile Svelte in your head
 label: blog
 ---
 
+> **⚠️ This series was written for Svelte 3/4. For Svelte 5, please read the updated series: [Compile Svelte 5 in your head](/compile-svelte-5-in-your-head)**
+
 ## Background
 
 A while ago, [@swyx](https://twitter.com/swyx) came back to Singapore and visited us in [Shopee Singapore](https://careers.shopee.sg/about/) ([We're hiring!](https://grnh.se/32e5b3532)).

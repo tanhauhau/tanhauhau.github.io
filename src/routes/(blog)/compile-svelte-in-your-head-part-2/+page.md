@@ -8,6 +8,8 @@ series: Compile Svelte in your head
 label: blog
 ---
 
+> **⚠️ This article was written for Svelte 3/4. For Svelte 5, please read the updated series: [Compile Svelte 5 in your head](/compile-svelte-5-in-your-head)**
+
 **⬅ ⬅  Previously in [Part 1](/compile-svelte-in-your-head-part-1/).**
 
 [Previously](/compile-svelte-in-your-head-part-1/), when I mentioned the `$$invalidate` function, I explained that the `$$invalidate` function works conceptually like the following:

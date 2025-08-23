@@ -8,6 +8,8 @@ series: Compile Svelte in your head
 label: blog
 ---
 
+> **⚠️ This article was written for Svelte 3/4. For Svelte 5, please read the updated series: [Compile Svelte 5 in your head](/compile-svelte-5-in-your-head)**
+
 **⬅ ⬅ Previously in [Part 3](/compile-svelte-in-your-head-part-3/).**
 
 In this article, we are going to cover our first logic block, the **if block**.

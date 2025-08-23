@@ -8,6 +8,8 @@ series: Compile Svelte in your head
 label: blog
 ---
 
+> **⚠️ This article was written for Svelte 3/4. For Svelte 5, please read the updated series: [Compile Svelte 5 in your head](/compile-svelte-5-in-your-head)**
+
 **⬅ ⬅  Previously in [Part 2](/compile-svelte-in-your-head-part-2/).**
 
 [Previously](/compile-svelte-in-your-head-part-2/), I detailed how `$$invalidate` works, described how bitmask was used in `$$invalidate`, and explained how reactive declarations work as well.
