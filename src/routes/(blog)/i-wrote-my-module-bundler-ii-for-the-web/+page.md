@@ -104,7 +104,7 @@ So the `bundle.js` is added into the final HTML file like this:
 </html>
 ```
 
-> <small>**NOTE:** the preceding slash (`/`) allows us to always fetch the JavaScript file relative from the root path. This is extremely useful for Single Page Application (SPA), where we serve the same HTML file irrelevant to the URL path.</small>
+> **NOTE:** the preceding slash (`/`) allows us to always fetch the JavaScript file relative from the root path. This is extremely useful for Single Page Application (SPA), where we serve the same HTML file irrelevant to the URL path.
 
 Code wise, it is quite straightforward to implement this:
 
@@ -133,7 +133,7 @@ function generateHTMLTemplate(htmlTemplatePath, outputFiles) {
 
 Here, I used a `.replace(END_BODY_TAG, '...' + END_BODY_TAG)` to insert the `&lt;script&gt;` tags before the end of the `</body>` tag.
 
-> <small>**Note:** Read [here](https://www.codecademy.com/forum_questions/55dee24b937676fb5e000139) to learn why it's a best practice to add `&lt;script&gt;` tag at the end of the `<body>` tag.</small>
+> **Note:** Read [here](https://www.codecademy.com/forum_questions/55dee24b937676fb5e000139) to learn why it's a best practice to add `&lt;script&gt;` tag at the end of the `&lt;body&gt;` tag.
 
 ## Adding CSS
 
