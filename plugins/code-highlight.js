@@ -1,5 +1,6 @@
 import './setupPrismJs.js';
 import Prism from 'prismjs';
+import ts from 'typescript';
 
 import 'prism-svelte';
 import 'prismjs/components/prism-json.js';
@@ -117,7 +118,7 @@ async function highlight(code, lang, meta) {
 			defaultCompilerOptions: {
 				allowJs: true,
 				checkJs: true,
-				target: 'es2021',
+				target: ts.ScriptTarget.ESNext,
 				lib: ['lib.es2020.d.ts', 'lib.dom.d.ts'],
 				types: ['node', 'jest'],
 				noImplicitAny: false

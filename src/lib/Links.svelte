@@ -1,5 +1,5 @@
 <script>
-	export let mode = 'home';
+	let { mode = 'home' } = $props();
 </script>
 
 <ul class="mode-{mode}">

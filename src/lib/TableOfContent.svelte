@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import { getContext, onDestroy } from 'svelte';
 
-	export let tableOfContents;
-	const toc = getContext('toc');
+	let { tableOfContents = [] } = $props();
+	const toc = getContext('toc') as { set: (value: any) => void; reset: () => void };
 
-	$: toc.set(tableOfContents);
+	$effect(() => {
+		toc.set(tableOfContents);
+	});
 
 	onDestroy(() => {
 		toc.reset();

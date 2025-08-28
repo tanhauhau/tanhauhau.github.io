@@ -59,7 +59,7 @@ const config = {
 		// routes: (filepath) => !/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known)|(\/_\/))/.test(filepath),
 		// trailingSlash: 'always'
 	},
-	extensions: ['.svelte', '.md', '.mdx']
+	extensions: ['.svelte', '.md', '.mdx', '.svx']
 };
 
 export default config;

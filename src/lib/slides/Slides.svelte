@@ -1,21 +1,26 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
-	export let slides = [];
+	let { slides = [] } = $props();
 
-	let slideInstances = [];
+	let slideInstances = $state<any[]>([]);
 
-	let slideIndex = 0;
+	let slideIndex = $state(0);
 
 	const hash = $page.url.hash;
 	if (hash) {
 		slideIndex = Number(hash.slice('page-'.length + 1));
 	}
 
-	$: if (browser) window.location.hash = `page-${slideIndex}`;
-	$: currentSlide = slideInstances[slideIndex];
+	$effect(() => {
+		if (browser) {
+			window.location.hash = `page-${slideIndex}`;
+		}
+	});
 
-	function onKeyDown(event) {
+	const currentSlide = $derived(slideInstances[slideIndex]);
+
+	function onKeyDown(event: KeyboardEvent) {
 		switch (event.key) {
 			case 'ArrowLeft':
 			case 'j':
